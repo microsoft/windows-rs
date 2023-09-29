@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -21,7 +21,6 @@ unsafe impl ::windows_core::ComInterface for IDummyMBNUCMExt {
 pub struct IDummyMBNUCMExt_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnection(::windows_core::IUnknown);
@@ -76,12 +75,11 @@ pub struct IMbnConnection_Vtbl {
     pub GetVoiceCallState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, voicecallstate: *mut MBN_VOICE_CALL_STATE) -> ::windows_core::HRESULT,
     pub GetActivationNetworkError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkerror: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionContext(::windows_core::IUnknown);
 impl IMbnConnectionContext {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProvisionedContexts(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -112,7 +110,6 @@ pub struct IMbnConnectionContext_Vtbl {
     GetProvisionedContexts: usize,
     pub SetProvisionedContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provisionedcontexts: MBN_CONTEXT, providerid: ::windows_core::PCWSTR, requestid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionContextEvents(::windows_core::IUnknown);
@@ -144,7 +141,6 @@ pub struct IMbnConnectionContextEvents_Vtbl {
     pub OnProvisionedContextListChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnSetProvisionedContextComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionEvents(::windows_core::IUnknown);
@@ -190,7 +186,6 @@ pub struct IMbnConnectionEvents_Vtbl {
     pub OnConnectStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnVoiceCallStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionManager(::windows_core::IUnknown);
@@ -202,7 +197,7 @@ impl IMbnConnectionManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConnection)(::windows_core::Interface::as_raw(self), connectionid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetConnections(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -226,7 +221,6 @@ pub struct IMbnConnectionManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetConnections: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionManagerEvents(::windows_core::IUnknown);
@@ -258,7 +252,6 @@ pub struct IMbnConnectionManagerEvents_Vtbl {
     pub OnConnectionArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnConnectionRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldconnection: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfile(::windows_core::IUnknown);
@@ -292,7 +285,6 @@ pub struct IMbnConnectionProfile_Vtbl {
     pub UpdateProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprofile: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfileEvents(::windows_core::IUnknown);
@@ -317,12 +309,11 @@ pub struct IMbnConnectionProfileEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnProfileUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newprofile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfileManager(::windows_core::IUnknown);
 impl IMbnConnectionProfileManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetConnectionProfiles<P0>(&self, mbninterface: P0) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
     where
@@ -364,7 +355,6 @@ pub struct IMbnConnectionProfileManager_Vtbl {
     pub GetConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void, profilename: ::windows_core::PCWSTR, connectionprofile: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlprofile: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnConnectionProfileManagerEvents(::windows_core::IUnknown);
@@ -396,7 +386,6 @@ pub struct IMbnConnectionProfileManagerEvents_Vtbl {
     pub OnConnectionProfileArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newconnectionprofile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnConnectionProfileRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldconnectionprofile: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceService(::windows_core::IUnknown);
@@ -413,13 +402,13 @@ impl IMbnDeviceService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CloseCommandSession)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCommand(&self, commandid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetCommand)(::windows_core::Interface::as_raw(self), commandid, deviceservicedata, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryCommand(&self, commandid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -433,7 +422,7 @@ impl IMbnDeviceService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CloseDataSession)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteData(&self, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -447,13 +436,13 @@ impl IMbnDeviceService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DeviceServiceID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCommandSessionOpen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsCommandSessionOpen)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDataSessionOpen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -499,7 +488,6 @@ pub struct IMbnDeviceService_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsDataSessionOpen: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServiceStateEvents(::windows_core::IUnknown);
@@ -524,12 +512,11 @@ pub struct IMbnDeviceServiceStateEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnSessionsStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, statechange: MBN_DEVICE_SERVICE_SESSIONS_STATE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServicesContext(::windows_core::IUnknown);
 impl IMbnDeviceServicesContext {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumerateDeviceServices(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -570,12 +557,11 @@ pub struct IMbnDeviceServicesContext_Vtbl {
     pub MaxCommandSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcommandsize: *mut u32) -> ::windows_core::HRESULT,
     pub MaxDataSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxdatasize: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServicesEvents(::windows_core::IUnknown);
 impl IMbnDeviceServicesEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQuerySupportedCommandsComplete<P0>(&self, deviceservice: P0, commandidlist: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
     where
@@ -595,7 +581,7 @@ impl IMbnDeviceServicesEvents {
     {
         (::windows_core::Interface::vtable(self).OnCloseCommandSessionComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSetCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
     where
@@ -603,7 +589,7 @@ impl IMbnDeviceServicesEvents {
     {
         (::windows_core::Interface::vtable(self).OnSetCommandComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), responseid, deviceservicedata, status, requestid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQueryCommandComplete<P0>(&self, deviceservice: P0, responseid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY, status: ::windows_core::HRESULT, requestid: u32) -> ::windows_core::Result<()>
     where
@@ -611,7 +597,7 @@ impl IMbnDeviceServicesEvents {
     {
         (::windows_core::Interface::vtable(self).OnQueryCommandComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), responseid, deviceservicedata, status, requestid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventNotification<P0>(&self, deviceservice: P0, eventid: u32, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -637,7 +623,7 @@ impl IMbnDeviceServicesEvents {
     {
         (::windows_core::Interface::vtable(self).OnWriteDataComplete)(::windows_core::Interface::as_raw(self), deviceservice.into_param().abi(), status, requestid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnReadData<P0>(&self, deviceservice: P0, deviceservicedata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -690,7 +676,6 @@ pub struct IMbnDeviceServicesEvents_Vtbl {
     OnReadData: usize,
     pub OnInterfaceStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, statechange: MBN_DEVICE_SERVICES_INTERFACE_STATE) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnDeviceServicesManager(::windows_core::IUnknown);
@@ -716,7 +701,6 @@ pub struct IMbnDeviceServicesManager_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetDeviceServicesContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkinterfaceid: ::std::mem::MaybeUninit<::windows_core::BSTR>, mbndevicescontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterface(::windows_core::IUnknown);
@@ -736,7 +720,7 @@ impl IMbnInterface {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReadyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InEmergencyMode(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -746,19 +730,19 @@ impl IMbnInterface {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHomeProvider)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreferredProviders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPreferredProviders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredProviders(&self, preferredproviders: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetPreferredProviders)(::windows_core::Interface::as_raw(self), preferredproviders, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleProviders(&self, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, visibleproviders).ok()
@@ -807,7 +791,6 @@ pub struct IMbnInterface_Vtbl {
     pub ScanNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows_core::HRESULT,
     pub GetConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbnconnection: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterfaceEvents(::windows_core::IUnknown);
@@ -881,7 +864,6 @@ pub struct IMbnInterfaceEvents_Vtbl {
     pub OnSetPreferredProvidersComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub OnScanNetworkComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterfaceManager(::windows_core::IUnknown);
@@ -893,7 +875,7 @@ impl IMbnInterfaceManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), interfaceid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInterfaces(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -917,7 +899,6 @@ pub struct IMbnInterfaceManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetInterfaces: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnInterfaceManagerEvents(::windows_core::IUnknown);
@@ -949,7 +930,6 @@ pub struct IMbnInterfaceManagerEvents_Vtbl {
     pub OnInterfaceArrival: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnInterfaceRemoval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oldinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnMultiCarrier(::windows_core::IUnknown);
@@ -958,18 +938,18 @@ impl IMbnMultiCarrier {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetHomeProvider)(::windows_core::Interface::as_raw(self), homeprovider, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreferredProviders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPreferredProviders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleProviders(&self, age: *mut u32, visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVisibleProviders)(::windows_core::Interface::as_raw(self), age, visibleproviders).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSupportedCellularClasses(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1011,7 +991,6 @@ pub struct IMbnMultiCarrier_Vtbl {
     pub GetCurrentCellularClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentcellularclass: *mut MBN_CELLULAR_CLASS) -> ::windows_core::HRESULT,
     pub ScanNetwork: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnMultiCarrierEvents(::windows_core::IUnknown);
@@ -1064,7 +1043,6 @@ pub struct IMbnMultiCarrierEvents_Vtbl {
     pub OnScanNetworkComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub OnInterfaceCapabilityChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mbninterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPin(::windows_core::IUnknown);
@@ -1154,7 +1132,6 @@ pub struct IMbnPin_Vtbl {
     pub Unblock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puk: ::windows_core::PCWSTR, newpin: ::windows_core::PCWSTR, requestid: *mut u32) -> ::windows_core::HRESULT,
     pub GetPinManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPinEvents(::windows_core::IUnknown);
@@ -1207,12 +1184,11 @@ pub struct IMbnPinEvents_Vtbl {
     pub OnChangeComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub OnUnblockComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, pininfo: *const MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPinManager(::windows_core::IUnknown);
 impl IMbnPinManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPinList(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1245,7 +1221,6 @@ pub struct IMbnPinManager_Vtbl {
     pub GetPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintype: MBN_PIN_TYPE, pin: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetPinState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnPinManagerEvents(::windows_core::IUnknown);
@@ -1277,7 +1252,6 @@ pub struct IMbnPinManagerEvents_Vtbl {
     pub OnPinListAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnGetPinStateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinmanager: *mut ::core::ffi::c_void, pininfo: MBN_PIN_INFO, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRadio(::windows_core::IUnknown);
@@ -1310,7 +1284,6 @@ pub struct IMbnRadio_Vtbl {
     pub HardwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hardwareradiostate: *mut MBN_RADIO) -> ::windows_core::HRESULT,
     pub SetSoftwareRadioState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radiostate: MBN_RADIO, requestid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRadioEvents(::windows_core::IUnknown);
@@ -1342,7 +1315,6 @@ pub struct IMbnRadioEvents_Vtbl {
     pub OnRadioStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnSetSoftwareRadioStateComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRegistration(::windows_core::IUnknown);
@@ -1413,7 +1385,6 @@ pub struct IMbnRegistration_Vtbl {
     pub GetPacketAttachNetworkError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packetattachnetworkerror: *mut u32) -> ::windows_core::HRESULT,
     pub SetRegisterMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, registermode: MBN_REGISTER_MODE, providerid: ::windows_core::PCWSTR, dataclass: u32, requestid: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnRegistrationEvents(::windows_core::IUnknown);
@@ -1459,12 +1430,11 @@ pub struct IMbnRegistrationEvents_Vtbl {
     pub OnPacketServiceStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub OnSetRegisterModeComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnServiceActivation(::windows_core::IUnknown);
 impl IMbnServiceActivation {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Activate(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1487,12 +1457,11 @@ pub struct IMbnServiceActivation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Activate: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnServiceActivationEvents(::windows_core::IUnknown);
 impl IMbnServiceActivationEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnActivationComplete<P0>(&self, serviceactivation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32, status: ::windows_core::HRESULT, networkerror: u32) -> ::windows_core::Result<()>
     where
@@ -1517,7 +1486,6 @@ pub struct IMbnServiceActivationEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OnActivationComplete: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSignal(::windows_core::IUnknown);
@@ -1545,7 +1513,6 @@ pub struct IMbnSignal_Vtbl {
     pub GetSignalStrength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalstrength: *mut u32) -> ::windows_core::HRESULT,
     pub GetSignalError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalerror: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSignalEvents(::windows_core::IUnknown);
@@ -1570,7 +1537,6 @@ pub struct IMbnSignalEvents_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnSignalStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newinterface: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSms(::windows_core::IUnknown);
@@ -1593,7 +1559,7 @@ impl IMbnSms {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SmsSendPdu)(::windows_core::Interface::as_raw(self), pdudata.into_param().abi(), size, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SmsSendCdma<P0>(&self, address: P0, encoding: MBN_SMS_CDMA_ENCODING, language: MBN_SMS_CDMA_LANG, sizeincharacters: u32, message: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32>
     where
@@ -1602,7 +1568,7 @@ impl IMbnSms {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SmsSendCdma)(::windows_core::Interface::as_raw(self), address.into_param().abi(), encoding, language, sizeincharacters, message, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SmsSendCdmaPdu(&self, message: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1647,7 +1613,6 @@ pub struct IMbnSms_Vtbl {
     pub SmsDelete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsfilter: *const MBN_SMS_FILTER, requestid: *mut u32) -> ::windows_core::HRESULT,
     pub GetSmsStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsstatusinfo: *mut MBN_SMS_STATUS_INFO) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsConfiguration(::windows_core::IUnknown);
@@ -1696,7 +1661,6 @@ pub struct IMbnSmsConfiguration_Vtbl {
     pub SmsFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsformat: *mut MBN_SMS_FORMAT) -> ::windows_core::HRESULT,
     pub SetSmsFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, smsformat: MBN_SMS_FORMAT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsEvents(::windows_core::IUnknown);
@@ -1719,7 +1683,7 @@ impl IMbnSmsEvents {
     {
         (::windows_core::Interface::vtable(self).OnSmsSendComplete)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), requestid, status).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnSmsReadComplete<P0, P1>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY, moremsgs: P1, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::Result<()>
     where
@@ -1728,7 +1692,7 @@ impl IMbnSmsEvents {
     {
         (::windows_core::Interface::vtable(self).OnSmsReadComplete)(::windows_core::Interface::as_raw(self), sms.into_param().abi(), smsformat, readmsgs, moremsgs.into_param().abi(), requestid, status).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSmsNewClass0Message<P0>(&self, sms: P0, smsformat: MBN_SMS_FORMAT, readmsgs: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -1774,7 +1738,6 @@ pub struct IMbnSmsEvents_Vtbl {
     pub OnSmsDeleteComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void, requestid: u32, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub OnSmsStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sms: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsReadMsgPdu(::windows_core::IUnknown);
@@ -1791,7 +1754,7 @@ impl IMbnSmsReadMsgPdu {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PduData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1817,7 +1780,6 @@ pub struct IMbnSmsReadMsgPdu_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Message: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSmsReadMsgTextCdma(::windows_core::IUnknown);
@@ -1850,7 +1812,7 @@ impl IMbnSmsReadMsgTextCdma {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SizeInCharacters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1880,7 +1842,6 @@ pub struct IMbnSmsReadMsgTextCdma_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Message: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnSubscriberInformation(::windows_core::IUnknown);
@@ -1893,7 +1854,7 @@ impl IMbnSubscriberInformation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SimIccID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TelephoneNumbers(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1918,12 +1879,11 @@ pub struct IMbnSubscriberInformation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     TelephoneNumbers: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnVendorSpecificEvents(::windows_core::IUnknown);
 impl IMbnVendorSpecificEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventNotification<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -1931,7 +1891,7 @@ impl IMbnVendorSpecificEvents {
     {
         (::windows_core::Interface::vtable(self).OnEventNotification)(::windows_core::Interface::as_raw(self), vendoroperation.into_param().abi(), vendorspecificdata).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSetVendorSpecificComplete<P0>(&self, vendoroperation: P0, vendorspecificdata: *const super::super::System::Com::SAFEARRAY, requestid: u32) -> ::windows_core::Result<()>
     where
@@ -1960,12 +1920,11 @@ pub struct IMbnVendorSpecificEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OnSetVendorSpecificComplete: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMbnVendorSpecificOperation(::windows_core::IUnknown);
 impl IMbnVendorSpecificOperation {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetVendorSpecific(&self, vendorspecificdata: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1988,387 +1947,196 @@ pub struct IMbnVendorSpecificOperation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetVendorSpecific: usize,
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ACCESSSTRING_LEN: MBN_CONTEXT_CONSTANTS = MBN_CONTEXT_CONSTANTS(100i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ACTIVATION_STATE_ACTIVATED: MBN_ACTIVATION_STATE = MBN_ACTIVATION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ACTIVATION_STATE_ACTIVATING: MBN_ACTIVATION_STATE = MBN_ACTIVATION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ACTIVATION_STATE_DEACTIVATED: MBN_ACTIVATION_STATE = MBN_ACTIVATION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ACTIVATION_STATE_DEACTIVATING: MBN_ACTIVATION_STATE = MBN_ACTIVATION_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ACTIVATION_STATE_NONE: MBN_ACTIVATION_STATE = MBN_ACTIVATION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ATTEMPTS_REMAINING_UNKNOWN: MBN_PIN_CONSTANTS = MBN_PIN_CONSTANTS(-1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_AUTH_PROTOCOL_CHAP: MBN_AUTH_PROTOCOL = MBN_AUTH_PROTOCOL(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_AUTH_PROTOCOL_MSCHAPV2: MBN_AUTH_PROTOCOL = MBN_AUTH_PROTOCOL(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_AUTH_PROTOCOL_NONE: MBN_AUTH_PROTOCOL = MBN_AUTH_PROTOCOL(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_AUTH_PROTOCOL_PAP: MBN_AUTH_PROTOCOL = MBN_AUTH_PROTOCOL(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_0: MBN_BAND_CLASS = MBN_BAND_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_CUSTOM: MBN_BAND_CLASS = MBN_BAND_CLASS(-2147483648i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_I: MBN_BAND_CLASS = MBN_BAND_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_II: MBN_BAND_CLASS = MBN_BAND_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_III: MBN_BAND_CLASS = MBN_BAND_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_IV: MBN_BAND_CLASS = MBN_BAND_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_IX: MBN_BAND_CLASS = MBN_BAND_CLASS(512i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_NONE: MBN_BAND_CLASS = MBN_BAND_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_V: MBN_BAND_CLASS = MBN_BAND_CLASS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_VI: MBN_BAND_CLASS = MBN_BAND_CLASS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_VII: MBN_BAND_CLASS = MBN_BAND_CLASS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_VIII: MBN_BAND_CLASS = MBN_BAND_CLASS(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_X: MBN_BAND_CLASS = MBN_BAND_CLASS(1024i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XI: MBN_BAND_CLASS = MBN_BAND_CLASS(2048i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XII: MBN_BAND_CLASS = MBN_BAND_CLASS(4096i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XIII: MBN_BAND_CLASS = MBN_BAND_CLASS(8192i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XIV: MBN_BAND_CLASS = MBN_BAND_CLASS(16384i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XV: MBN_BAND_CLASS = MBN_BAND_CLASS(32768i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XVI: MBN_BAND_CLASS = MBN_BAND_CLASS(65536i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_BAND_CLASS_XVII: MBN_BAND_CLASS = MBN_BAND_CLASS(131072i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CDMA_DEFAULT_PROVIDER_ID: MBN_REGISTRATION_CONSTANTS = MBN_REGISTRATION_CONSTANTS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CDMA_SHORT_MSG_SIZE_MAX: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(160i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CDMA_SHORT_MSG_SIZE_UNKNOWN: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CELLULAR_CLASS_CDMA: MBN_CELLULAR_CLASS = MBN_CELLULAR_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CELLULAR_CLASS_GSM: MBN_CELLULAR_CLASS = MBN_CELLULAR_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CELLULAR_CLASS_NONE: MBN_CELLULAR_CLASS = MBN_CELLULAR_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_COMPRESSION_ENABLE: MBN_COMPRESSION = MBN_COMPRESSION(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_COMPRESSION_NONE: MBN_COMPRESSION = MBN_COMPRESSION(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONNECTION_MODE_PROFILE: MBN_CONNECTION_MODE = MBN_CONNECTION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONNECTION_MODE_TMP_PROFILE: MBN_CONNECTION_MODE = MBN_CONNECTION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_ID_APPEND: MBN_CONTEXT_CONSTANTS = MBN_CONTEXT_CONSTANTS(-1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_CUSTOM: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_INTERNET: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_NONE: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_PURCHASE: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_VIDEO_SHARE: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_VOICE: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CONTEXT_TYPE_VPN: MBN_CONTEXT_TYPE = MBN_CONTEXT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_CDMA_MOBILE_IP: MBN_CTRL_CAPS = MBN_CTRL_CAPS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_CDMA_SIMPLE_IP: MBN_CTRL_CAPS = MBN_CTRL_CAPS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_HW_RADIO_SWITCH: MBN_CTRL_CAPS = MBN_CTRL_CAPS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_MODEL_MULTI_CARRIER: MBN_CTRL_CAPS = MBN_CTRL_CAPS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_MULTI_MODE: MBN_CTRL_CAPS = MBN_CTRL_CAPS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_NONE: MBN_CTRL_CAPS = MBN_CTRL_CAPS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_PROTECT_UNIQUEID: MBN_CTRL_CAPS = MBN_CTRL_CAPS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_REG_MANUAL: MBN_CTRL_CAPS = MBN_CTRL_CAPS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_CTRL_CAPS_USSD: MBN_CTRL_CAPS = MBN_CTRL_CAPS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_1XEVDO: MBN_DATA_CLASS = MBN_DATA_CLASS(131072i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_1XEVDO_REVA: MBN_DATA_CLASS = MBN_DATA_CLASS(262144i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_1XEVDO_REVB: MBN_DATA_CLASS = MBN_DATA_CLASS(2097152i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_1XEVDV: MBN_DATA_CLASS = MBN_DATA_CLASS(524288i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_1XRTT: MBN_DATA_CLASS = MBN_DATA_CLASS(65536i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_3XRTT: MBN_DATA_CLASS = MBN_DATA_CLASS(1048576i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_5G_NSA: MBN_DATA_CLASS = MBN_DATA_CLASS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_5G_SA: MBN_DATA_CLASS = MBN_DATA_CLASS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_CUSTOM: MBN_DATA_CLASS = MBN_DATA_CLASS(-2147483648i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_EDGE: MBN_DATA_CLASS = MBN_DATA_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_GPRS: MBN_DATA_CLASS = MBN_DATA_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_HSDPA: MBN_DATA_CLASS = MBN_DATA_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_HSUPA: MBN_DATA_CLASS = MBN_DATA_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_LTE: MBN_DATA_CLASS = MBN_DATA_CLASS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_NONE: MBN_DATA_CLASS = MBN_DATA_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_UMB: MBN_DATA_CLASS = MBN_DATA_CLASS(4194304i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DATA_CLASS_UMTS: MBN_DATA_CLASS = MBN_DATA_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DEVICEID_LEN: MBN_INTERFACE_CAPS_CONSTANTS = MBN_INTERFACE_CAPS_CONSTANTS(18i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_ARRIVAL: MBN_DEVICE_SERVICES_INTERFACE_STATE = MBN_DEVICE_SERVICES_INTERFACE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DEVICE_SERVICES_CAPABLE_INTERFACE_REMOVAL: MBN_DEVICE_SERVICES_INTERFACE_STATE = MBN_DEVICE_SERVICES_INTERFACE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_DEVICE_SERVICE_SESSIONS_RESTORED: MBN_DEVICE_SERVICE_SESSIONS_STATE = MBN_DEVICE_SERVICE_SESSIONS_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ERROR_RATE_UNKNOWN: MBN_SIGNAL_CONSTANTS = MBN_SIGNAL_CONSTANTS(99i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_FIRMWARE_LEN: MBN_INTERFACE_CAPS_CONSTANTS = MBN_INTERFACE_CAPS_CONSTANTS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MANUFACTURER_LEN: MBN_INTERFACE_CAPS_CONSTANTS = MBN_INTERFACE_CAPS_CONSTANTS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MESSAGE_INDEX_NONE: WWAEXT_SMS_CONSTANTS = WWAEXT_SMS_CONSTANTS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MODEL_LEN: MBN_INTERFACE_CAPS_CONSTANTS = MBN_INTERFACE_CAPS_CONSTANTS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MSG_STATUS_DRAFT: MBN_MSG_STATUS = MBN_MSG_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MSG_STATUS_NEW: MBN_MSG_STATUS = MBN_MSG_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MSG_STATUS_OLD: MBN_MSG_STATUS = MBN_MSG_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_MSG_STATUS_SENT: MBN_MSG_STATUS = MBN_MSG_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PASSWORD_LEN: MBN_CONTEXT_CONSTANTS = MBN_CONTEXT_CONSTANTS(255i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_FORMAT_ALPHANUMERIC: MBN_PIN_FORMAT = MBN_PIN_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_FORMAT_NONE: MBN_PIN_FORMAT = MBN_PIN_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_FORMAT_NUMERIC: MBN_PIN_FORMAT = MBN_PIN_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_LENGTH_UNKNOWN: MBN_PIN_CONSTANTS = MBN_PIN_CONSTANTS(-1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_MODE_DISABLED: MBN_PIN_MODE = MBN_PIN_MODE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_MODE_ENABLED: MBN_PIN_MODE = MBN_PIN_MODE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_STATE_ENTER: MBN_PIN_STATE = MBN_PIN_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_STATE_NONE: MBN_PIN_STATE = MBN_PIN_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_STATE_UNBLOCK: MBN_PIN_STATE = MBN_PIN_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_CORPORATE_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_CUSTOM: MBN_PIN_TYPE = MBN_PIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_DEVICE_FIRST_SIM_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_DEVICE_SIM_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_NETWORK_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_NETWORK_SUBSET_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_NONE: MBN_PIN_TYPE = MBN_PIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_PIN1: MBN_PIN_TYPE = MBN_PIN_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_PIN2: MBN_PIN_TYPE = MBN_PIN_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_SUBSIDY_LOCK: MBN_PIN_TYPE = MBN_PIN_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PIN_TYPE_SVC_PROVIDER_PIN: MBN_PIN_TYPE = MBN_PIN_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDERID_LEN: MBN_PROVIDER_CONSTANTS = MBN_PROVIDER_CONSTANTS(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDERNAME_LEN: MBN_PROVIDER_CONSTANTS = MBN_PROVIDER_CONSTANTS(20i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_FORBIDDEN: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_HOME: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_NONE: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_PREFERRED: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_PREFERRED_MULTICARRIER: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_REGISTERED: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_PROVIDER_STATE_VISIBLE: MBN_PROVIDER_STATE = MBN_PROVIDER_STATE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_RADIO_OFF: MBN_RADIO = MBN_RADIO(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_RADIO_ON: MBN_RADIO = MBN_RADIO(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_BAD_SIM: MBN_READY_STATE = MBN_READY_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_DEVICE_BLOCKED: MBN_READY_STATE = MBN_READY_STATE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_DEVICE_LOCKED: MBN_READY_STATE = MBN_READY_STATE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_FAILURE: MBN_READY_STATE = MBN_READY_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_INITIALIZED: MBN_READY_STATE = MBN_READY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_NOT_ACTIVATED: MBN_READY_STATE = MBN_READY_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_NO_ESIM_PROFILE: MBN_READY_STATE = MBN_READY_STATE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_OFF: MBN_READY_STATE = MBN_READY_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_READY_STATE_SIM_NOT_INSERTED: MBN_READY_STATE = MBN_READY_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_MODE_AUTOMATIC: MBN_REGISTER_MODE = MBN_REGISTER_MODE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_MODE_MANUAL: MBN_REGISTER_MODE = MBN_REGISTER_MODE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_MODE_NONE: MBN_REGISTER_MODE = MBN_REGISTER_MODE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_DENIED: MBN_REGISTER_STATE = MBN_REGISTER_STATE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_DEREGISTERED: MBN_REGISTER_STATE = MBN_REGISTER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_HOME: MBN_REGISTER_STATE = MBN_REGISTER_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_NONE: MBN_REGISTER_STATE = MBN_REGISTER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_PARTNER: MBN_REGISTER_STATE = MBN_REGISTER_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_ROAMING: MBN_REGISTER_STATE = MBN_REGISTER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_REGISTER_STATE_SEARCHING: MBN_REGISTER_STATE = MBN_REGISTER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_ROAMTEXT_LEN: MBN_REGISTRATION_CONSTANTS = MBN_REGISTRATION_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_RSSI_DEFAULT: MBN_SIGNAL_CONSTANTS = MBN_SIGNAL_CONSTANTS(-1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_RSSI_DISABLE: MBN_SIGNAL_CONSTANTS = MBN_SIGNAL_CONSTANTS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_RSSI_UNKNOWN: MBN_SIGNAL_CONSTANTS = MBN_SIGNAL_CONSTANTS(99i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CAPS_NONE: MBN_SMS_CAPS = MBN_SMS_CAPS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CAPS_PDU_RECEIVE: MBN_SMS_CAPS = MBN_SMS_CAPS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CAPS_PDU_SEND: MBN_SMS_CAPS = MBN_SMS_CAPS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CAPS_TEXT_RECEIVE: MBN_SMS_CAPS = MBN_SMS_CAPS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CAPS_TEXT_SEND: MBN_SMS_CAPS = MBN_SMS_CAPS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_7BIT_ASCII: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_EPM: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_GSM_7BIT: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_IA5: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_KOREAN: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_LATIN: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_LATIN_HEBREW: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_OCTET: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_SHIFT_JIS: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_ENCODING_UNICODE: MBN_SMS_CDMA_ENCODING = MBN_SMS_CDMA_ENCODING(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_CHINESE: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_ENGLISH: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_FRENCH: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_HEBREW: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_JAPANESE: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_KOREAN: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_NONE: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_CDMA_LANG_SPANISH: MBN_SMS_CDMA_LANG = MBN_SMS_CDMA_LANG(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_ALL: MBN_SMS_FLAG = MBN_SMS_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_DRAFT: MBN_SMS_FLAG = MBN_SMS_FLAG(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_INDEX: MBN_SMS_FLAG = MBN_SMS_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_MESSAGE_STORE_FULL: MBN_SMS_STATUS_FLAG = MBN_SMS_STATUS_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_NEW: MBN_SMS_FLAG = MBN_SMS_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_NEW_MESSAGE: MBN_SMS_STATUS_FLAG = MBN_SMS_STATUS_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_NONE: MBN_SMS_STATUS_FLAG = MBN_SMS_STATUS_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_OLD: MBN_SMS_FLAG = MBN_SMS_FLAG(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FLAG_SENT: MBN_SMS_FLAG = MBN_SMS_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FORMAT_NONE: MBN_SMS_FORMAT = MBN_SMS_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FORMAT_PDU: MBN_SMS_FORMAT = MBN_SMS_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_SMS_FORMAT_TEXT: MBN_SMS_FORMAT = MBN_SMS_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_USERNAME_LEN: MBN_CONTEXT_CONSTANTS = MBN_CONTEXT_CONSTANTS(255i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CALL_STATE_HANGUP: MBN_VOICE_CALL_STATE = MBN_VOICE_CALL_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CALL_STATE_IN_PROGRESS: MBN_VOICE_CALL_STATE = MBN_VOICE_CALL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CALL_STATE_NONE: MBN_VOICE_CALL_STATE = MBN_VOICE_CALL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CLASS_NONE: MBN_VOICE_CLASS = MBN_VOICE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CLASS_NO_VOICE: MBN_VOICE_CLASS = MBN_VOICE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CLASS_SEPARATE_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MBN_VOICE_CLASS_SIMULTANEOUS_VOICE_DATA: MBN_VOICE_CLASS = MBN_VOICE_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnConnectionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05c_4418_11dd_90ed_001c257ccff1);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnConnectionProfileManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05a_4418_11dd_90ed_001c257ccff1);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnDeviceServicesManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2269daa3_2a9f_4165_a501_ce00a6f7a75b);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub const MbnInterfaceManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdfee05b_4418_11dd_90ed_001c257ccff1);
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_ACTIVATION_STATE(pub i32);
@@ -2391,7 +2159,6 @@ impl ::core::fmt::Debug for MBN_ACTIVATION_STATE {
         f.debug_tuple("MBN_ACTIVATION_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_AUTH_PROTOCOL(pub i32);
@@ -2414,7 +2181,6 @@ impl ::core::fmt::Debug for MBN_AUTH_PROTOCOL {
         f.debug_tuple("MBN_AUTH_PROTOCOL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_BAND_CLASS(pub i32);
@@ -2437,7 +2203,6 @@ impl ::core::fmt::Debug for MBN_BAND_CLASS {
         f.debug_tuple("MBN_BAND_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_CELLULAR_CLASS(pub i32);
@@ -2460,7 +2225,6 @@ impl ::core::fmt::Debug for MBN_CELLULAR_CLASS {
         f.debug_tuple("MBN_CELLULAR_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_COMPRESSION(pub i32);
@@ -2483,7 +2247,6 @@ impl ::core::fmt::Debug for MBN_COMPRESSION {
         f.debug_tuple("MBN_COMPRESSION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_CONNECTION_MODE(pub i32);
@@ -2506,7 +2269,6 @@ impl ::core::fmt::Debug for MBN_CONNECTION_MODE {
         f.debug_tuple("MBN_CONNECTION_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_CONTEXT_CONSTANTS(pub i32);
@@ -2529,7 +2291,6 @@ impl ::core::fmt::Debug for MBN_CONTEXT_CONSTANTS {
         f.debug_tuple("MBN_CONTEXT_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_CONTEXT_TYPE(pub i32);
@@ -2552,7 +2313,6 @@ impl ::core::fmt::Debug for MBN_CONTEXT_TYPE {
         f.debug_tuple("MBN_CONTEXT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_CTRL_CAPS(pub i32);
@@ -2575,7 +2335,6 @@ impl ::core::fmt::Debug for MBN_CTRL_CAPS {
         f.debug_tuple("MBN_CTRL_CAPS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_DATA_CLASS(pub i32);
@@ -2598,7 +2357,6 @@ impl ::core::fmt::Debug for MBN_DATA_CLASS {
         f.debug_tuple("MBN_DATA_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_DEVICE_SERVICES_INTERFACE_STATE(pub i32);
@@ -2621,7 +2379,6 @@ impl ::core::fmt::Debug for MBN_DEVICE_SERVICES_INTERFACE_STATE {
         f.debug_tuple("MBN_DEVICE_SERVICES_INTERFACE_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_DEVICE_SERVICE_SESSIONS_STATE(pub i32);
@@ -2644,7 +2401,6 @@ impl ::core::fmt::Debug for MBN_DEVICE_SERVICE_SESSIONS_STATE {
         f.debug_tuple("MBN_DEVICE_SERVICE_SESSIONS_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_INTERFACE_CAPS_CONSTANTS(pub i32);
@@ -2667,7 +2423,6 @@ impl ::core::fmt::Debug for MBN_INTERFACE_CAPS_CONSTANTS {
         f.debug_tuple("MBN_INTERFACE_CAPS_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_MSG_STATUS(pub i32);
@@ -2690,7 +2445,6 @@ impl ::core::fmt::Debug for MBN_MSG_STATUS {
         f.debug_tuple("MBN_MSG_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PIN_CONSTANTS(pub i32);
@@ -2713,7 +2467,6 @@ impl ::core::fmt::Debug for MBN_PIN_CONSTANTS {
         f.debug_tuple("MBN_PIN_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PIN_FORMAT(pub i32);
@@ -2736,7 +2489,6 @@ impl ::core::fmt::Debug for MBN_PIN_FORMAT {
         f.debug_tuple("MBN_PIN_FORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PIN_MODE(pub i32);
@@ -2759,7 +2511,6 @@ impl ::core::fmt::Debug for MBN_PIN_MODE {
         f.debug_tuple("MBN_PIN_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PIN_STATE(pub i32);
@@ -2782,7 +2533,6 @@ impl ::core::fmt::Debug for MBN_PIN_STATE {
         f.debug_tuple("MBN_PIN_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PIN_TYPE(pub i32);
@@ -2805,7 +2555,6 @@ impl ::core::fmt::Debug for MBN_PIN_TYPE {
         f.debug_tuple("MBN_PIN_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PROVIDER_CONSTANTS(pub i32);
@@ -2828,7 +2577,6 @@ impl ::core::fmt::Debug for MBN_PROVIDER_CONSTANTS {
         f.debug_tuple("MBN_PROVIDER_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_PROVIDER_STATE(pub i32);
@@ -2851,7 +2599,6 @@ impl ::core::fmt::Debug for MBN_PROVIDER_STATE {
         f.debug_tuple("MBN_PROVIDER_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_RADIO(pub i32);
@@ -2874,7 +2621,6 @@ impl ::core::fmt::Debug for MBN_RADIO {
         f.debug_tuple("MBN_RADIO").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_READY_STATE(pub i32);
@@ -2897,7 +2643,6 @@ impl ::core::fmt::Debug for MBN_READY_STATE {
         f.debug_tuple("MBN_READY_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_REGISTER_MODE(pub i32);
@@ -2920,7 +2665,6 @@ impl ::core::fmt::Debug for MBN_REGISTER_MODE {
         f.debug_tuple("MBN_REGISTER_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_REGISTER_STATE(pub i32);
@@ -2943,7 +2687,6 @@ impl ::core::fmt::Debug for MBN_REGISTER_STATE {
         f.debug_tuple("MBN_REGISTER_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_REGISTRATION_CONSTANTS(pub i32);
@@ -2966,7 +2709,6 @@ impl ::core::fmt::Debug for MBN_REGISTRATION_CONSTANTS {
         f.debug_tuple("MBN_REGISTRATION_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SIGNAL_CONSTANTS(pub i32);
@@ -2989,7 +2731,6 @@ impl ::core::fmt::Debug for MBN_SIGNAL_CONSTANTS {
         f.debug_tuple("MBN_SIGNAL_CONSTANTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SMS_CAPS(pub i32);
@@ -3012,7 +2753,6 @@ impl ::core::fmt::Debug for MBN_SMS_CAPS {
         f.debug_tuple("MBN_SMS_CAPS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SMS_CDMA_ENCODING(pub i32);
@@ -3035,7 +2775,6 @@ impl ::core::fmt::Debug for MBN_SMS_CDMA_ENCODING {
         f.debug_tuple("MBN_SMS_CDMA_ENCODING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SMS_CDMA_LANG(pub i32);
@@ -3058,7 +2797,6 @@ impl ::core::fmt::Debug for MBN_SMS_CDMA_LANG {
         f.debug_tuple("MBN_SMS_CDMA_LANG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SMS_FLAG(pub i32);
@@ -3081,7 +2819,6 @@ impl ::core::fmt::Debug for MBN_SMS_FLAG {
         f.debug_tuple("MBN_SMS_FLAG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SMS_FORMAT(pub i32);
@@ -3104,7 +2841,6 @@ impl ::core::fmt::Debug for MBN_SMS_FORMAT {
         f.debug_tuple("MBN_SMS_FORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_SMS_STATUS_FLAG(pub i32);
@@ -3127,7 +2863,6 @@ impl ::core::fmt::Debug for MBN_SMS_STATUS_FLAG {
         f.debug_tuple("MBN_SMS_STATUS_FLAG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_VOICE_CALL_STATE(pub i32);
@@ -3150,7 +2885,6 @@ impl ::core::fmt::Debug for MBN_VOICE_CALL_STATE {
         f.debug_tuple("MBN_VOICE_CALL_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MBN_VOICE_CLASS(pub i32);
@@ -3173,7 +2907,6 @@ impl ::core::fmt::Debug for MBN_VOICE_CLASS {
         f.debug_tuple("MBN_VOICE_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WWAEXT_SMS_CONSTANTS(pub i32);
@@ -3197,7 +2930,6 @@ impl ::core::fmt::Debug for WWAEXT_SMS_CONSTANTS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_CONTEXT {
     pub contextID: u32,
     pub contextType: MBN_CONTEXT_TYPE,
@@ -3232,7 +2964,7 @@ impl ::core::default::Default for MBN_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MBN_DEVICE_SERVICE {
     pub deviceServiceID: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
@@ -3270,7 +3002,6 @@ impl ::core::default::Default for MBN_DEVICE_SERVICE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_INTERFACE_CAPS {
     pub cellularClass: MBN_CELLULAR_CLASS,
     pub voiceClass: MBN_VOICE_CLASS,
@@ -3325,7 +3056,6 @@ impl ::core::default::Default for MBN_INTERFACE_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PIN_INFO {
     pub pinState: MBN_PIN_STATE,
     pub pinType: MBN_PIN_TYPE,
@@ -3357,7 +3087,6 @@ impl ::core::default::Default for MBN_PIN_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PROVIDER {
     pub providerID: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
     pub providerState: u32,
@@ -3389,7 +3118,6 @@ impl ::core::default::Default for MBN_PROVIDER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_PROVIDER2 {
     pub provider: MBN_PROVIDER,
     pub cellularClass: MBN_CELLULAR_CLASS,
@@ -3421,7 +3149,6 @@ impl ::core::default::Default for MBN_PROVIDER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_SMS_FILTER {
     pub flag: MBN_SMS_FLAG,
     pub messageIndex: u32,
@@ -3452,7 +3179,6 @@ impl ::core::default::Default for MBN_SMS_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct MBN_SMS_STATUS_INFO {
     pub flag: u32,
     pub messageIndex: u32,
@@ -3483,7 +3209,6 @@ impl ::core::default::Default for MBN_SMS_STATUS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct __DummyPinType__ {
     pub pinType: u32,
 }
@@ -3513,7 +3238,6 @@ impl ::core::default::Default for __DummyPinType__ {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_MobileBroadband\"`*"]
 pub struct __mbnapi_ReferenceRemainingTypes__ {
     pub bandClass: MBN_BAND_CLASS,
     pub contextConstants: MBN_CONTEXT_CONSTANTS,

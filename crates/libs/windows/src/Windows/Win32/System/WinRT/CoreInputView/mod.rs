@@ -1,9 +1,8 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_CoreInputView\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreFrameworkInputViewInterop(::windows_core::IUnknown);
 impl ICoreFrameworkInputViewInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where

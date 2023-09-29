@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointFormatControl(::windows_core::IUnknown);
@@ -20,17 +19,16 @@ pub struct IAudioEndpointFormatControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ResetToDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resetflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointLastBufferControl(::windows_core::IUnknown);
 impl IAudioEndpointLastBufferControl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsLastBufferControlSupported)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
+    #[doc = "Required features: `Win32_Media_Audio_Apo`"]
     #[cfg(feature = "Win32_Media_Audio_Apo")]
     pub unsafe fn ReleaseOutputDataPointerForLastBuffer(&self, pconnectionproperty: *const super::Apo::APO_CONNECTION_PROPERTY) {
         (::windows_core::Interface::vtable(self).ReleaseOutputDataPointerForLastBuffer)(::windows_core::Interface::as_raw(self), pconnectionproperty)
@@ -56,7 +54,6 @@ pub struct IAudioEndpointLastBufferControl_Vtbl {
     #[cfg(not(feature = "Win32_Media_Audio_Apo"))]
     ReleaseOutputDataPointerForLastBuffer: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointOffloadStreamMeter(::windows_core::IUnknown);
@@ -84,7 +81,6 @@ pub struct IAudioEndpointOffloadStreamMeter_Vtbl {
     pub GetMeterChannelCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows_core::HRESULT,
     pub GetMeteringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32peakvalues: *mut f32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointOffloadStreamMute(::windows_core::IUnknown);
@@ -111,7 +107,6 @@ pub struct IAudioEndpointOffloadStreamMute_Vtbl {
     pub SetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmuted: u8) -> ::windows_core::HRESULT,
     pub GetMute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmuted: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointOffloadStreamVolume(::windows_core::IUnknown);
@@ -120,7 +115,7 @@ impl IAudioEndpointOffloadStreamVolume {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVolumeChannelCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+    #[doc = "Required features: `Win32_Media_KernelStreaming`"]
     #[cfg(feature = "Win32_Media_KernelStreaming")]
     pub unsafe fn SetChannelVolumes(&self, u32channelcount: u32, pf32volumes: *const f32, u32curvetype: super::super::KernelStreaming::AUDIO_CURVE_TYPE, pcurveduration: *const i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetChannelVolumes)(::windows_core::Interface::as_raw(self), u32channelcount, pf32volumes, u32curvetype, pcurveduration).ok()
@@ -148,7 +143,6 @@ pub struct IAudioEndpointOffloadStreamVolume_Vtbl {
     SetChannelVolumes: usize,
     pub GetChannelVolumes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32channelcount: u32, pf32volumes: *mut f32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointVolume(::windows_core::IUnknown);
@@ -197,7 +191,7 @@ impl IAudioEndpointVolume {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetChannelVolumeLevelScalar)(::windows_core::Interface::as_raw(self), nchannel, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -205,7 +199,7 @@ impl IAudioEndpointVolume {
     {
         (::windows_core::Interface::vtable(self).SetMute)(::windows_core::Interface::as_raw(self), bmute.into_param().abi(), pguideventcontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMute(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -264,12 +258,11 @@ pub struct IAudioEndpointVolume_Vtbl {
     pub QueryHardwareSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhardwaresupportmask: *mut u32) -> ::windows_core::HRESULT,
     pub GetVolumeRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointVolumeCallback(::windows_core::IUnknown);
 impl IAudioEndpointVolumeCallback {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnNotify)(::windows_core::Interface::as_raw(self), pnotify).ok()
@@ -291,7 +284,6 @@ pub struct IAudioEndpointVolumeCallback_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnNotify: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointVolumeEx(::windows_core::IUnknown);
@@ -340,7 +332,7 @@ impl IAudioEndpointVolumeEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetChannelVolumeLevelScalar)(::windows_core::Interface::as_raw(self), nchannel, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMute<P0>(&self, bmute: P0, pguideventcontext: *const ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -348,7 +340,7 @@ impl IAudioEndpointVolumeEx {
     {
         (::windows_core::Interface::vtable(self).base__.SetMute)(::windows_core::Interface::as_raw(self), bmute.into_param().abi(), pguideventcontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMute(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -387,12 +379,11 @@ pub struct IAudioEndpointVolumeEx_Vtbl {
     pub base__: IAudioEndpointVolume_Vtbl,
     pub GetVolumeRangeChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioLfxControl(::windows_core::IUnknown);
 impl IAudioLfxControl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocalEffectsState<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -400,7 +391,7 @@ impl IAudioLfxControl {
     {
         (::windows_core::Interface::vtable(self).SetLocalEffectsState)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLocalEffectsState(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -427,7 +418,6 @@ pub struct IAudioLfxControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetLocalEffectsState: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioMeterInformation(::windows_core::IUnknown);
@@ -464,7 +454,6 @@ pub struct IAudioMeterInformation_Vtbl {
     pub GetChannelsPeakValues: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, u32channelcount: u32, afpeakvalues: *mut f32) -> ::windows_core::HRESULT,
     pub QueryHardwareSupport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwhardwaresupportmask: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHardwareAudioEngineBase(::windows_core::IUnknown);
@@ -476,7 +465,7 @@ impl IHardwareAudioEngineBase {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAvailableOffloadConnectorCount)(::windows_core::Interface::as_raw(self), _pwstrdeviceid.into_param().abi(), _uconnectorid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEngineFormat<P0, P1>(&self, pdevice: P0, _brequestdeviceformat: P1, _ppwfxformat: *mut *mut super::WAVEFORMATEX) -> ::windows_core::Result<()>
     where
@@ -491,7 +480,7 @@ impl IHardwareAudioEngineBase {
     {
         (::windows_core::Interface::vtable(self).SetEngineDeviceFormat)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _pwfxformat).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGfxState<P0, P1>(&self, pdevice: P0, _benable: P1) -> ::windows_core::Result<()>
     where
@@ -500,7 +489,7 @@ impl IHardwareAudioEngineBase {
     {
         (::windows_core::Interface::vtable(self).SetGfxState)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), _benable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGfxState<P0>(&self, pdevice: P0) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
     where
@@ -536,31 +525,24 @@ pub struct IHardwareAudioEngineBase_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetGfxState: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EndpointConnectorType(pub i32);
@@ -584,7 +566,6 @@ impl ::core::fmt::Debug for EndpointConnectorType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
     pub u32Size: u32,
     pub u32TSSessionId: u32,

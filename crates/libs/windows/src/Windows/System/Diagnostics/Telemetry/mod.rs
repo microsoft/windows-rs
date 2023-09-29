@@ -50,7 +50,6 @@ pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
     pub UploadQuotaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
     pub SetUploadQuotaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
 pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     pub fn Register(id: &::windows_core::HSTRING) -> ::windows_core::Result<PlatformTelemetryRegistrationResult> {
@@ -77,7 +76,6 @@ impl PlatformTelemetryClient {
 impl ::windows_core::RuntimeName for PlatformTelemetryClient {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryClient";
 }
-#[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlatformTelemetryRegistrationResult(::windows_core::IUnknown);
@@ -105,7 +103,6 @@ impl ::windows_core::RuntimeName for PlatformTelemetryRegistrationResult {
 ::windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationResult {}
-#[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlatformTelemetryRegistrationSettings(::windows_core::IUnknown);
@@ -155,7 +152,6 @@ impl ::windows_core::RuntimeName for PlatformTelemetryRegistrationSettings {
 ::windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationSettings {}
-#[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);

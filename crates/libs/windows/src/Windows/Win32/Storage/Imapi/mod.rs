@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[inline]
 pub unsafe fn CloseIMsgSession<P0>(lpmsgsess: P0)
 where
@@ -7,20 +6,19 @@ where
     ::windows_targets::link!("mapi32.dll" "system" fn CloseIMsgSession(lpmsgsess : LPMSGSESS) -> ());
     CloseIMsgSession(lpmsgsess.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
+#[doc = "Required features: `Win32_System_AddressBook`"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mapi32.dll" "system" fn GetAttribIMsgOnIStg(lpobject : *mut ::core::ffi::c_void, lpproptagarray : *mut super::super::System::AddressBook:: SPropTagArray, lpppropattrarray : *mut *mut SPropAttrArray) -> ::windows_core::HRESULT);
     GetAttribIMsgOnIStg(lpobject, lpproptagarray, lpppropattrarray).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[inline]
 pub unsafe fn MapStorageSCode(stgscode: i32) -> i32 {
     ::windows_targets::link!("mapi32.dll" "system" fn MapStorageSCode(stgscode : i32) -> i32);
     MapStorageSCode(stgscode)
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[doc = "Required features: `Win32_System_AddressBook`, `Win32_System_Com_StructuredStorage`"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OpenIMsgOnIStg<P0, P1, P2>(lpmsgsess: P0, lpallocatebuffer: super::super::System::AddressBook::LPALLOCATEBUFFER, lpallocatemore: super::super::System::AddressBook::LPALLOCATEMORE, lpfreebuffer: super::super::System::AddressBook::LPFREEBUFFER, lpmalloc: P1, lpmapisup: *mut ::core::ffi::c_void, lpstg: P2, lpfmsgcallrelease: *mut MSGCALLRELEASE, ulcallerdata: u32, ulflags: u32, lppmsg: *mut ::core::option::Option<super::super::System::AddressBook::IMessage>) -> i32
@@ -32,7 +30,7 @@ where
     ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgOnIStg(lpmsgsess : LPMSGSESS, lpallocatebuffer : super::super::System::AddressBook:: LPALLOCATEBUFFER, lpallocatemore : super::super::System::AddressBook:: LPALLOCATEMORE, lpfreebuffer : super::super::System::AddressBook:: LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, lpmapisup : *mut ::core::ffi::c_void, lpstg : * mut::core::ffi::c_void, lpfmsgcallrelease : *mut MSGCALLRELEASE, ulcallerdata : u32, ulflags : u32, lppmsg : *mut * mut::core::ffi::c_void) -> i32);
     OpenIMsgOnIStg(lpmsgsess.into_param().abi(), lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into_param().abi(), lpmapisup, lpstg.into_param().abi(), lpfmsgcallrelease, ulcallerdata, ulflags, ::core::mem::transmute(lppmsg))
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OpenIMsgSession<P0>(lpmalloc: P0, ulflags: u32, lppmsgsess: *mut LPMSGSESS) -> i32
@@ -42,21 +40,21 @@ where
     ::windows_targets::link!("mapi32.dll" "system" fn OpenIMsgSession(lpmalloc : * mut::core::ffi::c_void, ulflags : u32, lppmsgsess : *mut LPMSGSESS) -> i32);
     OpenIMsgSession(lpmalloc.into_param().abi(), ulflags, lppmsgsess)
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
+#[doc = "Required features: `Win32_System_AddressBook`"]
 #[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::core::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mapi32.dll" "system" fn SetAttribIMsgOnIStg(lpobject : *mut ::core::ffi::c_void, lpproptags : *mut super::super::System::AddressBook:: SPropTagArray, lppropattrs : *mut SPropAttrArray, lpppropproblems : *mut *mut super::super::System::AddressBook:: SPropProblemArray) -> ::windows_core::HRESULT);
     SetAttribIMsgOnIStg(lpobject, lpproptags, lppropattrs, lpppropproblems).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DDiscFormat2DataEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2DataEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> ::windows_core::Result<()>
     where
@@ -86,14 +84,14 @@ pub struct DDiscFormat2DataEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DDiscFormat2EraseEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2EraseEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<P0>(&self, object: P0, elapsedseconds: i32, estimatedtotalseconds: i32) -> ::windows_core::Result<()>
     where
@@ -122,14 +120,14 @@ pub struct DDiscFormat2EraseEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DDiscFormat2RawCDEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2RawCDEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> ::windows_core::Result<()>
     where
@@ -159,14 +157,14 @@ pub struct DDiscFormat2RawCDEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DDiscFormat2TrackAtOnceEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscFormat2TrackAtOnceEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> ::windows_core::Result<()>
     where
@@ -196,14 +194,14 @@ pub struct DDiscFormat2TrackAtOnceEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DDiscMaster2Events(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DDiscMaster2Events {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NotifyDeviceAdded<P0, P1>(&self, object: P0, uniqueid: P1) -> ::windows_core::Result<()>
     where
@@ -212,7 +210,7 @@ impl DDiscMaster2Events {
     {
         (::windows_core::Interface::vtable(self).NotifyDeviceAdded)(::windows_core::Interface::as_raw(self), object.into_param().abi(), uniqueid.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NotifyDeviceRemoved<P0, P1>(&self, object: P0, uniqueid: P1) -> ::windows_core::Result<()>
     where
@@ -246,14 +244,14 @@ pub struct DDiscMaster2Events_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     NotifyDeviceRemoved: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DFileSystemImageEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DFileSystemImageEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<P0, P1>(&self, object: P0, currentfile: P1, copiedsectors: i32, totalsectors: i32) -> ::windows_core::Result<()>
     where
@@ -283,14 +281,14 @@ pub struct DFileSystemImageEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DFileSystemImageImportEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DFileSystemImageImportEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UpdateImport<P0, P1>(&self, object: P0, filesystem: FsiFileSystems, currentitem: P1, importeddirectoryitems: i32, totaldirectoryitems: i32, importedfileitems: i32, totalfileitems: i32) -> ::windows_core::Result<()>
     where
@@ -320,14 +318,14 @@ pub struct DFileSystemImageImportEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     UpdateImport: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DWriteEngine2Events(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DWriteEngine2Events {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Update<P0, P1>(&self, object: P0, progress: P1) -> ::windows_core::Result<()>
     where
@@ -357,7 +355,7 @@ pub struct DWriteEngine2Events_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Update: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -391,14 +389,14 @@ pub struct IBlockRange_Vtbl {
     pub StartLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub EndLba: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBlockRangeList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBlockRangeList {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockRanges(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -425,14 +423,14 @@ pub struct IBlockRangeList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     BlockRanges: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBootOptions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBootOptions {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BootImage(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -466,7 +464,7 @@ impl IBootOptions {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ImageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AssignBootImage<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -506,7 +504,6 @@ pub struct IBootOptions_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AssignBootImage: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBurnVerification(::windows_core::IUnknown);
@@ -533,14 +530,14 @@ pub struct IBurnVerification_Vtbl {
     pub SetBurnVerificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows_core::HRESULT,
     pub BurnVerificationLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_BURN_VERIFICATION_LEVEL) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscFormat2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -549,7 +546,7 @@ impl IDiscFormat2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRecorderSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -558,19 +555,19 @@ impl IDiscFormat2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsCurrentMediaSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaPhysicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MediaPhysicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaHeuristicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MediaHeuristicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedMediaTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -613,14 +610,14 @@ pub struct IDiscFormat2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SupportedMediaTypes: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscFormat2Data(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2Data {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -629,7 +626,7 @@ impl IDiscFormat2Data {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRecorderSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -638,25 +635,25 @@ impl IDiscFormat2Data {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsCurrentMediaSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaPhysicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaPhysicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaHeuristicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaHeuristicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedMediaTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SupportedMediaTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRecorder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -664,13 +661,13 @@ impl IDiscFormat2Data {
     {
         (::windows_core::Interface::vtable(self).SetRecorder)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBufferUnderrunFreeDisabled<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -678,13 +675,13 @@ impl IDiscFormat2Data {
     {
         (::windows_core::Interface::vtable(self).SetBufferUnderrunFreeDisabled)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BufferUnderrunFreeDisabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BufferUnderrunFreeDisabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPostgapAlreadyInImage<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -692,7 +689,7 @@ impl IDiscFormat2Data {
     {
         (::windows_core::Interface::vtable(self).SetPostgapAlreadyInImage)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostgapAlreadyInImage(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -726,7 +723,7 @@ impl IDiscFormat2Data {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LastWrittenAddressOfPreviousSession)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetForceMediaToBeClosed<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -734,13 +731,13 @@ impl IDiscFormat2Data {
     {
         (::windows_core::Interface::vtable(self).SetForceMediaToBeClosed)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ForceMediaToBeClosed(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ForceMediaToBeClosed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisableConsumerDvdCompatibilityMode<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -748,7 +745,7 @@ impl IDiscFormat2Data {
     {
         (::windows_core::Interface::vtable(self).SetDisableConsumerDvdCompatibilityMode)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisableConsumerDvdCompatibilityMode(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -772,7 +769,7 @@ impl IDiscFormat2Data {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequestedWriteSpeed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -782,25 +779,25 @@ impl IDiscFormat2Data {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentWriteSpeed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentRotationTypeIsPureCAV)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedWriteSpeeds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedWriteSpeeds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedWriteSpeedDescriptors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetForceOverwrite<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -808,19 +805,19 @@ impl IDiscFormat2Data {
     {
         (::windows_core::Interface::vtable(self).SetForceOverwrite)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ForceOverwrite(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ForceOverwrite)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MultisessionInterfaces(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MultisessionInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -831,7 +828,7 @@ impl IDiscFormat2Data {
     pub unsafe fn CancelWrite(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CancelWrite)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteSpeed<P0>(&self, requestedsectorspersecond: i32, rotationtypeispurecav: P0) -> ::windows_core::Result<()>
     where
@@ -945,7 +942,7 @@ pub struct IDiscFormat2Data_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetWriteSpeed: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1017,14 +1014,14 @@ pub struct IDiscFormat2DataEventArgs_Vtbl {
     pub TotalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub CurrentAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut IMAPI_FORMAT2_DATA_WRITE_ACTION) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscFormat2Erase(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2Erase {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1033,7 +1030,7 @@ impl IDiscFormat2Erase {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRecorderSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1042,25 +1039,25 @@ impl IDiscFormat2Erase {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsCurrentMediaSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaPhysicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaPhysicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaHeuristicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaHeuristicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedMediaTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SupportedMediaTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRecorder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1068,13 +1065,13 @@ impl IDiscFormat2Erase {
     {
         (::windows_core::Interface::vtable(self).SetRecorder)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFullErase<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1082,7 +1079,7 @@ impl IDiscFormat2Erase {
     {
         (::windows_core::Interface::vtable(self).SetFullErase)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FullErase(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1142,14 +1139,14 @@ pub struct IDiscFormat2Erase_Vtbl {
     pub ClientName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub EraseMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscFormat2RawCD(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2RawCD {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1158,7 +1155,7 @@ impl IDiscFormat2RawCD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRecorderSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1167,19 +1164,19 @@ impl IDiscFormat2RawCD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsCurrentMediaSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaPhysicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaPhysicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaHeuristicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaHeuristicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedMediaTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1188,7 +1185,7 @@ impl IDiscFormat2RawCD {
     pub unsafe fn PrepareMedia(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PrepareMedia)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteMedia<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -1196,7 +1193,7 @@ impl IDiscFormat2RawCD {
     {
         (::windows_core::Interface::vtable(self).WriteMedia)(::windows_core::Interface::as_raw(self), data.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteMedia2<P0>(&self, data: P0, streamleadinsectors: i32) -> ::windows_core::Result<()>
     where
@@ -1210,7 +1207,7 @@ impl IDiscFormat2RawCD {
     pub unsafe fn ReleaseMedia(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReleaseMedia)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteSpeed<P0>(&self, requestedsectorspersecond: i32, rotationtypeispurecav: P0) -> ::windows_core::Result<()>
     where
@@ -1218,7 +1215,7 @@ impl IDiscFormat2RawCD {
     {
         (::windows_core::Interface::vtable(self).SetWriteSpeed)(::windows_core::Interface::as_raw(self), requestedsectorspersecond, rotationtypeispurecav.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRecorder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1226,13 +1223,13 @@ impl IDiscFormat2RawCD {
     {
         (::windows_core::Interface::vtable(self).SetRecorder)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBufferUnderrunFreeDisabled<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1240,7 +1237,7 @@ impl IDiscFormat2RawCD {
     {
         (::windows_core::Interface::vtable(self).SetBufferUnderrunFreeDisabled)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BufferUnderrunFreeDisabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1258,7 +1255,7 @@ impl IDiscFormat2RawCD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentPhysicalMediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedSectorTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1285,7 +1282,7 @@ impl IDiscFormat2RawCD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequestedWriteSpeed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1295,19 +1292,19 @@ impl IDiscFormat2RawCD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentWriteSpeed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentRotationTypeIsPureCAV)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedWriteSpeeds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedWriteSpeeds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1390,7 +1387,7 @@ pub struct IDiscFormat2RawCD_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SupportedWriteSpeedDescriptors: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1457,14 +1454,14 @@ pub struct IDiscFormat2RawCDEventArgs_Vtbl {
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscFormat2TrackAtOnce(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscFormat2TrackAtOnce {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsRecorderSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1473,7 +1470,7 @@ impl IDiscFormat2TrackAtOnce {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsRecorderSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsCurrentMediaSupported<P0>(&self, recorder: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -1482,19 +1479,19 @@ impl IDiscFormat2TrackAtOnce {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsCurrentMediaSupported)(::windows_core::Interface::as_raw(self), recorder.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaPhysicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaPhysicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaHeuristicallyBlank(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaHeuristicallyBlank)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedMediaTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1503,7 +1500,7 @@ impl IDiscFormat2TrackAtOnce {
     pub unsafe fn PrepareMedia(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PrepareMedia)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddAudioTrack<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -1517,7 +1514,7 @@ impl IDiscFormat2TrackAtOnce {
     pub unsafe fn ReleaseMedia(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReleaseMedia)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWriteSpeed<P0>(&self, requestedsectorspersecond: i32, rotationtypeispurecav: P0) -> ::windows_core::Result<()>
     where
@@ -1525,7 +1522,7 @@ impl IDiscFormat2TrackAtOnce {
     {
         (::windows_core::Interface::vtable(self).SetWriteSpeed)(::windows_core::Interface::as_raw(self), requestedsectorspersecond, rotationtypeispurecav.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRecorder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1533,13 +1530,13 @@ impl IDiscFormat2TrackAtOnce {
     {
         (::windows_core::Interface::vtable(self).SetRecorder)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBufferUnderrunFreeDisabled<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1547,7 +1544,7 @@ impl IDiscFormat2TrackAtOnce {
     {
         (::windows_core::Interface::vtable(self).SetBufferUnderrunFreeDisabled)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BufferUnderrunFreeDisabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1569,7 +1566,7 @@ impl IDiscFormat2TrackAtOnce {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UsedSectorsOnMedia)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDoNotFinalizeMedia<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1577,13 +1574,13 @@ impl IDiscFormat2TrackAtOnce {
     {
         (::windows_core::Interface::vtable(self).SetDoNotFinalizeMedia)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoNotFinalizeMedia(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DoNotFinalizeMedia)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExpectedTableOfContents(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1607,7 +1604,7 @@ impl IDiscFormat2TrackAtOnce {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequestedWriteSpeed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestedRotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1617,19 +1614,19 @@ impl IDiscFormat2TrackAtOnce {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentWriteSpeed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentRotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentRotationTypeIsPureCAV)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedWriteSpeeds(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedWriteSpeeds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedWriteSpeedDescriptors(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1716,7 +1713,7 @@ pub struct IDiscFormat2TrackAtOnce_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SupportedWriteSpeedDescriptors: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1788,7 +1785,6 @@ pub struct IDiscFormat2TrackAtOnceEventArgs_Vtbl {
     pub ElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub RemainingTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscMaster(::windows_core::IUnknown);
@@ -1865,14 +1861,14 @@ pub struct IDiscMaster_Vtbl {
     pub RecordDisc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bsimulate: u8, bejectafterburn: u8) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscMaster2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiscMaster2 {
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -1886,7 +1882,7 @@ impl IDiscMaster2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupportedEnvironment(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1919,7 +1915,6 @@ pub struct IDiscMaster2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsSupportedEnvironment: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscMasterProgressEvents(::windows_core::IUnknown);
@@ -1974,7 +1969,6 @@ pub struct IDiscMasterProgressEvents_Vtbl {
     pub NotifyBurnComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
     pub NotifyEraseComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscRecorder(::windows_core::IUnknown);
@@ -2000,13 +1994,13 @@ impl IDiscRecorder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetRecorderProperties(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecorderProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn SetRecorderProperties<P0>(&self, ppropstg: P0) -> ::windows_core::Result<()>
     where
@@ -2070,7 +2064,7 @@ pub struct IDiscRecorder_Vtbl {
     pub Erase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bfullerase: u8) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2083,7 +2077,7 @@ impl IDiscRecorder2 {
     pub unsafe fn CloseTray(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CloseTray)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcquireExclusiveAccess<P0, P1>(&self, force: P0, __midl__idiscrecorder20000: P1) -> ::windows_core::Result<()>
     where
@@ -2127,13 +2121,13 @@ impl IDiscRecorder2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VolumeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VolumePathNames(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VolumePathNames)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceCanLoadMedia(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2143,31 +2137,31 @@ impl IDiscRecorder2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LegacyDeviceNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedFeaturePages(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedFeaturePages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentFeaturePages(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentFeaturePages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedProfiles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedProfiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentProfiles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentProfiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedModePages(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2239,7 +2233,6 @@ pub struct IDiscRecorder2_Vtbl {
     SupportedModePages: usize,
     pub ExclusiveAccessOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiscRecorder2Ex(::windows_core::IUnknown);
@@ -2271,7 +2264,7 @@ impl IDiscRecorder2Ex {
     pub unsafe fn GetTrackInformation(&self, address: u32, addresstype: IMAPI_READ_TRACK_ADDRESS_TYPE, trackinformation: *mut *mut u8, bytesize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTrackInformation)(::windows_core::Interface::as_raw(self), address, addresstype, trackinformation, bytesize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFeaturePage<P0>(&self, requestedfeature: IMAPI_FEATURE_PAGE_TYPE, currentfeatureonly: P0, featuredata: *mut *mut u8, bytesize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -2285,7 +2278,7 @@ impl IDiscRecorder2Ex {
     pub unsafe fn SetModePage(&self, requesttype: IMAPI_MODE_PAGE_REQUEST_TYPE, data: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetModePage)(::windows_core::Interface::as_raw(self), requesttype, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSupportedFeaturePages<P0>(&self, currentfeatureonly: P0, featuredata: *mut *mut IMAPI_FEATURE_PAGE_TYPE, bytesize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -2293,7 +2286,7 @@ impl IDiscRecorder2Ex {
     {
         (::windows_core::Interface::vtable(self).GetSupportedFeaturePages)(::windows_core::Interface::as_raw(self), currentfeatureonly.into_param().abi(), featuredata, bytesize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSupportedProfiles<P0>(&self, currentonly: P0, profiletypes: *mut *mut IMAPI_PROFILE_TYPE, validprofiles: *mut u32) -> ::windows_core::Result<()>
     where
@@ -2356,7 +2349,6 @@ pub struct IDiscRecorder2Ex_Vtbl {
     pub GetMaximumNonPageAlignedTransferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows_core::HRESULT,
     pub GetMaximumPageAlignedTransferSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDiscMasterFormats(::windows_core::IUnknown);
@@ -2391,7 +2383,6 @@ pub struct IEnumDiscMasterFormats_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDiscRecorders(::windows_core::IUnknown);
@@ -2426,12 +2417,11 @@ pub struct IEnumDiscRecorders_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumFsiItems(::windows_core::IUnknown);
 impl IEnumFsiItems {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IFsiItem>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -2466,12 +2456,11 @@ pub struct IEnumFsiItems_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumProgressItems(::windows_core::IUnknown);
 impl IEnumProgressItems {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IProgressItem>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -2506,14 +2495,14 @@ pub struct IEnumProgressItems_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSystemImage(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImage {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Root(&self) -> ::windows_core::Result<IFsiDirectoryItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -2533,7 +2522,7 @@ impl IFileSystemImage {
     pub unsafe fn SetFreeMediaBlocks(&self, newval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFreeMediaBlocks)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMaxMediaBlocksFromDevice<P0>(&self, discrecorder: P0) -> ::windows_core::Result<()>
     where
@@ -2559,13 +2548,13 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ImportedVolumeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BootImageOptions(&self) -> ::windows_core::Result<IBootOptions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BootImageOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBootImageOptions<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -2595,13 +2584,13 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ChangePoint)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StrictFileSystemCompliance(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StrictFileSystemCompliance)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStrictFileSystemCompliance<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -2609,13 +2598,13 @@ impl IFileSystemImage {
     {
         (::windows_core::Interface::vtable(self).SetStrictFileSystemCompliance)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseRestrictedCharacterSet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UseRestrictedCharacterSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseRestrictedCharacterSet<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -2641,13 +2630,13 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UDFRevision)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UDFRevisionsSupported(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UDFRevisionsSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ChooseImageDefaults<P0>(&self, discrecorder: P0) -> ::windows_core::Result<()>
     where
@@ -2665,13 +2654,13 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ISO9660InterchangeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ISO9660InterchangeLevelsSupported(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ISO9660InterchangeLevelsSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateResultImage(&self) -> ::windows_core::Result<IFileSystemImageResult> {
         let mut result__ = ::std::mem::zeroed();
@@ -2688,7 +2677,7 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CalculateDiscIdentifier)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IdentifyFileSystemsOnDisc<P0>(&self, discrecorder: P0) -> ::windows_core::Result<FsiFileSystems>
     where
@@ -2714,7 +2703,7 @@ impl IFileSystemImage {
     pub unsafe fn LockInChangePoint(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockInChangePoint)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDirectoryItem<P0>(&self, name: P0) -> ::windows_core::Result<IFsiDirectoryItem>
     where
@@ -2723,7 +2712,7 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirectoryItem)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileItem<P0>(&self, name: P0) -> ::windows_core::Result<IFsiFileItem>
     where
@@ -2744,13 +2733,13 @@ impl IFileSystemImage {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VolumeNameISO9660)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StageFiles(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StageFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStageFiles<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -2758,13 +2747,13 @@ impl IFileSystemImage {
     {
         (::windows_core::Interface::vtable(self).SetStageFiles)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MultisessionInterfaces(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MultisessionInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMultisessionInterfaces)(::windows_core::Interface::as_raw(self), newval).ok()
@@ -2893,14 +2882,14 @@ pub struct IFileSystemImage_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetMultisessionInterfaces: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSystemImage2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImage2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Root(&self) -> ::windows_core::Result<IFsiDirectoryItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -2920,7 +2909,7 @@ impl IFileSystemImage2 {
     pub unsafe fn SetFreeMediaBlocks(&self, newval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFreeMediaBlocks)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMaxMediaBlocksFromDevice<P0>(&self, discrecorder: P0) -> ::windows_core::Result<()>
     where
@@ -2946,13 +2935,13 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ImportedVolumeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BootImageOptions(&self) -> ::windows_core::Result<IBootOptions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BootImageOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBootImageOptions<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -2982,13 +2971,13 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ChangePoint)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StrictFileSystemCompliance(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.StrictFileSystemCompliance)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStrictFileSystemCompliance<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -2996,13 +2985,13 @@ impl IFileSystemImage2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetStrictFileSystemCompliance)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseRestrictedCharacterSet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UseRestrictedCharacterSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseRestrictedCharacterSet<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3028,13 +3017,13 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UDFRevision)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UDFRevisionsSupported(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UDFRevisionsSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ChooseImageDefaults<P0>(&self, discrecorder: P0) -> ::windows_core::Result<()>
     where
@@ -3052,13 +3041,13 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ISO9660InterchangeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ISO9660InterchangeLevelsSupported(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ISO9660InterchangeLevelsSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateResultImage(&self) -> ::windows_core::Result<IFileSystemImageResult> {
         let mut result__ = ::std::mem::zeroed();
@@ -3075,7 +3064,7 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CalculateDiscIdentifier)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IdentifyFileSystemsOnDisc<P0>(&self, discrecorder: P0) -> ::windows_core::Result<FsiFileSystems>
     where
@@ -3101,7 +3090,7 @@ impl IFileSystemImage2 {
     pub unsafe fn LockInChangePoint(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LockInChangePoint)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDirectoryItem<P0>(&self, name: P0) -> ::windows_core::Result<IFsiDirectoryItem>
     where
@@ -3110,7 +3099,7 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateDirectoryItem)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileItem<P0>(&self, name: P0) -> ::windows_core::Result<IFsiFileItem>
     where
@@ -3131,13 +3120,13 @@ impl IFileSystemImage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.VolumeNameISO9660)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StageFiles(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.StageFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStageFiles<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3145,24 +3134,24 @@ impl IFileSystemImage2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetStageFiles)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MultisessionInterfaces(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MultisessionInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMultisessionInterfaces)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BootImageOptionsArray(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BootImageOptionsArray)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBootImageOptionsArray)(::windows_core::Interface::as_raw(self), newval).ok()
@@ -3192,14 +3181,14 @@ pub struct IFileSystemImage2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetBootImageOptionsArray: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSystemImage3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImage3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Root(&self) -> ::windows_core::Result<IFsiDirectoryItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -3219,7 +3208,7 @@ impl IFileSystemImage3 {
     pub unsafe fn SetFreeMediaBlocks(&self, newval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetFreeMediaBlocks)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMaxMediaBlocksFromDevice<P0>(&self, discrecorder: P0) -> ::windows_core::Result<()>
     where
@@ -3245,13 +3234,13 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ImportedVolumeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BootImageOptions(&self) -> ::windows_core::Result<IBootOptions> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.BootImageOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBootImageOptions<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3281,13 +3270,13 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ChangePoint)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StrictFileSystemCompliance(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.StrictFileSystemCompliance)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStrictFileSystemCompliance<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3295,13 +3284,13 @@ impl IFileSystemImage3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetStrictFileSystemCompliance)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseRestrictedCharacterSet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.UseRestrictedCharacterSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseRestrictedCharacterSet<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3327,13 +3316,13 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.UDFRevision)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UDFRevisionsSupported(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.UDFRevisionsSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ChooseImageDefaults<P0>(&self, discrecorder: P0) -> ::windows_core::Result<()>
     where
@@ -3351,13 +3340,13 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ISO9660InterchangeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ISO9660InterchangeLevelsSupported(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ISO9660InterchangeLevelsSupported)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateResultImage(&self) -> ::windows_core::Result<IFileSystemImageResult> {
         let mut result__ = ::std::mem::zeroed();
@@ -3374,7 +3363,7 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CalculateDiscIdentifier)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IdentifyFileSystemsOnDisc<P0>(&self, discrecorder: P0) -> ::windows_core::Result<FsiFileSystems>
     where
@@ -3400,7 +3389,7 @@ impl IFileSystemImage3 {
     pub unsafe fn LockInChangePoint(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.LockInChangePoint)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDirectoryItem<P0>(&self, name: P0) -> ::windows_core::Result<IFsiDirectoryItem>
     where
@@ -3409,7 +3398,7 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateDirectoryItem)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileItem<P0>(&self, name: P0) -> ::windows_core::Result<IFsiFileItem>
     where
@@ -3430,13 +3419,13 @@ impl IFileSystemImage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.VolumeNameISO9660)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StageFiles(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.StageFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStageFiles<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3444,35 +3433,35 @@ impl IFileSystemImage3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetStageFiles)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MultisessionInterfaces(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.MultisessionInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMultisessionInterfaces(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetMultisessionInterfaces)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BootImageOptionsArray(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BootImageOptionsArray)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBootImageOptionsArray(&self, newval: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetBootImageOptionsArray)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRedundantUdfMetadataFiles(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateRedundantUdfMetadataFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCreateRedundantUdfMetadataFiles<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3480,7 +3469,7 @@ impl IFileSystemImage3 {
     {
         (::windows_core::Interface::vtable(self).SetCreateRedundantUdfMetadataFiles)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProbeSpecificFileSystem(&self, filesystemtoprobe: FsiFileSystems) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3515,20 +3504,20 @@ pub struct IFileSystemImage3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ProbeSpecificFileSystem: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSystemImageResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImageResult {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImageStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ImageStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProgressItems(&self) -> ::windows_core::Result<IProgressItems> {
         let mut result__ = ::std::mem::zeroed();
@@ -3574,20 +3563,20 @@ pub struct IFileSystemImageResult_Vtbl {
     pub BlockSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
     pub DiscId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileSystemImageResult2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFileSystemImageResult2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImageStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ImageStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProgressItems(&self) -> ::windows_core::Result<IProgressItems> {
         let mut result__ = ::std::mem::zeroed();
@@ -3605,7 +3594,7 @@ impl IFileSystemImageResult2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DiscId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModifiedBlocks(&self) -> ::windows_core::Result<IBlockRangeList> {
         let mut result__ = ::std::mem::zeroed();
@@ -3632,7 +3621,7 @@ pub struct IFileSystemImageResult2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ModifiedBlocks: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3668,13 +3657,13 @@ impl IFsiDirectoryItem {
     pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetLastModifiedTime)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsHidden(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsHidden)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3690,13 +3679,13 @@ impl IFsiDirectoryItem {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FileSystemPath)(::windows_core::Interface::as_raw(self), filesystem, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, path: P0) -> ::windows_core::Result<IFsiItem>
     where
@@ -3719,7 +3708,7 @@ impl IFsiDirectoryItem {
     {
         (::windows_core::Interface::vtable(self).AddDirectory)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFile<P0, P1>(&self, path: P0, filedata: P1) -> ::windows_core::Result<()>
     where
@@ -3728,7 +3717,7 @@ impl IFsiDirectoryItem {
     {
         (::windows_core::Interface::vtable(self).AddFile)(::windows_core::Interface::as_raw(self), path.into_param().abi(), filedata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddTree<P0, P1>(&self, sourcedirectory: P0, includebasedirectory: P1) -> ::windows_core::Result<()>
     where
@@ -3737,7 +3726,7 @@ impl IFsiDirectoryItem {
     {
         (::windows_core::Interface::vtable(self).AddTree)(::windows_core::Interface::as_raw(self), sourcedirectory.into_param().abi(), includebasedirectory.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, item: P0) -> ::windows_core::Result<()>
     where
@@ -3799,7 +3788,7 @@ pub struct IFsiDirectoryItem_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub RemoveTree: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3835,13 +3824,13 @@ impl IFsiDirectoryItem2 {
     pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetLastModifiedTime)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsHidden(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsHidden)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3857,13 +3846,13 @@ impl IFsiDirectoryItem2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.FileSystemPath)(::windows_core::Interface::as_raw(self), filesystem, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item<P0>(&self, path: P0) -> ::windows_core::Result<IFsiItem>
     where
@@ -3886,7 +3875,7 @@ impl IFsiDirectoryItem2 {
     {
         (::windows_core::Interface::vtable(self).base__.AddDirectory)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddFile<P0, P1>(&self, path: P0, filedata: P1) -> ::windows_core::Result<()>
     where
@@ -3895,7 +3884,7 @@ impl IFsiDirectoryItem2 {
     {
         (::windows_core::Interface::vtable(self).base__.AddFile)(::windows_core::Interface::as_raw(self), path.into_param().abi(), filedata.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddTree<P0, P1>(&self, sourcedirectory: P0, includebasedirectory: P1) -> ::windows_core::Result<()>
     where
@@ -3904,7 +3893,7 @@ impl IFsiDirectoryItem2 {
     {
         (::windows_core::Interface::vtable(self).base__.AddTree)(::windows_core::Interface::as_raw(self), sourcedirectory.into_param().abi(), includebasedirectory.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, item: P0) -> ::windows_core::Result<()>
     where
@@ -3924,7 +3913,7 @@ impl IFsiDirectoryItem2 {
     {
         (::windows_core::Interface::vtable(self).base__.RemoveTree)(::windows_core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddTreeWithNamedStreams<P0, P1>(&self, sourcedirectory: P0, includebasedirectory: P1) -> ::windows_core::Result<()>
     where
@@ -3954,7 +3943,7 @@ pub struct IFsiDirectoryItem2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddTreeWithNamedStreams: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3990,13 +3979,13 @@ impl IFsiFileItem {
     pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetLastModifiedTime)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsHidden(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsHidden)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -4024,13 +4013,13 @@ impl IFsiFileItem {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataSize32BitHigh)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Data(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Data)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetData<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -4066,7 +4055,7 @@ pub struct IFsiFileItem_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetData: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4102,13 +4091,13 @@ impl IFsiFileItem2 {
     pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetLastModifiedTime)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsHidden(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsHidden)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -4136,13 +4125,13 @@ impl IFsiFileItem2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DataSize32BitHigh)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Data(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Data)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetData<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -4150,19 +4139,19 @@ impl IFsiFileItem2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetData)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FsiNamedStreams(&self) -> ::windows_core::Result<IFsiNamedStreams> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FsiNamedStreams)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsNamedStream(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsNamedStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStream<P0, P1>(&self, name: P0, streamdata: P1) -> ::windows_core::Result<()>
     where
@@ -4177,13 +4166,13 @@ impl IFsiFileItem2 {
     {
         (::windows_core::Interface::vtable(self).RemoveStream)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRealTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsRealTime<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -4229,7 +4218,7 @@ pub struct IFsiFileItem2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetIsRealTime: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4265,13 +4254,13 @@ impl IFsiItem {
     pub unsafe fn SetLastModifiedTime(&self, newval: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLastModifiedTime)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsHidden(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsHidden)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHidden<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -4322,20 +4311,20 @@ pub struct IFsiItem_Vtbl {
     pub FileSystemName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub FileSystemPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filesystem: FsiFileSystems, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFsiNamedStreams(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsiNamedStreams {
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<IFsiFileItem2> {
         let mut result__ = ::std::mem::zeroed();
@@ -4376,7 +4365,7 @@ pub struct IFsiNamedStreams_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT,
     pub EnumNamedStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4387,7 +4376,7 @@ impl IIsoImageManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Stream(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -4399,7 +4388,7 @@ impl IIsoImageManager {
     {
         (::windows_core::Interface::vtable(self).SetPath)(::windows_core::Interface::as_raw(self), val.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetStream<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -4438,7 +4427,6 @@ pub struct IIsoImageManager_Vtbl {
     SetStream: usize,
     pub Validate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJolietDiscMaster(::windows_core::IUnknown);
@@ -4455,7 +4443,7 @@ impl IJolietDiscMaster {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataBlockSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn AddData<P0>(&self, pstorage: P0, lfileoverwrite: i32) -> ::windows_core::Result<()>
     where
@@ -4463,13 +4451,13 @@ impl IJolietDiscMaster {
     {
         (::windows_core::Interface::vtable(self).AddData)(::windows_core::Interface::as_raw(self), pstorage.into_param().abi(), lfileoverwrite).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetJolietProperties(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyStorage> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJolietProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn SetJolietProperties<P0>(&self, ppropstg: P0) -> ::windows_core::Result<()>
     where
@@ -4505,20 +4493,20 @@ pub struct IJolietDiscMaster_Vtbl {
     #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
     SetJolietProperties: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultisession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisession {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupportedOnCurrentMediaState(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSupportedOnCurrentMediaState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4526,13 +4514,13 @@ impl IMultisession {
     {
         (::windows_core::Interface::vtable(self).SetInUse)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InUse(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportRecorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
@@ -4571,20 +4559,20 @@ pub struct IMultisession_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ImportRecorder: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultisessionRandomWrite(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisessionRandomWrite {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupportedOnCurrentMediaState(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsSupportedOnCurrentMediaState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4592,13 +4580,13 @@ impl IMultisessionRandomWrite {
     {
         (::windows_core::Interface::vtable(self).base__.SetInUse)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InUse(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.InUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportRecorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
@@ -4636,20 +4624,20 @@ pub struct IMultisessionRandomWrite_Vtbl {
     pub LastWrittenAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub TotalSectorsOnMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultisessionSequential(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisessionSequential {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupportedOnCurrentMediaState(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsSupportedOnCurrentMediaState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4657,19 +4645,19 @@ impl IMultisessionSequential {
     {
         (::windows_core::Interface::vtable(self).base__.SetInUse)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InUse(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.InUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportRecorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ImportRecorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFirstDataSession(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4716,20 +4704,20 @@ pub struct IMultisessionSequential_Vtbl {
     pub NextWritableAddress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub FreeSectorsOnMedia: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultisessionSequential2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMultisessionSequential2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupportedOnCurrentMediaState(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsSupportedOnCurrentMediaState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInUse<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4737,19 +4725,19 @@ impl IMultisessionSequential2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetInUse)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InUse(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.InUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportRecorder(&self) -> ::windows_core::Result<IDiscRecorder2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ImportRecorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFirstDataSession(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4793,7 +4781,7 @@ pub struct IMultisessionSequential2_Vtbl {
     pub base__: IMultisessionSequential_Vtbl,
     pub WriteUnitSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4837,20 +4825,20 @@ pub struct IProgressItem_Vtbl {
     pub LastBlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, block: *mut u32) -> ::windows_core::HRESULT,
     pub BlockCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blocks: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProgressItems(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IProgressItems {
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<IProgressItem> {
         let mut result__ = ::std::mem::zeroed();
@@ -4860,13 +4848,13 @@ impl IProgressItems {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProgressItemFromBlock(&self, block: u32) -> ::windows_core::Result<IProgressItem> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProgressItemFromBlock)(::windows_core::Interface::as_raw(self), block, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ProgressItemFromDescription<P0>(&self, description: P0) -> ::windows_core::Result<IProgressItem>
     where
@@ -4914,20 +4902,20 @@ pub struct IProgressItems_Vtbl {
     ProgressItemFromDescription: usize,
     pub EnumProgressItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawCDImageCreator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRawCDImageCreator {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateResultImage(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateResultImage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddTrack<P0>(&self, datatype: IMAPI_CD_SECTOR_TYPE, data: P0) -> ::windows_core::Result<i32>
     where
@@ -4936,7 +4924,7 @@ impl IRawCDImageCreator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddTrack)(::windows_core::Interface::as_raw(self), datatype, data.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSpecialPregap<P0>(&self, data: P0) -> ::windows_core::Result<()>
     where
@@ -4944,7 +4932,7 @@ impl IRawCDImageCreator {
     {
         (::windows_core::Interface::vtable(self).AddSpecialPregap)(::windows_core::Interface::as_raw(self), data.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddSubcodeRWGenerator<P0>(&self, subcode: P0) -> ::windows_core::Result<()>
     where
@@ -4970,7 +4958,7 @@ impl IRawCDImageCreator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartOfLeadoutLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisableGaplessAudio<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4978,7 +4966,7 @@ impl IRawCDImageCreator {
     {
         (::windows_core::Interface::vtable(self).SetDisableGaplessAudio)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisableGaplessAudio(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5001,7 +4989,7 @@ impl IRawCDImageCreator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartingTrackNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_TrackInfo(&self, trackindex: i32) -> ::windows_core::Result<IRawCDImageTrackInfo> {
         let mut result__ = ::std::mem::zeroed();
@@ -5015,7 +5003,7 @@ impl IRawCDImageCreator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LastUsedUserSectorInImage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExpectedTableOfContents(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -5081,7 +5069,7 @@ pub struct IRawCDImageCreator_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ExpectedTableOfContents: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5121,13 +5109,13 @@ impl IRawCDImageTrackInfo {
     pub unsafe fn SetDigitalAudioCopySetting(&self, value: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDigitalAudioCopySetting)(::windows_core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AudioHasPreemphasis(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioHasPreemphasis)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAudioHasPreemphasis<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -5135,7 +5123,7 @@ impl IRawCDImageTrackInfo {
     {
         (::windows_core::Interface::vtable(self).SetAudioHasPreemphasis)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TrackIndexes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -5186,7 +5174,6 @@ pub struct IRawCDImageTrackInfo_Vtbl {
     pub AddTrackIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbaoffset: i32) -> ::windows_core::HRESULT,
     pub ClearTrackIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbaoffset: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRedbookDiscMaster(::windows_core::IUnknown);
@@ -5241,34 +5228,34 @@ pub struct IRedbookDiscMaster_Vtbl {
     pub AddAudioTrackBlocks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pby: *const u8, cb: i32) -> ::windows_core::HRESULT,
     pub CloseAudioTrack: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamConcatenate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamConcatenate {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.base__.Write)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(plibnewposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSize)(::windows_core::Interface::as_raw(self), libnewsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
     where
@@ -5276,38 +5263,38 @@ impl IStreamConcatenate {
     {
         (::windows_core::Interface::vtable(self).base__.CopyTo)(::windows_core::Interface::as_raw(self), pstm.into_param().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self), grfcommitflags.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Revert)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UnlockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stat)(::windows_core::Interface::as_raw(self), pstatstg, grfstatflag.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<P0, P1>(&self, stream1: P0, stream2: P1) -> ::windows_core::Result<()>
     where
@@ -5316,12 +5303,12 @@ impl IStreamConcatenate {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), stream1.into_param().abi(), stream2.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize2(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Append<P0>(&self, stream: P0) -> ::windows_core::Result<()>
     where
@@ -5329,7 +5316,7 @@ impl IStreamConcatenate {
     {
         (::windows_core::Interface::vtable(self).Append)(::windows_core::Interface::as_raw(self), stream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Append2(&self, streams: &[::core::option::Option<super::super::System::Com::IStream>]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Append2)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams.as_ptr()), streams.len() as _).ok()
@@ -5367,34 +5354,34 @@ pub struct IStreamConcatenate_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Append2: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamInterleave(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamInterleave {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.base__.Write)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(plibnewposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSize)(::windows_core::Interface::as_raw(self), libnewsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
     where
@@ -5402,38 +5389,38 @@ impl IStreamInterleave {
     {
         (::windows_core::Interface::vtable(self).base__.CopyTo)(::windows_core::Interface::as_raw(self), pstm.into_param().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self), grfcommitflags.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Revert)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UnlockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stat)(::windows_core::Interface::as_raw(self), pstatstg, grfstatflag.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize(&self, streams: *const ::core::option::Option<super::super::System::Com::IStream>, interleavesizes: *const u32, streamcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(streams), interleavesizes, streamcount).ok()
@@ -5459,34 +5446,34 @@ pub struct IStreamInterleave_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Initialize: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamPseudoRandomBased(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IStreamPseudoRandomBased {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.base__.Read)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).base__.base__.Write)(::windows_core::Interface::as_raw(self), pv, cb, ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut())))
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), dlibmove, dworigin, ::core::mem::transmute(plibnewposition.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSize)(::windows_core::Interface::as_raw(self), libnewsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyTo<P0>(&self, pstm: P0, cb: u64, pcbread: ::core::option::Option<*mut u64>, pcbwritten: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
     where
@@ -5494,32 +5481,32 @@ impl IStreamPseudoRandomBased {
     {
         (::windows_core::Interface::vtable(self).base__.CopyTo)(::windows_core::Interface::as_raw(self), pstm.into_param().abi(), cb, ::core::mem::transmute(pcbread.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pcbwritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self), grfcommitflags.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Revert(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Revert)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UnlockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stat)(::windows_core::Interface::as_raw(self), pstatstg, grfstatflag.0 as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::std::mem::zeroed();
@@ -5559,14 +5546,14 @@ pub struct IStreamPseudoRandomBased_Vtbl {
     pub put_ExtendedSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, values: *const u32, ecount: u32) -> ::windows_core::HRESULT,
     pub get_ExtendedSeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, values: *mut *mut u32, ecount: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWriteEngine2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWriteEngine2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteSection<P0>(&self, data: P0, startingblockaddress: i32, numberofblocks: i32) -> ::windows_core::Result<()>
     where
@@ -5587,7 +5574,7 @@ impl IWriteEngine2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recorder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseStreamingWrite12<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -5595,7 +5582,7 @@ impl IWriteEngine2 {
     {
         (::windows_core::Interface::vtable(self).SetUseStreamingWrite12)(::windows_core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseStreamingWrite12(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5622,7 +5609,7 @@ impl IWriteEngine2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BytesPerSector)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteInProgress(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5670,7 +5657,7 @@ pub struct IWriteEngine2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     WriteInProgress: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5729,7 +5716,7 @@ pub struct IWriteEngine2EventArgs_Vtbl {
     pub UsedSystemBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
     pub FreeSystemBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5740,7 +5727,7 @@ impl IWriteSpeedDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RotationTypeIsPureCAV(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5773,1285 +5760,645 @@ pub struct IWriteSpeedDescriptor_Vtbl {
     RotationTypeIsPureCAV: usize,
     pub WriteSpeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const BlockRange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb507ca27_2204_11dd_966a_001aa01bbc58);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const BlockRangeList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb507ca28_2204_11dd_966a_001aa01bbc58);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const BootOptions: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fce_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_DNSRESOLVERRECORDSINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd0b4366_8e03_11d2_94f6_00c04f79f1d6);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_DSN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22b55731_f5f8_4d23_bd8f_87b52371a73a);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_GET_AUX_DOMAIN_INFO_FLAGS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84ff368a_fab3_43d7_bcdf_692c5b46e6b1);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_LOG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93d0a538_2c1e_4b68_a7c9_d73a8aa6ee97);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_MAXMSGSIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebf159de_a67e_11d2_94f7_00c04f79f1d6);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_MSGTRACKLOG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6df52aa_7db0_11d2_94f4_00c04f79f1d6);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_BEFORE_DATA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c92_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_INBOUND_COMMAND: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c8d_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_MESSAGE_START: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c90_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_PER_RECIPIENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c91_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_SERVER_RESPONSE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c8e_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_SESSION_END: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c93_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_ON_SESSION_START: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6628c8f_0d5e_11d2_aa68_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_STORE_DRIVER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59175850_e533_11d1_aa67_00c04fa345f6);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_TRANSPORT_CATEGORIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x960252a3_0a3a_11d2_9e00_00c04fa322ba);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_TRANSPORT_POSTCATEGORIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x76719654_05a6_11d2_9dfd_00c04fa322ba);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_TRANSPORT_PRECATEGORIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3acfb0d_83ff_11d2_9e14_00c04fa322ba);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_TRANSPORT_ROUTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x283430c9_1850_11d2_9e03_00c04fa322ba);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CATID_SMTP_TRANSPORT_SUBMISSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff3caa23_00b9_11d2_9dfb_00c04fa322ba);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const CLSID_SmtpCat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb23c35b7_9219_11d2_9e17_00c04fa322ba);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DDISCFORMAT2DATAEVENTS_UPDATE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DDISCFORMAT2RAWCDEVENTS_UPDATE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DDISCFORMAT2TAOEVENTS_UPDATE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DDISCMASTER2EVENTS_DEVICEADDED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DDISCMASTER2EVENTS_DEVICEREMOVED: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DFILESYSTEMIMAGEEVENTS_UPDATE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DFILESYSTEMIMAGEIMPORTEVENTS_UPDATEIMPORT: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_DWRITEENGINE2EVENTS_UPDATE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IBLOCKRANGELIST_BLOCKRANGES: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IBLOCKRANGE_ENDLBA: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IBLOCKRANGE_STARTLBA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATAEVENTARGS_CURRENTACTION: u32 = 771u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATAEVENTARGS_ELAPSEDTIME: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATAEVENTARGS_ESTIMATEDREMAININGTIME: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATAEVENTARGS_ESTIMATEDTOTALTIME: u32 = 770u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_BUFFERUNDERRUNFREEDISABLED: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_CANCELWRITE: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_CLIENTNAME: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_CURRENTMEDIASTATUS: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_CURRENTMEDIATYPE: u32 = 271u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_CURRENTROTATIONTYPEISPURECAV: u32 = 276u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_CURRENTWRITESPEED: u32 = 275u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_DISABLEDVDCOMPATIBILITYMODE: u32 = 270u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_FORCEMEDIATOBECLOSED: u32 = 269u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_FORCEOVERWRITE: u32 = 279u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_FREESECTORS: u32 = 265u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_LASTSECTOROFPREVIOUSSESSION: u32 = 268u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_MUTLISESSIONINTERFACES: u32 = 280u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_NEXTWRITABLEADDRESS: u32 = 266u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_POSTGAPALREADYINIMAGE: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_RECORDER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_REQUESTEDROTATIONTYPEISPURECAV: u32 = 274u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_REQUESTEDWRITESPEED: u32 = 273u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_SETWRITESPEED: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_STARTSECTOROFPREVIOUSSESSION: u32 = 267u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_SUPPORTEDWRITESPEEDDESCRIPTORS: u32 = 278u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_SUPPORTEDWRITESPEEDS: u32 = 277u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_TOTALSECTORS: u32 = 264u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_WRITE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2DATA_WRITEPROTECTSTATUS: u32 = 263u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2ERASEEVENTS_UPDATE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2ERASE_CLIENTNAME: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2ERASE_ERASEMEDIA: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2ERASE_FULLERASE: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2ERASE_MEDIATYPE: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2ERASE_RECORDER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCDEVENTARGS_CURRENTACTION: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCDEVENTARGS_CURRENTTRACKNUMBER: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCDEVENTARGS_ELAPSEDTIME: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCDEVENTARGS_ESTIMATEDREMAININGTIME: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCDEVENTARGS_ESTIMATEDTOTALTIME: u32 = 770u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_BUFFERUNDERRUNFREEDISABLED: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_CANCELWRITE: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_CLIENTNAME: u32 = 266u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_CURRENTMEDIATYPE: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_CURRENTROTATIONTYPEISPURECAV: u32 = 270u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_CURRENTWRITESPEED: u32 = 269u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_LASTPOSSIBLESTARTOFLEADOUT: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_PREPAREMEDIA: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_RECORDER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_RELEASEMEDIA: u32 = 516u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_REQUESTEDDATASECTORTYPE: u32 = 265u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_REQUESTEDROTATIONTYPEISPURECAV: u32 = 268u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_REQUESTEDWRITESPEED: u32 = 267u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_SETWRITESPEED: u32 = 517u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_STARTOFNEXTSESSION: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_SUPPORTEDDATASECTORTYPES: u32 = 264u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_SUPPORTEDWRITESPEEDDESCRIPTORS: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_SUPPORTEDWRITESPEEDS: u32 = 271u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_WRITEMEDIA: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2RAWCD_WRITEMEDIAWITHVALIDATION: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAOEVENTARGS_CURRENTACTION: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAOEVENTARGS_CURRENTTRACKNUMBER: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAOEVENTARGS_ELAPSEDTIME: u32 = 770u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAOEVENTARGS_ESTIMATEDREMAININGTIME: u32 = 771u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAOEVENTARGS_ESTIMATEDTOTALTIME: u32 = 772u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_ADDAUDIOTRACK: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_BUFFERUNDERRUNFREEDISABLED: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_CANCELADDTRACK: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_CLIENTNAME: u32 = 270u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_CURRENTMEDIATYPE: u32 = 267u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_CURRENTROTATIONTYPEISPURECAV: u32 = 274u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_CURRENTWRITESPEED: u32 = 273u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_DONOTFINALIZEMEDIA: u32 = 263u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_EXPECTEDTABLEOFCONTENTS: u32 = 266u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_FINISHMEDIA: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_FREESECTORSONMEDIA: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_NUMBEROFEXISTINGTRACKS: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_PREPAREMEDIA: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_RECORDER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_REQUESTEDROTATIONTYPEISPURECAV: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_REQUESTEDWRITESPEED: u32 = 271u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_SETWRITESPEED: u32 = 516u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_SUPPORTEDWRITESPEEDDESCRIPTORS: u32 = 276u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_SUPPORTEDWRITESPEEDS: u32 = 275u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_TOTALSECTORSONMEDIA: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2TAO_USEDSECTORSONMEDIA: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2_MEDIAHEURISTICALLYBLANK: u32 = 1793u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2_MEDIAPHYSICALLYBLANK: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2_MEDIASUPPORTED: u32 = 2049u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2_RECORDERSUPPORTED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCFORMAT2_SUPPORTEDMEDIATYPES: u32 = 1794u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_ACQUIREEXCLUSIVEACCESS: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_ACTIVEDISCRECORDER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_CLOSETRAY: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_CURRENTFEATUREPAGES: u32 = 521u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_CURRENTPROFILES: u32 = 523u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_DEVICECANLOADMEDIA: u32 = 518u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_DISABLEMCN: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_EJECTMEDIA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_ENABLEMCN: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_EXCLUSIVEACCESSOWNER: u32 = 525u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_INITIALIZEDISCRECORDER: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_LEGACYDEVICENUMBER: u32 = 519u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_PRODUCTID: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_PRODUCTREVISION: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_RELEASEEXCLUSIVEACCESS: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_SUPPORTEDFEATUREPAGES: u32 = 520u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_SUPPORTEDMODEPAGES: u32 = 524u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_SUPPORTEDPROFILES: u32 = 522u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_VENDORID: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_VOLUMENAME: u32 = 516u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IDISCRECORDER2_VOLUMEPATHNAMES: u32 = 517u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_FIRSTDATASESSION: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_FREESECTORS: u32 = 516u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_IMPORTRECORDER: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_INUSE: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_LASTSECTOROFPREVIOUSSESSION: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_LASTWRITTENADDRESS: u32 = 518u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_NEXTWRITABLEADDRESS: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_SECTORSONMEDIA: u32 = 519u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_STARTSECTOROFPREVIOUSSESSION: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_SUPPORTEDONCURRENTMEDIA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IMULTISESSION_WRITEUNITSIZE: u32 = 517u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_ADDSPECIALPREGAP: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_ADDSUBCODERWGENERATOR: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_ADDTRACK: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_CREATERESULTIMAGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_DISABLEGAPLESSAUDIO: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_EXPECTEDTABLEOFCONTENTS: u32 = 265u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_MEDIACATALOGNUMBER: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_NUMBEROFEXISTINGTRACKS: u32 = 263u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_RESULTINGIMAGETYPE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_STARTINGTRACKNUMBER: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_STARTOFLEADOUT: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_STARTOFLEADOUTLIMIT: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_TRACKINFO: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDIMAGECREATOR_USEDSECTORSONDISC: u32 = 264u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_AUDIOHASPREEMPHASIS: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_DIGITALAUDIOCOPYSETTING: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_ISRC: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_SECTORCOUNT: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_SECTORTYPE: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_STARTINGLBA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IRAWCDTRACKINFO_TRACKNUMBER: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_FREESYSTEMBUFFER: u32 = 264u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_LASTREADLBA: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_LASTWRITTENLBA: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_SECTORCOUNT: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_STARTLBA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_TOTALDEVICEBUFFER: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_TOTALSYSTEMBUFFER: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_USEDDEVICEBUFFER: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2EVENTARGS_USEDSYSTEMBUFFER: u32 = 263u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_BYTESPERSECTOR: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_CANCELWRITE: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_DISCRECORDER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_ENDINGSECTORSPERSECOND: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_STARTINGSECTORSPERSECOND: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_USESTREAMINGWRITE12: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_WRITEINPROGRESS: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const DISPID_IWRITEENGINE2_WRITESECTION: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const Emulation12MFloppy: EmulationType = EmulationType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const Emulation144MFloppy: EmulationType = EmulationType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const Emulation288MFloppy: EmulationType = EmulationType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const EmulationHardDisk: EmulationType = EmulationType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const EmulationNone: EmulationType = EmulationType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const EnumFsiItems: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fc6_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const EnumProgressItems: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fca_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FileSystemImageResult: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fcc_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiDirectoryItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fc8_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fc7_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileSystemISO9660: FsiFileSystems = FsiFileSystems(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileSystemJoliet: FsiFileSystems = FsiFileSystems(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileSystemNone: FsiFileSystems = FsiFileSystems(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileSystemUDF: FsiFileSystems = FsiFileSystems(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiFileSystemUnknown: FsiFileSystems = FsiFileSystems(1073741824i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiItemDirectory: FsiItemType = FsiItemType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiItemFile: FsiItemType = FsiItemType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiItemNotFound: FsiItemType = FsiItemType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiNamedStreams: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6b6f8ed_6d19_44b4_b539_b159b793a32d);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const FsiStream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fcd_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const GUID_SMTPSVC_SOURCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b3c0666_e470_11d1_aa67_00c04fa345f6);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const GUID_SMTP_SOURCE_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb65c4dc_e468_11d1_aa67_00c04fa345f6);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_BOOT_ENTRY_COUNT_MAX: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_FullVersion_STR: ::windows_core::PCSTR = ::windows_core::s!("1.0");
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_FullVersion_WSTR: ::windows_core::PCWSTR = ::windows_core::w!("1.0");
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_MajorVersion: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2FS_MinorVersion: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI2_DEFAULT_COMMAND_TIMEOUT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPILib2_MajorVersion: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPILib2_MinorVersion: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_BURN_VERIFICATION_FULL: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_BURN_VERIFICATION_NONE: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_BURN_VERIFICATION_QUICK: IMAPI_BURN_VERIFICATION_LEVEL = IMAPI_BURN_VERIFICATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_AUDIO: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE1: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE1RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE2FORM0: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE2FORM0RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE2FORM1: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE2FORM1RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE2FORM2: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE2FORM2RAW: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_SECTOR_MODE_ZERO: IMAPI_CD_SECTOR_TYPE = IMAPI_CD_SECTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_PERMITTED: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_PROHIBITED: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_CD_TRACK_DIGITAL_COPY_SCMS: IMAPI_CD_TRACK_DIGITAL_COPY_SETTING = IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_ALREADYOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220958i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_BADJOLIETNAME: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220963i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_BOOTIMAGE_AND_NONBLANK_DISC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220946i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_CANNOT_WRITE_TO_MEDIA: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220948i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_COMPRESSEDSTASH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220952i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DEVICE_INVALIDTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220972i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DEVICE_NOPROPERTIES: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220975i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DEVICE_NOTACCESSIBLE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220974i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DEVICE_NOTPRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220973i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DEVICE_STILL_IN_USE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220954i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DISCFULL: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220964i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_DISCINFO: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220967i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_ENCRYPTEDSTASH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220951i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_FILEACCESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220968i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_FILEEXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220956i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_FILESYSTEM: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220969i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_GENERIC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220978i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_INITIALIZE_ENDWRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220970i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_INITIALIZE_WRITE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220971i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_INVALIDIMAGE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220962i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_LOSS_OF_STREAMING: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220953i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_MEDIUM_INVALIDTYPE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220976i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_MEDIUM_NOTPRESENT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220977i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_NOACTIVEFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220961i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_NOACTIVERECORDER: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220960i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_NOTENOUGHDISKFORSTASH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220950i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_NOTINITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220980i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_NOTOPENED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220981i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_REMOVABLESTASH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220949i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_STASHINUSE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220955i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_TRACKNOTOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220966i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_TRACKOPEN: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220965i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_TRACK_NOT_BIG_ENOUGH: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220947i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_USERABORT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220979i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_WRONGDISC: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220957i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_E_WRONGFORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220959i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_AACS: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(269i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_BD_PSEUDO_OVERWRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(56i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_BD_READ: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_BD_WRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(65i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CDRW_CAV_WRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(39i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CD_ANALOG_PLAY: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(259i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CD_MASTERING: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(46i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CD_MULTIREAD: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CD_READ: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CD_RW_MEDIA_WRITE_SUPPORT: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(55i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CD_TRACK_AT_ONCE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(45i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_CORE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DISC_CONTROL_BLOCKS: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(266i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_READ: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(48i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_RW_WRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(50i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DOUBLE_DENSITY_CD_R_WRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(49i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_CPRM: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(267i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_CSS: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(262i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_DASH_WRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(47i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_R: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(43i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_RW: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(42i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_PLUS_R_DUAL_LAYER: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(59i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_DVD_READ: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_EMBEDDED_CHANGER: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(258i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_ENHANCED_DEFECT_REPORTING: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(41i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_FIRMWARE_INFORMATION: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(268i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_FORMATTABLE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(35i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_HARDWARE_DEFECT_MANAGEMENT: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(36i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_HD_DVD_READ: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(80i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_HD_DVD_WRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(81i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_INCREMENTAL_STREAMING_WRITABLE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(33i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_LAYER_JUMP_RECORDING: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(51i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_LOGICAL_UNIT_SERIAL_NUMBER: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(264i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_MEDIA_SERIAL_NUMBER: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(265i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_MICROCODE_UPDATE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(260i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_MORPHING: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_MRW: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(40i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_POWER_MANAGEMENT: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(256i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_PROFILE_LIST: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_RANDOMLY_READABLE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_RANDOMLY_WRITABLE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_REAL_TIME_STREAMING: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(263i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_REMOVABLE_MEDIUM: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_RESTRICTED_OVERWRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(38i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_RIGID_RESTRICTED_OVERWRITE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(44i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_SECTOR_ERASABLE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(34i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_SMART: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(257i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_TIMEOUT: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(261i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_VCPS: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(272i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_WRITE_ONCE: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(37i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FEATURE_PAGE_TYPE_WRITE_PROTECT: IMAPI_FEATURE_PAGE_TYPE = IMAPI_FEATURE_PAGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_APPENDABLE: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_BLANK: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_DAMAGED: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_ERASE_REQUIRED: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(2048i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_FINALIZED: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(16384i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_FINAL_SESSION: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_INFORMATIONAL_MASK: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(15i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_NON_EMPTY_SESSION: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(4096i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_OVERWRITE_ONLY: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_RANDOMLY_WRITABLE: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_UNKNOWN: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MASK: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(64512i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_UNSUPPORTED_MEDIA: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(32768i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_MEDIA_STATE_WRITE_PROTECTED: IMAPI_FORMAT2_DATA_MEDIA_STATE = IMAPI_FORMAT2_DATA_MEDIA_STATE(8192i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_CALIBRATING_POWER: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_COMPLETED: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_FINALIZATION: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_FORMATTING_MEDIA: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_INITIALIZING_HARDWARE: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_VALIDATING_MEDIA: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_VERIFYING: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_DATA_WRITE_ACTION_WRITING_DATA: IMAPI_FORMAT2_DATA_WRITE_ACTION = IMAPI_FORMAT2_DATA_WRITE_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_COOKED: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_IS_RAW: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_SUBCODE_PQ_ONLY: IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_FINISHING: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_PREPARING: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_UNKNOWN: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_RAW_CD_WRITE_ACTION_WRITING: IMAPI_FORMAT2_RAW_CD_WRITE_ACTION = IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_FINISHING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_PREPARING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_UNKNOWN: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_VERIFYING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_FORMAT2_TAO_WRITE_ACTION_WRITING: IMAPI_FORMAT2_TAO_WRITE_ACTION = IMAPI_FORMAT2_TAO_WRITE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_BDR: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_BDRE: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_BDROM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_CDR: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_CDROM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_CDRW: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DISK: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDDASHR: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDDASHRW: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDDASHR_DUALLAYER: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDPLUSR: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDPLUSRW: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDPLUSRW_DUALLAYER: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDPLUSR_DUALLAYER: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDRAM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_DVDROM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_HDDVDR: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_HDDVDRAM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_HDDVDROM: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_MAX: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MEDIA_TYPE_UNKNOWN: IMAPI_MEDIA_PHYSICAL_TYPE = IMAPI_MEDIA_PHYSICAL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_CHANGEABLE_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_CURRENT_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_DEFAULT_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_REQUEST_TYPE_SAVED_VALUES: IMAPI_MODE_PAGE_REQUEST_TYPE = IMAPI_MODE_PAGE_REQUEST_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_CACHING: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_INFORMATIONAL_EXCEPTIONS: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(28i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_LEGACY_CAPABILITIES: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(42i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_MRW: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_POWER_CONDITION: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_READ_WRITE_ERROR_RECOVERY: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_TIMEOUT_AND_PROTECT: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_MODE_PAGE_TYPE_WRITE_PARAMETERS: IMAPI_MODE_PAGE_TYPE = IMAPI_MODE_PAGE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_AS_MO: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_BD_REWRITABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(67i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_BD_ROM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_BD_R_RANDOM_RECORDING: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(66i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_BD_R_SEQUENTIAL: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(65i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_CDROM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_CD_RECORDABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_CD_REWRITABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DDCDROM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DDCD_RECORDABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(33i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DDCD_REWRITABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(34i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVDROM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_DASH_RECORDABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_DASH_REWRITABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_DASH_RW_SEQUENTIAL: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_DASH_R_DUAL_LAYER_JUMP: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(22i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_DASH_R_DUAL_SEQUENTIAL: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_PLUS_R: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(27i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_PLUS_RW: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_PLUS_RW_DUAL: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(42i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_PLUS_R_DUAL: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(43i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_DVD_RAM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_HD_DVD_RAM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(82i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_HD_DVD_RECORDABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(81i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_HD_DVD_ROM: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(80i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_INVALID: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_MO_ERASABLE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_MO_WRITE_ONCE: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_NON_REMOVABLE_DISK: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_NON_STANDARD: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(65535i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_PROFILE_TYPE_REMOVABLE_DISK: IMAPI_PROFILE_TYPE = IMAPI_PROFILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_LBA: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_SESSION: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_READ_TRACK_ADDRESS_TYPE_TRACK: IMAPI_READ_TRACK_ADDRESS_TYPE = IMAPI_READ_TRACK_ADDRESS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_BD: u32 = 2195u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_CD: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_DVD: u32 = 680u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_SECTORS_PER_SECOND_AT_1X_HD_DVD: u32 = 4568u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_SECTOR_SIZE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_S_BUFFER_TO_SMALL: ::windows_core::HRESULT = ::windows_core::HRESULT(262657i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_S_PROPERTIESIGNORED: ::windows_core::HRESULT = ::windows_core::HRESULT(262656i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_BY_CARTRIDGE: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_BY_DISC_CONTROL_BLOCK: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_BY_MEDIA_SPECIFIC_REASON: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_BY_SOFTWARE_WRITE_PROTECT: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_READ_ONLY_MEDIA: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(16384i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMAPI_WRITEPROTECTED_UNTIL_POWERDOWN: IMAPI_MEDIA_WRITE_PROTECT_STATE = IMAPI_MEDIA_WRITE_PROTECT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_CPV_AFTER__: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32769i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_CPV_BEFORE__: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32767i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_CP_START: IMMPID_CPV_ENUM = IMMPID_CPV_ENUM(32768i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_AFTER__: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12294i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_BEFORE__: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12287i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_MESSAGE_CREATION_FLAGS: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12289i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_MESSAGE_OPEN_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12290i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_STORE_DRIVER_HANDLE: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12288i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_TOTAL_OPEN_CONTENT_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12293i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_TOTAL_OPEN_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12291i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MPV_TOTAL_OPEN_PROPERTY_STREAM_HANDLES: IMMPID_MPV_ENUM = IMMPID_MPV_ENUM(12292i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_AFTER__: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4153i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_ARRIVAL_FILETIME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4121i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_ARRIVAL_TIME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4115i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_AUTHENTICATED_USER_NAME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4104i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_BEFORE__: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4095i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_BINARYMIME_OPTION: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4109i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CHUNKING_OPTION: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4108i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CLIENT_AUTH_TYPE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4149i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CLIENT_AUTH_USER: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4148i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CONNECTION_IP_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4105i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CONNECTION_SERVER_IP_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4134i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CONNECTION_SERVER_PORT: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4147i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CONTENT_FILE_NAME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4097i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CONTENT_TYPE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4145i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CRC_GLOBAL: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4150i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_CRC_RECIPS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4151i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_DEFERRED_DELIVERY_FILETIME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4141i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_DOMAIN_LIST: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4102i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_DSN_ENVID_VALUE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4112i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_DSN_RET_VALUE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4113i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_EIGHTBIT_MIME_OPTION: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4107i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_ENCRYPTION_TYPE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4146i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_ERROR_CODE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4111i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_EXPIRE_DELAY: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4117i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_EXPIRE_NDR: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4118i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_FOUND_EMBEDDED_CRLF_DOT_CRLF: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4126i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_FROM_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4139i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_HELO_DOMAIN: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4106i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_HR_CAT_STATUS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4122i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_INBOUND_MAIL_FROM_AUTH: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4152i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_LOCAL_EXPIRE_DELAY: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4119i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_LOCAL_EXPIRE_NDR: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4120i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_MESSAGE_STATUS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4116i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_MSGCLASS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4144i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_MSG_GUID: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4123i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_MSG_SIZE_HINT: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4127i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_NUM_RECIPIENTS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4137i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_ORIGINAL_ARRIVAL_TIME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4143i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_PICKUP_FILE_NAME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4103i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RECIPIENT_LIST: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4096i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_REMOTE_AUTHENTICATION_TYPE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4110i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_REMOTE_SERVER_DSN_CAPABLE: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4114i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RFC822_BCC_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4133i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RFC822_CC_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4132i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RFC822_FROM_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4130i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RFC822_MSG_ID: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4128i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RFC822_MSG_SUBJECT: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4129i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_RFC822_TO_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4131i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SCANNED_FOR_CRLF_DOT_CRLF: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4125i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SENDER_ADDRESS: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4140i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SENDER_ADDRESS_LEGACY_EX_DN: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4101i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SENDER_ADDRESS_OTHER: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4142i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SENDER_ADDRESS_SMTP: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4098i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SENDER_ADDRESS_X400: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4100i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SENDER_ADDRESS_X500: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4099i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SERVER_NAME: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4135i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SERVER_VERSION: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4136i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_SUPERSEDES_MSG_GUID: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4124i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_MP_X_PRIORITY: IMMPID_MP_ENUM = IMMPID_MP_ENUM(4138i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_AFTER__: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24585i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_BEFORE__: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24575i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_HEADERS: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24582i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_NEWSGROUP_LIST: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24581i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_NNTP_APPROVED_HEADER: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24584i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_NNTP_PROCESSING: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24583i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_POST_TOKEN: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24580i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_PRIMARY_ARTID: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24579i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_PRIMARY_GROUP: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24578i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_SECONDARY_ARTNUM: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24577i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_NMP_SECONDARY_GROUPS: IMMPID_NMP_ENUM = IMMPID_NMP_ENUM(24576i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RPV_AFTER__: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16386i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RPV_BEFORE__: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16383i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RPV_DONT_DELIVER: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16384i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RPV_NO_NAME_COLLISIONS: IMMPID_RPV_ENUM = IMMPID_RPV_ENUM(16385i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8195i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS_OTHER: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8211i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS_SMTP: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8201i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS_TYPE: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8194i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS_TYPE_SMTP: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8196i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS_X400: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8202i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ADDRESS_X500: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8203i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_AFTER__: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8213i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_BEFORE__: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8191i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DISPLAY_NAME: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8212i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DOMAIN: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8210i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DSN_NOTIFY_INVALID: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8193i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DSN_NOTIFY_SUCCESS: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8192i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DSN_NOTIFY_VALUE: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8199i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DSN_ORCPT_VALUE: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8200i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_DSN_PRE_CAT_ADDRESS: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8207i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ERROR_CODE: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8197i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_ERROR_STRING: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8198i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_LEGACY_EX_DN: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8204i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_MDB_GUID: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8208i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_RECIPIENT_FLAGS: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8205i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_SMTP_STATUS_STRING: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8206i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const IMMPID_RP_USER_GUID: IMMPID_RP_ENUM = IMMPID_RP_ENUM(8209i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_BLANK: MEDIA_FLAGS = MEDIA_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_CDDA_CDROM: MEDIA_TYPES = MEDIA_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_CD_EXTRA: MEDIA_TYPES = MEDIA_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_CD_I: MEDIA_TYPES = MEDIA_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_CD_OTHER: MEDIA_TYPES = MEDIA_TYPES(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_CD_ROM_XA: MEDIA_TYPES = MEDIA_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_FORMAT_UNUSABLE_BY_IMAPI: MEDIA_FLAGS = MEDIA_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_RW: MEDIA_FLAGS = MEDIA_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_SPECIAL: MEDIA_TYPES = MEDIA_TYPES(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MEDIA_WRITABLE: MEDIA_FLAGS = MEDIA_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MPV_INBOUND_CUTOFF_EXCEEDED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MPV_WRITE_CONTENT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_MSGCLASS_DELIVERY_REPORT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_MSGCLASS_NONDELIVERY_REPORT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_MSGCLASS_REPLICATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_MSGCLASS_SYSTEM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_ABANDON_DELIVERY: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_ABORT_DELIVERY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_BAD_MAIL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_CATEGORIZED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_RETRY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_SUBMITTED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MP_STATUS_SUCCESS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MSDiscMasterObj: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x520cca63_51a5_11d3_9144_00104ba11c5e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MSDiscRecorderObj: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x520cca61_51a5_11d3_9144_00104ba11c5e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MSEnumDiscRecordersObj: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a03567a_63cb_4ba8_baf6_52119816d1ef);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftDiscFormat2Data: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735412a_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftDiscFormat2Erase: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735412b_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftDiscFormat2RawCD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354128_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftDiscFormat2TrackAtOnce: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354129_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftDiscMaster2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735412e_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftDiscRecorder2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735412d_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftFileSystemImage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fc5_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftIsoImageManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xceee3b62_8f56_4056_869b_ef16917e3efc);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftMultisessionRandomWrite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb507ca24_2204_11dd_966a_001aa01bbc58);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftMultisessionSequential: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354122_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftRawCDImageCreator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25983561_9d65_49ce_b335_40630d901227);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftStreamConcatenate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354125_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftStreamInterleave: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354124_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftStreamPrng001: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354126_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftStreamZero: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354127_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftWriteEngine2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2735412c_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const MsftWriteSpeedDescriptor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27354123_7f64_5b0f_8f00_5d77afbe261e);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const NMP_PROCESS_CONTROL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const NMP_PROCESS_POST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const PlatformEFI: PlatformId = PlatformId(239i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const PlatformMac: PlatformId = PlatformId(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const PlatformPowerPC: PlatformId = PlatformId(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const PlatformX86: PlatformId = PlatformId(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const ProgressItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fcb_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const ProgressItems: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c941fc9_975b_59be_a960_9a2a262853a5);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_BURNING: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_CDR: RECORDER_TYPES = RECORDER_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_CDRW: RECORDER_TYPES = RECORDER_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_DOING_NOTHING: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RECORDER_OPENED: DISC_RECORDER_STATE_FLAGS = DISC_RECORDER_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DELIVERED: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_HANDLED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_NOTIFY_DELAY: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_NOTIFY_FAILURE: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_NOTIFY_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_NOTIFY_MASK: u32 = 251658240u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_NOTIFY_NEVER: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_NOTIFY_SUCCESS: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_SENT_DELAYED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_SENT_DELIVERED: u32 = 131136u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_SENT_EXPANDED: u32 = 32832u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_SENT_NDR: u32 = 1104u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_DSN_SENT_RELAYED: u32 = 65600u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_ENPANDED: u32 = 8208u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_ERROR_CONTEXT_CAT: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_ERROR_CONTEXT_MTA: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_ERROR_CONTEXT_STORE: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_EXPANDED: u32 = 8208u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_FAILED: u32 = 2096u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_GENERAL_FAILURE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_HANDLED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_RECIP_FLAGS_RESERVED: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_REMOTE_MTA_NO_DSN: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_UNRESOLVED: u32 = 4144u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const RP_VOLATILE_FLAGS_MASK: u32 = 4026531840u32;
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const SZ_PROGID_SMTPCAT: ::windows_core::PCSTR = ::windows_core::s!("Smtp.Cat");
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_CPV_STRUCT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2a76b2a_e52d_11d1_aa64_00c04fa35b82);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_MPV_STRUCT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbe69706_c9bd_11d1_9ff2_00c04fa37348);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_MP_STRUCT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13384cf0_b3c4_11d1_aa92_00aa006bc80b);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_NMP_STRUCT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7433a9aa_20e2_11d2_94d6_00c04fa379f1);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_RPV_STRUCT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79e82049_d320_11d1_9ff4_00c04fa37348);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub const tagIMMPID_RP_STRUCT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79e82048_d320_11d1_9ff4_00c04fa37348);
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISC_RECORDER_STATE_FLAGS(pub u32);
@@ -7074,7 +6421,6 @@ impl ::core::fmt::Debug for DISC_RECORDER_STATE_FLAGS {
         f.debug_tuple("DISC_RECORDER_STATE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EmulationType(pub i32);
@@ -7097,7 +6443,6 @@ impl ::core::fmt::Debug for EmulationType {
         f.debug_tuple("EmulationType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsiFileSystems(pub i32);
@@ -7120,7 +6465,6 @@ impl ::core::fmt::Debug for FsiFileSystems {
         f.debug_tuple("FsiFileSystems").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsiItemType(pub i32);
@@ -7143,7 +6487,6 @@ impl ::core::fmt::Debug for FsiItemType {
         f.debug_tuple("FsiItemType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_BURN_VERIFICATION_LEVEL(pub i32);
@@ -7166,7 +6509,6 @@ impl ::core::fmt::Debug for IMAPI_BURN_VERIFICATION_LEVEL {
         f.debug_tuple("IMAPI_BURN_VERIFICATION_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_CD_SECTOR_TYPE(pub i32);
@@ -7189,7 +6531,6 @@ impl ::core::fmt::Debug for IMAPI_CD_SECTOR_TYPE {
         f.debug_tuple("IMAPI_CD_SECTOR_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_CD_TRACK_DIGITAL_COPY_SETTING(pub i32);
@@ -7212,7 +6553,6 @@ impl ::core::fmt::Debug for IMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
         f.debug_tuple("IMAPI_CD_TRACK_DIGITAL_COPY_SETTING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FEATURE_PAGE_TYPE(pub i32);
@@ -7235,7 +6575,6 @@ impl ::core::fmt::Debug for IMAPI_FEATURE_PAGE_TYPE {
         f.debug_tuple("IMAPI_FEATURE_PAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_DATA_MEDIA_STATE(pub i32);
@@ -7258,7 +6597,6 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_DATA_MEDIA_STATE {
         f.debug_tuple("IMAPI_FORMAT2_DATA_MEDIA_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_DATA_WRITE_ACTION(pub i32);
@@ -7281,7 +6619,6 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_DATA_WRITE_ACTION {
         f.debug_tuple("IMAPI_FORMAT2_DATA_WRITE_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(pub i32);
@@ -7304,7 +6641,6 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
         f.debug_tuple("IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_RAW_CD_WRITE_ACTION(pub i32);
@@ -7327,7 +6663,6 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
         f.debug_tuple("IMAPI_FORMAT2_RAW_CD_WRITE_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_FORMAT2_TAO_WRITE_ACTION(pub i32);
@@ -7350,7 +6685,6 @@ impl ::core::fmt::Debug for IMAPI_FORMAT2_TAO_WRITE_ACTION {
         f.debug_tuple("IMAPI_FORMAT2_TAO_WRITE_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MEDIA_PHYSICAL_TYPE(pub i32);
@@ -7373,7 +6707,6 @@ impl ::core::fmt::Debug for IMAPI_MEDIA_PHYSICAL_TYPE {
         f.debug_tuple("IMAPI_MEDIA_PHYSICAL_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MEDIA_WRITE_PROTECT_STATE(pub i32);
@@ -7396,7 +6729,6 @@ impl ::core::fmt::Debug for IMAPI_MEDIA_WRITE_PROTECT_STATE {
         f.debug_tuple("IMAPI_MEDIA_WRITE_PROTECT_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MODE_PAGE_REQUEST_TYPE(pub i32);
@@ -7419,7 +6751,6 @@ impl ::core::fmt::Debug for IMAPI_MODE_PAGE_REQUEST_TYPE {
         f.debug_tuple("IMAPI_MODE_PAGE_REQUEST_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_MODE_PAGE_TYPE(pub i32);
@@ -7442,7 +6773,6 @@ impl ::core::fmt::Debug for IMAPI_MODE_PAGE_TYPE {
         f.debug_tuple("IMAPI_MODE_PAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_PROFILE_TYPE(pub i32);
@@ -7465,7 +6795,6 @@ impl ::core::fmt::Debug for IMAPI_PROFILE_TYPE {
         f.debug_tuple("IMAPI_PROFILE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAPI_READ_TRACK_ADDRESS_TYPE(pub i32);
@@ -7488,7 +6817,6 @@ impl ::core::fmt::Debug for IMAPI_READ_TRACK_ADDRESS_TYPE {
         f.debug_tuple("IMAPI_READ_TRACK_ADDRESS_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_CPV_ENUM(pub i32);
@@ -7511,7 +6839,6 @@ impl ::core::fmt::Debug for IMMPID_CPV_ENUM {
         f.debug_tuple("IMMPID_CPV_ENUM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_MPV_ENUM(pub i32);
@@ -7534,7 +6861,6 @@ impl ::core::fmt::Debug for IMMPID_MPV_ENUM {
         f.debug_tuple("IMMPID_MPV_ENUM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_MP_ENUM(pub i32);
@@ -7557,7 +6883,6 @@ impl ::core::fmt::Debug for IMMPID_MP_ENUM {
         f.debug_tuple("IMMPID_MP_ENUM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_NMP_ENUM(pub i32);
@@ -7580,7 +6905,6 @@ impl ::core::fmt::Debug for IMMPID_NMP_ENUM {
         f.debug_tuple("IMMPID_NMP_ENUM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_RPV_ENUM(pub i32);
@@ -7603,7 +6927,6 @@ impl ::core::fmt::Debug for IMMPID_RPV_ENUM {
         f.debug_tuple("IMMPID_RPV_ENUM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMMPID_RP_ENUM(pub i32);
@@ -7626,7 +6949,6 @@ impl ::core::fmt::Debug for IMMPID_RP_ENUM {
         f.debug_tuple("IMMPID_RP_ENUM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_FLAGS(pub i32);
@@ -7649,7 +6971,6 @@ impl ::core::fmt::Debug for MEDIA_FLAGS {
         f.debug_tuple("MEDIA_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_TYPES(pub i32);
@@ -7672,7 +6993,6 @@ impl ::core::fmt::Debug for MEDIA_TYPES {
         f.debug_tuple("MEDIA_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformId(pub i32);
@@ -7695,7 +7015,6 @@ impl ::core::fmt::Debug for PlatformId {
         f.debug_tuple("PlatformId").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RECORDER_TYPES(pub i32);
@@ -7719,7 +7038,6 @@ impl ::core::fmt::Debug for RECORDER_TYPES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub struct IMMP_MPV_STORE_DRIVER_HANDLE {
     pub guidSignature: ::windows_core::GUID,
 }
@@ -7771,7 +7089,6 @@ impl ::windows_core::TypeKind for LPMSGSESS {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub struct SPropAttrArray {
     pub cValues: u32,
     pub aPropAttr: [u32; 1],
@@ -7802,7 +7119,6 @@ impl ::core::default::Default for SPropAttrArray {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`*"]
 pub struct tagIMMPID_GUIDLIST_ITEM {
     pub pguid: *const ::windows_core::GUID,
     pub dwStart: u32,
@@ -7833,7 +7149,7 @@ impl ::core::default::Default for tagIMMPID_GUIDLIST_ITEM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Imapi\"`, `\"Win32_System_AddressBook\"`*"]
+#[doc = "Required features: `Win32_System_AddressBook`"]
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = ::core::option::Option<unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>) -> ()>;
 #[cfg(feature = "implement")]

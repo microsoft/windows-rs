@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCGamesSettings_Impl: Sized + IWPCSettings_Impl {
     fn IsBlocked(&self, guidappid: &::windows_core::GUID) -> ::windows_core::Result<u32>;
@@ -25,7 +25,7 @@ impl IWPCGamesSettings_Vtbl {
         *iid == <IWPCGamesSettings as ::windows_core::ComInterface>::IID || *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCProviderConfig_Impl: Sized {
     fn GetUserSummary(&self, bstrsid: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -69,7 +69,6 @@ impl IWPCProviderConfig_Vtbl {
         *iid == <IWPCProviderConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
 pub trait IWPCProviderState_Impl: Sized {
     fn Enable(&self) -> ::windows_core::Result<()>;
     fn Disable(&self) -> ::windows_core::Result<()>;
@@ -97,7 +96,6 @@ impl IWPCProviderState_Vtbl {
         *iid == <IWPCProviderState as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
 pub trait IWPCProviderSupport_Impl: Sized {
     fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::GUID>;
 }
@@ -121,7 +119,7 @@ impl IWPCProviderSupport_Vtbl {
         *iid == <IWPCProviderSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCSettings_Impl: Sized {
     fn IsLoggingRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -177,7 +175,7 @@ impl IWPCSettings_Vtbl {
         *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWPCWebSettings_Impl: Sized + IWPCSettings_Impl {
     fn GetSettings(&self) -> ::windows_core::Result<WPCFLAG_WEB_SETTING>;
@@ -220,7 +218,6 @@ impl IWPCWebSettings_Vtbl {
         *iid == <IWPCWebSettings as ::windows_core::ComInterface>::IID || *iid == <IWPCSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
 pub trait IWindowsParentalControls_Impl: Sized + IWindowsParentalControlsCore_Impl {
     fn GetGamesSettings(&self, pcszsid: &::windows_core::PCWSTR) -> ::windows_core::Result<IWPCGamesSettings>;
 }
@@ -244,7 +241,6 @@ impl IWindowsParentalControls_Vtbl {
         *iid == <IWindowsParentalControls as ::windows_core::ComInterface>::IID || *iid == <IWindowsParentalControlsCore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_ParentalControls\"`, `\"implement\"`*"]
 pub trait IWindowsParentalControlsCore_Impl: Sized {
     fn GetVisibility(&self) -> ::windows_core::Result<WPCFLAG_VISIBILITY>;
     fn GetUserSettings(&self, pcszsid: &::windows_core::PCWSTR) -> ::windows_core::Result<IWPCSettings>;

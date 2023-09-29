@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"System_RemoteSystems\"`, `\"implement\"`*"]
 pub trait IRemoteSystemFilter_Impl: Sized {}
 impl ::windows_core::RuntimeName for IRemoteSystemFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemFilter";

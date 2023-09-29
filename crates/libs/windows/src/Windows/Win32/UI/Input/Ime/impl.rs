@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME_Impl: Sized {
     fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: ::windows_core::PWSTR, pdwprivate: *mut u32) -> ::windows_core::Result<()>;
@@ -152,7 +152,7 @@ impl IActiveIME_Vtbl {
         *iid == <IActiveIME as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIME2_Impl: Sized + IActiveIME_Impl {
     fn Sleep(&self) -> ::windows_core::Result<()>;
@@ -179,7 +179,7 @@ impl IActiveIME2_Vtbl {
         *iid == <IActiveIME2 as ::windows_core::ComInterface>::IID || *iid == <IActiveIME as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`, `Win32_UI_TextServices`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIMMApp_Impl: Sized {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows_core::Result<super::super::super::Globalization::HIMC>;
@@ -762,7 +762,7 @@ impl IActiveIMMApp_Vtbl {
         *iid == <IActiveIMMApp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_TextServices\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`, `Win32_UI_TextServices`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_TextServices"))]
 pub trait IActiveIMMIME_Impl: Sized {
     fn AssociateContext(&self, hwnd: super::super::super::Foundation::HWND, hime: super::super::super::Globalization::HIMC) -> ::windows_core::Result<super::super::super::Globalization::HIMC>;
@@ -1545,7 +1545,7 @@ impl IActiveIMMIME_Vtbl {
         *iid == <IActiveIMMIME as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IActiveIMMMessagePumpOwner_Impl: Sized {
     fn Start(&self) -> ::windows_core::Result<()>;
@@ -1603,7 +1603,6 @@ impl IActiveIMMMessagePumpOwner_Vtbl {
         *iid == <IActiveIMMMessagePumpOwner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
 pub trait IActiveIMMRegistrar_Impl: Sized {
     fn RegisterIME(&self, rclsid: *const ::windows_core::GUID, lgid: u16, psziconfile: &::windows_core::PCWSTR, pszdesc: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn UnregisterIME(&self, rclsid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1631,7 +1630,7 @@ impl IActiveIMMRegistrar_Vtbl {
         *iid == <IActiveIMMRegistrar as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Globalization`"]
 #[cfg(feature = "Win32_Globalization")]
 pub trait IEnumInputContext_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumInputContext>;
@@ -1682,7 +1681,6 @@ impl IEnumInputContext_Vtbl {
         *iid == <IEnumInputContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
 pub trait IEnumRegisterWordA_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumRegisterWordA>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1730,7 +1728,6 @@ impl IEnumRegisterWordA_Vtbl {
         *iid == <IEnumRegisterWordA as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
 pub trait IEnumRegisterWordW_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumRegisterWordW>;
     fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1778,7 +1775,7 @@ impl IEnumRegisterWordW_Vtbl {
         *iid == <IEnumRegisterWordW as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFEClassFactory_Impl: Sized + super::super::super::System::Com::IClassFactory_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -1792,7 +1789,7 @@ impl IFEClassFactory_Vtbl {
         *iid == <IFEClassFactory as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IClassFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFECommon_Impl: Sized {
     fn IsDefaultIME(&self, szname: &::windows_core::PCSTR, cszname: i32) -> ::windows_core::Result<()>;
@@ -1837,7 +1834,7 @@ impl IFECommon_Vtbl {
         *iid == <IFECommon as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFEDictionary_Impl: Sized {
     fn Open(&self, pchdictpath: &::windows_core::PSTR, pshf: *mut IMESHF) -> ::windows_core::Result<()>;
@@ -1973,7 +1970,6 @@ impl IFEDictionary_Vtbl {
         *iid == <IFEDictionary as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
 pub trait IFELanguage_Impl: Sized {
     fn Open(&self) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -2029,7 +2025,7 @@ impl IFELanguage_Vtbl {
         *iid == <IFELanguage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IImePad_Impl: Sized {
     fn Request(&self, piimepadapplet: ::core::option::Option<&IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
@@ -2050,7 +2046,7 @@ impl IImePad_Vtbl {
         *iid == <IImePad as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IImePadApplet_Impl: Sized {
     fn Initialize(&self, lpiimepad: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -2102,7 +2098,7 @@ impl IImePadApplet_Vtbl {
         *iid == <IImePadApplet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IImePlugInDictDictionaryList_Impl: Sized {
     fn GetDictionariesInUse(&self, prgdictionaryguid: *mut *mut super::super::super::System::Com::SAFEARRAY, prgdatecreated: *mut *mut super::super::super::System::Com::SAFEARRAY, prgfencrypted: *mut *mut super::super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>;
@@ -2133,7 +2129,6 @@ impl IImePlugInDictDictionaryList_Vtbl {
         *iid == <IImePlugInDictDictionaryList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"implement\"`*"]
 pub trait IImeSpecifyApplets_Impl: Sized {
     fn GetAppletIIDList(&self, refiid: *const ::windows_core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows_core::Result<()>;
 }

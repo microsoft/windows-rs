@@ -231,7 +231,6 @@ pub struct IWorkflowPrintTicketValidationResult_Vtbl {
     pub Validated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketCapabilities(::windows_core::IUnknown);
@@ -250,7 +249,7 @@ impl PrintTicketCapabilities {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -394,7 +393,6 @@ impl ::windows_core::RuntimeName for PrintTicketCapabilities {
 ::windows_core::imp::interface_hierarchy!(PrintTicketCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketFeature(::windows_core::IUnknown);
@@ -413,7 +411,7 @@ impl PrintTicketFeature {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -436,7 +434,7 @@ impl PrintTicketFeature {
             (::windows_core::Interface::vtable(this).GetOption)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>> {
         let this = self;
@@ -482,7 +480,6 @@ impl ::windows_core::RuntimeName for PrintTicketFeature {
 ::windows_core::imp::interface_hierarchy!(PrintTicketFeature, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketOption(::windows_core::IUnknown);
@@ -501,7 +498,7 @@ impl PrintTicketOption {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -517,7 +514,7 @@ impl PrintTicketOption {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetPropertyNode(&self, name: &::windows_core::HSTRING, xmlnamespace: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -526,7 +523,7 @@ impl PrintTicketOption {
             (::windows_core::Interface::vtable(this).GetPropertyNode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetScoredPropertyNode(&self, name: &::windows_core::HSTRING, xmlnamespace: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -565,7 +562,6 @@ impl ::windows_core::RuntimeName for PrintTicketOption {
 ::windows_core::imp::interface_hierarchy!(PrintTicketOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketParameterDefinition(::windows_core::IUnknown);
@@ -584,7 +580,7 @@ impl PrintTicketParameterDefinition {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -637,7 +633,6 @@ impl ::windows_core::RuntimeName for PrintTicketParameterDefinition {
 ::windows_core::imp::interface_hierarchy!(PrintTicketParameterDefinition, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketParameterInitializer(::windows_core::IUnknown);
@@ -656,7 +651,7 @@ impl PrintTicketParameterInitializer {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -695,7 +690,6 @@ impl ::windows_core::RuntimeName for PrintTicketParameterInitializer {
 ::windows_core::imp::interface_hierarchy!(PrintTicketParameterInitializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTicketValue(::windows_core::IUnknown);
@@ -737,7 +731,6 @@ impl ::windows_core::RuntimeName for PrintTicketValue {
 ::windows_core::imp::interface_hierarchy!(PrintTicketValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WorkflowPrintTicket(::windows_core::IUnknown);
@@ -756,7 +749,7 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[doc = "Required features: `Data_Xml_Dom`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -884,7 +877,7 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).GetFeature)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyXmlChangedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -893,7 +886,7 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).NotifyXmlChangedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ValidateAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>> {
         let this = self;
@@ -949,7 +942,6 @@ impl ::windows_core::RuntimeName for WorkflowPrintTicket {
 ::windows_core::imp::interface_hierarchy!(WorkflowPrintTicket, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WorkflowPrintTicketValidationResult(::windows_core::IUnknown);
@@ -984,7 +976,6 @@ impl ::windows_core::RuntimeName for WorkflowPrintTicketValidationResult {
 ::windows_core::imp::interface_hierarchy!(WorkflowPrintTicketValidationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicketValidationResult {}
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
@@ -1014,7 +1005,6 @@ impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
 impl ::windows_core::RuntimeType for PrintTicketFeatureSelectionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketFeatureSelectionType;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTicketParameterDataType(pub i32);
@@ -1045,7 +1035,6 @@ impl ::core::fmt::Debug for PrintTicketParameterDataType {
 impl ::windows_core::RuntimeType for PrintTicketParameterDataType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDataType;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintTicketValueType(pub i32);

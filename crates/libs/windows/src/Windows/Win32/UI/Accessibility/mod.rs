@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccNotifyTouchInteraction<P0, P1>(hwndapp: P0, hwndtarget: P1, pttarget: super::super::Foundation::POINT) -> ::windows_core::Result<()>
@@ -9,7 +9,7 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> ::windows_core::HRESULT);
     AccNotifyTouchInteraction(hwndapp.into_param().abi(), hwndtarget.into_param().abi(), ::core::mem::transmute(pttarget)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccSetRunningUtilityState<P0>(hwndapp: P0, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> ::windows_core::Result<()>
@@ -19,7 +19,7 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> ::windows_core::HRESULT);
     AccSetRunningUtilityState(hwndapp.into_param().abi(), dwutilitystatemask, dwutilitystate).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarchildren: &mut [super::super::System::Variant::VARIANT], pcobtained: *mut i32) -> ::windows_core::Result<()>
@@ -29,7 +29,7 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut::core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> ::windows_core::HRESULT);
     AccessibleChildren(pacccontainer.into_param().abi(), ichildstart, rgvarchildren.len() as _, ::core::mem::transmute(rgvarchildren.as_ptr()), pcobtained).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent<P0>(hwnd: P0, dwid: u32, dwchildid: u32, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
@@ -39,14 +39,14 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     AccessibleObjectFromEvent(hwnd.into_param().abi(), dwid, dwchildid, ::core::mem::transmute(ppacc), pvarchild).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
     ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     AccessibleObjectFromPoint(::core::mem::transmute(ptscreen), ::core::mem::transmute(ppacc), pvarchild).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessibleObjectFromWindow<P0>(hwnd: P0, dwid: u32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -56,7 +56,7 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     AccessibleObjectFromWindow(hwnd.into_param().abi(), dwid, riid, ppvobject).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdAccessibleObject<P0>(hwnd: P0, idobject: i32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -66,7 +66,7 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateStdAccessibleObject(hwnd.into_param().abi(), idobject, riid, ppvobject).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyA<P0, P1>(hwnd: P0, pclassname: P1, idobject: i32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -77,7 +77,7 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : ::windows_core::PCSTR, idobject : i32, riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateStdAccessibleProxyA(hwnd.into_param().abi(), pclassname.into_param().abi(), idobject, riid, ppvobject).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdAccessibleProxyW<P0, P1>(hwnd: P0, pclassname: P1, idobject: i32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -88,7 +88,6 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : ::windows_core::PCWSTR, idobject : i32, riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateStdAccessibleProxyW(hwnd.into_param().abi(), pclassname.into_param().abi(), idobject, riid, ppvobject).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition<P0>(hobj: P0, dockposition: DockPosition) -> ::windows_core::Result<()>
 where
@@ -97,7 +96,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn DockPattern_SetDockPosition(hobj : HUIAPATTERNOBJECT, dockposition : DockPosition) -> ::windows_core::HRESULT);
     DockPattern_SetDockPosition(hobj.into_param().abi(), dockposition).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Collapse<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -106,7 +104,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Collapse(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     ExpandCollapsePattern_Collapse(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Expand<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -115,37 +112,31 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Expand(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     ExpandCollapsePattern_Expand(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
     ::windows_targets::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut u32, pbuild : *mut u32) -> ());
     GetOleaccVersionInfo(pver, pbuild)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: ::core::option::Option<&mut [u8]>) -> u32 {
     ::windows_targets::link!("oleacc.dll" "system" fn GetRoleTextA(lrole : u32, lpszrole : ::windows_core::PSTR, cchrolemax : u32) -> u32);
     GetRoleTextA(lrole, ::core::mem::transmute(lpszrole.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: ::core::option::Option<&mut [u16]>) -> u32 {
     ::windows_targets::link!("oleacc.dll" "system" fn GetRoleTextW(lrole : u32, lpszrole : ::windows_core::PWSTR, cchrolemax : u32) -> u32);
     GetRoleTextW(lrole, ::core::mem::transmute(lpszrole.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: ::core::option::Option<&mut [u8]>) -> u32 {
     ::windows_targets::link!("oleacc.dll" "system" fn GetStateTextA(lstatebit : u32, lpszstate : ::windows_core::PSTR, cchstate : u32) -> u32);
     GetStateTextA(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: ::core::option::Option<&mut [u16]>) -> u32 {
     ::windows_targets::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : u32, lpszstate : ::windows_core::PWSTR, cchstate : u32) -> u32);
     GetStateTextW(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GridPattern_GetItem<P0>(hobj: P0, row: i32, column: i32, presult: *mut HUIANODE) -> ::windows_core::Result<()>
 where
@@ -154,7 +145,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> ::windows_core::HRESULT);
     GridPattern_GetItem(hobj.into_param().abi(), row, column, presult).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn InvokePattern_Invoke<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -163,14 +153,14 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     InvokePattern_Invoke(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> super::super::Foundation:: BOOL);
     IsWinEventHookInstalled(event)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ItemContainerPattern_FindItemByProperty<P0, P1>(hobj: P0, hnodestartafter: P1, propertyid: i32, value: super::super::System::Variant::VARIANT, pfound: *mut HUIANODE) -> ::windows_core::Result<()>
@@ -181,7 +171,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> ::windows_core::HRESULT);
     ItemContainerPattern_FindItemByProperty(hobj.into_param().abi(), hnodestartafter.into_param().abi(), propertyid, ::core::mem::transmute(value), pfound).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -190,7 +179,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     LegacyIAccessiblePattern_DoDefaultAction(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<P0>(hobj: P0) -> ::windows_core::Result<IAccessible>
@@ -201,7 +190,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     LegacyIAccessiblePattern_GetIAccessible(hobj.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_Select<P0>(hobj: P0, flagsselect: i32) -> ::windows_core::Result<()>
 where
@@ -210,7 +198,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> ::windows_core::HRESULT);
     LegacyIAccessiblePattern_Select(hobj.into_param().abi(), flagsselect).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_SetValue<P0, P1>(hobj: P0, szvalue: P1) -> ::windows_core::Result<()>
 where
@@ -220,7 +207,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     LegacyIAccessiblePattern_SetValue(hobj.into_param().abi(), szvalue.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LresultFromObject<P0, P1>(riid: *const ::windows_core::GUID, wparam: P0, punk: P1) -> super::super::Foundation::LRESULT
@@ -231,7 +218,6 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const ::windows_core::GUID, wparam : super::super::Foundation:: WPARAM, punk : * mut::core::ffi::c_void) -> super::super::Foundation:: LRESULT);
     LresultFromObject(riid, wparam.into_param().abi(), punk.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn MultipleViewPattern_GetViewName<P0>(hobj: P0, viewid: i32, ppstr: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
 where
@@ -240,7 +226,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_GetViewName(hobj : HUIAPATTERNOBJECT, viewid : i32, ppstr : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     MultipleViewPattern_GetViewName(hobj.into_param().abi(), viewid, ::core::mem::transmute(ppstr)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn MultipleViewPattern_SetCurrentView<P0>(hobj: P0, viewid: i32) -> ::windows_core::Result<()>
 where
@@ -249,7 +234,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_SetCurrentView(hobj : HUIAPATTERNOBJECT, viewid : i32) -> ::windows_core::HRESULT);
     MultipleViewPattern_SetCurrentView(hobj.into_param().abi(), viewid).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NotifyWinEvent<P0>(event: u32, hwnd: P0, idobject: i32, idchild: i32)
@@ -259,7 +244,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32) -> ());
     NotifyWinEvent(event, hwnd.into_param().abi(), idobject, idchild)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectFromLresult<P0, P1>(lresult: P0, riid: *const ::windows_core::GUID, wparam: P1, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -270,7 +255,6 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const ::windows_core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ObjectFromLresult(lresult.into_param().abi(), riid, wparam.into_param().abi(), ppvobject).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn RangeValuePattern_SetValue<P0>(hobj: P0, val: f64) -> ::windows_core::Result<()>
 where
@@ -279,7 +263,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn RangeValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, val : f64) -> ::windows_core::HRESULT);
     RangeValuePattern_SetValue(hobj.into_param().abi(), val).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn RegisterPointerInputTarget<P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> ::windows_core::Result<()>
@@ -289,7 +273,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
     RegisterPointerInputTarget(hwnd.into_param().abi(), pointertype).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn RegisterPointerInputTargetEx<P0, P1>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: P1) -> super::super::Foundation::BOOL
@@ -300,7 +284,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     RegisterPointerInputTargetEx(hwnd.into_param().abi(), pointertype, fobserve.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -309,7 +292,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ScrollItemPattern_ScrollIntoView(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     ScrollItemPattern_ScrollIntoView(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ScrollPattern_Scroll<P0>(hobj: P0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows_core::Result<()>
 where
@@ -318,7 +300,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ScrollPattern_Scroll(hobj : HUIAPATTERNOBJECT, horizontalamount : ScrollAmount, verticalamount : ScrollAmount) -> ::windows_core::HRESULT);
     ScrollPattern_Scroll(hobj.into_param().abi(), horizontalamount, verticalamount).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ScrollPattern_SetScrollPercent<P0>(hobj: P0, horizontalpercent: f64, verticalpercent: f64) -> ::windows_core::Result<()>
 where
@@ -327,7 +308,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ScrollPattern_SetScrollPercent(hobj : HUIAPATTERNOBJECT, horizontalpercent : f64, verticalpercent : f64) -> ::windows_core::HRESULT);
     ScrollPattern_SetScrollPercent(hobj.into_param().abi(), horizontalpercent, verticalpercent).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -336,7 +316,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_AddToSelection(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     SelectionItemPattern_AddToSelection(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_RemoveFromSelection<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -345,7 +324,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_RemoveFromSelection(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     SelectionItemPattern_RemoveFromSelection(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SelectionItemPattern_Select<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -354,7 +332,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_Select(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     SelectionItemPattern_Select(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWinEventHook<P0>(eventmin: u32, eventmax: u32, hmodwineventproc: P0, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK
@@ -364,7 +342,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::super::Foundation:: HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> HWINEVENTHOOK);
     SetWinEventHook(eventmin, eventmax, hmodwineventproc.into_param().abi(), pfnwineventproc, idprocess, idthread, dwflags)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SynchronizedInputPattern_Cancel<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -373,7 +350,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_Cancel(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     SynchronizedInputPattern_Cancel(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn SynchronizedInputPattern_StartListening<P0>(hobj: P0, inputtype: SynchronizedInputType) -> ::windows_core::Result<()>
 where
@@ -382,7 +358,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_StartListening(hobj : HUIAPATTERNOBJECT, inputtype : SynchronizedInputType) -> ::windows_core::HRESULT);
     SynchronizedInputPattern_StartListening(hobj.into_param().abi(), inputtype).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetSelection<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -392,7 +368,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     TextPattern_GetSelection(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetVisibleRanges<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -402,7 +378,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     TextPattern_GetVisibleRanges(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_RangeFromChild<P0, P1>(hobj: P0, hnodechild: P1, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
 where
@@ -412,7 +387,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromChild(hobj : HUIAPATTERNOBJECT, hnodechild : HUIANODE, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextPattern_RangeFromChild(hobj.into_param().abi(), hnodechild.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_RangeFromPoint<P0>(hobj: P0, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
 where
@@ -421,7 +395,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromPoint(hobj : HUIAPATTERNOBJECT, point : UiaPoint, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextPattern_RangeFromPoint(hobj.into_param().abi(), ::core::mem::transmute(point), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_get_DocumentRange<P0>(hobj: P0, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
 where
@@ -430,7 +403,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_get_DocumentRange(hobj : HUIAPATTERNOBJECT, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextPattern_get_DocumentRange(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextPattern_get_SupportedTextSelection<P0>(hobj: P0, pretval: *mut SupportedTextSelection) -> ::windows_core::Result<()>
 where
@@ -439,7 +411,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_get_SupportedTextSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut SupportedTextSelection) -> ::windows_core::HRESULT);
     TextPattern_get_SupportedTextSelection(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_AddToSelection<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -448,7 +419,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_AddToSelection(hobj : HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_AddToSelection(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_Clone<P0>(hobj: P0, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
 where
@@ -457,7 +427,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj : HUIATEXTRANGE, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_Clone(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_Compare<P0, P1>(hobj: P0, range: P1, pretval: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
@@ -468,7 +438,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     TextRange_Compare(hobj.into_param().abi(), range.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_CompareEndpoints<P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows_core::Result<()>
 where
@@ -478,7 +447,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> ::windows_core::HRESULT);
     TextRange_CompareEndpoints(hobj.into_param().abi(), endpoint, targetrange.into_param().abi(), targetendpoint, pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_ExpandToEnclosingUnit<P0>(hobj: P0, unit: TextUnit) -> ::windows_core::Result<()>
 where
@@ -487,7 +455,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> ::windows_core::HRESULT);
     TextRange_ExpandToEnclosingUnit(hobj.into_param().abi(), unit).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn TextRange_FindAttribute<P0, P1>(hobj: P0, attributeid: i32, val: super::super::System::Variant::VARIANT, backward: P1, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
@@ -498,7 +466,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_FindAttribute(hobj.into_param().abi(), attributeid, ::core::mem::transmute(val), backward.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_FindText<P0, P1, P2, P3>(hobj: P0, text: P1, backward: P2, ignorecase: P3, pretval: *mut HUIATEXTRANGE) -> ::windows_core::Result<()>
@@ -511,7 +479,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : ::std::mem::MaybeUninit <::windows_core::BSTR >, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_FindText(hobj.into_param().abi(), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn TextRange_GetAttributeValue<P0>(hobj: P0, attributeid: i32, pretval: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
@@ -521,7 +489,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     TextRange_GetAttributeValue(hobj.into_param().abi(), attributeid, pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetBoundingRectangles<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -531,7 +499,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     TextRange_GetBoundingRectangles(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetChildren<P0>(hobj: P0, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -541,7 +509,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     TextRange_GetChildren(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_GetEnclosingElement<P0>(hobj: P0, pretval: *mut HUIANODE) -> ::windows_core::Result<()>
 where
@@ -550,7 +517,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetEnclosingElement(hobj : HUIATEXTRANGE, pretval : *mut HUIANODE) -> ::windows_core::HRESULT);
     TextRange_GetEnclosingElement(hobj.into_param().abi(), pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_GetText<P0>(hobj: P0, maxlength: i32, pretval: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
 where
@@ -559,7 +525,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetText(hobj : HUIATEXTRANGE, maxlength : i32, pretval : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     TextRange_GetText(hobj.into_param().abi(), maxlength, ::core::mem::transmute(pretval)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_Move<P0>(hobj: P0, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows_core::Result<()>
 where
@@ -568,7 +533,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Move(hobj : HUIATEXTRANGE, unit : TextUnit, count : i32, pretval : *mut i32) -> ::windows_core::HRESULT);
     TextRange_Move(hobj.into_param().abi(), unit, count, pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByRange<P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> ::windows_core::Result<()>
 where
@@ -578,7 +542,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByRange(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint) -> ::windows_core::HRESULT);
     TextRange_MoveEndpointByRange(hobj.into_param().abi(), endpoint, targetrange.into_param().abi(), targetendpoint).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByUnit<P0>(hobj: P0, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows_core::Result<()>
 where
@@ -587,7 +550,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByUnit(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, unit : TextUnit, count : i32, pretval : *mut i32) -> ::windows_core::HRESULT);
     TextRange_MoveEndpointByUnit(hobj.into_param().abi(), endpoint, unit, count, pretval).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_RemoveFromSelection<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -596,7 +558,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_RemoveFromSelection(hobj : HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_RemoveFromSelection(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextRange_ScrollIntoView<P0, P1>(hobj: P0, aligntotop: P1) -> ::windows_core::Result<()>
@@ -607,7 +569,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     TextRange_ScrollIntoView(hobj.into_param().abi(), aligntotop.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TextRange_Select<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -616,7 +577,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Select(hobj : HUIATEXTRANGE) -> ::windows_core::HRESULT);
     TextRange_Select(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TogglePattern_Toggle<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -625,7 +585,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TogglePattern_Toggle(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     TogglePattern_Toggle(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TransformPattern_Move<P0>(hobj: P0, x: f64, y: f64) -> ::windows_core::Result<()>
 where
@@ -634,7 +593,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Move(hobj : HUIAPATTERNOBJECT, x : f64, y : f64) -> ::windows_core::HRESULT);
     TransformPattern_Move(hobj.into_param().abi(), x, y).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TransformPattern_Resize<P0>(hobj: P0, width: f64, height: f64) -> ::windows_core::Result<()>
 where
@@ -643,7 +601,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Resize(hobj : HUIAPATTERNOBJECT, width : f64, height : f64) -> ::windows_core::HRESULT);
     TransformPattern_Resize(hobj.into_param().abi(), width, height).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn TransformPattern_Rotate<P0>(hobj: P0, degrees: f64) -> ::windows_core::Result<()>
 where
@@ -652,7 +609,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Rotate(hobj : HUIAPATTERNOBJECT, degrees : f64) -> ::windows_core::HRESULT);
     TransformPattern_Rotate(hobj.into_param().abi(), degrees).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaAddEvent<P0>(hnode: P0, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows_core::Result<()>
@@ -662,20 +619,18 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> ::windows_core::HRESULT);
     UiaAddEvent(hnode.into_param().abi(), eventid, pcallback, scope, pproperties, cproperties, prequest, phevent).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaClientsAreListening() -> super::super::Foundation:: BOOL);
     UiaClientsAreListening()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaDisconnectAllProviders() -> ::windows_core::HRESULT);
     UiaDisconnectAllProviders().ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaDisconnectProvider<P0>(pprovider: P0) -> ::windows_core::Result<()>
 where
@@ -684,7 +639,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaDisconnectProvider(pprovider : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     UiaDisconnectProvider(pprovider.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaEventAddWindow<P0, P1>(hevent: P0, hwnd: P1) -> ::windows_core::Result<()>
@@ -695,7 +650,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     UiaEventAddWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaEventRemoveWindow<P0, P1>(hevent: P0, hwnd: P1) -> ::windows_core::Result<()>
@@ -706,7 +661,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     UiaEventRemoveWindow(hevent.into_param().abi(), hwnd.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaFind<P0>(hnode: P0, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -716,14 +671,13 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     UiaFind(hnode.into_param().abi(), pparams, prequest, pprequesteddata, ppoffsets, pptreestructures).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut ::windows_core::BSTR) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetErrorDescription(pdescription : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> super::super::Foundation:: BOOL);
     UiaGetErrorDescription(::core::mem::transmute(pdescription))
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetPatternProvider<P0>(hnode: P0, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_core::Result<()>
 where
@@ -732,7 +686,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     UiaGetPatternProvider(hnode.into_param().abi(), patternid, phobj).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaGetPropertyValue<P0>(hnode: P0, propertyid: i32, pvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
@@ -742,27 +696,24 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     UiaGetPropertyValue(hnode.into_param().abi(), propertyid, pvalue).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows_core::Result<::windows_core::IUnknown> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     UiaGetReservedMixedAttributeValue(&mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows_core::Result<::windows_core::IUnknown> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetReservedNotSupportedValue(punknotsupportedvalue : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     UiaGetReservedNotSupportedValue(&mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetRootNode(phnode : *mut HUIANODE) -> ::windows_core::HRESULT);
     UiaGetRootNode(phnode).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaGetRuntimeId<P0>(hnode: P0, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -772,7 +723,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     UiaGetRuntimeId(hnode.into_param().abi(), pruntimeid).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaGetUpdatedCache<P0>(hnode: P0, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
@@ -782,28 +733,28 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     UiaGetUpdatedCache(hnode.into_param().abi(), prequest, normalizestate, pnormalizecondition, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     UiaHPatternObjectFromVariant(pvar, phobj).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> ::windows_core::HRESULT);
     UiaHTextRangeFromVariant(pvar, phtextrange).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phnode: *mut HUIANODE) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> ::windows_core::HRESULT);
     UiaHUiaNodeFromVariant(pvar, phnode).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaHasServerSideProvider<P0>(hwnd: P0) -> super::super::Foundation::BOOL
@@ -813,7 +764,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     UiaHasServerSideProvider(hwnd.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaHostProviderFromHwnd<P0>(hwnd: P0) -> ::windows_core::Result<IRawElementProviderSimple>
@@ -824,7 +775,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     UiaHostProviderFromHwnd(hwnd.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppaccessible: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
@@ -834,13 +785,12 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut::core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut::core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     UiaIAccessibleFromProvider(pprovider.into_param().abi(), dwflags, ::core::mem::transmute(ppaccessible), pvarchild).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows_core::GUID) -> i32 {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaLookupId(r#type : AutomationIdentifierType, pguid : *const ::windows_core::GUID) -> i32);
     UiaLookupId(r#type, pguid)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNavigate<P0>(hnode: P0, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>
@@ -850,14 +800,14 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     UiaNavigate(hnode.into_param().abi(), direction, pcondition, prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromFocus(prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     UiaNodeFromFocus(prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaNodeFromHandle<P0>(hwnd: P0, phnode: *mut HUIANODE) -> ::windows_core::Result<()>
@@ -867,14 +817,13 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> ::windows_core::HRESULT);
     UiaNodeFromHandle(hwnd.into_param().abi(), phnode).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromPoint(x : f64, y : f64, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     UiaNodeFromPoint(x, y, prequest, pprequesteddata, ::core::mem::transmute(pptreestructure)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaNodeFromProvider<P0>(pprovider: P0, phnode: *mut HUIANODE) -> ::windows_core::Result<()>
 where
@@ -883,7 +832,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pprovider : * mut::core::ffi::c_void, phnode : *mut HUIANODE) -> ::windows_core::HRESULT);
     UiaNodeFromProvider(pprovider.into_param().abi(), phnode).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaNodeRelease<P0>(hnode: P0) -> super::super::Foundation::BOOL
@@ -893,7 +842,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> super::super::Foundation:: BOOL);
     UiaNodeRelease(hnode.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaPatternRelease<P0>(hobj: P0) -> super::super::Foundation::BOOL
@@ -903,7 +852,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> super::super::Foundation:: BOOL);
     UiaPatternRelease(hobj.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaProviderForNonClient<P0>(hwnd: P0, idobject: i32, idchild: i32) -> ::windows_core::Result<IRawElementProviderSimple>
@@ -914,7 +863,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     UiaProviderForNonClient(hwnd.into_param().abi(), idobject, idchild, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwflags: u32) -> ::windows_core::Result<IRawElementProviderSimple>
@@ -925,7 +874,6 @@ where
     let mut result__ = ::std::mem::zeroed();
     UiaProviderFromIAccessible(paccessible.into_param().abi(), idchild, dwflags, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<P0, P1>(provider: P0, textrange: P1) -> ::windows_core::Result<()>
 where
@@ -935,7 +883,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : * mut::core::ffi::c_void, textrange : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     UiaRaiseActiveTextPositionChangedEvent(provider.into_param().abi(), textrange.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows_core::Result<()>
 where
@@ -944,7 +891,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : * mut::core::ffi::c_void, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> ::windows_core::HRESULT);
     UiaRaiseAsyncContentLoadedEvent(pprovider.into_param().abi(), asynccontentloadedstate, percentcomplete).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> ::windows_core::Result<()>
 where
@@ -953,7 +899,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut::core::ffi::c_void, id : UIA_EVENT_ID) -> ::windows_core::HRESULT);
     UiaRaiseAutomationEvent(pprovider.into_param().abi(), id).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_PROPERTY_ID, oldvalue: super::super::System::Variant::VARIANT, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
@@ -963,7 +909,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut::core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> ::windows_core::HRESULT);
     UiaRaiseAutomationPropertyChangedEvent(pprovider.into_param().abi(), id, ::core::mem::transmute(oldvalue), ::core::mem::transmute(newvalue)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows_core::Result<()>
@@ -973,7 +919,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseChangesEvent(pprovider : * mut::core::ffi::c_void, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> ::windows_core::HRESULT);
     UiaRaiseChangesEvent(pprovider.into_param().abi(), eventidcount, puiachanges).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseNotificationEvent<P0, P1, P2>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> ::windows_core::Result<()>
 where
@@ -984,7 +929,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : * mut::core::ffi::c_void, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : ::std::mem::MaybeUninit <::windows_core::BSTR >, activityid : ::std::mem::MaybeUninit <::windows_core::BSTR >) -> ::windows_core::HRESULT);
     UiaRaiseNotificationEvent(provider.into_param().abi(), notificationkind, notificationprocessing, displaystring.into_param().abi(), activityid.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows_core::Result<()>
 where
@@ -993,7 +937,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : * mut::core::ffi::c_void, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> ::windows_core::HRESULT);
     UiaRaiseStructureChangedEvent(pprovider.into_param().abi(), structurechangetype, pruntimeid, cruntimeidlen).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaRaiseTextEditTextChangedEvent<P0>(pprovider: P0, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
@@ -1003,14 +947,13 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseTextEditTextChangedEvent(pprovider : * mut::core::ffi::c_void, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> ::windows_core::HRESULT);
     UiaRaiseTextEditTextChangedEvent(pprovider.into_param().abi(), texteditchangetype, pchangeddata).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback) -> ());
     UiaRegisterProviderCallback(pcallback)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaRemoveEvent<P0>(hevent: P0) -> ::windows_core::Result<()>
 where
@@ -1019,7 +962,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : HUIAEVENT) -> ::windows_core::HRESULT);
     UiaRemoveEvent(hevent.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaReturnRawElementProvider<P0, P1, P2, P3>(hwnd: P0, wparam: P1, lparam: P2, el: P3) -> super::super::Foundation::LRESULT
@@ -1032,7 +975,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : * mut::core::ffi::c_void) -> super::super::Foundation:: LRESULT);
     UiaReturnRawElementProvider(hwnd.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), el.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn UiaSetFocus<P0>(hnode: P0) -> ::windows_core::Result<()>
 where
@@ -1041,7 +983,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaSetFocus(hnode : HUIANODE) -> ::windows_core::HRESULT);
     UiaSetFocus(hnode.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UiaTextRangeRelease<P0>(hobj: P0) -> super::super::Foundation::BOOL
@@ -1051,7 +993,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> super::super::Foundation:: BOOL);
     UiaTextRangeRelease(hobj.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnhookWinEvent<P0>(hwineventhook: P0) -> super::super::Foundation::BOOL
@@ -1061,7 +1003,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> super::super::Foundation:: BOOL);
     UnhookWinEvent(hwineventhook.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn UnregisterPointerInputTarget<P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> ::windows_core::Result<()>
@@ -1071,7 +1013,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
     UnregisterPointerInputTarget(hwnd.into_param().abi(), pointertype).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn UnregisterPointerInputTargetEx<P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
@@ -1081,7 +1023,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
     UnregisterPointerInputTargetEx(hwnd.into_param().abi(), pointertype)
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn ValuePattern_SetValue<P0, P1>(hobj: P0, pval: P1) -> ::windows_core::Result<()>
 where
@@ -1091,7 +1032,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     ValuePattern_SetValue(hobj.into_param().abi(), pval.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -1100,7 +1040,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     VirtualizedItemPattern_Realize(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: ::core::option::Option<*mut super::super::Foundation::HWND>) -> ::windows_core::Result<()>
@@ -1110,7 +1050,6 @@ where
     ::windows_targets::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut::core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     WindowFromAccessibleObject(param0.into_param().abi(), ::core::mem::transmute(phwnd.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn WindowPattern_Close<P0>(hobj: P0) -> ::windows_core::Result<()>
 where
@@ -1119,7 +1058,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> ::windows_core::HRESULT);
     WindowPattern_Close(hobj.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn WindowPattern_SetWindowVisualState<P0>(hobj: P0, state: WindowVisualState) -> ::windows_core::Result<()>
 where
@@ -1128,7 +1066,7 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> ::windows_core::HRESULT);
     WindowPattern_SetWindowVisualState(hobj.into_param().abi(), state).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowPattern_WaitForInputIdle<P0>(hobj: P0, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
@@ -1138,7 +1076,6 @@ where
     ::windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     WindowPattern_WaitForInputIdle(hobj.into_param().abi(), milliseconds, presult).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccIdentity(::windows_core::IUnknown);
@@ -1160,12 +1097,11 @@ pub struct IAccIdentity_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetIdentityString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccPropServer(::windows_core::IUnknown);
 impl IAccPropServer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropValue(&self, pidstring: &[u8], idprop: ::windows_core::GUID, pvarvalue: *mut super::super::System::Variant::VARIANT, pfhasprop: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), pvarvalue, pfhasprop).ok()
@@ -1187,12 +1123,11 @@ pub struct IAccPropServer_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetPropValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccPropServices(::windows_core::IUnknown);
 impl IAccPropServices {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPropValue(&self, pidstring: &[u8], idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPropValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(idprop), ::core::mem::transmute(var)).ok()
@@ -1206,7 +1141,7 @@ impl IAccPropServices {
     pub unsafe fn ClearProps(&self, pidstring: &[u8], paprops: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ClearProps)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, ::core::mem::transmute(paprops.as_ptr()), paprops.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetHwndProp<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1214,7 +1149,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).SetHwndProp)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, ::core::mem::transmute(idprop), ::core::mem::transmute(var)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHwndPropStr<P0, P1>(&self, hwnd: P0, idobject: u32, idchild: u32, idprop: ::windows_core::GUID, str: P1) -> ::windows_core::Result<()>
     where
@@ -1223,7 +1158,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).SetHwndPropStr)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, ::core::mem::transmute(idprop), str.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHwndPropServer<P0, P1>(&self, hwnd: P0, idobject: u32, idchild: u32, paprops: &[::windows_core::GUID], pserver: P1, annoscope: AnnoScope) -> ::windows_core::Result<()>
     where
@@ -1232,7 +1167,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).SetHwndPropServer)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, ::core::mem::transmute(paprops.as_ptr()), paprops.len() as _, pserver.into_param().abi(), annoscope).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearHwndProps<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, paprops: &[::windows_core::GUID]) -> ::windows_core::Result<()>
     where
@@ -1240,7 +1175,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).ClearHwndProps)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, ::core::mem::transmute(paprops.as_ptr()), paprops.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComposeHwndIdentityString<P0>(&self, hwnd: P0, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows_core::Result<()>
     where
@@ -1248,12 +1183,12 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).ComposeHwndIdentityString)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), idobject, idchild, ppidstring, pdwidstringlen).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecomposeHwndIdentityString(&self, pidstring: &[u8], phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DecomposeHwndIdentityString)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, phwnd, pidobject, pidchild).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`, `Win32_UI_WindowsAndMessaging`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn SetHmenuProp<P0>(&self, hmenu: P0, idchild: u32, idprop: ::windows_core::GUID, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -1261,7 +1196,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).SetHmenuProp)(::windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, ::core::mem::transmute(idprop), ::core::mem::transmute(var)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuPropStr<P0, P1>(&self, hmenu: P0, idchild: u32, idprop: ::windows_core::GUID, str: P1) -> ::windows_core::Result<()>
     where
@@ -1270,7 +1205,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).SetHmenuPropStr)(::windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, ::core::mem::transmute(idprop), str.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetHmenuPropServer<P0, P1>(&self, hmenu: P0, idchild: u32, paprops: &[::windows_core::GUID], pserver: P1, annoscope: AnnoScope) -> ::windows_core::Result<()>
     where
@@ -1279,7 +1214,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).SetHmenuPropServer)(::windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, ::core::mem::transmute(paprops.as_ptr()), paprops.len() as _, pserver.into_param().abi(), annoscope).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ClearHmenuProps<P0>(&self, hmenu: P0, idchild: u32, paprops: &[::windows_core::GUID]) -> ::windows_core::Result<()>
     where
@@ -1287,7 +1222,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).ClearHmenuProps)(::windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, ::core::mem::transmute(paprops.as_ptr()), paprops.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn ComposeHmenuIdentityString<P0>(&self, hmenu: P0, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> ::windows_core::Result<()>
     where
@@ -1295,7 +1230,7 @@ impl IAccPropServices {
     {
         (::windows_core::Interface::vtable(self).ComposeHmenuIdentityString)(::windows_core::Interface::as_raw(self), hmenu.into_param().abi(), idchild, ppidstring, pdwidstringlen).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn DecomposeHmenuIdentityString(&self, pidstring: &[u8], phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DecomposeHmenuIdentityString)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pidstring.as_ptr()), pidstring.len() as _, phmenu, pidchild).ok()
@@ -1367,14 +1302,14 @@ pub struct IAccPropServices_Vtbl {
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     DecomposeHmenuIdentityString: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessible(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessible {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn accParent(&self) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -1384,105 +1319,105 @@ impl IAccessible {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).accChildCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accChild(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accChild)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accName(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accValue(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accDescription(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accDescription)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accRole(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accRole)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accState(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accHelp(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accHelp)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accHelpTopic(&self, pszhelpfile: *mut ::windows_core::BSTR, varchild: super::super::System::Variant::VARIANT, pidtopic: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_accHelpTopic)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszhelpfile), ::core::mem::transmute(varchild), pidtopic).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accKeyboardShortcut(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accKeyboardShortcut)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accFocus(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).accFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accSelection(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).accSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_accDefaultAction(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_accDefaultAction)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accSelect(&self, flagsselect: i32, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).accSelect)(::windows_core::Interface::as_raw(self), flagsselect, ::core::mem::transmute(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accLocation(&self, pxleft: *mut i32, pytop: *mut i32, pcxwidth: *mut i32, pcyheight: *mut i32, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).accLocation)(::windows_core::Interface::as_raw(self), pxleft, pytop, pcxwidth, pcyheight, ::core::mem::transmute(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accNavigate(&self, navdir: i32, varstart: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).accNavigate)(::windows_core::Interface::as_raw(self), navdir, ::core::mem::transmute(varstart), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accHitTest(&self, xleft: i32, ytop: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).accHitTest)(::windows_core::Interface::as_raw(self), xleft, ytop, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn accDoDefaultAction(&self, varchild: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).accDoDefaultAction)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_accName<P0>(&self, varchild: super::super::System::Variant::VARIANT, szname: P0) -> ::windows_core::Result<()>
     where
@@ -1490,7 +1425,7 @@ impl IAccessible {
     {
         (::windows_core::Interface::vtable(self).put_accName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varchild), szname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_accValue<P0>(&self, varchild: super::super::System::Variant::VARIANT, szvalue: P0) -> ::windows_core::Result<()>
     where
@@ -1596,7 +1531,6 @@ pub struct IAccessible_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_accValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleEx(::windows_core::IUnknown);
@@ -1605,12 +1539,12 @@ impl IAccessibleEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObjectForChild)(::windows_core::Interface::as_raw(self), idchild, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessiblePair(&self, ppacc: *mut ::core::option::Option<IAccessible>, pidchild: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIAccessiblePair)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppacc), pidchild).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1646,12 +1580,11 @@ pub struct IAccessibleEx_Vtbl {
     GetRuntimeId: usize,
     pub ConvertReturnedElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void, ppretvalout: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleHandler(::windows_core::IUnknown);
 impl IAccessibleHandler {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AccessibleObjectFromID(&self, hwnd: i32, lobjectid: i32) -> ::windows_core::Result<IAccessible> {
         let mut result__ = ::std::mem::zeroed();
@@ -1674,12 +1607,11 @@ pub struct IAccessibleHandler_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AccessibleObjectFromID: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleHostingElementProviders(::windows_core::IUnknown);
 impl IAccessibleHostingElementProviders {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEmbeddedFragmentRoots(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1710,7 +1642,6 @@ pub struct IAccessibleHostingElementProviders_Vtbl {
     GetEmbeddedFragmentRoots: usize,
     pub GetObjectIdForProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprovider: *mut ::core::ffi::c_void, pidobject: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessibleWindowlessSite(::windows_core::IUnknown);
@@ -1728,7 +1659,7 @@ impl IAccessibleWindowlessSite {
     {
         (::windows_core::Interface::vtable(self).ReleaseObjectIdRange)(::windows_core::Interface::as_raw(self), rangebase, prangeowner.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryObjectIdRanges<P0>(&self, prangesowner: P0) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY>
     where
@@ -1737,7 +1668,7 @@ impl IAccessibleWindowlessSite {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryObjectIdRanges)(::windows_core::Interface::as_raw(self), prangesowner.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetParentAccessible(&self) -> ::windows_core::Result<IAccessible> {
         let mut result__ = ::std::mem::zeroed();
@@ -1766,7 +1697,6 @@ pub struct IAccessibleWindowlessSite_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetParentAccessible: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAnnotationProvider(::windows_core::IUnknown);
@@ -1809,7 +1739,6 @@ pub struct IAnnotationProvider_Vtbl {
     pub DateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Target: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomNavigationProvider(::windows_core::IUnknown);
@@ -1832,7 +1761,6 @@ pub struct ICustomNavigationProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDockProvider(::windows_core::IUnknown);
@@ -1859,12 +1787,11 @@ pub struct IDockProvider_Vtbl {
     pub SetDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dockposition: DockPosition) -> ::windows_core::HRESULT,
     pub DockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut DockPosition) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDragProvider(::windows_core::IUnknown);
 impl IDragProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsGrabbed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1874,13 +1801,13 @@ impl IDragProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DropEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DropEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DropEffects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGrabbedItems(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1912,7 +1839,6 @@ pub struct IDragProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetGrabbedItems: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDropTargetProvider(::windows_core::IUnknown);
@@ -1921,7 +1847,7 @@ impl IDropTargetProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DropTargetEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DropTargetEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -1945,7 +1871,6 @@ pub struct IDropTargetProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     DropTargetEffects: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExpandCollapseProvider(::windows_core::IUnknown);
@@ -1976,7 +1901,6 @@ pub struct IExpandCollapseProvider_Vtbl {
     pub Collapse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ExpandCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ExpandCollapseState) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGridItemProvider(::windows_core::IUnknown);
@@ -2019,7 +1943,6 @@ pub struct IGridItemProvider_Vtbl {
     pub ColumnSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows_core::HRESULT,
     pub ContainingGrid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGridProvider(::windows_core::IUnknown);
@@ -2052,7 +1975,6 @@ pub struct IGridProvider_Vtbl {
     pub RowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows_core::HRESULT,
     pub ColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInvokeProvider(::windows_core::IUnknown);
@@ -2074,12 +1996,11 @@ pub struct IInvokeProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IItemContainerProvider(::windows_core::IUnknown);
 impl IItemContainerProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IRawElementProviderSimple>
     where
@@ -2105,7 +2026,6 @@ pub struct IItemContainerProvider_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindItemByProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILegacyIAccessibleProvider(::windows_core::IUnknown);
@@ -2122,7 +2042,7 @@ impl ILegacyIAccessibleProvider {
     {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), szvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> ::windows_core::Result<IAccessible> {
         let mut result__ = ::std::mem::zeroed();
@@ -2160,7 +2080,7 @@ impl ILegacyIAccessibleProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KeyboardShortcut)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2203,7 +2123,6 @@ pub struct ILegacyIAccessibleProvider_Vtbl {
     GetSelection: usize,
     pub DefaultAction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultaction: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultipleViewProvider(::windows_core::IUnknown);
@@ -2219,7 +2138,7 @@ impl IMultipleViewProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentView)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSupportedViews(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2245,7 +2164,6 @@ pub struct IMultipleViewProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSupportedViews: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectModelProvider(::windows_core::IUnknown);
@@ -2268,12 +2186,11 @@ pub struct IObjectModelProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunknown: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProxyProviderWinEventHandler(::windows_core::IUnknown);
 impl IProxyProviderWinEventHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RespondToWinEvent<P0, P1>(&self, idwinevent: u32, hwnd: P0, idobject: i32, idchild: i32, psink: P1) -> ::windows_core::Result<()>
     where
@@ -2299,12 +2216,11 @@ pub struct IProxyProviderWinEventHandler_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RespondToWinEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProxyProviderWinEventSink(::windows_core::IUnknown);
 impl IProxyProviderWinEventSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddAutomationPropertyChangedEvent<P0>(&self, pprovider: P0, id: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -2318,7 +2234,7 @@ impl IProxyProviderWinEventSink {
     {
         (::windows_core::Interface::vtable(self).AddAutomationEvent)(::windows_core::Interface::as_raw(self), pprovider.into_param().abi(), id).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStructureChangedEvent<P0>(&self, pprovider: P0, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -2348,7 +2264,6 @@ pub struct IProxyProviderWinEventSink_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AddStructureChangedEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRangeValueProvider(::windows_core::IUnknown);
@@ -2360,7 +2275,7 @@ impl IRangeValueProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2405,17 +2320,16 @@ pub struct IRangeValueProvider_Vtbl {
     pub LargeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows_core::HRESULT,
     pub SmallChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderAdviseEvents(::windows_core::IUnknown);
 impl IRawElementProviderAdviseEvents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdviseEventAdded(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AdviseEventAdded)(::windows_core::Interface::as_raw(self), eventid, propertyids).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AdviseEventRemoved(&self, eventid: UIA_EVENT_ID, propertyids: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AdviseEventRemoved)(::windows_core::Interface::as_raw(self), eventid, propertyids).ok()
@@ -2441,7 +2355,6 @@ pub struct IRawElementProviderAdviseEvents_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     AdviseEventRemoved: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderFragment(::windows_core::IUnknown);
@@ -2450,7 +2363,7 @@ impl IRawElementProviderFragment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Navigate)(::windows_core::Interface::as_raw(self), direction, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2460,7 +2373,7 @@ impl IRawElementProviderFragment {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BoundingRectangle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEmbeddedFragmentRoots(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2498,7 +2411,6 @@ pub struct IRawElementProviderFragment_Vtbl {
     pub SetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub FragmentRoot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderFragmentRoot(::windows_core::IUnknown);
@@ -2526,12 +2438,11 @@ pub struct IRawElementProviderFragmentRoot_Vtbl {
     pub ElementProviderFromPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f64, y: f64, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderHostingAccessibles(::windows_core::IUnknown);
 impl IRawElementProviderHostingAccessibles {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEmbeddedAccessibles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2554,12 +2465,11 @@ pub struct IRawElementProviderHostingAccessibles_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetEmbeddedAccessibles: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderHwndOverride(::windows_core::IUnknown);
 impl IRawElementProviderHwndOverride {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOverrideProviderForHwnd<P0>(&self, hwnd: P0) -> ::windows_core::Result<IRawElementProviderSimple>
     where
@@ -2585,7 +2495,6 @@ pub struct IRawElementProviderHwndOverride_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetOverrideProviderForHwnd: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderSimple(::windows_core::IUnknown);
@@ -2598,7 +2507,7 @@ impl IRawElementProviderSimple {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPatternProvider)(::windows_core::Interface::as_raw(self), patternid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2628,7 +2537,6 @@ pub struct IRawElementProviderSimple_Vtbl {
     GetPropertyValue: usize,
     pub HostRawElementProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderSimple2(::windows_core::IUnknown);
@@ -2641,7 +2549,7 @@ impl IRawElementProviderSimple2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPatternProvider)(::windows_core::Interface::as_raw(self), patternid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2668,7 +2576,6 @@ pub struct IRawElementProviderSimple2_Vtbl {
     pub base__: IRawElementProviderSimple_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderSimple3(::windows_core::IUnknown);
@@ -2681,7 +2588,7 @@ impl IRawElementProviderSimple3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetPatternProvider)(::windows_core::Interface::as_raw(self), patternid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2694,7 +2601,7 @@ impl IRawElementProviderSimple3 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2717,7 +2624,6 @@ pub struct IRawElementProviderSimple3_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetMetadataValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawElementProviderWindowlessSite(::windows_core::IUnknown);
@@ -2726,7 +2632,7 @@ impl IRawElementProviderWindowlessSite {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAdjacentFragment)(::windows_core::Interface::as_raw(self), direction, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeIdPrefix(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -2750,7 +2656,6 @@ pub struct IRawElementProviderWindowlessSite_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetRuntimeIdPrefix: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRichEditUiaInformation(::windows_core::IUnknown);
@@ -2776,7 +2681,6 @@ pub struct IRichEditUiaInformation_Vtbl {
     pub GetBoundaryRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiarect: *mut UiaRect) -> ::windows_core::HRESULT,
     pub IsVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRicheditWindowlessAccessibility(::windows_core::IUnknown);
@@ -2802,7 +2706,6 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psite: *mut ::core::ffi::c_void, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScrollItemProvider(::windows_core::IUnknown);
@@ -2824,7 +2727,6 @@ pub struct IScrollItemProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScrollProvider(::windows_core::IUnknown);
@@ -2851,13 +2753,13 @@ impl IScrollProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VerticalViewSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HorizontallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HorizontallyScrollable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VerticallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2890,7 +2792,6 @@ pub struct IScrollProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     VerticallyScrollable: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectionItemProvider(::windows_core::IUnknown);
@@ -2904,7 +2805,7 @@ impl ISelectionItemProvider {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSelected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2935,24 +2836,23 @@ pub struct ISelectionItemProvider_Vtbl {
     IsSelected: usize,
     pub SelectionContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectionProvider(::windows_core::IUnknown);
 impl ISelectionProvider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanSelectMultiple)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2983,24 +2883,23 @@ pub struct ISelectionProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsSelectionRequired: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectionProvider2(::windows_core::IUnknown);
 impl ISelectionProvider2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CanSelectMultiple)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3039,7 +2938,6 @@ pub struct ISelectionProvider2_Vtbl {
     pub CurrentSelectedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpreadsheetItemProvider(::windows_core::IUnknown);
@@ -3048,13 +2946,13 @@ impl ISpreadsheetItemProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Formula)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAnnotationObjects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAnnotationObjects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3082,7 +2980,6 @@ pub struct ISpreadsheetItemProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetAnnotationTypes: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpreadsheetProvider(::windows_core::IUnknown);
@@ -3108,7 +3005,6 @@ pub struct ISpreadsheetProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::windows_core::PCWSTR, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStylesProvider(::windows_core::IUnknown);
@@ -3161,7 +3057,6 @@ pub struct IStylesProvider_Vtbl {
     pub FillPatternColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub ExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISynchronizedInputProvider(::windows_core::IUnknown);
@@ -3187,18 +3082,17 @@ pub struct ISynchronizedInputProvider_Vtbl {
     pub StartListening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableItemProvider(::windows_core::IUnknown);
 impl ITableItemProvider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRowHeaderItems(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRowHeaderItems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetColumnHeaderItems(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3225,18 +3119,17 @@ pub struct ITableItemProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetColumnHeaderItems: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableProvider(::windows_core::IUnknown);
 impl ITableProvider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRowHeaders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRowHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetColumnHeaders(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3268,7 +3161,6 @@ pub struct ITableProvider_Vtbl {
     GetColumnHeaders: usize,
     pub RowOrColumnMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut RowOrColumnMajor) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextChildProvider(::windows_core::IUnknown);
@@ -3296,18 +3188,17 @@ pub struct ITextChildProvider_Vtbl {
     pub TextContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextEditProvider(::windows_core::IUnknown);
 impl ITextEditProvider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleRanges(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3355,18 +3246,17 @@ pub struct ITextEditProvider_Vtbl {
     pub GetActiveComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetConversionTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextProvider(::windows_core::IUnknown);
 impl ITextProvider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleRanges(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3416,18 +3306,17 @@ pub struct ITextProvider_Vtbl {
     pub DocumentRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SupportedTextSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut SupportedTextSelection) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextProvider2(::windows_core::IUnknown);
 impl ITextProvider2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleRanges(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3459,7 +3348,7 @@ impl ITextProvider2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RangeFromAnnotation)(::windows_core::Interface::as_raw(self), annotationelement.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCaretRange)(::windows_core::Interface::as_raw(self), isactive, ::core::mem::transmute(pretval)).ok()
@@ -3482,7 +3371,6 @@ pub struct ITextProvider2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetCaretRange: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRangeProvider(::windows_core::IUnknown);
@@ -3491,7 +3379,7 @@ impl ITextRangeProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, range: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -3510,7 +3398,7 @@ impl ITextRangeProvider {
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), unit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindAttribute<P0>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<ITextRangeProvider>
     where
@@ -3519,7 +3407,7 @@ impl ITextRangeProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindAttribute)(::windows_core::Interface::as_raw(self), attributeid, ::core::mem::transmute(val), backward.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows_core::Result<ITextRangeProvider>
     where
@@ -3530,13 +3418,13 @@ impl ITextRangeProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAttributeValue)(::windows_core::Interface::as_raw(self), attributeid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3573,7 +3461,7 @@ impl ITextRangeProvider {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> ::windows_core::Result<()>
     where
@@ -3581,7 +3469,7 @@ impl ITextRangeProvider {
     {
         (::windows_core::Interface::vtable(self).ScrollIntoView)(::windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3639,7 +3527,6 @@ pub struct ITextRangeProvider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetChildren: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRangeProvider2(::windows_core::IUnknown);
@@ -3648,7 +3535,7 @@ impl ITextRangeProvider2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, range: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -3667,7 +3554,7 @@ impl ITextRangeProvider2 {
     pub unsafe fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), unit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindAttribute<P0>(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<ITextRangeProvider>
     where
@@ -3676,7 +3563,7 @@ impl ITextRangeProvider2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindAttribute)(::windows_core::Interface::as_raw(self), attributeid, ::core::mem::transmute(val), backward.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows_core::Result<ITextRangeProvider>
     where
@@ -3687,13 +3574,13 @@ impl ITextRangeProvider2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attributeid: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAttributeValue)(::windows_core::Interface::as_raw(self), attributeid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3730,7 +3617,7 @@ impl ITextRangeProvider2 {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> ::windows_core::Result<()>
     where
@@ -3738,7 +3625,7 @@ impl ITextRangeProvider2 {
     {
         (::windows_core::Interface::vtable(self).base__.ScrollIntoView)(::windows_core::Interface::as_raw(self), aligntotop.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -3761,7 +3648,6 @@ pub struct ITextRangeProvider2_Vtbl {
     pub base__: ITextRangeProvider_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToggleProvider(::windows_core::IUnknown);
@@ -3788,7 +3674,6 @@ pub struct IToggleProvider_Vtbl {
     pub Toggle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut ToggleState) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransformProvider(::windows_core::IUnknown);
@@ -3802,19 +3687,19 @@ impl ITransformProvider {
     pub unsafe fn Rotate(&self, degrees: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Rotate)(::windows_core::Interface::as_raw(self), degrees).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanMove(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanMove)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanResize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3848,7 +3733,6 @@ pub struct ITransformProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CanRotate: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransformProvider2(::windows_core::IUnknown);
@@ -3862,19 +3746,19 @@ impl ITransformProvider2 {
     pub unsafe fn Rotate(&self, degrees: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Rotate)(::windows_core::Interface::as_raw(self), degrees).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanMove(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CanMove)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CanResize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3883,7 +3767,7 @@ impl ITransformProvider2 {
     pub unsafe fn Zoom(&self, zoom: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Zoom)(::windows_core::Interface::as_raw(self), zoom).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanZoom(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3926,12 +3810,11 @@ pub struct ITransformProvider2_Vtbl {
     pub ZoomMaximum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut f64) -> ::windows_core::HRESULT,
     pub ZoomByUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, zoomunit: ZoomUnit) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation(::windows_core::IUnknown);
 impl IUIAutomation {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -3941,7 +3824,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareElements)(::windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3951,7 +3834,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRootElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -3960,7 +3843,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ElementFromHandle)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -3977,7 +3860,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRootElementBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -3987,7 +3870,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ElementFromHandleBuildCache)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4046,13 +3929,13 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4066,7 +3949,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateAndCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4084,7 +3967,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateOrCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4124,7 +4007,7 @@ impl IUIAutomation {
     {
         (::windows_core::Interface::vtable(self).AddPropertyChangedEventHandlerNativeArray)(::windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), ::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -4172,30 +4055,30 @@ impl IUIAutomation {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveAllEventHandlers)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IntNativeArrayToSafeArray)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(array.as_ptr()), array.len() as _, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
@@ -4219,7 +4102,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPatternProgrammaticName)(::windows_core::Interface::as_raw(self), pattern, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -4227,7 +4110,7 @@ impl IUIAutomation {
     {
         (::windows_core::Interface::vtable(self).PollForPotentialSupportedPatterns)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -4235,7 +4118,7 @@ impl IUIAutomation {
     {
         (::windows_core::Interface::vtable(self).PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4249,7 +4132,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReservedMixedAttributeValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4258,7 +4141,7 @@ impl IUIAutomation {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ElementFromIAccessible)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4399,12 +4282,11 @@ pub struct IUIAutomation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ElementFromIAccessibleBuildCache: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation2(::windows_core::IUnknown);
 impl IUIAutomation2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -4414,7 +4296,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareElements)(::windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4424,7 +4306,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRootElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4433,7 +4315,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ElementFromHandle)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -4450,7 +4332,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRootElementBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4460,7 +4342,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ElementFromHandleBuildCache)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4519,13 +4401,13 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4539,7 +4421,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateAndCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4557,7 +4439,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateOrCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4597,7 +4479,7 @@ impl IUIAutomation2 {
     {
         (::windows_core::Interface::vtable(self).base__.AddPropertyChangedEventHandlerNativeArray)(::windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), ::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -4645,30 +4527,30 @@ impl IUIAutomation2 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemoveAllEventHandlers)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IntNativeArrayToSafeArray)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(array.as_ptr()), array.len() as _, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
@@ -4692,7 +4574,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPatternProgrammaticName)(::windows_core::Interface::as_raw(self), pattern, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -4700,7 +4582,7 @@ impl IUIAutomation2 {
     {
         (::windows_core::Interface::vtable(self).base__.PollForPotentialSupportedPatterns)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -4708,7 +4590,7 @@ impl IUIAutomation2 {
     {
         (::windows_core::Interface::vtable(self).base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4722,7 +4604,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ReservedMixedAttributeValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4731,7 +4613,7 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ElementFromIAccessible)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4741,13 +4623,13 @@ impl IUIAutomation2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ElementFromIAccessibleBuildCache)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSetFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AutoSetFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> ::windows_core::Result<()>
     where
@@ -4794,12 +4676,11 @@ pub struct IUIAutomation2_Vtbl {
     pub TransactionTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: *mut u32) -> ::windows_core::HRESULT,
     pub SetTransactionTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation3(::windows_core::IUnknown);
 impl IUIAutomation3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -4809,7 +4690,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CompareElements)(::windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4819,7 +4700,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetRootElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4828,7 +4709,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ElementFromHandle)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -4845,7 +4726,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetRootElementBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4855,7 +4736,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ElementFromHandleBuildCache)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -4914,13 +4795,13 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4934,7 +4815,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateAndCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4952,7 +4833,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateOrCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -4992,7 +4873,7 @@ impl IUIAutomation3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.AddPropertyChangedEventHandlerNativeArray)(::windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), ::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5040,30 +4921,30 @@ impl IUIAutomation3 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RemoveAllEventHandlers)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IntNativeArrayToSafeArray)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(array.as_ptr()), array.len() as _, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
@@ -5087,7 +4968,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetPatternProgrammaticName)(::windows_core::Interface::as_raw(self), pattern, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5095,7 +4976,7 @@ impl IUIAutomation3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedPatterns)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5103,7 +4984,7 @@ impl IUIAutomation3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5117,7 +4998,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ReservedMixedAttributeValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5126,7 +5007,7 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ElementFromIAccessible)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5136,13 +5017,13 @@ impl IUIAutomation3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ElementFromIAccessibleBuildCache)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSetFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AutoSetFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> ::windows_core::Result<()>
     where
@@ -5194,12 +5075,11 @@ pub struct IUIAutomation3_Vtbl {
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveTextEditTextChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation4(::windows_core::IUnknown);
 impl IUIAutomation4 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -5209,7 +5089,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CompareElements)(::windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5219,7 +5099,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetRootElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5228,7 +5108,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ElementFromHandle)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -5245,7 +5125,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetRootElementBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5255,7 +5135,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ElementFromHandleBuildCache)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5314,13 +5194,13 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -5334,7 +5214,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateAndCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -5352,7 +5232,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateOrCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -5392,7 +5272,7 @@ impl IUIAutomation4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(::windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), ::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5440,30 +5320,30 @@ impl IUIAutomation4 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RemoveAllEventHandlers)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IntNativeArrayToSafeArray)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(array.as_ptr()), array.len() as _, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
@@ -5487,7 +5367,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPatternProgrammaticName)(::windows_core::Interface::as_raw(self), pattern, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5495,7 +5375,7 @@ impl IUIAutomation4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedPatterns)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5503,7 +5383,7 @@ impl IUIAutomation4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5517,7 +5397,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ReservedMixedAttributeValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5526,7 +5406,7 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ElementFromIAccessible)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5536,13 +5416,13 @@ impl IUIAutomation4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ElementFromIAccessibleBuildCache)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSetFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.AutoSetFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> ::windows_core::Result<()>
     where
@@ -5609,12 +5489,11 @@ pub struct IUIAutomation4_Vtbl {
     pub AddChangesEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveChangesEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation5(::windows_core::IUnknown);
 impl IUIAutomation5 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -5624,7 +5503,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CompareElements)(::windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5634,7 +5513,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetRootElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5643,7 +5522,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromHandle)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -5660,7 +5539,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetRootElementBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5670,7 +5549,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromHandleBuildCache)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5729,13 +5608,13 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -5749,7 +5628,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateAndCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -5767,7 +5646,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateOrCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -5807,7 +5686,7 @@ impl IUIAutomation5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(::windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), ::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5855,30 +5734,30 @@ impl IUIAutomation5 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RemoveAllEventHandlers)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IntNativeArrayToSafeArray)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(array.as_ptr()), array.len() as _, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
@@ -5902,7 +5781,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPatternProgrammaticName)(::windows_core::Interface::as_raw(self), pattern, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5910,7 +5789,7 @@ impl IUIAutomation5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedPatterns)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -5918,7 +5797,7 @@ impl IUIAutomation5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5932,7 +5811,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ReservedMixedAttributeValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5941,7 +5820,7 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromIAccessible)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -5951,13 +5830,13 @@ impl IUIAutomation5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ElementFromIAccessibleBuildCache)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSetFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.AutoSetFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> ::windows_core::Result<()>
     where
@@ -6039,12 +5918,11 @@ pub struct IUIAutomation5_Vtbl {
     pub AddNotificationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveNotificationEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomation6(::windows_core::IUnknown);
 impl IUIAutomation6 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<P0, P1>(&self, el1: P0, el2: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -6054,7 +5932,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CompareElements)(::windows_core::Interface::as_raw(self), el1.into_param().abi(), el2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6064,7 +5942,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetRootElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandle<P0>(&self, hwnd: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -6073,7 +5951,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromHandle)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationElement> {
         let mut result__ = ::std::mem::zeroed();
@@ -6090,7 +5968,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetRootElementBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromHandleBuildCache<P0, P1>(&self, hwnd: P0, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -6100,7 +5978,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromHandleBuildCache)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ElementFromPointBuildCache<P0>(&self, pt: super::super::Foundation::POINT, cacherequest: P0) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -6159,13 +6037,13 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateFalseCondition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreatePropertyCondition)(::windows_core::Interface::as_raw(self), propertyid, ::core::mem::transmute(value), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -6179,7 +6057,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateAndCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -6197,7 +6075,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateOrCondition)(::windows_core::Interface::as_raw(self), condition1.into_param().abi(), condition2.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<IUIAutomationCondition> {
         let mut result__ = ::std::mem::zeroed();
@@ -6237,7 +6115,7 @@ impl IUIAutomation6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.AddPropertyChangedEventHandlerNativeArray)(::windows_core::Interface::as_raw(self), element.into_param().abi(), scope, cacherequest.into_param().abi(), handler.into_param().abi(), ::core::mem::transmute(propertyarray.as_ptr()), propertyarray.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddPropertyChangedEventHandler<P0, P1, P2>(&self, element: P0, scope: TreeScope, cacherequest: P1, handler: P2, propertyarray: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -6285,30 +6163,30 @@ impl IUIAutomation6 {
     pub unsafe fn RemoveAllEventHandlers(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemoveAllEventHandlers)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntNativeArrayToSafeArray(&self, array: &[i32]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IntNativeArrayToSafeArray)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(array.as_ptr()), array.len() as _, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32, arraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IntSafeArrayToNativeArray)(::windows_core::Interface::as_raw(self), intarray, array, arraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RectToVariant(&self, rc: super::super::Foundation::RECT) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RectToVariant)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rc), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn VariantToRect(&self, var: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.VariantToRect)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT, rectarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SafeArrayToRectNativeArray)(::windows_core::Interface::as_raw(self), rects, rectarray, rectarraycount).ok()
@@ -6332,7 +6210,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetPatternProgrammaticName)(::windows_core::Interface::as_raw(self), pattern, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedPatterns<P0>(&self, pelement: P0, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -6340,7 +6218,7 @@ impl IUIAutomation6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedPatterns)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), patternids, patternnames).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PollForPotentialSupportedProperties<P0>(&self, pelement: P0, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -6348,7 +6226,7 @@ impl IUIAutomation6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.PollForPotentialSupportedProperties)(::windows_core::Interface::as_raw(self), pelement.into_param().abi(), propertyids, propertynames).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CheckNotSupported(&self, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6362,7 +6240,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReservedMixedAttributeValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessible<P0>(&self, accessible: P0, childid: i32) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -6371,7 +6249,7 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromIAccessible)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ElementFromIAccessibleBuildCache<P0, P1>(&self, accessible: P0, childid: i32, cacherequest: P1) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -6381,13 +6259,13 @@ impl IUIAutomation6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ElementFromIAccessibleBuildCache)(::windows_core::Interface::as_raw(self), accessible.into_param().abi(), childid, cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSetFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.AutoSetFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSetFocus<P0>(&self, autosetfocus: P0) -> ::windows_core::Result<()>
     where
@@ -6523,7 +6401,6 @@ pub struct IUIAutomation6_Vtbl {
     pub AddActiveTextPositionChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveActiveTextPositionChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationActiveTextPositionChangedEventHandler(::windows_core::IUnknown);
@@ -6549,7 +6426,6 @@ pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub HandleActiveTextPositionChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, range: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationAndCondition(::windows_core::IUnknown);
@@ -6561,7 +6437,7 @@ impl IUIAutomationAndCondition {
     pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetChildrenAsNativeArray)(::windows_core::Interface::as_raw(self), childarray, childarraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -6586,7 +6462,6 @@ pub struct IUIAutomationAndCondition_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetChildren: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationAnnotationPattern(::windows_core::IUnknown);
@@ -6654,12 +6529,11 @@ pub struct IUIAutomationAnnotationPattern_Vtbl {
     pub CachedDateTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub CachedTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationBoolCondition(::windows_core::IUnknown);
 impl IUIAutomationBoolCondition {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BooleanValue(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6682,7 +6556,6 @@ pub struct IUIAutomationBoolCondition_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     BooleanValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationCacheRequest(::windows_core::IUnknown);
@@ -6743,12 +6616,11 @@ pub struct IUIAutomationCacheRequest_Vtbl {
     pub AutomationElementMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut AutomationElementMode) -> ::windows_core::HRESULT,
     pub SetAutomationElementMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: AutomationElementMode) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationChangesEventHandler(::windows_core::IUnknown);
 impl IUIAutomationChangesEventHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn HandleChangesEvent<P0>(&self, sender: P0, uiachanges: &[UiaChangeInfo]) -> ::windows_core::Result<()>
     where
@@ -6773,7 +6645,6 @@ pub struct IUIAutomationChangesEventHandler_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     HandleChangesEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationCondition(::windows_core::IUnknown);
@@ -6790,7 +6661,6 @@ unsafe impl ::windows_core::ComInterface for IUIAutomationCondition {
 pub struct IUIAutomationCondition_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationCustomNavigationPattern(::windows_core::IUnknown);
@@ -6813,7 +6683,6 @@ pub struct IUIAutomationCustomNavigationPattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Navigate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, direction: NavigateDirection, pretval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationDockPattern(::windows_core::IUnknown);
@@ -6845,18 +6714,17 @@ pub struct IUIAutomationDockPattern_Vtbl {
     pub CurrentDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows_core::HRESULT,
     pub CachedDockPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut DockPosition) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationDragPattern(::windows_core::IUnknown);
 impl IUIAutomationDragPattern {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsGrabbed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsGrabbed)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsGrabbed(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6870,13 +6738,13 @@ impl IUIAutomationDragPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedDropEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentDropEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentDropEffects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedDropEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -6923,7 +6791,6 @@ pub struct IUIAutomationDragPattern_Vtbl {
     pub GetCurrentGrabbedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCachedGrabbedItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationDropTargetPattern(::windows_core::IUnknown);
@@ -6936,13 +6803,13 @@ impl IUIAutomationDropTargetPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedDropTargetEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentDropTargetEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentDropTargetEffects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedDropTargetEffects(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -6971,7 +6838,6 @@ pub struct IUIAutomationDropTargetPattern_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CachedDropTargetEffects: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement(::windows_core::IUnknown);
@@ -6979,7 +6845,7 @@ impl IUIAutomationElement {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7022,13 +6888,13 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7037,13 +6903,13 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7106,19 +6972,19 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7140,25 +7006,25 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -7168,7 +7034,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7182,7 +7048,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7192,7 +7058,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -7210,7 +7076,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7256,19 +7122,19 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7290,25 +7156,25 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -7318,7 +7184,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7332,7 +7198,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7342,7 +7208,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -7360,7 +7226,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7382,7 +7248,7 @@ impl IUIAutomationElement {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
@@ -7566,7 +7432,6 @@ pub struct IUIAutomationElement_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetClickablePoint: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement2(::windows_core::IUnknown);
@@ -7574,7 +7439,7 @@ impl IUIAutomationElement2 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7617,13 +7482,13 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7632,13 +7497,13 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -7701,19 +7566,19 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7735,25 +7600,25 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -7763,7 +7628,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7777,7 +7642,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7787,7 +7652,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -7805,7 +7670,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7851,19 +7716,19 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7885,25 +7750,25 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -7913,7 +7778,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7927,7 +7792,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7937,7 +7802,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -7955,7 +7820,7 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7977,18 +7842,18 @@ impl IUIAutomationElement2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8035,7 +7900,6 @@ pub struct IUIAutomationElement2_Vtbl {
     pub CurrentFlowsFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CachedFlowsFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement3(::windows_core::IUnknown);
@@ -8043,7 +7907,7 @@ impl IUIAutomationElement3 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8086,13 +7950,13 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -8101,13 +7965,13 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -8170,19 +8034,19 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8204,25 +8068,25 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -8232,7 +8096,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8246,7 +8110,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8256,7 +8120,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -8274,7 +8138,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8320,19 +8184,19 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8354,25 +8218,25 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -8382,7 +8246,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8396,7 +8260,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8406,7 +8270,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -8424,7 +8288,7 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8446,18 +8310,18 @@ impl IUIAutomationElement3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8482,13 +8346,13 @@ impl IUIAutomationElement3 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8516,7 +8380,6 @@ pub struct IUIAutomationElement3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedIsPeripheral: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement4(::windows_core::IUnknown);
@@ -8524,7 +8387,7 @@ impl IUIAutomationElement4 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8567,13 +8430,13 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -8582,13 +8445,13 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -8651,19 +8514,19 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8685,25 +8548,25 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -8713,7 +8576,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8727,7 +8590,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8737,7 +8600,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -8755,7 +8618,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8801,19 +8664,19 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8835,25 +8698,25 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -8863,7 +8726,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8877,7 +8740,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8887,7 +8750,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -8905,7 +8768,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8927,18 +8790,18 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8963,13 +8826,13 @@ impl IUIAutomationElement4 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8987,7 +8850,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9009,7 +8872,7 @@ impl IUIAutomationElement4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9048,7 +8911,6 @@ pub struct IUIAutomationElement4_Vtbl {
     CachedAnnotationTypes: usize,
     pub CachedAnnotationObjects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement5(::windows_core::IUnknown);
@@ -9056,7 +8918,7 @@ impl IUIAutomationElement5 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9099,13 +8961,13 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -9114,13 +8976,13 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -9183,19 +9045,19 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9217,25 +9079,25 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -9245,7 +9107,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9259,7 +9121,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9269,7 +9131,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9287,7 +9149,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9333,19 +9195,19 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9367,25 +9229,25 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -9395,7 +9257,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9409,7 +9271,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9419,7 +9281,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9437,7 +9299,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9459,18 +9321,18 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9495,13 +9357,13 @@ impl IUIAutomationElement5 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9519,7 +9381,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9541,7 +9403,7 @@ impl IUIAutomationElement5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9584,7 +9446,6 @@ pub struct IUIAutomationElement5_Vtbl {
     pub CachedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_LANDMARKTYPE_ID) -> ::windows_core::HRESULT,
     pub CachedLocalizedLandmarkType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement6(::windows_core::IUnknown);
@@ -9592,7 +9453,7 @@ impl IUIAutomationElement6 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -9635,13 +9496,13 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -9650,13 +9511,13 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -9719,19 +9580,19 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9753,25 +9614,25 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -9781,7 +9642,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9795,7 +9656,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9805,7 +9666,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9823,7 +9684,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9869,19 +9730,19 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9903,25 +9764,25 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -9931,7 +9792,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9945,7 +9806,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9955,7 +9816,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -9973,7 +9834,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9995,18 +9856,18 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10031,13 +9892,13 @@ impl IUIAutomationElement6 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10055,7 +9916,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CurrentLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10077,7 +9938,7 @@ impl IUIAutomationElement6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CachedLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10126,7 +9987,6 @@ pub struct IUIAutomationElement6_Vtbl {
     pub CurrentFullDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub CachedFullDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement7(::windows_core::IUnknown);
@@ -10134,7 +9994,7 @@ impl IUIAutomationElement7 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10177,13 +10037,13 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -10192,13 +10052,13 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -10261,19 +10121,19 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10295,25 +10155,25 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -10323,7 +10183,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10337,7 +10197,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10347,7 +10207,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -10365,7 +10225,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10411,19 +10271,19 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10445,25 +10305,25 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -10473,7 +10333,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10487,7 +10347,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10497,7 +10357,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -10515,7 +10375,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10537,18 +10397,18 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10573,13 +10433,13 @@ impl IUIAutomationElement7 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10597,7 +10457,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CurrentLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10619,7 +10479,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CachedLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10687,7 +10547,7 @@ impl IUIAutomationElement7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindAllWithOptionsBuildCache)(::windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -10714,7 +10574,6 @@ pub struct IUIAutomationElement7_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCurrentMetadataValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement8(::windows_core::IUnknown);
@@ -10722,7 +10581,7 @@ impl IUIAutomationElement8 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -10765,13 +10624,13 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -10780,13 +10639,13 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -10849,19 +10708,19 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10883,25 +10742,25 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -10911,7 +10770,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10925,7 +10784,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10935,7 +10794,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -10953,7 +10812,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10999,19 +10858,19 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11033,25 +10892,25 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -11061,7 +10920,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11075,7 +10934,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11085,7 +10944,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -11103,7 +10962,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11125,18 +10984,18 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11161,13 +11020,13 @@ impl IUIAutomationElement8 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11185,7 +11044,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CurrentLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -11207,7 +11066,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CachedLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -11275,7 +11134,7 @@ impl IUIAutomationElement8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindAllWithOptionsBuildCache)(::windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -11304,7 +11163,6 @@ pub struct IUIAutomationElement8_Vtbl {
     pub CurrentHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> ::windows_core::HRESULT,
     pub CachedHeadingLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut UIA_HEADINGLEVEL_ID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElement9(::windows_core::IUnknown);
@@ -11312,7 +11170,7 @@ impl IUIAutomationElement9 {
     pub unsafe fn SetFocus(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetFocus)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRuntimeId(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -11355,13 +11213,13 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.BuildUpdatedCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -11370,13 +11228,13 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCurrentPropertyValueEx)(::windows_core::Interface::as_raw(self), propertyid, ignoredefaultvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetCachedPropertyValue)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCachedPropertyValueEx<P0>(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
@@ -11439,19 +11297,19 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11473,25 +11331,25 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -11501,7 +11359,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11515,7 +11373,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11525,7 +11383,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -11543,7 +11401,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CurrentAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11589,19 +11447,19 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedAccessKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHasKeyboardFocus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedHasKeyboardFocus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsKeyboardFocusable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedIsKeyboardFocusable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsEnabled(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11623,25 +11481,25 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedCulture)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsControlElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedIsControlElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsContentElement(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedIsContentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPassword(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedIsPassword)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedNativeWindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -11651,7 +11509,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedItemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsOffscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11665,7 +11523,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedFrameworkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsRequiredForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11675,7 +11533,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedItemStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedBoundingRectangle(&self) -> ::windows_core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
@@ -11693,7 +11551,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedAriaProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDataValidForForm(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11715,18 +11573,18 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CachedProviderDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClickablePoint)(::windows_core::Interface::as_raw(self), clickable, gotclickable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CurrentOptimizeForVisualContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11751,13 +11609,13 @@ impl IUIAutomationElement9 {
     pub unsafe fn ShowContextMenu(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ShowContextMenu)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CurrentIsPeripheral)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsPeripheral(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11775,7 +11633,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CurrentLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -11797,7 +11655,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CachedLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -11865,7 +11723,7 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.FindAllWithOptionsBuildCache)(::windows_core::Interface::as_raw(self), scope, condition.into_param().abi(), cacherequest.into_param().abi(), traversaloptions, root.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -11879,13 +11737,13 @@ impl IUIAutomationElement9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedHeadingLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsDialog(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsDialog)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsDialog(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11912,7 +11770,6 @@ pub struct IUIAutomationElement9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedIsDialog: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationElementArray(::windows_core::IUnknown);
@@ -11940,7 +11797,6 @@ pub struct IUIAutomationElementArray_Vtbl {
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows_core::HRESULT,
     pub GetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, element: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationEventHandler(::windows_core::IUnknown);
@@ -11965,7 +11821,6 @@ pub struct IUIAutomationEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub HandleAutomationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventid: UIA_EVENT_ID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationEventHandlerGroup(::windows_core::IUnknown);
@@ -12039,7 +11894,6 @@ pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub AddStructureChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationExpandCollapsePattern(::windows_core::IUnknown);
@@ -12075,7 +11929,6 @@ pub struct IUIAutomationExpandCollapsePattern_Vtbl {
     pub CurrentExpandCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows_core::HRESULT,
     pub CachedExpandCollapseState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ExpandCollapseState) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationFocusChangedEventHandler(::windows_core::IUnknown);
@@ -12100,7 +11953,6 @@ pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub HandleFocusChangedEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationGridItemPattern(::windows_core::IUnknown);
@@ -12168,7 +12020,6 @@ pub struct IUIAutomationGridItemPattern_Vtbl {
     pub CachedRowSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub CachedColumnSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationGridPattern(::windows_core::IUnknown);
@@ -12211,7 +12062,6 @@ pub struct IUIAutomationGridPattern_Vtbl {
     pub CachedRowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
     pub CachedColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationInvokePattern(::windows_core::IUnknown);
@@ -12233,12 +12083,11 @@ pub struct IUIAutomationInvokePattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationItemContainerPattern(::windows_core::IUnknown);
 impl IUIAutomationItemContainerPattern {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindItemByProperty<P0>(&self, pstartafter: P0, propertyid: UIA_PROPERTY_ID, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<IUIAutomationElement>
     where
@@ -12264,7 +12113,6 @@ pub struct IUIAutomationItemContainerPattern_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     FindItemByProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationLegacyIAccessiblePattern(::windows_core::IUnknown);
@@ -12361,7 +12209,7 @@ impl IUIAutomationLegacyIAccessiblePattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedDefaultAction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetIAccessible(&self) -> ::windows_core::Result<IAccessible> {
         let mut result__ = ::std::mem::zeroed();
@@ -12407,7 +12255,6 @@ pub struct IUIAutomationLegacyIAccessiblePattern_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetIAccessible: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationMultipleViewPattern(::windows_core::IUnknown);
@@ -12423,7 +12270,7 @@ impl IUIAutomationMultipleViewPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCurrentView)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurrentSupportedViews(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -12433,7 +12280,7 @@ impl IUIAutomationMultipleViewPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCurrentView)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCachedSupportedViews(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -12464,7 +12311,6 @@ pub struct IUIAutomationMultipleViewPattern_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCachedSupportedViews: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationNotCondition(::windows_core::IUnknown);
@@ -12487,7 +12333,6 @@ pub struct IUIAutomationNotCondition_Vtbl {
     pub base__: IUIAutomationCondition_Vtbl,
     pub GetChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationNotificationEventHandler(::windows_core::IUnknown);
@@ -12514,7 +12359,6 @@ pub struct IUIAutomationNotificationEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub HandleNotificationEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::std::mem::MaybeUninit<::windows_core::BSTR>, activityid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationObjectModelPattern(::windows_core::IUnknown);
@@ -12537,7 +12381,6 @@ pub struct IUIAutomationObjectModelPattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetUnderlyingObjectModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationOrCondition(::windows_core::IUnknown);
@@ -12549,7 +12392,7 @@ impl IUIAutomationOrCondition {
     pub unsafe fn GetChildrenAsNativeArray(&self, childarray: *mut *mut ::core::option::Option<IUIAutomationCondition>, childarraycount: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetChildrenAsNativeArray)(::windows_core::Interface::as_raw(self), childarray, childarraycount).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetChildren(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -12574,7 +12417,6 @@ pub struct IUIAutomationOrCondition_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetChildren: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPatternHandler(::windows_core::IUnknown);
@@ -12607,12 +12449,11 @@ pub struct IUIAutomationPatternHandler_Vtbl {
     pub CreateClientWrapper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppatterninstance: *mut ::core::ffi::c_void, pclientwrapper: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Dispatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptarget: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPatternInstance(::windows_core::IUnknown);
 impl IUIAutomationPatternInstance {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperty<P0>(&self, index: u32, cached: P0, r#type: UIAutomationType, pptr: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -12641,12 +12482,11 @@ pub struct IUIAutomationPatternInstance_Vtbl {
     GetProperty: usize,
     pub CallMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPropertyChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationPropertyChangedEventHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn HandlePropertyChangedEvent<P0>(&self, sender: P0, propertyid: UIA_PROPERTY_ID, newvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
@@ -12671,7 +12511,6 @@ pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     HandlePropertyChangedEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationPropertyCondition(::windows_core::IUnknown);
@@ -12680,7 +12519,7 @@ impl IUIAutomationPropertyCondition {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PropertyId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PropertyValue(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -12709,12 +12548,11 @@ pub struct IUIAutomationPropertyCondition_Vtbl {
     PropertyValue: usize,
     pub PropertyConditionFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut PropertyConditionFlags) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationProxyFactory(::windows_core::IUnknown);
 impl IUIAutomationProxyFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProvider<P0>(&self, hwnd: P0, idobject: i32, idchild: i32) -> ::windows_core::Result<IRawElementProviderSimple>
     where
@@ -12745,7 +12583,6 @@ pub struct IUIAutomationProxyFactory_Vtbl {
     CreateProvider: usize,
     pub ProxyFactoryId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factoryid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationProxyFactoryEntry(::windows_core::IUnknown);
@@ -12762,19 +12599,19 @@ impl IUIAutomationProxyFactoryEntry {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ImageName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowSubstringMatch(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowSubstringMatch)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanCheckBaseClass(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanCheckBaseClass)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NeedsAdviseEvents(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12792,7 +12629,7 @@ impl IUIAutomationProxyFactoryEntry {
     {
         (::windows_core::Interface::vtable(self).SetImageName)(::windows_core::Interface::as_raw(self), imagename.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowSubstringMatch<P0>(&self, allowsubstringmatch: P0) -> ::windows_core::Result<()>
     where
@@ -12800,7 +12637,7 @@ impl IUIAutomationProxyFactoryEntry {
     {
         (::windows_core::Interface::vtable(self).SetAllowSubstringMatch)(::windows_core::Interface::as_raw(self), allowsubstringmatch.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCanCheckBaseClass<P0>(&self, cancheckbaseclass: P0) -> ::windows_core::Result<()>
     where
@@ -12808,7 +12645,7 @@ impl IUIAutomationProxyFactoryEntry {
     {
         (::windows_core::Interface::vtable(self).SetCanCheckBaseClass)(::windows_core::Interface::as_raw(self), cancheckbaseclass.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNeedsAdviseEvents<P0>(&self, adviseevents: P0) -> ::windows_core::Result<()>
     where
@@ -12816,12 +12653,12 @@ impl IUIAutomationProxyFactoryEntry {
     {
         (::windows_core::Interface::vtable(self).SetNeedsAdviseEvents)(::windows_core::Interface::as_raw(self), adviseevents.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID, winevents: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetWinEventsForAutomationEvent)(::windows_core::Interface::as_raw(self), eventid, propertyid, winevents).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWinEventsForAutomationEvent(&self, eventid: UIA_EVENT_ID, propertyid: UIA_PROPERTY_ID) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -12877,7 +12714,6 @@ pub struct IUIAutomationProxyFactoryEntry_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetWinEventsForAutomationEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationProxyFactoryMapping(::windows_core::IUnknown);
@@ -12886,7 +12722,7 @@ impl IUIAutomationProxyFactoryMapping {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTable(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -12896,12 +12732,12 @@ impl IUIAutomationProxyFactoryMapping {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEntry)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTable)(::windows_core::Interface::as_raw(self), factorylist).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InsertEntries)(::windows_core::Interface::as_raw(self), before, factorylist).ok()
@@ -12952,7 +12788,6 @@ pub struct IUIAutomationProxyFactoryMapping_Vtbl {
     pub ClearTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RestoreDefaultTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationRangeValuePattern(::windows_core::IUnknown);
@@ -12964,7 +12799,7 @@ impl IUIAutomationRangeValuePattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12990,7 +12825,7 @@ impl IUIAutomationRangeValuePattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13044,7 +12879,6 @@ pub struct IUIAutomationRangeValuePattern_Vtbl {
     pub CachedLargeChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows_core::HRESULT,
     pub CachedSmallChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationRegistrar(::windows_core::IUnknown);
@@ -13057,7 +12891,7 @@ impl IUIAutomationRegistrar {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegisterEvent)(::windows_core::Interface::as_raw(self), event, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut i32, ppatternavailablepropertyid: *mut i32, ppropertyids: &mut [i32], peventids: &mut [i32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RegisterPattern)(::windows_core::Interface::as_raw(self), pattern, ppatternid, ppatternavailablepropertyid, ppropertyids.len() as _, ::core::mem::transmute(ppropertyids.as_ptr()), peventids.len() as _, ::core::mem::transmute(peventids.as_ptr())).ok()
@@ -13081,7 +12915,6 @@ pub struct IUIAutomationRegistrar_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RegisterPattern: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationScrollItemPattern(::windows_core::IUnknown);
@@ -13103,7 +12936,6 @@ pub struct IUIAutomationScrollItemPattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationScrollPattern(::windows_core::IUnknown);
@@ -13130,13 +12962,13 @@ impl IUIAutomationScrollPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentVerticalViewSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentHorizontallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentHorizontallyScrollable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentVerticallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13158,13 +12990,13 @@ impl IUIAutomationScrollPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedVerticalViewSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedHorizontallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedHorizontallyScrollable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedVerticallyScrollable(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13209,7 +13041,6 @@ pub struct IUIAutomationScrollPattern_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedVerticallyScrollable: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSelectionItemPattern(::windows_core::IUnknown);
@@ -13223,7 +13054,7 @@ impl IUIAutomationSelectionItemPattern {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsSelected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13233,7 +13064,7 @@ impl IUIAutomationSelectionItemPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentSelectionContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsSelected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13269,7 +13100,6 @@ pub struct IUIAutomationSelectionItemPattern_Vtbl {
     CachedIsSelected: usize,
     pub CachedSelectionContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSelectionPattern(::windows_core::IUnknown);
@@ -13278,13 +13108,13 @@ impl IUIAutomationSelectionPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanSelectMultiple)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13294,13 +13124,13 @@ impl IUIAutomationSelectionPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCachedSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCanSelectMultiple)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13337,7 +13167,6 @@ pub struct IUIAutomationSelectionPattern_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedIsSelectionRequired: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSelectionPattern2(::windows_core::IUnknown);
@@ -13346,13 +13175,13 @@ impl IUIAutomationSelectionPattern2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCurrentSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentCanSelectMultiple)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13362,13 +13191,13 @@ impl IUIAutomationSelectionPattern2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCachedSelection)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanSelectMultiple(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedCanSelectMultiple)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsSelectionRequired(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13427,7 +13256,6 @@ pub struct IUIAutomationSelectionPattern2_Vtbl {
     pub CachedCurrentSelectedItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CachedItemCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSpreadsheetItemPattern(::windows_core::IUnknown);
@@ -13440,7 +13268,7 @@ impl IUIAutomationSpreadsheetItemPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentAnnotationObjects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurrentAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -13454,7 +13282,7 @@ impl IUIAutomationSpreadsheetItemPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCachedAnnotationObjects)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCachedAnnotationTypes(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -13485,7 +13313,6 @@ pub struct IUIAutomationSpreadsheetItemPattern_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetCachedAnnotationTypes: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSpreadsheetPattern(::windows_core::IUnknown);
@@ -13511,12 +13338,11 @@ pub struct IUIAutomationSpreadsheetPattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetItemByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, element: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationStructureChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationStructureChangedEventHandler {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HandleStructureChangedEvent<P0>(&self, sender: P0, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -13541,7 +13367,6 @@ pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     HandleStructureChangedEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationStylesPattern(::windows_core::IUnknown);
@@ -13637,7 +13462,6 @@ pub struct IUIAutomationStylesPattern_Vtbl {
     pub CachedExtendedProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetCachedExtendedPropertiesAsArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyarray: *mut *mut ExtendedProperty, propertycount: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationSynchronizedInputPattern(::windows_core::IUnknown);
@@ -13663,7 +13487,6 @@ pub struct IUIAutomationSynchronizedInputPattern_Vtbl {
     pub StartListening: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputtype: SynchronizedInputType) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTableItemPattern(::windows_core::IUnknown);
@@ -13701,7 +13524,6 @@ pub struct IUIAutomationTableItemPattern_Vtbl {
     pub GetCachedRowHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCachedColumnHeaderItems: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTablePattern(::windows_core::IUnknown);
@@ -13749,7 +13571,6 @@ pub struct IUIAutomationTablePattern_Vtbl {
     pub GetCachedColumnHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CachedRowOrColumnMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut RowOrColumnMajor) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextChildPattern(::windows_core::IUnknown);
@@ -13777,12 +13598,11 @@ pub struct IUIAutomationTextChildPattern_Vtbl {
     pub TextContainer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, container: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TextRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextEditPattern(::windows_core::IUnknown);
 impl IUIAutomationTextEditPattern {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RangeFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationTextRange> {
         let mut result__ = ::std::mem::zeroed();
@@ -13834,12 +13654,11 @@ pub struct IUIAutomationTextEditPattern_Vtbl {
     pub GetActiveComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetConversionTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextEditTextChangedEventHandler(::windows_core::IUnknown);
 impl IUIAutomationTextEditTextChangedEventHandler {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HandleTextEditTextChangedEvent<P0>(&self, sender: P0, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> ::windows_core::Result<()>
     where
@@ -13864,12 +13683,11 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     HandleTextEditTextChangedEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextPattern(::windows_core::IUnknown);
 impl IUIAutomationTextPattern {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RangeFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationTextRange> {
         let mut result__ = ::std::mem::zeroed();
@@ -13920,12 +13738,11 @@ pub struct IUIAutomationTextPattern_Vtbl {
     pub DocumentRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SupportedTextSelection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedtextselection: *mut SupportedTextSelection) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextPattern2(::windows_core::IUnknown);
 impl IUIAutomationTextPattern2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RangeFromPoint(&self, pt: super::super::Foundation::POINT) -> ::windows_core::Result<IUIAutomationTextRange> {
         let mut result__ = ::std::mem::zeroed();
@@ -13961,7 +13778,7 @@ impl IUIAutomationTextPattern2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RangeFromAnnotation)(::windows_core::Interface::as_raw(self), annotation.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCaretRange)(::windows_core::Interface::as_raw(self), isactive, ::core::mem::transmute(range)).ok()
@@ -13984,7 +13801,6 @@ pub struct IUIAutomationTextPattern2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetCaretRange: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRange(::windows_core::IUnknown);
@@ -13993,7 +13809,7 @@ impl IUIAutomationTextRange {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, range: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -14012,7 +13828,7 @@ impl IUIAutomationTextRange {
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), textunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
     where
@@ -14021,7 +13837,7 @@ impl IUIAutomationTextRange {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindAttribute)(::windows_core::Interface::as_raw(self), attr, ::core::mem::transmute(val), backward.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows_core::Result<IUIAutomationTextRange>
     where
@@ -14032,13 +13848,13 @@ impl IUIAutomationTextRange {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAttributeValue)(::windows_core::Interface::as_raw(self), attr, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -14075,7 +13891,7 @@ impl IUIAutomationTextRange {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> ::windows_core::Result<()>
     where
@@ -14136,7 +13952,6 @@ pub struct IUIAutomationTextRange_Vtbl {
     ScrollIntoView: usize,
     pub GetChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, children: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRange2(::windows_core::IUnknown);
@@ -14145,7 +13960,7 @@ impl IUIAutomationTextRange2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, range: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -14164,7 +13979,7 @@ impl IUIAutomationTextRange2 {
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), textunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
     where
@@ -14173,7 +13988,7 @@ impl IUIAutomationTextRange2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindAttribute)(::windows_core::Interface::as_raw(self), attr, ::core::mem::transmute(val), backward.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows_core::Result<IUIAutomationTextRange>
     where
@@ -14184,13 +13999,13 @@ impl IUIAutomationTextRange2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAttributeValue)(::windows_core::Interface::as_raw(self), attr, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -14227,7 +14042,7 @@ impl IUIAutomationTextRange2 {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> ::windows_core::Result<()>
     where
@@ -14256,7 +14071,6 @@ pub struct IUIAutomationTextRange2_Vtbl {
     pub base__: IUIAutomationTextRange_Vtbl,
     pub ShowContextMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRange3(::windows_core::IUnknown);
@@ -14265,7 +14079,7 @@ impl IUIAutomationTextRange3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, range: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -14284,7 +14098,7 @@ impl IUIAutomationTextRange3 {
     pub unsafe fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ExpandToEnclosingUnit)(::windows_core::Interface::as_raw(self), textunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FindAttribute<P0>(&self, attr: UIA_TEXTATTRIBUTE_ID, val: super::super::System::Variant::VARIANT, backward: P0) -> ::windows_core::Result<IUIAutomationTextRange>
     where
@@ -14293,7 +14107,7 @@ impl IUIAutomationTextRange3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.FindAttribute)(::windows_core::Interface::as_raw(self), attr, ::core::mem::transmute(val), backward.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<P0, P1, P2>(&self, text: P0, backward: P1, ignorecase: P2) -> ::windows_core::Result<IUIAutomationTextRange>
     where
@@ -14304,13 +14118,13 @@ impl IUIAutomationTextRange3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.FindText)(::windows_core::Interface::as_raw(self), text.into_param().abi(), backward.into_param().abi(), ignorecase.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeValue(&self, attr: UIA_TEXTATTRIBUTE_ID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetAttributeValue)(::windows_core::Interface::as_raw(self), attr, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingRectangles(&self) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -14347,7 +14161,7 @@ impl IUIAutomationTextRange3 {
     pub unsafe fn RemoveFromSelection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RemoveFromSelection)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollIntoView<P0>(&self, aligntotop: P0) -> ::windows_core::Result<()>
     where
@@ -14376,7 +14190,7 @@ impl IUIAutomationTextRange3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetChildrenBuildCache)(::windows_core::Interface::as_raw(self), cacherequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAttributeValues(&self, attributeids: &[UIA_TEXTATTRIBUTE_ID]) -> ::windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -14401,7 +14215,6 @@ pub struct IUIAutomationTextRange3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetAttributeValues: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTextRangeArray(::windows_core::IUnknown);
@@ -14429,7 +14242,6 @@ pub struct IUIAutomationTextRangeArray_Vtbl {
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows_core::HRESULT,
     pub GetElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, element: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTogglePattern(::windows_core::IUnknown);
@@ -14461,7 +14273,6 @@ pub struct IUIAutomationTogglePattern_Vtbl {
     pub CurrentToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows_core::HRESULT,
     pub CachedToggleState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut ToggleState) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTransformPattern(::windows_core::IUnknown);
@@ -14475,37 +14286,37 @@ impl IUIAutomationTransformPattern {
     pub unsafe fn Rotate(&self, degrees: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Rotate)(::windows_core::Interface::as_raw(self), degrees).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanMove(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanMove)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanResize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanRotate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanMove(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCanMove)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCanResize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14551,7 +14362,6 @@ pub struct IUIAutomationTransformPattern_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedCanRotate: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTransformPattern2(::windows_core::IUnknown);
@@ -14565,37 +14375,37 @@ impl IUIAutomationTransformPattern2 {
     pub unsafe fn Rotate(&self, degrees: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Rotate)(::windows_core::Interface::as_raw(self), degrees).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanMove(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentCanMove)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentCanResize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CurrentCanRotate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanMove(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedCanMove)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanResize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CachedCanResize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanRotate(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14607,13 +14417,13 @@ impl IUIAutomationTransformPattern2 {
     pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ZoomByUnit)(::windows_core::Interface::as_raw(self), zoomunit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanZoom(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanZoom)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanZoom(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14672,7 +14482,6 @@ pub struct IUIAutomationTransformPattern2_Vtbl {
     pub CurrentZoomMaximum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows_core::HRESULT,
     pub CachedZoomMaximum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationTreeWalker(::windows_core::IUnknown);
@@ -14797,7 +14606,6 @@ pub struct IUIAutomationTreeWalker_Vtbl {
     pub NormalizeElementBuildCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::core::ffi::c_void, cacherequest: *mut ::core::ffi::c_void, normalized: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Condition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, condition: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationValuePattern(::windows_core::IUnknown);
@@ -14812,7 +14620,7 @@ impl IUIAutomationValuePattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14822,7 +14630,7 @@ impl IUIAutomationValuePattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14852,7 +14660,6 @@ pub struct IUIAutomationValuePattern_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CachedIsReadOnly: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationVirtualizedItemPattern(::windows_core::IUnknown);
@@ -14874,7 +14681,6 @@ pub struct IUIAutomationVirtualizedItemPattern_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Realize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIAutomationWindowPattern(::windows_core::IUnknown);
@@ -14882,7 +14688,7 @@ impl IUIAutomationWindowPattern {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14891,25 +14697,25 @@ impl IUIAutomationWindowPattern {
     pub unsafe fn SetWindowVisualState(&self, state: WindowVisualState) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetWindowVisualState)(::windows_core::Interface::as_raw(self), state).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanMaximize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanMaximize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentCanMinimize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentCanMinimize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsModal(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentIsModal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentIsTopmost(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14923,25 +14729,25 @@ impl IUIAutomationWindowPattern {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentWindowInteractionState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanMaximize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCanMaximize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedCanMinimize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedCanMinimize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsModal(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CachedIsModal)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CachedIsTopmost(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15010,7 +14816,6 @@ pub struct IUIAutomationWindowPattern_Vtbl {
     pub CachedWindowVisualState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut WindowVisualState) -> ::windows_core::HRESULT,
     pub CachedWindowInteractionState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut WindowInteractionState) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IValueProvider(::windows_core::IUnknown);
@@ -15025,7 +14830,7 @@ impl IValueProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsReadOnly(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15050,7 +14855,6 @@ pub struct IValueProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsReadOnly: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVirtualizedItemProvider(::windows_core::IUnknown);
@@ -15072,7 +14876,6 @@ pub struct IVirtualizedItemProvider_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Realize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowProvider(::windows_core::IUnknown);
@@ -15083,25 +14886,25 @@ impl IWindowProvider {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WaitForInputIdle)(::windows_core::Interface::as_raw(self), milliseconds, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanMaximize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanMaximize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanMinimize(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanMinimize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsModal(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15115,7 +14918,7 @@ impl IWindowProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WindowInteractionState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTopmost(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15158,2525 +14961,1265 @@ pub struct IWindowProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTopmost: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANNO_CONTAINER: AnnoScope = AnnoScope(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANNO_THIS: AnnoScope = AnnoScope(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANRUS_PRIORITY_AUDIO_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AcceleratorKey_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x514865df_2557_4cb9_aeed_6ced084ce52c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AccessKey_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ActiveEnd_End: ActiveEnd = ActiveEnd(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ActiveEnd_None: ActiveEnd = ActiveEnd(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ActiveEnd_Start: ActiveEnd = ActiveEnd(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ActiveTextPositionChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_BlinkingBackground: AnimationStyle = AnimationStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_LasVegasLights: AnimationStyle = AnimationStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = AnimationStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_MarchingRedAnts: AnimationStyle = AnimationStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_None: AnimationStyle = AnimationStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_Other: AnimationStyle = AnimationStyle(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_Shimmer: AnimationStyle = AnimationStyle(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnimationStyle_SparkleText: AnimationStyle = AnimationStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationObjects_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x310910c8_7c6e_4f20_becd_4aaf6d191156);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_AdvancedProofingIssue: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60020u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Author: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60019u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_CircularReferenceError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60022u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Comment: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_ConflictingChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60018u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_DataValidationError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60021u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_DeletionChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60012u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_EditingLockedChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60016u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Endnote: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60009u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_ExternalChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60017u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Footer: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60007u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Footnote: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60010u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_FormatChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60014u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_FormulaError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_GrammarError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Header: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60006u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Highlighted: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60008u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_InsertionChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60011u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Mathematics: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60023u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_MoveChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60013u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Sensitive: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60024u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_SpellingError: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_TrackChanges: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60005u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_Unknown: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationType_UnsyncedChange: UIA_ANNOTATIONTYPE = UIA_ANNOTATIONTYPE(60015u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AnnotationTypes_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64b71f76_53c4_4696_a219_20e940c9a176);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_AdvancedProofingIssue_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdac7b72c_c0f2_4b84_b90d_5fafc0f0ef1c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_AnnotationTypeId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20ae484f_69ef_4c48_8f5b_c4938b206ac7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_AnnotationTypeName_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b818892_5ac9_4af9_aa96_f58a77b058e3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Author_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf161d3a7_f81b_4128_b17f_71f690914520);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Author_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a528462_9c5c_4a03_a974_8b307a9937f2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_CircularReferenceError_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25bd9cf4_1745_4659_ba67_727f0318c616);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Comment_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd2fda30_26b3_4c06_8bc7_98f1532e46fd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_ConflictingChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98af8802_517c_459f_af13_016d3fab877e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Custom_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ec82750_3931_4952_85bc_1dbff78a43e3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_DataValidationError_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8649fa8_9775_437e_ad46_e709d93c2343);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_DateTime_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99b5ca5d_1acf_414b_a4d0_6b350b047578);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_DeletionChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe3d5b05_951d_42e7_901d_adc8c2cf34d0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_EditingLockedChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc31f3e1c_7423_4dac_8348_41f099ff6f64);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Endnote_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7565725c_2d99_4839_960d_33d3b866aba5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_ExternalChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75a05b31_5f11_42fd_887d_dfa010db2392);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Footer_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcceab046_1833_47aa_8080_701ed0b0c832);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Footnote_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3de10e21_4125_42db_8620_be8083080624);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_FormatChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb247345_d4f1_41ce_8e52_f79b69635e48);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_FormulaError_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95611982_0cab_46d5_a2f0_e30d1905f8bf);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_GrammarError_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x757a048d_4518_41c6_854c_dc009b7cfb53);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Header_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x867b409b_b216_4472_a219_525e310681f8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Highlighted_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x757c884e_8083_4081_8b9c_e87f5072f0e4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_InsertionChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0dbeb3a6_df15_4164_a3c0_e21a8ce931c4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Mathematics_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeaab634b_26d0_40c1_8073_57ca1c633c9b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_MoveChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9da587eb_23e5_4490_b385_1a22ddc8b187);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6c72ad7_356c_4850_9291_316f608a8c84);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Sensitive_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37f4c04f_0f12_4464_929c_828fd15292e3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_SpellingError_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae85567e_9ece_423f_81b7_96c43d53e50e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_Target_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb71b302d_2104_44ad_9c5c_092b4907d70f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_TrackChanges_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21e6e888_dc14_4016_ac27_190553c8c470);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Annotation_UnsyncedChange_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1851116a_0e47_4b30_8cb5_d7dae4fbcd1b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AppBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6114908d_cc02_4d37_875b_b530c7139554);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AriaProperties_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4213678c_e025_4922_beb5_e43ba08e6221);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AriaRole_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd207b95_be4a_4e0d_b727_63ace94b6916);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Assertive: LiveSetting = LiveSetting(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = AsyncContentLoadedState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = AsyncContentLoadedState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = AsyncContentLoadedState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AsyncContentLoaded_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fdee11c_d2fa_4fb9_904e_5cbee894d5ef);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationElementMode_Full: AutomationElementMode = AutomationElementMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationElementMode_None: AutomationElementMode = AutomationElementMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationFocusChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb68a1f17_f60d_41a7_a3cc_b05292155fe0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc82c0500_b60e_4310_a267_303c531f8ee5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = AutomationIdentifierType(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Changes: AutomationIdentifierType = AutomationIdentifierType(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_ControlType: AutomationIdentifierType = AutomationIdentifierType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Event: AutomationIdentifierType = AutomationIdentifierType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_LandmarkType: AutomationIdentifierType = AutomationIdentifierType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Pattern: AutomationIdentifierType = AutomationIdentifierType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Property: AutomationIdentifierType = AutomationIdentifierType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_Style: AutomationIdentifierType = AutomationIdentifierType(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationIdentifierType_TextAttribute: AutomationIdentifierType = AutomationIdentifierType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const AutomationPropertyChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2527fba1_8d7a_4630_a4cc_e66315942f52);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BoundingRectangle_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bbfe8b2_3bfc_48dd_b729_c794b846e9a1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_DashBullet: BulletStyle = BulletStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_FilledRoundBullet: BulletStyle = BulletStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_FilledSquareBullet: BulletStyle = BulletStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_HollowRoundBullet: BulletStyle = BulletStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_HollowSquareBullet: BulletStyle = BulletStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_None: BulletStyle = BulletStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const BulletStyle_Other: BulletStyle = BulletStyle(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Button_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a78e369_c6a1_4f33_a9d7_79f20d0c788e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CAccPropServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CLSID_AccPropServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CUIAutomation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CUIAutomation8: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CUIAutomationRegistrar: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Calendar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_AllCap: CapStyle = CapStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_AllPetiteCaps: CapStyle = CapStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_None: CapStyle = CapStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_Other: CapStyle = CapStyle(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_PetiteCaps: CapStyle = CapStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_SmallCap: CapStyle = CapStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_Titling: CapStyle = CapStyle(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CapStyle_Unicase: CapStyle = CapStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretBidiMode_LTR: CaretBidiMode = CaretBidiMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretBidiMode_RTL: CaretBidiMode = CaretBidiMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretPosition_BeginningOfLine: CaretPosition = CaretPosition(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretPosition_EndOfLine: CaretPosition = CaretPosition(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CaretPosition_Unknown: CaretPosition = CaretPosition(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CenterPoint_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cb00c08_540c_4edb_9445_26359ea69785);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Changes_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7df26714_614f_4e05_9488_716c5ba19436);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Changes_Summary_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x313d65a6_e60f_4d62_9861_55afd728d207);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CheckBox_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb50f922_a3db_49c0_8bc3_06dad55778e2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ClassName_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x157b7215_894f_4b65_84e2_aac0da08b16b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ClickablePoint_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0196903b_b203_4818_a9f3_f08e675f2341);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = CoalesceEventsOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = CoalesceEventsOptions(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ComboBox_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54cb426c_2f33_4fff_aaa1_aef60dac5deb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_And: ConditionType = ConditionType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_False: ConditionType = ConditionType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_Not: ConditionType = ConditionType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_Or: ConditionType = ConditionType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_Property: ConditionType = ConditionType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConditionType_True: ConditionType = ConditionType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ControlType_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca774fea_28ac_4bc2_94ca_acec6d6c10a3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ControllerFor_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51124c8a_a5d2_4f13_9be6_7fa8ba9d3a90);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Culture_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2d74f27_3d79_4dc2_b88b_3044963a8afb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const CustomNavigation_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafea938a_621e_4054_bb2c_2f46114dac3f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Custom_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf29ea0c3_adb7_430a_ba90_e52c7313e6ed);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_CHILD: i32 = -5002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_CHILDCOUNT: i32 = -5001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_DEFAULTACTION: i32 = -5013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_DESCRIPTION: i32 = -5005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_DODEFAULTACTION: i32 = -5018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_FOCUS: i32 = -5011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_HELP: i32 = -5008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_HELPTOPIC: i32 = -5009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_HITTEST: i32 = -5017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_KEYBOARDSHORTCUT: i32 = -5010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_LOCATION: i32 = -5015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_NAME: i32 = -5003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_NAVIGATE: i32 = -5016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_PARENT: i32 = -5000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_ROLE: i32 = -5006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_SELECT: i32 = -5014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_SELECTION: i32 = -5012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_STATE: i32 = -5007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DISPID_ACC_VALUE: i32 = -5004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DataGrid_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84b783af_d103_4b0a_8415_e73942410f4b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DataItem_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0177842_d94f_42a5_814b_6068addc8da5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DescribedBy_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c5865b8_9992_40fd_8db0_6bf1d317f998);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_Bottom: DockPosition = DockPosition(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_Fill: DockPosition = DockPosition(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_Left: DockPosition = DockPosition(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_None: DockPosition = DockPosition(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_Right: DockPosition = DockPosition(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DockPosition_Top: DockPosition = DockPosition(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Dock_DockPosition_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d67f02e_c0b0_4b10_b5b9_18d6ecf98760);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Dock_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cbaa846_83c8_428d_827f_7e6063fe0620);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Document_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3cd6bb6f_6f08_4562_b229_e4e2fc7a9eb4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_DragCancel_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3ede6fa_3451_4e0f_9e71_df9c280a4657);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_DragComplete_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38e96188_ef1f_463e_91ca_3a7792c29caf);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_DragStart_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x883a480b_3aa9_429d_95e4_d9c8d011f0dd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_DropEffect_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x646f2779_48d3_4b23_8902_4bf100005df3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_DropEffects_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5d61156_7ce6_49be_a836_9269dcec920f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_GrabbedItems_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77c1562c_7b86_4b21_9ed7_3cefda6f4c43);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_IsGrabbed_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45f206f3_75cc_4cca_a9b9_fcdfb982d8a2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Drag_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0bee21f_ccb3_4fed_995b_114f6e3d2728);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DropTarget_DragEnter_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaad9319b_032c_4a88_961d_1cf579581e34);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DropTarget_DragLeave_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f82eb15_24a2_4988_9217_de162aee272b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DropTarget_DropTargetEffect_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bb75975_a0ca_4981_b818_87fc66e9509d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DropTarget_DropTargetEffects_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc1dd4ed_cb89_45f1_a592_e03b08ae790f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DropTarget_Dropped_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x622cead8_1edb_4a3d_abbc_be2211ff68b5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const DropTarget_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bcbec56_bd34_4b7b_9fd5_2659905ea3dc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Edit_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6504a5c8_2c86_4f87_ae7b_1abddc810cf9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = EventArgsType(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_AsyncContentLoaded: EventArgsType = EventArgsType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_Changes: EventArgsType = EventArgsType(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_Notification: EventArgsType = EventArgsType(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_PropertyChanged: EventArgsType = EventArgsType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_Simple: EventArgsType = EventArgsType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_StructureChanged: EventArgsType = EventArgsType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_StructuredMarkup: EventArgsType = EventArgsType(9i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_TextEditTextChanged: EventArgsType = EventArgsType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const EventArgsType_WindowClosed: EventArgsType = EventArgsType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapseState_Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapseState_Expanded: ExpandCollapseState = ExpandCollapseState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapseState_LeafNode: ExpandCollapseState = ExpandCollapseState(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCollapseState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ExpandCollapse_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillColor_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_Color: FillType = FillType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_Gradient: FillType = FillType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_None: FillType = FillType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_Pattern: FillType = FillType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_Picture: FillType = FillType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FillType_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6fc74e4_8cb9_429c_a9e1_9bc4ac372b62);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowDirections_BottomToTop: FlowDirections = FlowDirections(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowDirections_Default: FlowDirections = FlowDirections(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowDirections_RightToLeft: FlowDirections = FlowDirections(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowDirections_Vertical: FlowDirections = FlowDirections(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowsFrom_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05c6844f_19de_48f8_95fa_880d5b0fd615);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FlowsTo_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4f33d20_559a_47fb_a830_f9cb4ff1a70a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FrameworkId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbfd9900_7e1a_4f58_b61b_7063120f773b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const FullDescription_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d4450ff_6aef_4f33_95dd_7befa72a4391);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const GridItem_ColumnSpan_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x583ea3f5_86d0_4b08_a6ec_2c5463ffc109);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const GridItem_Column_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc774c15c_62c0_4519_8bdc_47be573c8ad5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const GridItem_Parent_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d912252_b97f_4ecc_8510_ea0e33427c72);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const GridItem_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2d5c877_a462_4957_a2a5_2c96b303bc63);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const GridItem_RowSpan_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4582291c_466b_4e93_8e83_3d1715ec0c5e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const GridItem_Row_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6223972a_c945_4563_9329_fdc974af2553);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Grid_ColumnCount_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe96f375_44aa_4536_ac7a_2a75d71a3efc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Grid_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x260a2ccb_93a8_4e44_a4c1_3df397f2b02b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Grid_RowCount_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a9505bf_c2eb_4fb6_b356_8245ae53703e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Group_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad50aa1c_e8c8_4774_ae1b_dd86df0b3bdc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_AVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_CONFIRMHOTKEY: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_HIGHCONTRASTON: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_HOTKEYACTIVE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HasKeyboardFocus_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeaderItem_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Header_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel1: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80051u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel2: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80052u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel3: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80053u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel4: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80054u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel5: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80055u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel6: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80056u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel7: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80057u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel8: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80058u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel9: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80059u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel_None: UIA_HEADINGLEVEL_ID = UIA_HEADINGLEVEL_ID(80050u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HeadingLevel_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29084272_aaaf_4a30_8796_3c12f62b6bbb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HelpText_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = HorizontalTextAlignment(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = HorizontalTextAlignment(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = HorizontalTextAlignment(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HorizontalTextAlignment_Right: HorizontalTextAlignment = HorizontalTextAlignment(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6bdb03e_0921_4ec5_8dcf_eae877b0426b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Hyperlink_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a56022c_b00d_4d15_8ff0_5b6b266e5e02);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IIS_ControlAccessible: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38c682a6_9731_43f2_9fae_e901e641b101);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IIS_IsOleaccProxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x902697fa_80e4_4560_802a_a13f22a64709);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Image_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d3736e4_6b16_4c57_a962_f93260a75243);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const InputDiscarded_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f36c367_7b18_417c_97e3_9d58ddc944ab);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const InputReachedOtherElement_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed201d8a_4e6c_415e_a874_2460c9b66ba8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const InputReachedTarget_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93ed549a_0549_40f0_bedb_28e44f7de2a3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Invoke_Invoked_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfd699f0_c915_49dd_b422_dde785c3d24b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Invoke_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd976c2fc_66ea_4a6e_b28f_c24c7546ad37);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsAnnotationPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b5b3238_6d5c_41b6_bcc4_5e807f6551c4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsContentElement_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bda64a8_f5d8_480b_8155_ef2e89adb672);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsControlElement_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95f35085_abcc_4afd_a5f4_dbb46c230fdb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsCustomNavigationPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f8e80d4_2351_48e0_874a_54aa7313889a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsDataValidForForm_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x445ac684_c3fc_4dd9_acf8_845a579296ba);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsDialog_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d0dfb9b_8436_4501_bbbb_e534a4fb3b3f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsDockPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2600a4c4_2ff8_4c96_ae31_8fe619a13c6c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsDragPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe997a7b7_1d39_4ca7_be0f_277fcf5605cc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsDropTargetPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0686b62e_8e19_4aaf_873d_384f6d3b92be);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsEnabled_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2109427f_da60_4fed_bf1b_264bdce6eb3a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsExpandCollapsePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x929d3806_5287_4725_aa16_222afc63d595);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsGridItemPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a43e524_f9a2_4b12_84c8_b48a3efedd34);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsGridPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5622c26c_f0ef_4f3b_97cb_714c0868588b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsInvokePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e725738_8364_4679_aa6c_f3f41931f750);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsItemContainerPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x624b5ca7_fe40_4957_a019_20c4cf11920f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsKeyboardFocusable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7b8552a_0859_4b37_b9cb_51e72092f29f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsLegacyIAccessiblePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8ebd0c7_929a_4ee7_8d3a_d3d94413027b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsMultipleViewPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff0a31eb_8e25_469d_8d6e_e771a27c1b90);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsObjectModelPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b21d89b_2841_412f_8ef2_15ca952318ba);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsOffscreen_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03c3d160_db79_42db_a2ef_1c231eede507);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsPassword_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8482eb1_687c_497b_bebc_03be53ec1454);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsPeripheral_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda758276_7ed5_49d4_8e68_ecc9a2d300dd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsRangeValuePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfda4244a_eb4d_43ff_b5ad_ed36d373ec4c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsRequiredForForm_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f5f43cf_59fb_4bde_a270_602e5e1141e9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsScrollItemPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cad1a05_0927_4b76_97e1_0fcdb209b98a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsScrollPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ebb7b4a_828a_4b57_9d22_2fea1632ed0d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsSelectionItemPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8becd62d_0bc3_4109_bee2_8e6715290e68);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsSelectionPattern2Available_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x490806fb_6e89_4a47_8319_d266e511f021);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsSelectionPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf588acbe_c769_4838_9a60_2686dc1188c4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsSpreadsheetItemPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fe79b2a_2f94_43fd_996b_549e316f4acd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsSpreadsheetPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ff43732_e4b4_4555_97bc_ecdbbc4d1888);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsStructuredMarkupPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0d4c196_2c0b_489c_b165_a405928c6f3d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsStylesPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27f353d3_459c_4b59_a490_50611dacafb5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsSynchronizedInputPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75d69cc5_d2bf_4943_876e_b45b62a6cc66);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTableItemPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb36b40d_8ea4_489b_a013_e60d5951fe34);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTablePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb83575f_45c2_4048_9c76_159715a139df);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTextChildPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x559e65df_30ff_43b5_b5ed_5b283b80c7e9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTextEditPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7843425c_8b32_484c_9ab5_e3200571ffda);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTextPattern2Available_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41cf921d_e3f1_4b22_9c81_e1c3ed331c22);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTextPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbe2d69d_aff6_4a45_82e2_fc92a82f5917);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTogglePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78686d53_fcd0_4b83_9b78_5832ce63bb5b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTransformPattern2Available_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25980b4b_be04_4710_ab4a_fda31dbd2895);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsTransformPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7f78804_d68b_4077_a5c6_7a5ea1ac31c5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsValuePatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b5020a7_2119_473b_be37_5ceb98bbfb22);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x302cb151_2ac8_45d6_977b_d2b3a5a53f20);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const IsWindowPatternAvailable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7a57bb1_5888_4155_98dc_b422fd57f2bc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ItemContainer_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d13da0f_8b9a_4a99_85fa_c5c9a69f1ed4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ItemStatus_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51de0321_3973_43e7_8913_0b08e813c37f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ItemType_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcdda434d_6222_413b_a68a_325dd1d40f39);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LIBID_Accessibility: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LabeledBy_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5b8924b_fc8a_4a35_8031_cf78ac43e55e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LandmarkType_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x454045f2_6f61_49f7_a4f8_b5f0cf82da1e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LayoutInvalidated_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed7d6544_a6bd_4595_9bae_3d28946cc715);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_ChildId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a191b5d_9ef2_4787_a459_dcde885dd4e8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_DefaultAction_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b331729_eaad_4502_b85f_92615622913c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Description_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46448418_7d70_4ea9_9d27_b7e775cf2ad7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Help_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94402352_161c_4b77_a98d_a872cc33947a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_KeyboardShortcut_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f6909ac_00b8_4259_a41c_966266d43a8a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Name_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaeb063d_40ae_4869_aa5a_1b8e5d666739);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54cc0a9f_3395_48af_ba8d_73f85690f3e0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Role_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6856e59f_cbaf_4e31_93e8_bcbf6f7e491c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Selection_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8aa8b1e0_0891_40cc_8b06_90d7d4166219);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_State_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf985854_2281_4340_ab9c_c60e2c5803f6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LegacyIAccessible_Value_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5c5b0b6_8217_4a77_97a5_190a85ed0156);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Level_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x242ac529_cd36_400f_aad9_7876ef3af627);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ListItem_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b3717f2_44d1_4a58_98a8_f12a9b8f78e2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const List_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b149ee1_7cca_4cfc_9af1_cac7bddd3031);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LiveRegionChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x102d5e90_e6a9_41b6_b1c5_a9b1929d9510);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LiveSetting_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc12bcd8e_2a8e_4950_8ae7_3625111d58eb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LocalizedControlType_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const LocalizedLandmarkType_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MenuBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MenuClosed_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3cf1266e_1582_4041_acd7_88a35a965297);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MenuItem_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf45225d3_d0a0_49d8_9834_9a000d2aeddc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MenuModeEnd_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ecd4c9f_80dd_47b8_8267_5aec06bb2cff);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MenuModeStart_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18d7c631_166a_4ac9_ae3b_ef4b5420e681);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MenuOpened_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebe2e945_66ca_4ed1_9ff8_2ad7df0a1b08);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Menu_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e9b1440_0ea8_41fd_b374_c1ea6f503cd1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MultipleView_CurrentView_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a81a67a_b94f_4875_918b_65c8d2f998e5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MultipleView_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x547a6ae4_113f_47c4_850f_db4dfa466b1d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MultipleView_SupportedViews_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d5db9fd_ce3c_4ae7_b788_400a3c645547);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_DOWN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_FIRSTCHILD: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_LASTCHILD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_LEFT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_MAX: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_MIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_NEXT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_PREVIOUS: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_RIGHT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_UP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Name_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3a6921b_4a99_44f1_bca6_61187052c431);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NavigateDirection_FirstChild: NavigateDirection = NavigateDirection(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NavigateDirection_LastChild: NavigateDirection = NavigateDirection(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NavigateDirection_NextSibling: NavigateDirection = NavigateDirection(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NavigateDirection_Parent: NavigateDirection = NavigateDirection(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NavigateDirection_PreviousSibling: NavigateDirection = NavigateDirection(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NewNativeWindowHandle_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5196b33b_380a_4982_95e1_91f3ef60e024);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NormalizeState_Custom: NormalizeState = NormalizeState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NormalizeState_None: NormalizeState = NormalizeState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NormalizeState_View: NormalizeState = NormalizeState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationKind_ActionAborted: NotificationKind = NotificationKind(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationKind_ActionCompleted: NotificationKind = NotificationKind(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationKind_ItemAdded: NotificationKind = NotificationKind(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationKind_ItemRemoved: NotificationKind = NotificationKind(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationKind_Other: NotificationKind = NotificationKind(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationProcessing_All: NotificationProcessing = NotificationProcessing(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = NotificationProcessing(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = NotificationProcessing(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NotificationProcessing_MostRecent: NotificationProcessing = NotificationProcessing(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Notification_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72c5a2f7_9788_480f_b8eb_4dee00f6186f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ObjectModel_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e04acfe_08fc_47ec_96bc_353fa3b34aa7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Off: LiveSetting = LiveSetting(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OptimizeForVisualContent_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a852250_c75a_4e5d_b858_e381b0f78861);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OrientationType_Horizontal: OrientationType = OrientationType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OrientationType_None: OrientationType = OrientationType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OrientationType_Vertical: OrientationType = OrientationType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Orientation_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa01eee62_3884_4415_887e_678ec21e39ba);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineColor_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc395d6c0_4b55_4762_a073_fd303a634f52);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineStyles_Embossed: OutlineStyles = OutlineStyles(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineStyles_Engraved: OutlineStyles = OutlineStyles(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineStyles_None: OutlineStyles = OutlineStyles(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineStyles_Outline: OutlineStyles = OutlineStyles(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineStyles_Shadow: OutlineStyles = OutlineStyles(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const OutlineThickness_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13e67cc7_dac2_4888_bdd3_375c62fa9618);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_DEFAULTACTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x180c072b_c27f_43c7_9922_f63562a4632b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_DESCRIPTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d48dfe4_bd3f_491f_a648_492d6f20c588);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_DESCRIPTIONMAP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ff1435f_8a14_477b_b226_a0abe279975d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_DODEFAULTACTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ba09523_2e3b_49a6_a059_59682a3c48fd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_FOCUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb335df_1c29_4127_b12c_dee9fd157f2b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_HELP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc831e11f_44db_4a99_9768_cb8f978b7231);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_HELPTOPIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x787d1379_8ede_440b_8aec_11f7bf9030b3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_KEYBOARDSHORTCUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d9bceee_7d1e_4979_9382_5180f4172c34);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x608d3df8_8128_4aa7_a428_f55e49267291);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_DOWN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x031670ed_3cdf_48d2_9613_138f2dd8a668);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_FIRSTCHILD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfd02558_557b_4c67_84f9_2a09fce40749);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_LASTCHILD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x302ecaa5_48d5_4f8d_b671_1a8d20a77832);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_LEFT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x228086cb_82f1_4a39_8705_dcdc0fff92f5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_NEXT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cdc5455_8cd9_4c92_a371_3939a2fe3eee);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_PREV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x776d3891_c73b_4480_b3f6_076a16a15af6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_RIGHT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd211d9f_e1cb_4fe5_a77c_920b884d095b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_NAV_UP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x016e1a2b_1a4e_4767_8612_3386f66935ec);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_PARENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x474c22b6_ffc2_467a_b1b5_e958b4657330);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_ROLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb905ff2_7bd1_4c05_b3c8_e6c241364d70);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_ROLEMAP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf79acda2_140d_4fe6_8914_208476328269);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_SELECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb99d073c_d731_405b_9061_d95e8f842984);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_STATE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8d4d5b0_0a21_42d0_a5c0_514e984f457b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_STATEMAP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43946c5e_0ac0_4042_b525_07bbdbe17fa7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_VALUE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x123fe443_211a_4615_9527_c45a7e93717a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PROPID_ACC_VALUEMAP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda1c3d79_fc5c_420e_b399_9d1533549e75);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Pane_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c2b3f5b_9182_42a3_8dec_8c04c1ee634d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Polite: LiveSetting = LiveSetting(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PositionInSet_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33d1dc54_641e_4d76_a6b1_13f341c1f896);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProcessId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40499998_9c31_4245_a403_87320e59eaf6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProgressBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x228c9f86_c36c_47bb_9fb6_a5834bfc53a4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = PropertyConditionFlags(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = PropertyConditionFlags(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const PropertyConditionFlags_None: PropertyConditionFlags = PropertyConditionFlags(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderDescription_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdca5708a_c16b_4cd9_b889_beb16a804904);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_ClientSideProvider: ProviderOptions = ProviderOptions(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = ProviderOptions(128i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = ProviderOptions(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_OverrideProvider: ProviderOptions = ProviderOptions(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_ProviderOwnsSetFocus: ProviderOptions = ProviderOptions(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = ProviderOptions(64i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_ServerSideProvider: ProviderOptions = ProviderOptions(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_UseClientCoordinates: ProviderOptions = ProviderOptions(256i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderOptions_UseComThreading: ProviderOptions = ProviderOptions(32i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderType_BaseHwnd: ProviderType = ProviderType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderType_NonClientArea: ProviderType = ProviderType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ProviderType_Proxy: ProviderType = ProviderType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_ANIMATION: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_APPLICATION: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_BORDER: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_BUTTONDROPDOWN: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_BUTTONDROPDOWNGRID: u32 = 58u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_BUTTONMENU: u32 = 57u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CARET: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CELL: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CHARACTER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CHART: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CHECKBUTTON: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CLIENT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CLOCK: u32 = 61u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_COLUMN: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_COLUMNHEADER: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_COMBOBOX: u32 = 46u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_CURSOR: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_DIAGRAM: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_DIAL: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_DIALOG: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_DOCUMENT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_DROPLIST: u32 = 47u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_EQUATION: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_GRAPHIC: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_GRIP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_GROUPING: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_HELPBALLOON: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_HOTKEYFIELD: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_INDICATOR: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_IPADDRESS: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_LINK: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_LIST: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_LISTITEM: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_MENUBAR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_MENUITEM: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_MENUPOPUP: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_OUTLINE: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_OUTLINEBUTTON: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_OUTLINEITEM: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_PAGETAB: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_PAGETABLIST: u32 = 60u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_PANE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_PROGRESSBAR: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_PROPERTYPAGE: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_PUSHBUTTON: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_RADIOBUTTON: u32 = 45u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_ROW: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_ROWHEADER: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_SCROLLBAR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_SEPARATOR: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_SLIDER: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_SOUND: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_SPINBUTTON: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_SPLITBUTTON: u32 = 62u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_STATICTEXT: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_STATUSBAR: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_TABLE: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_TEXT: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_TITLEBAR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_TOOLBAR: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_TOOLTIP: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_WHITESPACE: u32 = 59u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_WINDOW: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RadioButton_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3bdb49db_fe2c_4483_b3e1_e57f219440c6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_IsReadOnly_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25fa1055_debf_4373_a79e_1f1a1908d3c4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_LargeChange_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1f96325_3a3d_4b44_8e1f_4a46d9844019);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_Maximum_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19319914_f979_4b35_a1a6_d37e05433473);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_Minimum_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78cbd3b2_684d_4860_af93_d1f95cb022fd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18b00d87_b1c9_476a_bfbd_5f0bdb926f63);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_SmallChange_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81c2c457_3941_4107_9975_139760f7c072);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RangeValue_Value_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x131f5d98_c50c_489d_abe5_ae220898c5f7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Rotation_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = RowOrColumnMajor(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = RowOrColumnMajor(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const RuntimeId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa39eebfa_7fba_4c89_b4d4_b99e2de7d160);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_ADDSELECTION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_EXTENDSELECTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_REMOVESELECTION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_VALID: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SID_ControlElementProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4791d68_e254_4ba3_9a53_26a5c5497946);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SID_IsUIAutomationObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb96fdb85_7204_4724_842b_c7059dedb9d0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_AUDIBLEFEEDBACK: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_AVAILABLE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_CONFIRMHOTKEY: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_HOTKEYACTIVE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_HOTKEYSOUND: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_INDICATOR: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_LWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_TRISTATE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(3u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSGF_NONE: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(0u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSTF_CHARS: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSTF_DISPLAY: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(3u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSTF_NONE: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(0u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSWF_DISPLAY: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(3u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSWF_NONE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(0u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Address: SayAsInterpretAs = SayAsInterpretAs(11i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Alphanumeric: SayAsInterpretAs = SayAsInterpretAs(12i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Cardinal: SayAsInterpretAs = SayAsInterpretAs(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Currency: SayAsInterpretAs = SayAsInterpretAs(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date: SayAsInterpretAs = SayAsInterpretAs(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_DayMonth: SayAsInterpretAs = SayAsInterpretAs(20i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_DayMonthYear: SayAsInterpretAs = SayAsInterpretAs(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_MonthDay: SayAsInterpretAs = SayAsInterpretAs(21i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_MonthDayYear: SayAsInterpretAs = SayAsInterpretAs(15i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_MonthYear: SayAsInterpretAs = SayAsInterpretAs(19i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_Year: SayAsInterpretAs = SayAsInterpretAs(22i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_YearMonth: SayAsInterpretAs = SayAsInterpretAs(18i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Date_YearMonthDay: SayAsInterpretAs = SayAsInterpretAs(17i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Media: SayAsInterpretAs = SayAsInterpretAs(14i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Name: SayAsInterpretAs = SayAsInterpretAs(13i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Net: SayAsInterpretAs = SayAsInterpretAs(9i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_None: SayAsInterpretAs = SayAsInterpretAs(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Number: SayAsInterpretAs = SayAsInterpretAs(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Ordinal: SayAsInterpretAs = SayAsInterpretAs(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Spell: SayAsInterpretAs = SayAsInterpretAs(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Telephone: SayAsInterpretAs = SayAsInterpretAs(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Time: SayAsInterpretAs = SayAsInterpretAs(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Time_HoursMinutes12: SayAsInterpretAs = SayAsInterpretAs(24i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = SayAsInterpretAs(26i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = SayAsInterpretAs(23i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = SayAsInterpretAs(25i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SayAsInterpretAs_Url: SayAsInterpretAs = SayAsInterpretAs(10i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollAmount_LargeDecrement: ScrollAmount = ScrollAmount(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollAmount_LargeIncrement: ScrollAmount = ScrollAmount(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollAmount_NoAmount: ScrollAmount = ScrollAmount(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollAmount_SmallDecrement: ScrollAmount = ScrollAmount(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollAmount_SmallIncrement: ScrollAmount = ScrollAmount(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaf34b36_5065_4946_b22f_92595fc0751a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ScrollItem_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4591d005_a803_4d5c_b4d5_8d2800f906a7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7c13c0e_eb21_47ff_acc4_b5a3350f5191);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_HorizontalViewSize_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70c2e5d4_fcb0_4713_a9aa_af92ff79e4cd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_HorizontallyScrollable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b925147_28cd_49ae_bd63_f44118d2e719);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x895fa4b4_759d_4c50_8e15_03460672003c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_VerticalScrollPercent_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c8d7099_b2a8_4948_bff7_3cf9058bfefb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_VerticalViewSize_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde6a2e22_d8c7_40c5_83ba_e5f681d53108);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Scroll_VerticallyScrollable_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89164798_0068_4315_b89a_1e7cfbbc3dfc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection2_CurrentSelectedItem_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34257c26_83b5_41a6_939c_ae841c136236);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection2_FirstSelectedItem_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc24ea67_369c_4e55_9ff7_38da69540c29);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection2_ItemCount_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb49eb9f_456d_4048_b591_9c2026b84636);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection2_LastSelectedItem_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf7bda90_2d83_49f8_860c_9ce394cf89b4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SelectionItem_ElementAddedToSelectionEvent_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c822dd1_c407_4dba_91dd_79d4aed0aec6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x097fa8a9_7079_41af_8b9c_0934d8305e5c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SelectionItem_ElementSelectedEvent_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9c7dbfb_4ebe_4532_aaf4_008cf647233c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SelectionItem_IsSelected_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf122835f_cd5f_43df_b79d_4b849e9e6020);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SelectionItem_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bc64eeb_87c7_4b28_94bb_4d9fa437b6ef);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SelectionItem_SelectionContainer_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4365b6e_9c1e_4b63_8b53_c2421dd1e8fb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection_CanSelectMultiple_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49d73da5_c883_4500_883d_8fcf8daf6cbe);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection_InvalidatedEvent_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcac14904_16b4_4b53_8e47_4cb1df267bb7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection_IsSelectionRequired_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1ae4422_63fe_44e7_a5a5_a738c829b19a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection_Pattern2_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfba25cab_ab98_49f7_a7dc_fe539dc15be7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66e3b7e8_d821_4d25_8761_435d2c8b253f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Selection_Selection_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa6dc2a2_0e2b_4d38_96d5_34e470b81853);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SemanticZoom_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fd34a43_061e_42c8_b589_9dccf74bc43a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Separator_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8767eba3_2a63_4ab0_ac8d_aa50e23de978);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SizeOfSet_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1600d33c_3b9f_4369_9431_aa293f344cf1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Size_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b5f761d_f885_4404_973f_9b1d98e36d8f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Slider_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb033c24b_3b35_4cea_b609_763682fa660b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Spinner_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60cc4b38_3cb1_4161_b442_c6b726c17825);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SplitButton_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7011f01f_4ace_4901_b461_920a6f1ca650);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SpreadsheetItem_AnnotationObjects_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3194c38_c9bc_4604_9396_ae3f9f457f7b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SpreadsheetItem_AnnotationTypes_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc70c51d0_d602_4b45_afbc_b4712b96d72b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SpreadsheetItem_Formula_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe602e47d_1b47_4bea_87cf_3b0b0b5c15b6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SpreadsheetItem_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32cf83ff_f1a8_4a8c_8658_d47ba74e20ba);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Spreadsheet_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a5b24c9_9d1e_4b85_9e44_c02e3169b10b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StatusBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd45e7d1b_5873_475f_95a4_0433e1f1b00a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildAdded: StructureChangeType = StructureChangeType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildRemoved: StructureChangeType = StructureChangeType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = StructureChangeType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildrenBulkRemoved: StructureChangeType = StructureChangeType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildrenInvalidated: StructureChangeType = StructureChangeType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChangeType_ChildrenReordered: StructureChangeType = StructureChangeType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructureChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59977961_3edd_4b11_b13b_676b2a2a6ca9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructuredMarkup_CompositionComplete_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc48a3c17_677a_4047_a68d_fc1257528aef);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructuredMarkup_Deleted_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9d0a020_e1c1_4ecf_b9aa_52efde7e41e1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructuredMarkup_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabbd0878_8665_4f5c_94fc_36e7d8bb706b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StructuredMarkup_SelectionChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7c815f7_ff9f_41c7_a3a7_ab6cbfdb4903);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_BulletedList: UIA_STYLE_ID = UIA_STYLE_ID(70015u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_BulletedList_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5963ed64_6426_4632_8caf_a32ad402d91a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Custom: UIA_STYLE_ID = UIA_STYLE_ID(70000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Custom_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef2edd3e_a999_4b7c_a378_09bbd52a3516);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Emphasis: UIA_STYLE_ID = UIA_STYLE_ID(70013u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Emphasis_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca6e7dbe_355e_4820_95a0_925f041d3470);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading1: UIA_STYLE_ID = UIA_STYLE_ID(70001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading1_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f7e8f69_6866_4621_930c_9a5d0ca5961c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading2: UIA_STYLE_ID = UIA_STYLE_ID(70002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading2_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbaa9b241_5c69_469d_85ad_474737b52b14);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading3: UIA_STYLE_ID = UIA_STYLE_ID(70003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading3_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf8be9d2_d8b8_4ec5_8c52_9cfb0d035970);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading4: UIA_STYLE_ID = UIA_STYLE_ID(70004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading4_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8436ffc0_9578_45fc_83a4_ff40053315dd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading5: UIA_STYLE_ID = UIA_STYLE_ID(70005u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading5_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x909f424d_0dbf_406e_97bb_4e773d9798f7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading6: UIA_STYLE_ID = UIA_STYLE_ID(70006u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading6_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89d23459_5d5b_4824_a420_11d3ed82e40f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading7: UIA_STYLE_ID = UIA_STYLE_ID(70007u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading7_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3790473_e9ae_422d_b8e3_3b675c6181a4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading8: UIA_STYLE_ID = UIA_STYLE_ID(70008u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading8_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2bc14145_a40c_4881_84ae_f2235685380c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading9: UIA_STYLE_ID = UIA_STYLE_ID(70009u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Heading9_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc70d9133_bb2a_43d3_8ac6_33657884b0f0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Normal: UIA_STYLE_ID = UIA_STYLE_ID(70012u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Normal_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd14d429_e45e_4475_a1c5_7f9e6be96eba);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_NumberedList: UIA_STYLE_ID = UIA_STYLE_ID(70016u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_NumberedList_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e96dbd5_64c3_43d0_b1ee_b53b06e3eddf);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Quote: UIA_STYLE_ID = UIA_STYLE_ID(70014u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Quote_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d1c21ea_8195_4f6c_87ea_5dabece64c1d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Subtitle: UIA_STYLE_ID = UIA_STYLE_ID(70011u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Subtitle_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5d9fc17_5d6f_4420_b439_7cb19ad434e2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Title: UIA_STYLE_ID = UIA_STYLE_ID(70010u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const StyleId_Title_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15d8201a_ffcf_481f_b0a1_30b63be98f07);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_ExtendedProperties_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf451cda0_ba0a_4681_b0b0_0dbdb53e58f3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_FillColor_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63eff97a_a1c5_4b1d_84eb_b765f2edd632);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_FillPatternColor_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x939a59fe_8fbd_4e75_a271_ac4595195163);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_FillPatternStyle_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81cf651f_482b_4451_a30a_e1545e554fb8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ae62655_da72_4d60_a153_e5aa6988e3bf);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_Shape_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc71a23f8_778c_400d_8458_3b543e526984);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_StyleId_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda82852f_3817_4233_82af_02279e72cc77);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Styles_StyleName_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c12b035_05d1_4f55_9e8e_1489f3ff550d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SupportedTextSelection_Multiple: SupportedTextSelection = SupportedTextSelection(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SupportedTextSelection_None: SupportedTextSelection = SupportedTextSelection(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SupportedTextSelection_Single: SupportedTextSelection = SupportedTextSelection(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_KeyDown: SynchronizedInputType = SynchronizedInputType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = SynchronizedInputType(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = SynchronizedInputType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = SynchronizedInputType(32i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = SynchronizedInputType(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SynchronizedInput_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SystemAlert_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TabItem_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Tab_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TableItem_ColumnHeaderItems_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x967a56a3_74b6_431e_8de6_99c411031c58);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TableItem_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf1343bd_1888_4a29_a50c_b92e6de37f6f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TableItem_RowHeaderItems_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3f853a0_0574_4cd8_bcd7_ed5923572d97);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Table_ColumnHeaders_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaff1d72b_968d_42b1_b459_150b299da664);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Table_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x773bfa0e_5bc4_4deb_921b_de7b3206229e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Table_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc415218e_a028_461e_aa92_8f925cf79351);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Table_RowHeaders_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9e35b87_6eb8_4562_aac6_a8a9075236a8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Table_RowOrColumnMajor_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83be75c3_29fe_4a30_85e1_2a6277fd106e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextChild_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7533cab7_3bfe_41ef_9e85_e2638cbe169e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = TextDecorationLineStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = TextDecorationLineStyle(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_DashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_Dot: TextDecorationLineStyle = TextDecorationLineStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_Double: TextDecorationLineStyle = TextDecorationLineStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_DoubleWavy: TextDecorationLineStyle = TextDecorationLineStyle(11i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_LongDash: TextDecorationLineStyle = TextDecorationLineStyle(13i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_None: TextDecorationLineStyle = TextDecorationLineStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_Other: TextDecorationLineStyle = TextDecorationLineStyle(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_Single: TextDecorationLineStyle = TextDecorationLineStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickDash: TextDecorationLineStyle = TextDecorationLineStyle(14i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickDashDot: TextDecorationLineStyle = TextDecorationLineStyle(15i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickDashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickDot: TextDecorationLineStyle = TextDecorationLineStyle(17i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickLongDash: TextDecorationLineStyle = TextDecorationLineStyle(18i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickSingle: TextDecorationLineStyle = TextDecorationLineStyle(9i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_ThickWavy: TextDecorationLineStyle = TextDecorationLineStyle(12i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_Wavy: TextDecorationLineStyle = TextDecorationLineStyle(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextDecorationLineStyle_WordsOnly: TextDecorationLineStyle = TextDecorationLineStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEditChangeType_AutoComplete: TextEditChangeType = TextEditChangeType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEditChangeType_AutoCorrect: TextEditChangeType = TextEditChangeType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEditChangeType_Composition: TextEditChangeType = TextEditChangeType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEditChangeType_CompositionFinalized: TextEditChangeType = TextEditChangeType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEditChangeType_None: TextEditChangeType = TextEditChangeType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3388c183_ed4f_4c8b_9baa_364d51d8847f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEdit_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69f3ff89_5af9_4c75_9340_f2de292e4591);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextEdit_TextChanged_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x120b0308_ec22_4eb8_9c98_9867cda1b165);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = TextPatternRangeEndpoint(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = TextPatternRangeEndpoint(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Character: TextUnit = TextUnit(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Document: TextUnit = TextUnit(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Format: TextUnit = TextUnit(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Line: TextUnit = TextUnit(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Page: TextUnit = TextUnit(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Paragraph: TextUnit = TextUnit(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TextUnit_Word: TextUnit = TextUnit(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x588cbb38_e62f_497c_b5d1_ccdf0ee823d8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_AfterSpacing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x588cbb38_e62f_497c_b5d1_ccdf0ee823d8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_AnimationStyle_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x628209f0_7c9a_4d57_be64_1f1836571ff5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_AnnotationObjects_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff41cf68_e7ab_40b9_8c72_72a8ed94017d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_AnnotationTypes_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad2eb431_ee4e_4be1_a7ba_5559155a73ef);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_BackgroundColor_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfdc49a07_583d_4f17_ad27_77fc832a3c0b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_BeforeParagraphSpacing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe7b0ab1_c822_4a24_85e9_c8f2650fc79c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_BeforeSpacing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe7b0ab1_c822_4a24_85e9_c8f2650fc79c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_BulletStyle_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1097c90_d5c4_4237_9781_3bec8ba54e48);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_CapStyle_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb059c50_92cc_49a5_ba8f_0aa872bba2f3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_CaretBidiMode_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x929ee7a6_51d3_4715_96dc_b694fa24a168);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_CaretPosition_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb227b131_9889_4752_a91b_733efdc5c5a0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae9772dc_d331_4f09_be20_7e6dfaf07b0a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_Culture_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2025af9_a42d_4ced_a1fb_c6746315222e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_FontName_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64e63ba8_f2e5_476e_a477_1734feaaf726);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_FontSize_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc5eeeff_0506_4673_93f2_377e4a8e01f1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_FontWeight_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fc02359_b316_4f5f_b401_f1ce55741853);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_ForegroundColor_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72d1c95d_5e60_471a_96b1_6c1b3b77a436);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_HorizontalTextAlignment_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04ea6161_fba3_477a_952a_bb326d026a5b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IndentationFirstLine_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x206f9ad5_c1d3_424a_8182_6da9a7f3d632);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IndentationLeading_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cf66bac_2d45_4a4b_b6c9_f7221d2815b0);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IndentationTrailing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ff6c0f_1ce4_408a_b67b_94d83eb69bf2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IsActive_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5a4e533_e1b8_436b_935d_b57aa3f558c4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IsHidden_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x360182fb_bdd7_47f6_ab69_19e33f8a3344);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IsItalic_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfce12a56_1336_4a34_9663_1bab47239320);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IsReadOnly_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa738156b_ca3e_495e_9514_833c440feb11);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IsSubscript_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0ead858_8f53_413c_873f_1a7d7f5e0de4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_IsSuperscript_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda706ee4_b3aa_4645_a41f_cd25157dea76);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_LineSpacing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63ff70ae_d943_4b47_8ab7_a7a033d3214b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_Link_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb38ef51d_9e8d_4e46_9144_56ebe177329b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_MarginBottom_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ee593c4_72b4_4cac_9271_3ed24b0e4d42);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_MarginLeading_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e9242d0_5ed0_4900_8e8a_eecc03835afc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_MarginTop_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x683d936f_c9b9_4a9a_b3d9_d20d33311e2a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_MarginTrailing_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf522f98_999d_40af_a5b2_0169d0342002);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_OutlineStyles_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b675b27_db89_46fe_970c_614d523bb97d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_OverlineColor_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83ab383a_fd43_40da_ab3e_ecf8165cbb6d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_OverlineStyle_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a234d66_617e_427f_871d_e1ff1e0c213f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_Pattern2_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x498479a2_5b22_448d_b6e4_647490860698);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8615f05d_7de5_44fd_a679_2ca4b46033a8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_SayAsInterpretAs_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb38ad6ac_eee1_4b6e_88cc_014cefa93fcb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_SelectionActiveEnd_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f668cc3_9bbf_416b_b0a2_f89f86f6612c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_StrikethroughColor_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfe15a18_8c41_4c5a_9a0b_04af0e07f487);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_StrikethroughStyle_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72913ef1_da00_4f01_899c_ac5a8577a307);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_StyleId_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14c300de_c32b_449b_ab7c_b0e0789aea5d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_StyleName_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22c9e091_4d66_45d8_a828_737bab4c98a7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_Tabs_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e68d00b_92fe_42d8_899a_a784aa4454a1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_TextChangedEvent_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a342082_f483_48c4_ac11_a84b435e2a84);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_TextFlowDirections_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bdf8739_f420_423e_af77_20a5d973a907);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_TextSelectionChangedEvent_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x918edaa1_71b3_49ae_9741_79beb8d358f3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_UnderlineColor_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfa12c73_fde2_4473_bf64_1036d6aa0f45);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Text_UnderlineStyle_Attribute_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f3b21c0_ede4_44bd_9c36_3853038cbfeb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Thumb_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x701ca877_e310_4dd6_b644_797e4faea213);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TitleBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98aa55bf_3bb0_4b65_836e_2ea30dbc171f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToggleState_Indeterminate: ToggleState = ToggleState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToggleState_Off: ToggleState = ToggleState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToggleState_On: ToggleState = ToggleState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Toggle_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b419760_e2f4_43ff_8c5f_9457c82b56e9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Toggle_ToggleState_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb23cdc52_22c2_4c6c_9ded_f5c422479ede);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToolBar_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f06b751_e182_4e98_8893_2284543a7dce);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToolTipClosed_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x276d71ef_24a9_49b6_8e97_da98b401bbcd);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToolTipOpened_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f4b97ff_2edc_451d_bca4_95a3188d5b03);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ToolTip_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05ddc6d1_2137_4768_98ea_73f52f7134f3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Tranform_Pattern2_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8afcfd07_a369_44de_988b_2f7ff49fb8a8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform2_CanZoom_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf357e890_a756_4359_9ca6_86702bf8f381);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform2_ZoomLevel_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeee29f1a_f4a2_4b5b_ac65_95cf93283387);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform2_ZoomMaximum_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42ab6b77_ceb0_4eca_b82a_6cfa5fa1fc08);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform2_ZoomMinimum_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x742ccc16_4ad1_4e07_96fe_b122c6e6b22b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform_CanMove_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b75824d_208b_4fdf_bccd_f1f4e5741f4f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform_CanResize_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb98dca5_4c1a_41d4_a4f6_ebc128644180);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform_CanRotate_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10079b48_3849_476f_ac96_44a95c8440d9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Transform_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24b46fdb_587e_49f1_9c4a_d8e98b664b7b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeItem_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62c9feb9_8ffc_4878_a3a4_96b030315c18);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_Ancestors: TreeScope = TreeScope(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_Children: TreeScope = TreeScope(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_Descendants: TreeScope = TreeScope(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_Element: TreeScope = TreeScope(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_None: TreeScope = TreeScope(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_Parent: TreeScope = TreeScope(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeScope_Subtree: TreeScope = TreeScope(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeTraversalOptions_Default: TreeTraversalOptions = TreeTraversalOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = TreeTraversalOptions(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = TreeTraversalOptions(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Tree_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7561349c_d241_43f4_9908_b5f091bee611);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AcceleratorKeyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30006u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AccessKeyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30007u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ActiveTextPositionChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20036i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AfterParagraphSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40042u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnimationStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationAnnotationTypeIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30113u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationAnnotationTypeNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30114u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationAuthorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30115u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationDateTimePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30116u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationObjectsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40032u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationObjectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30156u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10023u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationTargetPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30117u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationTypesAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40031u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AnnotationTypesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30155u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AppBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50040u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AriaPropertiesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30102u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AriaRolePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30101u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AsyncContentLoadedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20006i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AutomationFocusChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20005i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AutomationIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30011u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AutomationPropertyChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20004i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_BackgroundColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_BeforeParagraphSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40041u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_BoundingRectanglePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_BulletStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ButtonControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CalendarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CapStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CaretBidiModeAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40039u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CaretPositionAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40038u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CenterPointPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30165u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ChangesEventId: UIA_EVENT_ID = UIA_EVENT_ID(20034i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CheckBoxControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ClassNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30012u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ClickablePointPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30014u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ComboBoxControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ControlTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ControllerForPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30104u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CultureAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CulturePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30015u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CustomControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50025u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CustomLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_CustomNavigationPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10033u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DataGridControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50028u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DataItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50029u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DescribedByPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30105u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DockDockPositionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30069u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DockPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10011u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DocumentControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50030u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DragDropEffectPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30139u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DragDropEffectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30140u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DragGrabbedItemsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30144u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DragIsGrabbedPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30138u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DragPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10030u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Drag_DragCancelEventId: UIA_EVENT_ID = UIA_EVENT_ID(20027i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Drag_DragCompleteEventId: UIA_EVENT_ID = UIA_EVENT_ID(20028i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Drag_DragStartEventId: UIA_EVENT_ID = UIA_EVENT_ID(20026i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DropTargetDropTargetEffectPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30142u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DropTargetDropTargetEffectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30143u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DropTargetPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10031u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DropTarget_DragEnterEventId: UIA_EVENT_ID = UIA_EVENT_ID(20029i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DropTarget_DragLeaveEventId: UIA_EVENT_ID = UIA_EVENT_ID(20030i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_DropTarget_DroppedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20031i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_ELEMENTNOTAVAILABLE: u32 = 2147746305u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_ELEMENTNOTENABLED: u32 = 2147746304u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_INVALIDOPERATION: u32 = 2148734217u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_NOCLICKABLEPOINT: u32 = 2147746306u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_NOTSUPPORTED: u32 = 2147746308u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_PROXYASSEMBLYNOTLOADED: u32 = 2147746307u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_E_TIMEOUT: u32 = 2148734213u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_EditControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ExpandCollapseExpandCollapseStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30070u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ExpandCollapsePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10005u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FillColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30160u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FillTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30162u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FlowsFromPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30148u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FlowsToPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30106u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FontNameAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40005u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FontSizeAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40006u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FontWeightAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40007u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ForegroundColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40008u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FormLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FrameworkIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30024u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_FullDescriptionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30159u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridColumnCountPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30063u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridItemColumnPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30065u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridItemColumnSpanPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30067u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridItemContainingGridPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30068u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10007u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridItemRowPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30064u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridItemRowSpanPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30066u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10006u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GridRowCountPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30062u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_GroupControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50026u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HasKeyboardFocusPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30008u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HeaderControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50034u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HeaderItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50035u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HeadingLevelPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30173u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HelpTextPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30013u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HorizontalTextAlignmentAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40009u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HostedFragmentRootsInvalidatedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20025i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_HyperlinkControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50005u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IAFP_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IAFP_UNWRAP_BRIDGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ImageControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50006u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IndentationFirstLineAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40010u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IndentationLeadingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40011u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IndentationTrailingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40012u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_InputDiscardedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20022i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_InputReachedOtherElementEventId: UIA_EVENT_ID = UIA_EVENT_ID(20021i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_InputReachedTargetEventId: UIA_EVENT_ID = UIA_EVENT_ID(20020i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_InvokePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Invoke_InvokedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20009i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsActiveAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40036u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsAnnotationPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30118u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsContentElementPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30017u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsControlElementPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30016u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsCustomNavigationPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30151u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsDataValidForFormPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30103u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsDialogPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30174u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsDockPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30027u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsDragPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30137u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsDropTargetPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30141u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsEnabledPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30010u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsExpandCollapsePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30028u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsGridItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30029u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsGridPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30030u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsHiddenAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40013u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsInvokePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30031u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsItalicAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40014u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsItemContainerPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30108u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsKeyboardFocusablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30009u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsLegacyIAccessiblePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30090u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsMultipleViewPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30032u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsObjectModelPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30112u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsOffscreenPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30022u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsPasswordPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30019u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsPeripheralPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30150u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsRangeValuePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30033u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsReadOnlyAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40015u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsRequiredForFormPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30025u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsScrollItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30035u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsScrollPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30034u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSelectionItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30036u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSelectionPattern2AvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30168u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSelectionPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30037u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSpreadsheetItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30132u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSpreadsheetPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30128u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsStylesPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30127u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSubscriptAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40016u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSuperscriptAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40017u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsSynchronizedInputPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30110u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTableItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30039u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTablePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30038u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTextChildPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30136u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTextEditPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30149u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTextPattern2AvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30119u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTextPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30040u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTogglePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30041u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTransformPattern2AvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30134u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsTransformPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30042u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsValuePatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30043u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsVirtualizedItemPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30109u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_IsWindowPatternAvailablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30044u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ItemContainerPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10019u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ItemStatusPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30026u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ItemTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30021u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LabeledByPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30018u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LandmarkTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30157u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LayoutInvalidatedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20008i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleChildIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30091u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleDefaultActionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30100u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleDescriptionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30094u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleHelpPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30097u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleKeyboardShortcutPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30098u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30092u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessiblePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10018u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleRolePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30095u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleSelectionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30099u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30096u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LegacyIAccessibleValuePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30093u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LevelPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30154u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LineSpacingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40040u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LinkAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40035u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ListControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50008u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ListItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50007u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LiveRegionChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20024i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LiveSettingPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30135u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LocalizedControlTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_LocalizedLandmarkTypePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30158u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MainLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MarginBottomAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40018u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MarginLeadingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40019u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MarginTopAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40020u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MarginTrailingAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40021u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50010u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20007i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50009u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50011u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuModeEndEventId: UIA_EVENT_ID = UIA_EVENT_ID(20019i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuModeStartEventId: UIA_EVENT_ID = UIA_EVENT_ID(20018i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MenuOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20003i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MultipleViewCurrentViewPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30071u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MultipleViewPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10008u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_MultipleViewSupportedViewsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30072u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_NamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30005u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_NativeWindowHandlePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30020u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_NavigationLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_NotificationEventId: UIA_EVENT_ID = UIA_EVENT_ID(20035i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ObjectModelPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10022u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OptimizeForVisualContentPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30111u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OrientationPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30023u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OutlineColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30161u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OutlineStylesAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40022u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OutlineThicknessPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30164u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OverlineColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40023u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_OverlineStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40024u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_PFIA_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_PFIA_UNWRAP_BRIDGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_PaneControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50033u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_PositionInSetPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30152u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ProcessIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ProgressBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50012u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ProviderDescriptionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30107u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RadioButtonControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50013u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValueIsReadOnlyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30048u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValueLargeChangePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30051u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValueMaximumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30050u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValueMinimumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30049u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValuePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10003u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValueSmallChangePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30052u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RangeValueValuePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30047u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RotationPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30166u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_RuntimeIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SayAsInterpretAsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40043u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SayAsInterpretAsMetadataId: UIA_METADATA_ID = UIA_METADATA_ID(100000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50014u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollHorizontalScrollPercentPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30053u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollHorizontalViewSizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30054u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollHorizontallyScrollablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30057u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10017u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollPatternNoScroll: f64 = -1f64;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollVerticalScrollPercentPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30055u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollVerticalViewSizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30056u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ScrollVerticallyScrollablePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30058u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SearchLandmarkTypeId: UIA_LANDMARKTYPE_ID = UIA_LANDMARKTYPE_ID(80004u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Selection2CurrentSelectedItemPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30171u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Selection2FirstSelectedItemPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30169u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Selection2ItemCountPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30172u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Selection2LastSelectedItemPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30170u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionActiveEndAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40037u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionCanSelectMultiplePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30060u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionIsSelectionRequiredPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30061u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionItemIsSelectedPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30079u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10010u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionItemSelectionContainerPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30080u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionItem_ElementAddedToSelectionEventId: UIA_EVENT_ID = UIA_EVENT_ID(20010i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionItem_ElementRemovedFromSelectionEventId: UIA_EVENT_ID = UIA_EVENT_ID(20011i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionItem_ElementSelectedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20012i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionPattern2Id: UIA_PATTERN_ID = UIA_PATTERN_ID(10034u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10001u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SelectionSelectionPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30059u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Selection_InvalidatedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20013i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SemanticZoomControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50039u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SeparatorControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50038u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SizeOfSetPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30153u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30167u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SliderControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50015u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SpinnerControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50016u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SplitButtonControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50031u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SpreadsheetItemAnnotationObjectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30130u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SpreadsheetItemAnnotationTypesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30131u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SpreadsheetItemFormulaPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30129u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SpreadsheetItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10027u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SpreadsheetPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10026u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StatusBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50017u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StrikethroughColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40025u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StrikethroughStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40026u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StructureChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20002i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StyleIdAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40034u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StyleNameAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40033u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesExtendedPropertiesPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30126u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesFillColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30122u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesFillPatternColorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30125u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesFillPatternStylePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30123u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10025u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesShapePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30124u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesStyleIdPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30120u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_StylesStyleNamePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30121u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SummaryChangeId: UIA_CHANGE_ID = UIA_CHANGE_ID(90000u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SynchronizedInputPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10021u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_SystemAlertEventId: UIA_EVENT_ID = UIA_EVENT_ID(20023i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TabControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50018u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TabItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50019u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableColumnHeadersPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30082u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50036u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableItemColumnHeaderItemsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30085u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10013u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableItemRowHeaderItemsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30084u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TablePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10012u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableRowHeadersPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30081u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TableRowOrColumnMajorPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30083u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TabsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40027u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextChildPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10029u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50020u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextEditPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10032u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextEdit_ConversionTargetChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20033i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextEdit_TextChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20032i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextFlowDirectionsAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40028u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextPattern2Id: UIA_PATTERN_ID = UIA_PATTERN_ID(10024u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TextPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10014u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Text_TextChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20015i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Text_TextSelectionChangedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20014i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ThumbControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50027u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TitleBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50037u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TogglePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10015u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ToggleToggleStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30086u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ToolBarControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50021u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ToolTipClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20001i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ToolTipControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50022u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ToolTipOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20000i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Transform2CanZoomPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30133u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Transform2ZoomLevelPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30145u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Transform2ZoomMaximumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30147u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Transform2ZoomMinimumPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30146u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TransformCanMovePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30087u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TransformCanResizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30088u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TransformCanRotatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30089u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TransformPattern2Id: UIA_PATTERN_ID = UIA_PATTERN_ID(10028u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TransformPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10016u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TreeControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50023u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_TreeItemControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50024u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_UnderlineColorAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40029u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_UnderlineStyleAttributeId: UIA_TEXTATTRIBUTE_ID = UIA_TEXTATTRIBUTE_ID(40030u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ValueIsReadOnlyPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30046u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ValuePatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10002u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_ValueValuePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30045u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_VirtualizedItemPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10020u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_VisualEffectsPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30163u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowCanMaximizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30073u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowCanMinimizePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30074u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowControlTypeId: UIA_CONTROLTYPE_ID = UIA_CONTROLTYPE_ID(50032u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowIsModalPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30077u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowIsTopmostPropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30078u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowPatternId: UIA_PATTERN_ID = UIA_PATTERN_ID(10009u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowWindowInteractionStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30076u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_WindowWindowVisualStatePropertyId: UIA_PROPERTY_ID = UIA_PROPERTY_ID(30075u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Window_WindowClosedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20017i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Window_WindowOpenedEventId: UIA_EVENT_ID = UIA_EVENT_ID(20016i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Array: UIAutomationType = UIAutomationType(65536i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Bool: UIAutomationType = UIAutomationType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_BoolArray: UIAutomationType = UIAutomationType(65538i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Double: UIAutomationType = UIAutomationType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_DoubleArray: UIAutomationType = UIAutomationType(65540i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Element: UIAutomationType = UIAutomationType(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_ElementArray: UIAutomationType = UIAutomationType(65543i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Int: UIAutomationType = UIAutomationType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_IntArray: UIAutomationType = UIAutomationType(65537i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Out: UIAutomationType = UIAutomationType(131072i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutBool: UIAutomationType = UIAutomationType(131074i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutBoolArray: UIAutomationType = UIAutomationType(196610i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutDouble: UIAutomationType = UIAutomationType(131076i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutDoubleArray: UIAutomationType = UIAutomationType(196612i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutElement: UIAutomationType = UIAutomationType(131079i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutElementArray: UIAutomationType = UIAutomationType(196615i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutInt: UIAutomationType = UIAutomationType(131073i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutIntArray: UIAutomationType = UIAutomationType(196609i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutPoint: UIAutomationType = UIAutomationType(131077i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutPointArray: UIAutomationType = UIAutomationType(196613i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutRect: UIAutomationType = UIAutomationType(131078i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutRectArray: UIAutomationType = UIAutomationType(196614i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutString: UIAutomationType = UIAutomationType(131075i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_OutStringArray: UIAutomationType = UIAutomationType(196611i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Point: UIAutomationType = UIAutomationType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_PointArray: UIAutomationType = UIAutomationType(65541i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_Rect: UIAutomationType = UIAutomationType(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_RectArray: UIAutomationType = UIAutomationType(65542i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_String: UIAutomationType = UIAutomationType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIAutomationType_StringArray: UIAutomationType = UIAutomationType(65539i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UiaAppendRuntimeId: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UiaRootObjectId: i32 = -25i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Value_IsReadOnly_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Value_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Value_Value_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe95f5e64_269f_4a85_ba99_4092c3ea2986);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VirtualizedItem_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_Bevel: VisualEffects = VisualEffects(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_Glow: VisualEffects = VisualEffects(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_None: VisualEffects = VisualEffects(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe61a8565_aad9_46d7_9e70_4e8a8420d420);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_Reflection: VisualEffects = VisualEffects(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_Shadow: VisualEffects = VisualEffects(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const VisualEffects_SoftEdges: VisualEffects = VisualEffects(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = WindowInteractionState(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowInteractionState_Closing: WindowInteractionState = WindowInteractionState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowInteractionState_NotResponding: WindowInteractionState = WindowInteractionState(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = WindowInteractionState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowInteractionState_Running: WindowInteractionState = WindowInteractionState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowVisualState_Maximized: WindowVisualState = WindowVisualState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowVisualState_Minimized: WindowVisualState = WindowVisualState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const WindowVisualState_Normal: WindowVisualState = WindowVisualState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_CanMaximize_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64fff53f_635d_41c1_950c_cb5adfbe28e3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_CanMinimize_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb73b4625_5988_4b97_b4c2_a6fe6e78c8c6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_Control_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe13a7242_f462_4f4d_aec1_53b28d6c3290);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_IsModal_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff4e6892_37b9_4fca_8532_ffe674ecfeed);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_IsTopmost_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef7d85d3_0937_4962_9241_b62345f24041);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_Pattern_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27901735_c760_4994_ad11_5919e606b110);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_WindowClosed_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedf141f8_fa67_4e22_bbf7_944e05735ee2);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_WindowInteractionState_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fed26a4_0455_4fa2_b21c_c4da2db1ff9c);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_WindowOpened_Event_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e81d06_de45_4f2f_9633_de9e02fb65af);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const Window_WindowVisualState_Property_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ab7905f_e860_453e_a30a_f6431e5daad5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ZoomUnit_LargeDecrement: ZoomUnit = ZoomUnit(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ZoomUnit_LargeIncrement: ZoomUnit = ZoomUnit(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ZoomUnit_NoAmount: ZoomUnit = ZoomUnit(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ZoomUnit_SmallDecrement: ZoomUnit = ZoomUnit(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ZoomUnit_SmallIncrement: ZoomUnit = ZoomUnit(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACC_UTILITY_STATE_FLAGS(pub u32);
@@ -17732,7 +16275,6 @@ impl ::core::ops::Not for ACC_UTILITY_STATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActiveEnd(pub i32);
@@ -17755,7 +16297,6 @@ impl ::core::fmt::Debug for ActiveEnd {
         f.debug_tuple("ActiveEnd").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationStyle(pub i32);
@@ -17778,7 +16319,6 @@ impl ::core::fmt::Debug for AnimationStyle {
         f.debug_tuple("AnimationStyle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnnoScope(pub i32);
@@ -17801,7 +16341,6 @@ impl ::core::fmt::Debug for AnnoScope {
         f.debug_tuple("AnnoScope").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AsyncContentLoadedState(pub i32);
@@ -17824,7 +16363,6 @@ impl ::core::fmt::Debug for AsyncContentLoadedState {
         f.debug_tuple("AsyncContentLoadedState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomationElementMode(pub i32);
@@ -17847,7 +16385,6 @@ impl ::core::fmt::Debug for AutomationElementMode {
         f.debug_tuple("AutomationElementMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomationIdentifierType(pub i32);
@@ -17870,7 +16407,6 @@ impl ::core::fmt::Debug for AutomationIdentifierType {
         f.debug_tuple("AutomationIdentifierType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BulletStyle(pub i32);
@@ -17893,7 +16429,6 @@ impl ::core::fmt::Debug for BulletStyle {
         f.debug_tuple("BulletStyle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CapStyle(pub i32);
@@ -17916,7 +16451,6 @@ impl ::core::fmt::Debug for CapStyle {
         f.debug_tuple("CapStyle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaretBidiMode(pub i32);
@@ -17939,7 +16473,6 @@ impl ::core::fmt::Debug for CaretBidiMode {
         f.debug_tuple("CaretBidiMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaretPosition(pub i32);
@@ -17962,7 +16495,6 @@ impl ::core::fmt::Debug for CaretPosition {
         f.debug_tuple("CaretPosition").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CoalesceEventsOptions(pub i32);
@@ -17985,7 +16517,6 @@ impl ::core::fmt::Debug for CoalesceEventsOptions {
         f.debug_tuple("CoalesceEventsOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConditionType(pub i32);
@@ -18008,7 +16539,6 @@ impl ::core::fmt::Debug for ConditionType {
         f.debug_tuple("ConditionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConnectionRecoveryBehaviorOptions(pub i32);
@@ -18031,7 +16561,6 @@ impl ::core::fmt::Debug for ConnectionRecoveryBehaviorOptions {
         f.debug_tuple("ConnectionRecoveryBehaviorOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DockPosition(pub i32);
@@ -18054,7 +16583,6 @@ impl ::core::fmt::Debug for DockPosition {
         f.debug_tuple("DockPosition").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EventArgsType(pub i32);
@@ -18077,7 +16605,6 @@ impl ::core::fmt::Debug for EventArgsType {
         f.debug_tuple("EventArgsType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExpandCollapseState(pub i32);
@@ -18100,7 +16627,6 @@ impl ::core::fmt::Debug for ExpandCollapseState {
         f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FillType(pub i32);
@@ -18123,7 +16649,6 @@ impl ::core::fmt::Debug for FillType {
         f.debug_tuple("FillType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FlowDirections(pub i32);
@@ -18146,7 +16671,6 @@ impl ::core::fmt::Debug for FlowDirections {
         f.debug_tuple("FlowDirections").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIGHCONTRASTW_FLAGS(pub u32);
@@ -18202,7 +16726,6 @@ impl ::core::ops::Not for HIGHCONTRASTW_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HorizontalTextAlignment(pub i32);
@@ -18225,7 +16748,6 @@ impl ::core::fmt::Debug for HorizontalTextAlignment {
         f.debug_tuple("HorizontalTextAlignment").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LiveSetting(pub i32);
@@ -18248,7 +16770,6 @@ impl ::core::fmt::Debug for LiveSetting {
         f.debug_tuple("LiveSetting").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NavigateDirection(pub i32);
@@ -18271,7 +16792,6 @@ impl ::core::fmt::Debug for NavigateDirection {
         f.debug_tuple("NavigateDirection").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NormalizeState(pub i32);
@@ -18294,7 +16814,6 @@ impl ::core::fmt::Debug for NormalizeState {
         f.debug_tuple("NormalizeState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationKind(pub i32);
@@ -18317,7 +16836,6 @@ impl ::core::fmt::Debug for NotificationKind {
         f.debug_tuple("NotificationKind").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NotificationProcessing(pub i32);
@@ -18340,7 +16858,6 @@ impl ::core::fmt::Debug for NotificationProcessing {
         f.debug_tuple("NotificationProcessing").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OrientationType(pub i32);
@@ -18363,7 +16880,6 @@ impl ::core::fmt::Debug for OrientationType {
         f.debug_tuple("OrientationType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OutlineStyles(pub i32);
@@ -18386,7 +16902,6 @@ impl ::core::fmt::Debug for OutlineStyles {
         f.debug_tuple("OutlineStyles").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyConditionFlags(pub i32);
@@ -18409,7 +16924,6 @@ impl ::core::fmt::Debug for PropertyConditionFlags {
         f.debug_tuple("PropertyConditionFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderOptions(pub i32);
@@ -18465,7 +16979,6 @@ impl ::core::ops::Not for ProviderOptions {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderType(pub i32);
@@ -18488,7 +17001,6 @@ impl ::core::fmt::Debug for ProviderType {
         f.debug_tuple("ProviderType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RowOrColumnMajor(pub i32);
@@ -18511,7 +17023,6 @@ impl ::core::fmt::Debug for RowOrColumnMajor {
         f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERIALKEYS_FLAGS(pub u32);
@@ -18567,7 +17078,6 @@ impl ::core::ops::Not for SERIALKEYS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUNDSENTRY_FLAGS(pub u32);
@@ -18623,7 +17133,6 @@ impl ::core::ops::Not for SOUNDSENTRY_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUNDSENTRY_TEXT_EFFECT(pub u32);
@@ -18646,7 +17155,6 @@ impl ::core::fmt::Debug for SOUNDSENTRY_TEXT_EFFECT {
         f.debug_tuple("SOUNDSENTRY_TEXT_EFFECT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUNDSENTRY_WINDOWS_EFFECT(pub u32);
@@ -18669,7 +17177,6 @@ impl ::core::fmt::Debug for SOUNDSENTRY_WINDOWS_EFFECT {
         f.debug_tuple("SOUNDSENTRY_WINDOWS_EFFECT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOUND_SENTRY_GRAPHICS_EFFECT(pub u32);
@@ -18692,7 +17199,6 @@ impl ::core::fmt::Debug for SOUND_SENTRY_GRAPHICS_EFFECT {
         f.debug_tuple("SOUND_SENTRY_GRAPHICS_EFFECT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STICKYKEYS_FLAGS(pub u32);
@@ -18748,7 +17254,6 @@ impl ::core::ops::Not for STICKYKEYS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SayAsInterpretAs(pub i32);
@@ -18771,7 +17276,6 @@ impl ::core::fmt::Debug for SayAsInterpretAs {
         f.debug_tuple("SayAsInterpretAs").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ScrollAmount(pub i32);
@@ -18794,7 +17298,6 @@ impl ::core::fmt::Debug for ScrollAmount {
         f.debug_tuple("ScrollAmount").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StructureChangeType(pub i32);
@@ -18817,7 +17320,6 @@ impl ::core::fmt::Debug for StructureChangeType {
         f.debug_tuple("StructureChangeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SupportedTextSelection(pub i32);
@@ -18840,7 +17342,6 @@ impl ::core::fmt::Debug for SupportedTextSelection {
         f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SynchronizedInputType(pub i32);
@@ -18896,7 +17397,6 @@ impl ::core::ops::Not for SynchronizedInputType {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextDecorationLineStyle(pub i32);
@@ -18919,7 +17419,6 @@ impl ::core::fmt::Debug for TextDecorationLineStyle {
         f.debug_tuple("TextDecorationLineStyle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextEditChangeType(pub i32);
@@ -18942,7 +17441,6 @@ impl ::core::fmt::Debug for TextEditChangeType {
         f.debug_tuple("TextEditChangeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextPatternRangeEndpoint(pub i32);
@@ -18965,7 +17463,6 @@ impl ::core::fmt::Debug for TextPatternRangeEndpoint {
         f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextUnit(pub i32);
@@ -18988,7 +17485,6 @@ impl ::core::fmt::Debug for TextUnit {
         f.debug_tuple("TextUnit").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ToggleState(pub i32);
@@ -19011,7 +17507,6 @@ impl ::core::fmt::Debug for ToggleState {
         f.debug_tuple("ToggleState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TreeScope(pub i32);
@@ -19034,7 +17529,6 @@ impl ::core::fmt::Debug for TreeScope {
         f.debug_tuple("TreeScope").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TreeTraversalOptions(pub i32);
@@ -19057,7 +17551,6 @@ impl ::core::fmt::Debug for TreeTraversalOptions {
         f.debug_tuple("TreeTraversalOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_ANNOTATIONTYPE(pub u32);
@@ -19080,7 +17573,6 @@ impl ::core::fmt::Debug for UIA_ANNOTATIONTYPE {
         f.debug_tuple("UIA_ANNOTATIONTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_CHANGE_ID(pub u32);
@@ -19103,7 +17595,6 @@ impl ::core::fmt::Debug for UIA_CHANGE_ID {
         f.debug_tuple("UIA_CHANGE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_CONTROLTYPE_ID(pub u32);
@@ -19126,7 +17617,6 @@ impl ::core::fmt::Debug for UIA_CONTROLTYPE_ID {
         f.debug_tuple("UIA_CONTROLTYPE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_EVENT_ID(pub i32);
@@ -19149,7 +17639,6 @@ impl ::core::fmt::Debug for UIA_EVENT_ID {
         f.debug_tuple("UIA_EVENT_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_HEADINGLEVEL_ID(pub u32);
@@ -19172,7 +17661,6 @@ impl ::core::fmt::Debug for UIA_HEADINGLEVEL_ID {
         f.debug_tuple("UIA_HEADINGLEVEL_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_LANDMARKTYPE_ID(pub u32);
@@ -19195,7 +17683,6 @@ impl ::core::fmt::Debug for UIA_LANDMARKTYPE_ID {
         f.debug_tuple("UIA_LANDMARKTYPE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_METADATA_ID(pub u32);
@@ -19218,7 +17705,6 @@ impl ::core::fmt::Debug for UIA_METADATA_ID {
         f.debug_tuple("UIA_METADATA_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_PATTERN_ID(pub u32);
@@ -19241,7 +17727,6 @@ impl ::core::fmt::Debug for UIA_PATTERN_ID {
         f.debug_tuple("UIA_PATTERN_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_PROPERTY_ID(pub u32);
@@ -19264,7 +17749,6 @@ impl ::core::fmt::Debug for UIA_PROPERTY_ID {
         f.debug_tuple("UIA_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_STYLE_ID(pub u32);
@@ -19287,7 +17771,6 @@ impl ::core::fmt::Debug for UIA_STYLE_ID {
         f.debug_tuple("UIA_STYLE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIA_TEXTATTRIBUTE_ID(pub u32);
@@ -19310,7 +17793,6 @@ impl ::core::fmt::Debug for UIA_TEXTATTRIBUTE_ID {
         f.debug_tuple("UIA_TEXTATTRIBUTE_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIAutomationType(pub i32);
@@ -19366,7 +17848,6 @@ impl ::core::ops::Not for UIAutomationType {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualEffects(pub i32);
@@ -19389,7 +17870,6 @@ impl ::core::fmt::Debug for VisualEffects {
         f.debug_tuple("VisualEffects").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowInteractionState(pub i32);
@@ -19412,7 +17892,6 @@ impl ::core::fmt::Debug for WindowInteractionState {
         f.debug_tuple("WindowInteractionState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowVisualState(pub i32);
@@ -19435,7 +17914,6 @@ impl ::core::fmt::Debug for WindowVisualState {
         f.debug_tuple("WindowVisualState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ZoomUnit(pub i32);
@@ -19459,7 +17937,6 @@ impl ::core::fmt::Debug for ZoomUnit {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct ACCESSTIMEOUT {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -19491,7 +17968,6 @@ impl ::core::default::Default for ACCESSTIMEOUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct ExtendedProperty {
     pub PropertyName: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
     pub PropertyValue: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
@@ -19521,7 +17997,6 @@ impl ::core::default::Default for ExtendedProperty {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct FILTERKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -19556,7 +18031,6 @@ impl ::core::default::Default for FILTERKEYS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct HIGHCONTRASTA {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
@@ -19588,7 +18062,6 @@ impl ::core::default::Default for HIGHCONTRASTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct HIGHCONTRASTW {
     pub cbSize: u32,
     pub dwFlags: HIGHCONTRASTW_FLAGS,
@@ -19755,7 +18228,6 @@ impl ::windows_core::TypeKind for HWINEVENTHOOK {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct MOUSEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -19791,7 +18263,6 @@ impl ::core::default::Default for MOUSEKEYS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,
@@ -19823,7 +18294,6 @@ impl ::core::default::Default for MSAAMENUINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct SERIALKEYSA {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -19859,7 +18329,6 @@ impl ::core::default::Default for SERIALKEYSA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct SERIALKEYSW {
     pub cbSize: u32,
     pub dwFlags: SERIALKEYS_FLAGS,
@@ -19895,7 +18364,6 @@ impl ::core::default::Default for SERIALKEYSW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct SOUNDSENTRYA {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -19949,7 +18417,6 @@ impl ::core::default::Default for SOUNDSENTRYA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct SOUNDSENTRYW {
     pub cbSize: u32,
     pub dwFlags: SOUNDSENTRY_FLAGS,
@@ -20003,7 +18470,6 @@ impl ::core::default::Default for SOUNDSENTRYW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct STICKYKEYS {
     pub cbSize: u32,
     pub dwFlags: STICKYKEYS_FLAGS,
@@ -20034,7 +18500,6 @@ impl ::core::default::Default for STICKYKEYS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct TOGGLEKEYS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -20065,7 +18530,6 @@ impl ::core::default::Default for TOGGLEKEYS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UIAutomationEventInfo {
     pub guid: ::windows_core::GUID,
     pub pProgrammaticName: ::windows_core::PCWSTR,
@@ -20096,7 +18560,7 @@ impl ::core::default::Default for UIAutomationEventInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: ::windows_core::PCWSTR,
@@ -20139,7 +18603,6 @@ impl ::core::default::Default for UIAutomationMethodInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UIAutomationParameter {
     pub r#type: UIAutomationType,
     pub pData: *mut ::core::ffi::c_void,
@@ -20170,7 +18633,7 @@ impl ::core::default::Default for UIAutomationParameter {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationPatternInfo {
     pub guid: ::windows_core::GUID,
@@ -20228,7 +18691,6 @@ impl ::core::default::Default for UIAutomationPatternInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UIAutomationPropertyInfo {
     pub guid: ::windows_core::GUID,
     pub pProgrammaticName: ::windows_core::PCWSTR,
@@ -20260,7 +18722,6 @@ impl ::core::default::Default for UIAutomationPropertyInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaAndOrCondition {
     pub ConditionType: ConditionType,
     pub ppConditions: *mut *mut UiaCondition,
@@ -20292,7 +18753,6 @@ impl ::core::default::Default for UiaAndOrCondition {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaAsyncContentLoadedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -20325,7 +18785,6 @@ impl ::core::default::Default for UiaAsyncContentLoadedEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaCacheRequest {
     pub pViewCondition: *mut UiaCondition,
     pub Scope: TreeScope,
@@ -20361,7 +18820,7 @@ impl ::core::default::Default for UiaCacheRequest {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
@@ -20385,7 +18844,7 @@ impl ::core::default::Default for UiaChangeInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaChangesEventArgs {
     pub Type: EventArgsType,
@@ -20426,7 +18885,6 @@ impl ::core::default::Default for UiaChangesEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaCondition {
     pub ConditionType: ConditionType,
 }
@@ -20456,7 +18914,6 @@ impl ::core::default::Default for UiaCondition {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -20487,7 +18944,7 @@ impl ::core::default::Default for UiaEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UiaFindParams {
     pub MaxDepth: i32,
@@ -20528,7 +18985,6 @@ impl ::core::default::Default for UiaFindParams {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaNotCondition {
     pub ConditionType: ConditionType,
     pub pCondition: *mut UiaCondition,
@@ -20559,7 +19015,6 @@ impl ::core::default::Default for UiaNotCondition {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaPoint {
     pub x: f64,
     pub y: f64,
@@ -20590,7 +19045,7 @@ impl ::core::default::Default for UiaPoint {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
@@ -20616,7 +19071,7 @@ impl ::core::default::Default for UiaPropertyChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
@@ -20641,7 +19096,6 @@ impl ::core::default::Default for UiaPropertyCondition {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaRect {
     pub left: f64,
     pub top: f64,
@@ -20674,7 +19128,6 @@ impl ::core::default::Default for UiaRect {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaStructureChangedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -20708,7 +19161,7 @@ impl ::core::default::Default for UiaStructureChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct UiaTextEditTextChangedEventArgs {
     pub Type: EventArgsType,
@@ -20749,7 +19202,6 @@ impl ::core::default::Default for UiaTextEditTextChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaWindowClosedEventArgs {
     pub Type: EventArgsType,
     pub EventId: i32,
@@ -20781,31 +19233,31 @@ impl ::core::default::Default for UiaWindowClosedEventArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: ::core::option::Option<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCREATESTDACCESSIBLEOBJECT = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows_core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::core::option::Option<::windows_core::IUnknown>) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::windows_core::BSTR) -> ()>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32) -> ()>;
 #[cfg(feature = "implement")]

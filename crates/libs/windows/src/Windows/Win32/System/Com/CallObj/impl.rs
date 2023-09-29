@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICallFrame_Impl: Sized {
     fn GetInfo(&self, pinfo: *mut CALLFRAMEINFO) -> ::windows_core::Result<()>;
@@ -178,7 +178,6 @@ impl ICallFrame_Vtbl {
         *iid == <ICallFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"implement\"`*"]
 pub trait ICallFrameEvents_Impl: Sized {
     fn OnCall(&self, pframe: ::core::option::Option<&ICallFrame>) -> ::windows_core::Result<()>;
 }
@@ -196,7 +195,7 @@ impl ICallFrameEvents_Vtbl {
         *iid == <ICallFrameEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallFrameWalker_Impl: Sized {
     fn OnWalkInterface(&self, iid: *const ::windows_core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -217,7 +216,7 @@ impl ICallFrameWalker_Vtbl {
         *iid == <ICallFrameWalker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallIndirect_Impl: Sized {
     fn CallIndirect(&self, phrreturn: *mut ::windows_core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows_core::Result<()>;
@@ -268,7 +267,7 @@ impl ICallIndirect_Vtbl {
         *iid == <ICallIndirect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallInterceptor_Impl: Sized + ICallIndirect_Impl {
     fn RegisterSink(&self, psink: ::core::option::Option<&ICallFrameEvents>) -> ::windows_core::Result<()>;
@@ -305,7 +304,7 @@ impl ICallInterceptor_Vtbl {
         *iid == <ICallInterceptor as ::windows_core::ComInterface>::IID || *iid == <ICallIndirect as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICallUnmarshal_Impl: Sized {
     fn Unmarshal(&self, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, fforcebuffercopy: super::super::super::Foundation::BOOL, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT, pcbunmarshalled: *mut u32, ppframe: *mut ::core::option::Option<ICallFrame>) -> ::windows_core::Result<()>;
@@ -336,7 +335,6 @@ impl ICallUnmarshal_Vtbl {
         *iid == <ICallUnmarshal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_CallObj\"`, `\"implement\"`*"]
 pub trait IInterfaceRelated_Impl: Sized {
     fn SetIID(&self, iid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn GetIID(&self) -> ::windows_core::Result<::windows_core::GUID>;

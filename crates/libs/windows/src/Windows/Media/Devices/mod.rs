@@ -1,4 +1,5 @@
 #[cfg(feature = "Media_Devices_Core")]
+#[doc = "Required features: `Media_Devices_Core`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -504,7 +505,6 @@ pub struct ICameraOcclusionStateChangedEventArgs_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDefaultAudioDeviceChangedEventArgs(::windows_core::IUnknown);
@@ -1117,12 +1117,11 @@ pub struct IMediaDeviceControlCapabilities_Vtbl {
     pub Default: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows_core::HRESULT,
     pub AutoModeSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaDeviceController(::windows_core::IUnknown);
 impl IMediaDeviceController {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = self;
@@ -1131,7 +1130,7 @@ impl IMediaDeviceController {
             (::windows_core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = self;
@@ -1140,7 +1139,7 @@ impl IMediaDeviceController {
             (::windows_core::Interface::vtable(this).GetMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Foundation`, `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1613,7 +1612,6 @@ pub struct IZoomSettings_Vtbl {
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows_core::HRESULT,
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvancedPhotoCaptureSettings(::windows_core::IUnknown);
@@ -1652,7 +1650,6 @@ impl ::windows_core::RuntimeName for AdvancedPhotoCaptureSettings {
 ::windows_core::imp::interface_hierarchy!(AdvancedPhotoCaptureSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoCaptureSettings {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvancedPhotoControl(::windows_core::IUnknown);
@@ -1664,7 +1661,7 @@ impl AdvancedPhotoControl {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>> {
         let this = self;
@@ -1703,7 +1700,6 @@ impl ::windows_core::RuntimeName for AdvancedPhotoControl {
 ::windows_core::imp::interface_hierarchy!(AdvancedPhotoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceController(::windows_core::IUnknown);
@@ -1730,7 +1726,7 @@ impl AudioDeviceController {
             (::windows_core::Interface::vtable(this).VolumePercent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
@@ -1739,7 +1735,7 @@ impl AudioDeviceController {
             (::windows_core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
@@ -1748,7 +1744,7 @@ impl AudioDeviceController {
             (::windows_core::Interface::vtable(this).GetMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Foundation`, `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1775,7 +1771,6 @@ impl ::windows_core::RuntimeName for AudioDeviceController {
 }
 ::windows_core::imp::interface_hierarchy!(AudioDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IMediaDeviceController> for AudioDeviceController {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceModule(::windows_core::IUnknown);
@@ -1815,7 +1810,7 @@ impl AudioDeviceModule {
             (::windows_core::Interface::vtable(this).MinorVersion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendCommandAsync<P0>(&self, command: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
     where
@@ -1841,7 +1836,6 @@ impl ::windows_core::RuntimeName for AudioDeviceModule {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
 }
 ::windows_core::imp::interface_hierarchy!(AudioDeviceModule, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceModuleNotificationEventArgs(::windows_core::IUnknown);
@@ -1853,7 +1847,7 @@ impl AudioDeviceModuleNotificationEventArgs {
             (::windows_core::Interface::vtable(this).Module)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn NotificationData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1878,12 +1872,11 @@ impl ::windows_core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
 ::windows_core::imp::interface_hierarchy!(AudioDeviceModuleNotificationEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for AudioDeviceModuleNotificationEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AudioDeviceModulesManager(::windows_core::IUnknown);
 impl AudioDeviceModulesManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1895,13 +1888,13 @@ impl AudioDeviceModulesManager {
             (::windows_core::Interface::vtable(this).ModuleNotificationReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveModuleNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveModuleNotificationReceived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllById(&self, moduleid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
         let this = self;
@@ -1910,7 +1903,7 @@ impl AudioDeviceModulesManager {
             (::windows_core::Interface::vtable(this).FindAllById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(moduleid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAll(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
         let this = self;
@@ -1946,7 +1939,6 @@ impl ::windows_core::RuntimeName for AudioDeviceModulesManager {
 ::windows_core::imp::interface_hierarchy!(AudioDeviceModulesManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
 unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CallControl(::windows_core::IUnknown);
@@ -1980,7 +1972,7 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).HasRinger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AnswerRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1992,13 +1984,13 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).AnswerRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAnswerRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn HangUpRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2010,13 +2002,13 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).HangUpRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHangUpRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHangUpRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DialRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2028,13 +2020,13 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).DialRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDialRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RedialRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2046,13 +2038,13 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).RedialRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRedialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRedialRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn KeypadPressed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2064,13 +2056,13 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).KeypadPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeypadPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveKeypadPressed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AudioTransferRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2082,7 +2074,7 @@ impl CallControl {
             (::windows_core::Interface::vtable(this).AudioTransferRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAudioTransferRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2121,7 +2113,6 @@ impl ::windows_core::RuntimeName for CallControl {
 ::windows_core::imp::interface_hierarchy!(CallControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CallControl {}
 unsafe impl ::core::marker::Sync for CallControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraOcclusionInfo(::windows_core::IUnknown);
@@ -2140,7 +2131,7 @@ impl CameraOcclusionInfo {
             (::windows_core::Interface::vtable(this).IsOcclusionKindSupported)(::windows_core::Interface::as_raw(this), occlusionkind, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2152,7 +2143,7 @@ impl CameraOcclusionInfo {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2174,7 +2165,6 @@ impl ::windows_core::RuntimeName for CameraOcclusionInfo {
 ::windows_core::imp::interface_hierarchy!(CameraOcclusionInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
 unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraOcclusionState(::windows_core::IUnknown);
@@ -2209,7 +2199,6 @@ impl ::windows_core::RuntimeName for CameraOcclusionState {
 ::windows_core::imp::interface_hierarchy!(CameraOcclusionState, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraOcclusionState {}
 unsafe impl ::core::marker::Sync for CameraOcclusionState {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CameraOcclusionStateChangedEventArgs(::windows_core::IUnknown);
@@ -2237,7 +2226,6 @@ impl ::windows_core::RuntimeName for CameraOcclusionStateChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(CameraOcclusionStateChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(::windows_core::IUnknown);
@@ -2273,7 +2261,6 @@ impl ::windows_core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
 impl ::windows_core::CanTryInto<IDefaultAudioDeviceChangedEventArgs> for DefaultAudioCaptureDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DefaultAudioRenderDeviceChangedEventArgs(::windows_core::IUnknown);
@@ -2309,7 +2296,6 @@ impl ::windows_core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
 impl ::windows_core::CanTryInto<IDefaultAudioDeviceChangedEventArgs> for DefaultAudioRenderDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DefaultAudioRenderDeviceChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DialRequestedEventArgs(::windows_core::IUnknown);
@@ -2341,7 +2327,6 @@ impl ::windows_core::RuntimeName for DialRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(DialRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DigitalWindowBounds(::windows_core::IUnknown);
@@ -2402,7 +2387,6 @@ impl ::windows_core::RuntimeName for DigitalWindowBounds {
 ::windows_core::imp::interface_hierarchy!(DigitalWindowBounds, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DigitalWindowBounds {}
 unsafe impl ::core::marker::Sync for DigitalWindowBounds {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DigitalWindowCapability(::windows_core::IUnknown);
@@ -2442,7 +2426,7 @@ impl DigitalWindowCapability {
             (::windows_core::Interface::vtable(this).MinScaleValueWithoutUpsampling)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn NormalizedFieldOfViewLimit(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -2467,7 +2451,6 @@ impl ::windows_core::RuntimeName for DigitalWindowCapability {
 ::windows_core::imp::interface_hierarchy!(DigitalWindowCapability, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DigitalWindowCapability {}
 unsafe impl ::core::marker::Sync for DigitalWindowCapability {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DigitalWindowControl(::windows_core::IUnknown);
@@ -2511,7 +2494,7 @@ impl DigitalWindowControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ConfigureWithBounds)(::windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCapabilities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>> {
         let this = self;
@@ -2543,7 +2526,6 @@ impl ::windows_core::RuntimeName for DigitalWindowControl {
 ::windows_core::imp::interface_hierarchy!(DigitalWindowControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DigitalWindowControl {}
 unsafe impl ::core::marker::Sync for DigitalWindowControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExposureCompensationControl(::windows_core::IUnknown);
@@ -2583,7 +2565,7 @@ impl ExposureCompensationControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValueAsync(&self, value: f32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2606,7 +2588,6 @@ impl ::windows_core::RuntimeName for ExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
 }
 ::windows_core::imp::interface_hierarchy!(ExposureCompensationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExposureControl(::windows_core::IUnknown);
@@ -2625,7 +2606,7 @@ impl ExposureControl {
             (::windows_core::Interface::vtable(this).Auto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAutoAsync(&self, value: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2634,7 +2615,7 @@ impl ExposureControl {
             (::windows_core::Interface::vtable(this).SetAutoAsync)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Min(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2643,7 +2624,7 @@ impl ExposureControl {
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Max(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2652,7 +2633,7 @@ impl ExposureControl {
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Step(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2661,7 +2642,7 @@ impl ExposureControl {
             (::windows_core::Interface::vtable(this).Step)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2670,7 +2651,7 @@ impl ExposureControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2693,7 +2674,6 @@ impl ::windows_core::RuntimeName for ExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
 }
 ::windows_core::imp::interface_hierarchy!(ExposureControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ExposurePriorityVideoControl(::windows_core::IUnknown);
@@ -2732,7 +2712,6 @@ impl ::windows_core::RuntimeName for ExposurePriorityVideoControl {
 ::windows_core::imp::interface_hierarchy!(ExposurePriorityVideoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
 unsafe impl ::core::marker::Sync for ExposurePriorityVideoControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FlashControl(::windows_core::IUnknown);
@@ -2834,7 +2813,6 @@ impl ::windows_core::RuntimeName for FlashControl {
     const NAME: &'static str = "Windows.Media.Devices.FlashControl";
 }
 ::windows_core::imp::interface_hierarchy!(FlashControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FocusControl(::windows_core::IUnknown);
@@ -2846,7 +2824,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedPresets(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<FocusPreset>> {
         let this = self;
@@ -2862,7 +2840,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).Preset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPresetAsync(&self, preset: FocusPreset) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2871,7 +2849,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).SetPresetAsync)(::windows_core::Interface::as_raw(this), preset, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2908,7 +2886,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValueAsync(&self, focus: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2917,7 +2895,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).SetValueAsync)(::windows_core::Interface::as_raw(this), focus, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FocusAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2940,7 +2918,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).WaitForFocusSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFocusModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>> {
         let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
@@ -2949,7 +2927,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).SupportedFocusModes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFocusDistances(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>> {
         let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
@@ -2958,7 +2936,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).SupportedFocusDistances)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFocusRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>> {
         let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
@@ -2981,7 +2959,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).FocusState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UnlockAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
@@ -2990,7 +2968,7 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).UnlockAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LockAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
@@ -3020,7 +2998,6 @@ impl ::windows_core::RuntimeName for FocusControl {
     const NAME: &'static str = "Windows.Media.Devices.FocusControl";
 }
 ::windows_core::imp::interface_hierarchy!(FocusControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FocusSettings(::windows_core::IUnknown);
@@ -3054,7 +3031,7 @@ impl FocusSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAutoFocusRange)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -3063,7 +3040,7 @@ impl FocusSettings {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3072,7 +3049,7 @@ impl FocusSettings {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Distance(&self) -> ::windows_core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
         let this = self;
@@ -3081,7 +3058,7 @@ impl FocusSettings {
             (::windows_core::Interface::vtable(this).Distance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetDistance<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3128,7 +3105,6 @@ impl ::windows_core::RuntimeName for FocusSettings {
 ::windows_core::imp::interface_hierarchy!(FocusSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for FocusSettings {}
 unsafe impl ::core::marker::Sync for FocusSettings {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HdrVideoControl(::windows_core::IUnknown);
@@ -3140,7 +3116,7 @@ impl HdrVideoControl {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<HdrVideoMode>> {
         let this = self;
@@ -3176,7 +3152,6 @@ impl ::windows_core::RuntimeName for HdrVideoControl {
 ::windows_core::imp::interface_hierarchy!(HdrVideoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HdrVideoControl {}
 unsafe impl ::core::marker::Sync for HdrVideoControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InfraredTorchControl(::windows_core::IUnknown);
@@ -3188,7 +3163,7 @@ impl InfraredTorchControl {
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<InfraredTorchMode>> {
         let this = self;
@@ -3256,7 +3231,6 @@ impl ::windows_core::RuntimeName for InfraredTorchControl {
 ::windows_core::imp::interface_hierarchy!(InfraredTorchControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InfraredTorchControl {}
 unsafe impl ::core::marker::Sync for InfraredTorchControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsoSpeedControl(::windows_core::IUnknown);
@@ -3268,7 +3242,7 @@ impl IsoSpeedControl {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn SupportedPresets(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsoSpeedPreset>> {
         let this = self;
@@ -3277,7 +3251,7 @@ impl IsoSpeedControl {
             (::windows_core::Interface::vtable(this).SupportedPresets)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn Preset(&self) -> ::windows_core::Result<IsoSpeedPreset> {
         let this = self;
@@ -3286,7 +3260,7 @@ impl IsoSpeedControl {
             (::windows_core::Interface::vtable(this).Preset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3323,7 +3297,7 @@ impl IsoSpeedControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValueAsync(&self, isospeed: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
@@ -3339,7 +3313,7 @@ impl IsoSpeedControl {
             (::windows_core::Interface::vtable(this).Auto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetAutoAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IIsoSpeedControl2>(self)?;
@@ -3362,7 +3336,6 @@ impl ::windows_core::RuntimeName for IsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.IsoSpeedControl";
 }
 ::windows_core::imp::interface_hierarchy!(IsoSpeedControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeypadPressedEventArgs(::windows_core::IUnknown);
@@ -3390,12 +3363,11 @@ impl ::windows_core::RuntimeName for KeypadPressedEventArgs {
 ::windows_core::imp::interface_hierarchy!(KeypadPressedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for KeypadPressedEventArgs {}
 unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagPhotoControl(::windows_core::IUnknown);
 impl LowLagPhotoControl {
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> ::windows_core::Result<super::MediaProperties::MediaRatio>
     where
@@ -3407,7 +3379,7 @@ impl LowLagPhotoControl {
             (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetCurrentFrameRate(&self) -> ::windows_core::Result<super::MediaProperties::MediaRatio> {
         let this = self;
@@ -3427,7 +3399,7 @@ impl LowLagPhotoControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetThumbnailEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn ThumbnailFormat(&self) -> ::windows_core::Result<super::MediaProperties::MediaThumbnailFormat> {
         let this = self;
@@ -3436,7 +3408,7 @@ impl LowLagPhotoControl {
             (::windows_core::Interface::vtable(this).ThumbnailFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows_core::Result<()> {
         let this = self;
@@ -3474,7 +3446,6 @@ impl ::windows_core::RuntimeName for LowLagPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoControl";
 }
 ::windows_core::imp::interface_hierarchy!(LowLagPhotoControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LowLagPhotoSequenceControl(::windows_core::IUnknown);
@@ -3522,7 +3493,7 @@ impl LowLagPhotoSequenceControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPhotosPerSecondLimit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetHighestConcurrentFrameRate<P0>(&self, captureproperties: P0) -> ::windows_core::Result<super::MediaProperties::MediaRatio>
     where
@@ -3534,7 +3505,7 @@ impl LowLagPhotoSequenceControl {
             (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn GetCurrentFrameRate(&self) -> ::windows_core::Result<super::MediaProperties::MediaRatio> {
         let this = self;
@@ -3554,7 +3525,7 @@ impl LowLagPhotoSequenceControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetThumbnailEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn ThumbnailFormat(&self) -> ::windows_core::Result<super::MediaProperties::MediaThumbnailFormat> {
         let this = self;
@@ -3563,7 +3534,7 @@ impl LowLagPhotoSequenceControl {
             (::windows_core::Interface::vtable(this).ThumbnailFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows_core::Result<()> {
         let this = self;
@@ -3601,7 +3572,6 @@ impl ::windows_core::RuntimeName for LowLagPhotoSequenceControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoSequenceControl";
 }
 ::windows_core::imp::interface_hierarchy!(LowLagPhotoSequenceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 pub struct MediaDevice;
 impl MediaDevice {
     pub fn GetAudioCaptureSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3634,7 +3604,7 @@ impl MediaDevice {
             (::windows_core::Interface::vtable(this).GetDefaultAudioRenderId)(::windows_core::Interface::as_raw(this), role, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DefaultAudioCaptureDeviceChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3645,12 +3615,12 @@ impl MediaDevice {
             (::windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IMediaDeviceStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveDefaultAudioCaptureDeviceChanged)(::windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DefaultAudioRenderDeviceChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3661,7 +3631,7 @@ impl MediaDevice {
             (::windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IMediaDeviceStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged)(::windows_core::Interface::as_raw(this), cookie).ok() })
@@ -3675,7 +3645,6 @@ impl MediaDevice {
 impl ::windows_core::RuntimeName for MediaDevice {
     const NAME: &'static str = "Windows.Media.Devices.MediaDevice";
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaDeviceControl(::windows_core::IUnknown);
@@ -3729,7 +3698,6 @@ impl ::windows_core::RuntimeName for MediaDeviceControl {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControl";
 }
 ::windows_core::imp::interface_hierarchy!(MediaDeviceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaDeviceControlCapabilities(::windows_core::IUnknown);
@@ -3790,7 +3758,6 @@ impl ::windows_core::RuntimeName for MediaDeviceControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControlCapabilities";
 }
 ::windows_core::imp::interface_hierarchy!(MediaDeviceControlCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ModuleCommandResult(::windows_core::IUnknown);
@@ -3802,7 +3769,7 @@ impl ModuleCommandResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Result(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3825,7 +3792,6 @@ impl ::windows_core::RuntimeName for ModuleCommandResult {
     const NAME: &'static str = "Windows.Media.Devices.ModuleCommandResult";
 }
 ::windows_core::imp::interface_hierarchy!(ModuleCommandResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OpticalImageStabilizationControl(::windows_core::IUnknown);
@@ -3837,7 +3803,7 @@ impl OpticalImageStabilizationControl {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<OpticalImageStabilizationMode>> {
         let this = self;
@@ -3873,7 +3839,6 @@ impl ::windows_core::RuntimeName for OpticalImageStabilizationControl {
 ::windows_core::imp::interface_hierarchy!(OpticalImageStabilizationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
 unsafe impl ::core::marker::Sync for OpticalImageStabilizationControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PanelBasedOptimizationControl(::windows_core::IUnknown);
@@ -3885,7 +3850,7 @@ impl PanelBasedOptimizationControl {
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
+    #[doc = "Required features: `Devices_Enumeration`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn Panel(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::Panel> {
         let this = self;
@@ -3894,7 +3859,7 @@ impl PanelBasedOptimizationControl {
             (::windows_core::Interface::vtable(this).Panel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
+    #[doc = "Required features: `Devices_Enumeration`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn SetPanel(&self, value: super::super::Devices::Enumeration::Panel) -> ::windows_core::Result<()> {
         let this = self;
@@ -3916,7 +3881,6 @@ impl ::windows_core::RuntimeName for PanelBasedOptimizationControl {
 ::windows_core::imp::interface_hierarchy!(PanelBasedOptimizationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PanelBasedOptimizationControl {}
 unsafe impl ::core::marker::Sync for PanelBasedOptimizationControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoConfirmationControl(::windows_core::IUnknown);
@@ -3939,7 +3903,7 @@ impl PhotoConfirmationControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn PixelFormat(&self) -> ::windows_core::Result<super::MediaProperties::MediaPixelFormat> {
         let this = self;
@@ -3948,7 +3912,7 @@ impl PhotoConfirmationControl {
             (::windows_core::Interface::vtable(this).PixelFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_MediaProperties`"]
     #[cfg(feature = "Media_MediaProperties")]
     pub fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> ::windows_core::Result<()> {
         let this = self;
@@ -3968,7 +3932,6 @@ impl ::windows_core::RuntimeName for PhotoConfirmationControl {
     const NAME: &'static str = "Windows.Media.Devices.PhotoConfirmationControl";
 }
 ::windows_core::imp::interface_hierarchy!(PhotoConfirmationControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RedialRequestedEventArgs(::windows_core::IUnknown);
@@ -3993,7 +3956,6 @@ impl ::windows_core::RuntimeName for RedialRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(RedialRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RedialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RegionOfInterest(::windows_core::IUnknown);
@@ -4038,7 +4000,7 @@ impl RegionOfInterest {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAutoExposureEnabled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Bounds(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -4047,7 +4009,7 @@ impl RegionOfInterest {
             (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBounds(&self, value: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
         let this = self;
@@ -4102,7 +4064,6 @@ impl ::windows_core::RuntimeName for RegionOfInterest {
 ::windows_core::imp::interface_hierarchy!(RegionOfInterest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RegionOfInterest {}
 unsafe impl ::core::marker::Sync for RegionOfInterest {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RegionsOfInterestControl(::windows_core::IUnknown);
@@ -4114,7 +4075,7 @@ impl RegionsOfInterestControl {
             (::windows_core::Interface::vtable(this).MaxRegions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRegionsAsync<P0>(&self, regions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -4126,7 +4087,7 @@ impl RegionsOfInterestControl {
             (::windows_core::Interface::vtable(this).SetRegionsAsync)(::windows_core::Interface::as_raw(this), regions.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetRegionsWithLockAsync<P0>(&self, regions: P0, lockvalues: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -4138,7 +4099,7 @@ impl RegionsOfInterestControl {
             (::windows_core::Interface::vtable(this).SetRegionsWithLockAsync)(::windows_core::Interface::as_raw(this), regions.try_into_param()?.abi(), lockvalues, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ClearRegionsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4182,12 +4143,11 @@ impl ::windows_core::RuntimeName for RegionsOfInterestControl {
     const NAME: &'static str = "Windows.Media.Devices.RegionsOfInterestControl";
 }
 ::windows_core::imp::interface_hierarchy!(RegionsOfInterestControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SceneModeControl(::windows_core::IUnknown);
 impl SceneModeControl {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<CaptureSceneMode>> {
         let this = self;
@@ -4203,7 +4163,7 @@ impl SceneModeControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4226,7 +4186,6 @@ impl ::windows_core::RuntimeName for SceneModeControl {
     const NAME: &'static str = "Windows.Media.Devices.SceneModeControl";
 }
 ::windows_core::imp::interface_hierarchy!(SceneModeControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TorchControl(::windows_core::IUnknown);
@@ -4281,7 +4240,6 @@ impl ::windows_core::RuntimeName for TorchControl {
     const NAME: &'static str = "Windows.Media.Devices.TorchControl";
 }
 ::windows_core::imp::interface_hierarchy!(TorchControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoDeviceController(::windows_core::IUnknown);
@@ -4307,7 +4265,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).CameraOcclusionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Capture\"`*"]
+    #[doc = "Required features: `Media_Capture`"]
     #[cfg(feature = "Media_Capture")]
     pub fn TryAcquireExclusiveControl(&self, deviceid: &::windows_core::HSTRING, mode: super::Capture::MediaCaptureDeviceExclusiveControlReleaseMode) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController11>(self)?;
@@ -4404,7 +4362,7 @@ impl VideoDeviceController {
         let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPrimaryUse)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
+    #[doc = "Required features: `Media_Devices_Core`"]
     #[cfg(feature = "Media_Devices_Core")]
     pub fn VariablePhotoSequenceController(&self) -> ::windows_core::Result<Core::VariablePhotoSequenceController> {
         let this = &::windows_core::ComInterface::cast::<IAdvancedVideoCaptureDeviceController3>(self)?;
@@ -4473,7 +4431,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDevicePropertyById<P0>(&self, propertyid: &::windows_core::HSTRING, maxpropertyvaluesize: P0) -> ::windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
@@ -4495,7 +4453,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).SetDevicePropertyById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyid), propertyvalue.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDevicePropertyByExtendedId<P0>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: P0) -> ::windows_core::Result<VideoDeviceControllerGetDevicePropertyResult>
     where
@@ -4542,7 +4500,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).DigitalWindowControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
@@ -4551,7 +4509,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows_core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = &::windows_core::ComInterface::cast::<IMediaDeviceController>(self)?;
@@ -4560,7 +4518,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).GetMediaStreamProperties)(::windows_core::Interface::as_raw(this), mediastreamtype, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[doc = "Required features: `Foundation`, `Media_Capture`, `Media_MediaProperties`"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
     pub fn SetMediaStreamPropertiesAsync<P0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -4649,7 +4607,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).Focus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Capture\"`*"]
+    #[doc = "Required features: `Media_Capture`"]
     #[cfg(feature = "Media_Capture")]
     pub fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4658,7 +4616,7 @@ impl VideoDeviceController {
             (::windows_core::Interface::vtable(this).TrySetPowerlineFrequency)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Media_Capture\"`*"]
+    #[doc = "Required features: `Media_Capture`"]
     #[cfg(feature = "Media_Capture")]
     pub fn TryGetPowerlineFrequency(&self, value: &mut super::Capture::PowerlineFrequency) -> ::windows_core::Result<bool> {
         let this = self;
@@ -4682,7 +4640,6 @@ impl ::windows_core::RuntimeName for VideoDeviceController {
 }
 ::windows_core::imp::interface_hierarchy!(VideoDeviceController, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IMediaDeviceController> for VideoDeviceController {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoDeviceControllerGetDevicePropertyResult(::windows_core::IUnknown);
@@ -4717,7 +4674,6 @@ impl ::windows_core::RuntimeName for VideoDeviceControllerGetDevicePropertyResul
 ::windows_core::imp::interface_hierarchy!(VideoDeviceControllerGetDevicePropertyResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResult {}
 unsafe impl ::core::marker::Sync for VideoDeviceControllerGetDevicePropertyResult {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoTemporalDenoisingControl(::windows_core::IUnknown);
@@ -4729,7 +4685,7 @@ impl VideoTemporalDenoisingControl {
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<VideoTemporalDenoisingMode>> {
         let this = self;
@@ -4765,7 +4721,6 @@ impl ::windows_core::RuntimeName for VideoTemporalDenoisingControl {
 ::windows_core::imp::interface_hierarchy!(VideoTemporalDenoisingControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
 unsafe impl ::core::marker::Sync for VideoTemporalDenoisingControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WhiteBalanceControl(::windows_core::IUnknown);
@@ -4784,7 +4739,7 @@ impl WhiteBalanceControl {
             (::windows_core::Interface::vtable(this).Preset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4821,7 +4776,7 @@ impl WhiteBalanceControl {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SetValueAsync(&self, temperature: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4844,7 +4799,6 @@ impl ::windows_core::RuntimeName for WhiteBalanceControl {
     const NAME: &'static str = "Windows.Media.Devices.WhiteBalanceControl";
 }
 ::windows_core::imp::interface_hierarchy!(WhiteBalanceControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ZoomControl(::windows_core::IUnknown);
@@ -4888,7 +4842,7 @@ impl ZoomControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedModes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ZoomTransitionMode>> {
         let this = &::windows_core::ComInterface::cast::<IZoomControl2>(self)?;
@@ -4925,7 +4879,6 @@ impl ::windows_core::RuntimeName for ZoomControl {
     const NAME: &'static str = "Windows.Media.Devices.ZoomControl";
 }
 ::windows_core::imp::interface_hierarchy!(ZoomControl, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ZoomSettings(::windows_core::IUnknown);
@@ -4975,7 +4928,6 @@ impl ::windows_core::RuntimeName for ZoomSettings {
 ::windows_core::imp::interface_hierarchy!(ZoomSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ZoomSettings {}
 unsafe impl ::core::marker::Sync for ZoomSettings {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdvancedPhotoMode(pub i32);
@@ -5007,7 +4959,6 @@ impl ::core::fmt::Debug for AdvancedPhotoMode {
 impl ::windows_core::RuntimeType for AdvancedPhotoMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioDeviceRole(pub i32);
@@ -5037,7 +4988,6 @@ impl ::core::fmt::Debug for AudioDeviceRole {
 impl ::windows_core::RuntimeType for AudioDeviceRole {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoFocusRange(pub i32);
@@ -5068,7 +5018,6 @@ impl ::core::fmt::Debug for AutoFocusRange {
 impl ::windows_core::RuntimeType for AutoFocusRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraOcclusionKind(pub i32);
@@ -5098,7 +5047,6 @@ impl ::core::fmt::Debug for CameraOcclusionKind {
 impl ::windows_core::RuntimeType for CameraOcclusionKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraStreamState(pub i32);
@@ -5130,7 +5078,6 @@ impl ::core::fmt::Debug for CameraStreamState {
 impl ::windows_core::RuntimeType for CameraStreamState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaptureSceneMode(pub i32);
@@ -5171,7 +5118,6 @@ impl ::core::fmt::Debug for CaptureSceneMode {
 impl ::windows_core::RuntimeType for CaptureSceneMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaptureUse(pub i32);
@@ -5202,7 +5148,6 @@ impl ::core::fmt::Debug for CaptureUse {
 impl ::windows_core::RuntimeType for CaptureUse {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ColorTemperaturePreset(pub i32);
@@ -5238,7 +5183,6 @@ impl ::core::fmt::Debug for ColorTemperaturePreset {
 impl ::windows_core::RuntimeType for ColorTemperaturePreset {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DigitalWindowMode(pub i32);
@@ -5269,7 +5213,6 @@ impl ::core::fmt::Debug for DigitalWindowMode {
 impl ::windows_core::RuntimeType for DigitalWindowMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FocusMode(pub i32);
@@ -5301,7 +5244,6 @@ impl ::core::fmt::Debug for FocusMode {
 impl ::windows_core::RuntimeType for FocusMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FocusPreset(pub i32);
@@ -5335,7 +5277,6 @@ impl ::core::fmt::Debug for FocusPreset {
 impl ::windows_core::RuntimeType for FocusPreset {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HdrVideoMode(pub i32);
@@ -5366,7 +5307,6 @@ impl ::core::fmt::Debug for HdrVideoMode {
 impl ::windows_core::RuntimeType for HdrVideoMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InfraredTorchMode(pub i32);
@@ -5397,7 +5337,7 @@ impl ::core::fmt::Debug for InfraredTorchMode {
 impl ::windows_core::RuntimeType for InfraredTorchMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`, `\"deprecated\"`*"]
+#[doc = "Required features: `deprecated`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -5445,7 +5385,6 @@ impl ::core::fmt::Debug for IsoSpeedPreset {
 impl ::windows_core::RuntimeType for IsoSpeedPreset {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ManualFocusDistance(pub i32);
@@ -5476,7 +5415,6 @@ impl ::core::fmt::Debug for ManualFocusDistance {
 impl ::windows_core::RuntimeType for ManualFocusDistance {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureFocusState(pub i32);
@@ -5509,7 +5447,6 @@ impl ::core::fmt::Debug for MediaCaptureFocusState {
 impl ::windows_core::RuntimeType for MediaCaptureFocusState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCaptureOptimization(pub i32);
@@ -5544,7 +5481,6 @@ impl ::core::fmt::Debug for MediaCaptureOptimization {
 impl ::windows_core::RuntimeType for MediaCaptureOptimization {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaCapturePauseBehavior(pub i32);
@@ -5574,7 +5510,6 @@ impl ::core::fmt::Debug for MediaCapturePauseBehavior {
 impl ::windows_core::RuntimeType for MediaCapturePauseBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OpticalImageStabilizationMode(pub i32);
@@ -5605,7 +5540,6 @@ impl ::core::fmt::Debug for OpticalImageStabilizationMode {
 impl ::windows_core::RuntimeType for OpticalImageStabilizationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RegionOfInterestType(pub i32);
@@ -5635,7 +5569,6 @@ impl ::core::fmt::Debug for RegionOfInterestType {
 impl ::windows_core::RuntimeType for RegionOfInterestType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SendCommandStatus(pub i32);
@@ -5665,7 +5598,6 @@ impl ::core::fmt::Debug for SendCommandStatus {
 impl ::windows_core::RuntimeType for SendCommandStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TelephonyKey(pub i32);
@@ -5709,7 +5641,6 @@ impl ::core::fmt::Debug for TelephonyKey {
 impl ::windows_core::RuntimeType for TelephonyKey {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
@@ -5744,7 +5675,6 @@ impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
 impl ::windows_core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
@@ -5778,7 +5708,6 @@ impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
 impl ::windows_core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoTemporalDenoisingMode(pub i32);
@@ -5809,7 +5738,6 @@ impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
 impl ::windows_core::RuntimeType for VideoTemporalDenoisingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ZoomTransitionMode(pub i32);
@@ -5840,7 +5768,6 @@ impl ::core::fmt::Debug for ZoomTransitionMode {
 impl ::windows_core::RuntimeType for ZoomTransitionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ZoomTransitionMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CallControlEventHandler(pub ::windows_core::IUnknown);
@@ -5913,7 +5840,6 @@ pub struct CallControlEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DialRequestedEventHandler(pub ::windows_core::IUnknown);
@@ -5987,7 +5913,6 @@ pub struct DialRequestedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeypadPressedEventHandler(pub ::windows_core::IUnknown);
@@ -6061,7 +5986,6 @@ pub struct KeypadPressedEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RedialRequestedEventHandler(pub ::windows_core::IUnknown);

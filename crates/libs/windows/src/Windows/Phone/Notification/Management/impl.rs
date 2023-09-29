@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Phone_Notification_Management\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IAccessoryNotificationTriggerDetails_Impl: Sized {
     fn TimeCreated(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime>;

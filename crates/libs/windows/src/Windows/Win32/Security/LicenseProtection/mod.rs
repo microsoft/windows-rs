@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<P0>(licensekey: P0, validityindays: u32) -> ::windows_core::Result<LicenseProtectionStatus>
 where
@@ -8,7 +7,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     RegisterLicenseKeyWithExpiration(licensekey.into_param().abi(), validityindays, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<P0>(licensekey: P0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows_core::Result<()>
@@ -18,17 +17,11 @@ where
     ::windows_targets::link!("licenseprotection.dll" "system" fn ValidateLicenseKeyProtection(licensekey : ::windows_core::PCWSTR, notvalidbefore : *mut super::super::Foundation:: FILETIME, notvalidafter : *mut super::super::Foundation:: FILETIME, status : *mut LicenseProtectionStatus) -> ::windows_core::HRESULT);
     ValidateLicenseKeyProtection(licensekey.into_param().abi(), notvalidbefore, notvalidafter, status).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(1i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LicenseProtectionStatus(pub i32);

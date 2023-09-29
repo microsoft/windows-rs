@@ -1,12 +1,15 @@
 #[cfg(feature = "Foundation_Collections")]
+#[doc = "Required features: `Foundation_Collections`"]
 pub mod Collections;
 #[cfg(feature = "Foundation_Diagnostics")]
+#[doc = "Required features: `Foundation_Diagnostics`"]
 pub mod Diagnostics;
 #[cfg(feature = "Foundation_Metadata")]
+#[doc = "Required features: `Foundation_Metadata`"]
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
+#[doc = "Required features: `Foundation_Numerics`"]
 pub mod Numerics;
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncAction(::windows_core::IUnknown);
@@ -109,7 +112,6 @@ pub struct IAsyncAction_Vtbl {
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncActionWithProgress<TProgress>(::windows_core::IUnknown, ::core::marker::PhantomData<TProgress>)
@@ -235,7 +237,6 @@ where
     pub GetResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncInfo(::windows_core::IUnknown);
@@ -290,7 +291,6 @@ pub struct IAsyncInfo_Vtbl {
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncOperation<TResult>(::windows_core::IUnknown, ::core::marker::PhantomData<TResult>)
@@ -403,7 +403,6 @@ where
     pub GetResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<TResult>) -> ::windows_core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncOperationWithProgress<TResult, TProgress>(::windows_core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
@@ -535,7 +534,6 @@ where
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClosable(::windows_core::IUnknown);
@@ -593,7 +591,6 @@ pub struct IDeferralFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetActivationFactory(::windows_core::IUnknown);
@@ -640,7 +637,6 @@ pub struct IGuidHelperStatics_Vtbl {
     pub Empty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub Equals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: &::windows_core::GUID, value: &::windows_core::GUID, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryBuffer(::windows_core::IUnknown);
@@ -690,7 +686,6 @@ pub struct IMemoryBufferFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMemoryBufferReference(::windows_core::IUnknown);
@@ -740,7 +735,6 @@ pub struct IMemoryBufferReference_Vtbl {
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut EventRegistrationToken) -> ::windows_core::HRESULT,
     pub RemoveClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: EventRegistrationToken) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropertyValue(::windows_core::IUnknown);
@@ -1070,7 +1064,6 @@ pub struct IPropertyValueStatics_Vtbl {
     pub CreateSizeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateRectArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReference<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -1323,7 +1316,6 @@ where
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReferenceArray<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -1576,7 +1568,6 @@ where
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStringable(::windows_core::IUnknown);
@@ -1688,7 +1679,6 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub DisplayIri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWwwFormUrlDecoderEntry(::windows_core::IUnknown);
@@ -1757,7 +1747,6 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Deferral(::windows_core::IUnknown);
@@ -1801,7 +1790,6 @@ impl ::windows_core::RuntimeName for Deferral {
 impl ::windows_core::CanTryInto<IClosable> for Deferral {}
 unsafe impl ::core::marker::Send for Deferral {}
 unsafe impl ::core::marker::Sync for Deferral {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct GuidHelper;
 impl GuidHelper {
     pub fn CreateNewGuid() -> ::windows_core::Result<::windows_core::GUID> {
@@ -1831,7 +1819,6 @@ impl GuidHelper {
 impl ::windows_core::RuntimeName for GuidHelper {
     const NAME: &'static str = "Windows.Foundation.GuidHelper";
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MemoryBuffer(::windows_core::IUnknown);
@@ -1876,7 +1863,6 @@ impl ::windows_core::CanTryInto<IClosable> for MemoryBuffer {}
 impl ::windows_core::CanTryInto<IMemoryBuffer> for MemoryBuffer {}
 unsafe impl ::core::marker::Send for MemoryBuffer {}
 unsafe impl ::core::marker::Sync for MemoryBuffer {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct PropertyValue;
 impl PropertyValue {
     pub fn CreateEmpty() -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -2125,7 +2111,6 @@ impl PropertyValue {
 impl ::windows_core::RuntimeName for PropertyValue {
     const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Uri(::windows_core::IUnknown);
@@ -2324,12 +2309,11 @@ impl ::windows_core::RuntimeName for Uri {
 impl ::windows_core::CanTryInto<IStringable> for Uri {}
 unsafe impl ::core::marker::Send for Uri {}
 unsafe impl ::core::marker::Sync for Uri {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WwwFormUrlDecoder(::windows_core::IUnknown);
 impl WwwFormUrlDecoder {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows_core::ComInterface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2338,7 +2322,7 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<IWwwFormUrlDecoderEntry> {
         let this = &::windows_core::ComInterface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2347,7 +2331,7 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2356,7 +2340,7 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
     where
@@ -2368,7 +2352,7 @@ impl WwwFormUrlDecoder {
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), index, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IWwwFormUrlDecoderEntry>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -2431,7 +2415,6 @@ impl ::windows_core::CanTryInto<Collections::IIterable<IWwwFormUrlDecoderEntry>>
 impl ::windows_core::CanTryInto<Collections::IVectorView<IWwwFormUrlDecoderEntry>> for WwwFormUrlDecoder {}
 unsafe impl ::core::marker::Send for WwwFormUrlDecoder {}
 unsafe impl ::core::marker::Sync for WwwFormUrlDecoder {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WwwFormUrlDecoderEntry(::windows_core::IUnknown);
@@ -2467,7 +2450,6 @@ impl ::windows_core::RuntimeName for WwwFormUrlDecoderEntry {
 impl ::windows_core::CanTryInto<IWwwFormUrlDecoderEntry> for WwwFormUrlDecoderEntry {}
 unsafe impl ::core::marker::Send for WwwFormUrlDecoderEntry {}
 unsafe impl ::core::marker::Sync for WwwFormUrlDecoderEntry {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AsyncStatus(pub i32);
@@ -2499,7 +2481,6 @@ impl ::core::fmt::Debug for AsyncStatus {
 impl ::windows_core::RuntimeType for AsyncStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.AsyncStatus;i4)");
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyType(pub i32);
@@ -2569,7 +2550,6 @@ impl ::windows_core::RuntimeType for PropertyType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -2602,7 +2582,6 @@ impl ::core::default::Default for DateTime {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct EventRegistrationToken {
     pub Value: i64,
 }
@@ -2635,7 +2614,6 @@ impl ::core::default::Default for EventRegistrationToken {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
@@ -2669,7 +2647,6 @@ impl ::core::default::Default for Point {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
@@ -2705,7 +2682,6 @@ impl ::core::default::Default for Rect {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
@@ -2739,7 +2715,6 @@ impl ::core::default::Default for Size {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct TimeSpan {
     pub Duration: i64,
 }
@@ -2771,7 +2746,6 @@ impl ::core::default::Default for TimeSpan {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncActionCompletedHandler(pub ::windows_core::IUnknown);
@@ -2844,7 +2818,6 @@ pub struct AsyncActionCompletedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncActionProgressHandler<TProgress>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<TProgress>)
@@ -2928,7 +2901,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, progressinfo: ::windows_core::AbiType<TProgress>) -> ::windows_core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncActionWithProgressCompletedHandler<TProgress>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<TProgress>)
@@ -3011,7 +2983,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows_core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncOperationCompletedHandler<TResult>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<TResult>)
@@ -3094,7 +3065,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows_core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
@@ -3183,7 +3153,6 @@ where
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
@@ -3271,7 +3240,6 @@ where
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeferralCompletedHandler(pub ::windows_core::IUnknown);
@@ -3341,7 +3309,6 @@ pub struct DeferralCompletedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EventHandler<T>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -3425,7 +3392,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, args: ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TypedEventHandler<TSender, TResult>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<TSender>, ::core::marker::PhantomData<TResult>)

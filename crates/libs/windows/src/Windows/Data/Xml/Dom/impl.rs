@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlCharacterData_Impl: Sized + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Data(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn SetData(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
@@ -90,7 +89,6 @@ impl IXmlCharacterData_Vtbl {
         *iid == <IXmlCharacterData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNode_Impl: Sized + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> ::windows_core::Result<::windows_core::IInspectable>;
     fn SetNodeValue(&self, value: ::core::option::Option<&::windows_core::IInspectable>) -> ::windows_core::Result<()>;
@@ -405,7 +403,6 @@ impl IXmlNode_Vtbl {
         *iid == <IXmlNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNodeSelector_Impl: Sized {
     fn SelectSingleNode(&self, xpath: &::windows_core::HSTRING) -> ::windows_core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &::windows_core::HSTRING) -> ::windows_core::Result<XmlNodeList>;
@@ -477,7 +474,6 @@ impl IXmlNodeSelector_Vtbl {
         *iid == <IXmlNodeSelector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlNodeSerializer_Impl: Sized {
     fn GetXml(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn InnerText(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -528,7 +524,6 @@ impl IXmlNodeSerializer_Vtbl {
         *iid == <IXmlNodeSerializer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Data_Xml_Dom\"`, `\"implement\"`*"]
 pub trait IXmlText_Impl: Sized + IXmlCharacterData_Impl + IXmlNode_Impl + IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn SplitText(&self, offset: u32) -> ::windows_core::Result<IXmlText>;
 }

@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagExtensibleHelper_Impl: Sized {
     fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows_core::Result<()>;
@@ -19,7 +19,7 @@ impl INetDiagExtensibleHelper_Vtbl {
         *iid == <INetDiagExtensibleHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelper_Impl: Sized {
     fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> ::windows_core::Result<()>;
@@ -180,7 +180,7 @@ impl INetDiagHelper_Vtbl {
         *iid == <INetDiagHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetDiagHelperEx_Impl: Sized {
     fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut ::windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> ::windows_core::Result<()>;
@@ -218,7 +218,6 @@ impl INetDiagHelperEx_Vtbl {
         *iid == <INetDiagHelperEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"implement\"`*"]
 pub trait INetDiagHelperInfo_Impl: Sized {
     fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows_core::Result<()>;
 }
@@ -236,7 +235,6 @@ impl INetDiagHelperInfo_Vtbl {
         *iid == <INetDiagHelperInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"implement\"`*"]
 pub trait INetDiagHelperUtilFactory_Impl: Sized {
     fn CreateUtilityInstance(&self, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }

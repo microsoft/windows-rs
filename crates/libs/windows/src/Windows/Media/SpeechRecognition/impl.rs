@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"implement\"`*"]
 pub trait ISpeechRecognitionConstraint_Impl: Sized {
     fn IsEnabled(&self) -> ::windows_core::Result<bool>;
     fn SetIsEnabled(&self, value: bool) -> ::windows_core::Result<()>;

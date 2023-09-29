@@ -1,11 +1,10 @@
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("gpedit.dll" "system" fn BrowseForGPO(lpbrowseinfo : *mut GPOBROWSEINFO) -> ::windows_core::HRESULT);
     BrowseForGPO(lpbrowseinfo).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn CommandLineFromMsiDescriptor<P0>(descriptor: P0, commandline: ::windows_core::PWSTR, commandlinelength: *mut u32) -> u32
 where
@@ -14,7 +13,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn CommandLineFromMsiDescriptor(descriptor : ::windows_core::PCWSTR, commandline : ::windows_core::PWSTR, commandlinelength : *mut u32) -> u32);
     CommandLineFromMsiDescriptor(descriptor.into_param().abi(), ::core::mem::transmute(commandline), commandlinelength)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateGPOLink<P0, P1, P2>(lpgpo: P0, lpcontainer: P1, fhighpriority: P2) -> ::windows_core::Result<()>
@@ -26,7 +25,6 @@ where
     ::windows_targets::link!("gpedit.dll" "system" fn CreateGPOLink(lpgpo : ::windows_core::PCWSTR, lpcontainer : ::windows_core::PCWSTR, fhighpriority : super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
     CreateGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi(), fhighpriority.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn DeleteAllGPOLinks<P0>(lpcontainer: P0) -> ::windows_core::Result<()>
 where
@@ -35,7 +33,6 @@ where
     ::windows_targets::link!("gpedit.dll" "system" fn DeleteAllGPOLinks(lpcontainer : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     DeleteAllGPOLinks(lpcontainer.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn DeleteGPOLink<P0, P1>(lpgpo: P0, lpcontainer: P1) -> ::windows_core::Result<()>
 where
@@ -45,7 +42,7 @@ where
     ::windows_targets::link!("gpedit.dll" "system" fn DeleteGPOLink(lpgpo : ::windows_core::PCWSTR, lpcontainer : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     DeleteGPOLink(lpgpo.into_param().abi(), lpcontainer.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnterCriticalPolicySection<P0>(bmachine: P0) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -56,7 +53,6 @@ where
     let result__ = EnterCriticalPolicySection(bmachine.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ExportRSoPData<P0, P1>(lpnamespace: P0, lpfilename: P1) -> ::windows_core::Result<()>
 where
@@ -66,21 +62,21 @@ where
     ::windows_targets::link!("gpedit.dll" "system" fn ExportRSoPData(lpnamespace : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     ExportRSoPData(lpnamespace.into_param().abi(), lpfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("userenv.dll" "system" fn FreeGPOListA(pgpolist : *const GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
     FreeGPOListA(pgpolist).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> ::windows_core::Result<()> {
     ::windows_targets::link!("userenv.dll" "system" fn FreeGPOListW(pgpolist : *const GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
     FreeGPOListW(pgpolist).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GenerateGPNotification<P0, P1>(bmachine: P0, lpwszmgmtproduct: P1, dwmgmtproductoptions: u32) -> u32
@@ -91,7 +87,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn GenerateGPNotification(bmachine : super::super::Foundation:: BOOL, lpwszmgmtproduct : ::windows_core::PCWSTR, dwmgmtproductoptions : u32) -> u32);
     GenerateGPNotification(bmachine.into_param().abi(), lpwszmgmtproduct.into_param().abi(), dwmgmtproductoptions)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListA<P0, P1>(dwflags: u32, pmachinename: P0, psiduser: P1, pguidextension: *const ::windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32
@@ -102,7 +98,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListA(dwflags : u32, pmachinename : ::windows_core::PCSTR, psiduser : super::super::Foundation:: PSID, pguidextension : *const ::windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> u32);
     GetAppliedGPOListA(dwflags, pmachinename.into_param().abi(), psiduser.into_param().abi(), pguidextension, ppgpolist)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListW<P0, P1>(dwflags: u32, pmachinename: P0, psiduser: P1, pguidextension: *const ::windows_core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32
@@ -113,7 +109,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn GetAppliedGPOListW(dwflags : u32, pmachinename : ::windows_core::PCWSTR, psiduser : super::super::Foundation:: PSID, pguidextension : *const ::windows_core::GUID, ppgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> u32);
     GetAppliedGPOListW(dwflags, pmachinename.into_param().abi(), psiduser.into_param().abi(), pguidextension, ppgpolist)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListA<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> ::windows_core::Result<()>
@@ -126,7 +122,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn GetGPOListA(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_core::PCSTR, lphostname : ::windows_core::PCSTR, lpcomputername : ::windows_core::PCSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation:: BOOL);
     GetGPOListA(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), dwflags, pgpolist).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListW<P0, P1, P2, P3>(htoken: P0, lpname: P1, lphostname: P2, lpcomputername: P3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> ::windows_core::Result<()>
@@ -139,7 +135,6 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn GetGPOListW(htoken : super::super::Foundation:: HANDLE, lpname : ::windows_core::PCWSTR, lphostname : ::windows_core::PCWSTR, lpcomputername : ::windows_core::PCWSTR, dwflags : u32, pgpolist : *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation:: BOOL);
     GetGPOListW(htoken.into_param().abi(), lpname.into_param().abi(), lphostname.into_param().abi(), lpcomputername.into_param().abi(), dwflags, pgpolist).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<P0>(productcode: P0, displayname: *mut ::windows_core::PWSTR, supporturl: *mut ::windows_core::PWSTR)
 where
@@ -148,7 +143,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplicationData(productcode : ::windows_core::PCWSTR, displayname : *mut ::windows_core::PWSTR, supporturl : *mut ::windows_core::PWSTR) -> ());
     GetLocalManagedApplicationData(productcode.into_param().abi(), displayname, supporturl)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalManagedApplications<P0>(buserapps: P0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32
@@ -158,21 +153,20 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn GetLocalManagedApplications(buserapps : super::super::Foundation:: BOOL, pdwapps : *mut u32, prglocalapps : *mut *mut LOCALMANAGEDAPPLICATION) -> u32);
     GetLocalManagedApplications(buserapps.into_param().abi(), pdwapps, prglocalapps)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_UI_Shell\"`*"]
+#[doc = "Required features: `Win32_UI_Shell`"]
 #[cfg(feature = "Win32_UI_Shell")]
 #[inline]
 pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn GetManagedApplicationCategories(dwreserved : u32, pappcategory : *mut super::super::UI::Shell:: APPCATEGORYINFOLIST) -> u32);
     GetManagedApplicationCategories(dwreserved, pappcategory)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const ::windows_core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn GetManagedApplications(pcategory : *const ::windows_core::GUID, dwqueryflags : u32, dwinfolevel : u32, pdwapps : *mut u32, prgmanagedapps : *mut *mut MANAGEDAPPLICATION) -> u32);
     GetManagedApplications(pcategory, dwqueryflags, dwinfolevel, pdwapps, prgmanagedapps)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ImportRSoPData<P0, P1>(lpnamespace: P0, lpfilename: P1) -> ::windows_core::Result<()>
 where
@@ -182,13 +176,12 @@ where
     ::windows_targets::link!("gpedit.dll" "system" fn ImportRSoPData(lpnamespace : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     ImportRSoPData(lpnamespace.into_param().abi(), lpfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     ::windows_targets::link!("advapi32.dll" "system" fn InstallApplication(pinstallinfo : *const INSTALLDATA) -> u32);
     InstallApplication(pinstallinfo)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LeaveCriticalPolicySection<P0>(hsection: P0) -> ::windows_core::Result<()>
@@ -198,19 +191,17 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn LeaveCriticalPolicySection(hsection : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     LeaveCriticalPolicySection(hsection.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows_core::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
     ::windows_targets::link!("userenv.dll" "system" fn ProcessGroupPolicyCompleted(extensionid : *const ::windows_core::GUID, pasynchandle : usize, dwstatus : u32) -> u32);
     ProcessGroupPolicyCompleted(extensionid, pasynchandle, dwstatus)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows_core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows_core::HRESULT) -> u32 {
     ::windows_targets::link!("userenv.dll" "system" fn ProcessGroupPolicyCompletedEx(extensionid : *const ::windows_core::GUID, pasynchandle : usize, dwstatus : u32, rsopstatus : ::windows_core::HRESULT) -> u32);
     ProcessGroupPolicyCompletedEx(extensionid, pasynchandle, dwstatus, rsopstatus)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicy<P0>(bmachine: P0) -> ::windows_core::Result<()>
@@ -220,7 +211,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RefreshPolicy(bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     RefreshPolicy(bmachine.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicyEx<P0>(bmachine: P0, dwoptions: u32) -> ::windows_core::Result<()>
@@ -230,7 +221,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RefreshPolicyEx(bmachine : super::super::Foundation:: BOOL, dwoptions : u32) -> super::super::Foundation:: BOOL);
     RefreshPolicyEx(bmachine.into_param().abi(), dwoptions).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterGPNotification<P0, P1>(hevent: P0, bmachine: P1) -> ::windows_core::Result<()>
@@ -241,7 +232,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RegisterGPNotification(hevent : super::super::Foundation:: HANDLE, bmachine : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     RegisterGPNotification(hevent.into_param().abi(), bmachine.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RsopAccessCheckByType<P0, P1>(psecuritydescriptor: P0, pprincipalselfsid: P1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: ::core::option::Option<&[super::super::Security::OBJECT_TYPE_LIST]>, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: ::core::option::Option<*const super::super::Security::PRIVILEGE_SET>, pdwprivilegesetlength: ::core::option::Option<*const u32>, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows_core::Result<()>
@@ -252,7 +243,6 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RsopAccessCheckByType(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pprincipalselfsid : super::super::Foundation:: PSID, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pobjecttypelist : *const super::super::Security:: OBJECT_TYPE_LIST, objecttypelistlength : u32, pgenericmapping : *const super::super::Security:: GENERIC_MAPPING, pprivilegeset : *const super::super::Security:: PRIVILEGE_SET, pdwprivilegesetlength : *const u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut i32) -> ::windows_core::HRESULT);
     RsopAccessCheckByType(psecuritydescriptor.into_param().abi(), pprincipalselfsid.into_param().abi(), prsoptoken, dwdesiredaccessmask, ::core::mem::transmute(pobjecttypelist.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjecttypelist.as_deref().map_or(0, |slice| slice.len() as _), pgenericmapping, ::core::mem::transmute(pprivilegeset.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwprivilegesetlength.unwrap_or(::std::ptr::null())), pdwgrantedaccessmask, pbaccessstatus).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn RsopFileAccessCheck<P0>(pszfilename: P0, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows_core::Result<()>
 where
@@ -261,7 +251,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RsopFileAccessCheck(pszfilename : ::windows_core::PCWSTR, prsoptoken : *const ::core::ffi::c_void, dwdesiredaccessmask : u32, pdwgrantedaccessmask : *mut u32, pbaccessstatus : *mut i32) -> ::windows_core::HRESULT);
     RsopFileAccessCheck(pszfilename.into_param().abi(), prsoptoken, dwdesiredaccessmask, pdwgrantedaccessmask, pbaccessstatus).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Wmi\"`*"]
+#[doc = "Required features: `Win32_System_Wmi`"]
 #[cfg(feature = "Win32_System_Wmi")]
 #[inline]
 pub unsafe fn RsopResetPolicySettingStatus<P0, P1>(dwflags: u32, pservices: P0, psettinginstance: P1) -> ::windows_core::Result<()>
@@ -272,7 +262,7 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RsopResetPolicySettingStatus(dwflags : u32, pservices : * mut::core::ffi::c_void, psettinginstance : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     RsopResetPolicySettingStatus(dwflags, pservices.into_param().abi(), psettinginstance.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Wmi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Wmi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
 #[inline]
 pub unsafe fn RsopSetPolicySettingStatus<P0, P1>(dwflags: u32, pservices: P0, psettinginstance: P1, pstatus: &[POLICYSETTINGSTATUSINFO]) -> ::windows_core::Result<()>
@@ -283,7 +273,6 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn RsopSetPolicySettingStatus(dwflags : u32, pservices : * mut::core::ffi::c_void, psettinginstance : * mut::core::ffi::c_void, ninfo : u32, pstatus : *const POLICYSETTINGSTATUSINFO) -> ::windows_core::HRESULT);
     RsopSetPolicySettingStatus(dwflags, pservices.into_param().abi(), psettinginstance.into_param().abi(), pstatus.len() as _, ::core::mem::transmute(pstatus.as_ptr())).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[inline]
 pub unsafe fn UninstallApplication<P0>(productcode: P0, dwstatus: u32) -> u32
 where
@@ -292,7 +281,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn UninstallApplication(productcode : ::windows_core::PCWSTR, dwstatus : u32) -> u32);
     UninstallApplication(productcode.into_param().abi(), dwstatus)
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterGPNotification<P0>(hevent: P0) -> ::windows_core::Result<()>
@@ -302,7 +291,6 @@ where
     ::windows_targets::link!("userenv.dll" "system" fn UnregisterGPNotification(hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     UnregisterGPNotification(hevent.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPEInformation(::windows_core::IUnknown);
@@ -313,7 +301,7 @@ impl IGPEInformation {
     pub unsafe fn GetDisplayName(&self, pszname: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDisplayName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszname.as_ptr()), pszname.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+    #[doc = "Required features: `Win32_System_Registry`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRegistryKey)(::windows_core::Interface::as_raw(self), dwsection, hkey).ok()
@@ -333,7 +321,7 @@ impl IGPEInformation {
     pub unsafe fn GetHint(&self, gphint: *mut GROUP_POLICY_HINT_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetHint)(::windows_core::Interface::as_raw(self), gphint).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PolicyChanged<P0, P1>(&self, bmachine: P0, badd: P1, pguidextension: *mut ::windows_core::GUID, pguidsnapin: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -370,14 +358,14 @@ pub struct IGPEInformation_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     PolicyChanged: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPM(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPM {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDomain<P0, P1>(&self, bstrdomain: P0, bstrdomaincontroller: P1, ldcflags: i32) -> ::windows_core::Result<IGPMDomain>
     where
@@ -387,7 +375,7 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDomain)(::windows_core::Interface::as_raw(self), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ldcflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBackupDir<P0>(&self, bstrbackupdir: P0) -> ::windows_core::Result<IGPMBackupDir>
     where
@@ -396,7 +384,7 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackupDir)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSitesContainer<P0, P1, P2>(&self, bstrforest: P0, bstrdomain: P1, bstrdomaincontroller: P2, ldcflags: i32) -> ::windows_core::Result<IGPMSitesContainer>
     where
@@ -407,7 +395,7 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSitesContainer)(::windows_core::Interface::as_raw(self), bstrforest.into_param().abi(), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ldcflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRSOP<P0>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: P0, lflags: i32) -> ::windows_core::Result<IGPMRSOP>
     where
@@ -416,7 +404,7 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRSOP)(::windows_core::Interface::as_raw(self), gpmrsopmode, bstrnamespace.into_param().abi(), lflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePermission<P0, P1>(&self, bstrtrustee: P0, perm: GPMPermissionType, binheritable: P1) -> ::windows_core::Result<IGPMPermission>
     where
@@ -426,13 +414,13 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePermission)(::windows_core::Interface::as_raw(self), bstrtrustee.into_param().abi(), perm, binheritable.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSearchCriteria(&self) -> ::windows_core::Result<IGPMSearchCriteria> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSearchCriteria)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTrustee<P0>(&self, bstrtrustee: P0) -> ::windows_core::Result<IGPMTrustee>
     where
@@ -441,19 +429,19 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTrustee)(::windows_core::Interface::as_raw(self), bstrtrustee.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClientSideExtensions(&self) -> ::windows_core::Result<IGPMCSECollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetClientSideExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetConstants(&self) -> ::windows_core::Result<IGPMConstants> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetConstants)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMigrationTable<P0>(&self, bstrmigrationtablepath: P0) -> ::windows_core::Result<IGPMMigrationTable>
     where
@@ -462,7 +450,7 @@ impl IGPM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMigrationTable)(::windows_core::Interface::as_raw(self), bstrmigrationtablepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMigrationTable(&self) -> ::windows_core::Result<IGPMMigrationTable> {
         let mut result__ = ::std::mem::zeroed();
@@ -536,14 +524,14 @@ pub struct IGPM_Vtbl {
     CreateMigrationTable: usize,
     pub InitializeReporting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPM2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPM2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDomain<P0, P1>(&self, bstrdomain: P0, bstrdomaincontroller: P1, ldcflags: i32) -> ::windows_core::Result<IGPMDomain>
     where
@@ -553,7 +541,7 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDomain)(::windows_core::Interface::as_raw(self), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ldcflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBackupDir<P0>(&self, bstrbackupdir: P0) -> ::windows_core::Result<IGPMBackupDir>
     where
@@ -562,7 +550,7 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackupDir)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSitesContainer<P0, P1, P2>(&self, bstrforest: P0, bstrdomain: P1, bstrdomaincontroller: P2, ldcflags: i32) -> ::windows_core::Result<IGPMSitesContainer>
     where
@@ -573,7 +561,7 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSitesContainer)(::windows_core::Interface::as_raw(self), bstrforest.into_param().abi(), bstrdomain.into_param().abi(), bstrdomaincontroller.into_param().abi(), ldcflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRSOP<P0>(&self, gpmrsopmode: GPMRSOPMode, bstrnamespace: P0, lflags: i32) -> ::windows_core::Result<IGPMRSOP>
     where
@@ -582,7 +570,7 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRSOP)(::windows_core::Interface::as_raw(self), gpmrsopmode, bstrnamespace.into_param().abi(), lflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePermission<P0, P1>(&self, bstrtrustee: P0, perm: GPMPermissionType, binheritable: P1) -> ::windows_core::Result<IGPMPermission>
     where
@@ -592,13 +580,13 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreatePermission)(::windows_core::Interface::as_raw(self), bstrtrustee.into_param().abi(), perm, binheritable.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSearchCriteria(&self) -> ::windows_core::Result<IGPMSearchCriteria> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateSearchCriteria)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTrustee<P0>(&self, bstrtrustee: P0) -> ::windows_core::Result<IGPMTrustee>
     where
@@ -607,19 +595,19 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTrustee)(::windows_core::Interface::as_raw(self), bstrtrustee.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClientSideExtensions(&self) -> ::windows_core::Result<IGPMCSECollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetClientSideExtensions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetConstants(&self) -> ::windows_core::Result<IGPMConstants> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetConstants)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMigrationTable<P0>(&self, bstrmigrationtablepath: P0) -> ::windows_core::Result<IGPMMigrationTable>
     where
@@ -628,7 +616,7 @@ impl IGPM2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMigrationTable)(::windows_core::Interface::as_raw(self), bstrmigrationtablepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMigrationTable(&self) -> ::windows_core::Result<IGPMMigrationTable> {
         let mut result__ = ::std::mem::zeroed();
@@ -640,7 +628,7 @@ impl IGPM2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeReporting)(::windows_core::Interface::as_raw(self), bstradmpath.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBackupDirEx<P0>(&self, bstrbackupdir: P0, backupdirtype: GPMBackupType) -> ::windows_core::Result<IGPMBackupDirEx>
     where
@@ -677,7 +665,7 @@ pub struct IGPM2_Vtbl {
     GetBackupDirEx: usize,
     pub InitializeReportingEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, reportingoptions: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -705,14 +693,14 @@ pub struct IGPMAsyncCancel_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPMAsyncProgress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMAsyncProgress {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Status<P0>(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows_core::HRESULT, presult: *const super::Variant::VARIANT, ppigpmstatusmsgcollection: P0) -> ::windows_core::Result<()>
     where
@@ -741,7 +729,7 @@ pub struct IGPMAsyncProgress_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Status: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -779,12 +767,12 @@ impl IGPMBackup {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -826,7 +814,7 @@ pub struct IGPMBackup_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -837,13 +825,13 @@ impl IGPMBackupCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -875,7 +863,7 @@ pub struct IGPMBackupCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -886,7 +874,7 @@ impl IGPMBackupDir {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BackupDirectory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBackup<P0>(&self, bstrid: P0) -> ::windows_core::Result<IGPMBackup>
     where
@@ -895,7 +883,7 @@ impl IGPMBackupDir {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackup)(::windows_core::Interface::as_raw(self), bstrid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchBackups<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMBackupCollection>
     where
@@ -930,7 +918,7 @@ pub struct IGPMBackupDir_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SearchBackups: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -945,7 +933,7 @@ impl IGPMBackupDirEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BackupType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetBackup<P0>(&self, bstrid: P0) -> ::windows_core::Result<super::Variant::VARIANT>
     where
@@ -954,7 +942,7 @@ impl IGPMBackupDirEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackup)(::windows_core::Interface::as_raw(self), bstrid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SearchBackups<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<super::Variant::VARIANT>
     where
@@ -990,7 +978,7 @@ pub struct IGPMBackupDirEx_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SearchBackups: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1001,13 +989,13 @@ impl IGPMCSECollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -1039,7 +1027,7 @@ pub struct IGPMCSECollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1054,13 +1042,13 @@ impl IGPMClientSideExtension {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUserEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUserEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1093,7 +1081,7 @@ pub struct IGPMClientSideExtension_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsComputerEnabled: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1236,7 +1224,7 @@ impl IGPMConstants {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SOMOU)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SecurityFlags<P0, P1, P2, P3>(&self, vbowner: P0, vbgroup: P1, vbdacl: P2, vbsacl: P3) -> ::windows_core::Result<i32>
     where
@@ -1336,7 +1324,7 @@ impl IGPMConstants {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RsopPlanningAssumeSlowLink)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RsopPlanningLoopbackOption<P0>(&self, vbmerge: P0) -> ::windows_core::Result<i32>
     where
@@ -1436,7 +1424,7 @@ pub struct IGPMConstants_Vtbl {
     pub RsopPlanningAssumeUserWQLFilterTrue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
     pub RsopPlanningAssumeCompWQLFilterTrue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1579,7 +1567,7 @@ impl IGPMConstants2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SOMOU)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_SecurityFlags<P0, P1, P2, P3>(&self, vbowner: P0, vbgroup: P1, vbdacl: P2, vbsacl: P3) -> ::windows_core::Result<i32>
     where
@@ -1679,7 +1667,7 @@ impl IGPMConstants2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.RsopPlanningAssumeSlowLink)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RsopPlanningLoopbackOption<P0>(&self, vbmerge: P0) -> ::windows_core::Result<i32>
     where
@@ -1788,7 +1776,7 @@ pub struct IGPMConstants2_Vtbl {
     pub ReportLegacy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows_core::HRESULT,
     pub ReportComments: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1803,13 +1791,13 @@ impl IGPMDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Domain)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGPO(&self) -> ::windows_core::Result<IGPMGPO> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateGPO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGPO<P0>(&self, bstrguid: P0) -> ::windows_core::Result<IGPMGPO>
     where
@@ -1818,7 +1806,7 @@ impl IGPMDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGPO)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchGPOs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMGPOCollection>
     where
@@ -1827,7 +1815,7 @@ impl IGPMDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchGPOs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -1835,7 +1823,7 @@ impl IGPMDomain {
     {
         (::windows_core::Interface::vtable(self).RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSOM<P0>(&self, bstrpath: P0) -> ::windows_core::Result<IGPMSOM>
     where
@@ -1844,7 +1832,7 @@ impl IGPMDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSOM)(::windows_core::Interface::as_raw(self), bstrpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchSOMs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMSOMCollection>
     where
@@ -1853,7 +1841,7 @@ impl IGPMDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchSOMs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIFilter<P0>(&self, bstrpath: P0) -> ::windows_core::Result<IGPMWMIFilter>
     where
@@ -1862,7 +1850,7 @@ impl IGPMDomain {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWMIFilter)(::windows_core::Interface::as_raw(self), bstrpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchWMIFilters<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMWMIFilterCollection>
     where
@@ -1922,7 +1910,7 @@ pub struct IGPMDomain_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SearchWMIFilters: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1937,13 +1925,13 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Domain)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGPO(&self) -> ::windows_core::Result<IGPMGPO> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateGPO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGPO<P0>(&self, bstrguid: P0) -> ::windows_core::Result<IGPMGPO>
     where
@@ -1952,7 +1940,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetGPO)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchGPOs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMGPOCollection>
     where
@@ -1961,7 +1949,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SearchGPOs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -1969,7 +1957,7 @@ impl IGPMDomain2 {
     {
         (::windows_core::Interface::vtable(self).base__.RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSOM<P0>(&self, bstrpath: P0) -> ::windows_core::Result<IGPMSOM>
     where
@@ -1978,7 +1966,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSOM)(::windows_core::Interface::as_raw(self), bstrpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchSOMs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMSOMCollection>
     where
@@ -1987,7 +1975,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SearchSOMs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIFilter<P0>(&self, bstrpath: P0) -> ::windows_core::Result<IGPMWMIFilter>
     where
@@ -1996,7 +1984,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetWMIFilter)(::windows_core::Interface::as_raw(self), bstrpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchWMIFilters<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMWMIFilterCollection>
     where
@@ -2005,13 +1993,13 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SearchWMIFilters)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStarterGPO(&self) -> ::windows_core::Result<IGPMStarterGPO> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateStarterGPO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGPOFromStarterGPO<P0>(&self, pgpotemplate: P0) -> ::windows_core::Result<IGPMGPO>
     where
@@ -2020,7 +2008,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateGPOFromStarterGPO)(::windows_core::Interface::as_raw(self), pgpotemplate.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStarterGPO<P0>(&self, bstrguid: P0) -> ::windows_core::Result<IGPMStarterGPO>
     where
@@ -2029,7 +2017,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStarterGPO)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchStarterGPOs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMStarterGPOCollection>
     where
@@ -2038,7 +2026,7 @@ impl IGPMDomain2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchStarterGPOs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2047,7 +2035,7 @@ impl IGPMDomain2 {
     {
         (::windows_core::Interface::vtable(self).LoadStarterGPO)(::windows_core::Interface::as_raw(self), bstrloadfile.into_param().abi(), boverwrite.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2096,7 +2084,7 @@ pub struct IGPMDomain2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RestoreStarterGPO: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2111,13 +2099,13 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Domain)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGPO(&self) -> ::windows_core::Result<IGPMGPO> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateGPO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGPO<P0>(&self, bstrguid: P0) -> ::windows_core::Result<IGPMGPO>
     where
@@ -2126,7 +2114,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetGPO)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchGPOs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMGPOCollection>
     where
@@ -2135,7 +2123,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SearchGPOs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RestoreGPO<P0>(&self, pigpmbackup: P0, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2143,7 +2131,7 @@ impl IGPMDomain3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.RestoreGPO)(::windows_core::Interface::as_raw(self), pigpmbackup.into_param().abi(), ldcflags, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSOM<P0>(&self, bstrpath: P0) -> ::windows_core::Result<IGPMSOM>
     where
@@ -2152,7 +2140,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSOM)(::windows_core::Interface::as_raw(self), bstrpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchSOMs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMSOMCollection>
     where
@@ -2161,7 +2149,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SearchSOMs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIFilter<P0>(&self, bstrpath: P0) -> ::windows_core::Result<IGPMWMIFilter>
     where
@@ -2170,7 +2158,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetWMIFilter)(::windows_core::Interface::as_raw(self), bstrpath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchWMIFilters<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMWMIFilterCollection>
     where
@@ -2179,13 +2167,13 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SearchWMIFilters)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStarterGPO(&self) -> ::windows_core::Result<IGPMStarterGPO> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateStarterGPO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGPOFromStarterGPO<P0>(&self, pgpotemplate: P0) -> ::windows_core::Result<IGPMGPO>
     where
@@ -2194,7 +2182,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateGPOFromStarterGPO)(::windows_core::Interface::as_raw(self), pgpotemplate.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStarterGPO<P0>(&self, bstrguid: P0) -> ::windows_core::Result<IGPMStarterGPO>
     where
@@ -2203,7 +2191,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStarterGPO)(::windows_core::Interface::as_raw(self), bstrguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchStarterGPOs<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMStarterGPOCollection>
     where
@@ -2212,7 +2200,7 @@ impl IGPMDomain3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SearchStarterGPOs)(::windows_core::Interface::as_raw(self), pigpmsearchcriteria.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn LoadStarterGPO<P0, P1>(&self, bstrloadfile: P0, boverwrite: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2221,7 +2209,7 @@ impl IGPMDomain3 {
     {
         (::windows_core::Interface::vtable(self).base__.LoadStarterGPO)(::windows_core::Interface::as_raw(self), bstrloadfile.into_param().abi(), boverwrite.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RestoreStarterGPO<P0>(&self, pigpmtmplbackup: P0, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2229,7 +2217,7 @@ impl IGPMDomain3 {
     {
         (::windows_core::Interface::vtable(self).base__.RestoreStarterGPO)(::windows_core::Interface::as_raw(self), pigpmtmplbackup.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
@@ -2271,7 +2259,7 @@ pub struct IGPMDomain3_Vtbl {
     pub SetInfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetInfrastructureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2324,13 +2312,13 @@ impl IGPMGPO {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ComputerSysvolVersionNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIFilter(&self) -> ::windows_core::Result<IGPMWMIFilter> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWMIFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWMIFilter<P0>(&self, pigpmwmifilter: P0) -> ::windows_core::Result<()>
     where
@@ -2338,7 +2326,7 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).SetWMIFilter)(::windows_core::Interface::as_raw(self), pigpmwmifilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2346,7 +2334,7 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).SetUserEnabled)(::windows_core::Interface::as_raw(self), vbenabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2354,25 +2342,25 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).SetComputerEnabled)(::windows_core::Interface::as_raw(self), vbenabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUserEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUserEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsComputerEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows_core::Result<IGPMSecurityInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> ::windows_core::Result<()>
     where
@@ -2383,7 +2371,7 @@ impl IGPMGPO {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2392,7 +2380,7 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2400,12 +2388,12 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), pvarmigrationtable, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -2414,7 +2402,7 @@ impl IGPMGPO {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GenerateReportToFile)(::windows_core::Interface::as_raw(self), gpmreporttype, bstrtargetfilepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2422,7 +2410,7 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), pvarnewdisplayname, pvarmigrationtable, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<P0>(&self, lflags: i32, psd: P0) -> ::windows_core::Result<()>
     where
@@ -2430,13 +2418,13 @@ impl IGPMGPO {
     {
         (::windows_core::Interface::vtable(self).SetSecurityDescriptor)(::windows_core::Interface::as_raw(self), lflags, psd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsACLConsistent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2539,7 +2527,7 @@ pub struct IGPMGPO_Vtbl {
     IsACLConsistent: usize,
     pub MakeACLConsistent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2592,13 +2580,13 @@ impl IGPMGPO2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ComputerSysvolVersionNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIFilter(&self) -> ::windows_core::Result<IGPMWMIFilter> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetWMIFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWMIFilter<P0>(&self, pigpmwmifilter: P0) -> ::windows_core::Result<()>
     where
@@ -2606,7 +2594,7 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetWMIFilter)(::windows_core::Interface::as_raw(self), pigpmwmifilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2614,7 +2602,7 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUserEnabled)(::windows_core::Interface::as_raw(self), vbenabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2622,25 +2610,25 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetComputerEnabled)(::windows_core::Interface::as_raw(self), vbenabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUserEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsUserEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsComputerEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows_core::Result<IGPMSecurityInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSecurityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> ::windows_core::Result<()>
     where
@@ -2651,7 +2639,7 @@ impl IGPMGPO2 {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2660,7 +2648,7 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2668,12 +2656,12 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), pvarmigrationtable, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -2682,7 +2670,7 @@ impl IGPMGPO2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GenerateReportToFile)(::windows_core::Interface::as_raw(self), gpmreporttype, bstrtargetfilepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2690,7 +2678,7 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), pvarnewdisplayname, pvarmigrationtable, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<P0>(&self, lflags: i32, psd: P0) -> ::windows_core::Result<()>
     where
@@ -2698,13 +2686,13 @@ impl IGPMGPO2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSecurityDescriptor)(::windows_core::Interface::as_raw(self), lflags, psd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsACLConsistent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2742,7 +2730,7 @@ pub struct IGPMGPO2_Vtbl {
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2795,13 +2783,13 @@ impl IGPMGPO3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ComputerSysvolVersionNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWMIFilter(&self) -> ::windows_core::Result<IGPMWMIFilter> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetWMIFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWMIFilter<P0>(&self, pigpmwmifilter: P0) -> ::windows_core::Result<()>
     where
@@ -2809,7 +2797,7 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetWMIFilter)(::windows_core::Interface::as_raw(self), pigpmwmifilter.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserEnabled<P0>(&self, vbenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2817,7 +2805,7 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetUserEnabled)(::windows_core::Interface::as_raw(self), vbenabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetComputerEnabled<P0>(&self, vbenabled: P0) -> ::windows_core::Result<()>
     where
@@ -2825,25 +2813,25 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetComputerEnabled)(::windows_core::Interface::as_raw(self), vbenabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUserEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsUserEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsComputerEnabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsComputerEnabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows_core::Result<IGPMSecurityInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSecurityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> ::windows_core::Result<()>
     where
@@ -2854,7 +2842,7 @@ impl IGPMGPO3 {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2863,7 +2851,7 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Import<P0>(&self, lflags: i32, pigpmbackup: P0, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2871,12 +2859,12 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Import)(::windows_core::Interface::as_raw(self), lflags, pigpmbackup.into_param().abi(), pvarmigrationtable, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -2885,7 +2873,7 @@ impl IGPMGPO3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GenerateReportToFile)(::windows_core::Interface::as_raw(self), gpmreporttype, bstrtargetfilepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CopyTo<P0>(&self, lflags: i32, pigpmdomain: P0, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -2893,7 +2881,7 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.CopyTo)(::windows_core::Interface::as_raw(self), lflags, pigpmdomain.into_param().abi(), pvarnewdisplayname, pvarmigrationtable, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<P0>(&self, lflags: i32, psd: P0) -> ::windows_core::Result<()>
     where
@@ -2901,13 +2889,13 @@ impl IGPMGPO3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetSecurityDescriptor)(::windows_core::Interface::as_raw(self), lflags, psd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityDescriptor(&self, lflags: i32) -> ::windows_core::Result<super::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSecurityDescriptor)(::windows_core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsACLConsistent(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2959,7 +2947,7 @@ pub struct IGPMGPO3_Vtbl {
     pub SetInfrastructureDC: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetInfrastructureFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2970,13 +2958,13 @@ impl IGPMGPOCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3008,7 +2996,7 @@ pub struct IGPMGPOCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3023,13 +3011,13 @@ impl IGPMGPOLink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GPODomain)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3037,13 +3025,13 @@ impl IGPMGPOLink {
     {
         (::windows_core::Interface::vtable(self).SetEnabled)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enforced(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enforced)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnforced<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3055,7 +3043,7 @@ impl IGPMGPOLink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SOMLinkOrder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SOM(&self) -> ::windows_core::Result<IGPMSOM> {
         let mut result__ = ::std::mem::zeroed();
@@ -3105,7 +3093,7 @@ pub struct IGPMGPOLink_Vtbl {
     SOM: usize,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3116,13 +3104,13 @@ impl IGPMGPOLinksCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3154,7 +3142,7 @@ pub struct IGPMGPOLinksCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3198,7 +3186,7 @@ pub struct IGPMMapEntry_Vtbl {
     pub DestinationOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmdestoption: *mut GPMDestinationOption) -> ::windows_core::HRESULT,
     pub EntryType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmentrytype: *mut GPMEntryType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3209,13 +3197,13 @@ impl IGPMMapEntryCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3247,7 +3235,7 @@ pub struct IGPMMapEntryCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3260,12 +3248,12 @@ impl IGPMMigrationTable {
     {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), bstrmigrationtablepath.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add(&self, lflags: i32, var: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), lflags, ::core::mem::transmute(var)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AddEntry<P0>(&self, bstrsource: P0, gpmentrytype: GPMEntryType, pvardestination: *const super::Variant::VARIANT) -> ::windows_core::Result<IGPMMapEntry>
     where
@@ -3274,7 +3262,7 @@ impl IGPMMigrationTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddEntry)(::windows_core::Interface::as_raw(self), bstrsource.into_param().abi(), gpmentrytype, pvardestination, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEntry<P0>(&self, bstrsource: P0) -> ::windows_core::Result<IGPMMapEntry>
     where
@@ -3289,7 +3277,7 @@ impl IGPMMigrationTable {
     {
         (::windows_core::Interface::vtable(self).DeleteEntry)(::windows_core::Interface::as_raw(self), bstrsource.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn UpdateDestination<P0>(&self, bstrsource: P0, pvardestination: *const super::Variant::VARIANT) -> ::windows_core::Result<IGPMMapEntry>
     where
@@ -3298,13 +3286,13 @@ impl IGPMMigrationTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UpdateDestination)(::windows_core::Interface::as_raw(self), bstrsource.into_param().abi(), pvardestination, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate(&self) -> ::windows_core::Result<IGPMResult> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Validate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEntries(&self) -> ::windows_core::Result<IGPMMapEntryCollection> {
         let mut result__ = ::std::mem::zeroed();
@@ -3353,26 +3341,26 @@ pub struct IGPMMigrationTable_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetEntries: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPMPermission(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMPermission {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Inherited(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Inherited)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Inheritable(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Inheritable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Denied(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3382,7 +3370,7 @@ impl IGPMPermission {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Permission)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Trustee(&self) -> ::windows_core::Result<IGPMTrustee> {
         let mut result__ = ::std::mem::zeroed();
@@ -3422,7 +3410,7 @@ pub struct IGPMPermission_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Trustee: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3511,23 +3499,23 @@ impl IGPMRSOP {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PlanningUserSOM)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPlanningUserWMIFilters(&self, varval: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPlanningUserWMIFilters)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PlanningUserWMIFilters(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PlanningUserWMIFilters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPlanningUserSecurityGroups(&self, varval: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPlanningUserSecurityGroups)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PlanningUserSecurityGroups(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3553,29 +3541,29 @@ impl IGPMRSOP {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PlanningComputerSOM)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPlanningComputerWMIFilters(&self, varval: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPlanningComputerWMIFilters)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PlanningComputerWMIFilters(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PlanningComputerWMIFilters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPlanningComputerSecurityGroups(&self, varval: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPlanningComputerSecurityGroups)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PlanningComputerSecurityGroups(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PlanningComputerSecurityGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn LoggingEnumerateUsers(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3587,12 +3575,12 @@ impl IGPMRSOP {
     pub unsafe fn ReleaseQueryResults(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReleaseQueryResults)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -3686,20 +3674,20 @@ pub struct IGPMRSOP_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPMResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMResult {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<IGPMStatusMsgCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Result(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3734,20 +3722,20 @@ pub struct IGPMResult_Vtbl {
     Result: usize,
     pub OverallStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPMSOM(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSOM {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GPOInheritanceBlocked(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GPOInheritanceBlocked)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGPOInheritanceBlocked<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -3763,7 +3751,7 @@ impl IGPMSOM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Path)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateGPOLink<P0>(&self, llinkpos: i32, pgpo: P0) -> ::windows_core::Result<IGPMGPOLink>
     where
@@ -3776,25 +3764,25 @@ impl IGPMSOM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGPOLinks(&self) -> ::windows_core::Result<IGPMGPOLinksCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGPOLinks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInheritedGPOLinks(&self) -> ::windows_core::Result<IGPMGPOLinksCollection> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInheritedGPOLinks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows_core::Result<IGPMSecurityInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> ::windows_core::Result<()>
     where
@@ -3850,7 +3838,7 @@ pub struct IGPMSOM_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSecurityInfo: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3861,13 +3849,13 @@ impl IGPMSOMCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -3899,14 +3887,14 @@ pub struct IGPMSOMCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGPMSearchCriteria(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGPMSearchCriteria {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add(&self, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), searchproperty, searchoperation, ::core::mem::transmute(varvalue)).ok()
@@ -3932,7 +3920,7 @@ pub struct IGPMSearchCriteria_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Add: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3943,19 +3931,19 @@ impl IGPMSecurityInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pperm: P0) -> ::windows_core::Result<()>
     where
@@ -3963,7 +3951,7 @@ impl IGPMSecurityInfo {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pperm.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Remove<P0>(&self, pperm: P0) -> ::windows_core::Result<()>
     where
@@ -4012,7 +4000,7 @@ pub struct IGPMSecurityInfo_Vtbl {
     Remove: usize,
     pub RemoveTrustee: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4031,7 +4019,7 @@ impl IGPMSitesContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Forest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSite<P0>(&self, bstrsitename: P0) -> ::windows_core::Result<IGPMSOM>
     where
@@ -4040,7 +4028,7 @@ impl IGPMSitesContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSite)(::windows_core::Interface::as_raw(self), bstrsitename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SearchSites<P0>(&self, pigpmsearchcriteria: P0) -> ::windows_core::Result<IGPMSOMCollection>
     where
@@ -4077,7 +4065,7 @@ pub struct IGPMSitesContainer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SearchSites: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4143,7 +4131,7 @@ impl IGPMStarterGPO {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Save<P0, P1, P2>(&self, bstrsavefile: P0, boverwrite: P1, bsaveassystem: P2, bstrlanguage: *const super::Variant::VARIANT, bstrauthor: *const super::Variant::VARIANT, bstrproduct: *const super::Variant::VARIANT, bstruniqueid: *const super::Variant::VARIANT, bstrversion: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -4153,7 +4141,7 @@ impl IGPMStarterGPO {
     {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), bstrsavefile.into_param().abi(), boverwrite.into_param().abi(), bsaveassystem.into_param().abi(), bstrlanguage, bstrauthor, bstrproduct, bstruniqueid, bstrversion, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Backup<P0, P1>(&self, bstrbackupdir: P0, bstrcomment: P1, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()>
     where
@@ -4162,19 +4150,19 @@ impl IGPMStarterGPO {
     {
         (::windows_core::Interface::vtable(self).Backup)(::windows_core::Interface::as_raw(self), bstrbackupdir.into_param().abi(), bstrcomment.into_param().abi(), pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CopyTo(&self, pvarnewdisplayname: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *const super::Variant::VARIANT) -> ::windows_core::Result<IGPMResult> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CopyTo)(::windows_core::Interface::as_raw(self), pvarnewdisplayname, pvargpmprogress, pvargpmcancel, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *const super::Variant::VARIANT) -> ::windows_core::Result<IGPMResult> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -4183,13 +4171,13 @@ impl IGPMStarterGPO {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GenerateReportToFile)(::windows_core::Interface::as_raw(self), gpmreporttype, bstrtargetfilepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows_core::Result<IGPMSecurityInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> ::windows_core::Result<()>
     where
@@ -4256,7 +4244,7 @@ pub struct IGPMStarterGPO_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSecurityInfo: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4298,12 +4286,12 @@ impl IGPMStarterGPOBackup {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT, ppigpmresult: *mut ::core::option::Option<IGPMResult>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GenerateReport)(::windows_core::Interface::as_raw(self), gpmreporttype, pvargpmprogress, pvargpmcancel, ::core::mem::transmute(ppigpmresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GenerateReportToFile<P0>(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: P0) -> ::windows_core::Result<IGPMResult>
     where
@@ -4346,7 +4334,7 @@ pub struct IGPMStarterGPOBackup_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GenerateReportToFile: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4357,13 +4345,13 @@ impl IGPMStarterGPOBackupCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4395,7 +4383,7 @@ pub struct IGPMStarterGPOBackupCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4406,13 +4394,13 @@ impl IGPMStarterGPOCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4444,7 +4432,7 @@ pub struct IGPMStarterGPOCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4496,7 +4484,7 @@ pub struct IGPMStatusMessage_Vtbl {
     pub OperationCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4507,13 +4495,13 @@ impl IGPMStatusMsgCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4545,7 +4533,7 @@ pub struct IGPMStatusMsgCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4594,7 +4582,7 @@ pub struct IGPMTrustee_Vtbl {
     pub TrusteeDSPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub TrusteeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4625,19 +4613,19 @@ impl IGPMWMIFilter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetQueryList(&self) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetQueryList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityInfo(&self) -> ::windows_core::Result<IGPMSecurityInfo> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSecurityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityInfo<P0>(&self, psecurityinfo: P0) -> ::windows_core::Result<()>
     where
@@ -4679,7 +4667,7 @@ pub struct IGPMWMIFilter_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetSecurityInfo: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4690,13 +4678,13 @@ impl IGPMWMIFilterCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), lindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -4728,7 +4716,6 @@ pub struct IGPMWMIFilterCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     _NewEnum: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGroupPolicyObject(::windows_core::IUnknown);
@@ -4755,7 +4742,7 @@ impl IGroupPolicyObject {
     {
         (::windows_core::Interface::vtable(self).OpenRemoteMachineGPO)(::windows_core::Interface::as_raw(self), pszcomputername.into_param().abi(), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0, P1>(&self, bmachine: P0, badd: P1, pguidextension: *mut ::windows_core::GUID, pguid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -4788,7 +4775,7 @@ impl IGroupPolicyObject {
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFileSysPath)(::windows_core::Interface::as_raw(self), dwsection, ::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+    #[doc = "Required features: `Win32_System_Registry`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32, hkey: *mut super::Registry::HKEY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRegistryKey)(::windows_core::Interface::as_raw(self), dwsection, hkey).ok()
@@ -4805,7 +4792,7 @@ impl IGroupPolicyObject {
     pub unsafe fn GetMachineName(&self, pszname: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMachineName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszname.as_ptr()), pszname.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+    #[doc = "Required features: `Win32_UI_Controls`"]
     #[cfg(feature = "Win32_UI_Controls")]
     pub unsafe fn GetPropertySheetPages(&self, hpages: *mut *mut super::super::UI::Controls::HPROPSHEETPAGE, upagecount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertySheetPages)(::windows_core::Interface::as_raw(self), hpages, upagecount).ok()
@@ -4850,7 +4837,6 @@ pub struct IGroupPolicyObject_Vtbl {
     #[cfg(not(feature = "Win32_UI_Controls"))]
     GetPropertySheetPages: usize,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRSOPInformation(::windows_core::IUnknown);
@@ -4886,469 +4872,237 @@ pub struct IRSOPInformation_Vtbl {
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows_core::HRESULT,
     pub GetEventLogEntryText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszeventsource: ::windows_core::PCWSTR, pszeventlogname: ::windows_core::PCWSTR, pszeventtime: ::windows_core::PCWSTR, dweventid: u32, ppsztext: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const ABSENT: APPSTATE = APPSTATE(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const APPNAME: INSTALLSPECTYPE = INSTALLSPECTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const ASSIGNED: APPSTATE = APPSTATE(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const CLSID_GPESnapIn: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const CLSID_GroupPolicyObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const CLSID_RSOPSnapIn: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const COMCLASS: INSTALLSPECTYPE = INSTALLSPECTYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FILEEXT: INSTALLSPECTYPE = INSTALLSPECTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_ASSUME_COMP_WQLFILTER_TRUE: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_ASSUME_SLOW_LINK: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_ASSUME_USER_WQLFILTER_TRUE: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_FORCE_CREATENAMESPACE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_LOOPBACK_MERGE: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_LOOPBACK_REPLACE: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_NO_COMPUTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_NO_USER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPC_BLOCK_POLICY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = GROUP_POLICY_HINT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPLinkDomain: GPO_LINK = GPO_LINK(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPLinkMachine: GPO_LINK = GPO_LINK(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPLinkOrganizationalUnit: GPO_LINK = GPO_LINK(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPLinkSite: GPO_LINK = GPO_LINK(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPLinkUnknown: GPO_LINK = GPO_LINK(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5694708_88fe_4b35_babf_e56162d5fbc8);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMAsyncCancel: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x372796a9_76ec_479d_ad6c_556318ed5f9d);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMBackup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed1a54b8_5efa_482a_93c0_8ad86f0d68c3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMBackupCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb8f035b_70db_4a9f_9676_37c25994e9dc);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMBackupDir: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfce4a59d_0f21_4afa_b859_e6d0c62cd10c);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMBackupDirEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8c0988a_cf03_4c5b_8be2_2aa9ad32aada);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMCSECollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf92b828_2d44_4b61_b10a_b327afd42da8);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMClientSideExtension: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1a2e70e_659c_4b1a_940b_f88b0af9c8a4);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMConstants: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3855e880_cd9e_4d0c_9eaf_1579283a1888);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMDomain: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x710901be_1050_4cb1_838a_c5cff259e183);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMGPO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2ce2994_59b5_4064_b581_4d68486a16c4);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMGPOCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a057325_832d_4de3_a41f_c780436a4e09);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMGPOLink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1df9880_5303_42c6_8a3c_0488e1bf7364);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMGPOLinksCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6ed581a_49a5_47e2_b771_fd8dc02b6259);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMMapEntry: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c975253_5431_4471_b35d_0626c928258a);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMMapEntryCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cf75d5b_a3a1_4c55_b4fe_9e149c41f66d);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMMigrationTable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55af4043_2a06_4f72_abef_631b44079c76);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMPermission: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5871a40a_e9c0_46ec_913e_944ef9225a94);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMRSOP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x489b0caf_9ec2_4eb7_91f5_b6f71d43da8c);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMResult: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92101ac0_9287_4206_a3b2_4bdb73d225f6);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMSOM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32d93fac_450e_44cf_829c_8b22ff6bdae1);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMSOMCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24c1f147_3720_4f5b_a9c3_06b4e4f931d2);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMSearchCriteria: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17aaca26_5ce0_44fa_8cc0_5259e6483566);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMSecurityInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x547a5e8f_9162_4516_a4df_9ddb9686d846);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMSitesContainer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x229f5c42_852c_4b30_945f_c522be9bd386);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMStarterGPOBackup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x389e400a_d8ef_455b_a861_5f9ca34a6a02);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMStarterGPOBackupCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe75ea59d_1aeb_4cb5_a78a_281daa582406);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMStarterGPOCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82f8aa8b_49ba_43b2_956e_3397f9b94c3a);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMStatusMessage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b77cc94_d255_409b_bc62_370881715a19);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMStatusMsgCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2824e4be_4bcc_4cac_9e60_0e3ed7f12496);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMTemplate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecf1d454_71da_4e2f_a8c0_8185465911d9);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMTrustee: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc54a700d_19b6_4211_bcb0_e8e2475e471e);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMWMIFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x626745d8_0dea_4062_bf60_cfc5b1ca1286);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPMWMIFilterCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74dc6d28_e820_47d6_a0b8_f08d93d7fa33);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM_DONOTUSE_W2KDC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM_DONOT_VALIDATEDC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM_MIGRATIONTABLE_ONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM_PROCESS_SECURITY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM_USE_ANYDC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPM_USE_PDC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPOTypeLocalUser: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPOTypeRemote: GROUP_POLICY_OBJECT_TYPE = GROUP_POLICY_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_DISABLENEW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_INITTOALL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_NOCOMPUTERS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_NODSGPOS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_NOUSERGPOS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_OPENBUTTON: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_BROWSE_SENDAPPLYONEDIT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_FLAG_DISABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_FLAG_FORCE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_ASYNC_FOREGROUND: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_BACKGROUND: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_FORCED_REFRESH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_LINKTRANSITION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_LOGRSOP_TRANSITION: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_LIST_FLAG_NO_WMIFILTERS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_LIST_FLAG_SITEONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_OPEN_LOAD_REGISTRY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_OPEN_READ_ONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_OPTION_DISABLE_MACHINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_SECTION_MACHINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_SECTION_ROOT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GPO_SECTION_USER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_DLLNAME: ::windows_core::PCWSTR = ::windows_core::w!("DllName");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_ENABLEASYNCHRONOUSPROCESSING: ::windows_core::PCWSTR = ::windows_core::w!("EnableAsynchronousProcessing");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_MAXNOGPOLISTCHANGESINTERVAL: ::windows_core::PCWSTR = ::windows_core::w!("MaxNoGPOListChangesInterval");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_NOBACKGROUNDPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("NoBackgroundPolicy");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_NOGPOLISTCHANGES: ::windows_core::PCWSTR = ::windows_core::w!("NoGPOListChanges");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_NOMACHINEPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("NoMachinePolicy");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_NOSLOWLINK: ::windows_core::PCWSTR = ::windows_core::w!("NoSlowLink");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_NOTIFYLINKTRANSITION: ::windows_core::PCWSTR = ::windows_core::w!("NotifyLinkTransition");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_NOUSERPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("NoUserPolicy");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_PERUSERLOCALSETTINGS: ::windows_core::PCWSTR = ::windows_core::w!("PerUserLocalSettings");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_PROCESSGROUPPOLICY: ::windows_core::PCWSTR = ::windows_core::w!("ProcessGroupPolicy");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const GP_REQUIRESSUCCESSFULREGISTRY: ::windows_core::PCWSTR = ::windows_core::w!("RequiresSuccessfulRegistry");
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_ASSIGNED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_ORPHANED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_POLICYREMOVE_ORPHAN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const MANAGED_APPS_FROMCATEGORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const MANAGED_APPS_INFOLEVEL_DEFAULT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const MANAGED_APPS_USERAPPLICATIONS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const MANAGED_APPTYPE_SETUPEXE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const MANAGED_APPTYPE_UNSUPPORTED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const MANAGED_APPTYPE_WINDOWSINSTALLER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_Machine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_MachineSWSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_RSOPMachine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_RSOPMachineSWSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a76273e_eb8e_45db_94c5_25663a5f2c1a);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_RSOPUser: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab87364f_0cec_4cd8_9bf8_898f34628fb8);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_RSOPUserSWSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_User: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const NODEID_UserSWSettings: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PI_APPLYPOLICY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PI_NOUI: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PROGID: INSTALLSPECTYPE = INSTALLSPECTYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PT_MANDATORY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PT_ROAMING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PT_TEMPORARY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const PUBLISHED: APPSTATE = APPSTATE(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RP_FORCE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RP_SYNC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPApplied: SETTINGSTATUS = SETTINGSTATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPFailed: SETTINGSTATUS = SETTINGSTATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPIgnored: SETTINGSTATUS = SETTINGSTATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPSubsettingFailed: SETTINGSTATUS = SETTINGSTATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPUnspecified: SETTINGSTATUS = SETTINGSTATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_NO_COMPUTER: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_NO_USER: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_PLANNING_ASSUME_LOOPBACK_MERGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const backupMostRecent: GPMSearchProperty = GPMSearchProperty(9i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoComputerExtensions: GPMSearchProperty = GPMSearchProperty(5i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoDisplayName: GPMSearchProperty = GPMSearchProperty(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoDomain: GPMSearchProperty = GPMSearchProperty(8i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoEffectivePermissions: GPMSearchProperty = GPMSearchProperty(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoID: GPMSearchProperty = GPMSearchProperty(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoPermissions: GPMSearchProperty = GPMSearchProperty(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoUserExtensions: GPMSearchProperty = GPMSearchProperty(6i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const gpoWMIFilter: GPMSearchProperty = GPMSearchProperty(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opContains: GPMSearchOperation = GPMSearchOperation(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opDestinationByRelativeName: GPMDestinationOption = GPMDestinationOption(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opDestinationNone: GPMDestinationOption = GPMDestinationOption(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opDestinationSameAsSource: GPMDestinationOption = GPMDestinationOption(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opDestinationSet: GPMDestinationOption = GPMDestinationOption(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opEquals: GPMSearchOperation = GPMSearchOperation(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opNotContains: GPMSearchOperation = GPMSearchOperation(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opNotEquals: GPMSearchOperation = GPMSearchOperation(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opReportComments: GPMReportingOptions = GPMReportingOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const opReportLegacy: GPMReportingOptions = GPMReportingOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permGPOApply: GPMPermissionType = GPMPermissionType(65536i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permGPOCustom: GPMPermissionType = GPMPermissionType(65795i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permGPOEdit: GPMPermissionType = GPMPermissionType(65793i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permGPOEditSecurityAndDelete: GPMPermissionType = GPMPermissionType(65794i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permGPORead: GPMPermissionType = GPMPermissionType(65792i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMGPOCreate: GPMPermissionType = GPMPermissionType(1049600i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMLink: GPMPermissionType = GPMPermissionType(1835008i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMLogging: GPMPermissionType = GPMPermissionType(1573120i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMPlanning: GPMPermissionType = GPMPermissionType(1573376i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMStarterGPOCreate: GPMPermissionType = GPMPermissionType(1049856i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMWMICreate: GPMPermissionType = GPMPermissionType(1049344i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permSOMWMIFullControl: GPMPermissionType = GPMPermissionType(1049345i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permStarterGPOCustom: GPMPermissionType = GPMPermissionType(197891i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permStarterGPOEdit: GPMPermissionType = GPMPermissionType(197889i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permStarterGPOFullControl: GPMPermissionType = GPMPermissionType(197890i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permStarterGPORead: GPMPermissionType = GPMPermissionType(197888i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permWMIFilterCustom: GPMPermissionType = GPMPermissionType(131074i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permWMIFilterEdit: GPMPermissionType = GPMPermissionType(131072i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const permWMIFilterFullControl: GPMPermissionType = GPMPermissionType(131073i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repClientHealthRefreshXML: GPMReportType = GPMReportType(5i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repClientHealthXML: GPMReportType = GPMReportType(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repHTML: GPMReportType = GPMReportType(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repInfraRefreshXML: GPMReportType = GPMReportType(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repInfraXML: GPMReportType = GPMReportType(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const repXML: GPMReportType = GPMReportType(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const rsopLogging: GPMRSOPMode = GPMRSOPMode(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const rsopPlanning: GPMRSOPMode = GPMRSOPMode(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const rsopUnknown: GPMRSOPMode = GPMRSOPMode(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const somDomain: GPMSOMType = GPMSOMType(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const somLinks: GPMSearchProperty = GPMSearchProperty(7i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const somOU: GPMSOMType = GPMSOMType(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const somSite: GPMSOMType = GPMSOMType(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const starterGPODisplayName: GPMSearchProperty = GPMSearchProperty(12i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const starterGPODomain: GPMSearchProperty = GPMSearchProperty(14i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const starterGPOEffectivePermissions: GPMSearchProperty = GPMSearchProperty(11i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const starterGPOID: GPMSearchProperty = GPMSearchProperty(13i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const starterGPOPermissions: GPMSearchProperty = GPMSearchProperty(10i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeComputer: GPMEntryType = GPMEntryType(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeCustom: GPMStarterGPOType = GPMStarterGPOType(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeGPO: GPMBackupType = GPMBackupType(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeGlobalGroup: GPMEntryType = GPMEntryType(3i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeLocalGroup: GPMEntryType = GPMEntryType(2i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeStarterGPO: GPMBackupType = GPMBackupType(1i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeSystem: GPMStarterGPOType = GPMStarterGPOType(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeUNCPath: GPMEntryType = GPMEntryType(5i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeUniversalGroup: GPMEntryType = GPMEntryType(4i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeUnknown: GPMEntryType = GPMEntryType(6i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const typeUser: GPMEntryType = GPMEntryType(0i32);
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPSTATE(pub i32);
@@ -5371,7 +5125,6 @@ impl ::core::fmt::Debug for APPSTATE {
         f.debug_tuple("APPSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMBackupType(pub i32);
@@ -5394,7 +5147,6 @@ impl ::core::fmt::Debug for GPMBackupType {
         f.debug_tuple("GPMBackupType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMDestinationOption(pub i32);
@@ -5417,7 +5169,6 @@ impl ::core::fmt::Debug for GPMDestinationOption {
         f.debug_tuple("GPMDestinationOption").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMEntryType(pub i32);
@@ -5440,7 +5191,6 @@ impl ::core::fmt::Debug for GPMEntryType {
         f.debug_tuple("GPMEntryType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMPermissionType(pub i32);
@@ -5463,7 +5213,6 @@ impl ::core::fmt::Debug for GPMPermissionType {
         f.debug_tuple("GPMPermissionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMRSOPMode(pub i32);
@@ -5486,7 +5235,6 @@ impl ::core::fmt::Debug for GPMRSOPMode {
         f.debug_tuple("GPMRSOPMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMReportType(pub i32);
@@ -5509,7 +5257,6 @@ impl ::core::fmt::Debug for GPMReportType {
         f.debug_tuple("GPMReportType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMReportingOptions(pub i32);
@@ -5532,7 +5279,6 @@ impl ::core::fmt::Debug for GPMReportingOptions {
         f.debug_tuple("GPMReportingOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMSOMType(pub i32);
@@ -5555,7 +5301,6 @@ impl ::core::fmt::Debug for GPMSOMType {
         f.debug_tuple("GPMSOMType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMSearchOperation(pub i32);
@@ -5578,7 +5323,6 @@ impl ::core::fmt::Debug for GPMSearchOperation {
         f.debug_tuple("GPMSearchOperation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMSearchProperty(pub i32);
@@ -5601,7 +5345,6 @@ impl ::core::fmt::Debug for GPMSearchProperty {
         f.debug_tuple("GPMSearchProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPMStarterGPOType(pub i32);
@@ -5624,7 +5367,6 @@ impl ::core::fmt::Debug for GPMStarterGPOType {
         f.debug_tuple("GPMStarterGPOType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPO_LINK(pub i32);
@@ -5647,7 +5389,6 @@ impl ::core::fmt::Debug for GPO_LINK {
         f.debug_tuple("GPO_LINK").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUP_POLICY_HINT_TYPE(pub i32);
@@ -5670,7 +5411,6 @@ impl ::core::fmt::Debug for GROUP_POLICY_HINT_TYPE {
         f.debug_tuple("GROUP_POLICY_HINT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUP_POLICY_OBJECT_TYPE(pub i32);
@@ -5693,7 +5433,6 @@ impl ::core::fmt::Debug for GROUP_POLICY_OBJECT_TYPE {
         f.debug_tuple("GROUP_POLICY_OBJECT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSTALLSPECTYPE(pub i32);
@@ -5716,7 +5455,6 @@ impl ::core::fmt::Debug for INSTALLSPECTYPE {
         f.debug_tuple("INSTALLSPECTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SETTINGSTATUS(pub i32);
@@ -5740,7 +5478,7 @@ impl ::core::fmt::Debug for SETTINGSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
@@ -5788,7 +5526,7 @@ impl ::core::default::Default for GPOBROWSEINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
@@ -5852,7 +5590,7 @@ impl ::core::default::Default for GROUP_POLICY_OBJECTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
@@ -5916,7 +5654,6 @@ impl ::core::default::Default for GROUP_POLICY_OBJECTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
     pub Spec: INSTALLSPEC,
@@ -5936,7 +5673,6 @@ impl ::core::default::Default for INSTALLDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
     pub FileExt: ::windows_core::PWSTR,
@@ -5958,7 +5694,6 @@ impl ::core::default::Default for INSTALLSPEC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub struct INSTALLSPEC_0 {
     pub Name: ::windows_core::PWSTR,
     pub GPOId: ::windows_core::GUID,
@@ -5989,7 +5724,6 @@ impl ::core::default::Default for INSTALLSPEC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub struct INSTALLSPEC_1 {
     pub Clsid: ::windows_core::GUID,
     pub ClsCtx: u32,
@@ -6020,7 +5754,6 @@ impl ::core::default::Default for INSTALLSPEC_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: ::windows_core::PWSTR,
     pub pszPolicyName: ::windows_core::PWSTR,
@@ -6053,7 +5786,7 @@ impl ::core::default::Default for LOCALMANAGEDAPPLICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: ::windows_core::PWSTR,
@@ -6123,7 +5856,7 @@ impl ::core::default::Default for MANAGEDAPPLICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: ::windows_core::PWSTR,
@@ -6167,7 +5900,7 @@ impl ::core::default::Default for POLICYSETTINGSTATUSINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Wmi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Wmi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub struct RSOP_TARGET {
     pub pwszAccountName: ::windows_core::PWSTR,
@@ -6207,16 +5940,16 @@ impl ::core::default::Default for RSOP_TARGET {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Wmi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Wmi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub type PFNGENERATEGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: ::windows_core::PCWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PFNPROCESSGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"Win32_System_Wmi\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`, `Win32_System_Wmi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
 pub type PFNPROCESSGROUPPOLICYEX = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: ::core::option::Option<super::Wmi::IWbemServices>, prsopstatus: *mut ::windows_core::HRESULT) -> u32>;
-#[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSTATUSMESSAGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: ::windows_core::PCWSTR) -> u32>;
 #[cfg(feature = "implement")]

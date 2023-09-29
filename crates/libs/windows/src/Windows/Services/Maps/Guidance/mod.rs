@@ -458,7 +458,6 @@ pub struct IGuidanceUpdatedEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     LaneInfo: usize,
 }
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(::windows_core::IUnknown);
@@ -470,7 +469,7 @@ impl GuidanceAudioNotificationRequestedEventArgs {
             (::windows_core::Interface::vtable(this).AudioNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AudioFilePaths(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -502,7 +501,6 @@ impl ::windows_core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs
 ::windows_core::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceLaneInfo(::windows_core::IUnknown);
@@ -537,12 +535,11 @@ impl ::windows_core::RuntimeName for GuidanceLaneInfo {
 ::windows_core::imp::interface_hierarchy!(GuidanceLaneInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceManeuver(::windows_core::IUnknown);
 impl GuidanceManeuver {
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn StartLocation(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -644,12 +641,11 @@ impl ::windows_core::RuntimeName for GuidanceManeuver {
 ::windows_core::imp::interface_hierarchy!(GuidanceManeuver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceMapMatchedCoordinate(::windows_core::IUnknown);
 impl GuidanceMapMatchedCoordinate {
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Location(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -702,7 +698,6 @@ impl ::windows_core::RuntimeName for GuidanceMapMatchedCoordinate {
 ::windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceNavigator(::windows_core::IUnknown);
@@ -763,7 +758,7 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAudioNotifications)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GuidanceUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -775,13 +770,13 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).GuidanceUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGuidanceUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveGuidanceUpdated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DestinationReached<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -793,13 +788,13 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).DestinationReached)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDestinationReached(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDestinationReached)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Rerouting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -811,13 +806,13 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).Rerouting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRerouting(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRerouting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Rerouted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -829,13 +824,13 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).Rerouted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRerouted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRerouted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RerouteFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -847,13 +842,13 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).RerouteFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRerouteFailed(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRerouteFailed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UserLocationLost<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -865,13 +860,13 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).UserLocationLost)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserLocationLost(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUserLocationLost)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn UserLocationRestored<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -883,7 +878,7 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).UserLocationRestored)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserLocationRestored(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -893,7 +888,7 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetGuidanceVoice)(::windows_core::Interface::as_raw(this), voiceid, ::core::mem::transmute_copy(voicefolder)).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn UpdateUserLocation<P0>(&self, userlocation: P0) -> ::windows_core::Result<()>
     where
@@ -902,7 +897,7 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdateUserLocation)(::windows_core::Interface::as_raw(this), userlocation.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> ::windows_core::Result<()>
     where
@@ -911,7 +906,7 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdateUserLocationWithPositionOverride)(::windows_core::Interface::as_raw(this), userlocation.into_param().abi(), positionoverride).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AudioNotificationRequested<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -923,7 +918,7 @@ impl GuidanceNavigator {
             (::windows_core::Interface::vtable(this).AudioNotificationRequested)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAudioNotificationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
@@ -978,7 +973,6 @@ impl ::windows_core::RuntimeName for GuidanceNavigator {
 ::windows_core::imp::interface_hierarchy!(GuidanceNavigator, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceNavigator {}
 unsafe impl ::core::marker::Sync for GuidanceNavigator {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceReroutedEventArgs(::windows_core::IUnknown);
@@ -1006,7 +1000,6 @@ impl ::windows_core::RuntimeName for GuidanceReroutedEventArgs {
 ::windows_core::imp::interface_hierarchy!(GuidanceReroutedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceReroutedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceReroutedEventArgs {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceRoadSegment(::windows_core::IUnknown);
@@ -1032,7 +1025,7 @@ impl GuidanceRoadSegment {
             (::windows_core::Interface::vtable(this).SpeedLimit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TravelTime(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1041,7 +1034,7 @@ impl GuidanceRoadSegment {
             (::windows_core::Interface::vtable(this).TravelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Path(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         let this = self;
@@ -1101,7 +1094,6 @@ impl ::windows_core::RuntimeName for GuidanceRoadSegment {
 ::windows_core::imp::interface_hierarchy!(GuidanceRoadSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSegment {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSegment {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceRoadSignpost(::windows_core::IUnknown);
@@ -1120,7 +1112,7 @@ impl GuidanceRoadSignpost {
             (::windows_core::Interface::vtable(this).Exit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -1129,7 +1121,7 @@ impl GuidanceRoadSignpost {
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
@@ -1138,7 +1130,7 @@ impl GuidanceRoadSignpost {
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ExitDirections(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1163,12 +1155,11 @@ impl ::windows_core::RuntimeName for GuidanceRoadSignpost {
 ::windows_core::imp::interface_hierarchy!(GuidanceRoadSignpost, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoadSignpost {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSignpost {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceRoute(::windows_core::IUnknown);
 impl GuidanceRoute {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1184,7 +1175,7 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).Distance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Maneuvers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceManeuver>> {
         let this = self;
@@ -1193,7 +1184,7 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).Maneuvers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn BoundingBox(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
@@ -1202,7 +1193,7 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).BoundingBox)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[doc = "Required features: `Devices_Geolocation`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Path(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         let this = self;
@@ -1211,7 +1202,7 @@ impl GuidanceRoute {
             (::windows_core::Interface::vtable(this).Path)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RoadSegments(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>> {
         let this = self;
@@ -1266,7 +1257,6 @@ impl ::windows_core::RuntimeName for GuidanceRoute {
 ::windows_core::imp::interface_hierarchy!(GuidanceRoute, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceRoute {}
 unsafe impl ::core::marker::Sync for GuidanceRoute {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceTelemetryCollector(::windows_core::IUnknown);
@@ -1335,7 +1325,6 @@ impl ::windows_core::RuntimeName for GuidanceTelemetryCollector {
 ::windows_core::imp::interface_hierarchy!(GuidanceTelemetryCollector, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceTelemetryCollector {}
 unsafe impl ::core::marker::Sync for GuidanceTelemetryCollector {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GuidanceUpdatedEventArgs(::windows_core::IUnknown);
@@ -1389,7 +1378,7 @@ impl GuidanceUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).ElapsedDistance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ElapsedTime(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1398,7 +1387,7 @@ impl GuidanceUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).ElapsedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TimeToDestination(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1435,7 +1424,7 @@ impl GuidanceUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).IsNewManeuver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LaneInfo(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceLaneInfo>> {
         let this = self;
@@ -1460,7 +1449,6 @@ impl ::windows_core::RuntimeName for GuidanceUpdatedEventArgs {
 ::windows_core::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for GuidanceUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceUpdatedEventArgs {}
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
@@ -1491,7 +1479,6 @@ impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
 impl ::windows_core::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
 }
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuidanceAudioNotificationKind(pub i32);
@@ -1525,7 +1512,6 @@ impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
 impl ::windows_core::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
 }
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuidanceAudioNotifications(pub u32);
@@ -1593,7 +1579,6 @@ impl ::core::ops::Not for GuidanceAudioNotifications {
 impl ::windows_core::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
 }
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuidanceLaneMarkers(pub u32);
@@ -1665,7 +1650,6 @@ impl ::core::ops::Not for GuidanceLaneMarkers {
 impl ::windows_core::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
 }
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuidanceManeuverKind(pub i32);
@@ -1741,7 +1725,6 @@ impl ::core::fmt::Debug for GuidanceManeuverKind {
 impl ::windows_core::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
 }
-#[doc = "*Required features: `\"Services_Maps_Guidance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuidanceMode(pub i32);

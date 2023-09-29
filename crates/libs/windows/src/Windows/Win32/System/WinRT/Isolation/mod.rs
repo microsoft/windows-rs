@@ -1,9 +1,8 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsolatedEnvironmentInterop(::windows_core::IUnknown);
 impl IIsolatedEnvironmentInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHostHwndInterop<P0>(&self, containerhwnd: P0) -> ::windows_core::Result<super::super::super::Foundation::HWND>
     where

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1AnalysisTransform_Impl: Sized {
     fn ProcessAnalysisResults(&self, analysisdata: *const u8, analysisdatacount: u32) -> ::windows_core::Result<()>;
 }
@@ -16,7 +15,7 @@ impl ID2D1AnalysisTransform_Vtbl {
         *iid == <ID2D1AnalysisTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID2D1Bitmap_Impl: Sized + ID2D1Image_Impl {
     fn GetSize(&self) -> Common::D2D_SIZE_F;
@@ -82,7 +81,7 @@ impl ID2D1Bitmap_Vtbl {
         *iid == <ID2D1Bitmap as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Image as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID2D1Bitmap1_Impl: Sized + ID2D1Bitmap_Impl {
     fn GetColorContext(&self, colorcontext: *mut ::core::option::Option<ID2D1ColorContext>) -> ();
@@ -146,7 +145,7 @@ impl ID2D1Bitmap1_Vtbl {
         *iid == <ID2D1Bitmap1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Image as ::windows_core::ComInterface>::IID || *iid == <ID2D1Bitmap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait ID2D1BitmapBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetExtendModeX(&self, extendmodex: D2D1_EXTEND_MODE);
@@ -219,7 +218,7 @@ impl ID2D1BitmapBrush_Vtbl {
         *iid == <ID2D1BitmapBrush as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait ID2D1BitmapBrush1_Impl: Sized + ID2D1BitmapBrush_Impl {
     fn SetInterpolationMode1(&self, interpolationmode: D2D1_INTERPOLATION_MODE);
@@ -250,7 +249,7 @@ impl ID2D1BitmapBrush1_Vtbl {
         *iid == <ID2D1BitmapBrush1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID || *iid == <ID2D1BitmapBrush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1BitmapRenderTarget_Impl: Sized + ID2D1RenderTarget_Impl {
     fn GetBitmap(&self) -> ::windows_core::Result<ID2D1Bitmap>;
@@ -277,7 +276,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
         *iid == <ID2D1BitmapRenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1BlendTransform_Impl: Sized + ID2D1ConcreteTransform_Impl {
     fn SetDescription(&self, description: *const D2D1_BLEND_DESCRIPTION);
@@ -308,7 +307,7 @@ impl ID2D1BlendTransform_Vtbl {
         *iid == <ID2D1BlendTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID || *iid == <ID2D1ConcreteTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1BorderTransform_Impl: Sized + ID2D1ConcreteTransform_Impl {
     fn SetExtendModeX(&self, extendmode: D2D1_EXTEND_MODE);
@@ -353,7 +352,7 @@ impl ID2D1BorderTransform_Vtbl {
         *iid == <ID2D1BorderTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID || *iid == <ID2D1ConcreteTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1BoundsAdjustmentTransform_Impl: Sized + ID2D1TransformNode_Impl {
     fn SetOutputBounds(&self, outputbounds: *const super::super::Foundation::RECT);
@@ -384,7 +383,7 @@ impl ID2D1BoundsAdjustmentTransform_Vtbl {
         *iid == <ID2D1BoundsAdjustmentTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait ID2D1Brush_Impl: Sized + ID2D1Resource_Impl {
     fn SetOpacity(&self, opacity: f32);
@@ -429,7 +428,6 @@ impl ID2D1Brush_Vtbl {
         *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1ColorContext_Impl: Sized + ID2D1Resource_Impl {
     fn GetColorSpace(&self) -> D2D1_COLOR_SPACE;
     fn GetProfileSize(&self) -> u32;
@@ -464,7 +462,7 @@ impl ID2D1ColorContext_Vtbl {
         *iid == <ID2D1ColorContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Dxgi_Common`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID2D1ColorContext1_Impl: Sized + ID2D1ColorContext_Impl {
     fn GetColorContextType(&self) -> D2D1_COLOR_CONTEXT_TYPE;
@@ -502,7 +500,6 @@ impl ID2D1ColorContext1_Vtbl {
         *iid == <ID2D1ColorContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1ColorContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1CommandList_Impl: Sized + ID2D1Image_Impl {
     fn Stream(&self, sink: ::core::option::Option<&ID2D1CommandSink>) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -526,7 +523,7 @@ impl ID2D1CommandList_Vtbl {
         *iid == <ID2D1CommandList as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Image as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1CommandSink_Impl: Sized {
     fn BeginDraw(&self) -> ::windows_core::Result<()>;
@@ -718,7 +715,7 @@ impl ID2D1CommandSink_Vtbl {
         *iid == <ID2D1CommandSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1CommandSink1_Impl: Sized + ID2D1CommandSink_Impl {
     fn SetPrimitiveBlend1(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows_core::Result<()>;
@@ -739,7 +736,7 @@ impl ID2D1CommandSink1_Vtbl {
         *iid == <ID2D1CommandSink1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1CommandSink2_Impl: Sized + ID2D1CommandSink1_Impl {
     fn DrawInk(&self, ink: ::core::option::Option<&ID2D1Ink>, brush: ::core::option::Option<&ID2D1Brush>, inkstyle: ::core::option::Option<&ID2D1InkStyle>) -> ::windows_core::Result<()>;
@@ -777,7 +774,7 @@ impl ID2D1CommandSink2_Vtbl {
         *iid == <ID2D1CommandSink2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1CommandSink3_Impl: Sized + ID2D1CommandSink2_Impl {
     fn DrawSpriteBatch(&self, spritebatch: ::core::option::Option<&ID2D1SpriteBatch>, startindex: u32, spritecount: u32, bitmap: ::core::option::Option<&ID2D1Bitmap>, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> ::windows_core::Result<()>;
@@ -798,7 +795,7 @@ impl ID2D1CommandSink3_Vtbl {
         *iid == <ID2D1CommandSink3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1CommandSink4_Impl: Sized + ID2D1CommandSink3_Impl {
     fn SetPrimitiveBlend2(&self, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows_core::Result<()>;
@@ -819,7 +816,7 @@ impl ID2D1CommandSink4_Vtbl {
         *iid == <ID2D1CommandSink4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1CommandSink5_Impl: Sized + ID2D1CommandSink4_Impl {
     fn BlendImage(&self, image: ::core::option::Option<&ID2D1Image>, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) -> ::windows_core::Result<()>;
@@ -840,7 +837,7 @@ impl ID2D1CommandSink5_Vtbl {
         *iid == <ID2D1CommandSink5 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1CommandSink4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1ComputeInfo_Impl: Sized + ID2D1RenderInfo_Impl {
     fn SetComputeShaderConstantBuffer(&self, buffer: *const u8, buffercount: u32) -> ::windows_core::Result<()>;
@@ -878,7 +875,7 @@ impl ID2D1ComputeInfo_Vtbl {
         *iid == <ID2D1ComputeInfo as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1ComputeTransform_Impl: Sized + ID2D1Transform_Impl {
     fn SetComputeInfo(&self, computeinfo: ::core::option::Option<&ID2D1ComputeInfo>) -> ::windows_core::Result<()>;
@@ -909,7 +906,7 @@ impl ID2D1ComputeTransform_Vtbl {
         *iid == <ID2D1ComputeTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID || *iid == <ID2D1Transform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1ConcreteTransform_Impl: Sized + ID2D1TransformNode_Impl {
     fn SetOutputBuffer(&self, bufferprecision: D2D1_BUFFER_PRECISION, channeldepth: D2D1_CHANNEL_DEPTH) -> ::windows_core::Result<()>;
@@ -940,7 +937,7 @@ impl ID2D1ConcreteTransform_Vtbl {
         *iid == <ID2D1ConcreteTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Gdi`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DCRenderTarget_Impl: Sized + ID2D1RenderTarget_Impl {
     fn BindDC(&self, hdc: super::Gdi::HDC, psubrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -961,7 +958,7 @@ impl ID2D1DCRenderTarget_Vtbl {
         *iid == <ID2D1DCRenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device_Impl: Sized + ID2D1Resource_Impl {
     fn CreateDeviceContext(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext>;
@@ -1025,7 +1022,7 @@ impl ID2D1Device_Vtbl {
         *iid == <ID2D1Device as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device1_Impl: Sized + ID2D1Device_Impl {
     fn GetRenderingPriority(&self) -> D2D1_RENDERING_PRIORITY;
@@ -1069,7 +1066,7 @@ impl ID2D1Device1_Vtbl {
         *iid == <ID2D1Device1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device2_Impl: Sized + ID2D1Device1_Impl {
     fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext2>;
@@ -1119,7 +1116,7 @@ impl ID2D1Device2_Vtbl {
         *iid == <ID2D1Device2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device3_Impl: Sized + ID2D1Device2_Impl {
     fn CreateDeviceContext4(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext3>;
@@ -1146,7 +1143,7 @@ impl ID2D1Device3_Vtbl {
         *iid == <ID2D1Device3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device4_Impl: Sized + ID2D1Device3_Impl {
     fn CreateDeviceContext5(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext4>;
@@ -1190,7 +1187,7 @@ impl ID2D1Device4_Vtbl {
         *iid == <ID2D1Device4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device5_Impl: Sized + ID2D1Device4_Impl {
     fn CreateDeviceContext6(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext5>;
@@ -1217,7 +1214,7 @@ impl ID2D1Device5_Vtbl {
         *iid == <ID2D1Device5 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Dxgi\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Dxgi`, `Win32_Graphics_Imaging`, `Win32_Storage_Xps_Printing`"]
 #[cfg(all(feature = "Win32_Graphics_Dxgi", feature = "Win32_Graphics_Imaging", feature = "Win32_Storage_Xps_Printing"))]
 pub trait ID2D1Device6_Impl: Sized + ID2D1Device5_Impl {
     fn CreateDeviceContext7(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows_core::Result<ID2D1DeviceContext6>;
@@ -1244,7 +1241,7 @@ impl ID2D1Device6_Vtbl {
         *iid == <ID2D1Device6 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Device5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext_Impl: Sized + ID2D1RenderTarget_Impl {
     fn CreateBitmap2(&self, size: &Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows_core::Result<ID2D1Bitmap1>;
@@ -1596,7 +1593,7 @@ impl ID2D1DeviceContext_Vtbl {
         *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext1_Impl: Sized + ID2D1DeviceContext_Impl {
     fn CreateFilledGeometryRealization(&self, geometry: ::core::option::Option<&ID2D1Geometry>, flatteningtolerance: f32) -> ::windows_core::Result<ID2D1GeometryRealization>;
@@ -1646,7 +1643,7 @@ impl ID2D1DeviceContext1_Vtbl {
         *iid == <ID2D1DeviceContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext2_Impl: Sized + ID2D1DeviceContext1_Impl {
     fn CreateInk(&self, startpoint: *const D2D1_INK_POINT) -> ::windows_core::Result<ID2D1Ink>;
@@ -1788,7 +1785,7 @@ impl ID2D1DeviceContext2_Vtbl {
         *iid == <ID2D1DeviceContext2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext3_Impl: Sized + ID2D1DeviceContext2_Impl {
     fn CreateSpriteBatch(&self) -> ::windows_core::Result<ID2D1SpriteBatch>;
@@ -1825,7 +1822,7 @@ impl ID2D1DeviceContext3_Vtbl {
         *iid == <ID2D1DeviceContext3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1DeviceContext4_Impl: Sized + ID2D1DeviceContext3_Impl {
     fn CreateSvgGlyphStyle(&self) -> ::windows_core::Result<ID2D1SvgGlyphStyle>;
@@ -1911,7 +1908,7 @@ impl ID2D1DeviceContext4_Vtbl {
         *iid == <ID2D1DeviceContext4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1DeviceContext5_Impl: Sized + ID2D1DeviceContext4_Impl {
     fn CreateSvgDocument(&self, inputxmlstream: ::core::option::Option<&super::super::System::Com::IStream>, viewportsize: &Common::D2D_SIZE_F) -> ::windows_core::Result<ID2D1SvgDocument>;
@@ -1974,7 +1971,7 @@ impl ID2D1DeviceContext5_Vtbl {
         *iid == <ID2D1DeviceContext5 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1DeviceContext6_Impl: Sized + ID2D1DeviceContext5_Impl {
     fn BlendImage(&self, image: ::core::option::Option<&ID2D1Image>, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE);
@@ -1995,7 +1992,7 @@ impl ID2D1DeviceContext6_Vtbl {
         *iid == <ID2D1DeviceContext6 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1DeviceContext5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1DrawInfo_Impl: Sized + ID2D1RenderInfo_Impl {
     fn SetPixelShaderConstantBuffer(&self, buffer: *const u8, buffercount: u32) -> ::windows_core::Result<()>;
@@ -2047,7 +2044,7 @@ impl ID2D1DrawInfo_Vtbl {
         *iid == <ID2D1DrawInfo as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1DrawTransform_Impl: Sized + ID2D1Transform_Impl {
     fn SetDrawInfo(&self, drawinfo: ::core::option::Option<&ID2D1DrawInfo>) -> ::windows_core::Result<()>;
@@ -2068,7 +2065,7 @@ impl ID2D1DrawTransform_Vtbl {
         *iid == <ID2D1DrawTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID || *iid == <ID2D1Transform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1DrawingStateBlock_Impl: Sized + ID2D1Resource_Impl {
     fn GetDescription(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION);
@@ -2113,7 +2110,7 @@ impl ID2D1DrawingStateBlock_Vtbl {
         *iid == <ID2D1DrawingStateBlock as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_DirectWrite\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_DirectWrite`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
 pub trait ID2D1DrawingStateBlock1_Impl: Sized + ID2D1DrawingStateBlock_Impl {
     fn GetDescription2(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1);
@@ -2144,7 +2141,7 @@ impl ID2D1DrawingStateBlock1_Vtbl {
         *iid == <ID2D1DrawingStateBlock1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1DrawingStateBlock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1Effect_Impl: Sized + ID2D1Properties_Impl {
     fn SetInput(&self, index: u32, input: ::core::option::Option<&ID2D1Image>, invalidate: super::super::Foundation::BOOL);
@@ -2196,7 +2193,7 @@ impl ID2D1Effect_Vtbl {
         *iid == <ID2D1Effect as ::windows_core::ComInterface>::IID || *iid == <ID2D1Properties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1EffectContext_Impl: Sized {
     fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32);
@@ -2444,7 +2441,7 @@ impl ID2D1EffectContext_Vtbl {
         *iid == <ID2D1EffectContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1EffectContext1_Impl: Sized + ID2D1EffectContext_Impl {
     fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32) -> ::windows_core::Result<ID2D1LookupTable3D>;
@@ -2471,7 +2468,7 @@ impl ID2D1EffectContext1_Vtbl {
         *iid == <ID2D1EffectContext1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1EffectContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1EffectContext2_Impl: Sized + ID2D1EffectContext1_Impl {
     fn CreateColorContextFromDxgiColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows_core::Result<ID2D1ColorContext1>;
@@ -2514,7 +2511,6 @@ impl ID2D1EffectContext2_Vtbl {
         *iid == <ID2D1EffectContext2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1EffectContext as ::windows_core::ComInterface>::IID || *iid == <ID2D1EffectContext1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1EffectImpl_Impl: Sized {
     fn Initialize(&self, effectcontext: ::core::option::Option<&ID2D1EffectContext>, transformgraph: ::core::option::Option<&ID2D1TransformGraph>) -> ::windows_core::Result<()>;
     fn PrepareForRender(&self, changetype: D2D1_CHANGE_TYPE) -> ::windows_core::Result<()>;
@@ -2549,7 +2545,7 @@ impl ID2D1EffectImpl_Vtbl {
         *iid == <ID2D1EffectImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1EllipseGeometry_Impl: Sized + ID2D1Geometry_Impl {
     fn GetEllipse(&self, ellipse: *mut D2D1_ELLIPSE) -> ();
@@ -2570,7 +2566,7 @@ impl ID2D1EllipseGeometry_Vtbl {
         *iid == <ID2D1EllipseGeometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1Factory_Impl: Sized {
     fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()>;
@@ -2757,7 +2753,7 @@ impl ID2D1Factory_Vtbl {
         *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory1_Impl: Sized + ID2D1Factory_Impl {
     fn CreateDevice(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device>;
@@ -2880,7 +2876,7 @@ impl ID2D1Factory1_Vtbl {
         *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory2_Impl: Sized + ID2D1Factory1_Impl {
     fn CreateDevice2(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device1>;
@@ -2907,7 +2903,7 @@ impl ID2D1Factory2_Vtbl {
         *iid == <ID2D1Factory2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory3_Impl: Sized + ID2D1Factory2_Impl {
     fn CreateDevice3(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device2>;
@@ -2934,7 +2930,7 @@ impl ID2D1Factory3_Vtbl {
         *iid == <ID2D1Factory3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory4_Impl: Sized + ID2D1Factory3_Impl {
     fn CreateDevice4(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device3>;
@@ -2961,7 +2957,7 @@ impl ID2D1Factory4_Vtbl {
         *iid == <ID2D1Factory4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory5_Impl: Sized + ID2D1Factory4_Impl {
     fn CreateDevice5(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device4>;
@@ -2988,7 +2984,7 @@ impl ID2D1Factory5_Vtbl {
         *iid == <ID2D1Factory5 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory6_Impl: Sized + ID2D1Factory5_Impl {
     fn CreateDevice6(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device5>;
@@ -3015,7 +3011,7 @@ impl ID2D1Factory6_Vtbl {
         *iid == <ID2D1Factory6 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`, `Win32_System_Com`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging", feature = "Win32_System_Com"))]
 pub trait ID2D1Factory7_Impl: Sized + ID2D1Factory6_Impl {
     fn CreateDevice7(&self, dxgidevice: ::core::option::Option<&super::Dxgi::IDXGIDevice>) -> ::windows_core::Result<ID2D1Device6>;
@@ -3042,7 +3038,7 @@ impl ID2D1Factory7_Vtbl {
         *iid == <ID2D1Factory7 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory2 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory3 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory4 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory5 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Factory6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait ID2D1GdiInteropRenderTarget_Impl: Sized {
     fn GetDC(&self, mode: D2D1_DC_INITIALIZE_MODE) -> ::windows_core::Result<super::Gdi::HDC>;
@@ -3079,7 +3075,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
         *iid == <ID2D1GdiInteropRenderTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GdiMetafile_Impl: Sized + ID2D1Resource_Impl {
     fn Stream(&self, sink: ::core::option::Option<&ID2D1GdiMetafileSink>) -> ::windows_core::Result<()>;
@@ -3116,7 +3112,7 @@ impl ID2D1GdiMetafile_Vtbl {
         *iid == <ID2D1GdiMetafile as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GdiMetafile1_Impl: Sized + ID2D1GdiMetafile_Impl {
     fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) -> ::windows_core::Result<()>;
@@ -3153,7 +3149,6 @@ impl ID2D1GdiMetafile1_Vtbl {
         *iid == <ID2D1GdiMetafile1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1GdiMetafile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1GdiMetafileSink_Impl: Sized {
     fn ProcessRecord(&self, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32) -> ::windows_core::Result<()>;
 }
@@ -3171,7 +3166,6 @@ impl ID2D1GdiMetafileSink_Vtbl {
         *iid == <ID2D1GdiMetafileSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1GdiMetafileSink1_Impl: Sized + ID2D1GdiMetafileSink_Impl {
     fn ProcessRecord2(&self, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32, flags: u32) -> ::windows_core::Result<()>;
 }
@@ -3189,7 +3183,7 @@ impl ID2D1GdiMetafileSink1_Vtbl {
         *iid == <ID2D1GdiMetafileSink1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1GdiMetafileSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1Geometry_Impl: Sized + ID2D1Resource_Impl {
     fn GetBounds(&self, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows_core::Result<Common::D2D_RECT_F>;
@@ -3339,7 +3333,7 @@ impl ID2D1Geometry_Vtbl {
         *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1GeometryGroup_Impl: Sized + ID2D1Geometry_Impl {
     fn GetFillMode(&self) -> Common::D2D1_FILL_MODE;
@@ -3377,7 +3371,6 @@ impl ID2D1GeometryGroup_Vtbl {
         *iid == <ID2D1GeometryGroup as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1GeometryRealization_Impl: Sized + ID2D1Resource_Impl {}
 impl ::windows_core::RuntimeName for ID2D1GeometryRealization {}
 impl ID2D1GeometryRealization_Vtbl {
@@ -3388,7 +3381,7 @@ impl ID2D1GeometryRealization_Vtbl {
         *iid == <ID2D1GeometryRealization as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GeometrySink_Impl: Sized + Common::ID2D1SimplifiedGeometrySink_Impl {
     fn AddLine(&self, point: &Common::D2D_POINT_2F);
@@ -3440,7 +3433,7 @@ impl ID2D1GeometrySink_Vtbl {
         *iid == <ID2D1GeometrySink as ::windows_core::ComInterface>::IID || *iid == <Common::ID2D1SimplifiedGeometrySink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GradientMesh_Impl: Sized + ID2D1Resource_Impl {
     fn GetPatchCount(&self) -> u32;
@@ -3471,7 +3464,7 @@ impl ID2D1GradientMesh_Vtbl {
         *iid == <ID2D1GradientMesh as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GradientStopCollection_Impl: Sized + ID2D1Resource_Impl {
     fn GetGradientStopCount(&self) -> u32;
@@ -3516,7 +3509,7 @@ impl ID2D1GradientStopCollection_Vtbl {
         *iid == <ID2D1GradientStopCollection as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1GradientStopCollection1_Impl: Sized + ID2D1GradientStopCollection_Impl {
     fn GetGradientStops1(&self, gradientstops: *mut D2D1_GRADIENT_STOP, gradientstopscount: u32);
@@ -3568,7 +3561,7 @@ impl ID2D1GradientStopCollection1_Vtbl {
         *iid == <ID2D1GradientStopCollection1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1GradientStopCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1HwndRenderTarget_Impl: Sized + ID2D1RenderTarget_Impl {
     fn CheckWindowState(&self) -> D2D1_WINDOW_STATE;
@@ -3606,7 +3599,6 @@ impl ID2D1HwndRenderTarget_Vtbl {
         *iid == <ID2D1HwndRenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1Image_Impl: Sized + ID2D1Resource_Impl {}
 impl ::windows_core::RuntimeName for ID2D1Image {}
 impl ID2D1Image_Vtbl {
@@ -3617,7 +3609,7 @@ impl ID2D1Image_Vtbl {
         *iid == <ID2D1Image as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1ImageBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetImage(&self, image: ::core::option::Option<&ID2D1Image>);
@@ -3704,7 +3696,7 @@ impl ID2D1ImageBrush_Vtbl {
         *iid == <ID2D1ImageBrush as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1ImageSource_Impl: Sized + ID2D1Image_Impl {
     fn OfferResources(&self) -> ::windows_core::Result<()>;
@@ -3741,7 +3733,7 @@ impl ID2D1ImageSource_Vtbl {
         *iid == <ID2D1ImageSource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Image as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1ImageSourceFromWic_Impl: Sized + ID2D1ImageSource_Impl {
     fn EnsureCached(&self, rectangletofill: *const Common::D2D_RECT_U) -> ::windows_core::Result<()>;
@@ -3779,7 +3771,7 @@ impl ID2D1ImageSourceFromWic_Vtbl {
         *iid == <ID2D1ImageSourceFromWic as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Image as ::windows_core::ComInterface>::IID || *iid == <ID2D1ImageSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1Ink_Impl: Sized + ID2D1Resource_Impl {
     fn SetStartPoint(&self, startpoint: *const D2D1_INK_POINT);
@@ -3872,7 +3864,7 @@ impl ID2D1Ink_Vtbl {
         *iid == <ID2D1Ink as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`"]
 #[cfg(feature = "Foundation_Numerics")]
 pub trait ID2D1InkStyle_Impl: Sized + ID2D1Resource_Impl {
     fn SetNibTransform(&self, transform: *const super::super::super::Foundation::Numerics::Matrix3x2);
@@ -3917,7 +3909,7 @@ impl ID2D1InkStyle_Vtbl {
         *iid == <ID2D1InkStyle as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1Layer_Impl: Sized + ID2D1Resource_Impl {
     fn GetSize(&self) -> Common::D2D_SIZE_F;
@@ -3938,7 +3930,7 @@ impl ID2D1Layer_Vtbl {
         *iid == <ID2D1Layer as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1LinearGradientBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetStartPoint(&self, startpoint: &Common::D2D_POINT_2F);
@@ -3990,7 +3982,6 @@ impl ID2D1LinearGradientBrush_Vtbl {
         *iid == <ID2D1LinearGradientBrush as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1LookupTable3D_Impl: Sized + ID2D1Resource_Impl {}
 impl ::windows_core::RuntimeName for ID2D1LookupTable3D {}
 impl ID2D1LookupTable3D_Vtbl {
@@ -4001,7 +3992,6 @@ impl ID2D1LookupTable3D_Vtbl {
         *iid == <ID2D1LookupTable3D as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1Mesh_Impl: Sized + ID2D1Resource_Impl {
     fn Open(&self) -> ::windows_core::Result<ID2D1TessellationSink>;
 }
@@ -4025,7 +4015,7 @@ impl ID2D1Mesh_Vtbl {
         *iid == <ID2D1Mesh as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1Multithread_Impl: Sized {
     fn GetMultithreadProtected(&self) -> super::super::Foundation::BOOL;
@@ -4063,7 +4053,7 @@ impl ID2D1Multithread_Vtbl {
         *iid == <ID2D1Multithread as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1OffsetTransform_Impl: Sized + ID2D1TransformNode_Impl {
     fn SetOffset(&self, offset: &super::super::Foundation::POINT);
@@ -4094,7 +4084,7 @@ impl ID2D1OffsetTransform_Vtbl {
         *iid == <ID2D1OffsetTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1PathGeometry_Impl: Sized + ID2D1Geometry_Impl {
     fn Open(&self) -> ::windows_core::Result<ID2D1GeometrySink>;
@@ -4157,7 +4147,7 @@ impl ID2D1PathGeometry_Vtbl {
         *iid == <ID2D1PathGeometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1PathGeometry1_Impl: Sized + ID2D1PathGeometry_Impl {
     fn ComputePointAndSegmentAtLength(&self, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> ::windows_core::Result<()>;
@@ -4181,7 +4171,7 @@ impl ID2D1PathGeometry1_Vtbl {
         *iid == <ID2D1PathGeometry1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1PathGeometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 pub trait ID2D1PrintControl_Impl: Sized {
     fn AddPage(&self, commandlist: ::core::option::Option<&ID2D1CommandList>, pagesize: &Common::D2D_SIZE_F, pageprintticketstream: ::core::option::Option<&super::super::System::Com::IStream>, tag1: *mut u64, tag2: *mut u64) -> ::windows_core::Result<()>;
@@ -4212,7 +4202,6 @@ impl ID2D1PrintControl_Vtbl {
         *iid == <ID2D1PrintControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1Properties_Impl: Sized {
     fn GetPropertyCount(&self) -> u32;
     fn GetPropertyName(&self, index: u32, name: ::windows_core::PWSTR, namecount: u32) -> ::windows_core::Result<()>;
@@ -4309,7 +4298,7 @@ impl ID2D1Properties_Vtbl {
         *iid == <ID2D1Properties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1RadialGradientBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetCenter(&self, center: &Common::D2D_POINT_2F);
@@ -4389,7 +4378,7 @@ impl ID2D1RadialGradientBrush_Vtbl {
         *iid == <ID2D1RadialGradientBrush as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1RectangleGeometry_Impl: Sized + ID2D1Geometry_Impl {
     fn GetRect(&self, rect: *mut Common::D2D_RECT_F) -> ();
@@ -4410,7 +4399,7 @@ impl ID2D1RectangleGeometry_Vtbl {
         *iid == <ID2D1RectangleGeometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1RenderInfo_Impl: Sized {
     fn SetInputDescription(&self, inputindex: u32, inputdescription: &D2D1_INPUT_DESCRIPTION) -> ::windows_core::Result<()>;
@@ -4455,7 +4444,7 @@ impl ID2D1RenderInfo_Vtbl {
         *iid == <ID2D1RenderInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"Win32_Graphics_Imaging\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`, `Win32_Graphics_DirectWrite`, `Win32_Graphics_Dxgi_Common`, `Win32_Graphics_Imaging`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
 pub trait ID2D1RenderTarget_Impl: Sized + ID2D1Resource_Impl {
     fn CreateBitmap(&self, size: &Common::D2D_SIZE_U, srcdata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES) -> ::windows_core::Result<ID2D1Bitmap>;
@@ -4903,7 +4892,6 @@ impl ID2D1RenderTarget_Vtbl {
         *iid == <ID2D1RenderTarget as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1Resource_Impl: Sized {
     fn GetFactory(&self, factory: *mut ::core::option::Option<ID2D1Factory>) -> ();
 }
@@ -4921,7 +4909,6 @@ impl ID2D1Resource_Vtbl {
         *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1ResourceTexture_Impl: Sized {
     fn Update(&self, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: *const u8, datacount: u32) -> ::windows_core::Result<()>;
 }
@@ -4939,7 +4926,7 @@ impl ID2D1ResourceTexture_Vtbl {
         *iid == <ID2D1ResourceTexture as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1RoundedRectangleGeometry_Impl: Sized + ID2D1Geometry_Impl {
     fn GetRoundedRect(&self, roundedrect: *mut D2D1_ROUNDED_RECT);
@@ -4960,7 +4947,7 @@ impl ID2D1RoundedRectangleGeometry_Vtbl {
         *iid == <ID2D1RoundedRectangleGeometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1SolidColorBrush_Impl: Sized + ID2D1Brush_Impl {
     fn SetColor(&self, color: *const Common::D2D1_COLOR_F);
@@ -4991,7 +4978,7 @@ impl ID2D1SolidColorBrush_Vtbl {
         *iid == <ID2D1SolidColorBrush as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Brush as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1SourceTransform_Impl: Sized + ID2D1Transform_Impl {
     fn SetRenderInfo(&self, renderinfo: ::core::option::Option<&ID2D1RenderInfo>) -> ::windows_core::Result<()>;
@@ -5022,7 +5009,7 @@ impl ID2D1SourceTransform_Vtbl {
         *iid == <ID2D1SourceTransform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID || *iid == <ID2D1Transform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1SpriteBatch_Impl: Sized + ID2D1Resource_Impl {
     fn AddSprites(&self, spritecount: u32, destinationrectangles: *const Common::D2D_RECT_F, sourcerectangles: *const Common::D2D_RECT_U, colors: *const Common::D2D1_COLOR_F, transforms: *const super::super::super::Foundation::Numerics::Matrix3x2, destinationrectanglesstride: u32, sourcerectanglesstride: u32, colorsstride: u32, transformsstride: u32) -> ::windows_core::Result<()>;
@@ -5075,7 +5062,6 @@ impl ID2D1SpriteBatch_Vtbl {
         *iid == <ID2D1SpriteBatch as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1StrokeStyle_Impl: Sized + ID2D1Resource_Impl {
     fn GetStartCap(&self) -> D2D1_CAP_STYLE;
     fn GetEndCap(&self) -> D2D1_CAP_STYLE;
@@ -5152,7 +5138,6 @@ impl ID2D1StrokeStyle_Vtbl {
         *iid == <ID2D1StrokeStyle as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1StrokeStyle1_Impl: Sized + ID2D1StrokeStyle_Impl {
     fn GetStrokeTransformType(&self) -> D2D1_STROKE_TRANSFORM_TYPE;
 }
@@ -5170,7 +5155,6 @@ impl ID2D1StrokeStyle1_Vtbl {
         *iid == <ID2D1StrokeStyle1 as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1StrokeStyle as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1SvgAttribute_Impl: Sized + ID2D1Resource_Impl {
     fn GetElement(&self, element: *mut ::core::option::Option<ID2D1SvgElement>) -> ();
     fn Clone(&self) -> ::windows_core::Result<ID2D1SvgAttribute>;
@@ -5204,7 +5188,7 @@ impl ID2D1SvgAttribute_Vtbl {
         *iid == <ID2D1SvgAttribute as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com"))]
 pub trait ID2D1SvgDocument_Impl: Sized + ID2D1Resource_Impl {
     fn SetViewportSize(&self, viewportsize: &Common::D2D_SIZE_F) -> ::windows_core::Result<()>;
@@ -5334,7 +5318,7 @@ impl ID2D1SvgDocument_Vtbl {
         *iid == <ID2D1SvgDocument as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1SvgElement_Impl: Sized + ID2D1Resource_Impl {
     fn GetDocument(&self, document: *mut ::core::option::Option<ID2D1SvgDocument>) -> ();
@@ -5585,7 +5569,6 @@ impl ID2D1SvgElement_Vtbl {
         *iid == <ID2D1SvgElement as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1SvgGlyphStyle_Impl: Sized + ID2D1Resource_Impl {
     fn SetFill(&self, brush: ::core::option::Option<&ID2D1Brush>) -> ::windows_core::Result<()>;
     fn GetFill(&self, brush: *mut ::core::option::Option<ID2D1Brush>) -> ();
@@ -5634,7 +5617,7 @@ impl ID2D1SvgGlyphStyle_Vtbl {
         *iid == <ID2D1SvgGlyphStyle as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1SvgPaint_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn SetPaintType(&self, painttype: D2D1_SVG_PAINT_TYPE) -> ::windows_core::Result<()>;
@@ -5700,7 +5683,7 @@ impl ID2D1SvgPaint_Vtbl {
         *iid == <ID2D1SvgPaint as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1SvgAttribute as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1SvgPathData_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn RemoveSegmentDataAtEnd(&self, datacount: u32) -> ::windows_core::Result<()>;
@@ -5786,7 +5769,7 @@ impl ID2D1SvgPathData_Vtbl {
         *iid == <ID2D1SvgPathData as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1SvgAttribute as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1SvgPointCollection_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn RemovePointsAtEnd(&self, pointscount: u32) -> ::windows_core::Result<()>;
@@ -5831,7 +5814,6 @@ impl ID2D1SvgPointCollection_Vtbl {
         *iid == <ID2D1SvgPointCollection as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1SvgAttribute as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1SvgStrokeDashArray_Impl: Sized + ID2D1SvgAttribute_Impl {
     fn RemoveDashesAtEnd(&self, dashescount: u32) -> ::windows_core::Result<()>;
     fn UpdateDashes(&self, dashes: *const D2D1_SVG_LENGTH, dashescount: u32, startindex: u32) -> ::windows_core::Result<()>;
@@ -5887,7 +5869,7 @@ impl ID2D1SvgStrokeDashArray_Vtbl {
         *iid == <ID2D1SvgStrokeDashArray as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1SvgAttribute as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct2D_Common`"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait ID2D1TessellationSink_Impl: Sized {
     fn AddTriangles(&self, triangles: *const D2D1_TRIANGLE, trianglescount: u32);
@@ -5918,7 +5900,7 @@ impl ID2D1TessellationSink_Vtbl {
         *iid == <ID2D1TessellationSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ID2D1Transform_Impl: Sized + ID2D1TransformNode_Impl {
     fn MapOutputRectToInputRects(&self, outputrect: *const super::super::Foundation::RECT, inputrects: *mut super::super::Foundation::RECT, inputrectscount: u32) -> ::windows_core::Result<()>;
@@ -5962,7 +5944,6 @@ impl ID2D1Transform_Vtbl {
         *iid == <ID2D1Transform as ::windows_core::ComInterface>::IID || *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1TransformGraph_Impl: Sized {
     fn GetInputCount(&self) -> u32;
     fn SetSingleTransformNode(&self, node: ::core::option::Option<&ID2D1TransformNode>) -> ::windows_core::Result<()>;
@@ -6039,7 +6020,6 @@ impl ID2D1TransformGraph_Vtbl {
         *iid == <ID2D1TransformGraph as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1TransformNode_Impl: Sized {
     fn GetInputCount(&self) -> u32;
 }
@@ -6057,7 +6037,7 @@ impl ID2D1TransformNode_Vtbl {
         *iid == <ID2D1TransformNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct2D_Common`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub trait ID2D1TransformedGeometry_Impl: Sized + ID2D1Geometry_Impl {
     fn GetSourceGeometry(&self, sourcegeometry: *mut ::core::option::Option<ID2D1Geometry>) -> ();
@@ -6088,7 +6068,6 @@ impl ID2D1TransformedGeometry_Vtbl {
         *iid == <ID2D1TransformedGeometry as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Geometry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1TransformedImageSource_Impl: Sized + ID2D1Image_Impl {
     fn GetSource(&self, imagesource: *mut ::core::option::Option<ID2D1ImageSource>) -> ();
     fn GetProperties(&self, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES);
@@ -6116,7 +6095,6 @@ impl ID2D1TransformedImageSource_Vtbl {
         *iid == <ID2D1TransformedImageSource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Resource as ::windows_core::ComInterface>::IID || *iid == <ID2D1Image as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"implement\"`*"]
 pub trait ID2D1VertexBuffer_Impl: Sized {
     fn Map(&self, data: *mut *mut u8, buffersize: u32) -> ::windows_core::Result<()>;
     fn Unmap(&self) -> ::windows_core::Result<()>;

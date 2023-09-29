@@ -87,14 +87,14 @@ pub struct IWalletManagerSystemStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
     RequestStoreAsync: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"deprecated\"`*"]
+#[doc = "Required features: `deprecated`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WalletItemSystemStore(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl WalletItemSystemStore {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetItemsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
         let this = self;
@@ -103,7 +103,7 @@ impl WalletItemSystemStore {
             (::windows_core::Interface::vtable(this).GetItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn DeleteAsync<P0>(&self, item: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -115,7 +115,7 @@ impl WalletItemSystemStore {
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ImportItemAsync<P0>(&self, stream: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>
     where
@@ -127,7 +127,7 @@ impl WalletItemSystemStore {
             (::windows_core::Interface::vtable(this).ImportItemAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
+    #[doc = "Required features: `deprecated`"]
     #[cfg(feature = "deprecated")]
     pub fn GetAppStatusForItem<P0>(&self, item: P0) -> ::windows_core::Result<WalletItemAppAssociation>
     where
@@ -139,7 +139,7 @@ impl WalletItemSystemStore {
             (::windows_core::Interface::vtable(this).GetAppStatusForItem)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn LaunchAppForItemAsync<P0>(&self, item: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -151,7 +151,7 @@ impl WalletItemSystemStore {
             (::windows_core::Interface::vtable(this).LaunchAppForItemAsync)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ItemsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -163,7 +163,7 @@ impl WalletItemSystemStore {
             (::windows_core::Interface::vtable(this).ItemsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveItemsChanged(&self, cookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IWalletItemSystemStore2>(self)?;
@@ -192,12 +192,12 @@ impl ::windows_core::RuntimeName for WalletItemSystemStore {
 unsafe impl ::core::marker::Send for WalletItemSystemStore {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
-#[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"deprecated\"`*"]
+#[doc = "Required features: `deprecated`"]
 #[cfg(feature = "deprecated")]
 pub struct WalletManagerSystem;
 #[cfg(feature = "deprecated")]
 impl WalletManagerSystem {
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
+    #[doc = "Required features: `Foundation`, `deprecated`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestStoreAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>> {
         Self::IWalletManagerSystemStatics(|this| unsafe {
@@ -216,7 +216,7 @@ impl WalletManagerSystem {
 impl ::windows_core::RuntimeName for WalletManagerSystem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletManagerSystem";
 }
-#[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"deprecated\"`*"]
+#[doc = "Required features: `deprecated`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

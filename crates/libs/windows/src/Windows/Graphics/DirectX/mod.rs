@@ -1,6 +1,6 @@
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
+#[doc = "Required features: `Graphics_DirectX_Direct3D11`"]
 pub mod Direct3D11;
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXAlphaMode(pub i32);
@@ -32,7 +32,6 @@ impl ::core::fmt::Debug for DirectXAlphaMode {
 impl ::windows_core::RuntimeType for DirectXAlphaMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXAlphaMode;i4)");
 }
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXColorSpace(pub i32);
@@ -85,7 +84,6 @@ impl ::core::fmt::Debug for DirectXColorSpace {
 impl ::windows_core::RuntimeType for DirectXColorSpace {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXColorSpace;i4)");
 }
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXPixelFormat(pub i32);
@@ -234,7 +232,6 @@ impl ::core::fmt::Debug for DirectXPixelFormat {
 impl ::windows_core::RuntimeType for DirectXPixelFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPixelFormat;i4)");
 }
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXPrimitiveTopology(pub i32);

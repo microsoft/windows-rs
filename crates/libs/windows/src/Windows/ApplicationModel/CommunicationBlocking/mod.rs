@@ -64,7 +64,6 @@ pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RequestSetAsActiveBlockingAppAsync: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
 pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
     pub fn IsBlockingActive() -> ::windows_core::Result<bool> {
@@ -73,7 +72,7 @@ impl CommunicationBlockingAccessManager {
             (::windows_core::Interface::vtable(this).IsBlockingActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn IsBlockedNumberAsync(number: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
@@ -81,7 +80,7 @@ impl CommunicationBlockingAccessManager {
             (::windows_core::Interface::vtable(this).IsBlockedNumberAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowBlockNumbersUI<P0>(phonenumbers: P0) -> ::windows_core::Result<bool>
     where
@@ -92,7 +91,7 @@ impl CommunicationBlockingAccessManager {
             (::windows_core::Interface::vtable(this).ShowBlockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> ::windows_core::Result<bool>
     where
@@ -118,7 +117,6 @@ impl CommunicationBlockingAccessManager {
 impl ::windows_core::RuntimeName for CommunicationBlockingAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
 pub struct CommunicationBlockingAppManager;
 impl CommunicationBlockingAppManager {
     pub fn IsCurrentAppActiveBlockingApp() -> ::windows_core::Result<bool> {
@@ -130,7 +128,7 @@ impl CommunicationBlockingAppManager {
     pub fn ShowCommunicationBlockingSettingsUI() -> ::windows_core::Result<()> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowCommunicationBlockingSettingsUI)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetAsActiveBlockingAppAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {

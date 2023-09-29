@@ -1,9 +1,8 @@
-#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadialControllerConfigurationInterop(::windows_core::IUnknown);
 impl IRadialControllerConfigurationInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, hwnd: P0) -> ::windows_core::Result<T>
     where
@@ -30,12 +29,11 @@ pub struct IRadialControllerConfigurationInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadialControllerIndependentInputSourceInterop(::windows_core::IUnknown);
 impl IRadialControllerIndependentInputSourceInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<P0, T>(&self, hwnd: P0) -> ::windows_core::Result<T>
     where
@@ -62,12 +60,11 @@ pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Radial\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadialControllerInterop(::windows_core::IUnknown);
 impl IRadialControllerInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<P0, T>(&self, hwnd: P0) -> ::windows_core::Result<T>
     where

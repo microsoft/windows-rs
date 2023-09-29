@@ -930,12 +930,11 @@ pub struct IPrinting3DTextureResource_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DManager(::windows_core::IUnknown);
 impl Print3DManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TaskRequested<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -947,7 +946,7 @@ impl Print3DManager {
             (::windows_core::Interface::vtable(this).TaskRequested)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTaskRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -959,7 +958,7 @@ impl Print3DManager {
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowPrintUIAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPrint3DManagerStatics(|this| unsafe {
@@ -988,7 +987,6 @@ impl ::windows_core::RuntimeName for Print3DManager {
 ::windows_core::imp::interface_hierarchy!(Print3DManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DManager {}
 unsafe impl ::core::marker::Sync for Print3DManager {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTask(::windows_core::IUnknown);
@@ -1000,7 +998,7 @@ impl Print3DTask {
             (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Submitting<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1012,13 +1010,13 @@ impl Print3DTask {
             (::windows_core::Interface::vtable(this).Submitting)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubmitting(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSubmitting)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1030,13 +1028,13 @@ impl Print3DTask {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompleted)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SourceChanged<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1048,7 +1046,7 @@ impl Print3DTask {
             (::windows_core::Interface::vtable(this).SourceChanged)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1070,7 +1068,6 @@ impl ::windows_core::RuntimeName for Print3DTask {
 ::windows_core::imp::interface_hierarchy!(Print3DTask, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTask {}
 unsafe impl ::core::marker::Sync for Print3DTask {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskCompletedEventArgs(::windows_core::IUnknown);
@@ -1105,7 +1102,6 @@ impl ::windows_core::RuntimeName for Print3DTaskCompletedEventArgs {
 ::windows_core::imp::interface_hierarchy!(Print3DTaskCompletedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskRequest(::windows_core::IUnknown);
@@ -1136,7 +1132,6 @@ impl ::windows_core::RuntimeName for Print3DTaskRequest {
 ::windows_core::imp::interface_hierarchy!(Print3DTaskRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequest {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequest {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskRequestedEventArgs(::windows_core::IUnknown);
@@ -1164,7 +1159,6 @@ impl ::windows_core::RuntimeName for Print3DTaskRequestedEventArgs {
 ::windows_core::imp::interface_hierarchy!(Print3DTaskRequestedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequestedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskSourceChangedEventArgs(::windows_core::IUnknown);
@@ -1192,7 +1186,6 @@ impl ::windows_core::RuntimeName for Print3DTaskSourceChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(Print3DTaskSourceChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceChangedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskSourceRequestedArgs(::windows_core::IUnknown);
@@ -1220,7 +1213,6 @@ impl ::windows_core::RuntimeName for Print3DTaskSourceRequestedArgs {
 ::windows_core::imp::interface_hierarchy!(Print3DTaskSourceRequestedArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3D3MFPackage(::windows_core::IUnknown);
@@ -1232,7 +1224,7 @@ impl Printing3D3MFPackage {
         static SHARED: ::windows_core::imp::FactoryCache<Printing3D3MFPackage, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>> {
         let this = self;
@@ -1241,7 +1233,7 @@ impl Printing3D3MFPackage {
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PrintTicket(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -1250,7 +1242,7 @@ impl Printing3D3MFPackage {
             (::windows_core::Interface::vtable(this).PrintTicket)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPrintTicket<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1259,7 +1251,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPrintTicket)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ModelPart(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -1268,7 +1260,7 @@ impl Printing3D3MFPackage {
             (::windows_core::Interface::vtable(this).ModelPart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetModelPart<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1291,7 +1283,7 @@ impl Printing3D3MFPackage {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetThumbnail)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Textures(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTextureResource>> {
         let this = self;
@@ -1300,7 +1292,7 @@ impl Printing3D3MFPackage {
             (::windows_core::Interface::vtable(this).Textures)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadModelFromPackageAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3DModel>>
     where
@@ -1312,7 +1304,7 @@ impl Printing3D3MFPackage {
             (::windows_core::Interface::vtable(this).LoadModelFromPackageAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SaveModelToPackageAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1335,7 +1327,7 @@ impl Printing3D3MFPackage {
         let this = &::windows_core::ComInterface::cast::<IPrinting3D3MFPackage2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCompression)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadAsync<P0>(value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3D3MFPackage>>
     where
@@ -1367,7 +1359,6 @@ impl ::windows_core::RuntimeName for Printing3D3MFPackage {
 ::windows_core::imp::interface_hierarchy!(Printing3D3MFPackage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3D3MFPackage {}
 unsafe impl ::core::marker::Sync for Printing3D3MFPackage {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DBaseMaterial(::windows_core::IUnknown);
@@ -1437,12 +1428,11 @@ impl ::windows_core::RuntimeName for Printing3DBaseMaterial {
 ::windows_core::imp::interface_hierarchy!(Printing3DBaseMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterial {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DBaseMaterialGroup(::windows_core::IUnknown);
 impl Printing3DBaseMaterialGroup {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Bases(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterial>> {
         let this = self;
@@ -1485,7 +1475,6 @@ impl ::windows_core::RuntimeName for Printing3DBaseMaterialGroup {
 ::windows_core::imp::interface_hierarchy!(Printing3DBaseMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DColorMaterial(::windows_core::IUnknown);
@@ -1508,7 +1497,7 @@ impl Printing3DColorMaterial {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn Color(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = &::windows_core::ComInterface::cast::<IPrinting3DColorMaterial2>(self)?;
@@ -1517,7 +1506,7 @@ impl Printing3DColorMaterial {
             (::windows_core::Interface::vtable(this).Color)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn SetColor(&self, value: super::super::UI::Color) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IPrinting3DColorMaterial2>(self)?;
@@ -1539,12 +1528,11 @@ impl ::windows_core::RuntimeName for Printing3DColorMaterial {
 ::windows_core::imp::interface_hierarchy!(Printing3DColorMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterial {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DColorMaterialGroup(::windows_core::IUnknown);
 impl Printing3DColorMaterialGroup {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Colors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterial>> {
         let this = self;
@@ -1587,7 +1575,6 @@ impl ::windows_core::RuntimeName for Printing3DColorMaterialGroup {
 ::windows_core::imp::interface_hierarchy!(Printing3DColorMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DColorMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterialGroup {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DComponent(::windows_core::IUnknown);
@@ -1613,7 +1600,7 @@ impl Printing3DComponent {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetMesh)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Components(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DComponentWithMatrix>> {
         let this = self;
@@ -1685,7 +1672,6 @@ impl ::windows_core::RuntimeName for Printing3DComponent {
 ::windows_core::imp::interface_hierarchy!(Printing3DComponent, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponent {}
 unsafe impl ::core::marker::Sync for Printing3DComponent {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DComponentWithMatrix(::windows_core::IUnknown);
@@ -1711,7 +1697,7 @@ impl Printing3DComponentWithMatrix {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetComponent)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Matrix(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
@@ -1720,7 +1706,7 @@ impl Printing3DComponentWithMatrix {
             (::windows_core::Interface::vtable(this).Matrix)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         let this = self;
@@ -1742,7 +1728,6 @@ impl ::windows_core::RuntimeName for Printing3DComponentWithMatrix {
 ::windows_core::imp::interface_hierarchy!(Printing3DComponentWithMatrix, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DComponentWithMatrix {}
 unsafe impl ::core::marker::Sync for Printing3DComponentWithMatrix {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DCompositeMaterial(::windows_core::IUnknown);
@@ -1754,7 +1739,7 @@ impl Printing3DCompositeMaterial {
         static SHARED: ::windows_core::imp::FactoryCache<Printing3DCompositeMaterial, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Values(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<f64>> {
         let this = self;
@@ -1779,12 +1764,11 @@ impl ::windows_core::RuntimeName for Printing3DCompositeMaterial {
 ::windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterial {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DCompositeMaterialGroup(::windows_core::IUnknown);
 impl Printing3DCompositeMaterialGroup {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Composites(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterial>> {
         let this = self;
@@ -1800,7 +1784,7 @@ impl Printing3DCompositeMaterialGroup {
             (::windows_core::Interface::vtable(this).MaterialGroupId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MaterialIndices(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
@@ -1850,7 +1834,6 @@ impl ::windows_core::RuntimeName for Printing3DCompositeMaterialGroup {
 ::windows_core::imp::interface_hierarchy!(Printing3DCompositeMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterialGroup {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DFaceReductionOptions(::windows_core::IUnknown);
@@ -1911,7 +1894,6 @@ impl ::windows_core::RuntimeName for Printing3DFaceReductionOptions {
 ::windows_core::imp::interface_hierarchy!(Printing3DFaceReductionOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DFaceReductionOptions {}
 unsafe impl ::core::marker::Sync for Printing3DFaceReductionOptions {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMaterial(::windows_core::IUnknown);
@@ -1923,7 +1905,7 @@ impl Printing3DMaterial {
         static SHARED: ::windows_core::imp::FactoryCache<Printing3DMaterial, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BaseGroups(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DBaseMaterialGroup>> {
         let this = self;
@@ -1932,7 +1914,7 @@ impl Printing3DMaterial {
             (::windows_core::Interface::vtable(this).BaseGroups)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ColorGroups(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DColorMaterialGroup>> {
         let this = self;
@@ -1941,7 +1923,7 @@ impl Printing3DMaterial {
             (::windows_core::Interface::vtable(this).ColorGroups)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Texture2CoordGroups(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterialGroup>> {
         let this = self;
@@ -1950,7 +1932,7 @@ impl Printing3DMaterial {
             (::windows_core::Interface::vtable(this).Texture2CoordGroups)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CompositeGroups(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DCompositeMaterialGroup>> {
         let this = self;
@@ -1959,7 +1941,7 @@ impl Printing3DMaterial {
             (::windows_core::Interface::vtable(this).CompositeGroups)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MultiplePropertyGroups(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterialGroup>> {
         let this = self;
@@ -1984,7 +1966,6 @@ impl ::windows_core::RuntimeName for Printing3DMaterial {
 ::windows_core::imp::interface_hierarchy!(Printing3DMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMaterial {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMesh(::windows_core::IUnknown);
@@ -2062,7 +2043,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTriangleMaterialIndicesDescription)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetVertexPositions(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2075,7 +2056,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CreateVertexPositions)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetVertexNormals(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2088,7 +2069,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CreateVertexNormals)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTriangleIndices(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2101,7 +2082,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CreateTriangleIndices)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTriangleMaterialIndices(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2114,7 +2095,7 @@ impl Printing3DMesh {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CreateTriangleMaterialIndices)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BufferDescriptionSet(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -2123,7 +2104,7 @@ impl Printing3DMesh {
             (::windows_core::Interface::vtable(this).BufferDescriptionSet)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BufferSet(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
@@ -2132,7 +2113,7 @@ impl Printing3DMesh {
             (::windows_core::Interface::vtable(this).BufferSet)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn VerifyAsync(&self, value: Printing3DMeshVerificationMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Printing3DMeshVerificationResult>> {
         let this = self;
@@ -2157,7 +2138,6 @@ impl ::windows_core::RuntimeName for Printing3DMesh {
 ::windows_core::imp::interface_hierarchy!(Printing3DMesh, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMeshVerificationResult(::windows_core::IUnknown);
@@ -2169,7 +2149,7 @@ impl Printing3DMeshVerificationResult {
             (::windows_core::Interface::vtable(this).IsValid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NonmanifoldTriangles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -2178,7 +2158,7 @@ impl Printing3DMeshVerificationResult {
             (::windows_core::Interface::vtable(this).NonmanifoldTriangles)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReversedNormalTriangles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -2203,7 +2183,6 @@ impl ::windows_core::RuntimeName for Printing3DMeshVerificationResult {
 ::windows_core::imp::interface_hierarchy!(Printing3DMeshVerificationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMeshVerificationResult {}
 unsafe impl ::core::marker::Sync for Printing3DMeshVerificationResult {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DModel(::windows_core::IUnknown);
@@ -2226,7 +2205,7 @@ impl Printing3DModel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUnit)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Textures(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DModelTexture>> {
         let this = self;
@@ -2235,7 +2214,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).Textures)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Meshes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DMesh>> {
         let this = self;
@@ -2244,7 +2223,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).Meshes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Components(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DComponent>> {
         let this = self;
@@ -2292,7 +2271,7 @@ impl Printing3DModel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetVersion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequiredExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -2301,7 +2280,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).RequiredExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Metadata(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMap<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
@@ -2310,7 +2289,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).Metadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RepairAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2326,7 +2305,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).Clone)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryPartialRepairAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
@@ -2335,7 +2314,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).TryPartialRepairAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryPartialRepairWithTimeAsync(&self, maxwaittime: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
@@ -2344,7 +2323,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).TryPartialRepairWithTimeAsync)(::windows_core::Interface::as_raw(this), maxwaittime, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryReduceFacesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
         let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
@@ -2353,7 +2332,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).TryReduceFacesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryReduceFacesWithOptionsAsync<P0>(&self, printing3dfacereductionoptions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>
     where
@@ -2365,7 +2344,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAsync)(::windows_core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryReduceFacesWithOptionsAndTimeAsync<P0>(&self, printing3dfacereductionoptions: P0, maxwait: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>>
     where
@@ -2377,7 +2356,7 @@ impl Printing3DModel {
             (::windows_core::Interface::vtable(this).TryReduceFacesWithOptionsAndTimeAsync)(::windows_core::Interface::as_raw(this), printing3dfacereductionoptions.into_param().abi(), maxwait, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RepairWithProgressAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, f64>> {
         let this = &::windows_core::ComInterface::cast::<IPrinting3DModel2>(self)?;
@@ -2402,7 +2381,6 @@ impl ::windows_core::RuntimeName for Printing3DModel {
 ::windows_core::imp::interface_hierarchy!(Printing3DModel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModel {}
 unsafe impl ::core::marker::Sync for Printing3DModel {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DModelTexture(::windows_core::IUnknown);
@@ -2466,7 +2444,6 @@ impl ::windows_core::RuntimeName for Printing3DModelTexture {
 ::windows_core::imp::interface_hierarchy!(Printing3DModelTexture, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMultiplePropertyMaterial(::windows_core::IUnknown);
@@ -2478,7 +2455,7 @@ impl Printing3DMultiplePropertyMaterial {
         static SHARED: ::windows_core::imp::FactoryCache<Printing3DMultiplePropertyMaterial, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MaterialIndices(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
@@ -2503,12 +2480,11 @@ impl ::windows_core::RuntimeName for Printing3DMultiplePropertyMaterial {
 ::windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterial {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DMultiplePropertyMaterialGroup(::windows_core::IUnknown);
 impl Printing3DMultiplePropertyMaterialGroup {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MultipleProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DMultiplePropertyMaterial>> {
         let this = self;
@@ -2517,7 +2493,7 @@ impl Printing3DMultiplePropertyMaterialGroup {
             (::windows_core::Interface::vtable(this).MultipleProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MaterialGroupIndices(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
@@ -2560,7 +2536,6 @@ impl ::windows_core::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
 ::windows_core::imp::interface_hierarchy!(Printing3DMultiplePropertyMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DTexture2CoordMaterial(::windows_core::IUnknown);
@@ -2624,12 +2599,11 @@ impl ::windows_core::RuntimeName for Printing3DTexture2CoordMaterial {
 ::windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterial, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterial {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DTexture2CoordMaterialGroup(::windows_core::IUnknown);
 impl Printing3DTexture2CoordMaterialGroup {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Texture2Coords(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<Printing3DTexture2CoordMaterial>> {
         let this = self;
@@ -2686,7 +2660,6 @@ impl ::windows_core::RuntimeName for Printing3DTexture2CoordMaterialGroup {
 ::windows_core::imp::interface_hierarchy!(Printing3DTexture2CoordMaterialGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Printing3DTextureResource(::windows_core::IUnknown);
@@ -2698,7 +2671,7 @@ impl Printing3DTextureResource {
         static SHARED: ::windows_core::imp::FactoryCache<Printing3DTextureResource, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn TextureData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -2707,7 +2680,7 @@ impl Printing3DTextureResource {
             (::windows_core::Interface::vtable(this).TextureData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextureData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2743,7 +2716,6 @@ impl ::windows_core::RuntimeName for Printing3DTextureResource {
 ::windows_core::imp::interface_hierarchy!(Printing3DTextureResource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Printing3DTextureResource {}
 unsafe impl ::core::marker::Sync for Printing3DTextureResource {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Print3DTaskCompletion(pub i32);
@@ -2776,7 +2748,6 @@ impl ::core::fmt::Debug for Print3DTaskCompletion {
 impl ::windows_core::RuntimeType for Print3DTaskCompletion {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Print3DTaskDetail(pub i32);
@@ -2811,7 +2782,6 @@ impl ::core::fmt::Debug for Print3DTaskDetail {
 impl ::windows_core::RuntimeType for Print3DTaskDetail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DBufferFormat(pub i32);
@@ -2846,7 +2816,6 @@ impl ::core::fmt::Debug for Printing3DBufferFormat {
 impl ::windows_core::RuntimeType for Printing3DBufferFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DMeshVerificationMode(pub i32);
@@ -2876,7 +2845,6 @@ impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
 impl ::windows_core::RuntimeType for Printing3DMeshVerificationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DModelUnit(pub i32);
@@ -2910,7 +2878,6 @@ impl ::core::fmt::Debug for Printing3DModelUnit {
 impl ::windows_core::RuntimeType for Printing3DModelUnit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DObjectType(pub i32);
@@ -2941,7 +2908,6 @@ impl ::core::fmt::Debug for Printing3DObjectType {
 impl ::windows_core::RuntimeType for Printing3DObjectType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DPackageCompression(pub i32);
@@ -2972,7 +2938,6 @@ impl ::core::fmt::Debug for Printing3DPackageCompression {
 impl ::windows_core::RuntimeType for Printing3DPackageCompression {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
@@ -3005,7 +2970,6 @@ impl ::windows_core::RuntimeType for Printing3DTextureEdgeBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 pub struct Printing3DBufferDescription {
     pub Format: Printing3DBufferFormat,
     pub Stride: u32,
@@ -3038,7 +3002,6 @@ impl ::core::default::Default for Printing3DBufferDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DTaskSourceRequestedHandler(pub ::windows_core::IUnknown);

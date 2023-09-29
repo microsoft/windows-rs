@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintCustomOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn SetDisplayName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -35,7 +34,7 @@ impl IPrintCustomOptionDetails_Vtbl {
         *iid == <IPrintCustomOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintItemListOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>;
@@ -65,7 +64,6 @@ impl IPrintItemListOptionDetails_Vtbl {
         *iid == <IPrintItemListOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintNumberOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn MinValue(&self) -> ::windows_core::Result<u32>;
     fn MaxValue(&self) -> ::windows_core::Result<u32>;
@@ -107,7 +105,6 @@ impl IPrintNumberOptionDetails_Vtbl {
         *iid == <IPrintNumberOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintOptionDetails_Impl: Sized {
     fn OptionId(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn OptionType(&self) -> ::windows_core::Result<PrintOptionType>;
@@ -218,7 +215,6 @@ impl IPrintOptionDetails_Vtbl {
         *iid == <IPrintOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`, `\"implement\"`*"]
 pub trait IPrintTextOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn MaxCharacters(&self) -> ::windows_core::Result<u32>;
 }

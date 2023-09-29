@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_BeginEvent<P0>(col: u32, wszname: P0) -> i32
 where
@@ -7,26 +6,23 @@ where
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_BeginEvent(col : u32, wszname : ::windows_core::PCWSTR) -> i32);
     D3DPERF_BeginEvent(col, wszname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_EndEvent() -> i32 {
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_EndEvent() -> i32);
     D3DPERF_EndEvent()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_GetStatus() -> u32 {
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_GetStatus() -> u32);
     D3DPERF_GetStatus()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation:: BOOL);
     D3DPERF_QueryRepeatFrame()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetMarker<P0>(col: u32, wszname: P0)
 where
@@ -35,13 +31,11 @@ where
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetMarker(col : u32, wszname : ::windows_core::PCWSTR) -> ());
     D3DPERF_SetMarker(col, wszname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetOptions(dwoptions : u32) -> ());
     D3DPERF_SetOptions(dwoptions)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn D3DPERF_SetRegion<P0>(col: u32, wszname: P0)
 where
@@ -50,20 +44,17 @@ where
     ::windows_targets::link!("d3d9.dll" "system" fn D3DPERF_SetRegion(col : u32, wszname : ::windows_core::PCWSTR) -> ());
     D3DPERF_SetRegion(col, wszname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect3D9> {
     ::windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9(sdkversion : u32) -> ::core::option::Option < IDirect3D9 >);
     Direct3DCreate9(sdkversion)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows_core::Result<IDirect3D9Ex> {
     ::windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     Direct3DCreate9Ex(sdkversion, &mut result__).from_abi(result__)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D9(::windows_core::IUnknown);
@@ -86,7 +77,7 @@ impl IDirect3D9 {
     pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterDisplayMode)(::windows_core::Interface::as_raw(self), adapter, pmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceType<P0>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: P0) -> ::windows_core::Result<()>
     where
@@ -97,7 +88,7 @@ impl IDirect3D9 {
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CheckDeviceFormat)(::windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceMultiSampleType<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: P0, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> ::windows_core::Result<()>
     where
@@ -114,12 +105,12 @@ impl IDirect3D9 {
     pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDeviceCaps)(::windows_core::Interface::as_raw(self), adapter, devicetype, pcaps).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         (::windows_core::Interface::vtable(self).GetAdapterMonitor)(::windows_core::Interface::as_raw(self), adapter)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDevice<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows_core::Result<()>
     where
@@ -166,7 +157,6 @@ pub struct IDirect3D9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateDevice: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D9Ex(::windows_core::IUnknown);
@@ -189,7 +179,7 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetAdapterDisplayMode)(::windows_core::Interface::as_raw(self), adapter, pmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceType<P0>(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: P0) -> ::windows_core::Result<()>
     where
@@ -200,7 +190,7 @@ impl IDirect3D9Ex {
     pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CheckDeviceFormat)(::windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceMultiSampleType<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: P0, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> ::windows_core::Result<()>
     where
@@ -217,12 +207,12 @@ impl IDirect3D9Ex {
     pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDeviceCaps)(::windows_core::Interface::as_raw(self), adapter, devicetype, pcaps).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::Gdi::HMONITOR {
         (::windows_core::Interface::vtable(self).base__.GetAdapterMonitor)(::windows_core::Interface::as_raw(self), adapter)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDevice<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows_core::Result<()>
     where
@@ -239,7 +229,7 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterDisplayModeEx)(::windows_core::Interface::as_raw(self), adapter, pmode, protation).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDeviceEx<P0>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: P0, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows_core::Result<()>
     where
@@ -247,7 +237,7 @@ impl IDirect3D9Ex {
     {
         (::windows_core::Interface::vtable(self).CreateDeviceEx)(::windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow.into_param().abi(), behaviorflags, ppresentationparameters, pfullscreendisplaymode, ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAdapterLUID)(::windows_core::Interface::as_raw(self), adapter, pluid).ok()
@@ -276,7 +266,6 @@ pub struct IDirect3D9Ex_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetAdapterLUID: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DBaseTexture9(::windows_core::IUnknown);
@@ -343,7 +332,6 @@ pub struct IDirect3DBaseTexture9_Vtbl {
     pub GetAutoGenFilterType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3DTEXTUREFILTERTYPE,
     pub GenerateMipSubLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DCubeTexture9(::windows_core::IUnknown);
@@ -398,7 +386,7 @@ impl IDirect3DCubeTexture9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCubeMapSurface)(::windows_core::Interface::as_raw(self), facetype, level, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRect)(::windows_core::Interface::as_raw(self), facetype, level, plockedrect, prect, flags).ok()
@@ -406,7 +394,7 @@ impl IDirect3DCubeTexture9 {
     pub unsafe fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRect)(::windows_core::Interface::as_raw(self), facetype, level).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDirtyRect)(::windows_core::Interface::as_raw(self), facetype, pdirtyrect).ok()
@@ -435,7 +423,6 @@ pub struct IDirect3DCubeTexture9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddDirtyRect: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DDevice9(::windows_core::IUnknown);
@@ -459,7 +446,7 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), iswapchain, pmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCreationParameters)(::windows_core::Interface::as_raw(self), pparameters).ok()
@@ -473,7 +460,7 @@ impl IDirect3DDevice9 {
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         (::windows_core::Interface::vtable(self).SetCursorPosition)(::windows_core::Interface::as_raw(self), x, y, flags)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCursor<P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
     where
@@ -481,7 +468,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).ShowCursor)(::windows_core::Interface::as_raw(self), bshow.into_param().abi())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::core::option::Option<IDirect3DSwapChain9>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateAdditionalSwapChain)(::windows_core::Interface::as_raw(self), ppresentationparameters, ::core::mem::transmute(pswapchain)).ok()
@@ -493,12 +480,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetNumberOfSwapChains)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows_core::Result<()>
     where
@@ -510,12 +497,12 @@ impl IDirect3DDevice9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackBuffer)(::windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRasterStatus)(::windows_core::Interface::as_raw(self), iswapchain, prasterstatus).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDialogBoxMode<P0>(&self, benabledialogs: P0) -> ::windows_core::Result<()>
     where
@@ -529,32 +516,32 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         (::windows_core::Interface::vtable(self).GetGammaRamp)(::windows_core::Interface::as_raw(self), iswapchain, pramp)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateTexture)(::windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, ::core::mem::transmute(pptexture), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateVolumeTexture)(::windows_core::Interface::as_raw(self), width, height, depth, levels, usage, format, pool, ::core::mem::transmute(ppvolumetexture), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateCubeTexture)(::windows_core::Interface::as_raw(self), edgelength, levels, usage, format, pool, ::core::mem::transmute(ppcubetexture), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateVertexBuffer)(::windows_core::Interface::as_raw(self), length, usage, fvf, pool, ::core::mem::transmute(ppvertexbuffer), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateIndexBuffer)(::windows_core::Interface::as_raw(self), length, usage, format, pool, ::core::mem::transmute(ppindexbuffer), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTarget<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -562,7 +549,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).CreateRenderTarget)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurface<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -570,7 +557,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).CreateDepthStencilSurface)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateSurface<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> ::windows_core::Result<()>
     where
@@ -599,7 +586,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).GetFrontBufferData)(::windows_core::Interface::as_raw(self), iswapchain, pdestsurface.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StretchRect<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows_core::Result<()>
     where
@@ -608,7 +595,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).StretchRect)(::windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestsurface.into_param().abi(), pdestrect, filter).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorFill<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows_core::Result<()>
     where
@@ -616,7 +603,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).ColorFill)(::windows_core::Interface::as_raw(self), psurface.into_param().abi(), prect, color).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateOffscreenPlainSurface)(::windows_core::Interface::as_raw(self), width, height, format, pool, ::core::mem::transmute(ppsurface), psharedhandle).ok()
@@ -650,17 +637,17 @@ impl IDirect3DDevice9 {
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Clear)(::windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil).ok()
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MultiplyTransform)(::windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -677,17 +664,17 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaterial)(::windows_core::Interface::as_raw(self), pmaterial).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LightEnable<P0>(&self, index: u32, enable: P0) -> ::windows_core::Result<()>
     where
@@ -695,7 +682,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).LightEnable)(::windows_core::Interface::as_raw(self), index, enable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLightEnable)(::windows_core::Interface::as_raw(self), index, penable).ok()
@@ -754,12 +741,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn ValidateDevice(&self, pnumpasses: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ValidateDevice)(::windows_core::Interface::as_raw(self), pnumpasses).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetPaletteEntries(&self, palettenumber: u32, pentries: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
@@ -770,17 +757,17 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetCurrentTexturePalette(&self, palettenumber: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentTexturePalette)(::windows_core::Interface::as_raw(self), palettenumber).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScissorRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScissorRect(&self, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSoftwareVertexProcessing<P0>(&self, bsoftware: P0) -> ::windows_core::Result<()>
     where
@@ -788,7 +775,7 @@ impl IDirect3DDevice9 {
     {
         (::windows_core::Interface::vtable(self).SetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self), bsoftware.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).GetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self))
@@ -864,12 +851,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVertexShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -925,12 +912,12 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPixelShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -1182,7 +1169,6 @@ pub struct IDirect3DDevice9_Vtbl {
     pub DeletePatch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u32) -> ::windows_core::HRESULT,
     pub CreateQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: D3DQUERYTYPE, ppquery: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DDevice9Ex(::windows_core::IUnknown);
@@ -1206,7 +1192,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetDisplayMode(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDisplayMode)(::windows_core::Interface::as_raw(self), iswapchain, pmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCreationParameters(&self, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCreationParameters)(::windows_core::Interface::as_raw(self), pparameters).ok()
@@ -1220,7 +1206,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn SetCursorPosition(&self, x: i32, y: i32, flags: u32) {
         (::windows_core::Interface::vtable(self).base__.SetCursorPosition)(::windows_core::Interface::as_raw(self), x, y, flags)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCursor<P0>(&self, bshow: P0) -> super::super::Foundation::BOOL
     where
@@ -1228,7 +1214,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.ShowCursor)(::windows_core::Interface::as_raw(self), bshow.into_param().abi())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut ::core::option::Option<IDirect3DSwapChain9>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateAdditionalSwapChain)(::windows_core::Interface::as_raw(self), ppresentationparameters, ::core::mem::transmute(pswapchain)).ok()
@@ -1240,12 +1226,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         (::windows_core::Interface::vtable(self).base__.GetNumberOfSwapChains)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Reset)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA) -> ::windows_core::Result<()>
     where
@@ -1257,12 +1243,12 @@ impl IDirect3DDevice9Ex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackBuffer)(::windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRasterStatus)(::windows_core::Interface::as_raw(self), iswapchain, prasterstatus).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDialogBoxMode<P0>(&self, benabledialogs: P0) -> ::windows_core::Result<()>
     where
@@ -1276,32 +1262,32 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         (::windows_core::Interface::vtable(self).base__.GetGammaRamp)(::windows_core::Interface::as_raw(self), iswapchain, pramp)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut ::core::option::Option<IDirect3DTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateTexture)(::windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, ::core::mem::transmute(pptexture), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut ::core::option::Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateVolumeTexture)(::windows_core::Interface::as_raw(self), width, height, depth, levels, usage, format, pool, ::core::mem::transmute(ppvolumetexture), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut ::core::option::Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateCubeTexture)(::windows_core::Interface::as_raw(self), edgelength, levels, usage, format, pool, ::core::mem::transmute(ppcubetexture), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut ::core::option::Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateVertexBuffer)(::windows_core::Interface::as_raw(self), length, usage, fvf, pool, ::core::mem::transmute(ppvertexbuffer), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut ::core::option::Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateIndexBuffer)(::windows_core::Interface::as_raw(self), length, usage, format, pool, ::core::mem::transmute(ppindexbuffer), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTarget<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -1309,7 +1295,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.CreateRenderTarget)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurface<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
     where
@@ -1317,7 +1303,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.CreateDepthStencilSurface)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateSurface<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestinationsurface: P1, pdestpoint: *const super::super::Foundation::POINT) -> ::windows_core::Result<()>
     where
@@ -1346,7 +1332,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.GetFrontBufferData)(::windows_core::Interface::as_raw(self), iswapchain, pdestsurface.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StretchRect<P0, P1>(&self, psourcesurface: P0, psourcerect: *const super::super::Foundation::RECT, pdestsurface: P1, pdestrect: *const super::super::Foundation::RECT, filter: D3DTEXTUREFILTERTYPE) -> ::windows_core::Result<()>
     where
@@ -1355,7 +1341,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.StretchRect)(::windows_core::Interface::as_raw(self), psourcesurface.into_param().abi(), psourcerect, pdestsurface.into_param().abi(), pdestrect, filter).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ColorFill<P0>(&self, psurface: P0, prect: *const super::super::Foundation::RECT, color: u32) -> ::windows_core::Result<()>
     where
@@ -1363,7 +1349,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.ColorFill)(::windows_core::Interface::as_raw(self), psurface.into_param().abi(), prect, color).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateOffscreenPlainSurface)(::windows_core::Interface::as_raw(self), width, height, format, pool, ::core::mem::transmute(ppsurface), psharedhandle).ok()
@@ -1397,17 +1383,17 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: u32, z: f32, stencil: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Clear)(::windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil).ok()
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetTransform)(::windows_core::Interface::as_raw(self), state, pmatrix).ok()
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
+    #[doc = "Required features: `Foundation_Numerics`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const super::super::super::Foundation::Numerics::Matrix4x4) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.MultiplyTransform)(::windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -1424,17 +1410,17 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetMaterial)(::windows_core::Interface::as_raw(self), pmaterial).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D`"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLight)(::windows_core::Interface::as_raw(self), index, param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LightEnable<P0>(&self, index: u32, enable: P0) -> ::windows_core::Result<()>
     where
@@ -1442,7 +1428,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.LightEnable)(::windows_core::Interface::as_raw(self), index, enable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLightEnable(&self, index: u32, penable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLightEnable)(::windows_core::Interface::as_raw(self), index, penable).ok()
@@ -1501,12 +1487,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn ValidateDevice(&self, pnumpasses: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ValidateDevice)(::windows_core::Interface::as_raw(self), pnumpasses).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetPaletteEntries(&self, palettenumber: u32, pentries: *mut super::Gdi::PALETTEENTRY) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPaletteEntries)(::windows_core::Interface::as_raw(self), palettenumber, pentries).ok()
@@ -1517,17 +1503,17 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetCurrentTexturePalette(&self, palettenumber: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCurrentTexturePalette)(::windows_core::Interface::as_raw(self), palettenumber).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetScissorRect(&self, prect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScissorRect(&self, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetScissorRect)(::windows_core::Interface::as_raw(self), prect).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSoftwareVertexProcessing<P0>(&self, bsoftware: P0) -> ::windows_core::Result<()>
     where
@@ -1535,7 +1521,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).base__.SetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self), bsoftware.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSoftwareVertexProcessing(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetSoftwareVertexProcessing)(::windows_core::Interface::as_raw(self))
@@ -1611,12 +1597,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetVertexShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVertexShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVertexShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetVertexShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -1672,12 +1658,12 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPixelShaderConstantI)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, vector4icount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut super::super::Foundation::BOOL, boolcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPixelShaderConstantB)(::windows_core::Interface::as_raw(self), startregister, pconstantdata, boolcount).ok()
@@ -1707,7 +1693,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).ComposeRects)(::windows_core::Interface::as_raw(self), psrc.into_param().abi(), pdst.into_param().abi(), psrcrectdescs.into_param().abi(), numrects, pdstrectdescs.into_param().abi(), operation, xoffset, yoffset).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn PresentEx<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -1733,7 +1719,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetMaximumFrameLatency)(::windows_core::Interface::as_raw(self), pmaxlatency).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckDeviceState<P0>(&self, hdestinationwindow: P0) -> ::windows_core::Result<()>
     where
@@ -1741,7 +1727,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).CheckDeviceState)(::windows_core::Interface::as_raw(self), hdestinationwindow.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRenderTargetEx<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows_core::Result<()>
     where
@@ -1749,12 +1735,12 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).CreateRenderTargetEx)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(::windows_core::Interface::as_raw(self), width, height, format, pool, ::core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDepthStencilSurfaceEx<P0>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: P0, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows_core::Result<()>
     where
@@ -1762,7 +1748,7 @@ impl IDirect3DDevice9Ex {
     {
         (::windows_core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(::windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into_param().abi(), ::core::mem::transmute(ppsurface), psharedhandle, usage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetEx)(::windows_core::Interface::as_raw(self), ppresentationparameters, pfullscreendisplaymode).ok()
@@ -1816,7 +1802,6 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     ResetEx: usize,
     pub GetDisplayModeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DIndexBuffer9(::windows_core::IUnknown);
@@ -1871,7 +1856,6 @@ pub struct IDirect3DIndexBuffer9_Vtbl {
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DPixelShader9(::windows_core::IUnknown);
@@ -1898,7 +1882,6 @@ pub struct IDirect3DPixelShader9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DQuery9(::windows_core::IUnknown);
@@ -1937,7 +1920,6 @@ pub struct IDirect3DQuery9_Vtbl {
     pub Issue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwissueflags: u32) -> ::windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, dwsize: u32, dwgetdataflags: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DResource9(::windows_core::IUnknown);
@@ -1988,7 +1970,6 @@ pub struct IDirect3DResource9_Vtbl {
     pub PreLoad: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3DRESOURCETYPE,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DStateBlock9(::windows_core::IUnknown);
@@ -2019,7 +2000,6 @@ pub struct IDirect3DStateBlock9_Vtbl {
     pub Capture: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Apply: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DSurface9(::windows_core::IUnknown);
@@ -2055,7 +2035,7 @@ impl IDirect3DSurface9 {
     pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDesc)(::windows_core::Interface::as_raw(self), pdesc).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRect)(::windows_core::Interface::as_raw(self), plockedrect, prect, flags).ok()
@@ -2063,12 +2043,12 @@ impl IDirect3DSurface9 {
     pub unsafe fn UnlockRect(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRect)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, phdc: *mut super::Gdi::HDC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDC)(::windows_core::Interface::as_raw(self), phdc).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<P0>(&self, hdc: P0) -> ::windows_core::Result<()>
     where
@@ -2104,12 +2084,11 @@ pub struct IDirect3DSurface9_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     ReleaseDC: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DSwapChain9(::windows_core::IUnknown);
 impl IDirect3DSwapChain9 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -2127,7 +2106,7 @@ impl IDirect3DSwapChain9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackBuffer)(::windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRasterStatus)(::windows_core::Interface::as_raw(self), prasterstatus).ok()
@@ -2139,7 +2118,7 @@ impl IDirect3DSwapChain9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPresentParameters)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
@@ -2173,12 +2152,11 @@ pub struct IDirect3DSwapChain9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPresentParameters: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DSwapChain9Ex(::windows_core::IUnknown);
 impl IDirect3DSwapChain9Ex {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<P0>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: P0, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>
     where
@@ -2196,7 +2174,7 @@ impl IDirect3DSwapChain9Ex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackBuffer)(::windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRasterStatus(&self, prasterstatus: *mut D3DRASTER_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRasterStatus)(::windows_core::Interface::as_raw(self), prasterstatus).ok()
@@ -2208,7 +2186,7 @@ impl IDirect3DSwapChain9Ex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetPresentParameters)(::windows_core::Interface::as_raw(self), ppresentationparameters).ok()
@@ -2238,7 +2216,6 @@ pub struct IDirect3DSwapChain9Ex_Vtbl {
     pub GetPresentStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows_core::HRESULT,
     pub GetDisplayModeEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DTexture9(::windows_core::IUnknown);
@@ -2293,7 +2270,7 @@ impl IDirect3DTexture9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSurfaceLevel)(::windows_core::Interface::as_raw(self), level, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LockRect)(::windows_core::Interface::as_raw(self), level, plockedrect, prect, flags).ok()
@@ -2301,7 +2278,7 @@ impl IDirect3DTexture9 {
     pub unsafe fn UnlockRect(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRect)(::windows_core::Interface::as_raw(self), level).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDirtyRect(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDirtyRect)(::windows_core::Interface::as_raw(self), pdirtyrect).ok()
@@ -2330,7 +2307,6 @@ pub struct IDirect3DTexture9_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddDirtyRect: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DVertexBuffer9(::windows_core::IUnknown);
@@ -2385,7 +2361,6 @@ pub struct IDirect3DVertexBuffer9_Vtbl {
     pub Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DVertexDeclaration9(::windows_core::IUnknown);
@@ -2412,7 +2387,6 @@ pub struct IDirect3DVertexDeclaration9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetDeclaration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DVertexShader9(::windows_core::IUnknown);
@@ -2439,7 +2413,6 @@ pub struct IDirect3DVertexShader9_Vtbl {
     pub GetDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DVolume9(::windows_core::IUnknown);
@@ -2490,7 +2463,6 @@ pub struct IDirect3DVolume9_Vtbl {
     pub LockBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows_core::HRESULT,
     pub UnlockBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DVolumeTexture9(::windows_core::IUnknown);
@@ -2572,2725 +2544,1365 @@ pub struct IDirect3DVolumeTexture9_Vtbl {
     pub UnlockBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: u32) -> ::windows_core::HRESULT,
     pub AddDirtyBox: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirtybox: *const D3DBOX) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9_RESOURCE_PRIORITY_LOW: u32 = 1342177280u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D9b_SDK_VERSION: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DADAPTER_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DANTIALIAS_NONE: D3DANTIALIASMODE = D3DANTIALIASMODE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DANTIALIAS_SORTDEPENDENT: D3DANTIALIASMODE = D3DANTIALIASMODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DANTIALIAS_SORTINDEPENDENT: D3DANTIALIASMODE = D3DANTIALIASMODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCHANNEL_D3D9: D3DAUTHENTICATEDCHANNELTYPE = D3DAUTHENTICATEDCHANNELTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCHANNEL_DRIVER_HARDWARE: D3DAUTHENTICATEDCHANNELTYPE = D3DAUTHENTICATEDCHANNELTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCHANNEL_DRIVER_SOFTWARE: D3DAUTHENTICATEDCHANNELTYPE = D3DAUTHENTICATEDCHANNELTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_OUTPUTID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_PROTECTION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBACKBUFFER_TYPE_LEFT: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBACKBUFFER_TYPE_MONO: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBACKBUFFER_TYPE_RIGHT: D3DBACKBUFFER_TYPE = D3DBACKBUFFER_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBASIS_BEZIER: D3DBASISTYPE = D3DBASISTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBASIS_BSPLINE: D3DBASISTYPE = D3DBASISTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBASIS_CATMULL_ROM: D3DBASISTYPE = D3DBASISTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLENDOP_ADD: D3DBLENDOP = D3DBLENDOP(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLENDOP_MAX: D3DBLENDOP = D3DBLENDOP(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLENDOP_MIN: D3DBLENDOP = D3DBLENDOP(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLENDOP_REVSUBTRACT: D3DBLENDOP = D3DBLENDOP(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLENDOP_SUBTRACT: D3DBLENDOP = D3DBLENDOP(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_BLENDFACTOR: D3DBLEND = D3DBLEND(14u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_BOTHINVSRCALPHA: D3DBLEND = D3DBLEND(13u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_BOTHSRCALPHA: D3DBLEND = D3DBLEND(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_DESTALPHA: D3DBLEND = D3DBLEND(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_DESTCOLOR: D3DBLEND = D3DBLEND(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_INVBLENDFACTOR: D3DBLEND = D3DBLEND(15u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_INVDESTALPHA: D3DBLEND = D3DBLEND(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_INVDESTCOLOR: D3DBLEND = D3DBLEND(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_INVSRCALPHA: D3DBLEND = D3DBLEND(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_INVSRCCOLOR: D3DBLEND = D3DBLEND(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_INVSRCCOLOR2: D3DBLEND = D3DBLEND(17u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_ONE: D3DBLEND = D3DBLEND(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_SRCALPHA: D3DBLEND = D3DBLEND(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_SRCALPHASAT: D3DBLEND = D3DBLEND(11u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_SRCCOLOR: D3DBLEND = D3DBLEND(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_SRCCOLOR2: D3DBLEND = D3DBLEND(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBLEND_ZERO: D3DBLEND = D3DBLEND(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR: D3DBUSTYPE = D3DBUSTYPE(262144i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: D3DBUSTYPE = D3DBUSTYPE(327680i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSIMPL_MODIFIER_INSIDE_OF_CHIPSET: D3DBUSTYPE = D3DBUSTYPE(65536i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSIMPL_MODIFIER_NON_STANDARD: D3DBUSTYPE = D3DBUSTYPE(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: D3DBUSTYPE = D3DBUSTYPE(131072i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: D3DBUSTYPE = D3DBUSTYPE(196608i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSTYPE_AGP: D3DBUSTYPE = D3DBUSTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSTYPE_OTHER: D3DBUSTYPE = D3DBUSTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSTYPE_PCI: D3DBUSTYPE = D3DBUSTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSTYPE_PCIEXPRESS: D3DBUSTYPE = D3DBUSTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DBUSTYPE_PCIX: D3DBUSTYPE = D3DBUSTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_CANAUTOGENMIPMAP: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_CANCALIBRATEGAMMA: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_CANMANAGERESOURCE: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_CANSHARERESOURCE: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_DYNAMICTEXTURES: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_FULLSCREENGAMMA: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS2_RESERVED: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_COPY_TO_SYSTEMMEM: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_COPY_TO_VIDMEM: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_DXVAHD: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_DXVAHD_LIMITED: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS3_RESERVED: i32 = -2147483617i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS_OVERLAY: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCAPS_READ_SCANLINE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLEAR_STENCIL: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLEAR_TARGET: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLEAR_ZBUFFER: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPPLANE0: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPPLANE1: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPPLANE2: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPPLANE3: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPPLANE4: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPPLANE5: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPSTATUS_EXTENTS2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPSTATUS_EXTENTS3: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIPSTATUS_STATUS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_BACK: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_BOTTOM: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_FRONT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_GEN0: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_GEN1: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_GEN2: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_GEN3: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_GEN4: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_GEN5: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_LEFT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_RIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCLIP_TOP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_ALWAYS: D3DCMPFUNC = D3DCMPFUNC(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_EQUAL: D3DCMPFUNC = D3DCMPFUNC(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_GREATER: D3DCMPFUNC = D3DCMPFUNC(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_GREATEREQUAL: D3DCMPFUNC = D3DCMPFUNC(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_LESS: D3DCMPFUNC = D3DCMPFUNC(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_LESSEQUAL: D3DCMPFUNC = D3DCMPFUNC(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_NEVER: D3DCMPFUNC = D3DCMPFUNC(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCMP_NOTEQUAL: D3DCMPFUNC = D3DCMPFUNC(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOLOR_MONO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOLOR_RGB: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOMPOSERECTS_AND: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOMPOSERECTS_COPY: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOMPOSERECTS_MAXNUMRECTS: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOMPOSERECTS_NEG: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCOMPOSERECTS_OR: D3DCOMPOSERECTSOP = D3DCOMPOSERECTSOP(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCONVOLUTIONMONO_MAXHEIGHT: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCONVOLUTIONMONO_MAXWIDTH: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_CONTENTKEY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_ENCRYPTEDREADBACK: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_ENCRYPTEDREADBACKKEY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_ENCRYPTSLICEDATAONLY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_FRESHENSESSIONKEY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_HARDWARE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_PARTIALDECRYPTION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_PROTECTIONALWAYSON: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_SEQUENTIAL_CTR_IV: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCPCAPS_SOFTWARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_ADAPTERGROUP_DEVICE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_DISABLE_DRIVER_MANAGEMENT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_DISABLE_DRIVER_MANAGEMENT_EX: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_DISABLE_PRINTSCREEN: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_DISABLE_PSGP_THREADING: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_ENABLE_PRESENTSTATS: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_FPU_PRESERVE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_HARDWARE_VERTEXPROCESSING: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_MIXED_VERTEXPROCESSING: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_MULTITHREADED: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_NOWINDOWCHANGES: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_PUREDEVICE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_SCREENSAVER: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCREATE_SOFTWARE_VERTEXPROCESSING: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCRYPTOTYPE_AES128_CTR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCRYPTOTYPE_PROPRIETARY: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab4e9afd_1d1c_46e6_a72f_0869917b0de8);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_BACK: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_BOTTOM: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_FRONT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_LEFT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_PLANE0: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_PLANE1: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_PLANE2: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_PLANE3: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_PLANE4: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_PLANE5: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_RIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCS_TOP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCUBEMAP_FACE_NEGATIVE_X: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCUBEMAP_FACE_NEGATIVE_Y: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCUBEMAP_FACE_NEGATIVE_Z: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCUBEMAP_FACE_POSITIVE_X: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCUBEMAP_FACE_POSITIVE_Y: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCUBEMAP_FACE_POSITIVE_Z: D3DCUBEMAP_FACES = D3DCUBEMAP_FACES(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCULL_CCW: D3DCULL = D3DCULL(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCULL_CW: D3DCULL = D3DCULL(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCULL_NONE: D3DCULL = D3DCULL(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCURSORCAPS_COLOR: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCURSORCAPS_LOWRES: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DCURSOR_IMMEDIATE_UPDATE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_BCLIPPING: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_COLORMODEL: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_DEVCAPS: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_DEVICERENDERBITDEPTH: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_DEVICEZBUFFERBITDEPTH: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_LIGHTINGCAPS: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_LINECAPS: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_MAXBUFFERSIZE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_MAXVERTEXCOUNT: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_TRANSFORMCAPS: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDD_TRICAPS: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEBCAPS_SYSTEMMEMORY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEBCAPS_VIDEOMEMORY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEB_BUFSIZE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEB_CAPS: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEB_LPDATA: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_CROSSUV: D3DDECLMETHOD = D3DDECLMETHOD(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_DEFAULT: D3DDECLMETHOD = D3DDECLMETHOD(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_LOOKUP: D3DDECLMETHOD = D3DDECLMETHOD(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_LOOKUPPRESAMPLED: D3DDECLMETHOD = D3DDECLMETHOD(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_PARTIALU: D3DDECLMETHOD = D3DDECLMETHOD(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_PARTIALV: D3DDECLMETHOD = D3DDECLMETHOD(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLMETHOD_UV: D3DDECLMETHOD = D3DDECLMETHOD(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_D3DCOLOR: D3DDECLTYPE = D3DDECLTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_DEC3N: D3DDECLTYPE = D3DDECLTYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_FLOAT1: D3DDECLTYPE = D3DDECLTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_FLOAT16_2: D3DDECLTYPE = D3DDECLTYPE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_FLOAT16_4: D3DDECLTYPE = D3DDECLTYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_FLOAT2: D3DDECLTYPE = D3DDECLTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_FLOAT3: D3DDECLTYPE = D3DDECLTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_FLOAT4: D3DDECLTYPE = D3DDECLTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_SHORT2: D3DDECLTYPE = D3DDECLTYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_SHORT2N: D3DDECLTYPE = D3DDECLTYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_SHORT4: D3DDECLTYPE = D3DDECLTYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_SHORT4N: D3DDECLTYPE = D3DDECLTYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_UBYTE4: D3DDECLTYPE = D3DDECLTYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_UBYTE4N: D3DDECLTYPE = D3DDECLTYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_UDEC3: D3DDECLTYPE = D3DDECLTYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_UNUSED: D3DDECLTYPE = D3DDECLTYPE(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_USHORT2N: D3DDECLTYPE = D3DDECLTYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLTYPE_USHORT4N: D3DDECLTYPE = D3DDECLTYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_BINORMAL: D3DDECLUSAGE = D3DDECLUSAGE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_BLENDINDICES: D3DDECLUSAGE = D3DDECLUSAGE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_BLENDWEIGHT: D3DDECLUSAGE = D3DDECLUSAGE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_COLOR: D3DDECLUSAGE = D3DDECLUSAGE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_DEPTH: D3DDECLUSAGE = D3DDECLUSAGE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_FOG: D3DDECLUSAGE = D3DDECLUSAGE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_NORMAL: D3DDECLUSAGE = D3DDECLUSAGE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_POSITION: D3DDECLUSAGE = D3DDECLUSAGE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_POSITIONT: D3DDECLUSAGE = D3DDECLUSAGE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_PSIZE: D3DDECLUSAGE = D3DDECLUSAGE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_SAMPLE: D3DDECLUSAGE = D3DDECLUSAGE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_TANGENT: D3DDECLUSAGE = D3DDECLUSAGE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_TESSFACTOR: D3DDECLUSAGE = D3DDECLUSAGE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDECLUSAGE_TEXCOORD: D3DDECLUSAGE = D3DDECLUSAGE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEGREE_CUBIC: D3DDEGREETYPE = D3DDEGREETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEGREE_LINEAR: D3DDEGREETYPE = D3DDEGREETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEGREE_QUADRATIC: D3DDEGREETYPE = D3DDEGREETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEGREE_QUINTIC: D3DDEGREETYPE = D3DDEGREETYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_ADAPTIVETESSNPATCH: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_ADAPTIVETESSRTPATCH: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_DMAPNPATCH: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_STREAMOFFSET: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_CANBLTSYSTONONLOCAL: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_CANRENDERAFTERFLIP: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_DRAWPRIMITIVES2: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_DRAWPRIMITIVES2EX: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_DRAWPRIMTLVERTEX: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_EXECUTESYSTEMMEMORY: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_EXECUTEVIDEOMEMORY: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_FLOATTLVERTEX: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_HWRASTERIZATION: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_HWTRANSFORMANDLIGHT: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_NPATCHES: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_PUREDEVICE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_QUINTICRTPATCHES: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_RTPATCHES: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_RTPATCHHANDLEZERO: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_SEPARATETEXTUREMEMORIES: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_SORTDECREASINGZ: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_SORTEXACT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_SORTINCREASINGZ: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_TEXTURENONLOCALVIDMEM: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_TEXTURESYSTEMMEMORY: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_TEXTUREVIDEOMEMORY: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_TLVERTEXSYSTEMMEMORY: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVCAPS_TLVERTEXVIDEOMEMORY: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVINFOID_D3DTEXTUREMANAGER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVINFOID_TEXTUREMANAGER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVINFOID_TEXTURING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVTYPE_HAL: D3DDEVTYPE = D3DDEVTYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVTYPE_NULLREF: D3DDEVTYPE = D3DDEVTYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVTYPE_REF: D3DDEVTYPE = D3DDEVTYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDEVTYPE_SW: D3DDEVTYPE = D3DDEVTYPE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDISPLAYROTATION_180: D3DDISPLAYROTATION = D3DDISPLAYROTATION(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDISPLAYROTATION_270: D3DDISPLAYROTATION = D3DDISPLAYROTATION(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDISPLAYROTATION_90: D3DDISPLAYROTATION = D3DDISPLAYROTATION(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDISPLAYROTATION_IDENTITY: D3DDISPLAYROTATION = D3DDISPLAYROTATION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDMAPSAMPLER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDMT_DISABLE: D3DDEBUGMONITORTOKENS = D3DDEBUGMONITORTOKENS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDMT_ENABLE: D3DDEBUGMONITORTOKENS = D3DDEBUGMONITORTOKENS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDP_MAXTEXCOORD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_DEC3N: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_FLOAT16_2: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_FLOAT16_4: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_SHORT2N: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_SHORT4N: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_UBYTE4: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_UBYTE4N: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_UDEC3: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_USHORT2N: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DDTCAPS_USHORT4N: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DENUM_NO_DRIVERVERSION: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DENUM_WHQL_LEVEL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DEXECUTE_CLIPPED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DEXECUTE_UNCLIPPED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_ALPHACMPCAPS: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_COLORMODEL: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_DSTBLENDCAPS: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_GUID: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_HARDWARE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_LINES: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_MISCCAPS: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_RASTERCAPS: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_SHADECAPS: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_SRCBLENDCAPS: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_TEXTUREADDRESSCAPS: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_TEXTUREBLENDCAPS: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_TEXTURECAPS: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_TEXTUREFILTERCAPS: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_TRIANGLES: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFDS_ZCMPCAPS: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILL_POINT: D3DFILLMODE = D3DFILLMODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILL_SOLID: D3DFILLMODE = D3DFILLMODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILL_WIREFRAME: D3DFILLMODE = D3DFILLMODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILTER_LINEAR: D3DTEXTUREFILTER = D3DTEXTUREFILTER(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILTER_LINEARMIPLINEAR: D3DTEXTUREFILTER = D3DTEXTUREFILTER(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILTER_LINEARMIPNEAREST: D3DTEXTUREFILTER = D3DTEXTUREFILTER(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILTER_MIPLINEAR: D3DTEXTUREFILTER = D3DTEXTUREFILTER(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILTER_MIPNEAREST: D3DTEXTUREFILTER = D3DTEXTUREFILTER(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFILTER_NEAREST: D3DTEXTUREFILTER = D3DTEXTUREFILTER(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A1: D3DFORMAT = D3DFORMAT(118u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A16B16G16R16: D3DFORMAT = D3DFORMAT(36u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A16B16G16R16F: D3DFORMAT = D3DFORMAT(113u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A1R5G5B5: D3DFORMAT = D3DFORMAT(25u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A1_SURFACE_MAXHEIGHT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A1_SURFACE_MAXWIDTH: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A2B10G10R10: D3DFORMAT = D3DFORMAT(31u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A2B10G10R10_XR_BIAS: D3DFORMAT = D3DFORMAT(119u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A2R10G10B10: D3DFORMAT = D3DFORMAT(35u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A2W10V10U10: D3DFORMAT = D3DFORMAT(67u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A32B32G32R32F: D3DFORMAT = D3DFORMAT(116u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A4L4: D3DFORMAT = D3DFORMAT(52u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A4R4G4B4: D3DFORMAT = D3DFORMAT(26u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A8: D3DFORMAT = D3DFORMAT(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A8B8G8R8: D3DFORMAT = D3DFORMAT(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A8L8: D3DFORMAT = D3DFORMAT(51u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A8P8: D3DFORMAT = D3DFORMAT(40u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A8R3G3B2: D3DFORMAT = D3DFORMAT(29u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_A8R8G8B8: D3DFORMAT = D3DFORMAT(21u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_BINARYBUFFER: D3DFORMAT = D3DFORMAT(199u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_CxV8U8: D3DFORMAT = D3DFORMAT(117u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D15S1: D3DFORMAT = D3DFORMAT(73u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D16: D3DFORMAT = D3DFORMAT(80u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D16_LOCKABLE: D3DFORMAT = D3DFORMAT(70u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D24FS8: D3DFORMAT = D3DFORMAT(83u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D24S8: D3DFORMAT = D3DFORMAT(75u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D24X4S4: D3DFORMAT = D3DFORMAT(79u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D24X8: D3DFORMAT = D3DFORMAT(77u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D32: D3DFORMAT = D3DFORMAT(71u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D32F_LOCKABLE: D3DFORMAT = D3DFORMAT(82u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_D32_LOCKABLE: D3DFORMAT = D3DFORMAT(84u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_DXT1: D3DFORMAT = D3DFORMAT(827611204u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_DXT2: D3DFORMAT = D3DFORMAT(844388420u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_DXT3: D3DFORMAT = D3DFORMAT(861165636u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_DXT4: D3DFORMAT = D3DFORMAT(877942852u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_DXT5: D3DFORMAT = D3DFORMAT(894720068u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_G16R16: D3DFORMAT = D3DFORMAT(34u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_G16R16F: D3DFORMAT = D3DFORMAT(112u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_G32R32F: D3DFORMAT = D3DFORMAT(115u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_G8R8_G8B8: D3DFORMAT = D3DFORMAT(1111970375u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_INDEX16: D3DFORMAT = D3DFORMAT(101u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_INDEX32: D3DFORMAT = D3DFORMAT(102u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_L16: D3DFORMAT = D3DFORMAT(81u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_L6V5U5: D3DFORMAT = D3DFORMAT(61u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_L8: D3DFORMAT = D3DFORMAT(50u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_MULTI2_ARGB8: D3DFORMAT = D3DFORMAT(827606349u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_P8: D3DFORMAT = D3DFORMAT(41u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_Q16W16V16U16: D3DFORMAT = D3DFORMAT(110u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_Q8W8V8U8: D3DFORMAT = D3DFORMAT(63u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_R16F: D3DFORMAT = D3DFORMAT(111u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_R32F: D3DFORMAT = D3DFORMAT(114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_R3G3B2: D3DFORMAT = D3DFORMAT(27u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_R5G6B5: D3DFORMAT = D3DFORMAT(23u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_R8G8B8: D3DFORMAT = D3DFORMAT(20u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_R8G8_B8G8: D3DFORMAT = D3DFORMAT(1195525970u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_S8_LOCKABLE: D3DFORMAT = D3DFORMAT(85u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_UNKNOWN: D3DFORMAT = D3DFORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_UYVY: D3DFORMAT = D3DFORMAT(1498831189u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_V16U16: D3DFORMAT = D3DFORMAT(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_V8U8: D3DFORMAT = D3DFORMAT(60u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_VERTEXDATA: D3DFORMAT = D3DFORMAT(100u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_X1R5G5B5: D3DFORMAT = D3DFORMAT(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_X4R4G4B4: D3DFORMAT = D3DFORMAT(30u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_X8B8G8R8: D3DFORMAT = D3DFORMAT(33u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_X8L8V8U8: D3DFORMAT = D3DFORMAT(62u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_X8R8G8B8: D3DFORMAT = D3DFORMAT(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFMT_YUY2: D3DFORMAT = D3DFORMAT(844715353u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFOG_EXP: D3DFOGMODE = D3DFOGMODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFOG_EXP2: D3DFOGMODE = D3DFOGMODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFOG_LINEAR: D3DFOGMODE = D3DFOGMODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFOG_NONE: D3DFOGMODE = D3DFOGMODE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVFCAPS_DONOTSTRIPELEMENTS: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVFCAPS_PSIZE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVFCAPS_TEXCOORDCOUNTMASK: i32 = 65535i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_DIFFUSE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_LASTBETA_D3DCOLOR: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_LASTBETA_UBYTE4: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_NORMAL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_POSITION_MASK: u32 = 16398u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_PSIZE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_RESERVED0: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_RESERVED1: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_RESERVED2: u32 = 24576u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_SPECULAR: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX0: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX1: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX2: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX3: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX4: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX5: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX6: u32 = 1536u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX7: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEX8: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEXCOUNT_MASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEXCOUNT_SHIFT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEXTUREFORMAT1: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEXTUREFORMAT2: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEXTUREFORMAT3: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_TEXTUREFORMAT4: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZ: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZB1: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZB2: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZB3: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZB4: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZB5: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZRHW: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DFVF_XYZW: u32 = 16386u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DGETDATA_FLUSH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DISSUE_BEGIN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DISSUE_END: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DKEYEXCHANGE_DXVA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43d3775c_38e5_4924_8d86_d3fccf153e9b);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DKEYEXCHANGE_RSAES_OAEP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTCAPS_DIRECTIONAL: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTCAPS_GLSPOT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTCAPS_PARALLELPOINT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTCAPS_POINT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTCAPS_SPOT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTINGMODEL_MONO: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTINGMODEL_RGB: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_AMBIENT: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_COLORMODEL: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_COLORVERTEX: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_FOGDENSITY: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_FOGEND: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_FOGMODE: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_FOGSTART: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHTSTATE_MATERIAL: D3DLIGHTSTATETYPE = D3DLIGHTSTATETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHT_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHT_DIRECTIONAL: D3DLIGHTTYPE = D3DLIGHTTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHT_NO_SPECULAR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHT_POINT: D3DLIGHTTYPE = D3DLIGHTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLIGHT_SPOT: D3DLIGHTTYPE = D3DLIGHTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLINECAPS_ALPHACMP: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLINECAPS_ANTIALIAS: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLINECAPS_BLEND: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLINECAPS_FOG: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLINECAPS_TEXTURE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLINECAPS_ZTEST: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLOCK_DISCARD: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLOCK_DONOTWAIT: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLOCK_NOOVERWRITE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLOCK_NOSYSLOCK: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLOCK_NO_DIRTY_UPDATE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DLOCK_READONLY: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMAX30SHADERINSTRUCTIONS: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMAXUSERCLIPPLANES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMCS_COLOR1: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMCS_COLOR2: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMCS_MATERIAL: D3DMATERIALCOLORSOURCE = D3DMATERIALCOLORSOURCE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMIN30SHADERINSTRUCTIONS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMP_16: D3DSHADER_MIN_PRECISION = D3DSHADER_MIN_PRECISION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMP_2_8: D3DSHADER_MIN_PRECISION = D3DSHADER_MIN_PRECISION(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMP_DEFAULT: D3DSHADER_MIN_PRECISION = D3DSHADER_MIN_PRECISION(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_10_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_11_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_12_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_13_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_14_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_15_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_16_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_2_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_3_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_4_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_5_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_6_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_7_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_8_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_9_SAMPLES: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_NONE: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DMULTISAMPLE_NONMASKABLE: D3DMULTISAMPLE_TYPE = D3DMULTISAMPLE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_BRANCHFORWARD: D3DOPCODE = D3DOPCODE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_EXIT: D3DOPCODE = D3DOPCODE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_LINE: D3DOPCODE = D3DOPCODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_MATRIXLOAD: D3DOPCODE = D3DOPCODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_MATRIXMULTIPLY: D3DOPCODE = D3DOPCODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_POINT: D3DOPCODE = D3DOPCODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_PROCESSVERTICES: D3DOPCODE = D3DOPCODE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_SETSTATUS: D3DOPCODE = D3DOPCODE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_SPAN: D3DOPCODE = D3DOPCODE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_STATELIGHT: D3DOPCODE = D3DOPCODE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_STATERENDER: D3DOPCODE = D3DOPCODE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_STATETRANSFORM: D3DOPCODE = D3DOPCODE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_TEXTURELOAD: D3DOPCODE = D3DOPCODE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOP_TRIANGLE: D3DOPCODE = D3DOPCODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_FULLRANGERGB: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_LIMITEDRANGERGB: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_STRETCHX: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_STRETCHY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT601: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT601_xvYCC: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT709: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DOVERLAYCAPS_YCbCr_BT709_xvYCC: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPAL_FREE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPAL_READONLY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPAL_RESERVED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPATCHEDGE_CONTINUOUS: D3DPATCHEDGESTYLE = D3DPATCHEDGESTYLE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPATCHEDGE_DISCRETE: D3DPATCHEDGESTYLE = D3DPATCHEDGESTYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_BLENDFACTOR: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_BOTHINVSRCALPHA: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_BOTHSRCALPHA: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_DESTALPHA: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_DESTCOLOR: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_INVDESTALPHA: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_INVDESTCOLOR: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_INVSRCALPHA: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_INVSRCCOLOR: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_INVSRCCOLOR2: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_ONE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_SRCALPHA: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_SRCALPHASAT: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_SRCCOLOR: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPBLENDCAPS_ZERO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_ALWAYS: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_EQUAL: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_GREATER: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_GREATEREQUAL: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_LESS: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_LESSEQUAL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_NEVER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPCMPCAPS_NOTEQUAL: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_BLENDOP: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_CLIPPLANESCALEDPOINTS: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_CLIPTLVERTS: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_COLORWRITEENABLE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_CONFORMANT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_CULLCCW: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_CULLCW: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_CULLNONE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_FOGANDSPECULARALPHA: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_FOGVERTEXCLAMPED: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_INDEPENDENTWRITEMASKS: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_LINEPATTERNREP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_MASKPLANES: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_MASKZ: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_NULLREFERENCE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_PERSTAGECONSTANT: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_POSTBLENDSRGBCONVERT: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_SEPARATEALPHABLEND: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPMISCCAPS_TSSARGTEMP: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPOOL_DEFAULT: D3DPOOL = D3DPOOL(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPOOL_MANAGED: D3DPOOL = D3DPOOL(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPOOL_SCRATCH: D3DPOOL = D3DPOOL(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPOOL_SYSTEMMEM: D3DPOOL = D3DPOOL(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ANISOTROPY: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ANTIALIASEDGES: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ANTIALIASSORTDEPENDENT: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ANTIALIASSORTINDEPENDENT: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_COLORPERSPECTIVE: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_DEPTHBIAS: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_DITHER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_FOGRANGE: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_FOGTABLE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_FOGVERTEX: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_MIPMAPLODBIAS: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_MULTISAMPLE_TOGGLE: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_PAT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ROP2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_SCISSORTEST: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_STIPPLE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_SUBPIXEL: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_SUBPIXELX: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_TRANSLUCENTSORTINDEPENDENT: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_WBUFFER: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_WFOG: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_XOR: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ZBIAS: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ZBUFFERLESSHSR: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ZFOG: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRASTERCAPS_ZTEST: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_DEVICECLIP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_LOCKABLE_BACKBUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_NOAUTOROTATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_OVERLAY_LIMITEDRGB: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_OVERLAY_YCbCr_BT709: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_RESTRICTED_CONTENT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENTFLAG_VIDEO: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_BACK_BUFFERS_MAX: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_BACK_BUFFERS_MAX_EX: i32 = 30i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_DONOTFLIP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_DONOTWAIT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_FLIPRESTART: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_FORCEIMMEDIATE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_HIDEOVERLAY: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_INTERVAL_DEFAULT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_INTERVAL_FOUR: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_INTERVAL_IMMEDIATE: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_INTERVAL_ONE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_INTERVAL_THREE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_INTERVAL_TWO: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_LINEAR_CONTENT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_RATE_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_UPDATECOLORKEY: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_UPDATEOVERLAYONLY: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPROCESSVERTICES_COPY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPROCESSVERTICES_NOCOLOR: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPROCESSVERTICES_OPMASK: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPROCESSVERTICES_TRANSFORM: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPROCESSVERTICES_TRANSFORMLIGHT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPROCESSVERTICES_UPDATEEXTENTS: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20CAPS_ARBITRARYSWIZZLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20CAPS_GRADIENTINSTRUCTIONS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20CAPS_NODEPENDENTREADLIMIT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20CAPS_PREDICATION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MAX_NUMINSTRUCTIONSLOTS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MAX_NUMTEMPS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MIN_NUMINSTRUCTIONSLOTS: u32 = 96u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MIN_NUMTEMPS: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_ALPHAFLATBLEND: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_ALPHAFLATSTIPPLED: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_ALPHAGOURAUDBLEND: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_ALPHAGOURAUDSTIPPLED: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_ALPHAPHONGBLEND: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_ALPHAPHONGSTIPPLED: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_COLORFLATMONO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_COLORFLATRGB: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_COLORGOURAUDMONO: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_COLORGOURAUDRGB: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_COLORPHONGMONO: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_COLORPHONGRGB: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_FOGFLAT: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_FOGGOURAUD: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_FOGPHONG: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_SPECULARFLATMONO: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_SPECULARFLATRGB: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_SPECULARGOURAUDMONO: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_SPECULARGOURAUDRGB: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_SPECULARPHONGMONO: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPSHADECAPS_SPECULARPHONGRGB: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTADDRESSCAPS_BORDER: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTADDRESSCAPS_CLAMP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTADDRESSCAPS_INDEPENDENTUV: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTADDRESSCAPS_MIRROR: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTADDRESSCAPS_MIRRORONCE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTADDRESSCAPS_WRAP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_ADD: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_COPY: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_DECAL: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_DECALALPHA: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_DECALMASK: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_MODULATE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_MODULATEALPHA: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTBLENDCAPS_MODULATEMASK: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_ALPHA: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_ALPHAPALETTE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_BORDER: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_COLORKEYBLEND: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_CUBEMAP: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_CUBEMAP_POW2: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_MIPCUBEMAP: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_MIPMAP: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_MIPVOLUMEMAP: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_NONPOW2CONDITIONAL: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_NOPROJECTEDBUMPENV: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_PERSPECTIVE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_POW2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_PROJECTED: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_SQUAREONLY: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_TRANSPARENCY: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_VOLUMEMAP: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTEXTURECAPS_VOLUMEMAP_POW2: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_CONVOLUTIONMONO: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_LINEAR: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_LINEARMIPLINEAR: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_LINEARMIPNEAREST: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFAFLATCUBIC: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFANISOTROPIC: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFGAUSSIANCUBIC: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFGAUSSIANQUAD: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFLINEAR: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFPOINT: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MINFANISOTROPIC: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MINFGAUSSIANQUAD: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MINFLINEAR: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MINFPOINT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MINFPYRAMIDALQUAD: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MIPFLINEAR: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MIPFPOINT: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MIPLINEAR: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_MIPNEAREST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPTFILTERCAPS_NEAREST: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPT_LINELIST: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPT_LINESTRIP: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPT_POINTLIST: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPT_TRIANGLEFAN: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPT_TRIANGLELIST: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPT_TRIANGLESTRIP: D3DPRIMITIVETYPE = D3DPRIMITIVETYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DPV_DONOTCOPYDATA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_BANDWIDTHTIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_CACHEUTILIZATION: D3DQUERYTYPE = D3DQUERYTYPE(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_EVENT: D3DQUERYTYPE = D3DQUERYTYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_INTERFACETIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_MEMORYPRESSURE: D3DQUERYTYPE = D3DQUERYTYPE(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_OCCLUSION: D3DQUERYTYPE = D3DQUERYTYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_PIPELINETIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_PIXELTIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_RESOURCEMANAGER: D3DQUERYTYPE = D3DQUERYTYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_TIMESTAMP: D3DQUERYTYPE = D3DQUERYTYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_TIMESTAMPDISJOINT: D3DQUERYTYPE = D3DQUERYTYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_TIMESTAMPFREQ: D3DQUERYTYPE = D3DQUERYTYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_VCACHE: D3DQUERYTYPE = D3DQUERYTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_VERTEXSTATS: D3DQUERYTYPE = D3DQUERYTYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DQUERYTYPE_VERTEXTIMINGS: D3DQUERYTYPE = D3DQUERYTYPE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRENDERSTATE_WRAPBIAS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ADAPTIVETESS_W: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(183i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ADAPTIVETESS_X: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(180i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ADAPTIVETESS_Y: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(181i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ADAPTIVETESS_Z: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(182i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ALPHABLENDENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(27i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ALPHAFUNC: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(25i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ALPHAREF: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(24i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ALPHATESTENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_AMBIENT: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(139i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_AMBIENTMATERIALSOURCE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(147i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ANTIALIASEDLINEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(176i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_BLENDFACTOR: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(193i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_BLENDOP: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(171i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_BLENDOPALPHA: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(209i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CCW_STENCILFAIL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(186i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CCW_STENCILFUNC: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(189i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CCW_STENCILPASS: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(188i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CCW_STENCILZFAIL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(187i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CLIPPING: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(136i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CLIPPLANEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(152i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_COLORVERTEX: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(141i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_COLORWRITEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(168i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_COLORWRITEENABLE1: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(190i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_COLORWRITEENABLE2: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(191i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_COLORWRITEENABLE3: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(192i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_CULLMODE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_DEBUGMONITORTOKEN: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(165i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_DEPTHBIAS: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(195i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_DESTBLEND: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_DESTBLENDALPHA: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(208i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_DIFFUSEMATERIALSOURCE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(145i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_DITHERENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(26i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_EMISSIVEMATERIALSOURCE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(148i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ENABLEADAPTIVETESSELLATION: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(184i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FILLMODE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGCOLOR: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(34i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGDENSITY: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(38i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(28i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGEND: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(37i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGSTART: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(36i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGTABLEMODE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(35i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_FOGVERTEXMODE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(140i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_INDEXEDVERTEXBLENDENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(167i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_LASTPIXEL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_LIGHTING: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(137i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_LOCALVIEWER: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(142i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_MAXTESSELLATIONLEVEL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(179i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_MINTESSELLATIONLEVEL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(178i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_MULTISAMPLEANTIALIAS: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(161i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_MULTISAMPLEMASK: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(162i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_NORMALDEGREE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(173i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_NORMALIZENORMALS: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(143i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_PATCHEDGESTYLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(163i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSCALEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(157i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSCALE_A: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(158i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSCALE_B: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(159i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSCALE_C: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(160i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSIZE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(154i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSIZE_MAX: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(166i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSIZE_MIN: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(155i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POINTSPRITEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(156i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_POSITIONDEGREE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(172i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_RANGEFOGENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(48i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SCISSORTESTENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(174i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SEPARATEALPHABLENDENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(206i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SHADEMODE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SLOPESCALEDEPTHBIAS: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(175i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SPECULARENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(29i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SPECULARMATERIALSOURCE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(146i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SRCBLEND: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SRCBLENDALPHA: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(207i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_SRGBWRITEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(194i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(52i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILFAIL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(53i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILFUNC: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(56i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILMASK: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(58i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILPASS: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(55i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILREF: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(57i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILWRITEMASK: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(59i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_STENCILZFAIL: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(54i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_TEXTUREFACTOR: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(60i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_TWEENFACTOR: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(170i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_TWOSIDEDSTENCILMODE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(185i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_VERTEXBLEND: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(151i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP0: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(128i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP1: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(129i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP10: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(200i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP11: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(201i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP12: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(202i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP13: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(203i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP14: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(204i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP15: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(205i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP2: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(130i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP3: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(131i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP4: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(132i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP5: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(133i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP6: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(134i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP7: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(135i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP8: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(198i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_WRAP9: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(199i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ZENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ZFUNC: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRS_ZWRITEENABLE: D3DRENDERSTATETYPE = D3DRENDERSTATETYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPECOUNT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_CUBETEXTURE: D3DRESOURCETYPE = D3DRESOURCETYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_INDEXBUFFER: D3DRESOURCETYPE = D3DRESOURCETYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_SURFACE: D3DRESOURCETYPE = D3DRESOURCETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_TEXTURE: D3DRESOURCETYPE = D3DRESOURCETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_VERTEXBUFFER: D3DRESOURCETYPE = D3DRESOURCETYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_VOLUME: D3DRESOURCETYPE = D3DRESOURCETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DRTYPE_VOLUMETEXTURE: D3DRESOURCETYPE = D3DRESOURCETYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_ADDRESSU: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_ADDRESSV: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_ADDRESSW: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_BORDERCOLOR: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_DMAPOFFSET: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_ELEMENTINDEX: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_MAGFILTER: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_MAXANISOTROPY: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_MAXMIPLEVEL: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_MINFILTER: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_MIPFILTER: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_MIPMAPLODBIAS: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSAMP_SRGBTEXTURE: D3DSAMPLERSTATETYPE = D3DSAMPLERSTATETYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSBT_ALL: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSBT_PIXELSTATE: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSBT_VERTEXSTATE: D3DSTATEBLOCKTYPE = D3DSTATEBLOCKTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSCANLINEORDERING_INTERLACED: D3DSCANLINEORDERING = D3DSCANLINEORDERING(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSCANLINEORDERING_PROGRESSIVE: D3DSCANLINEORDERING = D3DSCANLINEORDERING(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSCANLINEORDERING_UNKNOWN: D3DSCANLINEORDERING = D3DSCANLINEORDERING(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSETSTATUS_EXTENTS: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSETSTATUS_STATUS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSGR_CALIBRATE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSGR_NO_CALIBRATION: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADER_ADDRESSMODE_SHIFT: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADER_ADDRMODE_ABSOLUTE: D3DSHADER_ADDRESSMODE_TYPE = D3DSHADER_ADDRESSMODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADER_ADDRMODE_RELATIVE: D3DSHADER_ADDRESSMODE_TYPE = D3DSHADER_ADDRESSMODE_TYPE(8192i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADER_COMPARISON_SHIFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADE_FLAT: D3DSHADEMODE = D3DSHADEMODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADE_GOURAUD: D3DSHADEMODE = D3DSHADEMODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSHADE_PHONG: D3DSHADEMODE = D3DSHADEMODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_ABS: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(35i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_ADD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_BEM: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(89i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_BREAK: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(44i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_BREAKC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(45i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_BREAKP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(96i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_CALL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(25i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_CALLNZ: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_CMP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(88i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_CND: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(80i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_COMMENT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(65534i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_CRS: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(33i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DCL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DEF: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(81i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DEFB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(47i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DEFI: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(48i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DP2ADD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(90i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DP3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DP4: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DST: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DSX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(91i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_DSY: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(92i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_ELSE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(42i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_END: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(65535i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_ENDIF: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(43i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_ENDLOOP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_ENDREP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(39i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_EXP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_EXPP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(78i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_FRC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_IF: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(40i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_IFC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(41i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_LABEL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_LIT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_LOG: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_LOGP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(79i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_LOOP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(27i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_LRP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_M3x2: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(24i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_M3x3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_M3x4: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_M4x3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_M4x4: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_MAD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_MAX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_MIN: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_MOV: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_MOVA: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(46i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_MUL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_NOP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_NRM: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(36i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_PHASE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(65533i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_POW: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_RCP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_REP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(38i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_RESERVED0: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(75i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_RET: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(28i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_RSQ: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_SETP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(94i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_SGE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_SGN: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(34i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_SINCOS: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(37i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_SLT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_SUB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(66i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXBEM: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(67i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXBEML: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(68i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXCOORD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXDEPTH: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(87i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXDP3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(85i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXDP3TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(83i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXKILL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(65i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXLDD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(93i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXLDL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(95i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x2DEPTH: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(84i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x2PAD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(71i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x2TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(72i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(86i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x3PAD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(73i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x3SPEC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(76i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x3TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(74i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXM3x3VSPEC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(77i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXREG2AR: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(69i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXREG2GB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(70i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSIO_TEXREG2RGB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = D3DSHADER_INSTRUCTION_OPCODE_TYPE(82i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSI_COISSUE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSI_COMMENTSIZE_MASK: u32 = 2147418112u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSI_COMMENTSIZE_SHIFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSI_INSTLENGTH_MASK: u32 = 251658240u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSI_INSTLENGTH_SHIFT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSI_OPCODE_MASK: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSMO_FACE: D3DSHADER_MISCTYPE_OFFSETS = D3DSHADER_MISCTYPE_OFFSETS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSMO_POSITION: D3DSHADER_MISCTYPE_OFFSETS = D3DSHADER_MISCTYPE_OFFSETS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_EQ: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_GE: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_GT: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_LE: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_LT: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_NE: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_RESERVED0: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPC_RESERVED1: D3DSHADER_COMPARISON = D3DSHADER_COMPARISON(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPD_IUNKNOWN: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_ADDR: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_ATTROUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_COLOROUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_CONST: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_CONST2: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_CONST3: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_CONST4: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_CONSTBOOL: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_CONSTINT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_DEPTHOUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_INPUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_LABEL: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_LOOP: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_MISCTYPE: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_OUTPUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_PREDICATE: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_RASTOUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_SAMPLER: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_TEMP: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_TEMPFLOAT16: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_TEXCRDOUT: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPR_TEXTURE: D3DSHADER_PARAM_REGISTER_TYPE = D3DSHADER_PARAM_REGISTER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_ABS: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(184549376i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_ABSNEG: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(201326592i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_BIAS: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(33554432i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_BIASNEG: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(50331648i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_COMP: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(100663296i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_DW: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(167772160i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_DZ: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(150994944i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_NEG: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(16777216i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_NONE: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_NOT: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(218103808i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_SIGN: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(67108864i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_SIGNNEG: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(83886080i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_X2: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(117440512i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSPSM_X2NEG: D3DSHADER_PARAM_SRCMOD_TYPE = D3DSHADER_PARAM_SRCMOD_TYPE(134217728i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DCL_USAGEINDEX_MASK: u32 = 983040u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DCL_USAGEINDEX_SHIFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DCL_USAGE_MASK: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DCL_USAGE_SHIFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DSTMOD_MASK: u32 = 15728640u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DSTMOD_SHIFT: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DSTSHIFT_MASK: u32 = 251658240u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_DSTSHIFT_SHIFT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_MIN_PRECISION_MASK: u32 = 49152u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_MIN_PRECISION_SHIFT: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_OPCODESPECIFICCONTROL_MASK: u32 = 16711680u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_OPCODESPECIFICCONTROL_SHIFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_REGNUM_MASK: u32 = 2047u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_REGTYPE_MASK: u32 = 1879048192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_REGTYPE_MASK2: u32 = 6144u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_REGTYPE_SHIFT: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_REGTYPE_SHIFT2: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_SRCMOD_MASK: u32 = 251658240u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_SRCMOD_SHIFT: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_SWIZZLE_MASK: u32 = 16711680u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_SWIZZLE_SHIFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_TEXTURETYPE_MASK: u32 = 2013265920u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_TEXTURETYPE_SHIFT: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_WRITEMASK_0: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_WRITEMASK_1: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_WRITEMASK_2: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_WRITEMASK_3: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSP_WRITEMASK_ALL: u32 = 983040u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSRO_FOG: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSRO_POINT_SIZE: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSRO_POSITION: D3DVS_RASTOUT_OFFSETS = D3DVS_RASTOUT_OFFSETS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATE_OVERRIDE_BIAS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONBACK: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONBOTTOM: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONFRONT: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN0: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN1: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN2: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN3: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN4: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONGEN5: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONLEFT: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONRIGHT: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPINTERSECTIONTOP: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONBACK: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONBOTTOM: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONFRONT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONGEN0: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONGEN1: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONGEN2: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONGEN3: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONGEN4: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONGEN5: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONLEFT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONRIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_CLIPUNIONTOP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTATUS_ZNOTVISIBLE: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_DECR: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_DECRSAT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_INCR: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_INCRSAT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_INVERT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_KEEP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_REPLACE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_TWOSIDED: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILCAPS_ZERO: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_DECR: D3DSTENCILOP = D3DSTENCILOP(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_DECRSAT: D3DSTENCILOP = D3DSTENCILOP(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_INCR: D3DSTENCILOP = D3DSTENCILOP(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_INCRSAT: D3DSTENCILOP = D3DSTENCILOP(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_INVERT: D3DSTENCILOP = D3DSTENCILOP(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_KEEP: D3DSTENCILOP = D3DSTENCILOP(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_REPLACE: D3DSTENCILOP = D3DSTENCILOP(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTENCILOP_ZERO: D3DSTENCILOP = D3DSTENCILOP(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTREAMSOURCE_INSTANCEDATA: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTT_2D: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(268435456i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTT_CUBE: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(402653184i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTT_UNKNOWN: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSTT_VOLUME: D3DSAMPLER_TEXTURE_TYPE = D3DSAMPLER_TEXTURE_TYPE(536870912i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSWAPEFFECT_COPY: D3DSWAPEFFECT = D3DSWAPEFFECT(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSWAPEFFECT_DISCARD: D3DSWAPEFFECT = D3DSWAPEFFECT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSWAPEFFECT_FLIP: D3DSWAPEFFECT = D3DSWAPEFFECT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSWAPEFFECT_FLIPEX: D3DSWAPEFFECT = D3DSWAPEFFECT(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DSWAPEFFECT_OVERLAY: D3DSWAPEFFECT = D3DSWAPEFFECT(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTADDRESS_BORDER: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTADDRESS_CLAMP: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTADDRESS_MIRROR: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTADDRESS_MIRRORONCE: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTADDRESS_WRAP: D3DTEXTUREADDRESS = D3DTEXTUREADDRESS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_ALPHAREPLICATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_COMPLEMENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_CONSTANT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_CURRENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_DIFFUSE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_SELECTMASK: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_SPECULAR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_TEMP: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_TEXTURE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTA_TFACTOR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_ADD: D3DTEXTUREBLEND = D3DTEXTUREBLEND(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_COPY: D3DTEXTUREBLEND = D3DTEXTUREBLEND(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_DECAL: D3DTEXTUREBLEND = D3DTEXTUREBLEND(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_DECALALPHA: D3DTEXTUREBLEND = D3DTEXTUREBLEND(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_DECALMASK: D3DTEXTUREBLEND = D3DTEXTUREBLEND(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_MODULATE: D3DTEXTUREBLEND = D3DTEXTUREBLEND(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_MODULATEALPHA: D3DTEXTUREBLEND = D3DTEXTUREBLEND(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTBLEND_MODULATEMASK: D3DTEXTUREBLEND = D3DTEXTUREBLEND(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_ANISOTROPIC: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_CONVOLUTIONMONO: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_GAUSSIANQUAD: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_LINEAR: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_NONE: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_POINT: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXF_PYRAMIDALQUAD: D3DTEXTUREFILTERTYPE = D3DTEXTUREFILTERTYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_ADD: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_ADDSIGNED: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_ADDSIGNED2X: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_ADDSMOOTH: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BLENDCURRENTALPHA: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BLENDDIFFUSEALPHA: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BLENDFACTORALPHA: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BLENDTEXTUREALPHA: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BLENDTEXTUREALPHAPM: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BUMPENVMAP: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_BUMPENVMAPLUMINANCE: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_DISABLE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_DOTPRODUCT3: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_LERP: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATE2X: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATE4X: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATEINVALPHA_ADDCOLOR: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MODULATEINVCOLOR_ADDALPHA: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_MULTIPLYADD: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_PREMODULATE: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_SELECTARG1: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_SELECTARG2: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTEXOPCAPS_SUBTRACT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFG_ANISOTROPIC: D3DTEXTUREMAGFILTER = D3DTEXTUREMAGFILTER(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFG_FLATCUBIC: D3DTEXTUREMAGFILTER = D3DTEXTUREMAGFILTER(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFG_GAUSSIANCUBIC: D3DTEXTUREMAGFILTER = D3DTEXTUREMAGFILTER(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFG_LINEAR: D3DTEXTUREMAGFILTER = D3DTEXTUREMAGFILTER(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFG_POINT: D3DTEXTUREMAGFILTER = D3DTEXTUREMAGFILTER(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFN_ANISOTROPIC: D3DTEXTUREMINFILTER = D3DTEXTUREMINFILTER(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFN_LINEAR: D3DTEXTUREMINFILTER = D3DTEXTUREMINFILTER(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFN_POINT: D3DTEXTUREMINFILTER = D3DTEXTUREMINFILTER(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFP_LINEAR: D3DTEXTUREMIPFILTER = D3DTEXTUREMIPFILTER(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFP_NONE: D3DTEXTUREMIPFILTER = D3DTEXTUREMIPFILTER(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTFP_POINT: D3DTEXTUREMIPFILTER = D3DTEXTUREMIPFILTER(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_ADD: D3DTEXTUREOP = D3DTEXTUREOP(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_ADDSIGNED: D3DTEXTUREOP = D3DTEXTUREOP(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_ADDSIGNED2X: D3DTEXTUREOP = D3DTEXTUREOP(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_ADDSMOOTH: D3DTEXTUREOP = D3DTEXTUREOP(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BLENDCURRENTALPHA: D3DTEXTUREOP = D3DTEXTUREOP(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BLENDDIFFUSEALPHA: D3DTEXTUREOP = D3DTEXTUREOP(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BLENDFACTORALPHA: D3DTEXTUREOP = D3DTEXTUREOP(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BLENDTEXTUREALPHA: D3DTEXTUREOP = D3DTEXTUREOP(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BLENDTEXTUREALPHAPM: D3DTEXTUREOP = D3DTEXTUREOP(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BUMPENVMAP: D3DTEXTUREOP = D3DTEXTUREOP(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_BUMPENVMAPLUMINANCE: D3DTEXTUREOP = D3DTEXTUREOP(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_DISABLE: D3DTEXTUREOP = D3DTEXTUREOP(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_DOTPRODUCT3: D3DTEXTUREOP = D3DTEXTUREOP(24i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_LERP: D3DTEXTUREOP = D3DTEXTUREOP(26i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATE: D3DTEXTUREOP = D3DTEXTUREOP(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATE2X: D3DTEXTUREOP = D3DTEXTUREOP(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATE4X: D3DTEXTUREOP = D3DTEXTUREOP(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATEALPHA_ADDCOLOR: D3DTEXTUREOP = D3DTEXTUREOP(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATECOLOR_ADDALPHA: D3DTEXTUREOP = D3DTEXTUREOP(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATEINVALPHA_ADDCOLOR: D3DTEXTUREOP = D3DTEXTUREOP(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MODULATEINVCOLOR_ADDALPHA: D3DTEXTUREOP = D3DTEXTUREOP(21i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_MULTIPLYADD: D3DTEXTUREOP = D3DTEXTUREOP(25i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_PREMODULATE: D3DTEXTUREOP = D3DTEXTUREOP(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_SELECTARG1: D3DTEXTUREOP = D3DTEXTUREOP(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_SELECTARG2: D3DTEXTUREOP = D3DTEXTUREOP(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTOP_SUBTRACT: D3DTEXTUREOP = D3DTEXTUREOP(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRANSFORMCAPS_CLIP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRANSFORM_CLIPPED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRANSFORM_UNCLIPPED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRIFLAG_EDGEENABLE1: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRIFLAG_EDGEENABLE2: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRIFLAG_EDGEENABLE3: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRIFLAG_EVEN: i32 = 31i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRIFLAG_ODD: i32 = 30i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTRIFLAG_START: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_ALPHAARG0: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(27i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_ALPHAARG1: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_ALPHAARG2: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_ALPHAOP: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_BUMPENVLOFFSET: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_BUMPENVLSCALE: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_BUMPENVMAT00: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_BUMPENVMAT01: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_BUMPENVMAT10: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_BUMPENVMAT11: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_COLORARG0: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(26i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_COLORARG1: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_COLORARG2: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_COLOROP: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_CONSTANT: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_RESULTARG: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(28i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TCI_CAMERASPACENORMAL: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TCI_CAMERASPACEPOSITION: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR: u32 = 196608u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TCI_PASSTHRU: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TCI_SPHEREMAP: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TEXCOORDINDEX: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTSS_TEXTURETRANSFORMFLAGS: D3DTEXTURESTAGESTATETYPE = D3DTEXTURESTAGESTATETYPE(24i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_PROJECTION: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE0: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE1: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE2: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE3: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE4: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE5: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(21i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE6: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_TEXTURE7: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_VIEW: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTTFF_COUNT1: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTTFF_COUNT2: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTTFF_COUNT3: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTTFF_COUNT4: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTTFF_DISABLE: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTTFF_PROJECTED: D3DTEXTURETRANSFORMFLAGS = D3DTEXTURETRANSFORMFLAGS(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_AUTOGENMIPMAP: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_DEPTHSTENCIL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_DMAP: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_DONOTCLIP: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_DYNAMIC: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_NONSECURE: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_NPATCHES: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_POINTS: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_FILTER: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_LEGACYBUMPMAP: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_SRGBREAD: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_SRGBWRITE: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_VERTEXTEXTURE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_QUERY_WRAPANDMIP: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_RENDERTARGET: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_RESTRICTED_CONTENT: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_RESTRICT_SHARED_RESOURCE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_RTPATCHES: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_SOFTWAREPROCESSING: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_TEXTAPI: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DUSAGE_WRITEONLY: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBCAPS_DONOTCLIP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBCAPS_OPTIMIZED: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBCAPS_SYSTEMMEMORY: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBCAPS_WRITEONLY: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBF_0WEIGHTS: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBF_1WEIGHTS: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBF_2WEIGHTS: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBF_3WEIGHTS: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBF_DISABLE: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVBF_TWEENING: D3DVERTEXBLENDFLAGS = D3DVERTEXBLENDFLAGS(255i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVERTEXTEXTURESAMPLER0: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVERTEXTEXTURESAMPLER1: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVERTEXTEXTURESAMPLER2: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVERTEXTEXTURESAMPLER3: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_BOTTOM: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_FAR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_FRUSTUM: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_LEFT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_NEAR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_RIGHT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INSIDE_TOP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_BOTTOM: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_FAR: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_FRUSTUM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_LEFT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_NEAR: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_RIGHT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_INTERSECT_TOP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_BOTTOM: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_FAR: u32 = 12288u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_FRUSTUM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_LEFT: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_NEAR: u32 = 3072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_RIGHT: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_MASK_TOP: u32 = 192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_BOTTOM: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_FAR: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_FRUSTUM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_LEFT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_NEAR: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_RIGHT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVIS_OUTSIDE_TOP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVOP_CLIP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVOP_EXTENTS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVOP_LIGHT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVOP_TRANSFORM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20CAPS_PREDICATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20_MAX_NUMTEMPS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20_MIN_NUMTEMPS: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS_ADDRESSMODE_SHIFT: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS_ADDRMODE_ABSOLUTE: D3DVS_ADDRESSMODE_TYPE = D3DVS_ADDRESSMODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS_ADDRMODE_RELATIVE: D3DVS_ADDRESSMODE_TYPE = D3DVS_ADDRESSMODE_TYPE(8192i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS_SWIZZLE_MASK: u32 = 16711680u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVS_SWIZZLE_SHIFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_DIRECTIONALLIGHTS: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_LOCALVIEWER: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_MATERIALSOURCE7: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_POSITIONALLIGHTS: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_TEXGEN: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_TEXGEN_SPHEREMAP: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_TWEENING: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVTXPCAPS_VERTEXFOG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVT_LVERTEX: D3DVERTEXTYPE = D3DVERTEXTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVT_TLVERTEX: D3DVERTEXTYPE = D3DVERTEXTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DVT_VERTEX: D3DVERTEXTYPE = D3DVERTEXTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAPCOORD_0: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAPCOORD_1: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAPCOORD_2: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAPCOORD_3: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAP_U: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAP_V: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DWRAP_W: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DZB_FALSE: D3DZBUFFERTYPE = D3DZBUFFERTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DZB_TRUE: D3DZBUFFERTYPE = D3DZBUFFERTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DZB_USEW: D3DZBUFFERTYPE = D3DZBUFFERTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D_OMAC_SIZE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3D_SDK_VERSION: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const DIRECT3D_VERSION: u32 = 2304u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const MAXD3DDECLLENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const MAXD3DDECLUSAGEINDEX: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const PROCESSIDTYPE_DWM: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const PROCESSIDTYPE_HANDLE: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const PROCESSIDTYPE_UNKNOWN: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const _FACD3D: u32 = 2166u32;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DANTIALIASMODE(pub i32);
@@ -5313,7 +3925,6 @@ impl ::core::fmt::Debug for D3DANTIALIASMODE {
         f.debug_tuple("D3DANTIALIASMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DAUTHENTICATEDCHANNELTYPE(pub i32);
@@ -5336,7 +3947,6 @@ impl ::core::fmt::Debug for D3DAUTHENTICATEDCHANNELTYPE {
         f.debug_tuple("D3DAUTHENTICATEDCHANNELTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE(pub i32);
@@ -5359,7 +3969,6 @@ impl ::core::fmt::Debug for D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE {
         f.debug_tuple("D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DBACKBUFFER_TYPE(pub u32);
@@ -5382,7 +3991,6 @@ impl ::core::fmt::Debug for D3DBACKBUFFER_TYPE {
         f.debug_tuple("D3DBACKBUFFER_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DBASISTYPE(pub i32);
@@ -5405,7 +4013,6 @@ impl ::core::fmt::Debug for D3DBASISTYPE {
         f.debug_tuple("D3DBASISTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DBLEND(pub u32);
@@ -5428,7 +4035,6 @@ impl ::core::fmt::Debug for D3DBLEND {
         f.debug_tuple("D3DBLEND").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DBLENDOP(pub u32);
@@ -5451,7 +4057,6 @@ impl ::core::fmt::Debug for D3DBLENDOP {
         f.debug_tuple("D3DBLENDOP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DBUSTYPE(pub i32);
@@ -5474,7 +4079,6 @@ impl ::core::fmt::Debug for D3DBUSTYPE {
         f.debug_tuple("D3DBUSTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DCMPFUNC(pub i32);
@@ -5497,7 +4101,6 @@ impl ::core::fmt::Debug for D3DCMPFUNC {
         f.debug_tuple("D3DCMPFUNC").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DCOMPOSERECTSOP(pub i32);
@@ -5520,7 +4123,6 @@ impl ::core::fmt::Debug for D3DCOMPOSERECTSOP {
         f.debug_tuple("D3DCOMPOSERECTSOP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DCUBEMAP_FACES(pub i32);
@@ -5543,7 +4145,6 @@ impl ::core::fmt::Debug for D3DCUBEMAP_FACES {
         f.debug_tuple("D3DCUBEMAP_FACES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DCULL(pub u32);
@@ -5566,7 +4167,6 @@ impl ::core::fmt::Debug for D3DCULL {
         f.debug_tuple("D3DCULL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDEBUGMONITORTOKENS(pub i32);
@@ -5589,7 +4189,6 @@ impl ::core::fmt::Debug for D3DDEBUGMONITORTOKENS {
         f.debug_tuple("D3DDEBUGMONITORTOKENS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDECLMETHOD(pub i32);
@@ -5612,7 +4211,6 @@ impl ::core::fmt::Debug for D3DDECLMETHOD {
         f.debug_tuple("D3DDECLMETHOD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDECLTYPE(pub i32);
@@ -5635,7 +4233,6 @@ impl ::core::fmt::Debug for D3DDECLTYPE {
         f.debug_tuple("D3DDECLTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDECLUSAGE(pub i32);
@@ -5658,7 +4255,6 @@ impl ::core::fmt::Debug for D3DDECLUSAGE {
         f.debug_tuple("D3DDECLUSAGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDEGREETYPE(pub i32);
@@ -5681,7 +4277,6 @@ impl ::core::fmt::Debug for D3DDEGREETYPE {
         f.debug_tuple("D3DDEGREETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDEVTYPE(pub u32);
@@ -5704,7 +4299,6 @@ impl ::core::fmt::Debug for D3DDEVTYPE {
         f.debug_tuple("D3DDEVTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDISPLAYROTATION(pub i32);
@@ -5727,7 +4321,6 @@ impl ::core::fmt::Debug for D3DDISPLAYROTATION {
         f.debug_tuple("D3DDISPLAYROTATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DFILLMODE(pub i32);
@@ -5750,7 +4343,6 @@ impl ::core::fmt::Debug for D3DFILLMODE {
         f.debug_tuple("D3DFILLMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DFOGMODE(pub i32);
@@ -5773,7 +4365,6 @@ impl ::core::fmt::Debug for D3DFOGMODE {
         f.debug_tuple("D3DFOGMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DFORMAT(pub u32);
@@ -5796,7 +4387,6 @@ impl ::core::fmt::Debug for D3DFORMAT {
         f.debug_tuple("D3DFORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DLIGHTSTATETYPE(pub i32);
@@ -5819,7 +4409,6 @@ impl ::core::fmt::Debug for D3DLIGHTSTATETYPE {
         f.debug_tuple("D3DLIGHTSTATETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DLIGHTTYPE(pub i32);
@@ -5842,7 +4431,6 @@ impl ::core::fmt::Debug for D3DLIGHTTYPE {
         f.debug_tuple("D3DLIGHTTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DMATERIALCOLORSOURCE(pub i32);
@@ -5865,7 +4453,6 @@ impl ::core::fmt::Debug for D3DMATERIALCOLORSOURCE {
         f.debug_tuple("D3DMATERIALCOLORSOURCE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DMULTISAMPLE_TYPE(pub i32);
@@ -5888,7 +4475,6 @@ impl ::core::fmt::Debug for D3DMULTISAMPLE_TYPE {
         f.debug_tuple("D3DMULTISAMPLE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DOPCODE(pub i32);
@@ -5911,7 +4497,6 @@ impl ::core::fmt::Debug for D3DOPCODE {
         f.debug_tuple("D3DOPCODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DPATCHEDGESTYLE(pub i32);
@@ -5934,7 +4519,6 @@ impl ::core::fmt::Debug for D3DPATCHEDGESTYLE {
         f.debug_tuple("D3DPATCHEDGESTYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DPOOL(pub u32);
@@ -5957,7 +4541,6 @@ impl ::core::fmt::Debug for D3DPOOL {
         f.debug_tuple("D3DPOOL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DPRIMITIVETYPE(pub i32);
@@ -5980,7 +4563,6 @@ impl ::core::fmt::Debug for D3DPRIMITIVETYPE {
         f.debug_tuple("D3DPRIMITIVETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DQUERYTYPE(pub i32);
@@ -6003,7 +4585,6 @@ impl ::core::fmt::Debug for D3DQUERYTYPE {
         f.debug_tuple("D3DQUERYTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DRENDERSTATETYPE(pub i32);
@@ -6026,7 +4607,6 @@ impl ::core::fmt::Debug for D3DRENDERSTATETYPE {
         f.debug_tuple("D3DRENDERSTATETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DRESOURCETYPE(pub i32);
@@ -6049,7 +4629,6 @@ impl ::core::fmt::Debug for D3DRESOURCETYPE {
         f.debug_tuple("D3DRESOURCETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSAMPLERSTATETYPE(pub i32);
@@ -6072,7 +4651,6 @@ impl ::core::fmt::Debug for D3DSAMPLERSTATETYPE {
         f.debug_tuple("D3DSAMPLERSTATETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSAMPLER_TEXTURE_TYPE(pub i32);
@@ -6095,7 +4673,6 @@ impl ::core::fmt::Debug for D3DSAMPLER_TEXTURE_TYPE {
         f.debug_tuple("D3DSAMPLER_TEXTURE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSCANLINEORDERING(pub i32);
@@ -6118,7 +4695,6 @@ impl ::core::fmt::Debug for D3DSCANLINEORDERING {
         f.debug_tuple("D3DSCANLINEORDERING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADEMODE(pub i32);
@@ -6141,7 +4717,6 @@ impl ::core::fmt::Debug for D3DSHADEMODE {
         f.debug_tuple("D3DSHADEMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_ADDRESSMODE_TYPE(pub i32);
@@ -6164,7 +4739,6 @@ impl ::core::fmt::Debug for D3DSHADER_ADDRESSMODE_TYPE {
         f.debug_tuple("D3DSHADER_ADDRESSMODE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_COMPARISON(pub i32);
@@ -6187,7 +4761,6 @@ impl ::core::fmt::Debug for D3DSHADER_COMPARISON {
         f.debug_tuple("D3DSHADER_COMPARISON").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_INSTRUCTION_OPCODE_TYPE(pub i32);
@@ -6210,7 +4783,6 @@ impl ::core::fmt::Debug for D3DSHADER_INSTRUCTION_OPCODE_TYPE {
         f.debug_tuple("D3DSHADER_INSTRUCTION_OPCODE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_MIN_PRECISION(pub i32);
@@ -6233,7 +4805,6 @@ impl ::core::fmt::Debug for D3DSHADER_MIN_PRECISION {
         f.debug_tuple("D3DSHADER_MIN_PRECISION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_MISCTYPE_OFFSETS(pub i32);
@@ -6256,7 +4827,6 @@ impl ::core::fmt::Debug for D3DSHADER_MISCTYPE_OFFSETS {
         f.debug_tuple("D3DSHADER_MISCTYPE_OFFSETS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_PARAM_REGISTER_TYPE(pub i32);
@@ -6279,7 +4849,6 @@ impl ::core::fmt::Debug for D3DSHADER_PARAM_REGISTER_TYPE {
         f.debug_tuple("D3DSHADER_PARAM_REGISTER_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSHADER_PARAM_SRCMOD_TYPE(pub i32);
@@ -6302,7 +4871,6 @@ impl ::core::fmt::Debug for D3DSHADER_PARAM_SRCMOD_TYPE {
         f.debug_tuple("D3DSHADER_PARAM_SRCMOD_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSTATEBLOCKTYPE(pub i32);
@@ -6325,7 +4893,6 @@ impl ::core::fmt::Debug for D3DSTATEBLOCKTYPE {
         f.debug_tuple("D3DSTATEBLOCKTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSTENCILOP(pub u32);
@@ -6348,7 +4915,6 @@ impl ::core::fmt::Debug for D3DSTENCILOP {
         f.debug_tuple("D3DSTENCILOP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DSWAPEFFECT(pub u32);
@@ -6371,7 +4937,6 @@ impl ::core::fmt::Debug for D3DSWAPEFFECT {
         f.debug_tuple("D3DSWAPEFFECT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREADDRESS(pub i32);
@@ -6394,7 +4959,6 @@ impl ::core::fmt::Debug for D3DTEXTUREADDRESS {
         f.debug_tuple("D3DTEXTUREADDRESS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREBLEND(pub i32);
@@ -6417,7 +4981,6 @@ impl ::core::fmt::Debug for D3DTEXTUREBLEND {
         f.debug_tuple("D3DTEXTUREBLEND").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREFILTER(pub i32);
@@ -6440,7 +5003,6 @@ impl ::core::fmt::Debug for D3DTEXTUREFILTER {
         f.debug_tuple("D3DTEXTUREFILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREFILTERTYPE(pub i32);
@@ -6463,7 +5025,6 @@ impl ::core::fmt::Debug for D3DTEXTUREFILTERTYPE {
         f.debug_tuple("D3DTEXTUREFILTERTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREMAGFILTER(pub i32);
@@ -6486,7 +5047,6 @@ impl ::core::fmt::Debug for D3DTEXTUREMAGFILTER {
         f.debug_tuple("D3DTEXTUREMAGFILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREMINFILTER(pub i32);
@@ -6509,7 +5069,6 @@ impl ::core::fmt::Debug for D3DTEXTUREMINFILTER {
         f.debug_tuple("D3DTEXTUREMINFILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREMIPFILTER(pub i32);
@@ -6532,7 +5091,6 @@ impl ::core::fmt::Debug for D3DTEXTUREMIPFILTER {
         f.debug_tuple("D3DTEXTUREMIPFILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTUREOP(pub i32);
@@ -6555,7 +5113,6 @@ impl ::core::fmt::Debug for D3DTEXTUREOP {
         f.debug_tuple("D3DTEXTUREOP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTURESTAGESTATETYPE(pub i32);
@@ -6578,7 +5135,6 @@ impl ::core::fmt::Debug for D3DTEXTURESTAGESTATETYPE {
         f.debug_tuple("D3DTEXTURESTAGESTATETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTEXTURETRANSFORMFLAGS(pub i32);
@@ -6601,7 +5157,6 @@ impl ::core::fmt::Debug for D3DTEXTURETRANSFORMFLAGS {
         f.debug_tuple("D3DTEXTURETRANSFORMFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DTRANSFORMSTATETYPE(pub i32);
@@ -6624,7 +5179,6 @@ impl ::core::fmt::Debug for D3DTRANSFORMSTATETYPE {
         f.debug_tuple("D3DTRANSFORMSTATETYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DVERTEXBLENDFLAGS(pub i32);
@@ -6647,7 +5201,6 @@ impl ::core::fmt::Debug for D3DVERTEXBLENDFLAGS {
         f.debug_tuple("D3DVERTEXBLENDFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DVERTEXTYPE(pub i32);
@@ -6670,7 +5223,6 @@ impl ::core::fmt::Debug for D3DVERTEXTYPE {
         f.debug_tuple("D3DVERTEXTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DVS_ADDRESSMODE_TYPE(pub i32);
@@ -6693,7 +5245,6 @@ impl ::core::fmt::Debug for D3DVS_ADDRESSMODE_TYPE {
         f.debug_tuple("D3DVS_ADDRESSMODE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DVS_RASTOUT_OFFSETS(pub i32);
@@ -6716,7 +5267,6 @@ impl ::core::fmt::Debug for D3DVS_RASTOUT_OFFSETS {
         f.debug_tuple("D3DVS_RASTOUT_OFFSETS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DZBUFFERTYPE(pub i32);
@@ -6740,7 +5290,6 @@ impl ::core::fmt::Debug for D3DZBUFFERTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [u8; 512],
@@ -6773,7 +5322,6 @@ impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [u8; 512],
@@ -6806,7 +5354,6 @@ impl ::core::default::Default for D3DADAPTER_IDENTIFIER9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DAES_CTR_IV {
     pub IV: u64,
@@ -6831,7 +5378,6 @@ impl ::core::default::Default for D3DAES_CTR_IV {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DAES_CTR_IV {
     pub IV: u64,
@@ -6856,7 +5402,7 @@ impl ::core::default::Default for D3DAES_CTR_IV {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -6897,7 +5443,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -6937,7 +5483,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -6962,7 +5508,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -7003,7 +5549,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURC
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
@@ -7042,7 +5588,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDE
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub omac: D3D_OMAC,
@@ -7083,7 +5629,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub omac: D3D_OMAC,
@@ -7125,7 +5671,6 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
     pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0,
 }
@@ -7144,7 +5689,6 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
     pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0,
     pub Value: u32,
@@ -7164,7 +5708,6 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -7194,7 +5737,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7233,7 +5776,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPU
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -7272,7 +5815,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INP
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7313,7 +5856,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUT
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7352,7 +5895,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTP
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7391,7 +5934,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIO
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -7430,7 +5973,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIO
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7470,7 +6013,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIO
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7511,7 +6054,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPU
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -7551,7 +6094,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INP
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7592,7 +6135,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUT
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -7633,7 +6176,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
@@ -7666,7 +6209,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
@@ -7699,7 +6242,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7724,7 +6267,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7763,7 +6306,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDR
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
@@ -7802,7 +6345,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDR
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7843,7 +6386,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDR
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7882,7 +6425,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRY
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
@@ -7921,7 +6464,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTE
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     pub QueryType: ::windows_core::GUID,
@@ -7961,7 +6504,7 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub omac: D3D_OMAC,
@@ -8003,7 +6546,6 @@ impl ::core::default::Default for D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DBOX {
     pub Left: u32,
     pub Top: u32,
@@ -8038,7 +6580,7 @@ impl ::core::default::Default for D3DBOX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DBRANCH {
     pub dwMask: u32,
@@ -8079,7 +6621,6 @@ impl ::core::default::Default for D3DBRANCH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DCAPS9 {
     pub DeviceType: D3DDEVTYPE,
     pub AdapterOrdinal: u32,
@@ -8315,7 +6856,6 @@ impl ::core::default::Default for D3DCAPS9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DCLIPSTATUS {
     pub dwFlags: u32,
     pub dwStatus: u32,
@@ -8352,7 +6892,6 @@ impl ::core::default::Default for D3DCLIPSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DCLIPSTATUS9 {
     pub ClipUnion: u32,
     pub ClipIntersection: u32,
@@ -8383,7 +6922,6 @@ impl ::core::default::Default for D3DCLIPSTATUS9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DCOLORVALUE {
     pub r: f32,
     pub g: f32,
@@ -8416,7 +6954,6 @@ impl ::core::default::Default for D3DCOLORVALUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DCOMPOSERECTDESC {
     pub X: u16,
     pub Y: u16,
@@ -8449,7 +6986,6 @@ impl ::core::default::Default for D3DCOMPOSERECTDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DCOMPOSERECTDESTINATION {
     pub SrcRectIndex: u16,
     pub Reserved: u16,
@@ -8482,7 +7018,7 @@ impl ::core::default::Default for D3DCOMPOSERECTDESTINATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVICEDESC {
     pub dwSize: u32,
@@ -8621,7 +7157,6 @@ impl ::core::default::Default for D3DDEVICEDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVICEDESC7 {
     pub dwDevCaps: u32,
     pub dpcLineCaps: D3DPRIMCAPS,
@@ -8746,7 +7281,7 @@ impl ::core::default::Default for D3DDEVICEDESC7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub AdapterOrdinal: u32,
@@ -8787,7 +7322,6 @@ impl ::core::default::Default for D3DDEVICE_CREATION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
     pub MaxBandwidthUtilized: f32,
     pub FrontEndUploadMemoryUtilizedPercent: f32,
@@ -8821,7 +7355,6 @@ impl ::core::default::Default for D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_D3D9CACHEUTILIZATION {
     pub TextureCacheHitRate: f32,
     pub PostTransformVertexCacheHitRate: f32,
@@ -8852,7 +7385,6 @@ impl ::core::default::Default for D3DDEVINFO_D3D9CACHEUTILIZATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_D3D9INTERFACETIMINGS {
     pub WaitingForGPUToUseApplicationResourceTimePercent: f32,
     pub WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
@@ -8892,7 +7424,6 @@ impl ::core::default::Default for D3DDEVINFO_D3D9INTERFACETIMINGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_D3D9PIPELINETIMINGS {
     pub VertexProcessingTimePercent: f32,
     pub PixelProcessingTimePercent: f32,
@@ -8925,7 +7456,6 @@ impl ::core::default::Default for D3DDEVINFO_D3D9PIPELINETIMINGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_D3D9STAGETIMINGS {
     pub MemoryProcessingPercent: f32,
     pub ComputationProcessingPercent: f32,
@@ -8956,7 +7486,6 @@ impl ::core::default::Default for D3DDEVINFO_D3D9STAGETIMINGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_D3DVERTEXSTATS {
     pub NumRenderedTriangles: u32,
     pub NumExtraClippingTriangles: u32,
@@ -8987,7 +7516,7 @@ impl ::core::default::Default for D3DDEVINFO_D3DVERTEXSTATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DDEVINFO_RESOURCEMANAGER {
     pub stats: [D3DRESOURCESTATS; 8],
@@ -9025,7 +7554,6 @@ impl ::core::default::Default for D3DDEVINFO_RESOURCEMANAGER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDEVINFO_VCACHE {
     pub Pattern: u32,
     pub OptMethod: u32,
@@ -9058,7 +7586,6 @@ impl ::core::default::Default for D3DDEVINFO_VCACHE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -9091,7 +7618,6 @@ impl ::core::default::Default for D3DDISPLAYMODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDISPLAYMODEEX {
     pub Size: u32,
     pub Width: u32,
@@ -9126,7 +7652,6 @@ impl ::core::default::Default for D3DDISPLAYMODEEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDISPLAYMODEFILTER {
     pub Size: u32,
     pub Format: D3DFORMAT,
@@ -9158,7 +7683,6 @@ impl ::core::default::Default for D3DDISPLAYMODEFILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDP_PTRSTRIDE {
     pub lpvData: *mut ::core::ffi::c_void,
     pub dwStride: u32,
@@ -9189,7 +7713,6 @@ impl ::core::default::Default for D3DDP_PTRSTRIDE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DDRAWPRIMITIVESTRIDEDDATA {
     pub position: D3DDP_PTRSTRIDE,
     pub normal: D3DDP_PTRSTRIDE,
@@ -9223,7 +7746,6 @@ impl ::core::default::Default for D3DDRAWPRIMITIVESTRIDEDDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DENCRYPTED_BLOCK_INFO {
     pub NumEncryptedBytesAtBeginning: u32,
     pub NumBytesInSkipPattern: u32,
@@ -9255,7 +7777,6 @@ impl ::core::default::Default for D3DENCRYPTED_BLOCK_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DEXECUTEBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9289,7 +7810,6 @@ impl ::core::default::Default for D3DEXECUTEBUFFERDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DEXECUTEDATA {
     pub dwSize: u32,
     pub dwVertexOffset: u32,
@@ -9325,7 +7845,7 @@ impl ::core::default::Default for D3DEXECUTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DFINDDEVICERESULT {
     pub dwSize: u32,
@@ -9366,7 +7886,7 @@ impl ::core::default::Default for D3DFINDDEVICERESULT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DFINDDEVICESEARCH {
     pub dwSize: u32,
@@ -9410,7 +7930,6 @@ impl ::core::default::Default for D3DFINDDEVICESEARCH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
@@ -9442,7 +7961,6 @@ impl ::core::default::Default for D3DGAMMARAMP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DHVERTEX {
     pub dwFlags: u32,
     pub Anonymous1: D3DHVERTEX_0,
@@ -9464,7 +7982,6 @@ impl ::core::default::Default for D3DHVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DHVERTEX_0 {
     pub hx: f32,
     pub dvHX: f32,
@@ -9484,7 +8001,6 @@ impl ::core::default::Default for D3DHVERTEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DHVERTEX_1 {
     pub hy: f32,
     pub dvHY: f32,
@@ -9504,7 +8020,6 @@ impl ::core::default::Default for D3DHVERTEX_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DHVERTEX_2 {
     pub hz: f32,
     pub dvHZ: f32,
@@ -9524,7 +8039,6 @@ impl ::core::default::Default for D3DHVERTEX_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DINDEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -9558,7 +8072,6 @@ impl ::core::default::Default for D3DINDEXBUFFER_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DINSTRUCTION {
     pub bOpcode: u8,
     pub bSize: u8,
@@ -9590,7 +8103,7 @@ impl ::core::default::Default for D3DINSTRUCTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT {
     pub dwSize: u32,
@@ -9639,7 +8152,7 @@ impl ::core::default::Default for D3DLIGHT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT2 {
     pub dwSize: u32,
@@ -9703,7 +8216,7 @@ impl ::core::default::Default for D3DLIGHT2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT7 {
     pub dltType: D3DLIGHTTYPE,
@@ -9767,7 +8280,7 @@ impl ::core::default::Default for D3DLIGHT7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHT9 {
     pub Type: D3DLIGHTTYPE,
@@ -9817,7 +8330,7 @@ impl ::core::default::Default for D3DLIGHT9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHTDATA {
     pub dwSize: u32,
@@ -9859,7 +8372,6 @@ impl ::core::default::Default for D3DLIGHTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DLIGHTINGCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -9892,7 +8404,7 @@ impl ::core::default::Default for D3DLIGHTINGCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D`"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct D3DLIGHTINGELEMENT {
     pub dvPosition: super::Direct3D::D3DVECTOR,
@@ -9931,7 +8443,6 @@ impl ::core::default::Default for D3DLIGHTINGELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DLINE {
     pub Anonymous1: D3DLINE_0,
     pub Anonymous2: D3DLINE_1,
@@ -9951,7 +8462,6 @@ impl ::core::default::Default for D3DLINE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLINE_0 {
     pub v1: u16,
     pub wV1: u16,
@@ -9971,7 +8481,6 @@ impl ::core::default::Default for D3DLINE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLINE_1 {
     pub v2: u16,
     pub wV2: u16,
@@ -9991,7 +8500,6 @@ impl ::core::default::Default for D3DLINE_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DLOCKED_BOX {
     pub RowPitch: i32,
     pub SlicePitch: i32,
@@ -10023,7 +8531,6 @@ impl ::core::default::Default for D3DLOCKED_BOX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DLOCKED_RECT {
     pub Pitch: i32,
     pub pBits: *mut ::core::ffi::c_void,
@@ -10054,7 +8561,6 @@ impl ::core::default::Default for D3DLOCKED_RECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DLVERTEX {
     pub Anonymous1: D3DLVERTEX_0,
     pub Anonymous2: D3DLVERTEX_1,
@@ -10080,7 +8586,6 @@ impl ::core::default::Default for D3DLVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_0 {
     pub x: f32,
     pub dvX: f32,
@@ -10100,7 +8605,6 @@ impl ::core::default::Default for D3DLVERTEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_1 {
     pub y: f32,
     pub dvY: f32,
@@ -10120,7 +8624,6 @@ impl ::core::default::Default for D3DLVERTEX_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_2 {
     pub z: f32,
     pub dvZ: f32,
@@ -10140,7 +8643,6 @@ impl ::core::default::Default for D3DLVERTEX_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_3 {
     pub color: u32,
     pub dcColor: u32,
@@ -10160,7 +8662,6 @@ impl ::core::default::Default for D3DLVERTEX_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_4 {
     pub specular: u32,
     pub dcSpecular: u32,
@@ -10180,7 +8681,6 @@ impl ::core::default::Default for D3DLVERTEX_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_5 {
     pub tu: f32,
     pub dvTU: f32,
@@ -10200,7 +8700,6 @@ impl ::core::default::Default for D3DLVERTEX_5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DLVERTEX_6 {
     pub tv: f32,
     pub dvTV: f32,
@@ -10220,7 +8719,6 @@ impl ::core::default::Default for D3DLVERTEX_6 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DMATERIAL {
     pub dwSize: u32,
     pub Anonymous1: D3DMATERIAL_0,
@@ -10246,7 +8744,6 @@ impl ::core::default::Default for D3DMATERIAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL_0 {
     pub diffuse: D3DCOLORVALUE,
     pub dcvDiffuse: D3DCOLORVALUE,
@@ -10266,7 +8763,6 @@ impl ::core::default::Default for D3DMATERIAL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL_1 {
     pub ambient: D3DCOLORVALUE,
     pub dcvAmbient: D3DCOLORVALUE,
@@ -10286,7 +8782,6 @@ impl ::core::default::Default for D3DMATERIAL_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL_2 {
     pub specular: D3DCOLORVALUE,
     pub dcvSpecular: D3DCOLORVALUE,
@@ -10306,7 +8801,6 @@ impl ::core::default::Default for D3DMATERIAL_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL_3 {
     pub emissive: D3DCOLORVALUE,
     pub dcvEmissive: D3DCOLORVALUE,
@@ -10326,7 +8820,6 @@ impl ::core::default::Default for D3DMATERIAL_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL_4 {
     pub power: f32,
     pub dvPower: f32,
@@ -10346,7 +8839,6 @@ impl ::core::default::Default for D3DMATERIAL_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DMATERIAL7 {
     pub Anonymous1: D3DMATERIAL7_0,
     pub Anonymous2: D3DMATERIAL7_1,
@@ -10369,7 +8861,6 @@ impl ::core::default::Default for D3DMATERIAL7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL7_0 {
     pub diffuse: D3DCOLORVALUE,
     pub dcvDiffuse: D3DCOLORVALUE,
@@ -10389,7 +8880,6 @@ impl ::core::default::Default for D3DMATERIAL7_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL7_1 {
     pub ambient: D3DCOLORVALUE,
     pub dcvAmbient: D3DCOLORVALUE,
@@ -10409,7 +8899,6 @@ impl ::core::default::Default for D3DMATERIAL7_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL7_2 {
     pub specular: D3DCOLORVALUE,
     pub dcvSpecular: D3DCOLORVALUE,
@@ -10429,7 +8918,6 @@ impl ::core::default::Default for D3DMATERIAL7_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL7_3 {
     pub emissive: D3DCOLORVALUE,
     pub dcvEmissive: D3DCOLORVALUE,
@@ -10449,7 +8937,6 @@ impl ::core::default::Default for D3DMATERIAL7_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DMATERIAL7_4 {
     pub power: f32,
     pub dvPower: f32,
@@ -10469,7 +8956,6 @@ impl ::core::default::Default for D3DMATERIAL7_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DMATERIAL9 {
     pub Diffuse: D3DCOLORVALUE,
     pub Ambient: D3DCOLORVALUE,
@@ -10503,7 +8989,6 @@ impl ::core::default::Default for D3DMATERIAL9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DMATRIXLOAD {
     pub hDestMatrix: u32,
     pub hSrcMatrix: u32,
@@ -10534,7 +9019,6 @@ impl ::core::default::Default for D3DMATRIXLOAD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DMATRIXMULTIPLY {
     pub hDestMatrix: u32,
     pub hSrcMatrix1: u32,
@@ -10566,7 +9050,6 @@ impl ::core::default::Default for D3DMATRIXMULTIPLY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DMEMORYPRESSURE {
     pub BytesEvictedFromProcess: u64,
@@ -10592,7 +9075,6 @@ impl ::core::default::Default for D3DMEMORYPRESSURE {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DMEMORYPRESSURE {
     pub BytesEvictedFromProcess: u64,
@@ -10618,7 +9100,6 @@ impl ::core::default::Default for D3DMEMORYPRESSURE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DPICKRECORD {
     pub bOpcode: u8,
     pub bPad: u8,
@@ -10651,7 +9132,6 @@ impl ::core::default::Default for D3DPICKRECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DPOINT {
     pub wCount: u16,
     pub wFirst: u16,
@@ -10682,7 +9162,6 @@ impl ::core::default::Default for D3DPOINT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
@@ -10710,7 +9189,6 @@ impl ::core::default::Default for D3DPRESENTSTATS {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
@@ -10738,7 +9216,7 @@ impl ::core::default::Default for D3DPRESENTSTATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DPRESENT_PARAMETERS {
     pub BackBufferWidth: u32,
@@ -10804,7 +9282,6 @@ impl ::core::default::Default for D3DPRESENT_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DPRIMCAPS {
     pub dwSize: u32,
     pub dwMiscCaps: u32,
@@ -10862,7 +9339,6 @@ impl ::core::default::Default for D3DPRIMCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DPROCESSVERTICES {
     pub dwFlags: u32,
     pub wStart: u16,
@@ -10896,7 +9372,6 @@ impl ::core::default::Default for D3DPROCESSVERTICES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DPSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -10930,7 +9405,6 @@ impl ::core::default::Default for D3DPSHADERCAPS2_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DRANGE {
     pub Offset: u32,
     pub Size: u32,
@@ -10961,7 +9435,7 @@ impl ::core::default::Default for D3DRANGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DRASTER_STATUS {
     pub InVBlank: super::super::Foundation::BOOL,
@@ -11000,7 +9474,6 @@ impl ::core::default::Default for D3DRASTER_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DRECT {
     pub x1: i32,
     pub y1: i32,
@@ -11033,7 +9506,6 @@ impl ::core::default::Default for D3DRECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DRECTPATCH_INFO {
     pub StartVertexOffsetWidth: u32,
     pub StartVertexOffsetHeight: u32,
@@ -11069,7 +9541,7 @@ impl ::core::default::Default for D3DRECTPATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3DRESOURCESTATS {
     pub bThrashing: super::super::Foundation::BOOL,
@@ -11129,7 +9601,6 @@ impl ::core::default::Default for D3DRESOURCESTATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DSPAN {
     pub wCount: u16,
     pub wFirst: u16,
@@ -11160,7 +9631,6 @@ impl ::core::default::Default for D3DSPAN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DSTATE {
     pub Anonymous1: D3DSTATE_0,
     pub Anonymous2: D3DSTATE_1,
@@ -11180,7 +9650,6 @@ impl ::core::default::Default for D3DSTATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DSTATE_0 {
     pub dlstLightStateType: D3DLIGHTSTATETYPE,
     pub drstRenderStateType: D3DRENDERSTATETYPE,
@@ -11200,7 +9669,6 @@ impl ::core::default::Default for D3DSTATE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DSTATE_1 {
     pub dwArg: [u32; 1],
     pub dvArg: [f32; 1],
@@ -11220,7 +9688,6 @@ impl ::core::default::Default for D3DSTATE_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DSTATS {
     pub dwSize: u32,
     pub dwTrianglesDrawn: u32,
@@ -11255,7 +9722,6 @@ impl ::core::default::Default for D3DSTATS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DSTATUS {
     pub dwFlags: u32,
     pub dwStatus: u32,
@@ -11287,7 +9753,6 @@ impl ::core::default::Default for D3DSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DSURFACE_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -11324,7 +9789,6 @@ impl ::core::default::Default for D3DSURFACE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DTEXTURELOAD {
     pub hDestTexture: u32,
     pub hSrcTexture: u32,
@@ -11355,7 +9819,6 @@ impl ::core::default::Default for D3DTEXTURELOAD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DTLVERTEX {
     pub Anonymous1: D3DTLVERTEX_0,
     pub Anonymous2: D3DTLVERTEX_1,
@@ -11381,7 +9844,6 @@ impl ::core::default::Default for D3DTLVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_0 {
     pub sx: f32,
     pub dvSX: f32,
@@ -11401,7 +9863,6 @@ impl ::core::default::Default for D3DTLVERTEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_1 {
     pub sy: f32,
     pub dvSY: f32,
@@ -11421,7 +9882,6 @@ impl ::core::default::Default for D3DTLVERTEX_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_2 {
     pub sz: f32,
     pub dvSZ: f32,
@@ -11441,7 +9901,6 @@ impl ::core::default::Default for D3DTLVERTEX_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_3 {
     pub rhw: f32,
     pub dvRHW: f32,
@@ -11461,7 +9920,6 @@ impl ::core::default::Default for D3DTLVERTEX_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_4 {
     pub color: u32,
     pub dcColor: u32,
@@ -11481,7 +9939,6 @@ impl ::core::default::Default for D3DTLVERTEX_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_5 {
     pub specular: u32,
     pub dcSpecular: u32,
@@ -11501,7 +9958,6 @@ impl ::core::default::Default for D3DTLVERTEX_5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_6 {
     pub tu: f32,
     pub dvTU: f32,
@@ -11521,7 +9977,6 @@ impl ::core::default::Default for D3DTLVERTEX_6 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTLVERTEX_7 {
     pub tv: f32,
     pub dvTV: f32,
@@ -11541,7 +9996,6 @@ impl ::core::default::Default for D3DTLVERTEX_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DTRANSFORMCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -11572,7 +10026,6 @@ impl ::core::default::Default for D3DTRANSFORMCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DTRANSFORMDATA {
     pub dwSize: u32,
     pub lpIn: *mut ::core::ffi::c_void,
@@ -11611,7 +10064,6 @@ impl ::core::default::Default for D3DTRANSFORMDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DTRIANGLE {
     pub Anonymous1: D3DTRIANGLE_0,
     pub Anonymous2: D3DTRIANGLE_1,
@@ -11633,7 +10085,6 @@ impl ::core::default::Default for D3DTRIANGLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTRIANGLE_0 {
     pub v1: u16,
     pub wV1: u16,
@@ -11653,7 +10104,6 @@ impl ::core::default::Default for D3DTRIANGLE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTRIANGLE_1 {
     pub v2: u16,
     pub wV2: u16,
@@ -11673,7 +10123,6 @@ impl ::core::default::Default for D3DTRIANGLE_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DTRIANGLE_2 {
     pub v3: u16,
     pub wV3: u16,
@@ -11693,7 +10142,6 @@ impl ::core::default::Default for D3DTRIANGLE_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DTRIPATCH_INFO {
     pub StartVertexOffset: u32,
     pub NumVertices: u32,
@@ -11726,7 +10174,6 @@ impl ::core::default::Default for D3DTRIPATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVERTEX {
     pub Anonymous1: D3DVERTEX_0,
     pub Anonymous2: D3DVERTEX_1,
@@ -11752,7 +10199,6 @@ impl ::core::default::Default for D3DVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_0 {
     pub x: f32,
     pub dvX: f32,
@@ -11772,7 +10218,6 @@ impl ::core::default::Default for D3DVERTEX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_1 {
     pub y: f32,
     pub dvY: f32,
@@ -11792,7 +10237,6 @@ impl ::core::default::Default for D3DVERTEX_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_2 {
     pub z: f32,
     pub dvZ: f32,
@@ -11812,7 +10256,6 @@ impl ::core::default::Default for D3DVERTEX_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_3 {
     pub nx: f32,
     pub dvNX: f32,
@@ -11832,7 +10275,6 @@ impl ::core::default::Default for D3DVERTEX_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_4 {
     pub ny: f32,
     pub dvNY: f32,
@@ -11852,7 +10294,6 @@ impl ::core::default::Default for D3DVERTEX_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_5 {
     pub nz: f32,
     pub dvNZ: f32,
@@ -11872,7 +10313,6 @@ impl ::core::default::Default for D3DVERTEX_5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_6 {
     pub tu: f32,
     pub dvTU: f32,
@@ -11892,7 +10332,6 @@ impl ::core::default::Default for D3DVERTEX_6 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub union D3DVERTEX_7 {
     pub tv: f32,
     pub dvTV: f32,
@@ -11912,7 +10351,6 @@ impl ::core::default::Default for D3DVERTEX_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVERTEXBUFFERDESC {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -11945,7 +10383,6 @@ impl ::core::default::Default for D3DVERTEXBUFFERDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVERTEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -11980,7 +10417,6 @@ impl ::core::default::Default for D3DVERTEXBUFFER_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVERTEXELEMENT9 {
     pub Stream: u16,
     pub Offset: u16,
@@ -12015,7 +10451,6 @@ impl ::core::default::Default for D3DVERTEXELEMENT9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVIEWPORT {
     pub dwSize: u32,
     pub dwX: u32,
@@ -12055,7 +10490,6 @@ impl ::core::default::Default for D3DVIEWPORT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVIEWPORT2 {
     pub dwSize: u32,
     pub dwX: u32,
@@ -12095,7 +10529,6 @@ impl ::core::default::Default for D3DVIEWPORT2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVIEWPORT7 {
     pub dwX: u32,
     pub dwY: u32,
@@ -12130,7 +10563,6 @@ impl ::core::default::Default for D3DVIEWPORT7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVIEWPORT9 {
     pub X: u32,
     pub Y: u32,
@@ -12165,7 +10597,6 @@ impl ::core::default::Default for D3DVIEWPORT9 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVOLUME_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -12201,7 +10632,6 @@ impl ::core::default::Default for D3DVOLUME_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3DVSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -12234,7 +10664,6 @@ impl ::core::default::Default for D3DVSHADERCAPS2_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub struct D3D_OMAC {
     pub Omac: [u8; 16],
 }
@@ -12263,18 +10692,16 @@ impl ::core::default::Default for D3D_OMAC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpguid: *mut ::windows_core::GUID, lpdevicedescription: ::windows_core::PCSTR, lpdevicename: ::windows_core::PCSTR, param3: *mut D3DDEVICEDESC, param4: *mut D3DDEVICEDESC, param5: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub type LPD3DENUMDEVICESCALLBACK7 = ::core::option::Option<unsafe extern "system" fn(lpdevicedescription: ::windows_core::PCSTR, lpdevicename: ::windows_core::PCSTR, param2: *mut D3DDEVICEDESC7, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMPIXELFORMATSCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddpixfmt: *mut super::DirectDraw::DDPIXELFORMAT, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMTEXTUREFORMATSCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddsd: *mut super::DirectDraw::DDSURFACEDESC, lpcontext: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub type LPD3DVALIDATECALLBACK = ::core::option::Option<unsafe extern "system" fn(lpuserarg: *mut ::core::ffi::c_void, dwoffset: u32) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

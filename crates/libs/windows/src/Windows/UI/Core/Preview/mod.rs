@@ -92,12 +92,11 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CoreAppWindowPreview(::windows_core::IUnknown);
 impl CoreAppWindowPreview {
-    #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
+    #[doc = "Required features: `UI_WindowManagement`"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<P0>(window: P0) -> ::windows_core::Result<i32>
     where
@@ -129,7 +128,6 @@ impl ::windows_core::RuntimeName for CoreAppWindowPreview {
 ::windows_core::imp::interface_hierarchy!(CoreAppWindowPreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CoreAppWindowPreview {}
 unsafe impl ::core::marker::Sync for CoreAppWindowPreview {}
-#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(::windows_core::IUnknown);
@@ -145,7 +143,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetHandled)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -170,12 +168,11 @@ impl ::windows_core::RuntimeName for SystemNavigationCloseRequestedPreviewEventA
 ::windows_core::imp::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
-#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemNavigationManagerPreview(::windows_core::IUnknown);
 impl SystemNavigationManagerPreview {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CloseRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -187,7 +184,7 @@ impl SystemNavigationManagerPreview {
             (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCloseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

@@ -1,17 +1,20 @@
 #[cfg(feature = "Web_AtomPub")]
+#[doc = "Required features: `Web_AtomPub`"]
 pub mod AtomPub;
 #[cfg(feature = "Web_Http")]
+#[doc = "Required features: `Web_Http`"]
 pub mod Http;
 #[cfg(feature = "Web_Syndication")]
+#[doc = "Required features: `Web_Syndication`"]
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
+#[doc = "Required features: `Web_UI`"]
 pub mod UI;
-#[doc = "*Required features: `\"Web\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriToStreamResolver(::windows_core::IUnknown);
 impl IUriToStreamResolver {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn UriToStreamAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>
     where
@@ -59,7 +62,6 @@ pub struct IWebErrorStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Web\"`*"]
 pub struct WebError;
 impl WebError {
     pub fn GetStatus(hresult: i32) -> ::windows_core::Result<WebErrorStatus> {
@@ -77,7 +79,6 @@ impl WebError {
 impl ::windows_core::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
-#[doc = "*Required features: `\"Web\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebErrorStatus(pub i32);

@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AbortPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -8,14 +8,13 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AbortPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     AbortPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: ::core::option::Option<*const ::core::ffi::c_void>, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
     ::windows_targets::link!("gdi32.dll" "system" fn AddFontMemResourceEx(pfileview : *const ::core::ffi::c_void, cjsize : u32, pvresrved : *const ::core::ffi::c_void, pnumfonts : *const u32) -> super::super::Foundation:: HANDLE);
     AddFontMemResourceEx(pfileview, cjsize, ::core::mem::transmute(pvresrved.unwrap_or(::std::ptr::null())), pnumfonts)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceA<P0>(param0: P0) -> i32
 where
@@ -24,7 +23,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceA(param0 : ::windows_core::PCSTR) -> i32);
     AddFontResourceA(param0.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceExA<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*const ::core::ffi::c_void>) -> i32
 where
@@ -33,7 +31,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExA(name : ::windows_core::PCSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const ::core::ffi::c_void) -> i32);
     AddFontResourceExA(name.into_param().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceExW<P0>(name: P0, fl: FONT_RESOURCE_CHARACTERISTICS, res: ::core::option::Option<*const ::core::ffi::c_void>) -> i32
 where
@@ -42,7 +39,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceExW(name : ::windows_core::PCWSTR, fl : FONT_RESOURCE_CHARACTERISTICS, res : *const ::core::ffi::c_void) -> i32);
     AddFontResourceExW(name.into_param().abi(), fl, ::core::mem::transmute(res.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn AddFontResourceW<P0>(param0: P0) -> i32
 where
@@ -51,7 +47,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AddFontResourceW(param0 : ::windows_core::PCWSTR) -> i32);
     AddFontResourceW(param0.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AlphaBlend<P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL
@@ -62,7 +58,7 @@ where
     ::windows_targets::link!("msimg32.dll" "system" fn AlphaBlend(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> super::super::Foundation:: BOOL);
     AlphaBlend(hdcdest.into_param().abi(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into_param().abi(), xoriginsrc, yoriginsrc, wsrc, hsrc, ::core::mem::transmute(ftn))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AngleArc<P0>(hdc: P0, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL
@@ -72,7 +68,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AngleArc(hdc : HDC, x : i32, y : i32, r : u32, startangle : f32, sweepangle : f32) -> super::super::Foundation:: BOOL);
     AngleArc(hdc.into_param().abi(), x, y, r, startangle, sweepangle)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AnimatePalette<P0>(hpal: P0, istartindex: u32, ppe: &[PALETTEENTRY]) -> super::super::Foundation::BOOL
@@ -82,7 +78,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn AnimatePalette(hpal : HPALETTE, istartindex : u32, centries : u32, ppe : *const PALETTEENTRY) -> super::super::Foundation:: BOOL);
     AnimatePalette(hpal.into_param().abi(), istartindex, ppe.len() as _, ::core::mem::transmute(ppe.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Arc<P0>(hdc: P0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL
@@ -92,7 +88,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Arc(hdc : HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> super::super::Foundation:: BOOL);
     Arc(hdc.into_param().abi(), x1, y1, x2, y2, x3, y3, x4, y4)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ArcTo<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL
@@ -102,7 +98,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ArcTo(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32, xr1 : i32, yr1 : i32, xr2 : i32, yr2 : i32) -> super::super::Foundation:: BOOL);
     ArcTo(hdc.into_param().abi(), left, top, right, bottom, xr1, yr1, xr2, yr2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BeginPaint<P0>(hwnd: P0, lppaint: *mut PAINTSTRUCT) -> HDC
@@ -112,7 +108,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn BeginPaint(hwnd : super::super::Foundation:: HWND, lppaint : *mut PAINTSTRUCT) -> HDC);
     BeginPaint(hwnd.into_param().abi(), lppaint)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BeginPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -122,7 +118,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn BeginPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     BeginPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BitBlt<P0, P1>(hdc: P0, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: P1, x1: i32, y1: i32, rop: ROP_CODE) -> ::windows_core::Result<()>
@@ -133,7 +129,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn BitBlt(hdc : HDC, x : i32, y : i32, cx : i32, cy : i32, hdcsrc : HDC, x1 : i32, y1 : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
     BitBlt(hdc.into_param().abi(), x, y, cx, cy, hdcsrc.into_param().abi(), x1, y1, rop).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CancelDC<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -143,14 +139,14 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CancelDC(hdc : HDC) -> super::super::Foundation:: BOOL);
     CancelDC(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsA(lpdevmode: ::core::option::Option<*const DEVMODEA>, dwflags: CDS_TYPE) -> DISP_CHANGE {
     ::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsA(lpdevmode : *const DEVMODEA, dwflags : CDS_TYPE) -> DISP_CHANGE);
     ChangeDisplaySettingsA(::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExA<P0, P1>(lpszdevicename: P0, lpdevmode: ::core::option::Option<*const DEVMODEA>, hwnd: P1, dwflags: CDS_TYPE, lparam: ::core::option::Option<*const ::core::ffi::c_void>) -> DISP_CHANGE
@@ -161,7 +157,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExA(lpszdevicename : ::windows_core::PCSTR, lpdevmode : *const DEVMODEA, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const ::core::ffi::c_void) -> DISP_CHANGE);
     ChangeDisplaySettingsExA(lpszdevicename.into_param().abi(), ::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), hwnd.into_param().abi(), dwflags, ::core::mem::transmute(lparam.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExW<P0, P1>(lpszdevicename: P0, lpdevmode: ::core::option::Option<*const DEVMODEW>, hwnd: P1, dwflags: CDS_TYPE, lparam: ::core::option::Option<*const ::core::ffi::c_void>) -> DISP_CHANGE
@@ -172,14 +168,14 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsExW(lpszdevicename : ::windows_core::PCWSTR, lpdevmode : *const DEVMODEW, hwnd : super::super::Foundation:: HWND, dwflags : CDS_TYPE, lparam : *const ::core::ffi::c_void) -> DISP_CHANGE);
     ChangeDisplaySettingsExW(lpszdevicename.into_param().abi(), ::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), hwnd.into_param().abi(), dwflags, ::core::mem::transmute(lparam.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsW(lpdevmode: ::core::option::Option<*const DEVMODEW>, dwflags: CDS_TYPE) -> DISP_CHANGE {
     ::windows_targets::link!("user32.dll" "system" fn ChangeDisplaySettingsW(lpdevmode : *const DEVMODEW, dwflags : CDS_TYPE) -> DISP_CHANGE);
     ChangeDisplaySettingsW(::core::mem::transmute(lpdevmode.unwrap_or(::std::ptr::null())), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Chord<P0>(hdc: P0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL
@@ -189,7 +185,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Chord(hdc : HDC, x1 : i32, y1 : i32, x2 : i32, y2 : i32, x3 : i32, y3 : i32, x4 : i32, y4 : i32) -> super::super::Foundation:: BOOL);
     Chord(hdc.into_param().abi(), x1, y1, x2, y2, x3, y3, x4, y4)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClientToScreen<P0>(hwnd: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -199,7 +195,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ClientToScreen(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     ClientToScreen(hwnd.into_param().abi(), lppoint)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CloseEnhMetaFile<P0>(hdc: P0) -> HENHMETAFILE
 where
@@ -208,7 +203,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CloseEnhMetaFile(hdc : HDC) -> HENHMETAFILE);
     CloseEnhMetaFile(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseFigure<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -218,7 +213,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CloseFigure(hdc : HDC) -> super::super::Foundation:: BOOL);
     CloseFigure(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CloseMetaFile<P0>(hdc: P0) -> HMETAFILE
 where
@@ -227,7 +221,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CloseMetaFile(hdc : HDC) -> HMETAFILE);
     CloseMetaFile(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CombineRgn<P0, P1, P2>(hrgndst: P0, hrgnsrc1: P1, hrgnsrc2: P2, imode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE
 where
@@ -238,14 +231,13 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CombineRgn(hrgndst : HRGN, hrgnsrc1 : HRGN, hrgnsrc2 : HRGN, imode : RGN_COMBINE_MODE) -> GDI_REGION_TYPE);
     CombineRgn(hrgndst.into_param().abi(), hrgnsrc1.into_param().abi(), hrgnsrc2.into_param().abi(), imode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("gdi32.dll" "system" fn CombineTransform(lpxfout : *mut XFORM, lpxf1 : *const XFORM, lpxf2 : *const XFORM) -> super::super::Foundation:: BOOL);
     CombineTransform(lpxfout, lpxf1, lpxf2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyEnhMetaFileA<P0, P1>(henh: P0, lpfilename: P1) -> HENHMETAFILE
 where
@@ -255,7 +247,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileA(henh : HENHMETAFILE, lpfilename : ::windows_core::PCSTR) -> HENHMETAFILE);
     CopyEnhMetaFileA(henh.into_param().abi(), lpfilename.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyEnhMetaFileW<P0, P1>(henh: P0, lpfilename: P1) -> HENHMETAFILE
 where
@@ -265,7 +256,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CopyEnhMetaFileW(henh : HENHMETAFILE, lpfilename : ::windows_core::PCWSTR) -> HENHMETAFILE);
     CopyEnhMetaFileW(henh.into_param().abi(), lpfilename.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyMetaFileA<P0, P1>(param0: P0, param1: P1) -> HMETAFILE
 where
@@ -275,7 +265,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileA(param0 : HMETAFILE, param1 : ::windows_core::PCSTR) -> HMETAFILE);
     CopyMetaFileA(param0.into_param().abi(), param1.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CopyMetaFileW<P0, P1>(param0: P0, param1: P1) -> HMETAFILE
 where
@@ -285,33 +274,30 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CopyMetaFileW(param0 : HMETAFILE, param1 : ::windows_core::PCWSTR) -> HMETAFILE);
     CopyMetaFileW(param0.into_param().abi(), param1.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn CopyRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     CopyRect(lprcdst, lprcsrc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u32, lpbits: ::core::option::Option<*const ::core::ffi::c_void>) -> HBITMAP {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateBitmap(nwidth : i32, nheight : i32, nplanes : u32, nbitcount : u32, lpbits : *const ::core::ffi::c_void) -> HBITMAP);
     CreateBitmap(nwidth, nheight, nplanes, nbitcount, ::core::mem::transmute(lpbits.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateBitmapIndirect(pbm : *const BITMAP) -> HBITMAP);
     CreateBitmapIndirect(pbm)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateBrushIndirect(plbrush : *const LOGBRUSH) -> HBRUSH);
     CreateBrushIndirect(plbrush)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateCompatibleBitmap<P0>(hdc: P0, cx: i32, cy: i32) -> HBITMAP
 where
@@ -320,7 +306,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleBitmap(hdc : HDC, cx : i32, cy : i32) -> HBITMAP);
     CreateCompatibleBitmap(hdc.into_param().abi(), cx, cy)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateCompatibleDC<P0>(hdc: P0) -> HDC
 where
@@ -329,7 +314,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleDC(hdc : HDC) -> HDC);
     CreateCompatibleDC(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCA<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> HDC
@@ -341,7 +326,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateDCA(pwszdriver : ::windows_core::PCSTR, pwszdevice : ::windows_core::PCSTR, pszport : ::windows_core::PCSTR, pdm : *const DEVMODEA) -> HDC);
     CreateDCA(pwszdriver.into_param().abi(), pwszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCW<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> HDC
@@ -353,7 +338,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateDCW(pwszdriver : ::windows_core::PCWSTR, pwszdevice : ::windows_core::PCWSTR, pszport : ::windows_core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
     CreateDCW(pwszdriver.into_param().abi(), pwszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDIBPatternBrush<P0>(h: P0, iusage: DIB_USAGE) -> HBRUSH
@@ -363,13 +348,12 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrush(h : super::super::Foundation:: HGLOBAL, iusage : DIB_USAGE) -> HBRUSH);
     CreateDIBPatternBrush(h.into_param().abi(), iusage)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateDIBPatternBrushPt(lppackeddib : *const ::core::ffi::c_void, iusage : DIB_USAGE) -> HBRUSH);
     CreateDIBPatternBrushPt(lppackeddib, iusage)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDIBSection<P0, P1>(hdc: P0, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::core::ffi::c_void, hsection: P1, offset: u32) -> ::windows_core::Result<HBITMAP>
@@ -381,7 +365,6 @@ where
     let result__ = CreateDIBSection(hdc.into_param().abi(), pbmi, usage, ppvbits, hsection.into_param().abi(), offset);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateDIBitmap<P0>(hdc: P0, pbmih: ::core::option::Option<*const BITMAPINFOHEADER>, flinit: u32, pjbits: ::core::option::Option<*const ::core::ffi::c_void>, pbmi: ::core::option::Option<*const BITMAPINFO>, iusage: DIB_USAGE) -> HBITMAP
 where
@@ -390,7 +373,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateDIBitmap(hdc : HDC, pbmih : *const BITMAPINFOHEADER, flinit : u32, pjbits : *const ::core::ffi::c_void, pbmi : *const BITMAPINFO, iusage : DIB_USAGE) -> HBITMAP);
     CreateDIBitmap(hdc.into_param().abi(), ::core::mem::transmute(pbmih.unwrap_or(::std::ptr::null())), flinit, ::core::mem::transmute(pjbits.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pbmi.unwrap_or(::std::ptr::null())), iusage)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateDiscardableBitmap<P0>(hdc: P0, cx: i32, cy: i32) -> HBITMAP
 where
@@ -399,20 +381,19 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateDiscardableBitmap(hdc : HDC, cx : i32, cy : i32) -> HBITMAP);
     CreateDiscardableBitmap(hdc.into_param().abi(), cx, cy)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateEllipticRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> HRGN);
     CreateEllipticRgn(x1, y1, x2, y2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateEllipticRgnIndirect(lprect : *const super::super::Foundation:: RECT) -> HRGN);
     CreateEllipticRgnIndirect(lprect)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnhMetaFileA<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HDC
@@ -424,7 +405,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileA(hdc : HDC, lpfilename : ::windows_core::PCSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_core::PCSTR) -> HDC);
     CreateEnhMetaFileA(hdc.into_param().abi(), lpfilename.into_param().abi(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnhMetaFileW<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HDC
@@ -436,7 +417,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileW(hdc : HDC, lpfilename : ::windows_core::PCWSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_core::PCWSTR) -> HDC);
     CreateEnhMetaFileW(hdc.into_param().abi(), lpfilename.into_param().abi(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontA<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
@@ -445,37 +425,31 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateFontA(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : ::windows_core::PCSTR) -> HFONT);
     CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectA(lplf : *const LOGFONTA) -> HFONT);
     CreateFontIndirectA(lplf)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectExA(param0 : *const ENUMLOGFONTEXDVA) -> HFONT);
     CreateFontIndirectExA(param0)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectExW(param0 : *const ENUMLOGFONTEXDVW) -> HFONT);
     CreateFontIndirectExW(param0)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateFontIndirectW(lplf : *const LOGFONTW) -> HFONT);
     CreateFontIndirectW(lplf)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("fontsub.dll" "cdecl" fn CreateFontPackage(puchsrcbuffer : *const u8, ulsrcbuffersize : u32, ppuchfontpackagebuffer : *mut *mut u8, pulfontpackagebuffersize : *mut u32, pulbyteswritten : *mut u32, usflag : u16, usttcindex : u16, ussubsetformat : u16, ussubsetlanguage : u16, ussubsetplatform : CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding : CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist : *const u16, ussubsetlistcount : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut ::core::ffi::c_void) -> u32);
     CreateFontPackage(puchsrcbuffer, ulsrcbuffersize, ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateFontW<P0>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: u32, iclipprecision: u32, iquality: u32, ipitchandfamily: u32, pszfacename: P0) -> HFONT
 where
@@ -484,7 +458,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateFontW(cheight : i32, cwidth : i32, cescapement : i32, corientation : i32, cweight : i32, bitalic : u32, bunderline : u32, bstrikeout : u32, icharset : u32, ioutprecision : u32, iclipprecision : u32, iquality : u32, ipitchandfamily : u32, pszfacename : ::windows_core::PCWSTR) -> HFONT);
     CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateHalftonePalette<P0>(hdc: P0) -> HPALETTE
 where
@@ -493,7 +466,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateHalftonePalette(hdc : HDC) -> HPALETTE);
     CreateHalftonePalette(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateHatchBrush<P0>(ihatch: HATCH_BRUSH_STYLE, color: P0) -> HBRUSH
@@ -503,7 +476,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateHatchBrush(ihatch : HATCH_BRUSH_STYLE, color : super::super::Foundation:: COLORREF) -> HBRUSH);
     CreateHatchBrush(ihatch, color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICA<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> HDC
@@ -515,7 +488,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateICA(pszdriver : ::windows_core::PCSTR, pszdevice : ::windows_core::PCSTR, pszport : ::windows_core::PCSTR, pdm : *const DEVMODEA) -> HDC);
     CreateICA(pszdriver.into_param().abi(), pszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICW<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> HDC
@@ -527,7 +500,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateICW(pszdriver : ::windows_core::PCWSTR, pszdevice : ::windows_core::PCWSTR, pszport : ::windows_core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
     CreateICW(pszdriver.into_param().abi(), pszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateMetaFileA<P0>(pszfile: P0) -> HDC
 where
@@ -536,7 +508,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileA(pszfile : ::windows_core::PCSTR) -> HDC);
     CreateMetaFileA(pszfile.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateMetaFileW<P0>(pszfile: P0) -> HDC
 where
@@ -545,13 +516,11 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileW(pszfile : ::windows_core::PCWSTR) -> HDC);
     CreateMetaFileW(pszfile.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     ::windows_targets::link!("gdi32.dll" "system" fn CreatePalette(plpal : *const LOGPALETTE) -> HPALETTE);
     CreatePalette(plpal)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreatePatternBrush<P0>(hbm: P0) -> HBRUSH
 where
@@ -560,7 +529,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreatePatternBrush(hbm : HBITMAP) -> HBRUSH);
     CreatePatternBrush(hbm.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePen<P0>(istyle: PEN_STYLE, cwidth: i32, color: P0) -> HPEN
@@ -570,47 +539,45 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreatePen(istyle : PEN_STYLE, cwidth : i32, color : super::super::Foundation:: COLORREF) -> HPEN);
     CreatePen(istyle, cwidth, color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreatePenIndirect(plpen : *const LOGPEN) -> HPEN);
     CreatePenIndirect(plpen)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: &[i32], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreatePolyPolygonRgn(pptl : *const super::super::Foundation:: POINT, pc : *const i32, cpoly : i32, imode : CREATE_POLYGON_RGN_MODE) -> HRGN);
     CreatePolyPolygonRgn(pptl, ::core::mem::transmute(pc.as_ptr()), pc.len() as _, imode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePolygonRgn(pptl: &[super::super::Foundation::POINT], imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreatePolygonRgn(pptl : *const super::super::Foundation:: POINT, cpoint : i32, imode : CREATE_POLYGON_RGN_MODE) -> HRGN);
     CreatePolygonRgn(::core::mem::transmute(pptl.as_ptr()), pptl.len() as _, imode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32) -> HRGN);
     CreateRectRgn(x1, y1, x2, y2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateRectRgnIndirect(lprect : *const super::super::Foundation:: RECT) -> HRGN);
     CreateRectRgnIndirect(lprect)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn CreateRoundRectRgn(x1 : i32, y1 : i32, x2 : i32, y2 : i32, w : i32, h : i32) -> HRGN);
     CreateRoundRectRgn(x1, y1, x2, y2, w, h)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceA<P0, P1, P2>(fdwhidden: u32, lpszfont: P0, lpszfile: P1, lpszpath: P2) -> ::windows_core::Result<()>
@@ -622,7 +589,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceA(fdwhidden : u32, lpszfont : ::windows_core::PCSTR, lpszfile : ::windows_core::PCSTR, lpszpath : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CreateScalableFontResourceA(fdwhidden, lpszfont.into_param().abi(), lpszfile.into_param().abi(), lpszpath.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceW<P0, P1, P2>(fdwhidden: u32, lpszfont: P0, lpszfile: P1, lpszpath: P2) -> ::windows_core::Result<()>
@@ -634,7 +601,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateScalableFontResourceW(fdwhidden : u32, lpszfont : ::windows_core::PCWSTR, lpszfile : ::windows_core::PCWSTR, lpszpath : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CreateScalableFontResourceW(fdwhidden, lpszfont.into_param().abi(), lpszfile.into_param().abi(), lpszpath.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSolidBrush<P0>(color: P0) -> HBRUSH
@@ -644,7 +611,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn CreateSolidBrush(color : super::super::Foundation:: COLORREF) -> HBRUSH);
     CreateSolidBrush(color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DPtoLP<P0>(hdc: P0, lppt: &mut [super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -654,7 +621,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn DPtoLP(hdc : HDC, lppt : *mut super::super::Foundation:: POINT, c : i32) -> super::super::Foundation:: BOOL);
     DPtoLP(hdc.into_param().abi(), ::core::mem::transmute(lppt.as_ptr()), lppt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteDC<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -664,7 +631,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn DeleteDC(hdc : HDC) -> super::super::Foundation:: BOOL);
     DeleteDC(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteEnhMetaFile<P0>(hmf: P0) -> super::super::Foundation::BOOL
@@ -674,7 +641,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn DeleteEnhMetaFile(hmf : HENHMETAFILE) -> super::super::Foundation:: BOOL);
     DeleteEnhMetaFile(hmf.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteMetaFile<P0>(hmf: P0) -> super::super::Foundation::BOOL
@@ -684,7 +651,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn DeleteMetaFile(hmf : HMETAFILE) -> super::super::Foundation:: BOOL);
     DeleteMetaFile(hmf.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteObject<P0>(ho: P0) -> super::super::Foundation::BOOL
@@ -694,7 +661,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn DeleteObject(ho : HGDIOBJ) -> super::super::Foundation:: BOOL);
     DeleteObject(ho.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawAnimatedRects<P0>(hwnd: P0, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
@@ -704,7 +671,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawAnimatedRects(hwnd : super::super::Foundation:: HWND, idani : i32, lprcfrom : *const super::super::Foundation:: RECT, lprcto : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     DrawAnimatedRects(hwnd.into_param().abi(), idani, lprcfrom, lprcto)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawCaption<P0, P1>(hwnd: P0, hdc: P1, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL
@@ -715,7 +682,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawCaption(hwnd : super::super::Foundation:: HWND, hdc : HDC, lprect : *const super::super::Foundation:: RECT, flags : DRAW_CAPTION_FLAGS) -> super::super::Foundation:: BOOL);
     DrawCaption(hwnd.into_param().abi(), hdc.into_param().abi(), lprect, flags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawEdge<P0>(hdc: P0, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL
@@ -725,7 +692,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawEdge(hdc : HDC, qrc : *mut super::super::Foundation:: RECT, edge : DRAWEDGE_FLAGS, grfflags : DRAW_EDGE_FLAGS) -> super::super::Foundation:: BOOL);
     DrawEdge(hdc.into_param().abi(), qrc, edge, grfflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn DrawEscape<P0>(hdc: P0, iescape: i32, lpin: ::core::option::Option<&[u8]>) -> i32
 where
@@ -734,7 +700,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn DrawEscape(hdc : HDC, iescape : i32, cjin : i32, lpin : ::windows_core::PCSTR) -> i32);
     DrawEscape(hdc.into_param().abi(), iescape, lpin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawFocusRect<P0>(hdc: P0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
@@ -744,7 +710,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawFocusRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     DrawFocusRect(hdc.into_param().abi(), lprc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawFrameControl<P0>(param0: P0, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL
@@ -754,7 +720,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawFrameControl(param0 : HDC, param1 : *mut super::super::Foundation:: RECT, param2 : DFC_TYPE, param3 : DFCS_STATE) -> super::super::Foundation:: BOOL);
     DrawFrameControl(param0.into_param().abi(), param1, param2, param3)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawStateA<P0, P1, P2, P3>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL
@@ -767,7 +733,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawStateA(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> super::super::Foundation:: BOOL);
     DrawStateA(hdc.into_param().abi(), hbrfore.into_param().abi(), qfncallback, ldata.into_param().abi(), wdata.into_param().abi(), x, y, cx, cy, uflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawStateW<P0, P1, P2, P3>(hdc: P0, hbrfore: P1, qfncallback: DRAWSTATEPROC, ldata: P2, wdata: P3, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL
@@ -780,7 +746,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawStateW(hdc : HDC, hbrfore : HBRUSH, qfncallback : DRAWSTATEPROC, ldata : super::super::Foundation:: LPARAM, wdata : super::super::Foundation:: WPARAM, x : i32, y : i32, cx : i32, cy : i32, uflags : DRAWSTATE_FLAGS) -> super::super::Foundation:: BOOL);
     DrawStateW(hdc.into_param().abi(), hbrfore.into_param().abi(), qfncallback, ldata.into_param().abi(), wdata.into_param().abi(), x, y, cx, cy, uflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextA<P0>(hdc: P0, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
@@ -790,7 +756,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawTextA(hdc : HDC, lpchtext : ::windows_core::PCSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
     DrawTextA(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, lprc, format)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextExA<P0>(hdc: P0, lpchtext: &mut [u8], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: ::core::option::Option<*const DRAWTEXTPARAMS>) -> i32
@@ -800,7 +766,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawTextExA(hdc : HDC, lpchtext : ::windows_core::PSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
     DrawTextExA(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, lprc, format, ::core::mem::transmute(lpdtp.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextExW<P0>(hdc: P0, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: ::core::option::Option<*const DRAWTEXTPARAMS>) -> i32
@@ -810,7 +776,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawTextExW(hdc : HDC, lpchtext : ::windows_core::PWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT, lpdtp : *const DRAWTEXTPARAMS) -> i32);
     DrawTextExW(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, lprc, format, ::core::mem::transmute(lpdtp.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextW<P0>(hdc: P0, lpchtext: &mut [u16], lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
@@ -820,7 +786,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn DrawTextW(hdc : HDC, lpchtext : ::windows_core::PCWSTR, cchtext : i32, lprc : *mut super::super::Foundation:: RECT, format : DRAW_TEXT_FORMAT) -> i32);
     DrawTextW(hdc.into_param().abi(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, lprc, format)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Ellipse<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL
@@ -830,7 +796,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Ellipse(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
     Ellipse(hdc.into_param().abi(), left, top, right, bottom)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPaint<P0>(hwnd: P0, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL
@@ -840,7 +806,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EndPaint(hwnd : super::super::Foundation:: HWND, lppaint : *const PAINTSTRUCT) -> super::super::Foundation:: BOOL);
     EndPaint(hwnd.into_param().abi(), lppaint)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -850,7 +816,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EndPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     EndPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesA<P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL
@@ -860,7 +826,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesA(lpdevice : ::windows_core::PCSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEA, dwflags : u32) -> super::super::Foundation:: BOOL);
     EnumDisplayDevicesA(lpdevice.into_param().abi(), idevnum, lpdisplaydevice, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesW<P0>(lpdevice: P0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL
@@ -870,7 +836,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplayDevicesW(lpdevice : ::windows_core::PCWSTR, idevnum : u32, lpdisplaydevice : *mut DISPLAY_DEVICEW, dwflags : u32) -> super::super::Foundation:: BOOL);
     EnumDisplayDevicesW(lpdevice.into_param().abi(), idevnum, lpdisplaydevice, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayMonitors<P0, P1>(hdc: P0, lprcclip: ::core::option::Option<*const super::super::Foundation::RECT>, lpfnenum: MONITORENUMPROC, dwdata: P1) -> super::super::Foundation::BOOL
@@ -881,7 +847,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplayMonitors(hdc : HDC, lprcclip : *const super::super::Foundation:: RECT, lpfnenum : MONITORENUMPROC, dwdata : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumDisplayMonitors(hdc.into_param().abi(), ::core::mem::transmute(lprcclip.unwrap_or(::std::ptr::null())), lpfnenum, dwdata.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL
@@ -891,7 +857,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsA(lpszdevicename : ::windows_core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA) -> super::super::Foundation:: BOOL);
     EnumDisplaySettingsA(lpszdevicename.into_param().abi(), imodenum, lpdevmode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExA<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation::BOOL
@@ -901,7 +867,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExA(lpszdevicename : ::windows_core::PCSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEA, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
     EnumDisplaySettingsExA(lpszdevicename.into_param().abi(), imodenum, lpdevmode, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation::BOOL
@@ -911,7 +877,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsExW(lpszdevicename : ::windows_core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW, dwflags : ENUM_DISPLAY_SETTINGS_FLAGS) -> super::super::Foundation:: BOOL);
     EnumDisplaySettingsExW(lpszdevicename.into_param().abi(), imodenum, lpdevmode, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsW<P0>(lpszdevicename: P0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL
@@ -921,7 +887,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn EnumDisplaySettingsW(lpszdevicename : ::windows_core::PCWSTR, imodenum : ENUM_DISPLAY_SETTINGS_MODE, lpdevmode : *mut DEVMODEW) -> super::super::Foundation:: BOOL);
     EnumDisplaySettingsW(lpszdevicename.into_param().abi(), imodenum, lpdevmode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumEnhMetaFile<P0, P1>(hdc: P0, hmf: P1, proc: ENHMFENUMPROC, param3: ::core::option::Option<*const ::core::ffi::c_void>, lprect: ::core::option::Option<*const super::super::Foundation::RECT>) -> super::super::Foundation::BOOL
@@ -932,7 +898,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, proc : ENHMFENUMPROC, param3 : *const ::core::ffi::c_void, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     EnumEnhMetaFile(hdc.into_param().abi(), hmf.into_param().abi(), proc, ::core::mem::transmute(param3.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesA<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: P2) -> i32
@@ -944,7 +910,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesA(hdc : HDC, lplogfont : ::windows_core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
     EnumFontFamiliesA(hdc.into_param().abi(), lplogfont.into_param().abi(), lpproc, lparam.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesExA<P0, P1>(hdc: P0, lplogfont: *const LOGFONTA, lpproc: FONTENUMPROCA, lparam: P1, dwflags: u32) -> i32
@@ -955,7 +921,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesExA(hdc : HDC, lplogfont : *const LOGFONTA, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM, dwflags : u32) -> i32);
     EnumFontFamiliesExA(hdc.into_param().abi(), lplogfont, lpproc, lparam.into_param().abi(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesExW<P0, P1>(hdc: P0, lplogfont: *const LOGFONTW, lpproc: FONTENUMPROCW, lparam: P1, dwflags: u32) -> i32
@@ -966,7 +932,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesExW(hdc : HDC, lplogfont : *const LOGFONTW, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM, dwflags : u32) -> i32);
     EnumFontFamiliesExW(hdc.into_param().abi(), lplogfont, lpproc, lparam.into_param().abi(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesW<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: P2) -> i32
@@ -978,7 +944,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumFontFamiliesW(hdc : HDC, lplogfont : ::windows_core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
     EnumFontFamiliesW(hdc.into_param().abi(), lplogfont.into_param().abi(), lpproc, lparam.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontsA<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCA, lparam: P2) -> i32
@@ -990,7 +956,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumFontsA(hdc : HDC, lplogfont : ::windows_core::PCSTR, lpproc : FONTENUMPROCA, lparam : super::super::Foundation:: LPARAM) -> i32);
     EnumFontsA(hdc.into_param().abi(), lplogfont.into_param().abi(), lpproc, lparam.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontsW<P0, P1, P2>(hdc: P0, lplogfont: P1, lpproc: FONTENUMPROCW, lparam: P2) -> i32
@@ -1002,7 +968,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumFontsW(hdc : HDC, lplogfont : ::windows_core::PCWSTR, lpproc : FONTENUMPROCW, lparam : super::super::Foundation:: LPARAM) -> i32);
     EnumFontsW(hdc.into_param().abi(), lplogfont.into_param().abi(), lpproc, lparam.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumMetaFile<P0, P1, P2>(hdc: P0, hmf: P1, proc: MFENUMPROC, param3: P2) -> super::super::Foundation::BOOL
@@ -1014,7 +980,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumMetaFile(hdc : HDC, hmf : HMETAFILE, proc : MFENUMPROC, param3 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     EnumMetaFile(hdc.into_param().abi(), hmf.into_param().abi(), proc, param3.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumObjects<P0, P1>(hdc: P0, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: P1) -> i32
@@ -1025,14 +991,14 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EnumObjects(hdc : HDC, ntype : OBJ_TYPE, lpfunc : GOBJENUMPROC, lparam : super::super::Foundation:: LPARAM) -> i32);
     EnumObjects(hdc.into_param().abi(), ntype, lpfunc, lparam.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn EqualRect(lprc1 : *const super::super::Foundation:: RECT, lprc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     EqualRect(lprc1, lprc2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualRgn<P0, P1>(hrgn1: P0, hrgn2: P1) -> super::super::Foundation::BOOL
@@ -1043,7 +1009,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn EqualRgn(hrgn1 : HRGN, hrgn2 : HRGN) -> super::super::Foundation:: BOOL);
     EqualRgn(hrgn1.into_param().abi(), hrgn2.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn ExcludeClipRect<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE
 where
@@ -1052,7 +1017,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ExcludeClipRect(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> GDI_REGION_TYPE);
     ExcludeClipRect(hdc.into_param().abi(), left, top, right, bottom)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExcludeUpdateRgn<P0, P1>(hdc: P0, hwnd: P1) -> i32
@@ -1063,21 +1028,21 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ExcludeUpdateRgn(hdc : HDC, hwnd : super::super::Foundation:: HWND) -> i32);
     ExcludeUpdateRgn(hdc.into_param().abi(), hwnd.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, pstyle: ::core::option::Option<&[u32]>) -> HPEN {
     ::windows_targets::link!("gdi32.dll" "system" fn ExtCreatePen(ipenstyle : u32, cwidth : u32, plbrush : *const LOGBRUSH, cstyle : u32, pstyle : *const u32) -> HPEN);
     ExtCreatePen(ipenstyle.0 as _, cwidth, plbrush, pstyle.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pstyle.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtCreateRegion(lpx: ::core::option::Option<*const XFORM>, ncount: u32, lpdata: *const RGNDATA) -> HRGN {
     ::windows_targets::link!("gdi32.dll" "system" fn ExtCreateRegion(lpx : *const XFORM, ncount : u32, lpdata : *const RGNDATA) -> HRGN);
     ExtCreateRegion(::core::mem::transmute(lpx.unwrap_or(::std::ptr::null())), ncount, lpdata)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtFloodFill<P0, P1>(hdc: P0, x: i32, y: i32, color: P1, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL
@@ -1088,7 +1053,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ExtFloodFill(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF, r#type : EXT_FLOOD_FILL_TYPE) -> super::super::Foundation:: BOOL);
     ExtFloodFill(hdc.into_param().abi(), x, y, color.into_param().abi(), r#type)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn ExtSelectClipRgn<P0, P1>(hdc: P0, hrgn: P1, mode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE
 where
@@ -1098,7 +1062,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ExtSelectClipRgn(hdc : HDC, hrgn : HRGN, mode : RGN_COMBINE_MODE) -> GDI_REGION_TYPE);
     ExtSelectClipRgn(hdc.into_param().abi(), hrgn.into_param().abi(), mode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtTextOutA<P0, P1>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: ::core::option::Option<*const super::super::Foundation::RECT>, lpstring: P1, c: u32, lpdx: ::core::option::Option<*const i32>) -> super::super::Foundation::BOOL
@@ -1109,7 +1073,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ExtTextOutA(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : ::windows_core::PCSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
     ExtTextOutA(hdc.into_param().abi(), x, y, options, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpstring.into_param().abi(), c, ::core::mem::transmute(lpdx.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtTextOutW<P0, P1>(hdc: P0, x: i32, y: i32, options: ETO_OPTIONS, lprect: ::core::option::Option<*const super::super::Foundation::RECT>, lpstring: P1, c: u32, lpdx: ::core::option::Option<*const i32>) -> super::super::Foundation::BOOL
@@ -1120,7 +1084,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ExtTextOutW(hdc : HDC, x : i32, y : i32, options : ETO_OPTIONS, lprect : *const super::super::Foundation:: RECT, lpstring : ::windows_core::PCWSTR, c : u32, lpdx : *const i32) -> super::super::Foundation:: BOOL);
     ExtTextOutW(hdc.into_param().abi(), x, y, options, ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), lpstring.into_param().abi(), c, ::core::mem::transmute(lpdx.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -1130,7 +1094,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn FillPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     FillPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillRect<P0, P1>(hdc: P0, lprc: *const super::super::Foundation::RECT, hbr: P1) -> i32
@@ -1141,7 +1105,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn FillRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT, hbr : HBRUSH) -> i32);
     FillRect(hdc.into_param().abi(), lprc, hbr.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillRgn<P0, P1, P2>(hdc: P0, hrgn: P1, hbr: P2) -> super::super::Foundation::BOOL
@@ -1153,7 +1117,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn FillRgn(hdc : HDC, hrgn : HRGN, hbr : HBRUSH) -> super::super::Foundation:: BOOL);
     FillRgn(hdc.into_param().abi(), hrgn.into_param().abi(), hbr.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FixBrushOrgEx<P0>(hdc: P0, x: i32, y: i32, ptl: ::core::option::Option<*const super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -1163,7 +1127,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn FixBrushOrgEx(hdc : HDC, x : i32, y : i32, ptl : *const super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     FixBrushOrgEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(ptl.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlattenPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -1173,7 +1137,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn FlattenPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     FlattenPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FloodFill<P0, P1>(hdc: P0, x: i32, y: i32, color: P1) -> super::super::Foundation::BOOL
@@ -1184,7 +1148,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn FloodFill(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: BOOL);
     FloodFill(hdc.into_param().abi(), x, y, color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FrameRect<P0, P1>(hdc: P0, lprc: *const super::super::Foundation::RECT, hbr: P1) -> i32
@@ -1195,7 +1159,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn FrameRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT, hbr : HBRUSH) -> i32);
     FrameRect(hdc.into_param().abi(), lprc, hbr.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FrameRgn<P0, P1, P2>(hdc: P0, hrgn: P1, hbr: P2, w: i32, h: i32) -> super::super::Foundation::BOOL
@@ -1207,7 +1171,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn FrameRgn(hdc : HDC, hrgn : HRGN, hbr : HBRUSH, w : i32, h : i32) -> super::super::Foundation:: BOOL);
     FrameRgn(hdc.into_param().abi(), hrgn.into_param().abi(), hbr.into_param().abi(), w, h)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiAlphaBlend<P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> super::super::Foundation::BOOL
@@ -1218,7 +1182,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GdiAlphaBlend(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> super::super::Foundation:: BOOL);
     GdiAlphaBlend(hdcdest.into_param().abi(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into_param().abi(), xoriginsrc, yoriginsrc, wsrc, hsrc, ::core::mem::transmute(ftn))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiComment<P0>(hdc: P0, lpdata: &[u8]) -> super::super::Foundation::BOOL
@@ -1228,20 +1192,19 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GdiComment(hdc : HDC, nsize : u32, lpdata : *const u8) -> super::super::Foundation:: BOOL);
     GdiComment(hdc.into_param().abi(), lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
     ::windows_targets::link!("gdi32.dll" "system" fn GdiFlush() -> super::super::Foundation:: BOOL);
     GdiFlush()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GdiGetBatchLimit() -> u32 {
     ::windows_targets::link!("gdi32.dll" "system" fn GdiGetBatchLimit() -> u32);
     GdiGetBatchLimit()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiGradientFill<P0>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL
@@ -1251,13 +1214,12 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GdiGradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const ::core::ffi::c_void, ncount : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
     GdiGradientFill(hdc.into_param().abi(), ::core::mem::transmute(pvertex.as_ptr()), pvertex.len() as _, pmesh, ncount, ulmode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     ::windows_targets::link!("gdi32.dll" "system" fn GdiSetBatchLimit(dw : u32) -> u32);
     GdiSetBatchLimit(dw)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiTransparentBlt<P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL
@@ -1268,7 +1230,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GdiTransparentBlt(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> super::super::Foundation:: BOOL);
     GdiTransparentBlt(hdcdest.into_param().abi(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into_param().abi(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetArcDirection<P0>(hdc: P0) -> i32
 where
@@ -1277,7 +1238,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetArcDirection(hdc : HDC) -> i32);
     GetArcDirection(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAspectRatioFilterEx<P0>(hdc: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -1287,7 +1248,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetAspectRatioFilterEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetAspectRatioFilterEx(hdc.into_param().abi(), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetBitmapBits<P0>(hbit: P0, cb: i32, lpvbits: *mut ::core::ffi::c_void) -> i32
 where
@@ -1296,7 +1256,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetBitmapBits(hbit : HBITMAP, cb : i32, lpvbits : *mut ::core::ffi::c_void) -> i32);
     GetBitmapBits(hbit.into_param().abi(), cb, lpvbits)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBitmapDimensionEx<P0>(hbit: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -1306,7 +1266,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetBitmapDimensionEx(hbit : HBITMAP, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetBitmapDimensionEx(hbit.into_param().abi(), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBkColor<P0>(hdc: P0) -> super::super::Foundation::COLORREF
@@ -1316,7 +1276,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetBkColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
     GetBkColor(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetBkMode<P0>(hdc: P0) -> i32
 where
@@ -1325,7 +1284,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetBkMode(hdc : HDC) -> i32);
     GetBkMode(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBoundsRect<P0>(hdc: P0, lprect: *mut super::super::Foundation::RECT, flags: u32) -> u32
@@ -1335,7 +1294,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetBoundsRect(hdc : HDC, lprect : *mut super::super::Foundation:: RECT, flags : u32) -> u32);
     GetBoundsRect(hdc.into_param().abi(), lprect, flags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBrushOrgEx<P0>(hdc: P0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -1345,7 +1304,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetBrushOrgEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     GetBrushOrgEx(hdc.into_param().abi(), lppt)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsA<P0>(hdc: P0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL
@@ -1355,7 +1314,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsA(hdc : HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> super::super::Foundation:: BOOL);
     GetCharABCWidthsA(hdc.into_param().abi(), wfirst, wlast, lpabc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatA<P0>(hdc: P0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL
@@ -1365,7 +1324,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatA(hdc : HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> super::super::Foundation:: BOOL);
     GetCharABCWidthsFloatA(hdc.into_param().abi(), ifirst, ilast, lpabc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatW<P0>(hdc: P0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL
@@ -1375,7 +1334,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsFloatW(hdc : HDC, ifirst : u32, ilast : u32, lpabc : *mut ABCFLOAT) -> super::super::Foundation:: BOOL);
     GetCharABCWidthsFloatW(hdc.into_param().abi(), ifirst, ilast, lpabc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsI<P0>(hdc: P0, gifirst: u32, cgi: u32, pgi: ::core::option::Option<*const u16>, pabc: *mut ABC) -> super::super::Foundation::BOOL
@@ -1385,7 +1344,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsI(hdc : HDC, gifirst : u32, cgi : u32, pgi : *const u16, pabc : *mut ABC) -> super::super::Foundation:: BOOL);
     GetCharABCWidthsI(hdc.into_param().abi(), gifirst, cgi, ::core::mem::transmute(pgi.unwrap_or(::std::ptr::null())), pabc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsW<P0>(hdc: P0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL
@@ -1395,7 +1354,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharABCWidthsW(hdc : HDC, wfirst : u32, wlast : u32, lpabc : *mut ABC) -> super::super::Foundation:: BOOL);
     GetCharABCWidthsW(hdc.into_param().abi(), wfirst, wlast, lpabc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidth32A<P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
@@ -1405,7 +1364,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidth32A(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
     GetCharWidth32A(hdc.into_param().abi(), ifirst, ilast, lpbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidth32W<P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
@@ -1415,7 +1374,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidth32W(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
     GetCharWidth32W(hdc.into_param().abi(), ifirst, ilast, lpbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthA<P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
@@ -1425,7 +1384,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthA(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
     GetCharWidthA(hdc.into_param().abi(), ifirst, ilast, lpbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthFloatA<P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL
@@ -1435,7 +1394,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthFloatA(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> super::super::Foundation:: BOOL);
     GetCharWidthFloatA(hdc.into_param().abi(), ifirst, ilast, lpbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthFloatW<P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL
@@ -1445,7 +1404,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthFloatW(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut f32) -> super::super::Foundation:: BOOL);
     GetCharWidthFloatW(hdc.into_param().abi(), ifirst, ilast, lpbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthI<P0>(hdc: P0, gifirst: u32, cgi: u32, pgi: ::core::option::Option<*const u16>, piwidths: *mut i32) -> super::super::Foundation::BOOL
@@ -1455,7 +1414,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthI(hdc : HDC, gifirst : u32, cgi : u32, pgi : *const u16, piwidths : *mut i32) -> super::super::Foundation:: BOOL);
     GetCharWidthI(hdc.into_param().abi(), gifirst, cgi, ::core::mem::transmute(pgi.unwrap_or(::std::ptr::null())), piwidths)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthW<P0>(hdc: P0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL
@@ -1465,7 +1424,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharWidthW(hdc : HDC, ifirst : u32, ilast : u32, lpbuffer : *mut i32) -> super::super::Foundation:: BOOL);
     GetCharWidthW(hdc.into_param().abi(), ifirst, ilast, lpbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetCharacterPlacementA<P0>(hdc: P0, lpstring: &[u8], nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32
 where
@@ -1474,7 +1432,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementA(hdc : HDC, lpstring : ::windows_core::PCSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSA, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
     GetCharacterPlacementA(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, nmexextent, lpresults, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetCharacterPlacementW<P0>(hdc: P0, lpstring: &[u16], nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32
 where
@@ -1483,7 +1440,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCharacterPlacementW(hdc : HDC, lpstring : ::windows_core::PCWSTR, ncount : i32, nmexextent : i32, lpresults : *mut GCP_RESULTSW, dwflags : GET_CHARACTER_PLACEMENT_FLAGS) -> u32);
     GetCharacterPlacementW(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, nmexextent, lpresults, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClipBox<P0>(hdc: P0, lprect: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE
@@ -1493,7 +1450,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetClipBox(hdc : HDC, lprect : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
     GetClipBox(hdc.into_param().abi(), lprect)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetClipRgn<P0, P1>(hdc: P0, hrgn: P1) -> i32
 where
@@ -1503,7 +1459,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetClipRgn(hdc : HDC, hrgn : HRGN) -> i32);
     GetClipRgn(hdc.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorAdjustment<P0>(hdc: P0, lpca: *mut COLORADJUSTMENT) -> super::super::Foundation::BOOL
@@ -1513,7 +1469,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetColorAdjustment(hdc : HDC, lpca : *mut COLORADJUSTMENT) -> super::super::Foundation:: BOOL);
     GetColorAdjustment(hdc.into_param().abi(), lpca)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetCurrentObject<P0>(hdc: P0, r#type: OBJ_TYPE) -> HGDIOBJ
 where
@@ -1522,7 +1477,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCurrentObject(hdc : HDC, r#type : u32) -> HGDIOBJ);
     GetCurrentObject(hdc.into_param().abi(), r#type.0 as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPositionEx<P0>(hdc: P0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -1532,7 +1487,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetCurrentPositionEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     GetCurrentPositionEx(hdc.into_param().abi(), lppt)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDC<P0>(hwnd: P0) -> HDC
@@ -1542,7 +1497,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetDC(hwnd : super::super::Foundation:: HWND) -> HDC);
     GetDC(hwnd.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCBrushColor<P0>(hdc: P0) -> super::super::Foundation::COLORREF
@@ -1552,7 +1507,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetDCBrushColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
     GetDCBrushColor(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCEx<P0, P1>(hwnd: P0, hrgnclip: P1, flags: GET_DCX_FLAGS) -> HDC
@@ -1563,7 +1518,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetDCEx(hwnd : super::super::Foundation:: HWND, hrgnclip : HRGN, flags : GET_DCX_FLAGS) -> HDC);
     GetDCEx(hwnd.into_param().abi(), hrgnclip.into_param().abi(), flags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCOrgEx<P0>(hdc: P0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -1573,7 +1528,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetDCOrgEx(hdc : HDC, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     GetDCOrgEx(hdc.into_param().abi(), lppt)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCPenColor<P0>(hdc: P0) -> super::super::Foundation::COLORREF
@@ -1583,7 +1538,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetDCPenColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
     GetDCPenColor(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetDIBColorTable<P0>(hdc: P0, istart: u32, prgbq: &mut [RGBQUAD]) -> u32
 where
@@ -1592,7 +1546,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetDIBColorTable(hdc : HDC, istart : u32, centries : u32, prgbq : *mut RGBQUAD) -> u32);
     GetDIBColorTable(hdc.into_param().abi(), istart, prgbq.len() as _, ::core::mem::transmute(prgbq.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetDIBits<P0, P1>(hdc: P0, hbm: P1, start: u32, clines: u32, lpvbits: ::core::option::Option<*mut ::core::ffi::c_void>, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32
 where
@@ -1602,7 +1555,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpvbits : *mut ::core::ffi::c_void, lpbmi : *mut BITMAPINFO, usage : DIB_USAGE) -> i32);
     GetDIBits(hdc.into_param().abi(), hbm.into_param().abi(), start, clines, ::core::mem::transmute(lpvbits.unwrap_or(::std::ptr::null_mut())), lpbmi, usage)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetDeviceCaps<P0>(hdc: P0, index: GET_DEVICE_CAPS_INDEX) -> i32
 where
@@ -1611,7 +1563,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetDeviceCaps(hdc : HDC, index : i32) -> i32);
     GetDeviceCaps(hdc.into_param().abi(), index.0 as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetEnhMetaFileA<P0>(lpname: P0) -> HENHMETAFILE
 where
@@ -1620,7 +1571,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileA(lpname : ::windows_core::PCSTR) -> HENHMETAFILE);
     GetEnhMetaFileA(lpname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetEnhMetaFileBits<P0>(hemf: P0, lpdata: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -1629,7 +1579,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileBits(hemf : HENHMETAFILE, nsize : u32, lpdata : *mut u8) -> u32);
     GetEnhMetaFileBits(hemf.into_param().abi(), lpdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionA<P0>(hemf: P0, lpdescription: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -1638,7 +1587,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionA(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : ::windows_core::PSTR) -> u32);
     GetEnhMetaFileDescriptionA(hemf.into_param().abi(), lpdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionW<P0>(hemf: P0, lpdescription: ::core::option::Option<&mut [u16]>) -> u32
 where
@@ -1647,7 +1595,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileDescriptionW(hemf : HENHMETAFILE, cchbuffer : u32, lpdescription : ::windows_core::PWSTR) -> u32);
     GetEnhMetaFileDescriptionW(hemf.into_param().abi(), lpdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileHeader<P0>(hemf: P0, nsize: u32, lpenhmetaheader: ::core::option::Option<*mut ENHMETAHEADER>) -> u32
@@ -1657,7 +1605,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileHeader(hemf : HENHMETAFILE, nsize : u32, lpenhmetaheader : *mut ENHMETAHEADER) -> u32);
     GetEnhMetaFileHeader(hemf.into_param().abi(), nsize, ::core::mem::transmute(lpenhmetaheader.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetEnhMetaFilePaletteEntries<P0>(hemf: P0, lppaletteentries: ::core::option::Option<&mut [PALETTEENTRY]>) -> u32
 where
@@ -1666,7 +1613,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePaletteEntries(hemf : HENHMETAFILE, nnumentries : u32, lppaletteentries : *mut PALETTEENTRY) -> u32);
     GetEnhMetaFilePaletteEntries(hemf.into_param().abi(), lppaletteentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lppaletteentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetEnhMetaFileW<P0>(lpname: P0) -> HENHMETAFILE
 where
@@ -1675,7 +1621,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFileW(lpname : ::windows_core::PCWSTR) -> HENHMETAFILE);
     GetEnhMetaFileW(lpname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetFontData<P0>(hdc: P0, dwtable: u32, dwoffset: u32, pvbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, cjbuffer: u32) -> u32
 where
@@ -1684,7 +1629,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetFontData(hdc : HDC, dwtable : u32, dwoffset : u32, pvbuffer : *mut ::core::ffi::c_void, cjbuffer : u32) -> u32);
     GetFontData(hdc.into_param().abi(), dwtable, dwoffset, ::core::mem::transmute(pvbuffer.unwrap_or(::std::ptr::null_mut())), cjbuffer)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetFontLanguageInfo<P0>(hdc: P0) -> u32
 where
@@ -1693,7 +1637,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetFontLanguageInfo(hdc : HDC) -> u32);
     GetFontLanguageInfo(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetFontUnicodeRanges<P0>(hdc: P0, lpgs: ::core::option::Option<*mut GLYPHSET>) -> u32
 where
@@ -1702,7 +1645,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetFontUnicodeRanges(hdc : HDC, lpgs : *mut GLYPHSET) -> u32);
     GetFontUnicodeRanges(hdc.into_param().abi(), ::core::mem::transmute(lpgs.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetGlyphIndicesA<P0, P1>(hdc: P0, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
 where
@@ -1712,7 +1654,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesA(hdc : HDC, lpstr : ::windows_core::PCSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
     GetGlyphIndicesA(hdc.into_param().abi(), lpstr.into_param().abi(), c, pgi, fl)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetGlyphIndicesW<P0, P1>(hdc: P0, lpstr: P1, c: i32, pgi: *mut u16, fl: u32) -> u32
 where
@@ -1722,7 +1663,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetGlyphIndicesW(hdc : HDC, lpstr : ::windows_core::PCWSTR, c : i32, pgi : *mut u16, fl : u32) -> u32);
     GetGlyphIndicesW(hdc.into_param().abi(), lpstr.into_param().abi(), c, pgi, fl)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphOutlineA<P0>(hdc: P0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, lpmat2: *const MAT2) -> u32
@@ -1732,7 +1673,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineA(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut ::core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
     GetGlyphOutlineA(hdc.into_param().abi(), uchar, fuformat, lpgm, cjbuffer, ::core::mem::transmute(pvbuffer.unwrap_or(::std::ptr::null_mut())), lpmat2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphOutlineW<P0>(hdc: P0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, lpmat2: *const MAT2) -> u32
@@ -1742,7 +1683,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetGlyphOutlineW(hdc : HDC, uchar : u32, fuformat : GET_GLYPH_OUTLINE_FORMAT, lpgm : *mut GLYPHMETRICS, cjbuffer : u32, pvbuffer : *mut ::core::ffi::c_void, lpmat2 : *const MAT2) -> u32);
     GetGlyphOutlineW(hdc.into_param().abi(), uchar, fuformat, lpgm, cjbuffer, ::core::mem::transmute(pvbuffer.unwrap_or(::std::ptr::null_mut())), lpmat2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetGraphicsMode<P0>(hdc: P0) -> i32
 where
@@ -1751,7 +1691,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetGraphicsMode(hdc : HDC) -> i32);
     GetGraphicsMode(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetKerningPairsA<P0>(hdc: P0, lpkernpair: ::core::option::Option<&mut [KERNINGPAIR]>) -> u32
 where
@@ -1760,7 +1699,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetKerningPairsA(hdc : HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
     GetKerningPairsA(hdc.into_param().abi(), lpkernpair.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpkernpair.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetKerningPairsW<P0>(hdc: P0, lpkernpair: ::core::option::Option<&mut [KERNINGPAIR]>) -> u32
 where
@@ -1769,7 +1707,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetKerningPairsW(hdc : HDC, npairs : u32, lpkernpair : *mut KERNINGPAIR) -> u32);
     GetKerningPairsW(hdc.into_param().abi(), lpkernpair.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpkernpair.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetLayout<P0>(hdc: P0) -> u32
 where
@@ -1778,7 +1715,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetLayout(hdc : HDC) -> u32);
     GetLayout(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetMapMode<P0>(hdc: P0) -> HDC_MAP_MODE
 where
@@ -1787,7 +1723,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetMapMode(hdc : HDC) -> HDC_MAP_MODE);
     GetMapMode(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetMetaFileA<P0>(lpname: P0) -> HMETAFILE
 where
@@ -1796,7 +1731,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileA(lpname : ::windows_core::PCSTR) -> HMETAFILE);
     GetMetaFileA(lpname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetMetaFileBitsEx<P0>(hmf: P0, cbbuffer: u32, lpdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> u32
 where
@@ -1805,7 +1739,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileBitsEx(hmf : HMETAFILE, cbbuffer : u32, lpdata : *mut ::core::ffi::c_void) -> u32);
     GetMetaFileBitsEx(hmf.into_param().abi(), cbbuffer, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetMetaFileW<P0>(lpname: P0) -> HMETAFILE
 where
@@ -1814,7 +1747,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetMetaFileW(lpname : ::windows_core::PCWSTR) -> HMETAFILE);
     GetMetaFileW(lpname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetMetaRgn<P0, P1>(hdc: P0, hrgn: P1) -> i32
 where
@@ -1824,7 +1756,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetMetaRgn(hdc : HDC, hrgn : HRGN) -> i32);
     GetMetaRgn(hdc.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMiterLimit<P0>(hdc: P0, plimit: *mut f32) -> super::super::Foundation::BOOL
@@ -1834,7 +1766,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetMiterLimit(hdc : HDC, plimit : *mut f32) -> super::super::Foundation:: BOOL);
     GetMiterLimit(hdc.into_param().abi(), plimit)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorInfoA<P0>(hmonitor: P0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL
@@ -1844,7 +1776,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetMonitorInfoA(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> super::super::Foundation:: BOOL);
     GetMonitorInfoA(hmonitor.into_param().abi(), lpmi)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorInfoW<P0>(hmonitor: P0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL
@@ -1854,7 +1786,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetMonitorInfoW(hmonitor : HMONITOR, lpmi : *mut MONITORINFO) -> super::super::Foundation:: BOOL);
     GetMonitorInfoW(hmonitor.into_param().abi(), lpmi)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNearestColor<P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
@@ -1865,7 +1797,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetNearestColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     GetNearestColor(hdc.into_param().abi(), color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNearestPaletteIndex<P0, P1>(h: P0, color: P1) -> u32
@@ -1876,7 +1808,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetNearestPaletteIndex(h : HPALETTE, color : super::super::Foundation:: COLORREF) -> u32);
     GetNearestPaletteIndex(h.into_param().abi(), color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetObjectA<P0>(h: P0, c: i32, pv: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
@@ -1885,7 +1816,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetObjectA(h : HGDIOBJ, c : i32, pv : *mut ::core::ffi::c_void) -> i32);
     GetObjectA(h.into_param().abi(), c, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetObjectType<P0>(h: P0) -> u32
 where
@@ -1894,7 +1824,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetObjectType(h : HGDIOBJ) -> u32);
     GetObjectType(h.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetObjectW<P0>(h: P0, c: i32, pv: ::core::option::Option<*mut ::core::ffi::c_void>) -> i32
 where
@@ -1903,7 +1832,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetObjectW(h : HGDIOBJ, c : i32, pv : *mut ::core::ffi::c_void) -> i32);
     GetObjectW(h.into_param().abi(), c, ::core::mem::transmute(pv.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOutlineTextMetricsA<P0>(hdc: P0, cjcopy: u32, potm: ::core::option::Option<*mut OUTLINETEXTMETRICA>) -> u32
@@ -1913,7 +1842,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetOutlineTextMetricsA(hdc : HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICA) -> u32);
     GetOutlineTextMetricsA(hdc.into_param().abi(), cjcopy, ::core::mem::transmute(potm.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOutlineTextMetricsW<P0>(hdc: P0, cjcopy: u32, potm: ::core::option::Option<*mut OUTLINETEXTMETRICW>) -> u32
@@ -1923,7 +1852,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetOutlineTextMetricsW(hdc : HDC, cjcopy : u32, potm : *mut OUTLINETEXTMETRICW) -> u32);
     GetOutlineTextMetricsW(hdc.into_param().abi(), cjcopy, ::core::mem::transmute(potm.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetPaletteEntries<P0>(hpal: P0, istart: u32, ppalentries: ::core::option::Option<&mut [PALETTEENTRY]>) -> u32
 where
@@ -1932,7 +1860,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetPaletteEntries(hpal : HPALETTE, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
     GetPaletteEntries(hpal.into_param().abi(), istart, ppalentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppalentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPath<P0>(hdc: P0, apt: ::core::option::Option<*mut super::super::Foundation::POINT>, aj: ::core::option::Option<*mut u8>, cpt: i32) -> i32
@@ -1942,7 +1870,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetPath(hdc : HDC, apt : *mut super::super::Foundation:: POINT, aj : *mut u8, cpt : i32) -> i32);
     GetPath(hdc.into_param().abi(), ::core::mem::transmute(apt.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(aj.unwrap_or(::std::ptr::null_mut())), cpt)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPixel<P0>(hdc: P0, x: i32, y: i32) -> super::super::Foundation::COLORREF
@@ -1952,7 +1880,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetPixel(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: COLORREF);
     GetPixel(hdc.into_param().abi(), x, y)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetPolyFillMode<P0>(hdc: P0) -> i32
 where
@@ -1961,7 +1888,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetPolyFillMode(hdc : HDC) -> i32);
     GetPolyFillMode(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetROP2<P0>(hdc: P0) -> R2_MODE
 where
@@ -1970,7 +1896,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetROP2(hdc : HDC) -> R2_MODE);
     GetROP2(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetRandomRgn<P0, P1>(hdc: P0, hrgn: P1, i: i32) -> i32
 where
@@ -1980,14 +1905,14 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetRandomRgn(hdc : HDC, hrgn : HRGN, i : i32) -> i32);
     GetRandomRgn(hdc.into_param().abi(), hrgn.into_param().abi(), i)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("gdi32.dll" "system" fn GetRasterizerCaps(lpraststat : *mut RASTERIZER_STATUS, cjbytes : u32) -> super::super::Foundation:: BOOL);
     GetRasterizerCaps(lpraststat, cjbytes)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRegionData<P0>(hrgn: P0, ncount: u32, lprgndata: ::core::option::Option<*mut RGNDATA>) -> u32
@@ -1997,7 +1922,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetRegionData(hrgn : HRGN, ncount : u32, lprgndata : *mut RGNDATA) -> u32);
     GetRegionData(hrgn.into_param().abi(), ncount, ::core::mem::transmute(lprgndata.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRgnBox<P0>(hrgn: P0, lprc: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE
@@ -2007,13 +1932,11 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetRgnBox(hrgn : HRGN, lprc : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
     GetRgnBox(hrgn.into_param().abi(), lprc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     ::windows_targets::link!("gdi32.dll" "system" fn GetStockObject(i : GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ);
     GetStockObject(i)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetStretchBltMode<P0>(hdc: P0) -> i32
 where
@@ -2022,19 +1945,16 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetStretchBltMode(hdc : HDC) -> i32);
     GetStretchBltMode(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetSysColor(nindex: SYS_COLOR_INDEX) -> u32 {
     ::windows_targets::link!("user32.dll" "system" fn GetSysColor(nindex : SYS_COLOR_INDEX) -> u32);
     GetSysColor(nindex)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetSysColorBrush(nindex: SYS_COLOR_INDEX) -> HBRUSH {
     ::windows_targets::link!("user32.dll" "system" fn GetSysColorBrush(nindex : SYS_COLOR_INDEX) -> HBRUSH);
     GetSysColorBrush(nindex)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetSystemPaletteEntries<P0>(hdc: P0, istart: u32, ppalentries: ::core::option::Option<&mut [PALETTEENTRY]>) -> u32
 where
@@ -2043,7 +1963,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetSystemPaletteEntries(hdc : HDC, istart : u32, centries : u32, ppalentries : *mut PALETTEENTRY) -> u32);
     GetSystemPaletteEntries(hdc.into_param().abi(), istart, ppalentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(ppalentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetSystemPaletteUse<P0>(hdc: P0) -> u32
 where
@@ -2052,7 +1971,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetSystemPaletteUse(hdc : HDC) -> u32);
     GetSystemPaletteUse(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetTabbedTextExtentA<P0>(hdc: P0, lpstring: &[u8], lpntabstoppositions: ::core::option::Option<&[i32]>) -> u32
 where
@@ -2061,7 +1979,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentA(hdc : HDC, lpstring : ::windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
     GetTabbedTextExtentA(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpntabstoppositions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetTabbedTextExtentW<P0>(hdc: P0, lpstring: &[u16], lpntabstoppositions: ::core::option::Option<&[i32]>) -> u32
 where
@@ -2070,7 +1987,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetTabbedTextExtentW(hdc : HDC, lpstring : ::windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32) -> u32);
     GetTabbedTextExtentW(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpntabstoppositions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetTextAlign<P0>(hdc: P0) -> TEXT_ALIGN_OPTIONS
 where
@@ -2079,7 +1995,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextAlign(hdc : HDC) -> TEXT_ALIGN_OPTIONS);
     GetTextAlign(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetTextCharacterExtra<P0>(hdc: P0) -> i32
 where
@@ -2088,7 +2003,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextCharacterExtra(hdc : HDC) -> i32);
     GetTextCharacterExtra(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextColor<P0>(hdc: P0) -> super::super::Foundation::COLORREF
@@ -2098,7 +2013,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextColor(hdc : HDC) -> super::super::Foundation:: COLORREF);
     GetTextColor(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointA<P0, P1>(hdc: P0, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: ::core::option::Option<*mut i32>, lpndx: ::core::option::Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2109,7 +2024,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointA(hdc : HDC, lpszstring : ::windows_core::PCSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentExPointA(hdc.into_param().abi(), lpszstring.into_param().abi(), cchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointI<P0>(hdc: P0, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: ::core::option::Option<*mut i32>, lpndx: ::core::option::Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2119,7 +2034,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointI(hdc : HDC, lpwszstring : *const u16, cwchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentExPointI(hdc.into_param().abi(), lpwszstring, cwchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointW<P0, P1>(hdc: P0, lpszstring: P1, cchstring: i32, nmaxextent: i32, lpnfit: ::core::option::Option<*mut i32>, lpndx: ::core::option::Option<*mut i32>, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2130,7 +2045,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentExPointW(hdc : HDC, lpszstring : ::windows_core::PCWSTR, cchstring : i32, nmaxextent : i32, lpnfit : *mut i32, lpndx : *mut i32, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentExPointW(hdc.into_param().abi(), lpszstring.into_param().abi(), cchstring, nmaxextent, ::core::mem::transmute(lpnfit.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpndx.unwrap_or(::std::ptr::null_mut())), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPoint32A<P0>(hdc: P0, lpstring: &[u8], psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2140,7 +2055,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32A(hdc : HDC, lpstring : ::windows_core::PCSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentPoint32A(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, psizl)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPoint32W<P0>(hdc: P0, lpstring: &[u16], psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2150,7 +2065,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPoint32W(hdc : HDC, lpstring : ::windows_core::PCWSTR, c : i32, psizl : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentPoint32W(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, psizl)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointA<P0>(hdc: P0, lpstring: &[u8], lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2160,7 +2075,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointA(hdc : HDC, lpstring : ::windows_core::PCSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentPointA(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpsz)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointI<P0>(hdc: P0, pgiin: &[u16], psize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2170,7 +2085,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointI(hdc : HDC, pgiin : *const u16, cgi : i32, psize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentPointI(hdc.into_param().abi(), ::core::mem::transmute(pgiin.as_ptr()), pgiin.len() as _, psize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointW<P0>(hdc: P0, lpstring: &[u16], lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2180,7 +2095,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextExtentPointW(hdc : HDC, lpstring : ::windows_core::PCWSTR, c : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetTextExtentPointW(hdc.into_param().abi(), ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpsz)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetTextFaceA<P0>(hdc: P0, lpname: ::core::option::Option<&mut [u8]>) -> i32
 where
@@ -2189,7 +2103,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextFaceA(hdc : HDC, c : i32, lpname : ::windows_core::PSTR) -> i32);
     GetTextFaceA(hdc.into_param().abi(), lpname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetTextFaceW<P0>(hdc: P0, lpname: ::core::option::Option<&mut [u16]>) -> i32
 where
@@ -2198,7 +2111,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextFaceW(hdc : HDC, c : i32, lpname : ::windows_core::PWSTR) -> i32);
     GetTextFaceW(hdc.into_param().abi(), lpname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextMetricsA<P0>(hdc: P0, lptm: *mut TEXTMETRICA) -> super::super::Foundation::BOOL
@@ -2208,7 +2121,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextMetricsA(hdc : HDC, lptm : *mut TEXTMETRICA) -> super::super::Foundation:: BOOL);
     GetTextMetricsA(hdc.into_param().abi(), lptm)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextMetricsW<P0>(hdc: P0, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL
@@ -2218,7 +2131,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextMetricsW(hdc : HDC, lptm : *mut TEXTMETRICW) -> super::super::Foundation:: BOOL);
     GetTextMetricsW(hdc.into_param().abi(), lptm)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdateRect<P0, P1>(hwnd: P0, lprect: ::core::option::Option<*mut super::super::Foundation::RECT>, berase: P1) -> super::super::Foundation::BOOL
@@ -2229,7 +2142,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetUpdateRect(hwnd : super::super::Foundation:: HWND, lprect : *mut super::super::Foundation:: RECT, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     GetUpdateRect(hwnd.into_param().abi(), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null_mut())), berase.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdateRgn<P0, P1, P2>(hwnd: P0, hrgn: P1, berase: P2) -> GDI_REGION_TYPE
@@ -2241,7 +2154,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetUpdateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, berase : super::super::Foundation:: BOOL) -> GDI_REGION_TYPE);
     GetUpdateRgn(hwnd.into_param().abi(), hrgn.into_param().abi(), berase.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetViewportExtEx<P0>(hdc: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2251,7 +2164,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetViewportExtEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetViewportExtEx(hdc.into_param().abi(), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetViewportOrgEx<P0>(hdc: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -2261,7 +2174,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetViewportOrgEx(hdc : HDC, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     GetViewportOrgEx(hdc.into_param().abi(), lppoint)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn GetWinMetaFileBits<P0, P1>(hemf: P0, pdata16: ::core::option::Option<&mut [u8]>, imapmode: i32, hdcref: P1) -> u32
 where
@@ -2271,7 +2183,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetWinMetaFileBits(hemf : HENHMETAFILE, cbdata16 : u32, pdata16 : *mut u8, imapmode : i32, hdcref : HDC) -> u32);
     GetWinMetaFileBits(hemf.into_param().abi(), pdata16.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdata16.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), imapmode, hdcref.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowDC<P0>(hwnd: P0) -> HDC
@@ -2281,7 +2193,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetWindowDC(hwnd : super::super::Foundation:: HWND) -> HDC);
     GetWindowDC(hwnd.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowExtEx<P0>(hdc: P0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL
@@ -2291,7 +2203,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetWindowExtEx(hdc : HDC, lpsize : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     GetWindowExtEx(hdc.into_param().abi(), lpsize)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowOrgEx<P0>(hdc: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -2301,7 +2213,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetWindowOrgEx(hdc : HDC, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     GetWindowOrgEx(hdc.into_param().abi(), lppoint)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowRgn<P0, P1>(hwnd: P0, hrgn: P1) -> GDI_REGION_TYPE
@@ -2312,7 +2224,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN) -> GDI_REGION_TYPE);
     GetWindowRgn(hwnd.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowRgnBox<P0>(hwnd: P0, lprc: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE
@@ -2322,7 +2234,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GetWindowRgnBox(hwnd : super::super::Foundation:: HWND, lprc : *mut super::super::Foundation:: RECT) -> GDI_REGION_TYPE);
     GetWindowRgnBox(hwnd.into_param().abi(), lprc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWorldTransform<P0>(hdc: P0, lpxf: *mut XFORM) -> super::super::Foundation::BOOL
@@ -2332,7 +2244,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetWorldTransform(hdc : HDC, lpxf : *mut XFORM) -> super::super::Foundation:: BOOL);
     GetWorldTransform(hdc.into_param().abi(), lpxf)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GradientFill<P0>(hdc: P0, pvertex: &[TRIVERTEX], pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL
@@ -2342,7 +2254,7 @@ where
     ::windows_targets::link!("msimg32.dll" "system" fn GradientFill(hdc : HDC, pvertex : *const TRIVERTEX, nvertex : u32, pmesh : *const ::core::ffi::c_void, nmesh : u32, ulmode : GRADIENT_FILL) -> super::super::Foundation:: BOOL);
     GradientFill(hdc.into_param().abi(), ::core::mem::transmute(pvertex.as_ptr()), pvertex.len() as _, pmesh, nmesh, ulmode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GrayStringA<P0, P1, P2>(hdc: P0, hbrush: P1, lpoutputfunc: GRAYSTRINGPROC, lpdata: P2, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL
@@ -2354,7 +2266,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GrayStringA(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> super::super::Foundation:: BOOL);
     GrayStringA(hdc.into_param().abi(), hbrush.into_param().abi(), lpoutputfunc, lpdata.into_param().abi(), ncount, x, y, nwidth, nheight)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GrayStringW<P0, P1, P2>(hdc: P0, hbrush: P1, lpoutputfunc: GRAYSTRINGPROC, lpdata: P2, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL
@@ -2366,14 +2278,13 @@ where
     ::windows_targets::link!("user32.dll" "system" fn GrayStringW(hdc : HDC, hbrush : HBRUSH, lpoutputfunc : GRAYSTRINGPROC, lpdata : super::super::Foundation:: LPARAM, ncount : i32, x : i32, y : i32, nwidth : i32, nheight : i32) -> super::super::Foundation:: BOOL);
     GrayStringW(hdc.into_param().abi(), hbrush.into_param().abi(), lpoutputfunc, lpdata.into_param().abi(), ncount, x, y, nwidth, nheight)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn InflateRect(lprc : *mut super::super::Foundation:: RECT, dx : i32, dy : i32) -> super::super::Foundation:: BOOL);
     InflateRect(lprc, dx, dy)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn IntersectClipRect<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE
 where
@@ -2382,14 +2293,14 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn IntersectClipRect(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> GDI_REGION_TYPE);
     IntersectClipRect(hdc.into_param().abi(), left, top, right, bottom)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn IntersectRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     IntersectRect(lprcdst, lprcsrc1, lprcsrc2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvalidateRect<P0, P1>(hwnd: P0, lprect: ::core::option::Option<*const super::super::Foundation::RECT>, berase: P1) -> super::super::Foundation::BOOL
@@ -2400,7 +2311,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn InvalidateRect(hwnd : super::super::Foundation:: HWND, lprect : *const super::super::Foundation:: RECT, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     InvalidateRect(hwnd.into_param().abi(), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), berase.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvalidateRgn<P0, P1, P2>(hwnd: P0, hrgn: P1, berase: P2) -> super::super::Foundation::BOOL
@@ -2412,7 +2323,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn InvalidateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, berase : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     InvalidateRgn(hwnd.into_param().abi(), hrgn.into_param().abi(), berase.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvertRect<P0>(hdc: P0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
@@ -2422,7 +2333,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn InvertRect(hdc : HDC, lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     InvertRect(hdc.into_param().abi(), lprc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvertRgn<P0, P1>(hdc: P0, hrgn: P1) -> super::super::Foundation::BOOL
@@ -2433,14 +2344,14 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn InvertRgn(hdc : HDC, hrgn : HRGN) -> super::super::Foundation:: BOOL);
     InvertRgn(hdc.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn IsRectEmpty(lprc : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     IsRectEmpty(lprc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LPtoDP<P0>(hdc: P0, lppt: &mut [super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -2450,7 +2361,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn LPtoDP(hdc : HDC, lppt : *mut super::super::Foundation:: POINT, c : i32) -> super::super::Foundation:: BOOL);
     LPtoDP(hdc.into_param().abi(), ::core::mem::transmute(lppt.as_ptr()), lppt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LineDDA<P0>(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: LINEDDAPROC, data: P0) -> super::super::Foundation::BOOL
@@ -2460,7 +2371,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn LineDDA(xstart : i32, ystart : i32, xend : i32, yend : i32, lpproc : LINEDDAPROC, data : super::super::Foundation:: LPARAM) -> super::super::Foundation:: BOOL);
     LineDDA(xstart, ystart, xend, yend, lpproc, data.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LineTo<P0>(hdc: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
@@ -2470,7 +2381,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn LineTo(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: BOOL);
     LineTo(hdc.into_param().abi(), x, y)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadBitmapA<P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
@@ -2481,7 +2392,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn LoadBitmapA(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_core::PCSTR) -> HBITMAP);
     LoadBitmapA(hinstance.into_param().abi(), lpbitmapname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadBitmapW<P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
@@ -2492,7 +2403,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn LoadBitmapW(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_core::PCWSTR) -> HBITMAP);
     LoadBitmapW(hinstance.into_param().abi(), lpbitmapname.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LockWindowUpdate<P0>(hwndlock: P0) -> super::super::Foundation::BOOL
@@ -2502,7 +2413,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn LockWindowUpdate(hwndlock : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     LockWindowUpdate(hwndlock.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MapWindowPoints<P0, P1>(hwndfrom: P0, hwndto: P1, lppoints: &mut [super::super::Foundation::POINT]) -> i32
@@ -2513,7 +2424,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn MapWindowPoints(hwndfrom : super::super::Foundation:: HWND, hwndto : super::super::Foundation:: HWND, lppoints : *mut super::super::Foundation:: POINT, cpoints : u32) -> i32);
     MapWindowPoints(hwndfrom.into_param().abi(), hwndto.into_param().abi(), ::core::mem::transmute(lppoints.as_ptr()), lppoints.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MaskBlt<P0, P1, P2>(hdcdest: P0, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: P1, xsrc: i32, ysrc: i32, hbmmask: P2, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL
@@ -2525,13 +2436,12 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn MaskBlt(hdcdest : HDC, xdest : i32, ydest : i32, width : i32, height : i32, hdcsrc : HDC, xsrc : i32, ysrc : i32, hbmmask : HBITMAP, xmask : i32, ymask : i32, rop : u32) -> super::super::Foundation:: BOOL);
     MaskBlt(hdcdest.into_param().abi(), xdest, ydest, width, height, hdcsrc.into_param().abi(), xsrc, ysrc, hbmmask.into_param().abi(), xmask, ymask, rop)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     ::windows_targets::link!("fontsub.dll" "cdecl" fn MergeFontPackage(puchmergefontbuffer : *const u8, ulmergefontbuffersize : u32, puchfontpackagebuffer : *const u8, ulfontpackagebuffersize : u32, ppuchdestbuffer : *mut *mut u8, puldestbuffersize : *mut u32, pulbyteswritten : *mut u32, usmode : u16, lpfnallocate : CFP_ALLOCPROC, lpfnreallocate : CFP_REALLOCPROC, lpfnfree : CFP_FREEPROC, lpvreserved : *mut ::core::ffi::c_void) -> u32);
     MergeFontPackage(puchmergefontbuffer, ulmergefontbuffersize, puchfontpackagebuffer, ulfontpackagebuffersize, ppuchdestbuffer, puldestbuffersize, pulbyteswritten, usmode, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ModifyWorldTransform<P0>(hdc: P0, lpxf: ::core::option::Option<*const XFORM>, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL
@@ -2541,21 +2451,21 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ModifyWorldTransform(hdc : HDC, lpxf : *const XFORM, mode : MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation:: BOOL);
     ModifyWorldTransform(hdc.into_param().abi(), ::core::mem::transmute(lpxf.unwrap_or(::std::ptr::null())), mode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromPoint(pt: super::super::Foundation::POINT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     ::windows_targets::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::super::Foundation:: POINT, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
     MonitorFromPoint(::core::mem::transmute(pt), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     ::windows_targets::link!("user32.dll" "system" fn MonitorFromRect(lprc : *const super::super::Foundation:: RECT, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
     MonitorFromRect(lprc, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromWindow<P0>(hwnd: P0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR
@@ -2565,7 +2475,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn MonitorFromWindow(hwnd : super::super::Foundation:: HWND, dwflags : MONITOR_FROM_FLAGS) -> HMONITOR);
     MonitorFromWindow(hwnd.into_param().abi(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveToEx<P0>(hdc: P0, x: i32, y: i32, lppt: ::core::option::Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -2575,7 +2485,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn MoveToEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     MoveToEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lppt.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn OffsetClipRgn<P0>(hdc: P0, x: i32, y: i32) -> GDI_REGION_TYPE
 where
@@ -2584,14 +2493,13 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn OffsetClipRgn(hdc : HDC, x : i32, y : i32) -> GDI_REGION_TYPE);
     OffsetClipRgn(hdc.into_param().abi(), x, y)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn OffsetRect(lprc : *mut super::super::Foundation:: RECT, dx : i32, dy : i32) -> super::super::Foundation:: BOOL);
     OffsetRect(lprc, dx, dy)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn OffsetRgn<P0>(hrgn: P0, x: i32, y: i32) -> GDI_REGION_TYPE
 where
@@ -2600,7 +2508,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn OffsetRgn(hrgn : HRGN, x : i32, y : i32) -> GDI_REGION_TYPE);
     OffsetRgn(hrgn.into_param().abi(), x, y)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetViewportOrgEx<P0>(hdc: P0, x: i32, y: i32, lppt: ::core::option::Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -2610,7 +2518,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn OffsetViewportOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     OffsetViewportOrgEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lppt.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetWindowOrgEx<P0>(hdc: P0, x: i32, y: i32, lppt: ::core::option::Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -2620,7 +2528,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn OffsetWindowOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     OffsetWindowOrgEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lppt.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PaintDesktop<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -2630,7 +2538,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn PaintDesktop(hdc : HDC) -> super::super::Foundation:: BOOL);
     PaintDesktop(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PaintRgn<P0, P1>(hdc: P0, hrgn: P1) -> super::super::Foundation::BOOL
@@ -2641,7 +2549,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PaintRgn(hdc : HDC, hrgn : HRGN) -> super::super::Foundation:: BOOL);
     PaintRgn(hdc.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PatBlt<P0>(hdc: P0, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
@@ -2651,7 +2559,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PatBlt(hdc : HDC, x : i32, y : i32, w : i32, h : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
     PatBlt(hdc.into_param().abi(), x, y, w, h, rop)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn PathToRegion<P0>(hdc: P0) -> HRGN
 where
@@ -2660,7 +2567,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PathToRegion(hdc : HDC) -> HRGN);
     PathToRegion(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Pie<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL
@@ -2670,7 +2577,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Pie(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32, xr1 : i32, yr1 : i32, xr2 : i32, yr2 : i32) -> super::super::Foundation:: BOOL);
     Pie(hdc.into_param().abi(), left, top, right, bottom, xr1, yr1, xr2, yr2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayEnhMetaFile<P0, P1>(hdc: P0, hmf: P1, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
@@ -2681,7 +2588,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PlayEnhMetaFile(hdc : HDC, hmf : HENHMETAFILE, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     PlayEnhMetaFile(hdc.into_param().abi(), hmf.into_param().abi(), lprect)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayEnhMetaFileRecord<P0>(hdc: P0, pht: &[HANDLETABLE], pmr: *const ENHMETARECORD) -> super::super::Foundation::BOOL
@@ -2691,7 +2598,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PlayEnhMetaFileRecord(hdc : HDC, pht : *const HANDLETABLE, pmr : *const ENHMETARECORD, cht : u32) -> super::super::Foundation:: BOOL);
     PlayEnhMetaFileRecord(hdc.into_param().abi(), ::core::mem::transmute(pht.as_ptr()), pmr, pht.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayMetaFile<P0, P1>(hdc: P0, hmf: P1) -> super::super::Foundation::BOOL
@@ -2702,7 +2609,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PlayMetaFile(hdc : HDC, hmf : HMETAFILE) -> super::super::Foundation:: BOOL);
     PlayMetaFile(hdc.into_param().abi(), hmf.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayMetaFileRecord<P0>(hdc: P0, lphandletable: &[HANDLETABLE], lpmr: *const METARECORD) -> super::super::Foundation::BOOL
@@ -2712,7 +2619,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PlayMetaFileRecord(hdc : HDC, lphandletable : *const HANDLETABLE, lpmr : *const METARECORD, noobjs : u32) -> super::super::Foundation:: BOOL);
     PlayMetaFileRecord(hdc.into_param().abi(), ::core::mem::transmute(lphandletable.as_ptr()), lpmr, lphandletable.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlgBlt<P0, P1, P2>(hdcdest: P0, lppoint: &[super::super::Foundation::POINT; 3], hdcsrc: P1, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: P2, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL
@@ -2724,7 +2631,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PlgBlt(hdcdest : HDC, lppoint : *const super::super::Foundation:: POINT, hdcsrc : HDC, xsrc : i32, ysrc : i32, width : i32, height : i32, hbmmask : HBITMAP, xmask : i32, ymask : i32) -> super::super::Foundation:: BOOL);
     PlgBlt(hdcdest.into_param().abi(), ::core::mem::transmute(lppoint.as_ptr()), hdcsrc.into_param().abi(), xsrc, ysrc, width, height, hbmmask.into_param().abi(), xmask, ymask)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyBezier<P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -2734,7 +2641,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyBezier(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : u32) -> super::super::Foundation:: BOOL);
     PolyBezier(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyBezierTo<P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -2744,7 +2651,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyBezierTo(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : u32) -> super::super::Foundation:: BOOL);
     PolyBezierTo(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyDraw<P0>(hdc: P0, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL
@@ -2754,7 +2661,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyDraw(hdc : HDC, apt : *const super::super::Foundation:: POINT, aj : *const u8, cpt : i32) -> super::super::Foundation:: BOOL);
     PolyDraw(hdc.into_param().abi(), apt, aj, cpt)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyPolygon<P0>(hdc: P0, apt: *const super::super::Foundation::POINT, asz: &[i32]) -> super::super::Foundation::BOOL
@@ -2764,7 +2671,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyPolygon(hdc : HDC, apt : *const super::super::Foundation:: POINT, asz : *const i32, csz : i32) -> super::super::Foundation:: BOOL);
     PolyPolygon(hdc.into_param().abi(), apt, ::core::mem::transmute(asz.as_ptr()), asz.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyPolyline<P0>(hdc: P0, apt: *const super::super::Foundation::POINT, asz: &[u32]) -> super::super::Foundation::BOOL
@@ -2774,7 +2681,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyPolyline(hdc : HDC, apt : *const super::super::Foundation:: POINT, asz : *const u32, csz : u32) -> super::super::Foundation:: BOOL);
     PolyPolyline(hdc.into_param().abi(), apt, ::core::mem::transmute(asz.as_ptr()), asz.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyTextOutA<P0>(hdc: P0, ppt: &[POLYTEXTA]) -> super::super::Foundation::BOOL
@@ -2784,7 +2691,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyTextOutA(hdc : HDC, ppt : *const POLYTEXTA, nstrings : i32) -> super::super::Foundation:: BOOL);
     PolyTextOutA(hdc.into_param().abi(), ::core::mem::transmute(ppt.as_ptr()), ppt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyTextOutW<P0>(hdc: P0, ppt: &[POLYTEXTW]) -> super::super::Foundation::BOOL
@@ -2794,7 +2701,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolyTextOutW(hdc : HDC, ppt : *const POLYTEXTW, nstrings : i32) -> super::super::Foundation:: BOOL);
     PolyTextOutW(hdc.into_param().abi(), ::core::mem::transmute(ppt.as_ptr()), ppt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Polygon<P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -2804,7 +2711,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Polygon(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : i32) -> super::super::Foundation:: BOOL);
     Polygon(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Polyline<P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -2814,7 +2721,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Polyline(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : i32) -> super::super::Foundation:: BOOL);
     Polyline(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolylineTo<P0>(hdc: P0, apt: &[super::super::Foundation::POINT]) -> super::super::Foundation::BOOL
@@ -2824,14 +2731,14 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PolylineTo(hdc : HDC, apt : *const super::super::Foundation:: POINT, cpt : u32) -> super::super::Foundation:: BOOL);
     PolylineTo(hdc.into_param().abi(), ::core::mem::transmute(apt.as_ptr()), apt.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtInRect(lprc: *const super::super::Foundation::RECT, pt: super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn PtInRect(lprc : *const super::super::Foundation:: RECT, pt : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     PtInRect(lprc, ::core::mem::transmute(pt))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtInRegion<P0>(hrgn: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
@@ -2841,7 +2748,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PtInRegion(hrgn : HRGN, x : i32, y : i32) -> super::super::Foundation:: BOOL);
     PtInRegion(hrgn.into_param().abi(), x, y)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtVisible<P0>(hdc: P0, x: i32, y: i32) -> super::super::Foundation::BOOL
@@ -2851,7 +2758,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn PtVisible(hdc : HDC, x : i32, y : i32) -> super::super::Foundation:: BOOL);
     PtVisible(hdc.into_param().abi(), x, y)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn RealizePalette<P0>(hdc: P0) -> u32
 where
@@ -2860,7 +2766,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RealizePalette(hdc : HDC) -> u32);
     RealizePalette(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RectInRegion<P0>(hrgn: P0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
@@ -2870,7 +2776,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RectInRegion(hrgn : HRGN, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     RectInRegion(hrgn.into_param().abi(), lprect)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RectVisible<P0>(hdc: P0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL
@@ -2880,7 +2786,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RectVisible(hdc : HDC, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     RectVisible(hdc.into_param().abi(), lprect)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Rectangle<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL
@@ -2890,7 +2796,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn Rectangle(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
     Rectangle(hdc.into_param().abi(), left, top, right, bottom)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RedrawWindow<P0, P1>(hwnd: P0, lprcupdate: ::core::option::Option<*const super::super::Foundation::RECT>, hrgnupdate: P1, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL
@@ -2901,7 +2807,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn RedrawWindow(hwnd : super::super::Foundation:: HWND, lprcupdate : *const super::super::Foundation:: RECT, hrgnupdate : HRGN, flags : REDRAW_WINDOW_FLAGS) -> super::super::Foundation:: BOOL);
     RedrawWindow(hwnd.into_param().abi(), ::core::mem::transmute(lprcupdate.unwrap_or(::std::ptr::null())), hrgnupdate.into_param().abi(), flags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseDC<P0, P1>(hwnd: P0, hdc: P1) -> i32
@@ -2912,7 +2818,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ReleaseDC(hwnd : super::super::Foundation:: HWND, hdc : HDC) -> i32);
     ReleaseDC(hwnd.into_param().abi(), hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontMemResourceEx<P0>(h: P0) -> super::super::Foundation::BOOL
@@ -2922,7 +2828,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RemoveFontMemResourceEx(h : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     RemoveFontMemResourceEx(h.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceA<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -2932,7 +2838,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceA(lpfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     RemoveFontResourceA(lpfilename.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExA<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -2942,7 +2848,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExA(name : ::windows_core::PCSTR, fl : u32, pdv : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     RemoveFontResourceExA(name.into_param().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExW<P0>(name: P0, fl: u32, pdv: ::core::option::Option<*const ::core::ffi::c_void>) -> super::super::Foundation::BOOL
@@ -2952,7 +2858,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceExW(name : ::windows_core::PCWSTR, fl : u32, pdv : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     RemoveFontResourceExW(name.into_param().abi(), fl, ::core::mem::transmute(pdv.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceW<P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -2962,7 +2868,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RemoveFontResourceW(lpfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     RemoveFontResourceW(lpfilename.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDCA<P0>(hdc: P0, lpdm: *const DEVMODEA) -> HDC
@@ -2972,7 +2878,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ResetDCA(hdc : HDC, lpdm : *const DEVMODEA) -> HDC);
     ResetDCA(hdc.into_param().abi(), lpdm)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDCW<P0>(hdc: P0, lpdm: *const DEVMODEW) -> HDC
@@ -2982,7 +2888,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ResetDCW(hdc : HDC, lpdm : *const DEVMODEW) -> HDC);
     ResetDCW(hdc.into_param().abi(), lpdm)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResizePalette<P0>(hpal: P0, n: u32) -> super::super::Foundation::BOOL
@@ -2992,7 +2898,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ResizePalette(hpal : HPALETTE, n : u32) -> super::super::Foundation:: BOOL);
     ResizePalette(hpal.into_param().abi(), n)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestoreDC<P0>(hdc: P0, nsaveddc: i32) -> super::super::Foundation::BOOL
@@ -3002,7 +2908,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RestoreDC(hdc : HDC, nsaveddc : i32) -> super::super::Foundation:: BOOL);
     RestoreDC(hdc.into_param().abi(), nsaveddc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoundRect<P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> super::super::Foundation::BOOL
@@ -3012,7 +2918,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn RoundRect(hdc : HDC, left : i32, top : i32, right : i32, bottom : i32, width : i32, height : i32) -> super::super::Foundation:: BOOL);
     RoundRect(hdc.into_param().abi(), left, top, right, bottom, width, height)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SaveDC<P0>(hdc: P0) -> i32
 where
@@ -3021,7 +2926,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SaveDC(hdc : HDC) -> i32);
     SaveDC(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScaleViewportExtEx<P0>(hdc: P0, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL
@@ -3031,7 +2936,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ScaleViewportExtEx(hdc : HDC, xn : i32, dx : i32, yn : i32, yd : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     ScaleViewportExtEx(hdc.into_param().abi(), xn, dx, yn, yd, ::core::mem::transmute(lpsz.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScaleWindowExtEx<P0>(hdc: P0, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL
@@ -3041,7 +2946,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn ScaleWindowExtEx(hdc : HDC, xn : i32, xd : i32, yn : i32, yd : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     ScaleWindowExtEx(hdc.into_param().abi(), xn, xd, yn, yd, ::core::mem::transmute(lpsz.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScreenToClient<P0>(hwnd: P0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL
@@ -3051,7 +2956,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ScreenToClient(hwnd : super::super::Foundation:: HWND, lppoint : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     ScreenToClient(hwnd.into_param().abi(), lppoint)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectClipPath<P0>(hdc: P0, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL
@@ -3061,7 +2966,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SelectClipPath(hdc : HDC, mode : RGN_COMBINE_MODE) -> super::super::Foundation:: BOOL);
     SelectClipPath(hdc.into_param().abi(), mode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SelectClipRgn<P0, P1>(hdc: P0, hrgn: P1) -> GDI_REGION_TYPE
 where
@@ -3071,7 +2975,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SelectClipRgn(hdc : HDC, hrgn : HRGN) -> GDI_REGION_TYPE);
     SelectClipRgn(hdc.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SelectObject<P0, P1>(hdc: P0, h: P1) -> HGDIOBJ
 where
@@ -3081,7 +2984,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SelectObject(hdc : HDC, h : HGDIOBJ) -> HGDIOBJ);
     SelectObject(hdc.into_param().abi(), h.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectPalette<P0, P1, P2>(hdc: P0, hpal: P1, bforcebkgd: P2) -> HPALETTE
@@ -3093,7 +2996,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SelectPalette(hdc : HDC, hpal : HPALETTE, bforcebkgd : super::super::Foundation:: BOOL) -> HPALETTE);
     SelectPalette(hdc.into_param().abi(), hpal.into_param().abi(), bforcebkgd.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetArcDirection<P0>(hdc: P0, dir: ARC_DIRECTION) -> i32
 where
@@ -3102,7 +3004,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetArcDirection(hdc : HDC, dir : ARC_DIRECTION) -> i32);
     SetArcDirection(hdc.into_param().abi(), dir)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetBitmapBits<P0>(hbm: P0, cb: u32, pvbits: *const ::core::ffi::c_void) -> i32
 where
@@ -3111,7 +3012,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetBitmapBits(hbm : HBITMAP, cb : u32, pvbits : *const ::core::ffi::c_void) -> i32);
     SetBitmapBits(hbm.into_param().abi(), cb, pvbits)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBitmapDimensionEx<P0>(hbm: P0, w: i32, h: i32, lpsz: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL
@@ -3121,7 +3022,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetBitmapDimensionEx(hbm : HBITMAP, w : i32, h : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     SetBitmapDimensionEx(hbm.into_param().abi(), w, h, ::core::mem::transmute(lpsz.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBkColor<P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
@@ -3132,7 +3033,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetBkColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     SetBkColor(hdc.into_param().abi(), color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetBkMode<P0>(hdc: P0, mode: BACKGROUND_MODE) -> i32
 where
@@ -3141,7 +3041,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetBkMode(hdc : HDC, mode : i32) -> i32);
     SetBkMode(hdc.into_param().abi(), mode.0 as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBoundsRect<P0>(hdc: P0, lprect: ::core::option::Option<*const super::super::Foundation::RECT>, flags: SET_BOUNDS_RECT_FLAGS) -> u32
@@ -3151,7 +3051,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetBoundsRect(hdc : HDC, lprect : *const super::super::Foundation:: RECT, flags : SET_BOUNDS_RECT_FLAGS) -> u32);
     SetBoundsRect(hdc.into_param().abi(), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())), flags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBrushOrgEx<P0>(hdc: P0, x: i32, y: i32, lppt: ::core::option::Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -3161,7 +3061,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetBrushOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     SetBrushOrgEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lppt.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetColorAdjustment<P0>(hdc: P0, lpca: *const COLORADJUSTMENT) -> super::super::Foundation::BOOL
@@ -3171,7 +3071,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetColorAdjustment(hdc : HDC, lpca : *const COLORADJUSTMENT) -> super::super::Foundation:: BOOL);
     SetColorAdjustment(hdc.into_param().abi(), lpca)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDCBrushColor<P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
@@ -3182,7 +3082,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetDCBrushColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     SetDCBrushColor(hdc.into_param().abi(), color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDCPenColor<P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
@@ -3193,7 +3093,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetDCPenColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     SetDCPenColor(hdc.into_param().abi(), color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetDIBColorTable<P0>(hdc: P0, istart: u32, prgbq: &[RGBQUAD]) -> u32
 where
@@ -3202,7 +3101,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetDIBColorTable(hdc : HDC, istart : u32, centries : u32, prgbq : *const RGBQUAD) -> u32);
     SetDIBColorTable(hdc.into_param().abi(), istart, prgbq.len() as _, ::core::mem::transmute(prgbq.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetDIBits<P0, P1>(hdc: P0, hbm: P1, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32
 where
@@ -3212,7 +3110,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetDIBits(hdc : HDC, hbm : HBITMAP, start : u32, clines : u32, lpbits : *const ::core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
     SetDIBits(hdc.into_param().abi(), hbm.into_param().abi(), start, clines, lpbits, lpbmi, coloruse)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetDIBitsToDevice<P0>(hdc: P0, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32
 where
@@ -3221,13 +3118,11 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetDIBitsToDevice(hdc : HDC, xdest : i32, ydest : i32, w : u32, h : u32, xsrc : i32, ysrc : i32, startscan : u32, clines : u32, lpvbits : *const ::core::ffi::c_void, lpbmi : *const BITMAPINFO, coloruse : DIB_USAGE) -> i32);
     SetDIBitsToDevice(hdc.into_param().abi(), xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits, lpbmi, coloruse)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetEnhMetaFileBits(pb: &[u8]) -> HENHMETAFILE {
     ::windows_targets::link!("gdi32.dll" "system" fn SetEnhMetaFileBits(nsize : u32, pb : *const u8) -> HENHMETAFILE);
     SetEnhMetaFileBits(pb.len() as _, ::core::mem::transmute(pb.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetGraphicsMode<P0>(hdc: P0, imode: GRAPHICS_MODE) -> i32
 where
@@ -3236,7 +3131,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetGraphicsMode(hdc : HDC, imode : GRAPHICS_MODE) -> i32);
     SetGraphicsMode(hdc.into_param().abi(), imode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetLayout<P0>(hdc: P0, l: DC_LAYOUT) -> u32
 where
@@ -3245,7 +3139,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetLayout(hdc : HDC, l : DC_LAYOUT) -> u32);
     SetLayout(hdc.into_param().abi(), l)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetMapMode<P0>(hdc: P0, imode: HDC_MAP_MODE) -> i32
 where
@@ -3254,7 +3147,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetMapMode(hdc : HDC, imode : HDC_MAP_MODE) -> i32);
     SetMapMode(hdc.into_param().abi(), imode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetMapperFlags<P0>(hdc: P0, flags: u32) -> u32
 where
@@ -3263,13 +3155,11 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetMapperFlags(hdc : HDC, flags : u32) -> u32);
     SetMapperFlags(hdc.into_param().abi(), flags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetMetaFileBitsEx(lpdata: &[u8]) -> HMETAFILE {
     ::windows_targets::link!("gdi32.dll" "system" fn SetMetaFileBitsEx(cbbuffer : u32, lpdata : *const u8) -> HMETAFILE);
     SetMetaFileBitsEx(lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetMetaRgn<P0>(hdc: P0) -> GDI_REGION_TYPE
 where
@@ -3278,7 +3168,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetMetaRgn(hdc : HDC) -> GDI_REGION_TYPE);
     SetMetaRgn(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMiterLimit<P0>(hdc: P0, limit: f32, old: ::core::option::Option<*mut f32>) -> super::super::Foundation::BOOL
@@ -3288,7 +3178,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetMiterLimit(hdc : HDC, limit : f32, old : *mut f32) -> super::super::Foundation:: BOOL);
     SetMiterLimit(hdc.into_param().abi(), limit, ::core::mem::transmute(old.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetPaletteEntries<P0>(hpal: P0, istart: u32, ppalentries: &[PALETTEENTRY]) -> u32
 where
@@ -3297,7 +3186,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetPaletteEntries(hpal : HPALETTE, istart : u32, centries : u32, ppalentries : *const PALETTEENTRY) -> u32);
     SetPaletteEntries(hpal.into_param().abi(), istart, ppalentries.len() as _, ::core::mem::transmute(ppalentries.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPixel<P0, P1>(hdc: P0, x: i32, y: i32, color: P1) -> super::super::Foundation::COLORREF
@@ -3308,7 +3197,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetPixel(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     SetPixel(hdc.into_param().abi(), x, y, color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPixelV<P0, P1>(hdc: P0, x: i32, y: i32, color: P1) -> super::super::Foundation::BOOL
@@ -3319,7 +3208,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetPixelV(hdc : HDC, x : i32, y : i32, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: BOOL);
     SetPixelV(hdc.into_param().abi(), x, y, color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetPolyFillMode<P0>(hdc: P0, mode: CREATE_POLYGON_RGN_MODE) -> i32
 where
@@ -3328,7 +3216,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetPolyFillMode(hdc : HDC, mode : CREATE_POLYGON_RGN_MODE) -> i32);
     SetPolyFillMode(hdc.into_param().abi(), mode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetROP2<P0>(hdc: P0, rop2: R2_MODE) -> i32
 where
@@ -3337,21 +3224,21 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetROP2(hdc : HDC, rop2 : R2_MODE) -> i32);
     SetROP2(hdc.into_param().abi(), rop2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn SetRect(lprc : *mut super::super::Foundation:: RECT, xleft : i32, ytop : i32, xright : i32, ybottom : i32) -> super::super::Foundation:: BOOL);
     SetRect(lprc, xleft, ytop, xright, ybottom)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn SetRectEmpty(lprc : *mut super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     SetRectEmpty(lprc)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRectRgn<P0>(hrgn: P0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL
@@ -3361,7 +3248,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetRectRgn(hrgn : HRGN, left : i32, top : i32, right : i32, bottom : i32) -> super::super::Foundation:: BOOL);
     SetRectRgn(hrgn.into_param().abi(), left, top, right, bottom)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetStretchBltMode<P0>(hdc: P0, mode: STRETCH_BLT_MODE) -> i32
 where
@@ -3370,14 +3256,13 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetStretchBltMode(hdc : HDC, mode : STRETCH_BLT_MODE) -> i32);
     SetStretchBltMode(hdc.into_param().abi(), mode)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> ::windows_core::Result<()> {
     ::windows_targets::link!("user32.dll" "system" fn SetSysColors(celements : i32, lpaelements : *const i32, lpargbvalues : *const super::super::Foundation:: COLORREF) -> super::super::Foundation:: BOOL);
     SetSysColors(celements, lpaelements, lpargbvalues).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetSystemPaletteUse<P0>(hdc: P0, r#use: SYSTEM_PALETTE_USE) -> u32
 where
@@ -3386,7 +3271,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetSystemPaletteUse(hdc : HDC, r#use : SYSTEM_PALETTE_USE) -> u32);
     SetSystemPaletteUse(hdc.into_param().abi(), r#use)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetTextAlign<P0>(hdc: P0, align: TEXT_ALIGN_OPTIONS) -> u32
 where
@@ -3395,7 +3279,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetTextAlign(hdc : HDC, align : TEXT_ALIGN_OPTIONS) -> u32);
     SetTextAlign(hdc.into_param().abi(), align)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn SetTextCharacterExtra<P0>(hdc: P0, extra: i32) -> i32
 where
@@ -3404,7 +3287,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetTextCharacterExtra(hdc : HDC, extra : i32) -> i32);
     SetTextCharacterExtra(hdc.into_param().abi(), extra)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTextColor<P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
@@ -3415,7 +3298,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetTextColor(hdc : HDC, color : super::super::Foundation:: COLORREF) -> super::super::Foundation:: COLORREF);
     SetTextColor(hdc.into_param().abi(), color.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTextJustification<P0>(hdc: P0, extra: i32, count: i32) -> super::super::Foundation::BOOL
@@ -3425,7 +3308,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetTextJustification(hdc : HDC, extra : i32, count : i32) -> super::super::Foundation:: BOOL);
     SetTextJustification(hdc.into_param().abi(), extra, count)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetViewportExtEx<P0>(hdc: P0, x: i32, y: i32, lpsz: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL
@@ -3435,7 +3318,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetViewportExtEx(hdc : HDC, x : i32, y : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     SetViewportExtEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lpsz.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetViewportOrgEx<P0>(hdc: P0, x: i32, y: i32, lppt: ::core::option::Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -3445,7 +3328,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetViewportOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     SetViewportOrgEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lppt.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowExtEx<P0>(hdc: P0, x: i32, y: i32, lpsz: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> super::super::Foundation::BOOL
@@ -3455,7 +3338,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetWindowExtEx(hdc : HDC, x : i32, y : i32, lpsz : *mut super::super::Foundation:: SIZE) -> super::super::Foundation:: BOOL);
     SetWindowExtEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lpsz.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowOrgEx<P0>(hdc: P0, x: i32, y: i32, lppt: ::core::option::Option<*mut super::super::Foundation::POINT>) -> super::super::Foundation::BOOL
@@ -3465,7 +3348,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetWindowOrgEx(hdc : HDC, x : i32, y : i32, lppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
     SetWindowOrgEx(hdc.into_param().abi(), x, y, ::core::mem::transmute(lppt.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowRgn<P0, P1, P2>(hwnd: P0, hrgn: P1, bredraw: P2) -> i32
@@ -3477,7 +3360,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn SetWindowRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN, bredraw : super::super::Foundation:: BOOL) -> i32);
     SetWindowRgn(hwnd.into_param().abi(), hrgn.into_param().abi(), bredraw.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWorldTransform<P0>(hdc: P0, lpxf: *const XFORM) -> super::super::Foundation::BOOL
@@ -3487,7 +3370,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn SetWorldTransform(hdc : HDC, lpxf : *const XFORM) -> super::super::Foundation:: BOOL);
     SetWorldTransform(hdc.into_param().abi(), lpxf)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StretchBlt<P0, P1>(hdcdest: P0, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL
@@ -3498,7 +3381,6 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn StretchBlt(hdcdest : HDC, xdest : i32, ydest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xsrc : i32, ysrc : i32, wsrc : i32, hsrc : i32, rop : ROP_CODE) -> super::super::Foundation:: BOOL);
     StretchBlt(hdcdest.into_param().abi(), xdest, ydest, wdest, hdest, hdcsrc.into_param().abi(), xsrc, ysrc, wsrc, hsrc, rop)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn StretchDIBits<P0>(hdc: P0, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: ::core::option::Option<*const ::core::ffi::c_void>, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32
 where
@@ -3507,7 +3389,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn StretchDIBits(hdc : HDC, xdest : i32, ydest : i32, destwidth : i32, destheight : i32, xsrc : i32, ysrc : i32, srcwidth : i32, srcheight : i32, lpbits : *const ::core::ffi::c_void, lpbmi : *const BITMAPINFO, iusage : DIB_USAGE, rop : ROP_CODE) -> i32);
     StretchDIBits(hdc.into_param().abi(), xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, ::core::mem::transmute(lpbits.unwrap_or(::std::ptr::null())), lpbmi, iusage, rop)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrokeAndFillPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -3517,7 +3399,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn StrokeAndFillPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     StrokeAndFillPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrokePath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -3527,14 +3409,13 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn StrokePath(hdc : HDC) -> super::super::Foundation:: BOOL);
     StrokePath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn SubtractRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     SubtractRect(lprcdst, lprcsrc1, lprcsrc2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTCharToUnicode<P0>(hdc: P0, puccharcodes: &[u8], pusshortcodes: &mut [u16], ulflags: u32) -> i32
 where
@@ -3543,7 +3424,7 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : HDC, puccharcodes : *const u8, ulcharcodesize : u32, pusshortcodes : *mut u16, ulshortcodesize : u32, ulflags : u32) -> i32);
     TTCharToUnicode(hdc.into_param().abi(), ::core::mem::transmute(puccharcodes.as_ptr()), puccharcodes.len() as _, ::core::mem::transmute(pusshortcodes.as_ptr()), pusshortcodes.len() as _, ulflags)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTDeleteEmbeddedFont<P0>(hfontreference: P0, ulflags: u32, pulstatus: *mut u32) -> i32
@@ -3553,7 +3434,6 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTDeleteEmbeddedFont(hfontreference : super::super::Foundation:: HANDLE, ulflags : u32, pulstatus : *mut u32) -> i32);
     TTDeleteEmbeddedFont(hfontreference.into_param().abi(), ulflags, pulstatus)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTEmbedFont<P0>(hdc: P0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: ::core::option::Option<*const TTEMBEDINFO>) -> i32
 where
@@ -3562,7 +3442,6 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const ::core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
     TTEmbedFont(hdc.into_param().abi(), ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTEmbedFontEx<P0>(hdc: P0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: &[u32], uslanguage: u16, pttembedinfo: ::core::option::Option<*const TTEMBEDINFO>) -> i32
 where
@@ -3571,7 +3450,6 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : HDC, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const ::core::ffi::c_void, pulcharcodeset : *const u32, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
     TTEmbedFontEx(hdc.into_param().abi(), ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTEmbedFontFromFileA<P0, P1>(hdc: P0, szfontfilename: P1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: ::core::option::Option<*const TTEMBEDINFO>) -> i32
 where
@@ -3581,7 +3459,7 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : HDC, szfontfilename : ::windows_core::PCSTR, usttcindex : u16, ulflags : TTEMBED_FLAGS, ulcharset : EMBED_FONT_CHARSET, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const ::core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
     TTEmbedFontFromFileA(hdc.into_param().abi(), szfontfilename.into_param().abi(), usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, ::core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len() as _, uslanguage, ::core::mem::transmute(pttembedinfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<P0, P1>(lpszfacename: P0, benable: P1) -> i32
@@ -3592,13 +3470,11 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTEnableEmbeddingForFacename(lpszfacename : ::windows_core::PCSTR, benable : super::super::Foundation:: BOOL) -> i32);
     TTEnableEmbeddingForFacename(lpszfacename.into_param().abi(), benable.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: ::core::option::Option<*const TTLOADINFO>) -> i32 {
     ::windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddedFontInfo(ulflags : TTEMBED_FLAGS, pulprivstatus : *mut u32, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut u32, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const ::core::ffi::c_void, pttloadinfo : *const TTLOADINFO) -> i32);
     TTGetEmbeddedFontInfo(ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTGetEmbeddingType<P0>(hdc: P0, pulembedtype: *mut EMBEDDED_FONT_PRIV_STATUS) -> i32
 where
@@ -3607,14 +3483,14 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTGetEmbeddingType(hdc : HDC, pulembedtype : *mut EMBEDDED_FONT_PRIV_STATUS) -> i32);
     TTGetEmbeddingType(hdc.into_param().abi(), pulembedtype)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: &mut [u16], szmacfamilyname: &mut [u8]) -> i32 {
     ::windows_targets::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::super::Foundation:: HANDLE, wzwinfamilyname : ::windows_core::PWSTR, cchmaxwinname : i32, szmacfamilyname : ::windows_core::PSTR, cchmaxmacname : i32) -> i32);
     TTGetNewFontName(phfontreference, ::core::mem::transmute(wzwinfamilyname.as_ptr()), wzwinfamilyname.len() as _, ::core::mem::transmute(szmacfamilyname.as_ptr()), szmacfamilyname.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabled<P0>(hdc: P0, pbenabled: *mut super::super::Foundation::BOOL) -> i32
@@ -3624,7 +3500,7 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabled(hdc : HDC, pbenabled : *mut super::super::Foundation:: BOOL) -> i32);
     TTIsEmbeddingEnabled(hdc.into_param().abi(), pbenabled)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabledForFacename<P0>(lpszfacename: P0, pbenabled: *mut super::super::Foundation::BOOL) -> i32
@@ -3634,7 +3510,7 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTIsEmbeddingEnabledForFacename(lpszfacename : ::windows_core::PCSTR, pbenabled : *mut super::super::Foundation:: BOOL) -> i32);
     TTIsEmbeddingEnabledForFacename(lpszfacename.into_param().abi(), pbenabled)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTLoadEmbeddedFont<P0, P1>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: P0, szmacfamilyname: P1, pttloadinfo: ::core::option::Option<*const TTLOADINFO>) -> i32
@@ -3645,7 +3521,6 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTLoadEmbeddedFont(phfontreference : *mut super::super::Foundation:: HANDLE, ulflags : u32, pulprivstatus : *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs : FONT_LICENSE_PRIVS, pulstatus : *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream : READEMBEDPROC, lpvreadstream : *const ::core::ffi::c_void, szwinfamilyname : ::windows_core::PCWSTR, szmacfamilyname : ::windows_core::PCSTR, pttloadinfo : *const TTLOADINFO) -> i32);
     TTLoadEmbeddedFont(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, szwinfamilyname.into_param().abi(), szmacfamilyname.into_param().abi(), ::core::mem::transmute(pttloadinfo.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTRunValidationTests<P0>(hdc: P0, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32
 where
@@ -3654,7 +3529,6 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTRunValidationTests(hdc : HDC, ptestparam : *const TTVALIDATIONTESTSPARAMS) -> i32);
     TTRunValidationTests(hdc.into_param().abi(), ptestparam)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TTRunValidationTestsEx<P0>(hdc: P0, ptestparam: *const TTVALIDATIONTESTSPARAMSEX) -> i32
 where
@@ -3663,7 +3537,6 @@ where
     ::windows_targets::link!("t2embed.dll" "system" fn TTRunValidationTestsEx(hdc : HDC, ptestparam : *const TTVALIDATIONTESTSPARAMSEX) -> i32);
     TTRunValidationTestsEx(hdc.into_param().abi(), ptestparam)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TabbedTextOutA<P0>(hdc: P0, x: i32, y: i32, lpstring: &[u8], lpntabstoppositions: ::core::option::Option<&[i32]>, ntaborigin: i32) -> i32
 where
@@ -3672,7 +3545,6 @@ where
     ::windows_targets::link!("user32.dll" "system" fn TabbedTextOutA(hdc : HDC, x : i32, y : i32, lpstring : ::windows_core::PCSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
     TabbedTextOutA(hdc.into_param().abi(), x, y, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpntabstoppositions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ntaborigin)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TabbedTextOutW<P0>(hdc: P0, x: i32, y: i32, lpstring: &[u16], lpntabstoppositions: ::core::option::Option<&[i32]>, ntaborigin: i32) -> i32
 where
@@ -3681,7 +3553,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn TabbedTextOutW(hdc : HDC, x : i32, y : i32, lpstring : ::windows_core::PCWSTR, chcount : i32, ntabpositions : i32, lpntabstoppositions : *const i32, ntaborigin : i32) -> i32);
     TabbedTextOutW(hdc.into_param().abi(), x, y, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _, lpntabstoppositions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpntabstoppositions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ntaborigin)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextOutA<P0>(hdc: P0, x: i32, y: i32, lpstring: &[u8]) -> super::super::Foundation::BOOL
@@ -3691,7 +3563,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn TextOutA(hdc : HDC, x : i32, y : i32, lpstring : ::windows_core::PCSTR, c : i32) -> super::super::Foundation:: BOOL);
     TextOutA(hdc.into_param().abi(), x, y, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextOutW<P0>(hdc: P0, x: i32, y: i32, lpstring: &[u16]) -> super::super::Foundation::BOOL
@@ -3701,7 +3573,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn TextOutW(hdc : HDC, x : i32, y : i32, lpstring : ::windows_core::PCWSTR, c : i32) -> super::super::Foundation:: BOOL);
     TextOutW(hdc.into_param().abi(), x, y, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TransparentBlt<P0, P1>(hdcdest: P0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: P1, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL
@@ -3712,14 +3584,14 @@ where
     ::windows_targets::link!("msimg32.dll" "system" fn TransparentBlt(hdcdest : HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, crtransparent : u32) -> super::super::Foundation:: BOOL);
     TransparentBlt(hdcdest.into_param().abi(), xorigindest, yorigindest, wdest, hdest, hdcsrc.into_param().abi(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("user32.dll" "system" fn UnionRect(lprcdst : *mut super::super::Foundation:: RECT, lprcsrc1 : *const super::super::Foundation:: RECT, lprcsrc2 : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     UnionRect(lprcdst, lprcsrc1, lprcsrc2)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnrealizeObject<P0>(h: P0) -> super::super::Foundation::BOOL
@@ -3729,7 +3601,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn UnrealizeObject(h : HGDIOBJ) -> super::super::Foundation:: BOOL);
     UnrealizeObject(h.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateColors<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -3739,7 +3611,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn UpdateColors(hdc : HDC) -> super::super::Foundation:: BOOL);
     UpdateColors(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateWindow<P0>(hwnd: P0) -> super::super::Foundation::BOOL
@@ -3749,7 +3621,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn UpdateWindow(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     UpdateWindow(hwnd.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateRect<P0>(hwnd: P0, lprect: ::core::option::Option<*const super::super::Foundation::RECT>) -> super::super::Foundation::BOOL
@@ -3759,7 +3631,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ValidateRect(hwnd : super::super::Foundation:: HWND, lprect : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
     ValidateRect(hwnd.into_param().abi(), ::core::mem::transmute(lprect.unwrap_or(::std::ptr::null())))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateRgn<P0, P1>(hwnd: P0, hrgn: P1) -> super::super::Foundation::BOOL
@@ -3770,7 +3642,7 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ValidateRgn(hwnd : super::super::Foundation:: HWND, hrgn : HRGN) -> super::super::Foundation:: BOOL);
     ValidateRgn(hwnd.into_param().abi(), hrgn.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WidenPath<P0>(hdc: P0) -> super::super::Foundation::BOOL
@@ -3780,7 +3652,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn WidenPath(hdc : HDC) -> super::super::Foundation:: BOOL);
     WidenPath(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowFromDC<P0>(hdc: P0) -> super::super::Foundation::HWND
@@ -3790,3389 +3662,1699 @@ where
     ::windows_targets::link!("user32.dll" "system" fn WindowFromDC(hdc : HDC) -> super::super::Foundation:: HWND);
     WindowFromDC(hdc.into_param().abi())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32 {
     ::windows_targets::link!("opengl32.dll" "system" fn wglSwapMultipleBuffers(param0 : u32, param1 : *const WGLSWAP) -> u32);
     wglSwapMultipleBuffers(param0, param1)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ABORTDOC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ABSOLUTE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AC_SRC_ALPHA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AC_SRC_OVER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ASPECTX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(40u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(44u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ASPECTY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(42u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ASPECT_FILTERING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BANDINFO: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_INNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_OUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BEGIN_PATH: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_BOTTOM: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(25u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(19u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_FLAT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_LEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_MIDDLE: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_MONO: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_RECT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(15u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_RIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BKMODE_LAST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_DIBPATTERN: BRUSH_STYLE = BRUSH_STYLE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_DIBPATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_DIBPATTERNPT: BRUSH_STYLE = BRUSH_STYLE(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_HATCHED: BRUSH_STYLE = BRUSH_STYLE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_HOLLOW: BRUSH_STYLE = BRUSH_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_INDEXED: BRUSH_STYLE = BRUSH_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_MONOPATTERN: BRUSH_STYLE = BRUSH_STYLE(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_NULL: BRUSH_STYLE = BRUSH_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_PATTERN: BRUSH_STYLE = BRUSH_STYLE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_PATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BS_SOLID: BRUSH_STYLE = BRUSH_STYLE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CA_LOG_FILTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CA_NEGATIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CBM_INIT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CCHFORMNAME: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_CHORD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_CIRCLES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_ELLIPSES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_INTERIORS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_PIE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_ROUNDRECT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_STYLED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_WIDE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_WIDESTYLED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_GLOBAL: CDS_TYPE = CDS_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_NORESET: CDS_TYPE = CDS_TYPE(268435456u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_RESET: CDS_TYPE = CDS_TYPE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_SET_PRIMARY: CDS_TYPE = CDS_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_TEST: CDS_TYPE = CDS_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_UPDATEREGISTRY: CDS_TYPE = CDS_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_DEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHECKPNGFORMAT: u32 = 4120u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(36u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_TO_PATH: u32 = 4097u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLOSECHANNEL: u32 = 4112u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLR_INVALID: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CM_CMYK_COLOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CM_DEVICE_ICM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CM_GAMMA_RAMP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CM_IN_GAMUT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CM_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CM_OUT_OF_GAMUT: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLORRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(108u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COMPLEXREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CP_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CP_RECTANGLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CP_REGION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEDOWNNONE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEDOWNRIGHT: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEUPCENTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEUPLEFT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEUPNONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEUPRIGHT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_BITMAP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_DOWNLOAD: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_DOWNLOAD_OUTLINE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_SUBDEV: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_CACHE: GET_DCX_FLAGS = GET_DCX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = GET_DCX_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = GET_DCX_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_NORESETATTRS: GET_DCX_FLAGS = GET_DCX_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_PARENTCLIP: GET_DCX_FLAGS = GET_DCX_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_BINADJUST: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_EMF_COMPLIANT: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_MANUFACTURER: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_MODEL: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEFAULT_PITCH: FONT_PITCH = FONT_PITCH(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(117u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEVICEDATA: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEVICE_FONTTYPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_BUTTON3STATE: DFCS_STATE = DFCS_STATE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_BUTTONCHECK: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_BUTTONPUSH: DFCS_STATE = DFCS_STATE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_BUTTONRADIO: DFCS_STATE = DFCS_STATE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CAPTIONHELP: DFCS_STATE = DFCS_STATE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CAPTIONMAX: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CAPTIONMIN: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CAPTIONRESTORE: DFCS_STATE = DFCS_STATE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_CHECKED: DFCS_STATE = DFCS_STATE(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_INACTIVE: DFCS_STATE = DFCS_STATE(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_MENUARROW: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_MENUARROWRIGHT: DFCS_STATE = DFCS_STATE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_MENUBULLET: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_MENUCHECK: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_PUSHED: DFCS_STATE = DFCS_STATE(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = DFCS_STATE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLDOWN: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLLEFT: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLRIGHT: DFCS_STATE = DFCS_STATE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = DFCS_STATE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = DFCS_STATE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_SCROLLUP: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFCS_TRANSPARENT: DFCS_STATE = DFCS_STATE(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_PREFERRED_UNSCALED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_PATH_VALID_FLAGS: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_ACC_DRIVER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_ATTACHED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_DISCONNECT: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_MIRRORING_DRIVER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_MODESPRUNED: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_MULTI_DRIVER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_PRIMARY_DEVICE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_RDPUDD: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_REMOTE: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_REMOVABLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_TS_COMPATIBLE: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_FAILED: DISP_CHANGE = DISP_CHANGE(-1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_RESTART: DISP_CHANGE = DISP_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DI_APPBANDING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_AUTO: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_CASSETTE: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_ENVELOPE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_ENVMANUAL: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_FORMSOURCE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_LARGECAPACITY: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_LARGEFMT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_LAST: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_LOWER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_MANUAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_MIDDLE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_ONLYONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_SMALLFMT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_TRACTOR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_UPPER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDISPLAYFLAGS_TEXTMODE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_COARSE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_ERRORDIFFUSION: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_FINE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_GRAYSCALE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_LINEART: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_NONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_RESERVED6: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_RESERVED7: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_RESERVED8: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_RESERVED9: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_DEVICE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_DRIVER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_NONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_SYSTEM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICM_ABS_COLORIMETRIC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICM_COLORIMETRIC: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICM_CONTRAST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICM_SATURATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICM_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMMEDIA_GLOSSY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMMEDIA_STANDARD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMMEDIA_TRANSPARENCY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMMEDIA_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMNUP_ONEUP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMNUP_SYSTEM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMORIENT_LANDSCAPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMORIENT_PORTRAIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_10X11: u32 = 45u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_10X14: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_11X17: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_12X11: u32 = 90u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_15X11: u32 = 46u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_9X11: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A2: u32 = 66u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A3: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A3_EXTRA: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A3_EXTRA_TRANSVERSE: u32 = 68u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A3_ROTATED: u32 = 76u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A3_TRANSVERSE: u32 = 67u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A4: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A4SMALL: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A4_EXTRA: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A4_PLUS: u32 = 60u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A4_ROTATED: u32 = 77u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A4_TRANSVERSE: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A5: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A5_EXTRA: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A5_ROTATED: u32 = 78u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A5_TRANSVERSE: u32 = 61u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A6: u32 = 70u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A6_ROTATED: u32 = 83u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_A_PLUS: u32 = 57u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B4: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B4_JIS_ROTATED: u32 = 79u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B5: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B5_EXTRA: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B5_JIS_ROTATED: u32 = 80u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B5_TRANSVERSE: u32 = 62u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B6_JIS: u32 = 88u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B6_JIS_ROTATED: u32 = 89u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_B_PLUS: u32 = 58u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_CSHEET: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_DBL_JAPANESE_POSTCARD: u32 = 69u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_DBL_JAPANESE_POSTCARD_ROTATED: u32 = 82u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_DSHEET: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_10: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_11: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_12: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_14: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_9: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_B4: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_B5: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_B6: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_C3: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_C4: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_C5: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_C6: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_C65: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_DL: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_INVITE: u32 = 47u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_ITALY: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_MONARCH: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ENV_PERSONAL: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ESHEET: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_EXECUTIVE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_FANFOLD_LGL_GERMAN: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_FANFOLD_STD_GERMAN: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_FANFOLD_US: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_FOLIO: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_ISO_B4: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JAPANESE_POSTCARD: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JAPANESE_POSTCARD_ROTATED: u32 = 81u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_CHOU3: u32 = 73u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_CHOU3_ROTATED: u32 = 86u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_CHOU4: u32 = 74u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_CHOU4_ROTATED: u32 = 87u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_KAKU2: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_KAKU2_ROTATED: u32 = 84u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_KAKU3: u32 = 72u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_KAKU3_ROTATED: u32 = 85u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_YOU4: u32 = 91u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_JENV_YOU4_ROTATED: u32 = 92u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LAST: u32 = 118u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LEDGER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LEGAL: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LEGAL_EXTRA: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTERSMALL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTER_EXTRA: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTER_EXTRA_TRANSVERSE: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTER_PLUS: u32 = 59u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTER_ROTATED: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_LETTER_TRANSVERSE: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_NOTE: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_P16K: u32 = 93u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_P16K_ROTATED: u32 = 106u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_P32K: u32 = 94u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_P32KBIG: u32 = 95u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_P32KBIG_ROTATED: u32 = 108u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_P32K_ROTATED: u32 = 107u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_1: u32 = 96u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_10: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_10_ROTATED: u32 = 118u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_1_ROTATED: u32 = 109u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_2: u32 = 97u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_2_ROTATED: u32 = 110u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_3: u32 = 98u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_3_ROTATED: u32 = 111u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_4: u32 = 99u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_4_ROTATED: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_5: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_5_ROTATED: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_6: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_6_ROTATED: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_7: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_7_ROTATED: u32 = 115u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_8: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_8_ROTATED: u32 = 116u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_9: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_PENV_9_ROTATED: u32 = 117u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_QUARTO: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_RESERVED_48: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_RESERVED_49: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_STATEMENT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_TABLOID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_TABLOID_EXTRA: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMPAPER_USER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMRES_DRAFT: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMRES_HIGH: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMRES_LOW: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMRES_MEDIUM: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_COLLATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_COLOR: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_COPIES: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_COPY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_DUPLEX: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_FORMNAME: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_ICMINTENT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_INTERLACED: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_MODIFY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_NUP: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_ORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_POSITION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_SCALE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_SPECVERSION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1025u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_TTOPTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_UPDATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DOWNLOADFACE: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DOWNLOADHEADER: u32 = 4111u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRAFTMODE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRAWPATTERNRECT: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_DISABLED: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_NORMAL: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSS_UNION: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DST_BITMAP: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DST_ICON: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DST_TEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_CALCRECT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_CENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_CHARSTREAM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_DISPFILE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_INTERNAL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_LEFT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_METAFILE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_NOCLIP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_PLOTTER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2097152u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RASCAMERA: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RASDISPLAY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RASPRINTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RIGHT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RTLREADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_TABSTOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_CULTURE_LATIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_VENDOR_SIZE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_VERSION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ABORTPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(68u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ALPHABLEND: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ANGLEARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(41u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(45u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ARCTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(55u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_BEGINPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(59u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_BITBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(76u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CHORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(46u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CLOSEFIGURE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(61u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_COLORCORRECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(111u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_COLORMATCHTOTARGETW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(121u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATEBRUSHINDIRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(39u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(99u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATECOLORSPACEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATEDIBPATTERNBRUSHPT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(94u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATEMONOBRUSH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(93u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(49u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_CREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(38u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_DELETECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(101u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_DELETEOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(40u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ELLIPSE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(42u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ENDPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(60u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EOF: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(14u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXCLUDECLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(29u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXTCREATEFONTINDIRECTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(82u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXTCREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(95u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXTFLOODFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(53u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXTSELECTCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(75u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXTTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(83u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_EXTTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(84u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_FILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(62u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_FILLRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(71u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_FLATTENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(65u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_FRAMERGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(72u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_GDICOMMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(70u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_GLSBOUNDEDRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(103u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_GLSRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(102u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_GRADIENTFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(118u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_HEADER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_INTERSECTCLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(30u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_INVERTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(73u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_LINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(54u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_MASKBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(78u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_MAX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_MIN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_MODIFYWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(36u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_MOVETOEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(27u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_OFFSETCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(26u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_PAINTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(74u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_PIE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(47u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_PIXELFORMAT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(104u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_PLGBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(79u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYBEZIER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYBEZIER16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(85u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYBEZIERTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYBEZIERTO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(88u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYDRAW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(56u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYDRAW16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(92u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(86u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(87u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYLINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYLINETO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(89u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYPOLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYPOLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(91u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYPOLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYPOLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(90u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(96u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_POLYTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(97u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_REALIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(52u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RECTANGLE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(43u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_105: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(105u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_106: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(106u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_107: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(107u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_108: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(108u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_109: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(109u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_110: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(110u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_117: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(117u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_119: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(119u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESERVED_120: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(120u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(51u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_RESTOREDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(34u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_ROUNDRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(44u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SAVEDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(33u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SCALEVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(31u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SCALEWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SELECTCLIPPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(67u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SELECTOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(37u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SELECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(48u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETARCDIRECTION: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(57u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETBKCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(25u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETBKMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(18u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETBRUSHORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(13u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETCOLORADJUSTMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(23u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETCOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(100u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETDIBITSTODEVICE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(80u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETICMMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(98u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETICMPROFILEA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(112u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETICMPROFILEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(113u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETLAYOUT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(115u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETMAPMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(17u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETMAPPERFLAGS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETMETARGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETMITERLIMIT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(58u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETPALETTEENTRIES: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(50u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETPIXELV: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(15u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETPOLYFILLMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(19u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETROP2: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(20u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETSTRETCHBLTMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(21u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETTEXTALIGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETTEXTCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(11u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETVIEWPORTORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETWINDOWORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_SETWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(35u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_STRETCHBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(77u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_STRETCHDIBITS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(81u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_STROKEANDFILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(63u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_STROKEPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_TRANSPARENTBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(116u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EMR_WIDENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(66u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENABLEDUPLEX: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENABLEPAIRKERNING: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENABLERELATIVEWIDTHS: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENDDOC: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const END_PATH: u32 = 4098u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENUMPAPERBINS: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENUMPAPERMETRICS: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967294u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EPSPRINTING: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EPS_SIGNATURE: u32 = 1179865157u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERROR: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_FORMAT: u32 = 1006u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_GENERIC: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_BASE: u32 = 1085u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_CMAP: u32 = 1060u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_DELTA_FORMAT: u32 = 1013u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_EBLC: u32 = 1086u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_GDEF: u32 = 1083u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_GLYF: u32 = 1061u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_GPOS: u32 = 1082u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_GSUB: u32 = 1081u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_HDMX: u32 = 1089u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_HEAD: u32 = 1062u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_HHEA: u32 = 1063u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_HHEA_OR_VHEA: u32 = 1072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_HMTX: u32 = 1064u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_HMTX_OR_VMTX: u32 = 1073u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_JSTF: u32 = 1084u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_LOCA: u32 = 1065u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_LTSH: u32 = 1087u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_MAXP: u32 = 1066u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_MERGE_CHECKSUMS: u32 = 1011u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_MERGE_FORMATS: u32 = 1010u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_MERGE_NUMGLYPHS: u32 = 1012u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_NAME: u32 = 1067u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_OS2: u32 = 1069u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_POST: u32 = 1068u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_TTC_INDEX: u32 = 1015u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_TTO: u32 = 1080u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_VDMX: u32 = 1088u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_VHEA: u32 = 1070u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_INVALID_VMTX: u32 = 1071u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MEM: u32 = 1005u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_CMAP: u32 = 1030u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_EBDT: u32 = 1044u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_GLYF: u32 = 1031u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_HEAD: u32 = 1032u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_HHEA: u32 = 1033u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_HHEA_OR_VHEA: u32 = 1042u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_HMTX: u32 = 1034u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_HMTX_OR_VMTX: u32 = 1043u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_LOCA: u32 = 1035u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_MAXP: u32 = 1036u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_NAME: u32 = 1037u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_OS2: u32 = 1039u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_POST: u32 = 1038u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_VHEA: u32 = 1040u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_MISSING_VMTX: u32 = 1041u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_NOT_TTC: u32 = 1014u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_NO_GLYPHS: u32 = 1009u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER0: u32 = 1100u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER1: u32 = 1101u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER10: u32 = 1110u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER11: u32 = 1111u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER12: u32 = 1112u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER13: u32 = 1113u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER14: u32 = 1114u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER15: u32 = 1115u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER16: u32 = 1116u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER2: u32 = 1102u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER3: u32 = 1103u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER4: u32 = 1104u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER5: u32 = 1105u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER6: u32 = 1106u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER7: u32 = 1107u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER8: u32 = 1108u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_PARAMETER9: u32 = 1109u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_READCONTROL: u32 = 1003u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_READOUTOFBOUNDS: u32 = 1001u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_VERSION: u32 = 1008u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_WOULD_GROW: u32 = 1007u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_WRITECONTROL: u32 = 1004u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_CLIPPED: ETO_OPTIONS = ETO_OPTIONS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_GLYPH_INDEX: ETO_OPTIONS = ETO_OPTIONS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = ETO_OPTIONS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_OPAQUE: ETO_OPTIONS = ETO_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ETO_RTLREADING: ETO_OPTIONS = ETO_OPTIONS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EXTTEXTOUT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ADDFONTFAILED: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_API_NOTIMPL: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_CHARCODECOUNTINVALID: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_CHARCODESETINVALID: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_CHARSETINVALID: i32 = 21i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_COULDNTCREATETEMPFILE: i32 = 513i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_DEVICETRUETYPEFONT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORACCESSINGEXCLUDELIST: i32 = 274i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORACCESSINGFACENAME: i32 = 13i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORACCESSINGFONTDATA: i32 = 12i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORCOMPRESSINGFONTDATA: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORCONVERTINGCHARS: i32 = 18i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORCREATINGFONTFILE: i32 = 269i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORDECOMPRESSINGFONTDATA: i32 = 273i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERROREXPANDINGFONTDATA: i32 = 519i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORGETTINGDC: i32 = 520i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORREADINGFONTDATA: i32 = 267i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_ERRORUNICODECONVERSION: i32 = 17i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_EXCEPTION: i32 = 19i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_EXCEPTIONINCOMPRESSION: i32 = 522i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_EXCEPTIONINDECOMPRESSION: i32 = 521i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FACENAMEINVALID: i32 = 275i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FILE_NOT_FOUND: i32 = 23i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FLAGSINVALID: i32 = 268i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTALREADYEXISTS: i32 = 270i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTDATAINVALID: i32 = 258i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTFAMILYNAMENOTINFULL: i32 = 285i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTFILECREATEFAILED: i32 = 515i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTFILENOTFOUND: i32 = 517i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTINSTALLFAILED: i32 = 272i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTNAMEALREADYEXISTS: i32 = 271i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTNOTEMBEDDABLE: i32 = 260i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTREFERENCEINVALID: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_FONTVARIATIONSIMULATED: i32 = 283i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_HDCINVALID: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_INPUTPARAMINVALID: i32 = 25i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_NAMECHANGEFAILED: i32 = 259i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_NOFREEMEMORY: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_NONE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_NOOS2: i32 = 265i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_NOTATRUETYPEFONT: i32 = 10i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_PBENABLEDINVALID: i32 = 280i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_PERMISSIONSINVALID: i32 = 279i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_PRIVSINVALID: i32 = 261i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_PRIVSTATUSINVALID: i32 = 278i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_READFROMSTREAMFAILED: i32 = 263i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_RESERVEDPARAMNOTNULL: i32 = 20i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_RESOURCEFILECREATEFAILED: i32 = 518i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_SAVETOSTREAMFAILED: i32 = 264i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_STATUSINVALID: i32 = 277i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_STREAMINVALID: i32 = 276i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_SUBSETTINGEXCEPTION: i32 = 281i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_SUBSETTINGFAILED: i32 = 262i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_SUBSTRING_TEST_FAIL: i32 = 282i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_T2NOFREEMEMORY: i32 = 266i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_TTC_INDEX_OUT_OF_RANGE: i32 = 24i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const E_WINDOWSAPI: i32 = 516i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_CUSTPAPER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_MIRROR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_NEGATIVE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_NUP: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_OUTPUT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_PRIVATE_BEGIN: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_PRIVATE_END: u32 = 8191u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_PROTOCOL: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_PSLEVEL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_DECORATIVE: FONT_FAMILY = FONT_FAMILY(80u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_DONTCARE: FONT_FAMILY = FONT_FAMILY(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_MODERN: FONT_FAMILY = FONT_FAMILY(48u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_ROMAN: FONT_FAMILY = FONT_FAMILY(16u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_SCRIPT: FONT_FAMILY = FONT_FAMILY(64u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FF_SWISS: FONT_FAMILY = FONT_FAMILY(32u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FIXED_PITCH: FONT_PITCH = FONT_PITCH(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLI_GLYPHS: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLI_MASK: u32 = 4155u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLUSHOUTPUT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_ARABIC: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_BALTIC: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_CHINESESIMP: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_CHINESETRAD: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_CYRILLIC: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_GREEK: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_HEBREW: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_JISJAPAN: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_JOHAB: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_LATIN1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_LATIN2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_SYMBOL: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_THAI: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_TURKISH: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_VIETNAMESE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_WANSUNG: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_BLACK: FONT_WEIGHT = FONT_WEIGHT(900u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_BOLD: FONT_WEIGHT = FONT_WEIGHT(700u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_DEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_DONTCARE: FONT_WEIGHT = FONT_WEIGHT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_EXTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_EXTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_HEAVY: FONT_WEIGHT = FONT_WEIGHT(900u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_LIGHT: FONT_WEIGHT = FONT_WEIGHT(300u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_MEDIUM: FONT_WEIGHT = FONT_WEIGHT(500u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_NORMAL: FONT_WEIGHT = FONT_WEIGHT(400u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_REGULAR: FONT_WEIGHT = FONT_WEIGHT(400u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_SEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_THIN: FONT_WEIGHT = FONT_WEIGHT(100u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_ULTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FW_ULTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GB2312_CHARSET: FONT_CHARSET = FONT_CHARSET(134u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_ARABIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_HEBREW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_LATIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_LATINNUMBER: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_LATINNUMERICSEPARATOR: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_LATINNUMERICTERMINATOR: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_LOCALNUMBER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_NEUTRAL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_NUMERICSEPARATOR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_POSTBOUNDLTR: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_POSTBOUNDRTL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_PREBOUNDLTR: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_PREBOUNDRTL: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPGLYPH_LINKAFTER: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPGLYPH_LINKBEFORE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_DBCS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_ERROR: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_JUSTIFYIN: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_ENDGROUP: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_IDENTIFIER: u32 = 1128875079u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_MULTIFORMATS: u32 = 1073741828u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_UNICODE_END: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_UNICODE_STRING: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_WINDOWS_METAFILE: u32 = 2147483649u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDIPLUS_TS_QUERYVER: u32 = 4122u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDIPLUS_TS_RECORD: u32 = 4123u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDIREGISTERDDRAWPACKETVERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDI_ERROR: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETCOLORTABLE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETDEVICEUNITS: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETEXTENDEDTEXTMETRICS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETEXTENTTABLE: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETFACENAME: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETPAIRKERNTABLE: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETPENWIDTH: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETPHYSPAGESIZE: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETPRINTINGOFFSET: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETSCALINGFACTOR: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETSETPAPERBINS: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETSETPAPERMETRICS: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETSETPRINTORIENT: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETSETSCREENPARAMS: u32 = 3072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETTECHNOLGY: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETTECHNOLOGY: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETTRACKKERNTABLE: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETVECTORBRUSHSIZE: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETVECTORPENSIZE: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GM_LAST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GS_8BIT_INDICES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_API_MAX: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_A: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_B: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_C: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_D50: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_D55: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_D65: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_D75: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_DAYLIGHT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_DEVICE_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_F2: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_FLUORESCENT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_MAX_INDEX: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_NTSC: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_BTT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_RTL: DC_LAYOUT = DC_LAYOUT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_VBH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LCS_CALIBRATED_RGB: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LCS_GM_ABS_COLORIMETRIC: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LCS_GM_BUSINESS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LCS_GM_GRAPHICS: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LCS_GM_IMAGES: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_INTERIORS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_MARKER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_POLYLINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_POLYMARKER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_STYLED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_WIDE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LC_WIDESTYLED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LF_FACESIZE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LF_FULLFACESIZE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LINECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(30u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(88u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(90u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SHARE_ACCUM: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SHARE_DEPTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SHARE_STENCIL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_STEREO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SUPPORT_GDI: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SUPPORT_OPENGL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SWAP_COPY: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SWAP_EXCHANGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_TRANSPARENT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_TYPE_RGBA: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MAXSTRETCHBLTMODE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MERGEPAINT: ROP_CODE = ROP_CODE(12255782u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const METAFILE_DRIVER: u32 = 2049u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_ANIMATEPALETTE: u32 = 1078u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_ARC: u32 = 2071u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_BITBLT: u32 = 2338u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CHORD: u32 = 2096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CREATEBRUSHINDIRECT: u32 = 764u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CREATEFONTINDIRECT: u32 = 763u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CREATEPALETTE: u32 = 247u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CREATEPATTERNBRUSH: u32 = 505u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CREATEPENINDIRECT: u32 = 762u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_CREATEREGION: u32 = 1791u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_DELETEOBJECT: u32 = 496u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_DIBBITBLT: u32 = 2368u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_DIBCREATEPATTERNBRUSH: u32 = 322u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_DIBSTRETCHBLT: u32 = 2881u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_ELLIPSE: u32 = 1048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_ESCAPE: u32 = 1574u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_EXCLUDECLIPRECT: u32 = 1045u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_EXTFLOODFILL: u32 = 1352u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_EXTTEXTOUT: u32 = 2610u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_FILLREGION: u32 = 552u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_FLOODFILL: u32 = 1049u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_FRAMEREGION: u32 = 1065u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_INTERSECTCLIPRECT: u32 = 1046u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_INVERTREGION: u32 = 298u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_LINETO: u32 = 531u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_MOVETO: u32 = 532u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_OFFSETCLIPRGN: u32 = 544u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_OFFSETVIEWPORTORG: u32 = 529u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_OFFSETWINDOWORG: u32 = 527u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_PAINTREGION: u32 = 299u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_PATBLT: u32 = 1565u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_PIE: u32 = 2074u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_POLYGON: u32 = 804u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_POLYLINE: u32 = 805u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_POLYPOLYGON: u32 = 1336u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_REALIZEPALETTE: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_RECTANGLE: u32 = 1051u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_RESIZEPALETTE: u32 = 313u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_RESTOREDC: u32 = 295u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_ROUNDRECT: u32 = 1564u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SAVEDC: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SCALEVIEWPORTEXT: u32 = 1042u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SCALEWINDOWEXT: u32 = 1040u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SELECTCLIPREGION: u32 = 300u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SELECTOBJECT: u32 = 301u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SELECTPALETTE: u32 = 564u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETBKCOLOR: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETBKMODE: u32 = 258u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETDIBTODEV: u32 = 3379u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETLAYOUT: u32 = 329u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETMAPMODE: u32 = 259u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETMAPPERFLAGS: u32 = 561u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETPALENTRIES: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETPIXEL: u32 = 1055u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETPOLYFILLMODE: u32 = 262u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETRELABS: u32 = 261u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETROP2: u32 = 260u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETSTRETCHBLTMODE: u32 = 263u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETTEXTALIGN: u32 = 302u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETTEXTCHAREXTRA: u32 = 264u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETTEXTCOLOR: u32 = 521u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETTEXTJUSTIFICATION: u32 = 522u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETVIEWPORTEXT: u32 = 526u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETVIEWPORTORG: u32 = 525u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETWINDOWEXT: u32 = 524u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_SETWINDOWORG: u32 = 523u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_STRETCHBLT: u32 = 2851u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_STRETCHDIB: u32 = 3907u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const META_TEXTOUT: u32 = 1313u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MFCOMMENT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_HIENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_HIMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_ISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_MAX_NUMAXES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MONO_FONT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MOUSETRAILS: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEWFRAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEWTRANSPARENT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEXTBAND: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NOTSRCCOPY: ROP_CODE = ROP_CODE(3342344u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NOTSRCERASE: ROP_CODE = ROP_CODE(1114278u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_BOLD: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_DSIG: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_ITALIC: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_MULTIPLEMASTER: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_NONNEGATIVE_AC: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_PS_OPENTYPE: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_REGULAR: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_TT_OPENTYPE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_TYPE1: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NULLREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NUMBRUSHES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NUMCOLORS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NUMFONTS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NUMMARKERS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(20u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NUMPENS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(18u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NUMRESERVED: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(106u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_BITMAP: OBJ_TYPE = OBJ_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_BRUSH: OBJ_TYPE = OBJ_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_COLORSPACE: OBJ_TYPE = OBJ_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_DC: OBJ_TYPE = OBJ_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_ENHMETADC: OBJ_TYPE = OBJ_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_ENHMETAFILE: OBJ_TYPE = OBJ_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_EXTPEN: OBJ_TYPE = OBJ_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_FONT: OBJ_TYPE = OBJ_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_MEMDC: OBJ_TYPE = OBJ_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_METADC: OBJ_TYPE = OBJ_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_METAFILE: OBJ_TYPE = OBJ_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_PAL: OBJ_TYPE = OBJ_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_PEN: OBJ_TYPE = OBJ_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OBJ_REGION: OBJ_TYPE = OBJ_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OPENCHANNEL: u32 = 4110u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_SCREEN_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PANOSE_COUNT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ANY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ARMSTYLE_INDEX: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_LOW: PAN_CONTRAST = PAN_CONTRAST(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_MEDIUM: PAN_CONTRAST = PAN_CONTRAST(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = PAN_CONTRAST(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = PAN_CONTRAST(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_NONE: PAN_CONTRAST = PAN_CONTRAST(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_NO_FIT: PAN_CONTRAST = PAN_CONTRAST(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = PAN_CONTRAST(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = PAN_CONTRAST(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CULTURE_LATIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILYTYPE_INDEX: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILY_ANY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETTERFORM_INDEX: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(12u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = PAN_MIDLINE(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = PAN_MIDLINE(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_INDEX: PAN_MIDLINE = PAN_MIDLINE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = PAN_MIDLINE(12u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = PAN_MIDLINE(13u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_NO_FIT: PAN_MIDLINE = PAN_MIDLINE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_NO_FIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROPORTION_INDEX: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = PAN_PROPORTION(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_MODERN: PAN_PROPORTION = PAN_PROPORTION(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_MONOSPACED: PAN_PROPORTION = PAN_PROPORTION(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_NO_FIT: PAN_PROPORTION = PAN_PROPORTION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_OLD_STYLE: PAN_PROPORTION = PAN_PROPORTION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIFSTYLE_INDEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_ANY: PAN_SERIF_STYLE = PAN_SERIF_STYLE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_BONE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_FLARED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(14u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = PAN_SERIF_STYLE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(12u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKEVARIATION_INDEX: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_ANY: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_BOOK: PAN_WEIGHT = PAN_WEIGHT(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_DEMI: PAN_WEIGHT = PAN_WEIGHT(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_HEAVY: PAN_WEIGHT = PAN_WEIGHT(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_INDEX: PAN_WEIGHT = PAN_WEIGHT(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_LIGHT: PAN_WEIGHT = PAN_WEIGHT(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_MEDIUM: PAN_WEIGHT = PAN_WEIGHT(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = PAN_XHEIGHT(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = PAN_XHEIGHT(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_INDEX: PAN_XHEIGHT = PAN_XHEIGHT(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = PAN_XHEIGHT(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PASSTHROUGH: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PATCOPY: ROP_CODE = ROP_CODE(15728673u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PATINVERT: ROP_CODE = ROP_CODE(5898313u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PATPAINT: ROP_CODE = ROP_CODE(16452105u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_EXPLICIT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_INTERIORS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_NOCOLLAPSE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_PATHS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_POLYGON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_POLYPOLYGON: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_RECTANGLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_RESERVED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_SCANLINE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_STYLED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_TRAPEZOID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_WIDE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_WIDESTYLED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_WINDPOLYGON: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(26u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(111u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(112u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(113u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(110u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PLANES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(14u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POLYFILL_LAST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POSTSCRIPT_DATA: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POSTSCRIPT_IDENTIFY: u32 = 4117u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POSTSCRIPT_IGNORE: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POSTSCRIPT_INJECTION: u32 = 4118u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POSTSCRIPT_PASSTHROUGH: u32 = 4115u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PRINTRATEUNIT_CPS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PRINTRATEUNIT_IPM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PRINTRATEUNIT_LPM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PRINTRATEUNIT_PPM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PR_JOBSTATUS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSIDENT_GDICENTRIC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSIDENT_PSCENTRIC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSINJECT_DLFONT: u32 = 3722304989u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSPROTOCOL_ASCII: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSPROTOCOL_BCP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSPROTOCOL_BINARY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSPROTOCOL_TBCP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_ALTERNATE: PEN_STYLE = PEN_STYLE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_COSMETIC: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_DASH: PEN_STYLE = PEN_STYLE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_DASHDOT: PEN_STYLE = PEN_STYLE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_DASHDOTDOT: PEN_STYLE = PEN_STYLE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_DOT: PEN_STYLE = PEN_STYLE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_ENDCAP_FLAT: PEN_STYLE = PEN_STYLE(512i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_ENDCAP_MASK: PEN_STYLE = PEN_STYLE(3840i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_ENDCAP_ROUND: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_ENDCAP_SQUARE: PEN_STYLE = PEN_STYLE(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_INSIDEFRAME: PEN_STYLE = PEN_STYLE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_JOIN_ROUND: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_NULL: PEN_STYLE = PEN_STYLE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_SOLID: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_STYLE_MASK: PEN_STYLE = PEN_STYLE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PS_USERSTYLE: PEN_STYLE = PEN_STYLE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PT_BEZIERTO: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PT_CLOSEFIGURE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PT_LINETO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PT_MOVETO: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDI_DIBTOSCREEN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDI_GETDIBITS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDI_SETDIBITS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QDI_STRETCHDIB: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QUERYDIBSUPPORT: u32 = 3073u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QUERYESCSUPPORT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QUERYROPSUPPORT: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_BLACK: R2_MODE = R2_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_COPYPEN: R2_MODE = R2_MODE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_LAST: R2_MODE = R2_MODE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_MASKNOTPEN: R2_MODE = R2_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_MASKPEN: R2_MODE = R2_MODE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_MASKPENNOT: R2_MODE = R2_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_MERGENOTPEN: R2_MODE = R2_MODE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_MERGEPENNOT: R2_MODE = R2_MODE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_NOP: R2_MODE = R2_MODE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_NOT: R2_MODE = R2_MODE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_NOTCOPYPEN: R2_MODE = R2_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_NOTMASKPEN: R2_MODE = R2_MODE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_NOTMERGEPEN: R2_MODE = R2_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_NOTXORPEN: R2_MODE = R2_MODE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const R2_XORPEN: R2_MODE = R2_MODE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(38u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RASTER_FONTTYPE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_BANDING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_BIGFONT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_BITBLT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_BITMAP64: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_DEVBITS: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_DIBTODEV: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_DI_BITMAP: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_FLOODFILL: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_GDI20_OUTPUT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_GDI20_STATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_OP_DX_OUTPUT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_PALETTE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_SAVEBITMAP: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_SCALING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_STRETCHBLT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RC_STRETCHDIB: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDH_RECTANGLES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_ERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_NOERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RELATIVE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RESTORE_CTM: u32 = 4100u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_COPY: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_DIFF: RGN_COMBINE_MODE = RGN_COMBINE_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_ERROR: GDI_REGION_TYPE = GDI_REGION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_MAX: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_MIN: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_OR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RGN_XOR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SAVE_CTM: u32 = 4101u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_CONST_ALPHA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_GRAD_RECT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_GRAD_TRI: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_PIXEL_ALPHA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_PREMULT_ALPHA: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(115u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SC_SCREENSAVE: u32 = 61760u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SELECTDIB: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SELECTPAPERSOURCE: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETABORTPROC: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETALLJUSTVALUES: u32 = 771u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETCHARSET: u32 = 772u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETCOLORTABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETCOPYCOUNT: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETDIBSCALING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETICMPROFILE_EMBEDED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETKERNTRACK: u32 = 770u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETLINECAP: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETLINEJOIN: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SETMITERLIMIT: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_ARC_DIRECTION: u32 = 4102u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_BACKGROUND_COLOR: u32 = 4103u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_BOUNDS: u32 = 4109u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_CLIP_BOX: u32 = 4108u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_MIRROR_MODE: u32 = 4110u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_POLY_MODE: u32 = 4104u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_SCREEN_ANGLE: u32 = 4105u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_SPREAD: u32 = 4106u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(120u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SHIFTJIS_CHARSET: FONT_CHARSET = FONT_CHARSET(128u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SIMPLEREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SIZEPALETTE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(104u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SPCLPASSTHROUGH2: u32 = 4568u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_APPABORT: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_ERROR: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_NOTREPORTED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_OUTOFDISK: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_OUTOFMEMORY: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_USERABORT: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SRCAND: ROP_CODE = ROP_CODE(8913094u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SRCERASE: ROP_CODE = ROP_CODE(4457256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SRCINVERT: ROP_CODE = ROP_CODE(6684742u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SRCPAINT: ROP_CODE = ROP_CODE(15597702u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STARTDOC: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STOCK_LAST: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STRETCHBLT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYMBOL_CHARSET: FONT_CHARSET = FONT_CHARSET(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_ERROR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSRGN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_MASK: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(287u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_RTLREADING: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TA_UPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_CP_STROKE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_CR_90: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_CR_ANY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_EA_DOUBLE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_IA_ABLE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_OP_CHARACTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_OP_STROKE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_RA_ABLE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_RESERVED: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_SA_CONTIN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_SA_DOUBLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_SA_INTEGER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_SCROLLBLT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_SF_X_YINDEP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_SO_ABLE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_UA_ABLE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_VA_ABLE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(34u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TMPF_DEVICE: TMPF_FLAGS = TMPF_FLAGS(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TMPF_FIXED_PITCH: TMPF_FLAGS = TMPF_FLAGS(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TMPF_TRUETYPE: TMPF_FLAGS = TMPF_FLAGS(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TMPF_VECTOR: TMPF_FLAGS = TMPF_FLAGS(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRANSFORM_CTM: u32 = 4107u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRANSPARENT: BACKGROUND_MODE = BACKGROUND_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_RAW: TTEMBED_FLAGS = TTEMBED_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_SUBSET: TTEMBED_FLAGS = TTEMBED_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = TTEMBED_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_VARIATIONSIMULATED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_WEBOBJECT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_XORENCRYPTDATA: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_APPLE_PLATFORMID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_DELTA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_DONT_CARE: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_FLAGS_COMPRESS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_FLAGS_GLYPHLIST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_FLAGS_SUBSET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_FLAGS_TTC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_LANG_KEEP_ALL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_MS_PLATFORMID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_SUBSET: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_SUBSET1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFMFP_DELTA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFMFP_SUBSET: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFMFP_SUBSET1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_PRIVATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_AVAILABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_POLYGON_TYPE: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_PRIM_CSPLINE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_PRIM_LINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_PRIM_QSPLINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TURKISH_CHARSET: FONT_CHARSET = FONT_CHARSET(162u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VARIABLE_PITCH: FONT_PITCH = FONT_PITCH(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VERTSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VIETNAMESE_CHARSET: FONT_CHARSET = FONT_CHARSET(163u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VREFRESH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(116u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VTA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VTA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_FONT_LINES: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_FONT_POLYGONS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAPMULTIPLE_MAX: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_MAIN_PLANE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY1: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY10: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY11: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY12: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY13: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY14: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY15: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY2: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY3: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY4: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY5: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY6: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY7: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY8: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_OVERLAY9: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY1: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY10: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY11: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY12: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY13: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY14: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY15: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY2: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY3: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY4: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY5: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY6: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY7: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WHITENESS: ROP_CODE = ROP_CODE(16711778u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARC_DIRECTION(pub i32);
@@ -7195,7 +5377,6 @@ impl ::core::fmt::Debug for ARC_DIRECTION {
         f.debug_tuple("ARC_DIRECTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKGROUND_MODE(pub u32);
@@ -7218,7 +5399,6 @@ impl ::core::fmt::Debug for BACKGROUND_MODE {
         f.debug_tuple("BACKGROUND_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BI_COMPRESSION(pub u32);
@@ -7241,7 +5421,6 @@ impl ::core::fmt::Debug for BI_COMPRESSION {
         f.debug_tuple("BI_COMPRESSION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BRUSH_STYLE(pub u32);
@@ -7264,7 +5443,6 @@ impl ::core::fmt::Debug for BRUSH_STYLE {
         f.debug_tuple("BRUSH_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CDS_TYPE(pub u32);
@@ -7320,7 +5498,6 @@ impl ::core::ops::Not for CDS_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub i16);
@@ -7343,7 +5520,6 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
         f.debug_tuple("CREATE_FONT_PACKAGE_SUBSET_ENCODING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub i16);
@@ -7366,7 +5542,6 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
         f.debug_tuple("CREATE_FONT_PACKAGE_SUBSET_PLATFORM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_POLYGON_RGN_MODE(pub i32);
@@ -7389,7 +5564,6 @@ impl ::core::fmt::Debug for CREATE_POLYGON_RGN_MODE {
         f.debug_tuple("CREATE_POLYGON_RGN_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DC_LAYOUT(pub u32);
@@ -7445,7 +5619,6 @@ impl ::core::ops::Not for DC_LAYOUT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_COLLATE(pub i16);
@@ -7468,7 +5641,6 @@ impl ::core::fmt::Debug for DEVMODE_COLLATE {
         f.debug_tuple("DEVMODE_COLLATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_COLOR(pub i16);
@@ -7491,7 +5663,6 @@ impl ::core::fmt::Debug for DEVMODE_COLOR {
         f.debug_tuple("DEVMODE_COLOR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_DISPLAY_FIXED_OUTPUT(pub u32);
@@ -7514,7 +5685,6 @@ impl ::core::fmt::Debug for DEVMODE_DISPLAY_FIXED_OUTPUT {
         f.debug_tuple("DEVMODE_DISPLAY_FIXED_OUTPUT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_DISPLAY_ORIENTATION(pub u32);
@@ -7537,7 +5707,6 @@ impl ::core::fmt::Debug for DEVMODE_DISPLAY_ORIENTATION {
         f.debug_tuple("DEVMODE_DISPLAY_ORIENTATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_DUPLEX(pub i16);
@@ -7560,7 +5729,6 @@ impl ::core::fmt::Debug for DEVMODE_DUPLEX {
         f.debug_tuple("DEVMODE_DUPLEX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_FIELD_FLAGS(pub u32);
@@ -7616,7 +5784,6 @@ impl ::core::ops::Not for DEVMODE_FIELD_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_TRUETYPE_OPTION(pub i16);
@@ -7639,7 +5806,6 @@ impl ::core::fmt::Debug for DEVMODE_TRUETYPE_OPTION {
         f.debug_tuple("DEVMODE_TRUETYPE_OPTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFCS_STATE(pub u32);
@@ -7695,7 +5861,6 @@ impl ::core::ops::Not for DFCS_STATE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFC_TYPE(pub u32);
@@ -7718,7 +5883,6 @@ impl ::core::fmt::Debug for DFC_TYPE {
         f.debug_tuple("DFC_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIB_USAGE(pub u32);
@@ -7741,7 +5905,6 @@ impl ::core::fmt::Debug for DIB_USAGE {
         f.debug_tuple("DIB_USAGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
@@ -7764,7 +5927,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_COLOR_ENCODING {
         f.debug_tuple("DISPLAYCONFIG_COLOR_ENCODING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISP_CHANGE(pub i32);
@@ -7787,7 +5949,6 @@ impl ::core::fmt::Debug for DISP_CHANGE {
         f.debug_tuple("DISP_CHANGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWEDGE_FLAGS(pub u32);
@@ -7843,7 +6004,6 @@ impl ::core::ops::Not for DRAWEDGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWSTATE_FLAGS(pub u32);
@@ -7899,7 +6059,6 @@ impl ::core::ops::Not for DRAWSTATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_CAPTION_FLAGS(pub u32);
@@ -7955,7 +6114,6 @@ impl ::core::ops::Not for DRAW_CAPTION_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_EDGE_FLAGS(pub u32);
@@ -8011,7 +6169,6 @@ impl ::core::ops::Not for DRAW_EDGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_TEXT_FORMAT(pub u32);
@@ -8067,7 +6224,6 @@ impl ::core::ops::Not for DRAW_TEXT_FORMAT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBEDDED_FONT_PRIV_STATUS(pub u32);
@@ -8090,7 +6246,6 @@ impl ::core::fmt::Debug for EMBEDDED_FONT_PRIV_STATUS {
         f.debug_tuple("EMBEDDED_FONT_PRIV_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBED_FONT_CHARSET(pub u32);
@@ -8113,7 +6268,6 @@ impl ::core::fmt::Debug for EMBED_FONT_CHARSET {
         f.debug_tuple("EMBED_FONT_CHARSET").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENHANCED_METAFILE_RECORD_TYPE(pub u32);
@@ -8136,7 +6290,6 @@ impl ::core::fmt::Debug for ENHANCED_METAFILE_RECORD_TYPE {
         f.debug_tuple("ENHANCED_METAFILE_RECORD_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_DISPLAY_SETTINGS_FLAGS(pub u32);
@@ -8192,7 +6345,6 @@ impl ::core::ops::Not for ENUM_DISPLAY_SETTINGS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
@@ -8215,7 +6367,6 @@ impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_MODE {
         f.debug_tuple("ENUM_DISPLAY_SETTINGS_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETO_OPTIONS(pub u32);
@@ -8271,7 +6422,6 @@ impl ::core::ops::Not for ETO_OPTIONS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXT_FLOOD_FILL_TYPE(pub u32);
@@ -8294,7 +6444,6 @@ impl ::core::fmt::Debug for EXT_FLOOD_FILL_TYPE {
         f.debug_tuple("EXT_FLOOD_FILL_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_CHARSET(pub u8);
@@ -8317,7 +6466,6 @@ impl ::core::fmt::Debug for FONT_CHARSET {
         f.debug_tuple("FONT_CHARSET").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_CLIP_PRECISION(pub u8);
@@ -8373,7 +6521,6 @@ impl ::core::ops::Not for FONT_CLIP_PRECISION {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_FAMILY(pub u8);
@@ -8396,7 +6543,6 @@ impl ::core::fmt::Debug for FONT_FAMILY {
         f.debug_tuple("FONT_FAMILY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_LICENSE_PRIVS(pub u32);
@@ -8419,7 +6565,6 @@ impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
         f.debug_tuple("FONT_LICENSE_PRIVS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_OUTPUT_PRECISION(pub u8);
@@ -8442,7 +6587,6 @@ impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
         f.debug_tuple("FONT_OUTPUT_PRECISION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_PITCH(pub u8);
@@ -8465,7 +6609,6 @@ impl ::core::fmt::Debug for FONT_PITCH {
         f.debug_tuple("FONT_PITCH").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_QUALITY(pub u8);
@@ -8488,7 +6631,6 @@ impl ::core::fmt::Debug for FONT_QUALITY {
         f.debug_tuple("FONT_QUALITY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
@@ -8511,7 +6653,6 @@ impl ::core::fmt::Debug for FONT_RESOURCE_CHARACTERISTICS {
         f.debug_tuple("FONT_RESOURCE_CHARACTERISTICS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_WEIGHT(pub u32);
@@ -8534,7 +6675,6 @@ impl ::core::fmt::Debug for FONT_WEIGHT {
         f.debug_tuple("FONT_WEIGHT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GDI_REGION_TYPE(pub i32);
@@ -8557,7 +6697,6 @@ impl ::core::fmt::Debug for GDI_REGION_TYPE {
         f.debug_tuple("GDI_REGION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_CHARACTER_PLACEMENT_FLAGS(pub u32);
@@ -8613,7 +6752,6 @@ impl ::core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_DCX_FLAGS(pub u32);
@@ -8669,7 +6807,6 @@ impl ::core::ops::Not for GET_DCX_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_DEVICE_CAPS_INDEX(pub u32);
@@ -8692,7 +6829,6 @@ impl ::core::fmt::Debug for GET_DEVICE_CAPS_INDEX {
         f.debug_tuple("GET_DEVICE_CAPS_INDEX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
@@ -8715,7 +6851,6 @@ impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
         f.debug_tuple("GET_GLYPH_OUTLINE_FORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_STOCK_OBJECT_FLAGS(pub i32);
@@ -8738,7 +6873,6 @@ impl ::core::fmt::Debug for GET_STOCK_OBJECT_FLAGS {
         f.debug_tuple("GET_STOCK_OBJECT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRADIENT_FILL(pub u32);
@@ -8761,7 +6895,6 @@ impl ::core::fmt::Debug for GRADIENT_FILL {
         f.debug_tuple("GRADIENT_FILL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRAPHICS_MODE(pub i32);
@@ -8784,7 +6917,6 @@ impl ::core::fmt::Debug for GRAPHICS_MODE {
         f.debug_tuple("GRAPHICS_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HATCH_BRUSH_STYLE(pub i32);
@@ -8807,7 +6939,6 @@ impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
         f.debug_tuple("HATCH_BRUSH_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDC_MAP_MODE(pub i32);
@@ -8830,7 +6961,6 @@ impl ::core::fmt::Debug for HDC_MAP_MODE {
         f.debug_tuple("HDC_MAP_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
@@ -8853,7 +6983,6 @@ impl ::core::fmt::Debug for MODIFY_WORLD_TRANSFORM_MODE {
         f.debug_tuple("MODIFY_WORLD_TRANSFORM_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_FROM_FLAGS(pub u32);
@@ -8876,7 +7005,6 @@ impl ::core::fmt::Debug for MONITOR_FROM_FLAGS {
         f.debug_tuple("MONITOR_FROM_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJ_TYPE(pub i32);
@@ -8899,7 +7027,6 @@ impl ::core::fmt::Debug for OBJ_TYPE {
         f.debug_tuple("OBJ_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_ARM_STYLE(pub u8);
@@ -8922,7 +7049,6 @@ impl ::core::fmt::Debug for PAN_ARM_STYLE {
         f.debug_tuple("PAN_ARM_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_CONTRAST(pub u8);
@@ -8945,7 +7071,6 @@ impl ::core::fmt::Debug for PAN_CONTRAST {
         f.debug_tuple("PAN_CONTRAST").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_FAMILY_TYPE(pub u8);
@@ -8968,7 +7093,6 @@ impl ::core::fmt::Debug for PAN_FAMILY_TYPE {
         f.debug_tuple("PAN_FAMILY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_LETT_FORM(pub u8);
@@ -8991,7 +7115,6 @@ impl ::core::fmt::Debug for PAN_LETT_FORM {
         f.debug_tuple("PAN_LETT_FORM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_MIDLINE(pub u8);
@@ -9014,7 +7137,6 @@ impl ::core::fmt::Debug for PAN_MIDLINE {
         f.debug_tuple("PAN_MIDLINE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_PROPORTION(pub u8);
@@ -9037,7 +7159,6 @@ impl ::core::fmt::Debug for PAN_PROPORTION {
         f.debug_tuple("PAN_PROPORTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_SERIF_STYLE(pub u8);
@@ -9060,7 +7181,6 @@ impl ::core::fmt::Debug for PAN_SERIF_STYLE {
         f.debug_tuple("PAN_SERIF_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_STROKE_VARIATION(pub u8);
@@ -9083,7 +7203,6 @@ impl ::core::fmt::Debug for PAN_STROKE_VARIATION {
         f.debug_tuple("PAN_STROKE_VARIATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_WEIGHT(pub u8);
@@ -9106,7 +7225,6 @@ impl ::core::fmt::Debug for PAN_WEIGHT {
         f.debug_tuple("PAN_WEIGHT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_XHEIGHT(pub u8);
@@ -9129,7 +7247,6 @@ impl ::core::fmt::Debug for PAN_XHEIGHT {
         f.debug_tuple("PAN_XHEIGHT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEN_STYLE(pub i32);
@@ -9185,7 +7302,6 @@ impl ::core::ops::Not for PEN_STYLE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct R2_MODE(pub i32);
@@ -9208,7 +7324,6 @@ impl ::core::fmt::Debug for R2_MODE {
         f.debug_tuple("R2_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REDRAW_WINDOW_FLAGS(pub u32);
@@ -9264,7 +7379,6 @@ impl ::core::ops::Not for REDRAW_WINDOW_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RGN_COMBINE_MODE(pub i32);
@@ -9287,7 +7401,6 @@ impl ::core::fmt::Debug for RGN_COMBINE_MODE {
         f.debug_tuple("RGN_COMBINE_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROP_CODE(pub u32);
@@ -9343,7 +7456,6 @@ impl ::core::ops::Not for ROP_CODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_BOUNDS_RECT_FLAGS(pub u32);
@@ -9366,7 +7478,6 @@ impl ::core::fmt::Debug for SET_BOUNDS_RECT_FLAGS {
         f.debug_tuple("SET_BOUNDS_RECT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRETCH_BLT_MODE(pub i32);
@@ -9389,7 +7500,6 @@ impl ::core::fmt::Debug for STRETCH_BLT_MODE {
         f.debug_tuple("STRETCH_BLT_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_PALETTE_USE(pub u32);
@@ -9412,7 +7522,6 @@ impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
         f.debug_tuple("SYSTEM_PALETTE_USE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYS_COLOR_INDEX(pub i32);
@@ -9435,7 +7544,6 @@ impl ::core::fmt::Debug for SYS_COLOR_INDEX {
         f.debug_tuple("SYS_COLOR_INDEX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_ALIGN_OPTIONS(pub u32);
@@ -9491,7 +7599,6 @@ impl ::core::ops::Not for TEXT_ALIGN_OPTIONS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TMPF_FLAGS(pub u8);
@@ -9547,7 +7654,6 @@ impl ::core::ops::Not for TMPF_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTEMBED_FLAGS(pub u32);
@@ -9603,7 +7709,6 @@ impl ::core::ops::Not for TTEMBED_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
@@ -9660,7 +7765,6 @@ impl ::core::ops::Not for TTLOAD_EMBEDDED_FONT_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ABC {
     pub abcA: i32,
     pub abcB: u32,
@@ -9692,7 +7796,6 @@ impl ::core::default::Default for ABC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ABCFLOAT {
     pub abcfA: f32,
     pub abcfB: f32,
@@ -9724,7 +7827,6 @@ impl ::core::default::Default for ABCFLOAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ABORTPATH {
     pub emr: EMR,
 }
@@ -9754,7 +7856,6 @@ impl ::core::default::Default for ABORTPATH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct AXESLISTA {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
@@ -9786,7 +7887,6 @@ impl ::core::default::Default for AXESLISTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct AXESLISTW {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
@@ -9818,7 +7918,6 @@ impl ::core::default::Default for AXESLISTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct AXISINFOA {
     pub axMinValue: i32,
     pub axMaxValue: i32,
@@ -9850,7 +7949,6 @@ impl ::core::default::Default for AXISINFOA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct AXISINFOW {
     pub axMinValue: i32,
     pub axMaxValue: i32,
@@ -9882,7 +7980,6 @@ impl ::core::default::Default for AXISINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -9918,7 +8015,6 @@ impl ::core::default::Default for BITMAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPCOREHEADER {
     pub bcSize: u32,
     pub bcWidth: u16,
@@ -9952,7 +8048,6 @@ impl ::core::default::Default for BITMAPCOREHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
@@ -9983,7 +8078,6 @@ impl ::core::default::Default for BITMAPCOREINFO {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPFILEHEADER {
     pub bfType: u16,
     pub bfSize: u32,
@@ -10006,7 +8100,6 @@ impl ::core::default::Default for BITMAPFILEHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
@@ -10037,7 +8130,6 @@ impl ::core::default::Default for BITMAPINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -10077,7 +8169,6 @@ impl ::core::default::Default for BITMAPINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPV4HEADER {
     pub bV4Size: u32,
     pub bV4Width: i32,
@@ -10166,7 +8257,6 @@ impl ::core::default::Default for BITMAPV4HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BITMAPV5HEADER {
     pub bV5Size: u32,
     pub bV5Width: i32,
@@ -10267,7 +8357,6 @@ impl ::core::default::Default for BITMAPV5HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct BLENDFUNCTION {
     pub BlendOp: u8,
     pub BlendFlags: u8,
@@ -10300,7 +8389,6 @@ impl ::core::default::Default for BLENDFUNCTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct CIEXYZ {
     pub ciexyzX: i32,
     pub ciexyzY: i32,
@@ -10332,7 +8420,6 @@ impl ::core::default::Default for CIEXYZ {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct CIEXYZTRIPLE {
     pub ciexyzRed: CIEXYZ,
     pub ciexyzGreen: CIEXYZ,
@@ -10364,7 +8451,6 @@ impl ::core::default::Default for CIEXYZTRIPLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct COLORADJUSTMENT {
     pub caSize: u16,
     pub caFlags: u16,
@@ -10418,7 +8504,6 @@ impl ::core::default::Default for COLORADJUSTMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DESIGNVECTOR {
     pub dvReserved: u32,
     pub dvNumAxes: u32,
@@ -10450,7 +8535,7 @@ impl ::core::default::Default for DESIGNVECTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA {
     pub dmDeviceName: [u8; 32],
@@ -10500,7 +8585,7 @@ impl ::core::default::Default for DEVMODEA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
@@ -10525,7 +8610,7 @@ impl ::core::default::Default for DEVMODEA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
@@ -10570,7 +8655,7 @@ impl ::core::default::Default for DEVMODEA_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
@@ -10610,7 +8695,7 @@ impl ::core::default::Default for DEVMODEA_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
@@ -10635,7 +8720,7 @@ impl ::core::default::Default for DEVMODEA_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
@@ -10685,7 +8770,7 @@ impl ::core::default::Default for DEVMODEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
@@ -10710,7 +8795,7 @@ impl ::core::default::Default for DEVMODEW_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
@@ -10755,7 +8840,7 @@ impl ::core::default::Default for DEVMODEW_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
@@ -10795,7 +8880,7 @@ impl ::core::default::Default for DEVMODEW_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
@@ -10820,7 +8905,7 @@ impl ::core::default::Default for DEVMODEW_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIBSECTION {
     pub dsBm: BITMAP,
@@ -10862,7 +8947,6 @@ impl ::core::default::Default for DIBSECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
     pub DeviceName: [u8; 32],
@@ -10897,7 +8981,6 @@ impl ::core::default::Default for DISPLAY_DEVICEA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DISPLAY_DEVICEW {
     pub cb: u32,
     pub DeviceName: [u16; 32],
@@ -10932,7 +9015,6 @@ impl ::core::default::Default for DISPLAY_DEVICEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DRAWTEXTPARAMS {
     pub cbSize: u32,
     pub iTabLength: i32,
@@ -10966,7 +9048,6 @@ impl ::core::default::Default for DRAWTEXTPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMR {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
@@ -10997,7 +9078,7 @@ impl ::core::default::Default for EMR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
@@ -11071,7 +9152,7 @@ impl ::core::default::Default for EMRALPHABLEND {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRANGLEARC {
     pub emr: EMR,
@@ -11113,7 +9194,7 @@ impl ::core::default::Default for EMRANGLEARC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRARC {
     pub emr: EMR,
@@ -11154,7 +9235,7 @@ impl ::core::default::Default for EMRARC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRBITBLT {
     pub emr: EMR,
@@ -11224,7 +9305,6 @@ impl ::core::default::Default for EMRBITBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRCOLORCORRECTPALETTE {
     pub emr: EMR,
     pub ihPalette: u32,
@@ -11258,7 +9338,6 @@ impl ::core::default::Default for EMRCOLORCORRECTPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRCOLORMATCHTOTARGET {
     pub emr: EMR,
     pub dwAction: u32,
@@ -11293,7 +9372,7 @@ impl ::core::default::Default for EMRCOLORMATCHTOTARGET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
@@ -11333,7 +9412,6 @@ impl ::core::default::Default for EMRCREATEBRUSHINDIRECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -11369,7 +9447,6 @@ impl ::core::default::Default for EMRCREATEDIBPATTERNBRUSHPT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRCREATEMONOBRUSH {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -11405,7 +9482,6 @@ impl ::core::default::Default for EMRCREATEMONOBRUSH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRCREATEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -11437,7 +9513,7 @@ impl ::core::default::Default for EMRCREATEPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
@@ -11477,7 +9553,7 @@ impl ::core::default::Default for EMRCREATEPEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRELLIPSE {
     pub emr: EMR,
@@ -11516,7 +9592,6 @@ impl ::core::default::Default for EMRELLIPSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMREOF {
     pub emr: EMR,
     pub nPalEntries: u32,
@@ -11549,7 +9624,7 @@ impl ::core::default::Default for EMREOF {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
@@ -11588,7 +9663,6 @@ impl ::core::default::Default for EMREXCLUDECLIPRECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMREXTCREATEFONTINDIRECTW {
     pub emr: EMR,
     pub ihFont: u32,
@@ -11620,7 +9694,7 @@ impl ::core::default::Default for EMREXTCREATEFONTINDIRECTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
@@ -11664,7 +9738,6 @@ impl ::core::default::Default for EMREXTCREATEPEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMREXTESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -11697,7 +9770,7 @@ impl ::core::default::Default for EMREXTESCAPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
@@ -11738,7 +9811,6 @@ impl ::core::default::Default for EMREXTFLOODFILL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
@@ -11771,7 +9843,7 @@ impl ::core::default::Default for EMREXTSELECTCLIPRGN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTTEXTOUTA {
     pub emr: EMR,
@@ -11814,7 +9886,7 @@ impl ::core::default::Default for EMREXTTEXTOUTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRFILLPATH {
     pub emr: EMR,
@@ -11853,7 +9925,7 @@ impl ::core::default::Default for EMRFILLPATH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRFILLRGN {
     pub emr: EMR,
@@ -11895,7 +9967,6 @@ impl ::core::default::Default for EMRFILLRGN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRFORMAT {
     pub dSignature: u32,
     pub nVersion: u32,
@@ -11928,7 +9999,7 @@ impl ::core::default::Default for EMRFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRFRAMERGN {
     pub emr: EMR,
@@ -11971,7 +10042,6 @@ impl ::core::default::Default for EMRFRAMERGN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRGDICOMMENT {
     pub emr: EMR,
     pub cbData: u32,
@@ -12003,7 +10073,7 @@ impl ::core::default::Default for EMRGDICOMMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRGLSBOUNDEDRECORD {
     pub emr: EMR,
@@ -12044,7 +10114,6 @@ impl ::core::default::Default for EMRGLSBOUNDEDRECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRGLSRECORD {
     pub emr: EMR,
     pub cbData: u32,
@@ -12076,7 +10145,7 @@ impl ::core::default::Default for EMRGLSRECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRGRADIENTFILL {
     pub emr: EMR,
@@ -12119,7 +10188,7 @@ impl ::core::default::Default for EMRGRADIENTFILL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRINVERTRGN {
     pub emr: EMR,
@@ -12160,7 +10229,7 @@ impl ::core::default::Default for EMRINVERTRGN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRLINETO {
     pub emr: EMR,
@@ -12199,7 +10268,7 @@ impl ::core::default::Default for EMRLINETO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRMASKBLT {
     pub emr: EMR,
@@ -12283,7 +10352,6 @@ impl ::core::default::Default for EMRMASKBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
@@ -12315,7 +10383,6 @@ impl ::core::default::Default for EMRMODIFYWORLDTRANSFORM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRNAMEDESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -12349,7 +10416,7 @@ impl ::core::default::Default for EMRNAMEDESCAPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
@@ -12388,7 +10455,7 @@ impl ::core::default::Default for EMROFFSETCLIPRGN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPLGBLT {
     pub emr: EMR,
@@ -12468,7 +10535,7 @@ impl ::core::default::Default for EMRPLGBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYDRAW {
     pub emr: EMR,
@@ -12510,7 +10577,7 @@ impl ::core::default::Default for EMRPOLYDRAW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYDRAW16 {
     pub emr: EMR,
@@ -12552,7 +10619,7 @@ impl ::core::default::Default for EMRPOLYDRAW16 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYLINE {
     pub emr: EMR,
@@ -12593,7 +10660,7 @@ impl ::core::default::Default for EMRPOLYLINE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYLINE16 {
     pub emr: EMR,
@@ -12634,7 +10701,7 @@ impl ::core::default::Default for EMRPOLYLINE16 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYPOLYLINE {
     pub emr: EMR,
@@ -12677,7 +10744,7 @@ impl ::core::default::Default for EMRPOLYPOLYLINE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYPOLYLINE16 {
     pub emr: EMR,
@@ -12720,7 +10787,7 @@ impl ::core::default::Default for EMRPOLYPOLYLINE16 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYTEXTOUTA {
     pub emr: EMR,
@@ -12764,7 +10831,6 @@ impl ::core::default::Default for EMRPOLYTEXTOUTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRRESIZEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -12796,7 +10862,6 @@ impl ::core::default::Default for EMRRESIZEPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
@@ -12827,7 +10892,7 @@ impl ::core::default::Default for EMRRESTOREDC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
@@ -12867,7 +10932,6 @@ impl ::core::default::Default for EMRROUNDRECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSCALEVIEWPORTEXTEX {
     pub emr: EMR,
     pub xNum: i32,
@@ -12901,7 +10965,6 @@ impl ::core::default::Default for EMRSCALEVIEWPORTEXTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
@@ -12932,7 +10995,6 @@ impl ::core::default::Default for EMRSELECTCLIPPATH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
@@ -12963,7 +11025,6 @@ impl ::core::default::Default for EMRSELECTOBJECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -12994,7 +11055,6 @@ impl ::core::default::Default for EMRSELECTPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
@@ -13025,7 +11085,6 @@ impl ::core::default::Default for EMRSETARCDIRECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
@@ -13056,7 +11115,6 @@ impl ::core::default::Default for EMRSETCOLORADJUSTMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
@@ -13087,7 +11145,7 @@ impl ::core::default::Default for EMRSETCOLORSPACE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
@@ -13155,7 +11213,6 @@ impl ::core::default::Default for EMRSETDIBITSTODEVICE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETICMPROFILE {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -13189,7 +11246,6 @@ impl ::core::default::Default for EMRSETICMPROFILE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -13220,7 +11276,6 @@ impl ::core::default::Default for EMRSETMAPPERFLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
     pub eMiterLimit: f32,
@@ -13251,7 +11306,6 @@ impl ::core::default::Default for EMRSETMITERLIMIT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETPALETTEENTRIES {
     pub emr: EMR,
     pub ihPal: u32,
@@ -13285,7 +11339,7 @@ impl ::core::default::Default for EMRSETPALETTEENTRIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
@@ -13325,7 +11379,7 @@ impl ::core::default::Default for EMRSETPIXELV {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
@@ -13364,7 +11418,7 @@ impl ::core::default::Default for EMRSETTEXTCOLOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
@@ -13403,7 +11457,7 @@ impl ::core::default::Default for EMRSETVIEWPORTEXTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
@@ -13442,7 +11496,6 @@ impl ::core::default::Default for EMRSETVIEWPORTORGEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
@@ -13473,7 +11526,7 @@ impl ::core::default::Default for EMRSETWORLDTRANSFORM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
@@ -13547,7 +11600,7 @@ impl ::core::default::Default for EMRSTRETCHBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
@@ -13617,7 +11670,7 @@ impl ::core::default::Default for EMRSTRETCHDIBITS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRTEXT {
     pub ptlReference: super::super::Foundation::POINTL,
@@ -13660,7 +11713,7 @@ impl ::core::default::Default for EMRTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
@@ -13734,7 +11787,7 @@ impl ::core::default::Default for EMRTRANSPARENTBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENHMETAHEADER {
     pub iType: u32,
@@ -13810,7 +11863,6 @@ impl ::core::default::Default for ENHMETAHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENHMETARECORD {
     pub iType: ENHANCED_METAFILE_RECORD_TYPE,
     pub nSize: u32,
@@ -13842,7 +11894,6 @@ impl ::core::default::Default for ENHMETARECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -13874,7 +11925,6 @@ impl ::core::default::Default for ENUMLOGFONTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -13907,7 +11957,6 @@ impl ::core::default::Default for ENUMLOGFONTEXA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
@@ -13938,7 +11987,6 @@ impl ::core::default::Default for ENUMLOGFONTEXDVA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
@@ -13969,7 +12017,6 @@ impl ::core::default::Default for ENUMLOGFONTEXDVW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTEXW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -14002,7 +12049,6 @@ impl ::core::default::Default for ENUMLOGFONTEXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct ENUMLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -14034,7 +12080,6 @@ impl ::core::default::Default for ENUMLOGFONTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -14073,7 +12118,6 @@ impl ::core::default::Default for EXTLOGFONTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct EXTLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -14112,7 +12156,7 @@ impl ::core::default::Default for EXTLOGFONTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGPEN {
     pub elpPenStyle: u32,
@@ -14156,7 +12200,7 @@ impl ::core::default::Default for EXTLOGPEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGPEN32 {
     pub elpPenStyle: u32,
@@ -14200,7 +12244,6 @@ impl ::core::default::Default for EXTLOGPEN32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct FIXED {
     pub fract: u16,
     pub value: i16,
@@ -14231,7 +12274,6 @@ impl ::core::default::Default for FIXED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
     pub lpOutString: ::windows_core::PSTR,
@@ -14269,7 +12311,6 @@ impl ::core::default::Default for GCP_RESULTSA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
     pub lpOutString: ::windows_core::PWSTR,
@@ -14307,7 +12348,7 @@ impl ::core::default::Default for GCP_RESULTSW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
@@ -14349,7 +12390,6 @@ impl ::core::default::Default for GLYPHMETRICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct GLYPHSET {
     pub cbThis: u32,
     pub flAccel: u32,
@@ -14383,7 +12423,6 @@ impl ::core::default::Default for GLYPHSET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
@@ -14414,7 +12453,6 @@ impl ::core::default::Default for GRADIENT_RECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct GRADIENT_TRIANGLE {
     pub Vertex1: u32,
     pub Vertex2: u32,
@@ -14446,7 +12484,6 @@ impl ::core::default::Default for GRADIENT_TRIANGLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
 }
@@ -14809,7 +12846,6 @@ impl ::core::convert::From<HRGN> for HGDIOBJ {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct KERNINGPAIR {
     pub wFirst: u16,
     pub wSecond: u16,
@@ -14841,7 +12877,7 @@ impl ::core::default::Default for KERNINGPAIR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGBRUSH {
     pub lbStyle: BRUSH_STYLE,
@@ -14881,7 +12917,7 @@ impl ::core::default::Default for LOGBRUSH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGBRUSH32 {
     pub lbStyle: BRUSH_STYLE,
@@ -14921,7 +12957,6 @@ impl ::core::default::Default for LOGBRUSH32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct LOGFONTA {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -14979,7 +13014,6 @@ impl ::core::default::Default for LOGFONTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct LOGFONTW {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -15037,7 +13071,6 @@ impl ::core::default::Default for LOGFONTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct LOGPALETTE {
     pub palVersion: u16,
     pub palNumEntries: u16,
@@ -15069,7 +13102,7 @@ impl ::core::default::Default for LOGPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGPEN {
     pub lopnStyle: u32,
@@ -15109,7 +13142,6 @@ impl ::core::default::Default for LOGPEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct MAT2 {
     pub eM11: FIXED,
     pub eM12: FIXED,
@@ -15142,7 +13174,6 @@ impl ::core::default::Default for MAT2 {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct METAHEADER {
     pub mtType: u16,
     pub mtHeaderSize: u16,
@@ -15167,7 +13198,6 @@ impl ::core::default::Default for METAHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct METARECORD {
     pub rdSize: u32,
     pub rdFunction: u16,
@@ -15199,7 +13229,7 @@ impl ::core::default::Default for METARECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFO {
     pub cbSize: u32,
@@ -15240,7 +13270,7 @@ impl ::core::default::Default for MONITORINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXA {
     pub monitorInfo: MONITORINFO,
@@ -15279,7 +13309,7 @@ impl ::core::default::Default for MONITORINFOEXA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXW {
     pub monitorInfo: MONITORINFO,
@@ -15318,7 +13348,6 @@ impl ::core::default::Default for MONITORINFOEXW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -15419,7 +13448,6 @@ impl ::core::default::Default for NEWTEXTMETRICA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -15520,7 +13548,7 @@ impl ::core::default::Default for NEWTEXTMETRICW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
@@ -15653,7 +13681,7 @@ impl ::core::default::Default for OUTLINETEXTMETRICA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
@@ -15786,7 +13814,7 @@ impl ::core::default::Default for OUTLINETEXTMETRICW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAINTSTRUCT {
     pub hdc: HDC,
@@ -15829,7 +13857,6 @@ impl ::core::default::Default for PAINTSTRUCT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct PALETTEENTRY {
     pub peRed: u8,
     pub peGreen: u8,
@@ -15862,7 +13889,6 @@ impl ::core::default::Default for PALETTEENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct PANOSE {
     pub bFamilyType: PAN_FAMILY_TYPE,
     pub bSerifStyle: PAN_SERIF_STYLE,
@@ -15901,7 +13927,6 @@ impl ::core::default::Default for PANOSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct PELARRAY {
     pub paXCount: i32,
     pub paYCount: i32,
@@ -15935,7 +13960,6 @@ impl ::core::default::Default for PELARRAY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
@@ -15966,7 +13990,7 @@ impl ::core::default::Default for POINTFX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLYTEXTA {
     pub x: i32,
@@ -16010,7 +14034,7 @@ impl ::core::default::Default for POLYTEXTA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLYTEXTW {
     pub x: i32,
@@ -16054,7 +14078,6 @@ impl ::core::default::Default for POLYTEXTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
     pub wFlags: i16,
@@ -16086,7 +14109,6 @@ impl ::core::default::Default for RASTERIZER_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -16119,7 +14141,6 @@ impl ::core::default::Default for RGBQUAD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct RGBTRIPLE {
     pub rgbtBlue: u8,
     pub rgbtGreen: u8,
@@ -16151,7 +14172,7 @@ impl ::core::default::Default for RGBTRIPLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
@@ -16190,7 +14211,7 @@ impl ::core::default::Default for RGNDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
@@ -16232,7 +14253,6 @@ impl ::core::default::Default for RGNDATAHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -16321,7 +14341,6 @@ impl ::core::default::Default for TEXTMETRICA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -16410,7 +14429,6 @@ impl ::core::default::Default for TEXTMETRICW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TRIVERTEX {
     pub x: i32,
     pub y: i32,
@@ -16445,7 +14463,6 @@ impl ::core::default::Default for TRIVERTEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
@@ -16477,7 +14494,6 @@ impl ::core::default::Default for TTEMBEDINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
@@ -16509,7 +14525,6 @@ impl ::core::default::Default for TTLOADINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TTPOLYCURVE {
     pub wType: u16,
     pub cpfx: u16,
@@ -16541,7 +14556,6 @@ impl ::core::default::Default for TTPOLYCURVE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TTPOLYGONHEADER {
     pub cb: u32,
     pub dwType: u32,
@@ -16573,7 +14587,6 @@ impl ::core::default::Default for TTPOLYGONHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -16609,7 +14622,6 @@ impl ::core::default::Default for TTVALIDATIONTESTSPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -16645,7 +14657,6 @@ impl ::core::default::Default for TTVALIDATIONTESTSPARAMSEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
@@ -16676,7 +14687,6 @@ impl ::core::default::Default for WCRANGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct WGLSWAP {
     pub hdc: HDC,
     pub uiFlags: u32,
@@ -16707,7 +14717,6 @@ impl ::core::default::Default for WGLSWAP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct XFORM {
     pub eM11: f32,
     pub eM12: f32,
@@ -16741,46 +14750,41 @@ impl ::core::default::Default for XFORM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type CFP_ALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type CFP_FREEPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type CFP_REALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRAWSTATEPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENHMFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FONTENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GOBJENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM) -> ()>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: ::windows_core::PCSTR, param2: u32, param3: ::windows_core::PCSTR, param4: *mut DEVMODEA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HMODULE, param2: *mut DEVMODEA, param3: ::windows_core::PCSTR, param4: ::windows_core::PCSTR, param5: *mut DEVMODEA, param6: ::windows_core::PCSTR, param7: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type WRITEEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32>;

@@ -1,9 +1,8 @@
-#[doc = "*Required features: `\"Win32_System_Com_UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDummyHICONIncluder(::windows_core::IUnknown);
 impl IDummyHICONIncluder {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn Dummy<P0, P1>(&self, h1: P0, h2: P1) -> ::windows_core::Result<()>
     where
@@ -29,12 +28,11 @@ pub struct IDummyHICONIncluder_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))]
     Dummy: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThumbnailExtractor(::windows_core::IUnknown);
 impl IThumbnailExtractor {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ExtractThumbnail<P0>(&self, pstg: P0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows_core::Result<()>
     where
@@ -42,7 +40,7 @@ impl IThumbnailExtractor {
     {
         (::windows_core::Interface::vtable(self).ExtractThumbnail)(::windows_core::Interface::as_raw(self), pstg.into_param().abi(), ullength, ulheight, puloutputlength, puloutputheight, phoutputbitmap).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn OnFileUpdated<P0>(&self, pstg: P0) -> ::windows_core::Result<()>
     where

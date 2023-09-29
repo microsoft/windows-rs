@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait AsyncIDebugApplicationNodeEvents_Impl: Sized {
     fn Begin_onAddChild(&self, prddpchild: ::core::option::Option<&IDebugApplicationNode>) -> ::windows_core::Result<()>;
     fn Finish_onAddChild(&self) -> ::windows_core::Result<()>;
@@ -68,7 +67,7 @@ impl AsyncIDebugApplicationNodeEvents_Vtbl {
         *iid == <AsyncIDebugApplicationNodeEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScript_Impl: Sized {
     fn SetScriptSite(&self, pass: ::core::option::Option<&IActiveScriptSite>) -> ::windows_core::Result<()>;
@@ -212,7 +211,7 @@ impl IActiveScript_Vtbl {
         *iid == <IActiveScript as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IActiveScriptAuthor_Impl: Sized {
     fn AddNamedItem(&self, pszname: &::windows_core::PCWSTR, dwflags: u32, pdisp: ::core::option::Option<&super::super::super::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -358,7 +357,7 @@ impl IActiveScriptAuthor_Vtbl {
         *iid == <IActiveScriptAuthor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptAuthorProcedure_Impl: Sized {
     fn ParseProcedureText(&self, pszcode: &::windows_core::PCWSTR, pszformalparams: &::windows_core::PCWSTR, pszprocedurename: &::windows_core::PCWSTR, pszitemname: &::windows_core::PCWSTR, pszdelimiter: &::windows_core::PCWSTR, dwcookie: u32, dwflags: u32, pdispfor: ::core::option::Option<&super::super::super::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -379,7 +378,6 @@ impl IActiveScriptAuthorProcedure_Vtbl {
         *iid == <IActiveScriptAuthorProcedure as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptDebug32_Impl: Sized {
     fn GetScriptTextAttributes(&self, pstrcode: &::windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: &::windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows_core::Result<()>;
     fn GetScriptletTextAttributes(&self, pstrcode: &::windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: &::windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows_core::Result<()>;
@@ -420,7 +418,6 @@ impl IActiveScriptDebug32_Vtbl {
         *iid == <IActiveScriptDebug32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptDebug64_Impl: Sized {
     fn GetScriptTextAttributes(&self, pstrcode: &::windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: &::windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows_core::Result<()>;
     fn GetScriptletTextAttributes(&self, pstrcode: &::windows_core::PCWSTR, unumcodechars: u32, pstrdelimiter: &::windows_core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows_core::Result<()>;
@@ -461,7 +458,6 @@ impl IActiveScriptDebug64_Vtbl {
         *iid == <IActiveScriptDebug64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptEncode_Impl: Sized {
     fn EncodeSection(&self, pchin: &::windows_core::PCWSTR, cchin: u32, pchout: &::windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows_core::Result<()>;
     fn DecodeScript(&self, pchin: &::windows_core::PCWSTR, cchin: u32, pchout: &::windows_core::PWSTR, cchout: u32, pcchret: *mut u32) -> ::windows_core::Result<()>;
@@ -496,7 +492,7 @@ impl IActiveScriptEncode_Vtbl {
         *iid == <IActiveScriptEncode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptError_Impl: Sized {
     fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
@@ -540,7 +536,7 @@ impl IActiveScriptError_Vtbl {
         *iid == <IActiveScriptError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptError64_Impl: Sized + IActiveScriptError_Impl {
     fn GetSourcePosition64(&self, pdwsourcecontext: *mut u64, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows_core::Result<()>;
@@ -561,7 +557,7 @@ impl IActiveScriptError64_Vtbl {
         *iid == <IActiveScriptError64 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptErrorDebug_Impl: Sized + IActiveScriptError_Impl {
     fn GetDocumentContext(&self) -> ::windows_core::Result<IDebugDocumentContext>;
@@ -604,7 +600,6 @@ impl IActiveScriptErrorDebug_Vtbl {
         *iid == <IActiveScriptErrorDebug as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptErrorDebug110_Impl: Sized {
     fn GetExceptionThrownKind(&self) -> ::windows_core::Result<SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND>;
 }
@@ -628,7 +623,6 @@ impl IActiveScriptErrorDebug110_Vtbl {
         *iid == <IActiveScriptErrorDebug110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptGarbageCollector_Impl: Sized {
     fn CollectGarbage(&self, scriptgctype: SCRIPTGCTYPE) -> ::windows_core::Result<()>;
 }
@@ -646,7 +640,6 @@ impl IActiveScriptGarbageCollector_Vtbl {
         *iid == <IActiveScriptGarbageCollector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptHostEncode_Impl: Sized {
     fn EncodeScriptHostFile(&self, bstrinfile: &::windows_core::BSTR, pbstroutfile: *mut ::windows_core::BSTR, cflags: u32, bstrdefaultlang: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
@@ -664,7 +657,7 @@ impl IActiveScriptHostEncode_Vtbl {
         *iid == <IActiveScriptHostEncode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptParse32_Impl: Sized {
     fn InitNew(&self) -> ::windows_core::Result<()>;
@@ -703,7 +696,7 @@ impl IActiveScriptParse32_Vtbl {
         *iid == <IActiveScriptParse32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptParse64_Impl: Sized {
     fn InitNew(&self) -> ::windows_core::Result<()>;
@@ -742,7 +735,7 @@ impl IActiveScriptParse64_Vtbl {
         *iid == <IActiveScriptParse64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure2_32_Impl: Sized + IActiveScriptParseProcedure32_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -756,7 +749,7 @@ impl IActiveScriptParseProcedure2_32_Vtbl {
         *iid == <IActiveScriptParseProcedure2_32 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptParseProcedure32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure2_64_Impl: Sized + IActiveScriptParseProcedure64_Impl {}
 #[cfg(feature = "Win32_System_Com")]
@@ -770,7 +763,7 @@ impl IActiveScriptParseProcedure2_64_Vtbl {
         *iid == <IActiveScriptParseProcedure2_64 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptParseProcedure64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure32_Impl: Sized {
     fn ParseProcedureText(&self, pstrcode: &::windows_core::PCWSTR, pstrformalparams: &::windows_core::PCWSTR, pstrprocedurename: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, punkcontext: ::core::option::Option<&::windows_core::IUnknown>, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>;
@@ -797,7 +790,7 @@ impl IActiveScriptParseProcedure32_Vtbl {
         *iid == <IActiveScriptParseProcedure32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedure64_Impl: Sized {
     fn ParseProcedureText(&self, pstrcode: &::windows_core::PCWSTR, pstrformalparams: &::windows_core::PCWSTR, pstrprocedurename: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, punkcontext: ::core::option::Option<&::windows_core::IUnknown>, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>;
@@ -824,7 +817,7 @@ impl IActiveScriptParseProcedure64_Vtbl {
         *iid == <IActiveScriptParseProcedure64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedureOld32_Impl: Sized {
     fn ParseProcedureText(&self, pstrcode: &::windows_core::PCWSTR, pstrformalparams: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, punkcontext: ::core::option::Option<&::windows_core::IUnknown>, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>;
@@ -851,7 +844,7 @@ impl IActiveScriptParseProcedureOld32_Vtbl {
         *iid == <IActiveScriptParseProcedureOld32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptParseProcedureOld64_Impl: Sized {
     fn ParseProcedureText(&self, pstrcode: &::windows_core::PCWSTR, pstrformalparams: &::windows_core::PCWSTR, pstritemname: &::windows_core::PCWSTR, punkcontext: ::core::option::Option<&::windows_core::IUnknown>, pstrdelimiter: &::windows_core::PCWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>;
@@ -878,7 +871,6 @@ impl IActiveScriptParseProcedureOld64_Vtbl {
         *iid == <IActiveScriptParseProcedureOld64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerCallback_Impl: Sized {
     fn Initialize(&self, dwcontext: u32) -> ::windows_core::Result<()>;
     fn Shutdown(&self, hrreason: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
@@ -934,7 +926,6 @@ impl IActiveScriptProfilerCallback_Vtbl {
         *iid == <IActiveScriptProfilerCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerCallback2_Impl: Sized + IActiveScriptProfilerCallback_Impl {
     fn OnFunctionEnterByName(&self, pwszfunctionname: &::windows_core::PCWSTR, r#type: PROFILER_SCRIPT_TYPE) -> ::windows_core::Result<()>;
     fn OnFunctionExitByName(&self, pwszfunctionname: &::windows_core::PCWSTR, r#type: PROFILER_SCRIPT_TYPE) -> ::windows_core::Result<()>;
@@ -962,7 +953,6 @@ impl IActiveScriptProfilerCallback2_Vtbl {
         *iid == <IActiveScriptProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerCallback3_Impl: Sized + IActiveScriptProfilerCallback2_Impl {
     fn SetWebWorkerId(&self, webworkerid: u32) -> ::windows_core::Result<()>;
 }
@@ -980,7 +970,6 @@ impl IActiveScriptProfilerCallback3_Vtbl {
         *iid == <IActiveScriptProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerCallback2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerControl_Impl: Sized {
     fn StartProfiling(&self, clsidprofilerobject: *const ::windows_core::GUID, dweventmask: u32, dwcontext: u32) -> ::windows_core::Result<()>;
     fn SetProfilerEventMask(&self, dweventmask: u32) -> ::windows_core::Result<()>;
@@ -1015,7 +1004,6 @@ impl IActiveScriptProfilerControl_Vtbl {
         *iid == <IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerControl2_Impl: Sized + IActiveScriptProfilerControl_Impl {
     fn CompleteProfilerStart(&self) -> ::windows_core::Result<()>;
     fn PrepareProfilerStop(&self) -> ::windows_core::Result<()>;
@@ -1043,7 +1031,6 @@ impl IActiveScriptProfilerControl2_Vtbl {
         *iid == <IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerControl3_Impl: Sized + IActiveScriptProfilerControl2_Impl {
     fn EnumHeap(&self) -> ::windows_core::Result<IActiveScriptProfilerHeapEnum>;
 }
@@ -1067,7 +1054,6 @@ impl IActiveScriptProfilerControl3_Vtbl {
         *iid == <IActiveScriptProfilerControl3 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerControl4_Impl: Sized + IActiveScriptProfilerControl3_Impl {
     fn SummarizeHeap(&self, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> ::windows_core::Result<()>;
 }
@@ -1085,7 +1071,6 @@ impl IActiveScriptProfilerControl4_Vtbl {
         *iid == <IActiveScriptProfilerControl4 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerControl5_Impl: Sized + IActiveScriptProfilerControl4_Impl {
     fn EnumHeap2(&self, enumflags: PROFILER_HEAP_ENUM_FLAGS) -> ::windows_core::Result<IActiveScriptProfilerHeapEnum>;
 }
@@ -1109,7 +1094,6 @@ impl IActiveScriptProfilerControl5_Vtbl {
         *iid == <IActiveScriptProfilerControl5 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl2 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl3 as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptProfilerControl4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptProfilerHeapEnum_Impl: Sized {
     fn Next(&self, celt: u32, heapobjects: *mut *mut PROFILER_HEAP_OBJECT, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn GetOptionalInfo(&self, heapobject: *const PROFILER_HEAP_OBJECT, celt: u32, optionalinfo: *mut PROFILER_HEAP_OBJECT_OPTIONAL_INFO) -> ::windows_core::Result<()>;
@@ -1151,7 +1135,7 @@ impl IActiveScriptProfilerHeapEnum_Vtbl {
         *iid == <IActiveScriptProfilerHeapEnum as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptProperty_Impl: Sized {
     fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Variant::VARIANT>;
@@ -1188,7 +1172,6 @@ impl IActiveScriptProperty_Vtbl {
         *iid == <IActiveScriptProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptSIPInfo_Impl: Sized {
     fn GetSIPOID(&self) -> ::windows_core::Result<::windows_core::GUID>;
 }
@@ -1212,7 +1195,7 @@ impl IActiveScriptSIPInfo_Vtbl {
         *iid == <IActiveScriptSIPInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IActiveScriptSite_Impl: Sized {
     fn GetLCID(&self) -> ::windows_core::Result<u32>;
@@ -1297,7 +1280,7 @@ impl IActiveScriptSite_Vtbl {
         *iid == <IActiveScriptSite as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteDebug32_Impl: Sized {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32) -> ::windows_core::Result<IDebugDocumentContext>;
@@ -1360,7 +1343,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
         *iid == <IActiveScriptSiteDebug32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteDebug64_Impl: Sized {
     fn GetDocumentContextFromPosition(&self, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32) -> ::windows_core::Result<IDebugDocumentContext>;
@@ -1423,7 +1406,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
         *iid == <IActiveScriptSiteDebug64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteDebugEx_Impl: Sized {
     fn OnCanNotJITScriptErrorDebug(&self, perrordebug: ::core::option::Option<&IActiveScriptErrorDebug>) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
@@ -1453,7 +1436,6 @@ impl IActiveScriptSiteDebugEx_Vtbl {
         *iid == <IActiveScriptSiteDebugEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptSiteInterruptPoll_Impl: Sized {
     fn QueryContinue(&self) -> ::windows_core::Result<()>;
 }
@@ -1471,7 +1453,6 @@ impl IActiveScriptSiteInterruptPoll_Vtbl {
         *iid == <IActiveScriptSiteInterruptPoll as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptSiteTraceInfo_Impl: Sized {
     fn SendScriptTraceInfo(&self, stieventtype: SCRIPTTRACEINFO, guidcontextid: &::windows_core::GUID, dwscriptcontextcookie: u32, lscriptstatementstart: i32, lscriptstatementend: i32, dwreserved: u64) -> ::windows_core::Result<()>;
 }
@@ -1489,7 +1470,6 @@ impl IActiveScriptSiteTraceInfo_Vtbl {
         *iid == <IActiveScriptSiteTraceInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptSiteUIControl_Impl: Sized {
     fn GetUIBehavior(&self, uicitem: SCRIPTUICITEM) -> ::windows_core::Result<SCRIPTUICHANDLING>;
 }
@@ -1513,7 +1493,7 @@ impl IActiveScriptSiteUIControl_Vtbl {
         *iid == <IActiveScriptSiteUIControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IActiveScriptSiteWindow_Impl: Sized {
     fn GetWindow(&self) -> ::windows_core::Result<super::super::super::super::Foundation::HWND>;
@@ -1550,7 +1530,6 @@ impl IActiveScriptSiteWindow_Vtbl {
         *iid == <IActiveScriptSiteWindow as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptStats_Impl: Sized {
     fn GetStat(&self, stid: u32, pluhi: *mut u32, plulo: *mut u32) -> ::windows_core::Result<()>;
     fn GetStatEx(&self, guid: *const ::windows_core::GUID, pluhi: *mut u32, plulo: *mut u32) -> ::windows_core::Result<()>;
@@ -1585,7 +1564,6 @@ impl IActiveScriptStats_Vtbl {
         *iid == <IActiveScriptStats as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptStringCompare_Impl: Sized {
     fn StrComp(&self, bszstr1: &::windows_core::BSTR, bszstr2: &::windows_core::BSTR) -> ::windows_core::Result<i32>;
 }
@@ -1609,7 +1587,6 @@ impl IActiveScriptStringCompare_Vtbl {
         *iid == <IActiveScriptStringCompare as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IActiveScriptTraceInfo_Impl: Sized {
     fn StartScriptTracing(&self, psitetraceinfo: ::core::option::Option<&IActiveScriptSiteTraceInfo>, guidcontextid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn StopScriptTracing(&self) -> ::windows_core::Result<()>;
@@ -1637,7 +1614,7 @@ impl IActiveScriptTraceInfo_Vtbl {
         *iid == <IActiveScriptTraceInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IActiveScriptWinRTErrorDebug_Impl: Sized + IActiveScriptError_Impl {
     fn GetRestrictedErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1693,7 +1670,6 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
         *iid == <IActiveScriptWinRTErrorDebug as ::windows_core::ComInterface>::IID || *iid == <IActiveScriptError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IApplicationDebugger_Impl: Sized {
     fn QueryAlive(&self) -> ::windows_core::Result<()>;
     fn CreateInstanceAtDebugger(&self, rclsid: *const ::windows_core::GUID, punkouter: ::core::option::Option<&::windows_core::IUnknown>, dwclscontext: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -1755,7 +1731,6 @@ impl IApplicationDebugger_Vtbl {
         *iid == <IApplicationDebugger as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IApplicationDebuggerUI_Impl: Sized {
     fn BringDocumentToTop(&self, pddt: ::core::option::Option<&IDebugDocumentText>) -> ::windows_core::Result<()>;
     fn BringDocumentContextToTop(&self, pddc: ::core::option::Option<&IDebugDocumentContext>) -> ::windows_core::Result<()>;
@@ -1783,7 +1758,7 @@ impl IApplicationDebuggerUI_Vtbl {
         *iid == <IApplicationDebuggerUI as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBindEventHandler_Impl: Sized {
     fn BindHandler(&self, pstrevent: &::windows_core::PCWSTR, pdisp: ::core::option::Option<&super::super::super::Com::IDispatch>) -> ::windows_core::Result<()>;
@@ -1804,7 +1779,7 @@ impl IBindEventHandler_Vtbl {
         *iid == <IBindEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication11032_Impl: Sized + IRemoteDebugApplication110_Impl {
     fn SynchronousCallInMainThread(&self, pptc: ::core::option::Option<&IDebugThreadCall32>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
@@ -1848,7 +1823,7 @@ impl IDebugApplication11032_Vtbl {
         *iid == <IDebugApplication11032 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication11064_Impl: Sized + IRemoteDebugApplication110_Impl {
     fn SynchronousCallInMainThread(&self, pptc: ::core::option::Option<&IDebugThreadCall64>, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows_core::Result<()>;
@@ -1892,7 +1867,7 @@ impl IDebugApplication11064_Vtbl {
         *iid == <IDebugApplication11064 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication32_Impl: Sized + IRemoteDebugApplication_Impl {
     fn SetName(&self, pstrname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2085,7 +2060,7 @@ impl IDebugApplication32_Vtbl {
         *iid == <IDebugApplication32 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplication64_Impl: Sized + IRemoteDebugApplication_Impl {
     fn SetName(&self, pstrname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2278,7 +2253,6 @@ impl IDebugApplication64_Vtbl {
         *iid == <IDebugApplication64 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugApplicationNode_Impl: Sized + IDebugDocumentProvider_Impl {
     fn EnumChildren(&self) -> ::windows_core::Result<IEnumDebugApplicationNodes>;
     fn GetParent(&self) -> ::windows_core::Result<IDebugApplicationNode>;
@@ -2346,7 +2320,6 @@ impl IDebugApplicationNode_Vtbl {
         *iid == <IDebugApplicationNode as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentInfo as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugApplicationNode100_Impl: Sized {
     fn SetFilterForEventSink(&self, dwcookie: u32, filter: APPLICATION_NODE_EVENT_FILTER) -> ::windows_core::Result<()>;
     fn GetExcludedDocuments(&self, filter: APPLICATION_NODE_EVENT_FILTER) -> ::windows_core::Result<TEXT_DOCUMENT_ARRAY>;
@@ -2387,7 +2360,6 @@ impl IDebugApplicationNode100_Vtbl {
         *iid == <IDebugApplicationNode100 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugApplicationNodeEvents_Impl: Sized {
     fn onAddChild(&self, prddpchild: ::core::option::Option<&IDebugApplicationNode>) -> ::windows_core::Result<()>;
     fn onRemoveChild(&self, prddpchild: ::core::option::Option<&IDebugApplicationNode>) -> ::windows_core::Result<()>;
@@ -2429,7 +2401,6 @@ impl IDebugApplicationNodeEvents_Vtbl {
         *iid == <IDebugApplicationNodeEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugApplicationThread_Impl: Sized + IRemoteDebugApplicationThread_Impl {
     fn SynchronousCallIntoThread32(&self, pstcb: ::core::option::Option<&IDebugThreadCall32>, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows_core::Result<()>;
     fn QueryIsCurrentThread(&self) -> ::windows_core::Result<()>;
@@ -2478,7 +2449,7 @@ impl IDebugApplicationThread_Vtbl {
         *iid == <IDebugApplicationThread as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplicationThread11032_Impl: Sized {
     fn GetActiveThreadRequestCount(&self) -> ::windows_core::Result<u32>;
@@ -2541,7 +2512,7 @@ impl IDebugApplicationThread11032_Vtbl {
         *iid == <IDebugApplicationThread11032 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugApplicationThread11064_Impl: Sized {
     fn GetActiveThreadRequestCount(&self) -> ::windows_core::Result<u32>;
@@ -2604,7 +2575,6 @@ impl IDebugApplicationThread11064_Vtbl {
         *iid == <IDebugApplicationThread11064 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugApplicationThread64_Impl: Sized + IDebugApplicationThread_Impl {
     fn SynchronousCallIntoThread64(&self, pstcb: ::core::option::Option<&IDebugThreadCall64>, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows_core::Result<()>;
 }
@@ -2625,7 +2595,6 @@ impl IDebugApplicationThread64_Vtbl {
         *iid == <IDebugApplicationThread64 as ::windows_core::ComInterface>::IID || *iid == <IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID || *iid == <IDebugApplicationThread as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugApplicationThreadEvents110_Impl: Sized {
     fn OnSuspendForBreakPoint(&self) -> ::windows_core::Result<()>;
     fn OnResumeFromBreakPoint(&self) -> ::windows_core::Result<()>;
@@ -2667,7 +2636,6 @@ impl IDebugApplicationThreadEvents110_Vtbl {
         *iid == <IDebugApplicationThreadEvents110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugAsyncOperation_Impl: Sized {
     fn GetSyncDebugOperation(&self) -> ::windows_core::Result<IDebugSyncOperation>;
     fn Start(&self, padocb: ::core::option::Option<&IDebugAsyncOperationCallBack>) -> ::windows_core::Result<()>;
@@ -2722,7 +2690,6 @@ impl IDebugAsyncOperation_Vtbl {
         *iid == <IDebugAsyncOperation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugAsyncOperationCallBack_Impl: Sized {
     fn onComplete(&self) -> ::windows_core::Result<()>;
 }
@@ -2740,7 +2707,6 @@ impl IDebugAsyncOperationCallBack_Vtbl {
         *iid == <IDebugAsyncOperationCallBack as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugCodeContext_Impl: Sized {
     fn GetDocumentContext(&self) -> ::windows_core::Result<IDebugDocumentContext>;
     fn SetBreakPoint(&self, bps: BREAKPOINT_STATE) -> ::windows_core::Result<()>;
@@ -2774,7 +2740,6 @@ impl IDebugCodeContext_Vtbl {
         *iid == <IDebugCodeContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugCookie_Impl: Sized {
     fn SetDebugCookie(&self, dwdebugappcookie: u32) -> ::windows_core::Result<()>;
 }
@@ -2792,7 +2757,6 @@ impl IDebugCookie_Vtbl {
         *iid == <IDebugCookie as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocument_Impl: Sized + IDebugDocumentInfo_Impl {}
 impl ::windows_core::RuntimeName for IDebugDocument {}
 impl IDebugDocument_Vtbl {
@@ -2803,7 +2767,6 @@ impl IDebugDocument_Vtbl {
         *iid == <IDebugDocument as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocumentContext_Impl: Sized {
     fn GetDocument(&self) -> ::windows_core::Result<IDebugDocument>;
     fn EnumCodeContexts(&self) -> ::windows_core::Result<IEnumDebugCodeContexts>;
@@ -2843,7 +2806,7 @@ impl IDebugDocumentContext_Vtbl {
         *iid == <IDebugDocumentContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHelper32_Impl: Sized {
     fn Init(&self, pda: ::core::option::Option<&IDebugApplication32>, pszshortname: &::windows_core::PCWSTR, pszlongname: &::windows_core::PCWSTR, docattr: u32) -> ::windows_core::Result<()>;
@@ -3004,7 +2967,7 @@ impl IDebugDocumentHelper32_Vtbl {
         *iid == <IDebugDocumentHelper32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHelper64_Impl: Sized {
     fn Init(&self, pda: ::core::option::Option<&IDebugApplication64>, pszshortname: &::windows_core::PCWSTR, pszlongname: &::windows_core::PCWSTR, docattr: u32) -> ::windows_core::Result<()>;
@@ -3165,7 +3128,7 @@ impl IDebugDocumentHelper64_Vtbl {
         *iid == <IDebugDocumentHelper64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHost_Impl: Sized {
     fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: &::windows_core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows_core::Result<()>;
@@ -3236,7 +3199,6 @@ impl IDebugDocumentHost_Vtbl {
         *iid == <IDebugDocumentHost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocumentInfo_Impl: Sized {
     fn GetName(&self, dnt: DOCUMENTNAMETYPE) -> ::windows_core::Result<::windows_core::BSTR>;
     fn GetDocumentClassId(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -3276,7 +3238,6 @@ impl IDebugDocumentInfo_Vtbl {
         *iid == <IDebugDocumentInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocumentProvider_Impl: Sized + IDebugDocumentInfo_Impl {
     fn GetDocument(&self) -> ::windows_core::Result<IDebugDocument>;
 }
@@ -3300,7 +3261,6 @@ impl IDebugDocumentProvider_Vtbl {
         *iid == <IDebugDocumentProvider as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocumentText_Impl: Sized + IDebugDocument_Impl {
     fn GetDocumentAttributes(&self) -> ::windows_core::Result<u32>;
     fn GetSize(&self, pcnumlines: *mut u32, pcnumchars: *mut u32) -> ::windows_core::Result<()>;
@@ -3381,7 +3341,6 @@ impl IDebugDocumentText_Vtbl {
         *iid == <IDebugDocumentText as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentInfo as ::windows_core::ComInterface>::IID || *iid == <IDebugDocument as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocumentTextAuthor_Impl: Sized + IDebugDocumentText_Impl {
     fn InsertText(&self, ccharacterposition: u32, cnumtoinsert: u32, pchartext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn RemoveText(&self, ccharacterposition: u32, cnumtoremove: u32) -> ::windows_core::Result<()>;
@@ -3416,7 +3375,6 @@ impl IDebugDocumentTextAuthor_Vtbl {
         *iid == <IDebugDocumentTextAuthor as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentInfo as ::windows_core::ComInterface>::IID || *iid == <IDebugDocument as ::windows_core::ComInterface>::IID || *iid == <IDebugDocumentText as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugDocumentTextEvents_Impl: Sized {
     fn onDestroy(&self) -> ::windows_core::Result<()>;
     fn onInsertText(&self, ccharacterposition: u32, cnumtoinsert: u32) -> ::windows_core::Result<()>;
@@ -3472,7 +3430,7 @@ impl IDebugDocumentTextEvents_Vtbl {
         *iid == <IDebugDocumentTextEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentTextExternalAuthor_Impl: Sized {
     fn GetPathName(&self, pbstrlongname: *mut ::windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3516,7 +3474,6 @@ impl IDebugDocumentTextExternalAuthor_Vtbl {
         *iid == <IDebugDocumentTextExternalAuthor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugExpression_Impl: Sized {
     fn Start(&self, pdecb: ::core::option::Option<&IDebugExpressionCallBack>) -> ::windows_core::Result<()>;
     fn Abort(&self) -> ::windows_core::Result<()>;
@@ -3565,7 +3522,6 @@ impl IDebugExpression_Vtbl {
         *iid == <IDebugExpression as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugExpressionCallBack_Impl: Sized {
     fn onComplete(&self) -> ::windows_core::Result<()>;
 }
@@ -3583,7 +3539,6 @@ impl IDebugExpressionCallBack_Vtbl {
         *iid == <IDebugExpressionCallBack as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugExpressionContext_Impl: Sized {
     fn ParseLanguageText(&self, pstrcode: &::windows_core::PCWSTR, nradix: u32, pstrdelimiter: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<IDebugExpression>;
     fn GetLanguageInfo(&self, pbstrlanguagename: *mut ::windows_core::BSTR, planguageid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -3617,7 +3572,7 @@ impl IDebugExpressionContext_Vtbl {
         *iid == <IDebugExpressionContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugFormatter_Impl: Sized {
     fn GetStringForVariant(&self, pvar: *const super::super::super::Variant::VARIANT, nradix: u32) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3673,7 +3628,7 @@ impl IDebugFormatter_Vtbl {
         *iid == <IDebugFormatter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDebugHelper_Impl: Sized {
     fn CreatePropertyBrowser(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: &::windows_core::PCWSTR, pdat: ::core::option::Option<&IDebugApplicationThread>) -> ::windows_core::Result<super::IDebugProperty>;
@@ -3729,7 +3684,6 @@ impl IDebugHelper_Vtbl {
         *iid == <IDebugHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugSessionProvider_Impl: Sized {
     fn StartDebugSession(&self, pda: ::core::option::Option<&IRemoteDebugApplication>) -> ::windows_core::Result<()>;
 }
@@ -3747,7 +3701,7 @@ impl IDebugSessionProvider_Vtbl {
         *iid == <IDebugSessionProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugStackFrame_Impl: Sized {
     fn GetCodeContext(&self) -> ::windows_core::Result<IDebugCodeContext>;
@@ -3829,7 +3783,7 @@ impl IDebugStackFrame_Vtbl {
         *iid == <IDebugStackFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugStackFrame110_Impl: Sized + IDebugStackFrame_Impl {
     fn GetStackFrameType(&self) -> ::windows_core::Result<DEBUG_STACKFRAME_TYPE>;
@@ -3872,7 +3826,6 @@ impl IDebugStackFrame110_Vtbl {
         *iid == <IDebugStackFrame110 as ::windows_core::ComInterface>::IID || *iid == <IDebugStackFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugStackFrameSniffer_Impl: Sized {
     fn EnumStackFrames(&self) -> ::windows_core::Result<IEnumDebugStackFrames>;
 }
@@ -3896,7 +3849,6 @@ impl IDebugStackFrameSniffer_Vtbl {
         *iid == <IDebugStackFrameSniffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugStackFrameSnifferEx32_Impl: Sized + IDebugStackFrameSniffer_Impl {
     fn EnumStackFramesEx32(&self, dwspmin: u32) -> ::windows_core::Result<IEnumDebugStackFrames>;
 }
@@ -3920,7 +3872,6 @@ impl IDebugStackFrameSnifferEx32_Vtbl {
         *iid == <IDebugStackFrameSnifferEx32 as ::windows_core::ComInterface>::IID || *iid == <IDebugStackFrameSniffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugStackFrameSnifferEx64_Impl: Sized + IDebugStackFrameSniffer_Impl {
     fn EnumStackFramesEx64(&self, dwspmin: u64) -> ::windows_core::Result<IEnumDebugStackFrames64>;
 }
@@ -3944,7 +3895,6 @@ impl IDebugStackFrameSnifferEx64_Vtbl {
         *iid == <IDebugStackFrameSnifferEx64 as ::windows_core::ComInterface>::IID || *iid == <IDebugStackFrameSniffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugSyncOperation_Impl: Sized {
     fn GetTargetThread(&self) -> ::windows_core::Result<IDebugApplicationThread>;
     fn Execute(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -3991,7 +3941,6 @@ impl IDebugSyncOperation_Vtbl {
         *iid == <IDebugSyncOperation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugThreadCall32_Impl: Sized {
     fn ThreadCallHandler(&self, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows_core::Result<()>;
 }
@@ -4009,7 +3958,6 @@ impl IDebugThreadCall32_Vtbl {
         *iid == <IDebugThreadCall32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IDebugThreadCall64_Impl: Sized {
     fn ThreadCallHandler(&self, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows_core::Result<()>;
 }
@@ -4027,7 +3975,6 @@ impl IDebugThreadCall64_Vtbl {
         *iid == <IDebugThreadCall64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IEnumDebugApplicationNodes_Impl: Sized {
     fn Next(&self, celt: u32, pprddp: *mut ::core::option::Option<IDebugApplicationNode>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -4075,7 +4022,6 @@ impl IEnumDebugApplicationNodes_Vtbl {
         *iid == <IEnumDebugApplicationNodes as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IEnumDebugCodeContexts_Impl: Sized {
     fn Next(&self, celt: u32, pscc: *mut ::core::option::Option<IDebugCodeContext>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -4123,7 +4069,6 @@ impl IEnumDebugCodeContexts_Vtbl {
         *iid == <IEnumDebugCodeContexts as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IEnumDebugExpressionContexts_Impl: Sized {
     fn Next(&self, celt: u32, ppdec: *mut ::core::option::Option<IDebugExpressionContext>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -4171,7 +4116,7 @@ impl IEnumDebugExpressionContexts_Vtbl {
         *iid == <IEnumDebugExpressionContexts as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumDebugStackFrames_Impl: Sized {
     fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -4222,7 +4167,7 @@ impl IEnumDebugStackFrames_Vtbl {
         *iid == <IEnumDebugStackFrames as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumDebugStackFrames64_Impl: Sized + IEnumDebugStackFrames_Impl {
     fn Next64(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -4243,7 +4188,6 @@ impl IEnumDebugStackFrames64_Vtbl {
         *iid == <IEnumDebugStackFrames64 as ::windows_core::ComInterface>::IID || *iid == <IEnumDebugStackFrames as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IEnumJsStackFrames_Impl: Sized {
     fn Next(&self, cframecount: u32, pframes: *mut JS_NATIVE_FRAME, pcfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Reset(&self) -> ::windows_core::Result<()>;
@@ -4267,7 +4211,6 @@ impl IEnumJsStackFrames_Vtbl {
         *iid == <IEnumJsStackFrames as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IEnumRemoteDebugApplicationThreads_Impl: Sized {
     fn Next(&self, celt: u32, pprdat: *mut ::core::option::Option<IRemoteDebugApplicationThread>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -4315,7 +4258,6 @@ impl IEnumRemoteDebugApplicationThreads_Vtbl {
         *iid == <IEnumRemoteDebugApplicationThreads as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IEnumRemoteDebugApplications_Impl: Sized {
     fn Next(&self, celt: u32, ppda: *mut ::core::option::Option<IRemoteDebugApplication>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -4363,7 +4305,6 @@ impl IEnumRemoteDebugApplications_Vtbl {
         *iid == <IEnumRemoteDebugApplications as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IJsDebug_Impl: Sized {
     fn OpenVirtualProcess(&self, processid: u32, runtimejsbaseaddress: u64, pdatatarget: ::core::option::Option<&IJsDebugDataTarget>) -> ::windows_core::Result<IJsDebugProcess>;
 }
@@ -4387,7 +4328,7 @@ impl IJsDebug_Vtbl {
         *iid == <IJsDebug as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IJsDebugBreakPoint_Impl: Sized {
     fn IsEnabled(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>;
@@ -4445,7 +4386,6 @@ impl IJsDebugBreakPoint_Vtbl {
         *iid == <IJsDebugBreakPoint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IJsDebugDataTarget_Impl: Sized {
     fn ReadMemory(&self, address: u64, flags: JsDebugReadMemoryFlags, pbuffer: *mut u8, size: u32, pbytesread: *mut u32) -> ::windows_core::Result<()>;
     fn WriteMemory(&self, address: u64, pmemory: *const u8, size: u32) -> ::windows_core::Result<()>;
@@ -4552,7 +4492,6 @@ impl IJsDebugDataTarget_Vtbl {
         *iid == <IJsDebugDataTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IJsDebugFrame_Impl: Sized {
     fn GetStackRange(&self, pstart: *mut u64, pend: *mut u64) -> ::windows_core::Result<()>;
     fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -4633,7 +4572,7 @@ impl IJsDebugFrame_Vtbl {
         *iid == <IJsDebugFrame as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IJsDebugProcess_Impl: Sized {
     fn CreateStackWalker(&self, threadid: u32) -> ::windows_core::Result<IJsDebugStackWalker>;
@@ -4696,7 +4635,6 @@ impl IJsDebugProcess_Vtbl {
         *iid == <IJsDebugProcess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IJsDebugProperty_Impl: Sized {
     fn GetPropertyInfo(&self, nradix: u32, ppropertyinfo: *mut JsDebugPropertyInfo) -> ::windows_core::Result<()>;
     fn GetMembers(&self, members: JS_PROPERTY_MEMBERS) -> ::windows_core::Result<IJsEnumDebugProperty>;
@@ -4730,7 +4668,6 @@ impl IJsDebugProperty_Vtbl {
         *iid == <IJsDebugProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IJsDebugStackWalker_Impl: Sized {
     fn GetNext(&self) -> ::windows_core::Result<IJsDebugFrame>;
 }
@@ -4754,7 +4691,6 @@ impl IJsDebugStackWalker_Vtbl {
         *iid == <IJsDebugStackWalker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IJsEnumDebugProperty_Impl: Sized {
     fn Next(&self, count: u32, ppdebugproperty: *mut ::core::option::Option<IJsDebugProperty>, pactualcount: *mut u32) -> ::windows_core::Result<()>;
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -4788,7 +4724,6 @@ impl IJsEnumDebugProperty_Vtbl {
         *iid == <IJsEnumDebugProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IMachineDebugManager_Impl: Sized {
     fn AddApplication(&self, pda: ::core::option::Option<&IRemoteDebugApplication>) -> ::windows_core::Result<u32>;
     fn RemoveApplication(&self, dwappcookie: u32) -> ::windows_core::Result<()>;
@@ -4835,7 +4770,6 @@ impl IMachineDebugManager_Vtbl {
         *iid == <IMachineDebugManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IMachineDebugManagerCookie_Impl: Sized {
     fn AddApplication(&self, pda: ::core::option::Option<&IRemoteDebugApplication>, dwdebugappcookie: u32) -> ::windows_core::Result<u32>;
     fn RemoveApplication(&self, dwdebugappcookie: u32, dwappcookie: u32) -> ::windows_core::Result<()>;
@@ -4882,7 +4816,6 @@ impl IMachineDebugManagerCookie_Vtbl {
         *iid == <IMachineDebugManagerCookie as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IMachineDebugManagerEvents_Impl: Sized {
     fn onAddApplication(&self, pda: ::core::option::Option<&IRemoteDebugApplication>, dwappcookie: u32) -> ::windows_core::Result<()>;
     fn onRemoveApplication(&self, pda: ::core::option::Option<&IRemoteDebugApplication>, dwappcookie: u32) -> ::windows_core::Result<()>;
@@ -4910,7 +4843,6 @@ impl IMachineDebugManagerEvents_Vtbl {
         *iid == <IMachineDebugManagerEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IProcessDebugManager32_Impl: Sized {
     fn CreateApplication(&self) -> ::windows_core::Result<IDebugApplication32>;
     fn GetDefaultApplication(&self) -> ::windows_core::Result<IDebugApplication32>;
@@ -4983,7 +4915,6 @@ impl IProcessDebugManager32_Vtbl {
         *iid == <IProcessDebugManager32 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IProcessDebugManager64_Impl: Sized {
     fn CreateApplication(&self) -> ::windows_core::Result<IDebugApplication64>;
     fn GetDefaultApplication(&self) -> ::windows_core::Result<IDebugApplication64>;
@@ -5056,7 +4987,6 @@ impl IProcessDebugManager64_Vtbl {
         *iid == <IProcessDebugManager64 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IProvideExpressionContexts_Impl: Sized {
     fn EnumExpressionContexts(&self) -> ::windows_core::Result<IEnumDebugExpressionContexts>;
 }
@@ -5080,7 +5010,6 @@ impl IProvideExpressionContexts_Vtbl {
         *iid == <IProvideExpressionContexts as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IRemoteDebugApplication_Impl: Sized {
     fn ResumeFromBreakPoint(&self, prptfocus: ::core::option::Option<&IRemoteDebugApplicationThread>, bra: BREAKRESUMEACTION, era: ERRORRESUMEACTION) -> ::windows_core::Result<()>;
     fn CauseBreak(&self) -> ::windows_core::Result<()>;
@@ -5207,7 +5136,6 @@ impl IRemoteDebugApplication_Vtbl {
         *iid == <IRemoteDebugApplication as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IRemoteDebugApplication110_Impl: Sized {
     fn SetDebuggerOptions(&self, mask: SCRIPT_DEBUGGER_OPTIONS, value: SCRIPT_DEBUGGER_OPTIONS) -> ::windows_core::Result<()>;
     fn GetCurrentDebuggerOptions(&self) -> ::windows_core::Result<SCRIPT_DEBUGGER_OPTIONS>;
@@ -5254,7 +5182,6 @@ impl IRemoteDebugApplication110_Vtbl {
         *iid == <IRemoteDebugApplication110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IRemoteDebugApplicationEvents_Impl: Sized {
     fn OnConnectDebugger(&self, pad: ::core::option::Option<&IApplicationDebugger>) -> ::windows_core::Result<()>;
     fn OnDisconnectDebugger(&self) -> ::windows_core::Result<()>;
@@ -5338,7 +5265,6 @@ impl IRemoteDebugApplicationEvents_Vtbl {
         *iid == <IRemoteDebugApplicationEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IRemoteDebugApplicationThread_Impl: Sized {
     fn GetSystemThreadId(&self) -> ::windows_core::Result<u32>;
     fn GetApplication(&self) -> ::windows_core::Result<IRemoteDebugApplication>;
@@ -5457,7 +5383,6 @@ impl IRemoteDebugApplicationThread_Vtbl {
         *iid == <IRemoteDebugApplicationThread as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IRemoteDebugCriticalErrorEvent110_Impl: Sized {
     fn GetErrorInfo(&self, pbstrsource: *mut ::windows_core::BSTR, pmessageid: *mut i32, pbstrmessage: *mut ::windows_core::BSTR, pplocation: *mut ::core::option::Option<IDebugDocumentContext>) -> ::windows_core::Result<()>;
 }
@@ -5475,7 +5400,6 @@ impl IRemoteDebugCriticalErrorEvent110_Vtbl {
         *iid == <IRemoteDebugCriticalErrorEvent110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IRemoteDebugInfoEvent110_Impl: Sized {
     fn GetEventInfo(&self, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut ::windows_core::BSTR, pbstrurl: *mut ::windows_core::BSTR, pplocation: *mut ::core::option::Option<IDebugDocumentContext>) -> ::windows_core::Result<()>;
 }
@@ -5493,7 +5417,7 @@ impl IRemoteDebugInfoEvent110_Vtbl {
         *iid == <IRemoteDebugInfoEvent110 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IScriptEntry_Impl: Sized + IScriptNode_Impl {
     fn GetText(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5611,7 +5535,6 @@ impl IScriptEntry_Vtbl {
         *iid == <IScriptEntry as ::windows_core::ComInterface>::IID || *iid == <IScriptNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"implement\"`*"]
 pub trait IScriptInvocationContext_Impl: Sized {
     fn GetContextType(&self) -> ::windows_core::Result<SCRIPT_INVOCATION_CONTEXT_TYPE>;
     fn GetContextDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5664,7 +5587,7 @@ impl IScriptInvocationContext_Vtbl {
         *iid == <IScriptInvocationContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IScriptNode_Impl: Sized {
     fn Alive(&self) -> ::windows_core::Result<()>;
@@ -5799,7 +5722,7 @@ impl IScriptNode_Vtbl {
         *iid == <IScriptNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IScriptScriptlet_Impl: Sized + IScriptEntry_Impl {
     fn GetSubItemName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5876,7 +5799,7 @@ impl IScriptScriptlet_Vtbl {
         *iid == <IScriptScriptlet as ::windows_core::ComInterface>::IID || *iid == <IScriptNode as ::windows_core::ComInterface>::IID || *iid == <IScriptEntry as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISimpleConnectionPoint_Impl: Sized {
     fn GetEventCount(&self) -> ::windows_core::Result<u32>;
@@ -5933,7 +5856,7 @@ impl ISimpleConnectionPoint_Vtbl {
         *iid == <ISimpleConnectionPoint as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITridentEventSink_Impl: Sized {
     fn FireEvent(&self, pstrevent: &::windows_core::PCWSTR, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>;
@@ -5954,7 +5877,7 @@ impl ITridentEventSink_Vtbl {
         *iid == <ITridentEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWebAppDiagnosticsObjectInitialization_Impl: Sized {
     fn Initialize(&self, hpassedhandle: super::super::super::super::Foundation::HANDLE_PTR, pdebugapplication: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -5975,7 +5898,7 @@ impl IWebAppDiagnosticsObjectInitialization_Vtbl {
         *iid == <IWebAppDiagnosticsObjectInitialization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWebAppDiagnosticsSetup_Impl: Sized {
     fn DiagnosticsSupported(&self) -> ::windows_core::Result<super::super::super::super::Foundation::VARIANT_BOOL>;

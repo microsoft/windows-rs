@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkCommitRequestHandler(::windows_core::IUnknown);
@@ -20,12 +19,11 @@ pub struct IInkCommitRequestHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub OnCommitRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkD2DRenderer(::windows_core::IUnknown);
 impl IInkD2DRenderer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Draw<P0, P1, P2>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: P2) -> ::windows_core::Result<()>
     where
@@ -52,7 +50,6 @@ pub struct IInkD2DRenderer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Draw: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkD2DRenderer2(::windows_core::IUnknown);
@@ -78,7 +75,6 @@ pub struct IInkD2DRenderer2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2d1devicecontext: *mut ::core::ffi::c_void, pinkstrokeiterable: *mut ::core::ffi::c_void, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkDesktopHost(::windows_core::IUnknown);
@@ -120,7 +116,6 @@ pub struct IInkDesktopHost_Vtbl {
     pub CreateInkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateAndInitializeInkPresenter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rootvisual: *mut ::core::ffi::c_void, width: f32, height: f32, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkHostWorkItem(::windows_core::IUnknown);
@@ -142,7 +137,6 @@ pub struct IInkHostWorkItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkPresenterDesktop(::windows_core::IUnknown);
@@ -187,17 +181,11 @@ pub struct IInkPresenterDesktop_Vtbl {
     pub SetSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: f32, height: f32) -> ::windows_core::HRESULT,
     pub OnHighContrastChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const InkD2DRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const InkDesktopHost: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const USE_ORIGINAL_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const USE_SYSTEM_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 pub const USE_SYSTEM_COLORS_WHEN_NECESSARY: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Input_Ink\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INK_HIGH_CONTRAST_ADJUSTMENT(pub i32);

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`, `\"implement\"`*"]
 pub trait ICreateDeviceAccessAsync_Impl: Sized {
     fn Cancel(&self) -> ::windows_core::Result<()>;
     fn Wait(&self, timeout: u32) -> ::windows_core::Result<()>;
@@ -40,7 +39,6 @@ impl ICreateDeviceAccessAsync_Vtbl {
         *iid == <ICreateDeviceAccessAsync as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`, `\"implement\"`*"]
 pub trait IDeviceIoControl_Impl: Sized {
     fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()>;
     fn DeviceIoControlAsync(&self, iocontrolcode: u32, inputbuffer: *const u8, inputbuffersize: u32, outputbuffer: *mut u8, outputbuffersize: u32, requestcompletioncallback: ::core::option::Option<&IDeviceRequestCompletionCallback>, cancelcontext: *mut usize) -> ::windows_core::Result<()>;
@@ -75,7 +73,6 @@ impl IDeviceIoControl_Vtbl {
         *iid == <IDeviceIoControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`, `\"implement\"`*"]
 pub trait IDeviceRequestCompletionCallback_Impl: Sized {
     fn Invoke(&self, requestresult: ::windows_core::HRESULT, bytesreturned: u32) -> ::windows_core::Result<()>;
 }

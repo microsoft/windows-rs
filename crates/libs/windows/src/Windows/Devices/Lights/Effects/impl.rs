@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`, `\"implement\"`*"]
 pub trait ILampArrayEffect_Impl: Sized {
     fn ZIndex(&self) -> ::windows_core::Result<i32>;
     fn SetZIndex(&self, value: i32) -> ::windows_core::Result<()>;

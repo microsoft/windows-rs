@@ -14,7 +14,6 @@ pub struct IApplicationProfileStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Modes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationProfileModes) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 pub struct ApplicationProfile;
 impl ApplicationProfile {
     pub fn Modes() -> ::windows_core::Result<ApplicationProfileModes> {
@@ -32,7 +31,6 @@ impl ApplicationProfile {
 impl ::windows_core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
-#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationProfileModes(pub u32);

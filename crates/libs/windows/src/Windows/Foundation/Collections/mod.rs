@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -48,7 +47,6 @@ where
     pub First: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -118,7 +116,6 @@ where
     pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyValuePair<K, V>(::windows_core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
@@ -165,7 +162,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMap<K, V>(::windows_core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
@@ -281,7 +277,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMapChangedEventArgs<K>(::windows_core::IUnknown, ::core::marker::PhantomData<K>)
@@ -325,7 +320,6 @@ where
     pub Key: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::AbiType<K>) -> ::windows_core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMapView<K, V>(::windows_core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
@@ -413,7 +407,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObservableMap<K, V>(::windows_core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
@@ -539,7 +532,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObservableVector<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -681,7 +673,6 @@ where
     pub RemoveVectorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropertySet(::windows_core::IUnknown);
@@ -786,7 +777,6 @@ unsafe impl ::windows_core::ComInterface for IPropertySet {
 pub struct IPropertySet_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVector<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -941,7 +931,6 @@ where
     pub ReplaceAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *const ::windows_core::AbiType<T>) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVectorChangedEventArgs(::windows_core::IUnknown);
@@ -978,7 +967,6 @@ pub struct IVectorChangedEventArgs_Vtbl {
     pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows_core::HRESULT,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVectorView<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
@@ -1081,7 +1069,6 @@ where
     pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PropertySet(::windows_core::IUnknown);
@@ -1194,7 +1181,6 @@ impl ::windows_core::CanTryInto<IObservableMap<::windows_core::HSTRING, ::window
 impl ::windows_core::CanTryInto<IPropertySet> for PropertySet {}
 unsafe impl ::core::marker::Send for PropertySet {}
 unsafe impl ::core::marker::Sync for PropertySet {}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StringMap(::windows_core::IUnknown);
@@ -1303,7 +1289,6 @@ impl ::windows_core::CanTryInto<IMap<::windows_core::HSTRING, ::windows_core::HS
 impl ::windows_core::CanTryInto<IObservableMap<::windows_core::HSTRING, ::windows_core::HSTRING>> for StringMap {}
 unsafe impl ::core::marker::Send for StringMap {}
 unsafe impl ::core::marker::Sync for StringMap {}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ValueSet(::windows_core::IUnknown);
@@ -1416,7 +1401,6 @@ impl ::windows_core::CanTryInto<IObservableMap<::windows_core::HSTRING, ::window
 impl ::windows_core::CanTryInto<IPropertySet> for ValueSet {}
 unsafe impl ::core::marker::Send for ValueSet {}
 unsafe impl ::core::marker::Sync for ValueSet {}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CollectionChange(pub i32);
@@ -1448,7 +1432,6 @@ impl ::core::fmt::Debug for CollectionChange {
 impl ::windows_core::RuntimeType for CollectionChange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Collections.CollectionChange;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MapChangedEventHandler<K, V>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
@@ -1537,7 +1520,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VectorChangedEventHandler<T>(pub ::windows_core::IUnknown, ::core::marker::PhantomData<T>)

@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IDMLBindingTable_Impl: Sized + IDMLDeviceChild_Impl {
     fn BindInputs(&self, bindingcount: u32, bindings: *const DML_BINDING_DESC);
@@ -50,7 +50,7 @@ impl IDMLBindingTable_Vtbl {
         *iid == <IDMLBindingTable as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IDMLCommandRecorder_Impl: Sized + IDMLDeviceChild_Impl {
     fn RecordDispatch(&self, commandlist: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12CommandList>, dispatchable: ::core::option::Option<&IDMLDispatchable>, bindings: ::core::option::Option<&IDMLBindingTable>);
@@ -71,7 +71,6 @@ impl IDMLCommandRecorder_Vtbl {
         *iid == <IDMLCommandRecorder as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLCompiledOperator_Impl: Sized + IDMLDispatchable_Impl {}
 impl ::windows_core::RuntimeName for IDMLCompiledOperator {}
 impl IDMLCompiledOperator_Vtbl {
@@ -82,7 +81,7 @@ impl IDMLCompiledOperator_Vtbl {
         *iid == <IDMLCompiledOperator as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID || *iid == <IDMLPageable as ::windows_core::ComInterface>::IID || *iid == <IDMLDispatchable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDMLDebugDevice_Impl: Sized {
     fn SetMuteDebugOutput(&self, mute: super::super::super::Foundation::BOOL);
@@ -103,7 +102,7 @@ impl IDMLDebugDevice_Vtbl {
         *iid == <IDMLDebugDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IDMLDevice_Impl: Sized + IDMLObject_Impl {
     fn CheckFeatureSupport(&self, feature: DML_FEATURE, featurequerydatasize: u32, featurequerydata: *const ::core::ffi::c_void, featuresupportdatasize: u32, featuresupportdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -190,7 +189,7 @@ impl IDMLDevice_Vtbl {
         *iid == <IDMLDevice as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"Win32_Graphics_Direct3D12\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IDMLDevice1_Impl: Sized + IDMLDevice_Impl {
     fn CompileGraph(&self, desc: *const DML_GRAPH_DESC, flags: DML_EXECUTION_FLAGS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -211,7 +210,6 @@ impl IDMLDevice1_Vtbl {
         *iid == <IDMLDevice1 as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLDeviceChild_Impl: Sized + IDMLObject_Impl {
     fn GetDevice(&self, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -229,7 +227,6 @@ impl IDMLDeviceChild_Vtbl {
         *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLDispatchable_Impl: Sized + IDMLPageable_Impl {
     fn GetBindingProperties(&self) -> DML_BINDING_PROPERTIES;
 }
@@ -247,7 +244,6 @@ impl IDMLDispatchable_Vtbl {
         *iid == <IDMLDispatchable as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID || *iid == <IDMLPageable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLObject_Impl: Sized {
     fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, data: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -289,7 +285,6 @@ impl IDMLObject_Vtbl {
         *iid == <IDMLObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLOperator_Impl: Sized + IDMLDeviceChild_Impl {}
 impl ::windows_core::RuntimeName for IDMLOperator {}
 impl IDMLOperator_Vtbl {
@@ -300,7 +295,6 @@ impl IDMLOperator_Vtbl {
         *iid == <IDMLOperator as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLOperatorInitializer_Impl: Sized + IDMLDispatchable_Impl {
     fn Reset(&self, operatorcount: u32, operators: *const ::core::option::Option<IDMLCompiledOperator>) -> ::windows_core::Result<()>;
 }
@@ -318,7 +312,6 @@ impl IDMLOperatorInitializer_Vtbl {
         *iid == <IDMLOperatorInitializer as ::windows_core::ComInterface>::IID || *iid == <IDMLObject as ::windows_core::ComInterface>::IID || *iid == <IDMLDeviceChild as ::windows_core::ComInterface>::IID || *iid == <IDMLPageable as ::windows_core::ComInterface>::IID || *iid == <IDMLDispatchable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`, `\"implement\"`*"]
 pub trait IDMLPageable_Impl: Sized + IDMLDeviceChild_Impl {}
 impl ::windows_core::RuntimeName for IDMLPageable {}
 impl IDMLPageable_Vtbl {

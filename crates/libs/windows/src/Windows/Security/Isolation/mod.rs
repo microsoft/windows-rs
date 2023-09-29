@@ -608,7 +608,6 @@ pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
     RegisterHostMessageReceiver: usize,
     pub UnregisterHostMessageReceiver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironment(::windows_core::IUnknown);
@@ -620,7 +619,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartProcessSilentlyAsync(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
@@ -629,7 +628,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn StartProcessSilentlyWithTelemetryAsync<P0>(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
@@ -641,7 +640,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFolderAsync<P0>(&self, hostfolder: &::windows_core::HSTRING, requestoptions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
@@ -653,7 +652,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).ShareFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), requestoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFolderWithTelemetryAsync<P0, P1>(&self, hostfolder: &::windows_core::HSTRING, requestoptions: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
@@ -666,7 +665,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), requestoptions.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFileWithUIAsync(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
@@ -675,7 +674,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).LaunchFileWithUIAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFileWithUIAndTelemetryAsync<P0>(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
     where
@@ -687,7 +686,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TerminateAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -696,7 +695,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).TerminateAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TerminateWithTelemetryAsync<P0>(&self, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -708,7 +707,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterMessageReceiver<P0>(&self, receiverid: ::windows_core::GUID, messagereceivedcallback: P0) -> ::windows_core::Result<()>
     where
@@ -721,7 +720,7 @@ impl IsolatedWindowsEnvironment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UnregisterMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverAsync<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
@@ -733,7 +732,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiverWithTelemetryAsync<P0, P1>(&self, receiverid: ::windows_core::GUID, message: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
@@ -753,7 +752,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).GetUserInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFileAsync<P0>(&self, filepath: &::windows_core::HSTRING, options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
@@ -765,7 +764,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).ShareFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ShareFileWithTelemetryAsync<P0, P1>(&self, filepath: &::windows_core::HSTRING, options: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
@@ -782,7 +781,7 @@ impl IsolatedWindowsEnvironment {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).ChangePriority)(::windows_core::Interface::as_raw(this), priority).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync<P0>(options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
@@ -793,7 +792,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithTelemetryAsync<P0, P1>(options: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
@@ -811,7 +810,7 @@ impl IsolatedWindowsEnvironment {
             (::windows_core::Interface::vtable(this).GetById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(environmentid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindByOwnerId(environmentownerid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
@@ -840,7 +839,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironment {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentCreateResult(::windows_core::IUnknown);
@@ -886,7 +884,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentCreateResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentFile(::windows_core::IUnknown);
@@ -939,7 +936,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentFile {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentFile, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentFile {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentFile {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsEnvironmentHost;
 impl IsolatedWindowsEnvironmentHost {
     pub fn IsReady() -> ::windows_core::Result<bool> {
@@ -948,7 +944,7 @@ impl IsolatedWindowsEnvironmentHost {
             (::windows_core::Interface::vtable(this).IsReady)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HostErrors() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
@@ -965,7 +961,6 @@ impl IsolatedWindowsEnvironmentHost {
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentHost {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentHost";
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(::windows_core::IUnknown);
@@ -1007,7 +1002,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult 
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentOptions(::windows_core::IUnknown);
@@ -1174,7 +1168,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOptions {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     pub fn Register<P0>(ownername: &::windows_core::HSTRING, ownerregistrationdata: P0) -> ::windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult>
@@ -1198,7 +1191,6 @@ impl IsolatedWindowsEnvironmentOwnerRegistration {
 impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistration";
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(::windows_core::IUnknown);
@@ -1210,7 +1202,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
         static SHARED: ::windows_core::imp::FactoryCache<IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShareableFolders(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1219,7 +1211,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows_core::Interface::vtable(this).ShareableFolders)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessesRunnableAsSystem(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1228,7 +1220,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows_core::Interface::vtable(this).ProcessesRunnableAsSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessesRunnableAsUser(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1237,7 +1229,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
             (::windows_core::Interface::vtable(this).ProcessesRunnableAsUser)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActivationFileExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -1262,7 +1254,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationData, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(::windows_core::IUnknown);
@@ -1297,7 +1288,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(::windows_core::IUnknown);
@@ -1332,7 +1322,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentPostMessageResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentProcess(::windows_core::IUnknown);
@@ -1359,7 +1348,7 @@ impl IsolatedWindowsEnvironmentProcess {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).WaitForExitWithTimeout)(::windows_core::Interface::as_raw(this), timeoutmilliseconds).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn WaitForExitAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1384,7 +1373,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentProcess, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(::windows_core::IUnknown);
@@ -1423,7 +1411,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestO
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileRequestOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(::windows_core::IUnknown);
@@ -1465,7 +1452,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(::windows_core::IUnknown);
@@ -1504,7 +1490,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderReques
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderRequestOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(::windows_core::IUnknown);
@@ -1539,7 +1524,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(::windows_core::IUnknown);
@@ -1581,7 +1565,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResul
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentStartProcessResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(::windows_core::IUnknown);
@@ -1620,7 +1603,6 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParamete
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentTelemetryParameters, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IsolatedWindowsEnvironmentUserInfo(::windows_core::IUnknown);
@@ -1639,7 +1621,7 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (::windows_core::Interface::vtable(this).EnvironmentUserName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryWaitForSignInAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1648,7 +1630,7 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (::windows_core::Interface::vtable(this).TryWaitForSignInAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TryWaitForSignInWithProgressAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentUserInfo2>(self)?;
@@ -1673,10 +1655,9 @@ impl ::windows_core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
 ::windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentUserInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PostMessageToReceiver<P0>(receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
@@ -1690,7 +1671,7 @@ impl IsolatedWindowsHostMessenger {
             (::windows_core::Interface::vtable(this).GetFileId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegisterHostMessageReceiver<P0>(receiverid: ::windows_core::GUID, hostmessagereceivedcallback: P0) -> ::windows_core::Result<()>
     where
@@ -1715,7 +1696,6 @@ impl IsolatedWindowsHostMessenger {
 impl ::windows_core::RuntimeName for IsolatedWindowsHostMessenger {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsHostMessenger";
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
@@ -1745,7 +1725,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentActivator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
@@ -1810,7 +1789,6 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
@@ -1876,7 +1854,6 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
@@ -1940,7 +1917,6 @@ impl ::core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
@@ -1971,7 +1947,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentCreationPriority(pub i32);
@@ -2001,7 +1976,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreationPriority {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentCreationPriority {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentHostError(pub i32);
@@ -2034,7 +2008,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentHostError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
@@ -2068,7 +2041,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
@@ -2101,7 +2073,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
@@ -2132,7 +2103,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
@@ -2163,7 +2133,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
@@ -2198,7 +2167,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
@@ -2232,7 +2200,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
@@ -2265,7 +2232,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentSignInProgress(pub i32);
@@ -2299,7 +2265,6 @@ impl ::core::fmt::Debug for IsolatedWindowsEnvironmentSignInProgress {
 impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentSignInProgress {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress;i4)");
 }
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
@@ -2333,7 +2298,6 @@ impl ::windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatu
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsEnvironmentCreateProgress {
     pub State: IsolatedWindowsEnvironmentProgressState,
     pub PercentComplete: u32,
@@ -2366,7 +2330,7 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2377,7 +2341,7 @@ impl HostMessageReceivedCallback {
         let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where
@@ -2452,7 +2416,7 @@ pub struct HostMessageReceivedCallback_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Invoke: usize,
 }
-#[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2463,7 +2427,7 @@ impl MessageReceivedCallback {
         let com = MessageReceivedCallbackBox::<F> { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invoke<P0>(&self, receiverid: ::windows_core::GUID, message: P0) -> ::windows_core::Result<()>
     where

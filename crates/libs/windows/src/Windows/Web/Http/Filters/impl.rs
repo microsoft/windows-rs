@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation`"]
 #[cfg(feature = "Foundation")]
 pub trait IHttpFilter_Impl: Sized + super::super::super::Foundation::IClosable_Impl {
     fn SendRequestAsync(&self, request: ::core::option::Option<&super::HttpRequestMessage>) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>;

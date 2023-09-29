@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"UI_WebUI\"`, `\"implement\"`*"]
 pub trait IActivatedEventArgsDeferral_Impl: Sized {
     fn ActivatedOperation(&self) -> ::windows_core::Result<ActivatedOperation>;
 }
@@ -28,7 +27,6 @@ impl IActivatedEventArgsDeferral_Vtbl {
         *iid == <IActivatedEventArgsDeferral as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"UI_WebUI\"`, `\"implement\"`*"]
 pub trait IWebUIBackgroundTaskInstance_Impl: Sized {
     fn Succeeded(&self) -> ::windows_core::Result<bool>;
     fn SetSucceeded(&self, succeeded: bool) -> ::windows_core::Result<()>;
@@ -64,7 +62,6 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
         *iid == <IWebUIBackgroundTaskInstance as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"UI_WebUI\"`, `\"implement\"`*"]
 pub trait IWebUINavigatedEventArgs_Impl: Sized {
     fn NavigatedOperation(&self) -> ::windows_core::Result<WebUINavigatedOperation>;
 }

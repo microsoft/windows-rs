@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`, `\"implement\"`*"]
 pub trait ICoreAutomationConnectionBoundObjectProvider_Impl: Sized {
     fn IsComThreadingRequired(&self) -> ::windows_core::Result<bool>;
 }
@@ -27,7 +26,6 @@ impl ICoreAutomationConnectionBoundObjectProvider_Vtbl {
         *iid == <ICoreAutomationConnectionBoundObjectProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`, `\"implement\"`*"]
 pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: Sized {
     fn CallExtension(&self, extensionid: &::windows_core::GUID, context: ::core::option::Option<&CoreAutomationRemoteOperationContext>, operandids: &[AutomationRemoteOperationOperandId]) -> ::windows_core::Result<()>;
     fn IsExtensionSupported(&self, extensionid: &::windows_core::GUID) -> ::windows_core::Result<bool>;

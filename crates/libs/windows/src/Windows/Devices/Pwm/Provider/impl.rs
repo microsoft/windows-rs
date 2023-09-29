@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"implement\"`*"]
 pub trait IPwmControllerProvider_Impl: Sized {
     fn PinCount(&self) -> ::windows_core::Result<i32>;
     fn ActualFrequency(&self) -> ::windows_core::Result<f64>;
@@ -114,7 +113,7 @@ impl IPwmControllerProvider_Vtbl {
         *iid == <IPwmControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPwmProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>>;

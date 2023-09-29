@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`, `Win32_UI_Accessibility`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
 pub trait IAccessibleWinSAT_Impl: Sized + super::super::UI::Accessibility::IAccessible_Impl {
     fn SetAccessiblityData(&self, wsname: &::windows_core::PCWSTR, wsvalue: &::windows_core::PCWSTR, wsdesc: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -22,7 +22,7 @@ impl IAccessibleWinSAT_Vtbl {
         *iid == <IAccessibleWinSAT as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID || *iid == <super::super::UI::Accessibility::IAccessible as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInitiateWinSATAssessment_Impl: Sized {
     fn InitiateAssessment(&self, cmdline: &::windows_core::PCWSTR, pcallbacks: ::core::option::Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -60,7 +60,7 @@ impl IInitiateWinSATAssessment_Vtbl {
         *iid == <IInitiateWinSATAssessment as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProvideWinSATAssessmentInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn Score(&self) -> ::windows_core::Result<f32>;
@@ -116,7 +116,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
         *iid == <IProvideWinSATAssessmentInfo as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProvideWinSATResultsInfo_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> ::windows_core::Result<IProvideWinSATAssessmentInfo>;
@@ -198,7 +198,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
         *iid == <IProvideWinSATResultsInfo as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Gdi`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IProvideWinSATVisuals_Impl: Sized {
     fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> ::windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
@@ -225,7 +225,7 @@ impl IProvideWinSATVisuals_Vtbl {
         *iid == <IProvideWinSATVisuals as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IQueryAllWinSATAssessments_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_AllXML(&self, xpath: &::windows_core::BSTR, namespaces: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
@@ -252,7 +252,6 @@ impl IQueryAllWinSATAssessments_Vtbl {
         *iid == <IQueryAllWinSATAssessments as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"implement\"`*"]
 pub trait IQueryOEMWinSATCustomization_Impl: Sized {
     fn GetOEMPrePopulationInfo(&self) -> ::windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE>;
 }
@@ -276,7 +275,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
         *iid == <IQueryOEMWinSATCustomization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IQueryRecentWinSATAssessment_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_XML(&self, xpath: &::windows_core::BSTR, namespaces: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
@@ -319,7 +318,6 @@ impl IQueryRecentWinSATAssessment_Vtbl {
         *iid == <IQueryRecentWinSATAssessment as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`, `\"implement\"`*"]
 pub trait IWinSATInitiateEvents_Impl: Sized {
     fn WinSATComplete(&self, hresult: ::windows_core::HRESULT, strdescription: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn WinSATUpdate(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;

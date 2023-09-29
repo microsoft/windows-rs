@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
 pub trait ILearningModelFeatureDescriptor_Impl: Sized {
     fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -68,7 +67,6 @@ impl ILearningModelFeatureDescriptor_Vtbl {
         *iid == <ILearningModelFeatureDescriptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
 pub trait ILearningModelFeatureValue_Impl: Sized {
     fn Kind(&self) -> ::windows_core::Result<LearningModelFeatureKind>;
 }
@@ -94,7 +92,6 @@ impl ILearningModelFeatureValue_Vtbl {
         *iid == <ILearningModelFeatureValue as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
 pub trait ILearningModelOperatorProvider_Impl: Sized {}
 impl ::windows_core::RuntimeName for ILearningModelOperatorProvider {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelOperatorProvider";
@@ -107,7 +104,7 @@ impl ILearningModelOperatorProvider_Vtbl {
         *iid == <ILearningModelOperatorProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
+#[doc = "Required features: `Foundation_Collections`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITensor_Impl: Sized + ILearningModelFeatureValue_Impl {
     fn TensorKind(&self) -> ::windows_core::Result<TensorKind>;

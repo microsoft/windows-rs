@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Graphics_Gdi\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Graphics_Gdi`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDialBranding_Impl: Sized {
     fn Initialize(&self, pwzconnectoid: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -35,7 +35,6 @@ impl IDialBranding_Vtbl {
         *iid == <IDialBranding as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
 pub trait IDialEngine_Impl: Sized {
     fn Initialize(&self, pwzconnectoid: &::windows_core::PCWSTR, pides: ::core::option::Option<&IDialEventSink>) -> ::windows_core::Result<()>;
     fn GetProperty(&self, pwzproperty: &::windows_core::PCWSTR, pwzvalue: &::windows_core::PCWSTR, dwbufsize: u32) -> ::windows_core::Result<()>;
@@ -110,7 +109,6 @@ impl IDialEngine_Vtbl {
         *iid == <IDialEngine as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
 pub trait IDialEventSink_Impl: Sized {
     fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows_core::Result<()>;
 }
@@ -128,7 +126,6 @@ impl IDialEventSink_Vtbl {
         *iid == <IDialEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
 pub trait IProofOfPossessionCookieInfoManager_Impl: Sized {
     fn GetCookieInfoForUri(&self, uri: &::windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::Result<()>;
 }
@@ -146,7 +143,6 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         *iid == <IProofOfPossessionCookieInfoManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"implement\"`*"]
 pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized {
     fn GetCookieInfoWithUriForAccount(&self, webaccount: ::core::option::Option<&::windows_core::IInspectable>, uri: &::windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::Result<()>;
 }

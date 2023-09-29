@@ -91,7 +91,6 @@ pub struct IInkAnalysisListItem_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub RecognizedText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkAnalysisNode(::windows_core::IUnknown);
@@ -110,7 +109,7 @@ impl IInkAnalysisNode {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
@@ -119,7 +118,7 @@ impl IInkAnalysisNode {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
@@ -128,7 +127,7 @@ impl IInkAnalysisNode {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
@@ -144,7 +143,7 @@ impl IInkAnalysisNode {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -290,7 +289,6 @@ pub struct IInkAnalyzer_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     AnalyzeAsync: usize,
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInkAnalyzerFactory(::windows_core::IUnknown);
@@ -319,7 +317,6 @@ pub struct IInkAnalyzerFactory_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub CreateAnalyzer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisInkBullet(::windows_core::IUnknown);
@@ -345,7 +342,7 @@ impl InkAnalysisInkBullet {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -354,7 +351,7 @@ impl InkAnalysisInkBullet {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -363,7 +360,7 @@ impl InkAnalysisInkBullet {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -379,7 +376,7 @@ impl InkAnalysisInkBullet {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -405,7 +402,6 @@ impl ::windows_core::RuntimeName for InkAnalysisInkBullet {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisInkBullet {}
 unsafe impl ::core::marker::Send for InkAnalysisInkBullet {}
 unsafe impl ::core::marker::Sync for InkAnalysisInkBullet {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisInkDrawing(::windows_core::IUnknown);
@@ -417,7 +413,7 @@ impl InkAnalysisInkDrawing {
             (::windows_core::Interface::vtable(this).DrawingKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Center(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
@@ -426,7 +422,7 @@ impl InkAnalysisInkDrawing {
             (::windows_core::Interface::vtable(this).Center)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Points(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
@@ -449,7 +445,7 @@ impl InkAnalysisInkDrawing {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -458,7 +454,7 @@ impl InkAnalysisInkDrawing {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -467,7 +463,7 @@ impl InkAnalysisInkDrawing {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -483,7 +479,7 @@ impl InkAnalysisInkDrawing {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -509,7 +505,6 @@ impl ::windows_core::RuntimeName for InkAnalysisInkDrawing {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisInkDrawing {}
 unsafe impl ::core::marker::Send for InkAnalysisInkDrawing {}
 unsafe impl ::core::marker::Sync for InkAnalysisInkDrawing {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisInkWord(::windows_core::IUnknown);
@@ -521,7 +516,7 @@ impl InkAnalysisInkWord {
             (::windows_core::Interface::vtable(this).RecognizedText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TextAlternates(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -544,7 +539,7 @@ impl InkAnalysisInkWord {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -553,7 +548,7 @@ impl InkAnalysisInkWord {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -562,7 +557,7 @@ impl InkAnalysisInkWord {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -578,7 +573,7 @@ impl InkAnalysisInkWord {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -604,7 +599,6 @@ impl ::windows_core::RuntimeName for InkAnalysisInkWord {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisInkWord {}
 unsafe impl ::core::marker::Send for InkAnalysisInkWord {}
 unsafe impl ::core::marker::Sync for InkAnalysisInkWord {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisLine(::windows_core::IUnknown);
@@ -637,7 +631,7 @@ impl InkAnalysisLine {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -646,7 +640,7 @@ impl InkAnalysisLine {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -655,7 +649,7 @@ impl InkAnalysisLine {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -671,7 +665,7 @@ impl InkAnalysisLine {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -697,7 +691,6 @@ impl ::windows_core::RuntimeName for InkAnalysisLine {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisLine {}
 unsafe impl ::core::marker::Send for InkAnalysisLine {}
 unsafe impl ::core::marker::Sync for InkAnalysisLine {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisListItem(::windows_core::IUnknown);
@@ -723,7 +716,7 @@ impl InkAnalysisListItem {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -732,7 +725,7 @@ impl InkAnalysisListItem {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -741,7 +734,7 @@ impl InkAnalysisListItem {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -757,7 +750,7 @@ impl InkAnalysisListItem {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -783,7 +776,6 @@ impl ::windows_core::RuntimeName for InkAnalysisListItem {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisListItem {}
 unsafe impl ::core::marker::Send for InkAnalysisListItem {}
 unsafe impl ::core::marker::Sync for InkAnalysisListItem {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisNode(::windows_core::IUnknown);
@@ -802,7 +794,7 @@ impl InkAnalysisNode {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
@@ -811,7 +803,7 @@ impl InkAnalysisNode {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = self;
@@ -820,7 +812,7 @@ impl InkAnalysisNode {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
@@ -836,7 +828,7 @@ impl InkAnalysisNode {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -862,7 +854,6 @@ impl ::windows_core::RuntimeName for InkAnalysisNode {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisNode {}
 unsafe impl ::core::marker::Send for InkAnalysisNode {}
 unsafe impl ::core::marker::Sync for InkAnalysisNode {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisParagraph(::windows_core::IUnknown);
@@ -881,7 +872,7 @@ impl InkAnalysisParagraph {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -890,7 +881,7 @@ impl InkAnalysisParagraph {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -899,7 +890,7 @@ impl InkAnalysisParagraph {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -915,7 +906,7 @@ impl InkAnalysisParagraph {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -948,7 +939,6 @@ impl ::windows_core::RuntimeName for InkAnalysisParagraph {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisParagraph {}
 unsafe impl ::core::marker::Send for InkAnalysisParagraph {}
 unsafe impl ::core::marker::Sync for InkAnalysisParagraph {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisResult(::windows_core::IUnknown);
@@ -976,7 +966,6 @@ impl ::windows_core::RuntimeName for InkAnalysisResult {
 ::windows_core::imp::interface_hierarchy!(InkAnalysisResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InkAnalysisResult {}
 unsafe impl ::core::marker::Sync for InkAnalysisResult {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisRoot(::windows_core::IUnknown);
@@ -995,7 +984,7 @@ impl InkAnalysisRoot {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1004,7 +993,7 @@ impl InkAnalysisRoot {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1013,7 +1002,7 @@ impl InkAnalysisRoot {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1029,7 +1018,7 @@ impl InkAnalysisRoot {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1045,7 +1034,7 @@ impl InkAnalysisRoot {
             (::windows_core::Interface::vtable(this).RecognizedText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindNodes(&self, nodekind: InkAnalysisNodeKind) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
@@ -1071,7 +1060,6 @@ impl ::windows_core::RuntimeName for InkAnalysisRoot {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisRoot {}
 unsafe impl ::core::marker::Send for InkAnalysisRoot {}
 unsafe impl ::core::marker::Sync for InkAnalysisRoot {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalysisWritingRegion(::windows_core::IUnknown);
@@ -1090,7 +1078,7 @@ impl InkAnalysisWritingRegion {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1099,7 +1087,7 @@ impl InkAnalysisWritingRegion {
             (::windows_core::Interface::vtable(this).BoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RotatedBoundingRect(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Foundation::Point>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1108,7 +1096,7 @@ impl InkAnalysisWritingRegion {
             (::windows_core::Interface::vtable(this).RotatedBoundingRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Children(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1124,7 +1112,7 @@ impl InkAnalysisWritingRegion {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStrokeIds(&self) -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows_core::ComInterface::cast::<IInkAnalysisNode>(self)?;
@@ -1157,7 +1145,6 @@ impl ::windows_core::RuntimeName for InkAnalysisWritingRegion {
 impl ::windows_core::CanTryInto<IInkAnalysisNode> for InkAnalysisWritingRegion {}
 unsafe impl ::core::marker::Send for InkAnalysisWritingRegion {}
 unsafe impl ::core::marker::Sync for InkAnalysisWritingRegion {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InkAnalyzer(::windows_core::IUnknown);
@@ -1190,7 +1177,7 @@ impl InkAnalyzer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddDataForStroke)(::windows_core::Interface::as_raw(this), stroke.into_param().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddDataForStrokes<P0>(&self, strokes: P0) -> ::windows_core::Result<()>
     where
@@ -1207,7 +1194,7 @@ impl InkAnalyzer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDataForStroke)(::windows_core::Interface::as_raw(this), strokeid).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveDataForStrokes<P0>(&self, strokeids: P0) -> ::windows_core::Result<()>
     where
@@ -1227,7 +1214,7 @@ impl InkAnalyzer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStrokeDataKind)(::windows_core::Interface::as_raw(this), strokeid, strokekind).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AnalyzeAsync(&self) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<InkAnalysisResult>> {
         let this = self;
@@ -1252,7 +1239,6 @@ impl ::windows_core::RuntimeName for InkAnalyzer {
 ::windows_core::imp::interface_hierarchy!(InkAnalyzer, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InkAnalyzer {}
 unsafe impl ::core::marker::Sync for InkAnalyzer {}
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkAnalysisDrawingKind(pub i32);
@@ -1295,7 +1281,6 @@ impl ::core::fmt::Debug for InkAnalysisDrawingKind {
 impl ::windows_core::RuntimeType for InkAnalysisDrawingKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisDrawingKind;i4)");
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkAnalysisNodeKind(pub i32);
@@ -1332,7 +1317,6 @@ impl ::core::fmt::Debug for InkAnalysisNodeKind {
 impl ::windows_core::RuntimeType for InkAnalysisNodeKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisNodeKind;i4)");
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkAnalysisStatus(pub i32);
@@ -1362,7 +1346,6 @@ impl ::core::fmt::Debug for InkAnalysisStatus {
 impl ::windows_core::RuntimeType for InkAnalysisStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Analysis.InkAnalysisStatus;i4)");
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkAnalysisStrokeKind(pub i32);

@@ -1,9 +1,8 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraInterop(::windows_core::IUnknown);
 impl IHolographicCameraInterop {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDirect3D12BackBufferResource<P0>(&self, pdevice: P0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>
     where
@@ -12,7 +11,7 @@ impl IHolographicCameraInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDirect3D12HardwareProtectedBackBufferResource<P0, P1>(&self, pdevice: P0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: P1) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>
     where
@@ -22,7 +21,7 @@ impl IHolographicCameraInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn AcquireDirect3D12BufferResource<P0, P1>(&self, presourcetoacquire: P0, pcommandqueue: P1) -> ::windows_core::Result<()>
     where
@@ -31,7 +30,7 @@ impl IHolographicCameraInterop {
     {
         (::windows_core::Interface::vtable(self).AcquireDirect3D12BufferResource)(::windows_core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<P0, P1>(&self, presourcetoacquire: P0, pcommandqueue: P1, duration: u64) -> ::windows_core::Result<()>
     where
@@ -40,7 +39,7 @@ impl IHolographicCameraInterop {
     {
         (::windows_core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows_core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi(), duration).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn UnacquireDirect3D12BufferResource<P0>(&self, presourcetounacquire: P0) -> ::windows_core::Result<()>
     where
@@ -81,12 +80,11 @@ pub struct IHolographicCameraInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     UnacquireDirect3D12BufferResource: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraRenderingParametersInterop(::windows_core::IUnknown);
 impl IHolographicCameraRenderingParametersInterop {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CommitDirect3D12Resource<P0, P1>(&self, pcolorresourcetocommit: P0, pcolorresourcefence: P1, colorresourcefencesignalvalue: u64) -> ::windows_core::Result<()>
     where
@@ -95,7 +93,7 @@ impl IHolographicCameraRenderingParametersInterop {
     {
         (::windows_core::Interface::vtable(self).CommitDirect3D12Resource)(::windows_core::Interface::as_raw(self), pcolorresourcetocommit.into_param().abi(), pcolorresourcefence.into_param().abi(), colorresourcefencesignalvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CommitDirect3D12ResourceWithDepthData<P0, P1, P2, P3>(&self, pcolorresourcetocommit: P0, pcolorresourcefence: P1, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: P2, pdepthresourcefence: P3, depthresourcefencesignalvalue: u64) -> ::windows_core::Result<()>
     where
@@ -127,12 +125,11 @@ pub struct IHolographicCameraRenderingParametersInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     CommitDirect3D12ResourceWithDepthData: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicQuadLayerInterop(::windows_core::IUnknown);
 impl IHolographicQuadLayerInterop {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDirect3D12ContentBufferResource<P0>(&self, pdevice: P0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>
     where
@@ -141,7 +138,7 @@ impl IHolographicQuadLayerInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateDirect3D12HardwareProtectedContentBufferResource<P0, P1>(&self, pdevice: P0, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC, pprotectedresourcesession: P1) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>
     where
@@ -151,7 +148,7 @@ impl IHolographicQuadLayerInterop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn AcquireDirect3D12BufferResource<P0, P1>(&self, presourcetoacquire: P0, pcommandqueue: P1) -> ::windows_core::Result<()>
     where
@@ -160,7 +157,7 @@ impl IHolographicQuadLayerInterop {
     {
         (::windows_core::Interface::vtable(self).AcquireDirect3D12BufferResource)(::windows_core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn AcquireDirect3D12BufferResourceWithTimeout<P0, P1>(&self, presourcetoacquire: P0, pcommandqueue: P1, duration: u64) -> ::windows_core::Result<()>
     where
@@ -169,7 +166,7 @@ impl IHolographicQuadLayerInterop {
     {
         (::windows_core::Interface::vtable(self).AcquireDirect3D12BufferResourceWithTimeout)(::windows_core::Interface::as_raw(self), presourcetoacquire.into_param().abi(), pcommandqueue.into_param().abi(), duration).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn UnacquireDirect3D12BufferResource<P0>(&self, presourcetounacquire: P0) -> ::windows_core::Result<()>
     where
@@ -210,12 +207,11 @@ pub struct IHolographicQuadLayerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     UnacquireDirect3D12BufferResource: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Holographic\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicQuadLayerUpdateParametersInterop(::windows_core::IUnknown);
 impl IHolographicQuadLayerUpdateParametersInterop {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CommitDirect3D12Resource<P0, P1>(&self, pcolorresourcetocommit: P0, pcolorresourcefence: P1, colorresourcefencesignalvalue: u64) -> ::windows_core::Result<()>
     where

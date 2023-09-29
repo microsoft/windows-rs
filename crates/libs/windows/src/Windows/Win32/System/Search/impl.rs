@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait DataSource_Impl: Sized {
     fn getDataMember(&self, bstrdm: *const u16, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn getDataMemberName(&self, lindex: i32) -> ::windows_core::Result<*mut u16>;
@@ -65,7 +64,6 @@ impl DataSource_Vtbl {
         *iid == <DataSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait DataSourceListener_Impl: Sized {
     fn dataMemberChanged(&self, bstrdm: *const u16) -> ::windows_core::Result<()>;
     fn dataMemberAdded(&self, bstrdm: *const u16) -> ::windows_core::Result<()>;
@@ -100,7 +98,7 @@ impl DataSourceListener_Vtbl {
         *iid == <DataSourceListener as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait DataSourceObject_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -114,7 +112,7 @@ impl DataSourceObject_Vtbl {
         *iid == <DataSourceObject as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessor_Impl: Sized {
     fn AddRefAccessor(&self, haccessor: HACCESSOR, pcrefcount: *mut u32) -> ::windows_core::Result<()>;
@@ -159,7 +157,7 @@ impl IAccessor_Vtbl {
         *iid == <IAccessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAlterIndex_Impl: Sized {
     fn AlterIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, pnewindexid: *const super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows_core::Result<()>;
@@ -180,7 +178,7 @@ impl IAlterIndex_Vtbl {
         *iid == <IAlterIndex as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAlterTable_Impl: Sized {
     fn AlterColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *const DBCOLUMNDESC) -> ::windows_core::Result<()>;
@@ -211,7 +209,7 @@ impl IAlterTable_Vtbl {
         *iid == <IAlterTable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBindResource_Impl: Sized {
     fn Bind(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, pwszurl: &::windows_core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pauthenticate: ::core::option::Option<&super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -232,7 +230,6 @@ impl IBindResource_Vtbl {
         *iid == <IBindResource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IChapteredRowset_Impl: Sized {
     fn AddRefChapter(&self, hchapter: usize, pcrefcount: *mut u32) -> ::windows_core::Result<()>;
     fn ReleaseChapter(&self, hchapter: usize, pcrefcount: *mut u32) -> ::windows_core::Result<()>;
@@ -260,7 +257,7 @@ impl IChapteredRowset_Vtbl {
         *iid == <IChapteredRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IColumnMapper_Impl: Sized {
     fn GetPropInfoFromName(&self, wcspropname: &::windows_core::PCWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows_core::Result<()>;
@@ -305,7 +302,6 @@ impl IColumnMapper_Vtbl {
         *iid == <IColumnMapper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IColumnMapperCreator_Impl: Sized {
     fn GetColumnMapper(&self, wcsmachinename: &::windows_core::PCWSTR, wcscatalogname: &::windows_core::PCWSTR) -> ::windows_core::Result<IColumnMapper>;
 }
@@ -329,7 +325,7 @@ impl IColumnMapperCreator_Vtbl {
         *iid == <IColumnMapperCreator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IColumnsInfo_Impl: Sized {
     fn GetColumnInfo(&self, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -360,7 +356,7 @@ impl IColumnsInfo_Vtbl {
         *iid == <IColumnsInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IColumnsInfo2_Impl: Sized + IColumnsInfo_Impl {
     fn GetRestrictedColumnInfo(&self, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -381,7 +377,7 @@ impl IColumnsInfo2_Vtbl {
         *iid == <IColumnsInfo2 as ::windows_core::ComInterface>::IID || *iid == <IColumnsInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IColumnsRowset_Impl: Sized {
     fn GetAvailableColumns(&self, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()>;
@@ -412,7 +408,6 @@ impl IColumnsRowset_Vtbl {
         *iid == <IColumnsRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ICommand_Impl: Sized {
     fn Cancel(&self) -> ::windows_core::Result<()>;
     fn Execute(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -453,7 +448,6 @@ impl ICommand_Vtbl {
         *iid == <ICommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ICommandCost_Impl: Sized {
     fn GetAccumulatedCost(&self, pwszrowsetname: &::windows_core::PCWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows_core::Result<()>;
     fn GetCostEstimate(&self, pwszrowsetname: &::windows_core::PCWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows_core::Result<()>;
@@ -509,7 +503,7 @@ impl ICommandCost_Vtbl {
         *iid == <ICommandCost as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ICommandPersist_Impl: Sized {
     fn DeleteCommand(&self, pcommandid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()>;
@@ -560,7 +554,6 @@ impl ICommandPersist_Vtbl {
         *iid == <ICommandPersist as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ICommandPrepare_Impl: Sized {
     fn Prepare(&self, cexpectedruns: u32) -> ::windows_core::Result<()>;
     fn Unprepare(&self) -> ::windows_core::Result<()>;
@@ -588,7 +581,7 @@ impl ICommandPrepare_Vtbl {
         *iid == <ICommandPrepare as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICommandProperties_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()>;
@@ -619,7 +612,6 @@ impl ICommandProperties_Vtbl {
         *iid == <ICommandProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ICommandStream_Impl: Sized {
     fn GetCommandStream(&self, piid: *mut ::windows_core::GUID, pguiddialect: *mut ::windows_core::GUID, ppcommandstream: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn SetCommandStream(&self, riid: *const ::windows_core::GUID, rguiddialect: *const ::windows_core::GUID, pcommandstream: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -647,7 +639,6 @@ impl ICommandStream_Vtbl {
         *iid == <ICommandStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ICommandText_Impl: Sized + ICommand_Impl {
     fn GetCommandText(&self, pguiddialect: *mut ::windows_core::GUID, ppwszcommand: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
     fn SetCommandText(&self, rguiddialect: *const ::windows_core::GUID, pwszcommand: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -675,7 +666,6 @@ impl ICommandText_Vtbl {
         *iid == <ICommandText as ::windows_core::ComInterface>::IID || *iid == <ICommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ICommandValidate_Impl: Sized {
     fn ValidateCompletely(&self) -> ::windows_core::Result<()>;
     fn ValidateSyntax(&self) -> ::windows_core::Result<()>;
@@ -703,7 +693,7 @@ impl ICommandValidate_Vtbl {
         *iid == <ICommandValidate as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICommandWithParameters_Impl: Sized {
     fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -741,7 +731,7 @@ impl ICommandWithParameters_Vtbl {
         *iid == <ICommandWithParameters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Search_Common`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 pub trait ICondition_Impl: Sized + super::Com::IPersistStream_Impl {
     fn GetConditionType(&self) -> ::windows_core::Result<Common::CONDITION_TYPE>;
@@ -831,7 +821,7 @@ impl ICondition_Vtbl {
         *iid == <ICondition as ::windows_core::ComInterface>::IID || *iid == <super::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <super::Com::IPersistStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Search_Common`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ICondition2_Impl: Sized + ICondition_Impl {
     fn GetLocale(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -868,7 +858,7 @@ impl ICondition2_Vtbl {
         *iid == <ICondition2 as ::windows_core::ComInterface>::IID || *iid == <super::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <super::Com::IPersistStream as ::windows_core::ComInterface>::IID || *iid == <ICondition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Search_Common`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 pub trait IConditionFactory_Impl: Sized {
     fn MakeNot(&self, pcsub: ::core::option::Option<&ICondition>, fsimplify: super::super::Foundation::BOOL) -> ::windows_core::Result<ICondition>;
@@ -937,7 +927,7 @@ impl IConditionFactory_Vtbl {
         *iid == <IConditionFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Search_Common`, `Win32_System_Variant`, `Win32_UI_Shell_Common`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IConditionFactory2_Impl: Sized + IConditionFactory_Impl {
     fn CreateTrueFalse(&self, fval: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1017,7 +1007,7 @@ impl IConditionFactory2_Vtbl {
         *iid == <IConditionFactory2 as ::windows_core::ComInterface>::IID || *iid == <IConditionFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Search_Common`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 pub trait IConditionGenerator_Impl: Sized {
     fn Initialize(&self, pschemaprovider: ::core::option::Option<&ISchemaProvider>) -> ::windows_core::Result<()>;
@@ -1076,7 +1066,6 @@ impl IConditionGenerator_Vtbl {
         *iid == <IConditionGenerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IConvertType_Impl: Sized {
     fn CanConvert(&self, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows_core::Result<()>;
 }
@@ -1094,7 +1083,7 @@ impl IConvertType_Vtbl {
         *iid == <IConvertType as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICreateRow_Impl: Sized {
     fn CreateRow(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, pwszurl: &::windows_core::PCWSTR, dwbindurlflags: u32, rguid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, pauthenticate: ::core::option::Option<&super::Com::IAuthenticate>, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut ::windows_core::PWSTR, ppunk: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1115,7 +1104,6 @@ impl ICreateRow_Vtbl {
         *iid == <ICreateRow as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDBAsynchNotify_Impl: Sized {
     fn OnLowResource(&self, dwreserved: usize) -> ::windows_core::Result<()>;
     fn OnProgress(&self, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1150,7 +1138,6 @@ impl IDBAsynchNotify_Vtbl {
         *iid == <IDBAsynchNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDBAsynchStatus_Impl: Sized {
     fn Abort(&self, hchapter: usize, eoperation: u32) -> ::windows_core::Result<()>;
     fn GetStatus(&self, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -1178,7 +1165,7 @@ impl IDBAsynchStatus_Vtbl {
         *iid == <IDBAsynchStatus as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDBBinderProperties_Impl: Sized + IDBProperties_Impl {
     fn Reset(&self) -> ::windows_core::Result<()>;
@@ -1199,7 +1186,6 @@ impl IDBBinderProperties_Vtbl {
         *iid == <IDBBinderProperties as ::windows_core::ComInterface>::IID || *iid == <IDBProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDBCreateCommand_Impl: Sized {
     fn CreateCommand(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -1223,7 +1209,6 @@ impl IDBCreateCommand_Vtbl {
         *iid == <IDBCreateCommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDBCreateSession_Impl: Sized {
     fn CreateSession(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -1247,7 +1232,7 @@ impl IDBCreateSession_Vtbl {
         *iid == <IDBCreateSession as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDBDataSourceAdmin_Impl: Sized {
     fn CreateDataSource(&self, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID, ppdbsession: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1292,7 +1277,7 @@ impl IDBDataSourceAdmin_Vtbl {
         *iid == <IDBDataSourceAdmin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDBInfo_Impl: Sized {
     fn GetKeywords(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1329,7 +1314,6 @@ impl IDBInfo_Vtbl {
         *iid == <IDBInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDBInitialize_Impl: Sized {
     fn Initialize(&self) -> ::windows_core::Result<()>;
     fn Uninitialize(&self) -> ::windows_core::Result<()>;
@@ -1357,7 +1341,7 @@ impl IDBInitialize_Vtbl {
         *iid == <IDBInitialize as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDBPromptInitialize_Impl: Sized {
     fn PromptDataSource(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppdatasource: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1394,7 +1378,7 @@ impl IDBPromptInitialize_Vtbl {
         *iid == <IDBPromptInitialize as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDBProperties_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()>;
@@ -1432,7 +1416,6 @@ impl IDBProperties_Vtbl {
         *iid == <IDBProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDBSchemaCommand_Impl: Sized {
     fn GetCommand(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, rguidschema: *const ::windows_core::GUID) -> ::windows_core::Result<ICommand>;
     fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1466,7 +1449,7 @@ impl IDBSchemaCommand_Vtbl {
         *iid == <IDBSchemaCommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDBSchemaRowset_Impl: Sized {
     fn GetRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, rguidschema: *const ::windows_core::GUID, crestrictions: u32, rgrestrictions: *const super::Variant::VARIANT, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1497,7 +1480,7 @@ impl IDBSchemaRowset_Vtbl {
         *iid == <IDBSchemaRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDCInfo_Impl: Sized {
     fn GetInfo(&self, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows_core::Result<()>;
@@ -1528,7 +1511,6 @@ impl IDCInfo_Vtbl {
         *iid == <IDCInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IDataConvert_Impl: Sized {
     fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: *mut u32, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows_core::Result<()>;
     fn CanConvert(&self, wsrctype: u16, wdsttype: u16) -> ::windows_core::Result<()>;
@@ -1577,7 +1559,7 @@ impl IDataConvert_Vtbl {
         *iid == <IDataConvert as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDataInitialize_Impl: Sized {
     fn GetDataSource(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, dwclsctx: u32, pwszinitializationstring: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppdatasource: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1654,7 +1636,7 @@ impl IDataInitialize_Vtbl {
         *iid == <IDataInitialize as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataSourceLocator_Impl: Sized + super::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
@@ -1711,7 +1693,6 @@ impl IDataSourceLocator_Vtbl {
         *iid == <IDataSourceLocator as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IEntity_Impl: Sized {
     fn Name(&self, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
     fn Base(&self) -> ::windows_core::Result<IEntity>;
@@ -1799,7 +1780,7 @@ impl IEntity_Vtbl {
         *iid == <IEntity as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumItemProperties_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ITEMPROP, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -1863,7 +1844,6 @@ impl IEnumItemProperties_Vtbl {
         *iid == <IEnumItemProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IEnumSearchRoots_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<ISearchRoot>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -1911,7 +1891,6 @@ impl IEnumSearchRoots_Vtbl {
         *iid == <IEnumSearchRoots as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IEnumSearchScopeRules_Impl: Sized {
     fn Next(&self, celt: u32, pprgelt: *mut ::core::option::Option<ISearchScopeRule>, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -1959,7 +1938,6 @@ impl IEnumSearchScopeRules_Vtbl {
         *iid == <IEnumSearchScopeRules as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IEnumSubscription_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut ::windows_core::GUID, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
@@ -2020,7 +1998,7 @@ impl IEnumSubscription_Vtbl {
         *iid == <IEnumSubscription as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IErrorLookup_Impl: Sized {
     fn GetErrorDescription(&self, hrerror: ::windows_core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut ::windows_core::BSTR, pbstrdescription: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -2058,7 +2036,7 @@ impl IErrorLookup_Vtbl {
         *iid == <IErrorLookup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IErrorRecords_Impl: Sized {
     fn AddErrorRecord(&self, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: ::core::option::Option<&::windows_core::IUnknown>, dwdynamicerrorid: u32) -> ::windows_core::Result<()>;
@@ -2141,7 +2119,6 @@ impl IErrorRecords_Vtbl {
         *iid == <IErrorRecords as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IGetDataSource_Impl: Sized {
     fn GetDataSource(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -2165,7 +2142,6 @@ impl IGetDataSource_Vtbl {
         *iid == <IGetDataSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IGetRow_Impl: Sized {
     fn GetRowFromHROW(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, hrow: usize, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetURLFromHROW(&self, hrow: usize) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -2205,7 +2181,6 @@ impl IGetRow_Vtbl {
         *iid == <IGetRow as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IGetSession_Impl: Sized {
     fn GetSession(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -2229,7 +2204,6 @@ impl IGetSession_Vtbl {
         *iid == <IGetSession as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IGetSourceRow_Impl: Sized {
     fn GetSourceRow(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -2253,7 +2227,7 @@ impl IGetSourceRow_Vtbl {
         *iid == <IGetSourceRow as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IIndexDefinition_Impl: Sized {
     fn CreateIndex(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, cindexcolumndescs: usize, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()>;
@@ -2284,7 +2258,7 @@ impl IIndexDefinition_Vtbl {
         *iid == <IIndexDefinition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IInterval_Impl: Sized {
     fn GetLimits(&self, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
@@ -2305,7 +2279,7 @@ impl IInterval_Vtbl {
         *iid == <IInterval as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ILoadFilter_Impl: Sized {
     fn LoadIFilter(&self, pwcspath: &::windows_core::PCWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: ::core::option::Option<&::windows_core::IUnknown>, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows_core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows_core::Result<()>;
@@ -2343,7 +2317,7 @@ impl ILoadFilter_Vtbl {
         *iid == <ILoadFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait ILoadFilterWithPrivateComActivation_Impl: Sized + ILoadFilter_Impl {
     fn LoadIFilterWithPrivateComActivation(&self, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: super::super::Foundation::BOOL, filterclsid: *mut ::windows_core::GUID, isfilterprivatecomactivated: *mut super::super::Foundation::BOOL, filterobj: *mut ::core::option::Option<super::super::Storage::IndexServer::IFilter>) -> ::windows_core::Result<()>;
@@ -2367,7 +2341,7 @@ impl ILoadFilterWithPrivateComActivation_Vtbl {
         *iid == <ILoadFilterWithPrivateComActivation as ::windows_core::ComInterface>::IID || *iid == <ILoadFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMDDataset_Impl: Sized {
     fn FreeAxisInfo(&self, caxes: usize, rgaxisinfo: *const MDAXISINFO) -> ::windows_core::Result<()>;
@@ -2425,7 +2399,6 @@ impl IMDDataset_Vtbl {
         *iid == <IMDDataset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IMDFind_Impl: Sized {
     fn FindCell(&self, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *const ::windows_core::PCWSTR) -> ::windows_core::Result<usize>;
     fn FindTuple(&self, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *const ::windows_core::PCWSTR) -> ::windows_core::Result<u32>;
@@ -2465,7 +2438,7 @@ impl IMDFind_Vtbl {
         *iid == <IMDFind as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMDRangeRowset_Impl: Sized {
     fn GetRangeRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, ulstartcell: usize, ulendcell: usize, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -2486,7 +2459,6 @@ impl IMDRangeRowset_Vtbl {
         *iid == <IMDRangeRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IMetaData_Impl: Sized {
     fn GetData(&self, ppszkey: *mut ::windows_core::PWSTR, ppszvalue: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
 }
@@ -2504,7 +2476,6 @@ impl IMetaData_Vtbl {
         *iid == <IMetaData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IMultipleResults_Impl: Sized {
     fn GetResult(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, lresultflag: isize, riid: *const ::windows_core::GUID, pcrowsaffected: *mut isize, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
@@ -2522,7 +2493,6 @@ impl IMultipleResults_Vtbl {
         *iid == <IMultipleResults as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait INamedEntity_Impl: Sized {
     fn GetValue(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn DefaultPhrase(&self, ppszphrase: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -2556,7 +2526,6 @@ impl INamedEntity_Vtbl {
         *iid == <INamedEntity as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait INamedEntityCollector_Impl: Sized {
     fn Add(&self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: ::core::option::Option<&IEntity>, pszvalue: &::windows_core::PCWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows_core::Result<()>;
 }
@@ -2574,7 +2543,7 @@ impl INamedEntityCollector_Vtbl {
         *iid == <INamedEntityCollector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authorization`, `Win32_Storage_IndexServer`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
 pub trait IObjectAccessControl_Impl: Sized {
     fn GetObjectAccessRights(&self, pobject: *const SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows_core::Result<()>;
@@ -2638,7 +2607,7 @@ impl IObjectAccessControl_Vtbl {
         *iid == <IObjectAccessControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IOpLockStatus_Impl: Sized {
     fn IsOplockValid(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2694,7 +2663,7 @@ impl IOpLockStatus_Vtbl {
         *iid == <IOpLockStatus as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IOpenRowset_Impl: Sized {
     fn OpenRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -2715,7 +2684,6 @@ impl IOpenRowset_Vtbl {
         *iid == <IOpenRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IParentRowset_Impl: Sized {
     fn GetChildRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, iordinal: usize, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -2739,7 +2707,7 @@ impl IParentRowset_Vtbl {
         *iid == <IParentRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IProtocolHandlerSite_Impl: Sized {
     fn GetFilter(&self, pclsidobj: *const ::windows_core::GUID, pcwszcontenttype: &::windows_core::PCWSTR, pcwszextension: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::Storage::IndexServer::IFilter>;
@@ -2766,7 +2734,7 @@ impl IProtocolHandlerSite_Vtbl {
         *iid == <IProtocolHandlerSite as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProvideMoniker_Impl: Sized {
     fn GetMoniker(&self) -> ::windows_core::Result<super::Com::IMoniker>;
@@ -2793,7 +2761,7 @@ impl IProvideMoniker_Vtbl {
         *iid == <IProvideMoniker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IQueryParser_Impl: Sized {
     fn Parse(&self, pszinputstring: &::windows_core::PCWSTR, pcustomproperties: ::core::option::Option<&super::Com::IEnumUnknown>) -> ::windows_core::Result<IQuerySolution>;
@@ -2896,7 +2864,7 @@ impl IQueryParser_Vtbl {
         *iid == <IQueryParser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IQueryParserManager_Impl: Sized {
     fn CreateLoadedParser(&self, pszcatalog: &::windows_core::PCWSTR, langidforkeywords: u16, riid: *const ::windows_core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2934,7 +2902,7 @@ impl IQueryParserManager_Vtbl {
         *iid == <IQueryParserManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Search_Common\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Search_Common`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_System_Variant"))]
 pub trait IQuerySolution_Impl: Sized + IConditionFactory_Impl {
     fn GetQuery(&self, ppquerynode: *mut ::core::option::Option<ICondition>, ppmaintype: *mut ::core::option::Option<IEntity>) -> ::windows_core::Result<()>;
@@ -2972,7 +2940,6 @@ impl IQuerySolution_Vtbl {
         *iid == <IQuerySolution as ::windows_core::ComInterface>::IID || *iid == <IConditionFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IReadData_Impl: Sized {
     fn ReadData(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: HACCESSOR, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows_core::Result<()>;
     fn ReleaseChapter(&self, hchapter: usize) -> ::windows_core::Result<()>;
@@ -3000,7 +2967,6 @@ impl IReadData_Vtbl {
         *iid == <IReadData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRegisterProvider_Impl: Sized {
     fn GetURLMapping(&self, pwszurl: &::windows_core::PCWSTR, dwreserved: usize) -> ::windows_core::Result<::windows_core::GUID>;
     fn SetURLMapping(&self, pwszurl: &::windows_core::PCWSTR, dwreserved: usize, rclsidprovider: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -3041,7 +3007,7 @@ impl IRegisterProvider_Vtbl {
         *iid == <IRegisterProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRelationship_Impl: Sized {
     fn Name(&self, ppszname: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -3105,7 +3071,7 @@ impl IRelationship_Vtbl {
         *iid == <IRelationship as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IRichChunk_Impl: Sized {
     fn GetData(&self, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut ::windows_core::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
@@ -3126,7 +3092,7 @@ impl IRichChunk_Vtbl {
         *iid == <IRichChunk as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRow_Impl: Sized {
     fn GetColumns(&self, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows_core::Result<()>;
@@ -3164,7 +3130,7 @@ impl IRow_Vtbl {
         *iid == <IRow as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IRowChange_Impl: Sized {
     fn SetColumns(&self, ccolumns: usize, rgcolumns: *const DBCOLUMNACCESS) -> ::windows_core::Result<()>;
@@ -3185,7 +3151,6 @@ impl IRowChange_Vtbl {
         *iid == <IRowChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowPosition_Impl: Sized {
     fn ClearRowPosition(&self) -> ::windows_core::Result<()>;
     fn GetRowPosition(&self, phchapter: *mut usize, phrow: *mut usize, pdwpositionflags: *mut u32) -> ::windows_core::Result<()>;
@@ -3240,7 +3205,7 @@ impl IRowPosition_Vtbl {
         *iid == <IRowPosition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowPositionChange_Impl: Sized {
     fn OnRowPositionChange(&self, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3261,7 +3226,7 @@ impl IRowPositionChange_Vtbl {
         *iid == <IRowPositionChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait IRowSchemaChange_Impl: Sized + IRowChange_Impl {
     fn DeleteColumns(&self, ccolumns: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgdwstatus: *mut u32) -> ::windows_core::Result<()>;
@@ -3292,7 +3257,6 @@ impl IRowSchemaChange_Vtbl {
         *iid == <IRowSchemaChange as ::windows_core::ComInterface>::IID || *iid == <IRowChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowset_Impl: Sized {
     fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()>;
     fn GetData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3341,7 +3305,7 @@ impl IRowset_Vtbl {
         *iid == <IRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetAsynch_Impl: Sized {
     fn RatioFinished(&self, puldenominator: *mut usize, pulnumerator: *mut usize, pcrows: *mut usize, pfnewrows: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3372,7 +3336,6 @@ impl IRowsetAsynch_Vtbl {
         *iid == <IRowsetAsynch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetBookmark_Impl: Sized {
     fn PositionOnBookmark(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows_core::Result<()>;
 }
@@ -3390,7 +3353,6 @@ impl IRowsetBookmark_Vtbl {
         *iid == <IRowsetBookmark as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetChange_Impl: Sized {
     fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows_core::Result<()>;
     fn SetData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3431,7 +3393,6 @@ impl IRowsetChange_Vtbl {
         *iid == <IRowsetChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetChangeExtInfo_Impl: Sized {
     fn GetOriginalRow(&self, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows_core::Result<()>;
     fn GetPendingColumns(&self, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> ::windows_core::Result<()>;
@@ -3459,7 +3420,6 @@ impl IRowsetChangeExtInfo_Vtbl {
         *iid == <IRowsetChangeExtInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetChapterMember_Impl: Sized {
     fn IsRowInChapter(&self, hchapter: usize, hrow: usize) -> ::windows_core::Result<()>;
 }
@@ -3477,7 +3437,6 @@ impl IRowsetChapterMember_Vtbl {
         *iid == <IRowsetChapterMember as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetCopyRows_Impl: Sized {
     fn CloseSource(&self, hsourceid: u16) -> ::windows_core::Result<()>;
     fn CopyByHROWS(&self, hsourceid: u16, hreserved: usize, crows: isize, rghrows: *const usize, bflags: u32) -> ::windows_core::Result<()>;
@@ -3531,7 +3490,7 @@ impl IRowsetCopyRows_Vtbl {
         *iid == <IRowsetCopyRows as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRowsetCurrentIndex_Impl: Sized + IRowsetIndex_Impl {
     fn GetIndex(&self) -> ::windows_core::Result<*mut super::super::Storage::IndexServer::DBID>;
@@ -3568,7 +3527,7 @@ impl IRowsetCurrentIndex_Vtbl {
         *iid == <IRowsetCurrentIndex as ::windows_core::ComInterface>::IID || *iid == <IRowsetIndex as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IRowsetEvents_Impl: Sized {
     fn OnNewItem(&self, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows_core::Result<()>;
@@ -3613,7 +3572,6 @@ impl IRowsetEvents_Vtbl {
         *iid == <IRowsetEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetExactScroll_Impl: Sized + IRowsetScroll_Impl {
     fn GetExactPosition(&self, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows_core::Result<()>;
 }
@@ -3631,7 +3589,7 @@ impl IRowsetExactScroll_Vtbl {
         *iid == <IRowsetExactScroll as ::windows_core::ComInterface>::IID || *iid == <IRowset as ::windows_core::ComInterface>::IID || *iid == <IRowsetLocate as ::windows_core::ComInterface>::IID || *iid == <IRowsetScroll as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetFastLoad_Impl: Sized {
     fn InsertRow(&self, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3662,7 +3620,6 @@ impl IRowsetFastLoad_Vtbl {
         *iid == <IRowsetFastLoad as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetFind_Impl: Sized {
     fn FindNextRow(&self, hchapter: usize, haccessor: HACCESSOR, pfindvalue: *const ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()>;
 }
@@ -3680,7 +3637,6 @@ impl IRowsetFind_Vtbl {
         *iid == <IRowsetFind as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetIdentity_Impl: Sized {
     fn IsSameRow(&self, hthisrow: usize, hthatrow: usize) -> ::windows_core::Result<()>;
 }
@@ -3698,7 +3654,7 @@ impl IRowsetIdentity_Vtbl {
         *iid == <IRowsetIdentity as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRowsetIndex_Impl: Sized {
     fn GetIndexInfo(&self, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()>;
@@ -3736,7 +3692,7 @@ impl IRowsetIndex_Vtbl {
         *iid == <IRowsetIndex as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRowsetInfo_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()>;
@@ -3786,7 +3742,6 @@ impl IRowsetInfo_Vtbl {
         *iid == <IRowsetInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetKeys_Impl: Sized {
     fn ListKeys(&self, pccolumns: *mut usize, prgcolumns: *mut *mut usize) -> ::windows_core::Result<()>;
 }
@@ -3804,7 +3759,6 @@ impl IRowsetKeys_Vtbl {
         *iid == <IRowsetKeys as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetLocate_Impl: Sized + IRowset_Impl {
     fn Compare(&self, hreserved: usize, cbbookmark1: usize, pbookmark1: *const u8, cbbookmark2: usize, pbookmark2: *const u8) -> ::windows_core::Result<u32>;
     fn GetRowsAt(&self, hreserved1: usize, hreserved2: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()>;
@@ -3852,7 +3806,6 @@ impl IRowsetLocate_Vtbl {
         *iid == <IRowsetLocate as ::windows_core::ComInterface>::IID || *iid == <IRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetNewRowAfter_Impl: Sized {
     fn SetNewDataAfter(&self, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: HACCESSOR, pdata: *const u8) -> ::windows_core::Result<usize>;
 }
@@ -3876,7 +3829,6 @@ impl IRowsetNewRowAfter_Vtbl {
         *iid == <IRowsetNewRowAfter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetNextRowset_Impl: Sized {
     fn GetNextRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -3900,7 +3852,7 @@ impl IRowsetNextRowset_Vtbl {
         *iid == <IRowsetNextRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetNotify_Impl: Sized {
     fn OnFieldChange(&self, prowset: ::core::option::Option<&IRowset>, hrow: usize, ccolumns: usize, rgcolumns: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -3938,7 +3890,6 @@ impl IRowsetNotify_Vtbl {
         *iid == <IRowsetNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetPrioritization_Impl: Sized {
     fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopestatisticseventfrequency: u32) -> ::windows_core::Result<()>;
     fn GetScopePriority(&self, priority: *mut PRIORITY_LEVEL, scopestatisticseventfrequency: *mut u32) -> ::windows_core::Result<()>;
@@ -3973,7 +3924,6 @@ impl IRowsetPrioritization_Vtbl {
         *iid == <IRowsetPrioritization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetQueryStatus_Impl: Sized {
     fn GetStatus(&self, pdwstatus: *mut u32) -> ::windows_core::Result<()>;
     fn GetStatusEx(&self, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> ::windows_core::Result<()>;
@@ -4001,7 +3951,7 @@ impl IRowsetQueryStatus_Vtbl {
         *iid == <IRowsetQueryStatus as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRowsetRefresh_Impl: Sized {
     fn RefreshVisibleData(&self, hchapter: usize, crows: usize, rghrows: *const usize, foverwrite: super::super::Foundation::BOOL, pcrowsrefreshed: *mut usize, prghrowsrefreshed: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows_core::Result<()>;
@@ -4032,7 +3982,6 @@ impl IRowsetRefresh_Vtbl {
         *iid == <IRowsetRefresh as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetResynch_Impl: Sized {
     fn GetVisibleData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn ResynchRows(&self, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows_core::Result<()>;
@@ -4060,7 +4009,6 @@ impl IRowsetResynch_Vtbl {
         *iid == <IRowsetResynch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetScroll_Impl: Sized + IRowsetLocate_Impl {
     fn GetApproximatePosition(&self, hreserved: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows_core::Result<()>;
     fn GetRowsAtRatio(&self, hreserved1: usize, hreserved2: usize, ulnumerator: usize, uldenominator: usize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()>;
@@ -4088,7 +4036,6 @@ impl IRowsetScroll_Vtbl {
         *iid == <IRowsetScroll as ::windows_core::ComInterface>::IID || *iid == <IRowset as ::windows_core::ComInterface>::IID || *iid == <IRowsetLocate as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetUpdate_Impl: Sized + IRowsetChange_Impl {
     fn GetOriginalData(&self, hrow: usize, haccessor: HACCESSOR, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetPendingRows(&self, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> ::windows_core::Result<()>;
@@ -4137,7 +4084,6 @@ impl IRowsetUpdate_Vtbl {
         *iid == <IRowsetUpdate as ::windows_core::ComInterface>::IID || *iid == <IRowsetChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetView_Impl: Sized {
     fn CreateView(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetView(&self, hchapter: usize, riid: *const ::windows_core::GUID, phchaptersource: *mut usize, ppview: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -4171,7 +4117,6 @@ impl IRowsetView_Vtbl {
         *iid == <IRowsetView as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetWatchAll_Impl: Sized {
     fn Acknowledge(&self) -> ::windows_core::Result<()>;
     fn Start(&self) -> ::windows_core::Result<()>;
@@ -4206,7 +4151,6 @@ impl IRowsetWatchAll_Vtbl {
         *iid == <IRowsetWatchAll as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetWatchNotify_Impl: Sized {
     fn OnChange(&self, prowset: ::core::option::Option<&IRowset>, echangereason: u32) -> ::windows_core::Result<()>;
 }
@@ -4224,7 +4168,6 @@ impl IRowsetWatchNotify_Vtbl {
         *iid == <IRowsetWatchNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IRowsetWatchRegion_Impl: Sized + IRowsetWatchAll_Impl {
     fn CreateWatchRegion(&self, dwwatchmode: u32) -> ::windows_core::Result<usize>;
     fn ChangeWatchMode(&self, hregion: usize, dwwatchmode: u32) -> ::windows_core::Result<()>;
@@ -4286,7 +4229,7 @@ impl IRowsetWatchRegion_Vtbl {
         *iid == <IRowsetWatchRegion as ::windows_core::ComInterface>::IID || *iid == <IRowsetWatchAll as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRowsetWithParameters_Impl: Sized {
     fn GetParameterInfo(&self, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -4317,7 +4260,6 @@ impl IRowsetWithParameters_Vtbl {
         *iid == <IRowsetWithParameters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISQLErrorInfo_Impl: Sized {
     fn GetSQLInfo(&self, pbstrsqlstate: *mut ::windows_core::BSTR, plnativeerror: *mut i32) -> ::windows_core::Result<()>;
 }
@@ -4335,7 +4277,7 @@ impl ISQLErrorInfo_Vtbl {
         *iid == <ISQLErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISQLGetDiagField_Impl: Sized {
     fn GetDiagField(&self, pdiaginfo: *mut KAGGETDIAG) -> ::windows_core::Result<()>;
@@ -4356,7 +4298,7 @@ impl ISQLGetDiagField_Vtbl {
         *iid == <ISQLGetDiagField as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Variant`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub trait ISQLRequestDiagFields_Impl: Sized {
     fn RequestDiagFields(&self, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows_core::Result<()>;
@@ -4377,7 +4319,6 @@ impl ISQLRequestDiagFields_Vtbl {
         *iid == <ISQLRequestDiagFields as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISQLServerErrorInfo_Impl: Sized {
     fn GetErrorInfo(&self, pperrorinfo: *mut *mut SSERRORINFO, ppstringsbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
 }
@@ -4395,7 +4336,6 @@ impl ISQLServerErrorInfo_Vtbl {
         *iid == <ISQLServerErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISchemaLocalizerSupport_Impl: Sized {
     fn Localize(&self, pszglobalstring: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::PWSTR>;
 }
@@ -4419,7 +4359,7 @@ impl ISchemaLocalizerSupport_Vtbl {
         *iid == <ISchemaLocalizerSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub trait ISchemaLock_Impl: Sized {
     fn GetSchemaLock(&self, ptableid: *mut super::super::Storage::IndexServer::DBID, lmmode: u32, phlockhandle: *mut super::super::Foundation::HANDLE, ptableversion: *mut u64) -> ::windows_core::Result<()>;
@@ -4450,7 +4390,6 @@ impl ISchemaLock_Vtbl {
         *iid == <ISchemaLock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISchemaProvider_Impl: Sized {
     fn Entities(&self, riid: *const ::windows_core::GUID, pentities: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn RootEntity(&self) -> ::windows_core::Result<IEntity>;
@@ -4525,7 +4464,7 @@ impl ISchemaProvider_Vtbl {
         *iid == <ISchemaProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IScopedOperations_Impl: Sized + IBindResource_Impl {
     fn Copy(&self, crows: usize, rgpwszsourceurls: *const ::windows_core::PCWSTR, rgpwszdesturls: *const ::windows_core::PCWSTR, dwcopyflags: u32, pauthenticate: ::core::option::Option<&super::Com::IAuthenticate>, rgdwstatus: *mut u32, rgpwsznewurls: *mut ::windows_core::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -4570,7 +4509,7 @@ impl IScopedOperations_Vtbl {
         *iid == <IScopedOperations as ::windows_core::ComInterface>::IID || *iid == <IBindResource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISearchCatalogManager_Impl: Sized {
     fn Name(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -4847,7 +4786,7 @@ impl ISearchCatalogManager_Vtbl {
         *iid == <ISearchCatalogManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISearchCatalogManager2_Impl: Sized + ISearchCatalogManager_Impl {
     fn PrioritizeMatchingURLs(&self, pszpattern: &::windows_core::PCWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows_core::Result<()>;
@@ -4868,7 +4807,7 @@ impl ISearchCatalogManager2_Vtbl {
         *iid == <ISearchCatalogManager2 as ::windows_core::ComInterface>::IID || *iid == <ISearchCatalogManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchCrawlScopeManager_Impl: Sized {
     fn AddDefaultScopeRule(&self, pszurl: &::windows_core::PCWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows_core::Result<()>;
@@ -5033,7 +4972,7 @@ impl ISearchCrawlScopeManager_Vtbl {
         *iid == <ISearchCrawlScopeManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchCrawlScopeManager2_Impl: Sized + ISearchCrawlScopeManager_Impl {
     fn GetVersion(&self, plversion: *mut *mut i32, phfilemapping: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
@@ -5054,7 +4993,7 @@ impl ISearchCrawlScopeManager2_Vtbl {
         *iid == <ISearchCrawlScopeManager2 as ::windows_core::ComInterface>::IID || *iid == <ISearchCrawlScopeManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchItemsChangedSink_Impl: Sized {
     fn StartedMonitoringScope(&self, pszurl: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -5092,7 +5031,7 @@ impl ISearchItemsChangedSink_Vtbl {
         *iid == <ISearchItemsChangedSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchLanguageSupport_Impl: Sized {
     fn SetDiacriticSensitivity(&self, fdiacriticsensitive: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -5156,7 +5095,7 @@ impl ISearchLanguageSupport_Vtbl {
         *iid == <ISearchLanguageSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISearchManager_Impl: Sized {
     fn GetIndexerVersionStr(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -5318,7 +5257,7 @@ impl ISearchManager_Vtbl {
         *iid == <ISearchManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait ISearchManager2_Impl: Sized + ISearchManager_Impl {
     fn CreateCatalog(&self, pszcatalog: &::windows_core::PCWSTR) -> ::windows_core::Result<ISearchCatalogManager>;
@@ -5355,7 +5294,6 @@ impl ISearchManager2_Vtbl {
         *iid == <ISearchManager2 as ::windows_core::ComInterface>::IID || *iid == <ISearchManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISearchNotifyInlineSite_Impl: Sized {
     fn OnItemIndexedStatusChange(&self, sipstatus: SEARCH_INDEXING_PHASE, dwnumentries: u32, rgitemstatusentries: *const SEARCH_ITEM_INDEXING_STATUS) -> ::windows_core::Result<()>;
     fn OnCatalogStatusChange(&self, guidcatalogresetsignature: *const ::windows_core::GUID, guidcheckpointsignature: *const ::windows_core::GUID, dwlastcheckpointnumber: u32) -> ::windows_core::Result<()>;
@@ -5383,7 +5321,6 @@ impl ISearchNotifyInlineSite_Vtbl {
         *iid == <ISearchNotifyInlineSite as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISearchPersistentItemsChangedSink_Impl: Sized {
     fn StartedMonitoringScope(&self, pszurl: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn StoppedMonitoringScope(&self, pszurl: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -5418,7 +5355,7 @@ impl ISearchPersistentItemsChangedSink_Vtbl {
         *iid == <ISearchPersistentItemsChangedSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchProtocol_Impl: Sized {
     fn Init(&self, ptimeoutinfo: *const TIMEOUT_INFO, pprotocolhandlersite: ::core::option::Option<&IProtocolHandlerSite>, pproxyinfo: *const PROXY_INFO) -> ::windows_core::Result<()>;
@@ -5469,7 +5406,7 @@ impl ISearchProtocol_Vtbl {
         *iid == <ISearchProtocol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISearchProtocol2_Impl: Sized + ISearchProtocol_Impl {
     fn CreateAccessorEx(&self, pcwszurl: &::windows_core::PCWSTR, pauthenticationinfo: *const AUTHENTICATION_INFO, pincrementalaccessinfo: *const INCREMENTAL_ACCESS_INFO, piteminfo: *const ITEM_INFO, puserdata: *const super::Com::BLOB) -> ::windows_core::Result<IUrlAccessor>;
@@ -5496,7 +5433,6 @@ impl ISearchProtocol2_Vtbl {
         *iid == <ISearchProtocol2 as ::windows_core::ComInterface>::IID || *iid == <ISearchProtocol as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISearchProtocolThreadContext_Impl: Sized {
     fn ThreadInit(&self) -> ::windows_core::Result<()>;
     fn ThreadShutdown(&self) -> ::windows_core::Result<()>;
@@ -5531,7 +5467,7 @@ impl ISearchProtocolThreadContext_Vtbl {
         *iid == <ISearchProtocolThreadContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait ISearchQueryHelper_Impl: Sized {
     fn ConnectionString(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -5761,7 +5697,7 @@ impl ISearchQueryHelper_Vtbl {
         *iid == <ISearchQueryHelper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub trait ISearchQueryHits_Impl: Sized {
     fn Init(&self, pflt: ::core::option::Option<&super::super::Storage::IndexServer::IFilter>, ulflags: u32) -> i32;
@@ -5799,7 +5735,7 @@ impl ISearchQueryHits_Vtbl {
         *iid == <ISearchQueryHits as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchRoot_Impl: Sized {
     fn SetSchedule(&self, psztaskarg: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -6036,7 +5972,7 @@ impl ISearchRoot_Vtbl {
         *iid == <ISearchRoot as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISearchScopeRule_Impl: Sized {
     fn PatternOrURL(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -6105,7 +6041,7 @@ impl ISearchScopeRule_Vtbl {
         *iid == <ISearchScopeRule as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ISearchViewChangedSink_Impl: Sized {
     fn OnChange(&self, pdwdocid: *const i32, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6126,7 +6062,7 @@ impl ISearchViewChangedSink_Vtbl {
         *iid == <ISearchViewChangedSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Security_Authorization\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Security_Authorization`"]
 #[cfg(feature = "Win32_Security_Authorization")]
 pub trait ISecurityInfo_Impl: Sized {
     fn GetCurrentTrustee(&self) -> ::windows_core::Result<*mut super::super::Security::Authorization::TRUSTEE_W>;
@@ -6176,7 +6112,6 @@ impl ISecurityInfo_Vtbl {
         *iid == <ISecurityInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IService_Impl: Sized {
     fn InvokeService(&self, punkinner: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
@@ -6194,7 +6129,7 @@ impl IService_Vtbl {
         *iid == <IService as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISessionProperties_Impl: Sized {
     fn GetProperties(&self, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows_core::Result<()>;
@@ -6225,7 +6160,6 @@ impl ISessionProperties_Vtbl {
         *iid == <ISessionProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ISimpleCommandCreator_Impl: Sized {
     fn CreateICommand(&self, ppiunknown: *mut ::core::option::Option<::windows_core::IUnknown>, pouterunk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn VerifyCatalog(&self, pwszmachine: &::windows_core::PCWSTR, pwszcatalogname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -6260,7 +6194,7 @@ impl ISimpleCommandCreator_Vtbl {
         *iid == <ISimpleCommandCreator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISourcesRowset_Impl: Sized {
     fn GetSourcesRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -6281,7 +6215,7 @@ impl ISourcesRowset_Vtbl {
         *iid == <ISourcesRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStemmer_Impl: Sized {
     fn Init(&self, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6319,7 +6253,7 @@ impl IStemmer_Vtbl {
         *iid == <IStemmer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISubscriptionItem_Impl: Sized {
     fn GetCookie(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -6397,7 +6331,7 @@ impl ISubscriptionItem_Vtbl {
         *iid == <ISubscriptionItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISubscriptionMgr_Impl: Sized {
     fn DeleteSubscription(&self, pwszurl: &::windows_core::PCWSTR, hwnd: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -6476,7 +6410,7 @@ impl ISubscriptionMgr_Vtbl {
         *iid == <ISubscriptionMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISubscriptionMgr2_Impl: Sized + ISubscriptionMgr_Impl {
     fn GetItemFromURL(&self, pwszurl: &::windows_core::PCWSTR) -> ::windows_core::Result<ISubscriptionItem>;
@@ -6560,7 +6494,7 @@ impl ISubscriptionMgr2_Vtbl {
         *iid == <ISubscriptionMgr2 as ::windows_core::ComInterface>::IID || *iid == <ISubscriptionMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITableCreation_Impl: Sized + ITableDefinition_Impl {
     fn GetTableDefinition(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -6581,7 +6515,7 @@ impl ITableCreation_Vtbl {
         *iid == <ITableCreation as ::windows_core::ComInterface>::IID || *iid == <ITableDefinition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITableDefinition_Impl: Sized {
     fn CreateTable(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -6626,7 +6560,7 @@ impl ITableDefinition_Vtbl {
         *iid == <ITableDefinition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITableDefinitionWithConstraints_Impl: Sized + ITableCreation_Impl {
     fn AddConstraint(&self, ptableid: *const super::super::Storage::IndexServer::DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> ::windows_core::Result<()>;
@@ -6665,7 +6599,7 @@ impl ITableDefinitionWithConstraints_Vtbl {
         *iid == <ITableDefinitionWithConstraints as ::windows_core::ComInterface>::IID || *iid == <ITableDefinition as ::windows_core::ComInterface>::IID || *iid == <ITableCreation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait ITableRename_Impl: Sized {
     fn RenameColumn(&self, ptableid: *const super::super::Storage::IndexServer::DBID, poldcolumnid: *const super::super::Storage::IndexServer::DBID, pnewcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows_core::Result<()>;
@@ -6696,7 +6630,6 @@ impl ITableRename_Vtbl {
         *iid == <ITableRename as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait ITokenCollection_Impl: Sized {
     fn NumberOfTokens(&self, pcount: *const u32) -> ::windows_core::Result<()>;
     fn GetToken(&self, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -6724,7 +6657,7 @@ impl ITokenCollection_Vtbl {
         *iid == <ITokenCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_DistributedTransactionCoordinator`"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ITransactionJoin_Impl: Sized {
     fn GetOptionsObject(&self) -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransactionOptions>;
@@ -6761,7 +6694,7 @@ impl ITransactionJoin_Vtbl {
         *iid == <ITransactionJoin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_DistributedTransactionCoordinator`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
 pub trait ITransactionLocal_Impl: Sized + super::DistributedTransactionCoordinator::ITransaction_Impl {
     fn GetOptionsObject(&self) -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransactionOptions>;
@@ -6798,7 +6731,7 @@ impl ITransactionLocal_Vtbl {
         *iid == <ITransactionLocal as ::windows_core::ComInterface>::IID || *iid == <super::DistributedTransactionCoordinator::ITransaction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_DistributedTransactionCoordinator\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_DistributedTransactionCoordinator`"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 pub trait ITransactionObject_Impl: Sized {
     fn GetTransactionObject(&self, ultransactionlevel: u32) -> ::windows_core::Result<super::DistributedTransactionCoordinator::ITransaction>;
@@ -6825,7 +6758,7 @@ impl ITransactionObject_Vtbl {
         *iid == <ITransactionObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authorization`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITrusteeAdmin_Impl: Sized {
     fn CompareTrustees(&self, ptrustee1: *const super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *const super::super::Security::Authorization::TRUSTEE_W) -> ::windows_core::Result<()>;
@@ -6877,7 +6810,7 @@ impl ITrusteeAdmin_Vtbl {
         *iid == <ITrusteeAdmin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authorization`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
 pub trait ITrusteeGroupAdmin_Impl: Sized {
     fn AddMember(&self, pmembershiptrustee: *const super::super::Security::Authorization::TRUSTEE_W, pmembertrustee: *const super::super::Security::Authorization::TRUSTEE_W) -> ::windows_core::Result<()>;
@@ -6935,7 +6868,7 @@ impl ITrusteeGroupAdmin_Vtbl {
         *iid == <ITrusteeGroupAdmin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUMS_Impl: Sized {
     fn SqlUmsSuspend(&self, ticks: u32);
@@ -6996,7 +6929,6 @@ impl IUMS {
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IUMSInitialize_Impl: Sized {
     fn Initialize(&self, pums: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -7014,7 +6946,7 @@ impl IUMSInitialize_Vtbl {
         *iid == <IUMSInitialize as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUrlAccessor_Impl: Sized {
     fn AddRequestParameter(&self, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>;
@@ -7158,7 +7090,7 @@ impl IUrlAccessor_Vtbl {
         *iid == <IUrlAccessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUrlAccessor2_Impl: Sized + IUrlAccessor_Impl {
     fn GetDisplayUrl(&self, wszdocurl: ::windows_core::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows_core::Result<()>;
@@ -7196,7 +7128,7 @@ impl IUrlAccessor2_Vtbl {
         *iid == <IUrlAccessor2 as ::windows_core::ComInterface>::IID || *iid == <IUrlAccessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUrlAccessor3_Impl: Sized + IUrlAccessor2_Impl {
     fn GetImpersonationSidBlobs(&self, pcwszurl: &::windows_core::PCWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows_core::Result<()>;
@@ -7217,7 +7149,7 @@ impl IUrlAccessor3_Vtbl {
         *iid == <IUrlAccessor3 as ::windows_core::ComInterface>::IID || *iid == <IUrlAccessor as ::windows_core::ComInterface>::IID || *iid == <IUrlAccessor2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IUrlAccessor4_Impl: Sized + IUrlAccessor3_Impl {
     fn ShouldIndexItemContent(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -7260,7 +7192,6 @@ impl IUrlAccessor4_Vtbl {
         *iid == <IUrlAccessor4 as ::windows_core::ComInterface>::IID || *iid == <IUrlAccessor as ::windows_core::ComInterface>::IID || *iid == <IUrlAccessor2 as ::windows_core::ComInterface>::IID || *iid == <IUrlAccessor3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IViewChapter_Impl: Sized {
     fn GetSpecification(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn OpenViewChapter(&self, hsource: usize, phviewchapter: *mut usize) -> ::windows_core::Result<()>;
@@ -7294,7 +7225,7 @@ impl IViewChapter_Vtbl {
         *iid == <IViewChapter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IViewFilter_Impl: Sized {
     fn GetFilter(&self, haccessor: HACCESSOR, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -7332,7 +7263,6 @@ impl IViewFilter_Vtbl {
         *iid == <IViewFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IViewRowset_Impl: Sized {
     fn GetSpecification(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn OpenViewRowset(&self, punkouter: ::core::option::Option<&::windows_core::IUnknown>, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -7372,7 +7302,6 @@ impl IViewRowset_Vtbl {
         *iid == <IViewRowset as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IViewSort_Impl: Sized {
     fn GetSortOrder(&self, pcvalues: *mut usize, prgcolumns: *mut *mut usize, prgorders: *mut *mut u32) -> ::windows_core::Result<()>;
     fn SetSortOrder(&self, cvalues: usize, rgcolumns: *const usize, rgorders: *const u32) -> ::windows_core::Result<()>;
@@ -7400,7 +7329,7 @@ impl IViewSort_Vtbl {
         *iid == <IViewSort as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub trait IWordBreaker_Impl: Sized {
     fn Init(&self, fquery: super::super::Foundation::BOOL, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -7445,7 +7374,6 @@ impl IWordBreaker_Vtbl {
         *iid == <IWordBreaker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait IWordFormSink_Impl: Sized {
     fn PutAltWord(&self, pwcinbuf: &::windows_core::PCWSTR, cwc: u32) -> ::windows_core::Result<()>;
     fn PutWord(&self, pwcinbuf: &::windows_core::PCWSTR, cwc: u32) -> ::windows_core::Result<()>;
@@ -7473,7 +7401,7 @@ impl IWordFormSink_Vtbl {
         *iid == <IWordFormSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Storage_IndexServer`"]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub trait IWordSink_Impl: Sized {
     fn PutWord(&self, cwc: u32, pwcinbuf: &::windows_core::PCWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows_core::Result<()>;
@@ -7525,7 +7453,7 @@ impl IWordSink_Vtbl {
         *iid == <IWordSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait OLEDBSimpleProvider_Impl: Sized {
     fn getRowCount(&self) -> ::windows_core::Result<isize>;
@@ -7700,7 +7628,6 @@ impl OLEDBSimpleProvider_Vtbl {
         *iid == <OLEDBSimpleProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Search\"`, `\"implement\"`*"]
 pub trait OLEDBSimpleProviderListener_Impl: Sized {
     fn aboutToChangeCell(&self, irow: isize, icolumn: isize) -> ::windows_core::Result<()>;
     fn cellChanged(&self, irow: isize, icolumn: isize) -> ::windows_core::Result<()>;

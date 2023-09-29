@@ -496,7 +496,6 @@ pub struct IPhotoImportVideoSegment_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Sidecars: usize,
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(::windows_core::IUnknown);
@@ -515,7 +514,7 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
             (::windows_core::Interface::vtable(this).HasSucceeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeletedItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>> {
         let this = self;
@@ -610,7 +609,6 @@ impl ::windows_core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceRes
 ::windows_core::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl ::core::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportFindItemsResult(::windows_core::IUnknown);
@@ -629,7 +627,7 @@ impl PhotoImportFindItemsResult {
             (::windows_core::Interface::vtable(this).HasSucceeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FoundItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>> {
         let this = self;
@@ -716,7 +714,7 @@ impl PhotoImportFindItemsResult {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SelectNone)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectNewAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -806,7 +804,7 @@ impl PhotoImportFindItemsResult {
             (::windows_core::Interface::vtable(this).SelectedTotalSizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectionChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -818,13 +816,13 @@ impl PhotoImportFindItemsResult {
             (::windows_core::Interface::vtable(this).SelectionChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSelectionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSelectionChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ImportItemsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
@@ -833,7 +831,7 @@ impl PhotoImportFindItemsResult {
             (::windows_core::Interface::vtable(this).ImportItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ItemImported<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -845,13 +843,13 @@ impl PhotoImportFindItemsResult {
             (::windows_core::Interface::vtable(this).ItemImported)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemImported(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveItemImported)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn AddItemsInDateRangeToSelection(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IPhotoImportFindItemsResult2>(self)?;
@@ -873,7 +871,6 @@ impl ::windows_core::RuntimeName for PhotoImportFindItemsResult {
 ::windows_core::imp::interface_hierarchy!(PhotoImportFindItemsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportFindItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportFindItemsResult {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportImportItemsResult(::windows_core::IUnknown);
@@ -892,7 +889,7 @@ impl PhotoImportImportItemsResult {
             (::windows_core::Interface::vtable(this).HasSucceeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportedItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportItem>> {
         let this = self;
@@ -971,7 +968,7 @@ impl PhotoImportImportItemsResult {
             (::windows_core::Interface::vtable(this).TotalSizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteImportedItemsFromSourceAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
@@ -996,7 +993,6 @@ impl ::windows_core::RuntimeName for PhotoImportImportItemsResult {
 ::windows_core::imp::interface_hierarchy!(PhotoImportImportItemsResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportItem(::windows_core::IUnknown);
@@ -1029,7 +1025,7 @@ impl PhotoImportItem {
             (::windows_core::Interface::vtable(this).SizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1045,7 +1041,7 @@ impl PhotoImportItem {
             (::windows_core::Interface::vtable(this).Sibling)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sidecars(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>> {
         let this = self;
@@ -1054,7 +1050,7 @@ impl PhotoImportItem {
             (::windows_core::Interface::vtable(this).Sidecars)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn VideoSegments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportVideoSegment>> {
         let this = self;
@@ -1074,7 +1070,7 @@ impl PhotoImportItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsSelected)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1083,7 +1079,7 @@ impl PhotoImportItem {
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportedFileNames(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1092,7 +1088,7 @@ impl PhotoImportItem {
             (::windows_core::Interface::vtable(this).ImportedFileNames)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeletedFileNames(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1124,7 +1120,6 @@ impl ::windows_core::RuntimeName for PhotoImportItem {
 ::windows_core::imp::interface_hierarchy!(PhotoImportItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportItem {}
 unsafe impl ::core::marker::Sync for PhotoImportItem {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportItemImportedEventArgs(::windows_core::IUnknown);
@@ -1152,10 +1147,9 @@ impl ::windows_core::RuntimeName for PhotoImportItemImportedEventArgs {
 ::windows_core::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 pub struct PhotoImportManager;
 impl PhotoImportManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn IsSupportedAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
@@ -1163,7 +1157,7 @@ impl PhotoImportManager {
             (::windows_core::Interface::vtable(this).IsSupportedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllSourcesAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
@@ -1171,7 +1165,7 @@ impl PhotoImportManager {
             (::windows_core::Interface::vtable(this).FindAllSourcesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPendingOperations() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
@@ -1188,7 +1182,6 @@ impl PhotoImportManager {
 impl ::windows_core::RuntimeName for PhotoImportManager {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportManager";
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportOperation(::windows_core::IUnknown);
@@ -1207,7 +1200,7 @@ impl PhotoImportOperation {
             (::windows_core::Interface::vtable(this).Session)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ContinueFindingItemsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
@@ -1216,7 +1209,7 @@ impl PhotoImportOperation {
             (::windows_core::Interface::vtable(this).ContinueFindingItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ContinueImportingItemsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
@@ -1225,7 +1218,7 @@ impl PhotoImportOperation {
             (::windows_core::Interface::vtable(this).ContinueImportingItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
@@ -1250,7 +1243,6 @@ impl ::windows_core::RuntimeName for PhotoImportOperation {
 ::windows_core::imp::interface_hierarchy!(PhotoImportOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportSelectionChangedEventArgs(::windows_core::IUnknown);
@@ -1278,12 +1270,11 @@ impl ::windows_core::RuntimeName for PhotoImportSelectionChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportSelectionChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportSession(::windows_core::IUnknown);
 impl PhotoImportSession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1303,7 +1294,7 @@ impl PhotoImportSession {
             (::windows_core::Interface::vtable(this).SessionId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage\"`*"]
+    #[doc = "Required features: `Storage`"]
     #[cfg(feature = "Storage")]
     pub fn SetDestinationFolder<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1312,7 +1303,7 @@ impl PhotoImportSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDestinationFolder)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage\"`*"]
+    #[doc = "Required features: `Storage`"]
     #[cfg(feature = "Storage")]
     pub fn DestinationFolder(&self) -> ::windows_core::Result<super::super::Storage::IStorageFolder> {
         let this = self;
@@ -1354,7 +1345,7 @@ impl PhotoImportSession {
             (::windows_core::Interface::vtable(this).DestinationFileNamePrefix)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
@@ -1403,7 +1394,6 @@ impl ::windows_core::RuntimeName for PhotoImportSession {
 impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for PhotoImportSession {}
 unsafe impl ::core::marker::Send for PhotoImportSession {}
 unsafe impl ::core::marker::Sync for PhotoImportSession {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportSidecar(::windows_core::IUnknown);
@@ -1422,7 +1412,7 @@ impl PhotoImportSidecar {
             (::windows_core::Interface::vtable(this).SizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1447,7 +1437,6 @@ impl ::windows_core::RuntimeName for PhotoImportSidecar {
 ::windows_core::imp::interface_hierarchy!(PhotoImportSidecar, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSidecar {}
 unsafe impl ::core::marker::Sync for PhotoImportSidecar {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportSource(::windows_core::IUnknown);
@@ -1522,7 +1511,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).PowerSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BatteryLevelPercent(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -1531,7 +1520,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).BatteryLevelPercent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn DateTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1540,7 +1529,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).DateTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorageMedia(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportStorageMedium>> {
         let this = self;
@@ -1549,7 +1538,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).StorageMedia)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn IsLocked(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1565,7 +1554,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).IsMassStorage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[doc = "Required features: `Storage_Streams`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1581,7 +1570,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).CreateImportSession)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(sourceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>> {
         Self::IPhotoImportSourceStatics(|this| unsafe {
@@ -1589,7 +1578,7 @@ impl PhotoImportSource {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sourceid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[doc = "Required features: `Foundation`, `Storage`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn FromFolderAsync<P0>(sourcerootfolder: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PhotoImportSource>>
     where
@@ -1621,7 +1610,6 @@ impl ::windows_core::RuntimeName for PhotoImportSource {
 ::windows_core::imp::interface_hierarchy!(PhotoImportSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportStorageMedium(::windows_core::IUnknown);
@@ -1695,7 +1683,6 @@ impl ::windows_core::RuntimeName for PhotoImportStorageMedium {
 ::windows_core::imp::interface_hierarchy!(PhotoImportStorageMedium, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhotoImportVideoSegment(::windows_core::IUnknown);
@@ -1714,7 +1701,7 @@ impl PhotoImportVideoSegment {
             (::windows_core::Interface::vtable(this).SizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn Date(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1730,7 +1717,7 @@ impl PhotoImportVideoSegment {
             (::windows_core::Interface::vtable(this).Sibling)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Sidecars(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>> {
         let this = self;
@@ -1755,7 +1742,6 @@ impl ::windows_core::RuntimeName for PhotoImportVideoSegment {
 ::windows_core::imp::interface_hierarchy!(PhotoImportVideoSegment, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PhotoImportVideoSegment {}
 unsafe impl ::core::marker::Sync for PhotoImportVideoSegment {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportAccessMode(pub i32);
@@ -1786,7 +1772,6 @@ impl ::core::fmt::Debug for PhotoImportAccessMode {
 impl ::windows_core::RuntimeType for PhotoImportAccessMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportConnectionTransport(pub i32);
@@ -1818,7 +1803,6 @@ impl ::core::fmt::Debug for PhotoImportConnectionTransport {
 impl ::windows_core::RuntimeType for PhotoImportConnectionTransport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportContentType(pub i32);
@@ -1849,7 +1833,6 @@ impl ::core::fmt::Debug for PhotoImportContentType {
 impl ::windows_core::RuntimeType for PhotoImportContentType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportContentTypeFilter(pub i32);
@@ -1881,7 +1864,6 @@ impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
 impl ::windows_core::RuntimeType for PhotoImportContentTypeFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportImportMode(pub i32);
@@ -1913,7 +1895,6 @@ impl ::core::fmt::Debug for PhotoImportImportMode {
 impl ::windows_core::RuntimeType for PhotoImportImportMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportItemSelectionMode(pub i32);
@@ -1944,7 +1925,6 @@ impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
 impl ::windows_core::RuntimeType for PhotoImportItemSelectionMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportPowerSource(pub i32);
@@ -1975,7 +1955,6 @@ impl ::core::fmt::Debug for PhotoImportPowerSource {
 impl ::windows_core::RuntimeType for PhotoImportPowerSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportSourceType(pub i32);
@@ -2010,7 +1989,6 @@ impl ::core::fmt::Debug for PhotoImportSourceType {
 impl ::windows_core::RuntimeType for PhotoImportSourceType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportStage(pub i32);
@@ -2042,7 +2020,6 @@ impl ::core::fmt::Debug for PhotoImportStage {
 impl ::windows_core::RuntimeType for PhotoImportStage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportStorageMediumType(pub i32);
@@ -2073,7 +2050,6 @@ impl ::core::fmt::Debug for PhotoImportStorageMediumType {
 impl ::windows_core::RuntimeType for PhotoImportStorageMediumType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
@@ -2105,7 +2081,6 @@ impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
 impl ::windows_core::RuntimeType for PhotoImportSubfolderCreationMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
 }
-#[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
@@ -2137,7 +2112,6 @@ impl ::windows_core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Media_Import\"`*"]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,

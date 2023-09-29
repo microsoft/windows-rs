@@ -1,6 +1,8 @@
 #[cfg(feature = "ApplicationModel_Resources_Core")]
+#[doc = "Required features: `ApplicationModel_Resources_Core`"]
 pub mod Core;
 #[cfg(feature = "ApplicationModel_Resources_Management")]
+#[doc = "Required features: `ApplicationModel_Resources_Management`"]
 pub mod Management;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -126,7 +128,6 @@ pub struct IResourceLoaderStatics4_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub GetDefaultPriPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ResourceLoader(::windows_core::IUnknown);
@@ -145,7 +146,7 @@ impl ResourceLoader {
             (::windows_core::Interface::vtable(this).GetString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(resource), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetStringForUri<P0>(&self, uri: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -163,7 +164,7 @@ impl ResourceLoader {
             (::windows_core::Interface::vtable(this).CreateResourceLoaderByName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn GetStringForReference<P0>(uri: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -198,7 +199,7 @@ impl ResourceLoader {
             (::windows_core::Interface::vtable(this).GetForViewIndependentUseWithName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"UI\"`*"]
+    #[doc = "Required features: `UI`"]
     #[cfg(feature = "UI")]
     pub fn GetForUIContext<P0>(context: P0) -> ::windows_core::Result<ResourceLoader>
     where

@@ -1,35 +1,35 @@
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCChannelTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCChannelTuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -70,7 +70,7 @@ pub struct IATSCChannelTuneRequest_Vtbl {
     pub MinorChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minorchannel: *mut i32) -> ::windows_core::HRESULT,
     pub SetMinorChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minorchannel: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -135,18 +135,18 @@ impl IATSCComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -192,7 +192,7 @@ pub struct IATSCComponentType_Vtbl {
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows_core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -248,7 +248,7 @@ impl IATSCLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -289,7 +289,7 @@ pub struct IATSCLocator_Vtbl {
     pub TSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tsid: *mut i32) -> ::windows_core::HRESULT,
     pub SetTSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tsid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -345,7 +345,7 @@ impl IATSCLocator2 {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -391,7 +391,7 @@ pub struct IATSCLocator2_Vtbl {
     pub ProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: *mut i32) -> ::windows_core::HRESULT,
     pub SetProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -439,31 +439,31 @@ impl IATSCTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -481,13 +481,13 @@ impl IATSCTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -495,7 +495,7 @@ impl IATSCTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -582,7 +582,6 @@ pub struct IATSCTuningSpace_Vtbl {
     pub MaxPhysicalChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxphysicalchannelval: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxPhysicalChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newmaxphysicalchannelval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_EIT(::windows_core::IUnknown);
@@ -666,7 +665,6 @@ pub struct IATSC_EIT_Vtbl {
     pub GetRecordDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_ETT(::windows_core::IUnknown);
@@ -711,7 +709,6 @@ pub struct IATSC_ETT_Vtbl {
     pub GetEtmId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows_core::HRESULT,
     pub GetExtendedMessageText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlength: *mut u32, pptext: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_MGT(::windows_core::IUnknown);
@@ -794,7 +791,6 @@ pub struct IATSC_MGT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_STT(::windows_core::IUnknown);
@@ -854,7 +850,6 @@ pub struct IATSC_STT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSC_VCT(::windows_core::IUnknown);
@@ -914,31 +909,31 @@ impl IATSC_VCT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordEtmLocation)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsAccessControlledBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsHiddenBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsPathSelectBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsOutOfBandBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1027,7 +1022,7 @@ pub struct IATSC_VCT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1092,18 +1087,18 @@ impl IAnalogAudioComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -1135,7 +1130,7 @@ pub struct IAnalogAudioComponentType_Vtbl {
     pub AnalogAudioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut super::TVAudioMode) -> ::windows_core::HRESULT,
     pub SetAnalogAudioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::TVAudioMode) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1191,7 +1186,7 @@ impl IAnalogLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -1223,7 +1218,7 @@ pub struct IAnalogLocator_Vtbl {
     pub VideoStandard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, avs: *mut super::AnalogVideoStandard) -> ::windows_core::HRESULT,
     pub SetVideoStandard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, avs: super::AnalogVideoStandard) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1271,31 +1266,31 @@ impl IAnalogRadioTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1313,13 +1308,13 @@ impl IAnalogRadioTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1327,7 +1322,7 @@ impl IAnalogRadioTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1377,7 +1372,7 @@ pub struct IAnalogRadioTuningSpace_Vtbl {
     pub Step: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepval: *mut i32) -> ::windows_core::HRESULT,
     pub SetStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstepval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1425,31 +1420,31 @@ impl IAnalogRadioTuningSpace2 {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1467,13 +1462,13 @@ impl IAnalogRadioTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1481,7 +1476,7 @@ impl IAnalogRadioTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1534,7 +1529,7 @@ pub struct IAnalogRadioTuningSpace2_Vtbl {
     pub CountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, countrycodeval: *mut i32) -> ::windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcountrycodeval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1582,31 +1577,31 @@ impl IAnalogTVTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1624,13 +1619,13 @@ impl IAnalogTVTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1638,7 +1633,7 @@ impl IAnalogTVTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1697,7 +1692,6 @@ pub struct IAnalogTVTuningSpace_Vtbl {
     pub CountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, countrycodeval: *mut i32) -> ::windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcountrycodeval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAtscContentAdvisoryDescriptor(::windows_core::IUnknown);
@@ -1754,7 +1748,6 @@ pub struct IAtscContentAdvisoryDescriptor_Vtbl {
     pub GetRecordRatingValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindexouter: u8, bindexinner: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordRatingDescriptionText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, pblength: *mut u8, pptext: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAtscPsipParser(::windows_core::IUnknown);
@@ -1785,7 +1778,7 @@ impl IAtscPsipParser {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMGT)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVCT<P0>(&self, tableid: u8, fgetnexttable: P0) -> ::windows_core::Result<IATSC_VCT>
     where
@@ -1837,7 +1830,6 @@ pub struct IAtscPsipParser_Vtbl {
     pub GetSTT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstt: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEAS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: u16, ppeas: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAttributeGet(::windows_core::IUnknown);
@@ -1868,7 +1860,6 @@ pub struct IAttributeGet_Vtbl {
     pub GetAttribIndexed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pguidattribute: *mut ::windows_core::GUID, pbattribute: *mut u8, pdwattributelength: *mut u32) -> ::windows_core::HRESULT,
     pub GetAttrib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidattribute: ::windows_core::GUID, pbattribute: *mut u8, pdwattributelength: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAttributeSet(::windows_core::IUnknown);
@@ -1890,7 +1881,7 @@ pub struct IAttributeSet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAttrib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidattribute: ::windows_core::GUID, pbattribute: *const u8, dwattributelength: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1938,31 +1929,31 @@ impl IAuxInTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1980,13 +1971,13 @@ impl IAuxInTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1994,7 +1985,7 @@ impl IAuxInTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -2017,7 +2008,7 @@ unsafe impl ::windows_core::ComInterface for IAuxInTuningSpace {
 pub struct IAuxInTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2065,31 +2056,31 @@ impl IAuxInTuningSpace2 {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -2107,13 +2098,13 @@ impl IAuxInTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -2121,7 +2112,7 @@ impl IAuxInTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -2153,12 +2144,11 @@ pub struct IAuxInTuningSpace2_Vtbl {
     pub CountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, countrycodeval: *mut i32) -> ::windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcountrycodeval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDAComparable(::windows_core::IUnknown);
 impl IBDAComparable {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareExact<P0>(&self, compareto: P0) -> ::windows_core::Result<i32>
     where
@@ -2167,7 +2157,7 @@ impl IBDAComparable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareExact)(::windows_core::Interface::as_raw(self), compareto.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareEquivalent<P0>(&self, compareto: P0, dwflags: u32) -> ::windows_core::Result<i32>
     where
@@ -2217,12 +2207,11 @@ pub struct IBDAComparable_Vtbl {
     pub HashEquivalent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, result: *mut i64) -> ::windows_core::HRESULT,
     pub HashEquivalentIncremental: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partialresult: i64, dwflags: u32, result: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDACreateTuneRequestEx(::windows_core::IUnknown);
 impl IBDACreateTuneRequestEx {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequestEx(&self, tunerequestiid: *const ::windows_core::GUID) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -2245,7 +2234,6 @@ pub struct IBDACreateTuneRequestEx_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateTuneRequestEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDA_TIF_REGISTRATION(::windows_core::IUnknown);
@@ -2274,7 +2262,6 @@ pub struct IBDA_TIF_REGISTRATION_Vtbl {
     pub RegisterTIFEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptifinputpin: *mut ::core::ffi::c_void, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub UnregisterTIF: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvregistrationcontext: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICAT(::windows_core::IUnknown);
@@ -2301,7 +2288,7 @@ impl ICAT {
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTableDescriptorByTag)(::windows_core::Interface::as_raw(self), btag, pdwcookie, ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -2313,7 +2300,7 @@ impl ICAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -2352,7 +2339,6 @@ pub struct ICAT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICaptionServiceDescriptor(::windows_core::IUnknown);
@@ -2399,38 +2385,38 @@ pub struct ICaptionServiceDescriptor_Vtbl {
     pub GetEasyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetWideAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelIDTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelIDTuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -2467,38 +2453,38 @@ pub struct IChannelIDTuneRequest_Vtbl {
     pub ChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelTuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -2532,20 +2518,20 @@ pub struct IChannelTuneRequest_Vtbl {
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: *mut i32) -> ::windows_core::HRESULT,
     pub SetChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetType<P0>(&self, ct: P0) -> ::windows_core::Result<()>
     where
@@ -2577,7 +2563,7 @@ impl IComponent {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
@@ -2618,7 +2604,7 @@ pub struct IComponent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2683,18 +2669,18 @@ impl IComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -2743,7 +2729,7 @@ pub struct IComponentType_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2754,7 +2740,7 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2764,13 +2750,13 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Item<P0>(&self, index: super::super::super::System::Variant::VARIANT, componenttype: P0) -> ::windows_core::Result<()>
     where
@@ -2778,7 +2764,7 @@ impl IComponentTypes {
     {
         (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), componenttype.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, componenttype: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2787,12 +2773,12 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), componenttype.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
@@ -2841,7 +2827,7 @@ pub struct IComponentTypes_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2852,7 +2838,7 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2862,13 +2848,13 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2877,18 +2863,18 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), component.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Item<P0>(&self, index: super::super::super::System::Variant::VARIANT, ppcomponent: P0) -> ::windows_core::Result<()>
     where
@@ -2939,7 +2925,7 @@ pub struct IComponents_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_Item: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2950,7 +2936,7 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2960,13 +2946,13 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2975,12 +2961,12 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), component.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
@@ -3025,12 +3011,11 @@ pub struct IComponentsOld_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICreatePropBagOnRegKey(::windows_core::IUnknown);
 impl ICreatePropBagOnRegKey {
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+    #[doc = "Required features: `Win32_System_Registry`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Create<P0, P1>(&self, hkey: P0, subkey: P1, uloptions: u32, samdesired: u32, iid: *const ::windows_core::GUID, ppbag: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -3056,7 +3041,6 @@ pub struct ICreatePropBagOnRegKey_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     Create: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilter(::windows_core::IUnknown);
@@ -3075,13 +3059,13 @@ impl IDTFilter {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -3123,7 +3107,6 @@ pub struct IDTFilter_Vtbl {
     pub BlockUnRatedDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsecsdelaybeforeblock: *mut i32) -> ::windows_core::HRESULT,
     pub SetBlockUnRatedDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msecsdelaybeforeblock: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilter2(::windows_core::IUnknown);
@@ -3142,13 +3125,13 @@ impl IDTFilter2 {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -3190,7 +3173,6 @@ pub struct IDTFilter2_Vtbl {
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prottype: *const ProtType, lpdatetime: *mut i32) -> ::windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilter3(::windows_core::IUnknown);
@@ -3209,13 +3191,13 @@ impl IDTFilter3 {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -3245,7 +3227,7 @@ impl IDTFilter3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProtectionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LicenseHasExpirationDate(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3276,7 +3258,6 @@ pub struct IDTFilter3_Vtbl {
     LicenseHasExpirationDate: usize,
     pub SetRights: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrights: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilterConfig(::windows_core::IUnknown);
@@ -3299,7 +3280,7 @@ pub struct IDTFilterConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSecureChannelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkdrmsecurechannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3322,7 +3303,6 @@ unsafe impl ::windows_core::ComInterface for IDTFilterEvents {
 pub struct IDTFilterEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDTFilterLicenseRenewal(::windows_core::IUnknown);
@@ -3344,7 +3324,7 @@ pub struct IDTFilterLicenseRenewal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLicenseRenewalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszfilename: *mut ::windows_core::PWSTR, ppwszexpiredkid: *mut ::windows_core::PWSTR, ppwsztunerid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3400,7 +3380,7 @@ impl IDVBCLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -3423,7 +3403,7 @@ unsafe impl ::windows_core::ComInterface for IDVBCLocator {
 pub struct IDVBCLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3479,7 +3459,7 @@ impl IDVBSLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -3492,13 +3472,13 @@ impl IDVBSLocator {
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSignalPolarisation)(::windows_core::Interface::as_raw(self), polarisationval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WestPosition(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WestPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> ::windows_core::Result<()>
     where
@@ -3560,7 +3540,7 @@ pub struct IDVBSLocator_Vtbl {
     pub Elevation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elevation: *mut i32) -> ::windows_core::HRESULT,
     pub SetElevation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elevation: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3616,7 +3596,7 @@ impl IDVBSLocator2 {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -3629,13 +3609,13 @@ impl IDVBSLocator2 {
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSignalPolarisation)(::windows_core::Interface::as_raw(self), polarisationval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WestPosition(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.WestPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> ::windows_core::Result<()>
     where
@@ -3744,7 +3724,7 @@ pub struct IDVBSLocator2_Vtbl {
     pub SignalPilot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilotval: *mut super::Pilot) -> ::windows_core::HRESULT,
     pub SetSignalPilot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilotval: super::Pilot) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3792,31 +3772,31 @@ impl IDVBSTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -3834,13 +3814,13 @@ impl IDVBSTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -3848,7 +3828,7 @@ impl IDVBSTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -3933,7 +3913,7 @@ pub struct IDVBSTuningSpace_Vtbl {
     pub SpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spectralinversionval: *mut super::SpectralInversion) -> ::windows_core::HRESULT,
     pub SetSpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spectralinversionval: super::SpectralInversion) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3989,7 +3969,7 @@ impl IDVBTLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -4037,13 +4017,13 @@ impl IDVBTLocator {
     pub unsafe fn SetMode(&self, mode: super::TransmissionMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OtherFrequencyInUse(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OtherFrequencyInUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOtherFrequencyInUse<P0>(&self, otherfrequencyinuseval: P0) -> ::windows_core::Result<()>
     where
@@ -4088,7 +4068,7 @@ pub struct IDVBTLocator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetOtherFrequencyInUse: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4144,7 +4124,7 @@ impl IDVBTLocator2 {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -4192,13 +4172,13 @@ impl IDVBTLocator2 {
     pub unsafe fn SetMode(&self, mode: super::TransmissionMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OtherFrequencyInUse(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OtherFrequencyInUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOtherFrequencyInUse<P0>(&self, otherfrequencyinuseval: P0) -> ::windows_core::Result<()>
     where
@@ -4232,38 +4212,38 @@ pub struct IDVBTLocator2_Vtbl {
     pub PhysicalLayerPipeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, physicallayerpipeidval: *mut i32) -> ::windows_core::HRESULT,
     pub SetPhysicalLayerPipeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, physicallayerpipeidval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -4315,7 +4295,7 @@ pub struct IDVBTuneRequest_Vtbl {
     pub SID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: *mut i32) -> ::windows_core::HRESULT,
     pub SetSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4363,31 +4343,31 @@ impl IDVBTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -4405,13 +4385,13 @@ impl IDVBTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -4419,7 +4399,7 @@ impl IDVBTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -4451,7 +4431,7 @@ pub struct IDVBTuningSpace_Vtbl {
     pub SystemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systype: *mut super::DVBSystemType) -> ::windows_core::HRESULT,
     pub SetSystemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systype: super::DVBSystemType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4499,31 +4479,31 @@ impl IDVBTuningSpace2 {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -4541,13 +4521,13 @@ impl IDVBTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -4555,7 +4535,7 @@ impl IDVBTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -4594,7 +4574,6 @@ pub struct IDVBTuningSpace2_Vtbl {
     pub NetworkID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: *mut i32) -> ::windows_core::HRESULT,
     pub SetNetworkID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_BAT(::windows_core::IUnknown);
@@ -4647,7 +4626,7 @@ impl IDVB_BAT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -4659,7 +4638,7 @@ impl IDVB_BAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -4705,7 +4684,6 @@ pub struct IDVB_BAT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_DIT(::windows_core::IUnknown);
@@ -4716,7 +4694,7 @@ impl IDVB_DIT {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), psectionlist.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransitionFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4740,7 +4718,6 @@ pub struct IDVB_DIT_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetTransitionFlag: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_EIT(::windows_core::IUnknown);
@@ -4796,7 +4773,7 @@ impl IDVB_EIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4813,7 +4790,7 @@ impl IDVB_EIT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -4825,7 +4802,7 @@ impl IDVB_EIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -4883,7 +4860,6 @@ pub struct IDVB_EIT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_EIT2(::windows_core::IUnknown);
@@ -4939,7 +4915,7 @@ impl IDVB_EIT2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4956,7 +4932,7 @@ impl IDVB_EIT2 {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -4968,7 +4944,7 @@ impl IDVB_EIT2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5005,7 +4981,6 @@ pub struct IDVB_EIT2_Vtbl {
     pub GetSegmentInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbtid: *mut u8, pbsegment: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordSection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_NIT(::windows_core::IUnknown);
@@ -5059,7 +5034,7 @@ impl IDVB_NIT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -5071,7 +5046,7 @@ impl IDVB_NIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5122,7 +5097,6 @@ pub struct IDVB_NIT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_RST(::windows_core::IUnknown);
@@ -5177,7 +5151,6 @@ pub struct IDVB_RST_Vtbl {
     pub GetRecordEventId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetRecordRunningStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_SDT(::windows_core::IUnknown);
@@ -5209,13 +5182,13 @@ impl IDVB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordServiceId)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordEITScheduleFlag)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5225,7 +5198,7 @@ impl IDVB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5242,7 +5215,7 @@ impl IDVB_SDT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -5254,7 +5227,7 @@ impl IDVB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5315,7 +5288,6 @@ pub struct IDVB_SDT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_SIT(::windows_core::IUnknown);
@@ -5365,7 +5337,7 @@ impl IDVB_SIT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -5377,7 +5349,7 @@ impl IDVB_SIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5422,7 +5394,6 @@ pub struct IDVB_SIT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_ST(::windows_core::IUnknown);
@@ -5457,7 +5428,6 @@ pub struct IDVB_ST_Vtbl {
     pub GetDataLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_TDT(::windows_core::IUnknown);
@@ -5487,7 +5457,6 @@ pub struct IDVB_TDT_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psectionlist: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetUTCTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmdtval: *mut MPEG_DATE_AND_TIME) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVB_TOT(::windows_core::IUnknown);
@@ -5531,7 +5500,7 @@ pub struct IDVB_TOT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5587,7 +5556,7 @@ impl IDigitalCableLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -5631,38 +5600,38 @@ unsafe impl ::windows_core::ComInterface for IDigitalCableLocator {
 pub struct IDigitalCableLocator_Vtbl {
     pub base__: IATSCLocator2_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDigitalCableTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableTuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -5719,7 +5688,7 @@ pub struct IDigitalCableTuneRequest_Vtbl {
     pub SourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourceid: *mut i32) -> ::windows_core::HRESULT,
     pub SetSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5767,31 +5736,31 @@ impl IDigitalCableTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -5809,13 +5778,13 @@ impl IDigitalCableTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -5823,7 +5792,7 @@ impl IDigitalCableTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -5938,7 +5907,7 @@ pub struct IDigitalCableTuningSpace_Vtbl {
     pub MaxSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxsourceidval: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newmaxsourceidval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5994,7 +5963,7 @@ impl IDigitalLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -6017,7 +5986,6 @@ unsafe impl ::windows_core::ComInterface for IDigitalLocator {
 pub struct IDigitalLocator_Vtbl {
     pub base__: ILocator_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbCableDeliverySystemDescriptor(::windows_core::IUnknown);
@@ -6070,7 +6038,6 @@ pub struct IDvbCableDeliverySystemDescriptor_Vtbl {
     pub GetSymbolRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows_core::HRESULT,
     pub GetFECInner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbComponentDescriptor(::windows_core::IUnknown);
@@ -6122,7 +6089,6 @@ pub struct IDvbComponentDescriptor_Vtbl {
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbContentDescriptor(::windows_core::IUnknown);
@@ -6163,7 +6129,6 @@ pub struct IDvbContentDescriptor_Vtbl {
     pub GetRecordContentNibbles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbvallevel1: *mut u8, pbvallevel2: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordUserNibbles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval1: *mut u8, pbval2: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbContentIdentifierDescriptor(::windows_core::IUnknown);
@@ -6200,7 +6165,6 @@ pub struct IDvbContentIdentifierDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordCrid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbtype: *mut u8, pblocation: *mut u8, pblength: *mut u8, ppbbytes: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbDataBroadcastDescriptor(::windows_core::IUnknown);
@@ -6261,7 +6225,6 @@ pub struct IDvbDataBroadcastDescriptor_Vtbl {
     pub GetTextLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblen: *mut u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbDataBroadcastIDDescriptor(::windows_core::IUnknown);
@@ -6298,7 +6261,6 @@ pub struct IDvbDataBroadcastIDDescriptor_Vtbl {
     pub GetDataBroadcastID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetIDSelectorBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblen: *mut u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbDefaultAuthorityDescriptor(::windows_core::IUnknown);
@@ -6330,7 +6292,6 @@ pub struct IDvbDefaultAuthorityDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetDefaultAuthority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblength: *mut u8, ppbbytes: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbExtendedEventDescriptor(::windows_core::IUnknown);
@@ -6405,7 +6366,6 @@ pub struct IDvbExtendedEventDescriptor_Vtbl {
     pub GetConcatenatedTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, followingdescriptor: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetRecordItemRawBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, ppbrawitem: *mut *mut u8, pbitemlength: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbFrequencyListDescriptor(::windows_core::IUnknown);
@@ -6448,7 +6408,6 @@ pub struct IDvbFrequencyListDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordCentreFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pdwval: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbHDSimulcastLogicalChannelDescriptor(::windows_core::IUnknown);
@@ -6490,7 +6449,6 @@ unsafe impl ::windows_core::ComInterface for IDvbHDSimulcastLogicalChannelDescri
 pub struct IDvbHDSimulcastLogicalChannelDescriptor_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor2_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLinkageDescriptor(::windows_core::IUnknown);
@@ -6547,7 +6505,6 @@ pub struct IDvbLinkageDescriptor_Vtbl {
     pub GetPrivateDataLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetPrivateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblen: *mut u8, pbdata: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLogicalChannel2Descriptor(::windows_core::IUnknown);
@@ -6628,7 +6585,6 @@ pub struct IDvbLogicalChannel2Descriptor_Vtbl {
     pub GetListRecordLogicalChannelNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetListRecordLogicalChannelAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blistindex: u8, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLogicalChannelDescriptor(::windows_core::IUnknown);
@@ -6671,7 +6627,6 @@ pub struct IDvbLogicalChannelDescriptor_Vtbl {
     pub GetRecordServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetRecordLogicalChannelNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbLogicalChannelDescriptor2(::windows_core::IUnknown);
@@ -6714,7 +6669,6 @@ pub struct IDvbLogicalChannelDescriptor2_Vtbl {
     pub base__: IDvbLogicalChannelDescriptor_Vtbl,
     pub GetRecordLogicalChannelAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbMultilingualServiceNameDescriptor(::windows_core::IUnknown);
@@ -6762,7 +6716,6 @@ pub struct IDvbMultilingualServiceNameDescriptor_Vtbl {
     pub GetRecordServiceProviderNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetRecordServiceNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbNetworkNameDescriptor(::windows_core::IUnknown);
@@ -6800,7 +6753,6 @@ pub struct IDvbNetworkNameDescriptor_Vtbl {
     pub GetNetworkName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: *mut *mut u8) -> ::windows_core::HRESULT,
     pub GetNetworkNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbParentalRatingDescriptor(::windows_core::IUnknown);
@@ -6837,7 +6789,6 @@ pub struct IDvbParentalRatingDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pszcountrycode: *mut u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbPrivateDataSpecifierDescriptor(::windows_core::IUnknown);
@@ -6870,7 +6821,6 @@ pub struct IDvbPrivateDataSpecifierDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetPrivateDataSpecifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSatelliteDeliverySystemDescriptor(::windows_core::IUnknown);
@@ -6933,7 +6883,6 @@ pub struct IDvbSatelliteDeliverySystemDescriptor_Vtbl {
     pub GetSymbolRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows_core::HRESULT,
     pub GetFECInner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceAttributeDescriptor(::windows_core::IUnknown);
@@ -6954,13 +6903,13 @@ impl IDvbServiceAttributeDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordServiceId)(::windows_core::Interface::as_raw(self), brecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordNumericSelectionFlag)(::windows_core::Interface::as_raw(self), brecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6991,7 +6940,6 @@ pub struct IDvbServiceAttributeDescriptor_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetRecordVisibleServiceFlag: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceDescriptor(::windows_core::IUnknown);
@@ -7049,7 +6997,6 @@ pub struct IDvbServiceDescriptor_Vtbl {
     pub GetProcessedServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetServiceNameEmphasized: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceDescriptor2(::windows_core::IUnknown);
@@ -7109,7 +7056,6 @@ pub struct IDvbServiceDescriptor2_Vtbl {
     pub GetServiceProviderNameW2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetServiceNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbServiceListDescriptor(::windows_core::IUnknown);
@@ -7152,7 +7098,6 @@ pub struct IDvbServiceListDescriptor_Vtbl {
     pub GetRecordServiceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetRecordServiceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbShortEventDescriptor(::windows_core::IUnknown);
@@ -7194,7 +7139,6 @@ pub struct IDvbShortEventDescriptor_Vtbl {
     pub GetEventNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSiParser(::windows_core::IUnknown);
@@ -7289,7 +7233,6 @@ pub struct IDvbSiParser_Vtbl {
     pub GetDIT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimeout: u32, ppdit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetSIT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimeout: u32, ppsit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSiParser2(::windows_core::IUnknown);
@@ -7374,7 +7317,6 @@ pub struct IDvbSiParser2_Vtbl {
     pub base__: IDvbSiParser_Vtbl,
     pub GetEIT2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tableid: u8, pwserviceid: *const u16, pbsegment: *const u8, ppeit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbSubtitlingDescriptor(::windows_core::IUnknown);
@@ -7427,7 +7369,6 @@ pub struct IDvbSubtitlingDescriptor_Vtbl {
     pub GetRecordCompositionPageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetRecordAncillaryPageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbTeletextDescriptor(::windows_core::IUnknown);
@@ -7480,7 +7421,6 @@ pub struct IDvbTeletextDescriptor_Vtbl {
     pub GetRecordMagazineNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordPageNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbTerrestrial2DeliverySystemDescriptor(::windows_core::IUnknown);
@@ -7563,7 +7503,6 @@ pub struct IDvbTerrestrial2DeliverySystemDescriptor_Vtbl {
     pub GetOtherFrequencyFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetTFSFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDvbTerrestrialDeliverySystemDescriptor(::windows_core::IUnknown);
@@ -7636,7 +7575,6 @@ pub struct IDvbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub GetTransmissionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetOtherFrequencyFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESCloseMmiEvent(::windows_core::IUnknown);
@@ -7652,7 +7590,7 @@ impl IESCloseMmiEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7680,7 +7618,6 @@ pub struct IESCloseMmiEvent_Vtbl {
     pub base__: super::IESEvent_Vtbl,
     pub GetDialogNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdialognumber: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEventFactory(::windows_core::IUnknown);
@@ -7708,7 +7645,6 @@ pub struct IESEventFactory_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateESEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pserviceprovider: *mut ::core::ffi::c_void, dweventid: u32, guideventtype: ::windows_core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: ::std::mem::MaybeUninit<::windows_core::BSTR>, pinitcontext: *mut ::core::ffi::c_void, ppesevent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEventService(::windows_core::IUnknown);
@@ -7733,7 +7669,6 @@ pub struct IESEventService_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub FireESEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pesevent: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESEventServiceConfiguration(::windows_core::IUnknown);
@@ -7787,7 +7722,6 @@ pub struct IESEventServiceConfiguration_Vtbl {
     pub SetGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub RemoveGraph: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESFileExpiryDateEvent(::windows_core::IUnknown);
@@ -7803,7 +7737,7 @@ impl IESFileExpiryDateEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7829,13 +7763,13 @@ impl IESFileExpiryDateEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMaxRenewalCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEntitlementTokenPresent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsEntitlementTokenPresent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesExpireAfterFirstUse(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7866,7 +7800,6 @@ pub struct IESFileExpiryDateEvent_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DoesExpireAfterFirstUse: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESIsdbCasResponseEvent(::windows_core::IUnknown);
@@ -7882,7 +7815,7 @@ impl IESIsdbCasResponseEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7904,7 +7837,7 @@ impl IESIsdbCasResponseEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetResponseData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7930,7 +7863,6 @@ pub struct IESIsdbCasResponseEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetResponseData: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESLicenseRenewalResultEvent(::windows_core::IUnknown);
@@ -7946,7 +7878,7 @@ impl IESLicenseRenewalResultEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7964,13 +7896,13 @@ impl IESLicenseRenewalResultEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFileName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRenewalSuccessful(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRenewalSuccessful)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCheckEntitlementCallRequired(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7996,7 +7928,7 @@ impl IESLicenseRenewalResultEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEntitlementTokenLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEntitlementToken(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8039,7 +7971,6 @@ pub struct IESLicenseRenewalResultEvent_Vtbl {
     GetEntitlementToken: usize,
     pub GetExpiryDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwexpirydate: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESOpenMmiEvent(::windows_core::IUnknown);
@@ -8055,7 +7986,7 @@ impl IESOpenMmiEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8072,7 +8003,7 @@ impl IESOpenMmiEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDialogType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDialogData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8101,7 +8032,6 @@ pub struct IESOpenMmiEvent_Vtbl {
     GetDialogData: usize,
     pub GetDialogStringData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrbaseurl: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>, pbstrdata: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESRequestTunerEvent(::windows_core::IUnknown);
@@ -8117,7 +8047,7 @@ impl IESRequestTunerEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8160,7 +8090,6 @@ pub struct IESRequestTunerEvent_Vtbl {
     pub GetConsequences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbyconsequences: *mut u8) -> ::windows_core::HRESULT,
     pub GetEstimatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwestimatedtime: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IESValueUpdatedEvent(::windows_core::IUnknown);
@@ -8176,7 +8105,7 @@ impl IESValueUpdatedEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8186,7 +8115,7 @@ impl IESValueUpdatedEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStringData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetValueNames(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8209,7 +8138,6 @@ pub struct IESValueUpdatedEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetValueNames: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IETFilter(::windows_core::IUnknown);
@@ -8228,7 +8156,7 @@ impl IETFilter {
     pub unsafe fn GetLastErrorCode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLastErrorCode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRecordingOn<P0>(&self, frecstate: P0) -> ::windows_core::Result<()>
     where
@@ -8257,7 +8185,6 @@ pub struct IETFilter_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRecordingOn: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IETFilterConfig(::windows_core::IUnknown);
@@ -8284,7 +8211,7 @@ pub struct IETFilterConfig_Vtbl {
     pub InitLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, licenseid: i32) -> ::windows_core::HRESULT,
     pub GetSecureChannelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkdrmsecurechannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8307,12 +8234,11 @@ unsafe impl ::windows_core::ComInterface for IETFilterEvents {
 pub struct IETFilterEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumComponentTypes(::windows_core::IUnknown);
 impl IEnumComponentTypes {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IComponentType>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -8347,12 +8273,11 @@ pub struct IEnumComponentTypes_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumComponents(::windows_core::IUnknown);
 impl IEnumComponents {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IComponent>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -8387,7 +8312,6 @@ pub struct IEnumComponents_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumGuideDataProperties(::windows_core::IUnknown);
@@ -8422,12 +8346,11 @@ pub struct IEnumGuideDataProperties_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMSVidGraphSegment(::windows_core::IUnknown);
 impl IEnumMSVidGraphSegment {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IMSVidGraphSegment>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
@@ -8462,7 +8385,6 @@ pub struct IEnumMSVidGraphSegment_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumStreamBufferRecordingAttrib(::windows_core::IUnknown);
@@ -8497,12 +8419,11 @@ pub struct IEnumStreamBufferRecordingAttrib_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstreambufferattrib: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTuneRequests(::windows_core::IUnknown);
 impl IEnumTuneRequests {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppprop: *mut ::core::option::Option<ITuneRequest>, pcelt: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(ppprop), pcelt).ok()
@@ -8537,12 +8458,11 @@ pub struct IEnumTuneRequests_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTuningSpaces(::windows_core::IUnknown);
 impl IEnumTuningSpaces {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<ITuningSpace>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -8577,7 +8497,7 @@ pub struct IEnumTuningSpaces_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8591,13 +8511,13 @@ impl IEvalRat {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -8640,7 +8560,6 @@ pub struct IEvalRat_Vtbl {
     pub MostRestrictiveRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ensystem1: EnTvRat_System, enenlevel1: EnTvRat_GenericLevel, lbfenattr1: i32, ensystem2: EnTvRat_System, enenlevel2: EnTvRat_GenericLevel, lbfenattr2: i32, pensystem: *mut EnTvRat_System, penenlevel: *mut EnTvRat_GenericLevel, plbfenattr: *mut i32) -> ::windows_core::HRESULT,
     pub TestRating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enshowsystem: EnTvRat_System, enshowlevel: EnTvRat_GenericLevel, lbfenshowattributes: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGenericDescriptor(::windows_core::IUnknown);
@@ -8677,7 +8596,6 @@ pub struct IGenericDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbval: *mut *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGenericDescriptor2(::windows_core::IUnknown);
@@ -8719,7 +8637,6 @@ pub struct IGenericDescriptor2_Vtbl {
     pub Initialize2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdesc: *const u8, wcount: u16) -> ::windows_core::HRESULT,
     pub GetLength2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpnvsCommonBase(::windows_core::IUnknown);
@@ -8742,7 +8659,6 @@ pub struct IGpnvsCommonBase_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetValueUpdateName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideData(::windows_core::IUnknown);
@@ -8751,7 +8667,7 @@ impl IGuideData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetServices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetServiceProperties<P0>(&self, ptunerequest: P0) -> ::windows_core::Result<IEnumGuideDataProperties>
     where
@@ -8760,25 +8676,25 @@ impl IGuideData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetServiceProperties)(::windows_core::Interface::as_raw(self), ptunerequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetGuideProgramIDs(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGuideProgramIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProgramProperties(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProgramProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetScheduleEntryIDs(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScheduleEntryIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetScheduleEntryProperties(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -8818,7 +8734,6 @@ pub struct IGuideData_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetScheduleEntryProperties: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideDataEvent(::windows_core::IUnknown);
@@ -8826,32 +8741,32 @@ impl IGuideDataEvent {
     pub unsafe fn GuideDataAcquired(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GuideDataAcquired)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ProgramChanged(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProgramChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ServiceChanged(&self, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ServiceChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varservicedescriptionid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ScheduleEntryChanged(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ScheduleEntryChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ProgramDeleted(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProgramDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ServiceDeleted(&self, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ServiceDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varservicedescriptionid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ScheduleDeleted(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ScheduleDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid)).ok()
@@ -8894,7 +8809,6 @@ pub struct IGuideDataEvent_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ScheduleDeleted: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideDataLoader(::windows_core::IUnknown);
@@ -8923,7 +8837,6 @@ pub struct IGuideDataLoader_Vtbl {
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidestore: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Terminate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGuideDataProperty(::windows_core::IUnknown);
@@ -8936,7 +8849,7 @@ impl IGuideDataProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Language)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -8961,7 +8874,7 @@ pub struct IGuideDataProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Value: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -9017,7 +8930,7 @@ impl IISDBSLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -9030,13 +8943,13 @@ impl IISDBSLocator {
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSignalPolarisation)(::windows_core::Interface::as_raw(self), polarisationval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WestPosition(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.WestPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> ::windows_core::Result<()>
     where
@@ -9082,7 +8995,6 @@ unsafe impl ::windows_core::ComInterface for IISDBSLocator {
 pub struct IISDBSLocator_Vtbl {
     pub base__: IDVBSLocator_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_BIT(::windows_core::IUnknown);
@@ -9166,7 +9078,6 @@ pub struct IISDB_BIT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_CDT(::windows_core::IUnknown);
@@ -9246,7 +9157,6 @@ pub struct IISDB_CDT_Vtbl {
     pub GetDataModule: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *mut *mut u8) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_EMM(::windows_core::IUnknown);
@@ -9302,7 +9212,6 @@ pub struct IISDB_EMM_Vtbl {
     pub GetIndividualEmmMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punknown: *mut ::core::ffi::c_void, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_LDT(::windows_core::IUnknown);
@@ -9377,7 +9286,6 @@ pub struct IISDB_LDT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_NBIT(::windows_core::IUnknown);
@@ -9472,7 +9380,6 @@ pub struct IISDB_NBIT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_SDT(::windows_core::IUnknown);
@@ -9504,13 +9411,13 @@ impl IISDB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordServiceId)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordEITScheduleFlag)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9520,7 +9427,7 @@ impl IISDB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9537,7 +9444,7 @@ impl IISDB_SDT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -9549,7 +9456,7 @@ impl IISDB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -9582,7 +9489,6 @@ pub struct IISDB_SDT_Vtbl {
     pub base__: IDVB_SDT_Vtbl,
     pub GetRecordEITUserDefinedFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IISDB_SDTT(::windows_core::IUnknown);
@@ -9702,7 +9608,6 @@ pub struct IISDB_SDTT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetVersionHash: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversionhash: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbAudioComponentDescriptor(::windows_core::IUnknown);
@@ -9735,13 +9640,13 @@ impl IIsdbAudioComponentDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSimulcastGroupTag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetESMultiLingualFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetESMultiLingualFlag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMainComponentFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9798,7 +9703,6 @@ pub struct IIsdbAudioComponentDescriptor_Vtbl {
     pub GetLanguageCode2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbCAContractInformationDescriptor(::windows_core::IUnknown);
@@ -9861,7 +9765,6 @@ pub struct IIsdbCAContractInformationDescriptor_Vtbl {
     pub GetContractVerificationInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bbuflength: u8, pbbuf: *mut u8) -> ::windows_core::HRESULT,
     pub GetFeeNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbCADescriptor(::windows_core::IUnknown);
@@ -9908,7 +9811,6 @@ pub struct IIsdbCADescriptor_Vtbl {
     pub GetCAPID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetPrivateDataBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbbufferlength: *mut u8, pbbuffer: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbCAServiceDescriptor(::windows_core::IUnknown);
@@ -9955,7 +9857,6 @@ pub struct IIsdbCAServiceDescriptor_Vtbl {
     pub GetMessageControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetServiceIds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbnumserviceids: *mut u8, pwserviceids: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbComponentGroupDescriptor(::windows_core::IUnknown);
@@ -10028,7 +9929,6 @@ pub struct IIsdbComponentGroupDescriptor_Vtbl {
     pub GetRecordTotalBitRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbDataContentDescriptor(::windows_core::IUnknown);
@@ -10095,7 +9995,6 @@ pub struct IIsdbDataContentDescriptor_Vtbl {
     pub GetLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: *mut u8) -> ::windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrtext: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbDigitalCopyControlDescriptor(::windows_core::IUnknown);
@@ -10136,7 +10035,6 @@ pub struct IIsdbDigitalCopyControlDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordCopyControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbcomponenttag: *mut u8, pbdigitalrecordingcontroldata: *mut u8, pbcopycontroltype: *mut u8, pbapscontroldata: *mut u8, pbmaximumbitrate: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbDownloadContentDescriptor(::windows_core::IUnknown);
@@ -10149,7 +10047,7 @@ impl IIsdbDownloadContentDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFlags(&self, pfreboot: *mut super::super::super::Foundation::BOOL, pfaddon: *mut super::super::super::Foundation::BOOL, pfcompatibility: *mut super::super::super::Foundation::BOOL, pfmoduleinfo: *mut super::super::super::Foundation::BOOL, pftextinfo: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), pfreboot, pfaddon, pfcompatibility, pfmoduleinfo, pftextinfo).ok()
@@ -10242,7 +10140,6 @@ pub struct IIsdbDownloadContentDescriptor_Vtbl {
     pub GetTextLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szcode: *mut u8) -> ::windows_core::HRESULT,
     pub GetTextW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbEmergencyInformationDescriptor(::windows_core::IUnknown);
@@ -10294,7 +10191,6 @@ pub struct IIsdbEmergencyInformationDescriptor_Vtbl {
     pub GetSignalLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetAreaCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, ppwval: *mut *mut u16, pbnumareacodes: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbEventGroupDescriptor(::windows_core::IUnknown);
@@ -10345,7 +10241,6 @@ pub struct IIsdbEventGroupDescriptor_Vtbl {
     pub GetCountOfRefRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRefRecordEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pworiginalnetworkid: *mut u16, pwtransportstreamid: *mut u16, pwserviceid: *mut u16, pweventid: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbHierarchicalTransmissionDescriptor(::windows_core::IUnknown);
@@ -10393,7 +10288,6 @@ pub struct IIsdbHierarchicalTransmissionDescriptor_Vtbl {
     pub GetFutureUse2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetReferencePid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbLogoTransmissionDescriptor(::windows_core::IUnknown);
@@ -10446,7 +10340,6 @@ pub struct IIsdbLogoTransmissionDescriptor_Vtbl {
     pub GetDownloadDataId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetLogoCharW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrchar: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbSIParameterDescriptor(::windows_core::IUnknown);
@@ -10503,7 +10396,6 @@ pub struct IIsdbSIParameterDescriptor_Vtbl {
     pub GetTableDescriptionLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetTableDescriptionBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbbufferlength: *mut u8, pbbuffer: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbSeriesDescriptor(::windows_core::IUnknown);
@@ -10528,7 +10420,7 @@ impl IIsdbSeriesDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProgramPattern)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpireDate(&self, pfvalid: *mut super::super::super::Foundation::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetExpireDate)(::windows_core::Interface::as_raw(self), pfvalid, pmdtval).ok()
@@ -10570,7 +10462,6 @@ pub struct IIsdbSeriesDescriptor_Vtbl {
     pub GetLastEpisodeNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetSeriesNameW: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, convmode: DVB_STRCONV_MODE, pbstrname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbSiParser2(::windows_core::IUnknown);
@@ -10689,7 +10580,6 @@ pub struct IIsdbSiParser2_Vtbl {
     pub GetCDT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tableid: u8, bsectionnumber: u8, pwdownloaddataid: *const u16, ppcdt: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetEMM: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: u16, wtableidext: u16, ppemm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbTSInformationDescriptor(::windows_core::IUnknown);
@@ -10747,7 +10637,6 @@ pub struct IIsdbTSInformationDescriptor_Vtbl {
     pub GetRecordNumberOfServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordServiceIdByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, bserviceindex: u8, pdwval: *mut u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsdbTerrestrialDeliverySystemDescriptor(::windows_core::IUnknown);
@@ -10800,7 +10689,7 @@ pub struct IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pdwval: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10865,18 +10754,18 @@ impl ILanguageComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -10908,7 +10797,7 @@ pub struct ILanguageComponentType_Vtbl {
     pub LangID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: *mut i32) -> ::windows_core::HRESULT,
     pub SetLangID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10964,7 +10853,7 @@ impl ILocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -11005,20 +10894,20 @@ pub struct ILocator_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2Component(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2Component {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetType<P0>(&self, ct: P0) -> ::windows_core::Result<()>
     where
@@ -11050,7 +10939,7 @@ impl IMPEG2Component {
     {
         (::windows_core::Interface::vtable(self).base__.SetDescription)(::windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
@@ -11100,7 +10989,7 @@ pub struct IMPEG2Component_Vtbl {
     pub ProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: *mut i32) -> ::windows_core::HRESULT,
     pub SetProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11165,18 +11054,18 @@ impl IMPEG2ComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -11215,38 +11104,38 @@ pub struct IMPEG2ComponentType_Vtbl {
     pub StreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mp2streamtype: *mut super::MPEG2StreamType) -> ::windows_core::HRESULT,
     pub SetStreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mp2streamtype: super::MPEG2StreamType) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -11289,14 +11178,14 @@ pub struct IMPEG2TuneRequest_Vtbl {
     pub ProgNo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progno: *mut i32) -> ::windows_core::HRESULT,
     pub SetProgNo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progno: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequestFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequestFactory {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest<P0>(&self, tuningspace: P0) -> ::windows_core::Result<IMPEG2TuneRequest>
     where
@@ -11326,7 +11215,6 @@ pub struct IMPEG2TuneRequestFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateTuneRequest: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequestSupport(::windows_core::IUnknown);
@@ -11343,7 +11231,6 @@ unsafe impl ::windows_core::ComInterface for IMPEG2TuneRequestSupport {
 pub struct IMPEG2TuneRequestSupport_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2_TIF_CONTROL(::windows_core::IUnknown);
@@ -11389,14 +11276,14 @@ pub struct IMPEG2_TIF_CONTROL_Vtbl {
     pub GetPIDCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcpids: *mut u32) -> ::windows_core::HRESULT,
     pub GetPIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcpids: *mut u32, pulpids: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSEventBinder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSEventBinder {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Bind<P0, P1, P2>(&self, peventobject: P0, eventname: P1, eventhandler: P2) -> ::windows_core::Result<i32>
     where
@@ -11432,7 +11319,7 @@ pub struct IMSEventBinder_Vtbl {
     Bind: usize,
     pub Unbind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cancelcookie: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11447,7 +11334,7 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11455,7 +11342,7 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11477,7 +11364,7 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11486,24 +11373,24 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tune)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTune<P0>(&self, ptr: P0) -> ::windows_core::Result<()>
     where
@@ -11511,13 +11398,13 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).base__.SetTune)(::windows_core::Interface::as_raw(self), ptr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, plts: P0) -> ::windows_core::Result<()>
     where
@@ -11547,13 +11434,13 @@ impl IMSVidAnalogTuner {
     pub unsafe fn SetCountryCode(&self, lcc: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCountryCode)(::windows_core::Interface::as_raw(self), lcc).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAP(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SAP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAP<P0>(&self, fsapon: P0) -> ::windows_core::Result<()>
     where
@@ -11561,7 +11448,7 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).SetSAP)(::windows_core::Interface::as_raw(self), fsapon.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, fsignalpresent).ok()
@@ -11601,7 +11488,7 @@ pub struct IMSVidAnalogTuner_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChannelAvailable: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11616,7 +11503,7 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11624,7 +11511,7 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11646,7 +11533,7 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11655,24 +11542,24 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Tune)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTune<P0>(&self, ptr: P0) -> ::windows_core::Result<()>
     where
@@ -11680,13 +11567,13 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetTune)(::windows_core::Interface::as_raw(self), ptr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, plts: P0) -> ::windows_core::Result<()>
     where
@@ -11716,13 +11603,13 @@ impl IMSVidAnalogTuner2 {
     pub unsafe fn SetCountryCode(&self, lcc: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCountryCode)(::windows_core::Interface::as_raw(self), lcc).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAP(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SAP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAP<P0>(&self, fsapon: P0) -> ::windows_core::Result<()>
     where
@@ -11730,7 +11617,7 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSAP)(::windows_core::Interface::as_raw(self), fsapon.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, fsignalpresent).ok()
@@ -11767,14 +11654,14 @@ pub struct IMSVidAnalogTuner2_Vtbl {
     pub TunerModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modes: *mut i32) -> ::windows_core::HRESULT,
     pub NumAuxInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputs: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAnalogTunerEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTunerEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneChanged<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -11799,7 +11686,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidAnalogTunerEvent {
 pub struct IMSVidAnalogTunerEvent_Vtbl {
     pub base__: IMSVidTunerEvent_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11814,7 +11701,7 @@ impl IMSVidAudioRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11822,7 +11709,7 @@ impl IMSVidAudioRenderer {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11844,7 +11731,7 @@ impl IMSVidAudioRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11888,7 +11775,7 @@ pub struct IMSVidAudioRenderer_Vtbl {
     pub SetBalance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbal: i32) -> ::windows_core::HRESULT,
     pub Balance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbal: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11899,19 +11786,19 @@ impl IMSVidAudioRendererDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidAudioRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -11919,7 +11806,7 @@ impl IMSVidAudioRendererDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -11958,14 +11845,14 @@ pub struct IMSVidAudioRendererDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -11990,14 +11877,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidAudioRendererEvent {
 pub struct IMSVidAudioRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererEvent2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -12054,7 +11941,7 @@ pub struct IMSVidAudioRendererEvent2_Vtbl {
     pub AVDecCommonInputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AVDecCommonOutputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12069,7 +11956,7 @@ impl IMSVidClosedCaptioning {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12077,7 +11964,7 @@ impl IMSVidClosedCaptioning {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12099,7 +11986,7 @@ impl IMSVidClosedCaptioning {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12108,13 +11995,13 @@ impl IMSVidClosedCaptioning {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> ::windows_core::Result<()>
     where
@@ -12147,7 +12034,7 @@ pub struct IMSVidClosedCaptioning_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnable: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12162,7 +12049,7 @@ impl IMSVidClosedCaptioning2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12170,7 +12057,7 @@ impl IMSVidClosedCaptioning2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12192,7 +12079,7 @@ impl IMSVidClosedCaptioning2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12201,13 +12088,13 @@ impl IMSVidClosedCaptioning2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> ::windows_core::Result<()>
     where
@@ -12241,7 +12128,7 @@ pub struct IMSVidClosedCaptioning2_Vtbl {
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, on: *mut MSVidCCService) -> ::windows_core::HRESULT,
     pub SetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, on: MSVidCCService) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12256,7 +12143,7 @@ impl IMSVidClosedCaptioning3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12264,7 +12151,7 @@ impl IMSVidClosedCaptioning3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12286,7 +12173,7 @@ impl IMSVidClosedCaptioning3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12295,13 +12182,13 @@ impl IMSVidClosedCaptioning3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> ::windows_core::Result<()>
     where
@@ -12338,14 +12225,14 @@ pub struct IMSVidClosedCaptioning3_Vtbl {
     pub base__: IMSVidClosedCaptioning2_Vtbl,
     pub TeleTextFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkttfilter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidCompositionSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCompositionSegment {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -12407,7 +12294,7 @@ impl IMSVidCompositionSegment {
     pub unsafe fn Decompose(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Decompose)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Compose<P0, P1>(&self, upstream: P0, downstream: P1) -> ::windows_core::Result<()>
     where
@@ -12416,13 +12303,13 @@ impl IMSVidCompositionSegment {
     {
         (::windows_core::Interface::vtable(self).Compose)(::windows_core::Interface::as_raw(self), upstream.into_param().abi(), downstream.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Up(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Up)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Down(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
@@ -12457,20 +12344,20 @@ pub struct IMSVidCompositionSegment_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Down: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidCtl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCtl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSize(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AutoSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSize<P0>(&self, vbool: P0) -> ::windows_core::Result<()>
     where
@@ -12485,13 +12372,13 @@ impl IMSVidCtl {
     pub unsafe fn SetBackColor(&self, backcolor: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBackColor)(::windows_core::Interface::as_raw(self), backcolor).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, vbool: P0) -> ::windows_core::Result<()>
     where
@@ -12499,13 +12386,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetEnabled)(::windows_core::Interface::as_raw(self), vbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TabStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TabStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTabStop<P0>(&self, vbool: P0) -> ::windows_core::Result<()>
     where
@@ -12513,7 +12400,7 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetTabStop)(::windows_core::Interface::as_raw(self), vbool.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Window(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -12529,13 +12416,13 @@ impl IMSVidCtl {
     pub unsafe fn SetDisplaySize(&self, newvalue: DisplaySizeList) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplaySize)(::windows_core::Interface::as_raw(self), newvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MaintainAspectRatio(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaintainAspectRatio)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMaintainAspectRatio<P0>(&self, newvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12550,7 +12437,7 @@ impl IMSVidCtl {
     pub unsafe fn SetColorKey(&self, newvalue: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), newvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_InputsAvailable<P0>(&self, categoryguid: P0) -> ::windows_core::Result<IMSVidInputDevices>
     where
@@ -12559,7 +12446,7 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_InputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_OutputsAvailable<P0>(&self, categoryguid: P0) -> ::windows_core::Result<IMSVidOutputDevices>
     where
@@ -12568,43 +12455,43 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_OutputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get__InputsAvailable(&self, categoryguid: *const ::windows_core::GUID) -> ::windows_core::Result<IMSVidInputDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get__InputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get__OutputsAvailable(&self, categoryguid: *const ::windows_core::GUID) -> ::windows_core::Result<IMSVidOutputDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get__OutputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRenderersAvailable(&self) -> ::windows_core::Result<IMSVidVideoRendererDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VideoRenderersAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRenderersAvailable(&self) -> ::windows_core::Result<IMSVidAudioRendererDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioRenderersAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FeaturesAvailable(&self) -> ::windows_core::Result<IMSVidFeatures> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FeaturesAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InputActive(&self) -> ::windows_core::Result<IMSVidInputDevice> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InputActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetInputActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12612,13 +12499,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetInputActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutputsActive(&self) -> ::windows_core::Result<IMSVidOutputDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputsActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOutputsActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12626,13 +12513,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetOutputsActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRendererActive(&self) -> ::windows_core::Result<IMSVidVideoRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VideoRendererActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetVideoRendererActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12640,13 +12527,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetVideoRendererActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRendererActive(&self) -> ::windows_core::Result<IMSVidAudioRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioRendererActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAudioRendererActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12654,13 +12541,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetAudioRendererActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FeaturesActive(&self) -> ::windows_core::Result<IMSVidFeatures> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FeaturesActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFeaturesActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12672,7 +12559,7 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), v).ok()
@@ -12698,7 +12585,7 @@ impl IMSVidCtl {
     pub unsafe fn DisableAudio(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisableAudio)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ViewNext(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ViewNext)(::windows_core::Interface::as_raw(self), v).ok()
@@ -12847,7 +12734,7 @@ pub struct IMSVidCtl_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ViewNext: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12862,7 +12749,7 @@ impl IMSVidDataServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12870,7 +12757,7 @@ impl IMSVidDataServices {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12892,7 +12779,7 @@ impl IMSVidDataServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12918,14 +12805,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidDataServices {
 pub struct IMSVidDataServices_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDataServicesEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDataServicesEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -12950,7 +12837,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidDataServicesEvent {
 pub struct IMSVidDataServicesEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12965,7 +12852,7 @@ impl IMSVidDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12973,7 +12860,7 @@ impl IMSVidDevice {
     {
         (::windows_core::Interface::vtable(self).SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12995,7 +12882,7 @@ impl IMSVidDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13039,7 +12926,6 @@ pub struct IMSVidDevice_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     IsEqualDevice: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDevice2(::windows_core::IUnknown);
@@ -13062,14 +12948,14 @@ pub struct IMSVidDevice2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDeviceEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -13098,7 +12984,7 @@ pub struct IMSVidDeviceEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     StateChange: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13113,7 +12999,7 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13121,7 +13007,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13143,7 +13029,7 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13179,7 +13065,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -13189,7 +13075,7 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -13197,18 +13083,18 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -13223,7 +13109,7 @@ impl IMSVidEVR {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -13246,31 +13132,31 @@ impl IMSVidEVR {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -13278,13 +13164,13 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -13292,7 +13178,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -13302,13 +13188,13 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -13316,13 +13202,13 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetDecimateInput)(::windows_core::Interface::as_raw(self), pdeci.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Media_MediaFoundation`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn Presenter(&self) -> ::windows_core::Result<super::super::MediaFoundation::IMFVideoPresenter> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Presenter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Media_MediaFoundation`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn SetPresenter<P0>(&self, pallocpresent: P0) -> ::windows_core::Result<()>
     where
@@ -13330,7 +13216,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).SetPresenter)(::windows_core::Interface::as_raw(self), pallocpresent.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressEffects<P0>(&self, bsuppress: P0) -> ::windows_core::Result<()>
     where
@@ -13338,7 +13224,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).SetSuppressEffects)(::windows_core::Interface::as_raw(self), bsuppress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13377,14 +13263,14 @@ pub struct IMSVidEVR_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SuppressEffects: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidEVREvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidEVREvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -13413,7 +13299,7 @@ pub struct IMSVidEVREvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OnUserEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leventcode: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13428,7 +13314,7 @@ impl IMSVidEncoder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13436,7 +13322,7 @@ impl IMSVidEncoder {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13458,7 +13344,7 @@ impl IMSVidEncoder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13494,7 +13380,7 @@ pub struct IMSVidEncoder_Vtbl {
     pub VideoEncoderInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppencint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AudioEncoderInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppencint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13509,7 +13395,7 @@ impl IMSVidFeature {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13517,7 +13403,7 @@ impl IMSVidFeature {
     {
         (::windows_core::Interface::vtable(self).base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13539,7 +13425,7 @@ impl IMSVidFeature {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13565,14 +13451,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidFeature {
 pub struct IMSVidFeature_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFeatureEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFeatureEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -13597,7 +13483,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidFeatureEvent {
 pub struct IMSVidFeatureEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13608,19 +13494,19 @@ impl IMSVidFeatures {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidFeature> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -13628,7 +13514,7 @@ impl IMSVidFeatures {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -13667,7 +13553,7 @@ pub struct IMSVidFeatures_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13682,7 +13568,7 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13690,7 +13576,7 @@ impl IMSVidFilePlayback {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13712,7 +13598,7 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13721,24 +13607,24 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -13755,7 +13641,7 @@ impl IMSVidFilePlayback {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13821,7 +13707,7 @@ pub struct IMSVidFilePlayback_Vtbl {
     pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13836,7 +13722,7 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13844,7 +13730,7 @@ impl IMSVidFilePlayback2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13866,7 +13752,7 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13875,24 +13761,24 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -13909,7 +13795,7 @@ impl IMSVidFilePlayback2 {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13984,14 +13870,14 @@ pub struct IMSVidFilePlayback2_Vtbl {
     pub Set_SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Set__SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFilePlaybackEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFilePlaybackEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -14016,7 +13902,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidFilePlaybackEvent {
 pub struct IMSVidFilePlaybackEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14031,7 +13917,7 @@ impl IMSVidGenericSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14039,7 +13925,7 @@ impl IMSVidGenericSink {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14061,7 +13947,7 @@ impl IMSVidGenericSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14103,7 +13989,7 @@ pub struct IMSVidGenericSink_Vtbl {
     pub SinkStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstreams: *mut MSVidSinkStreams) -> ::windows_core::HRESULT,
     pub SetSinkStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: MSVidSinkStreams) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14118,7 +14004,7 @@ impl IMSVidGenericSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14126,7 +14012,7 @@ impl IMSVidGenericSink2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14148,7 +14034,7 @@ impl IMSVidGenericSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14198,14 +14084,14 @@ pub struct IMSVidGenericSink2_Vtbl {
     pub AddFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ResetFilterList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidGraphSegment {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -14299,7 +14185,6 @@ pub struct IMSVidGraphSegment_Vtbl {
     pub OnEventNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leventcode: i32, leventparm1: isize, leventparm2: isize) -> ::windows_core::HRESULT,
     pub Decompose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegmentContainer(::windows_core::IUnknown);
@@ -14308,7 +14193,7 @@ impl IMSVidGraphSegmentContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Graph)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Input(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
@@ -14318,13 +14203,13 @@ impl IMSVidGraphSegmentContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Outputs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRenderer(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VideoRenderer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRenderer(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
@@ -14342,7 +14227,7 @@ impl IMSVidGraphSegmentContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ParentContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Decompose<P0>(&self, psegment: P0) -> ::windows_core::Result<()>
     where
@@ -14392,7 +14277,6 @@ pub struct IMSVidGraphSegmentContainer_Vtbl {
     pub IsWindowless: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegmentUserInput(::windows_core::IUnknown);
@@ -14442,7 +14326,7 @@ pub struct IMSVidGraphSegmentUserInput_Vtbl {
     pub MouseMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttonstate: i16, shiftstate: i16, x: i32, y: i32) -> ::windows_core::HRESULT,
     pub MouseUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttonstate: i16, shiftstate: i16, x: i32, y: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14457,7 +14341,7 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14465,7 +14349,7 @@ impl IMSVidInputDevice {
     {
         (::windows_core::Interface::vtable(self).base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14487,7 +14371,7 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14496,13 +14380,13 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), v).ok()
@@ -14532,7 +14416,7 @@ pub struct IMSVidInputDevice_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     View: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14555,7 +14439,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidInputDeviceEvent {
 pub struct IMSVidInputDeviceEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14566,19 +14450,19 @@ impl IMSVidInputDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidInputDevice> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -14586,7 +14470,7 @@ impl IMSVidInputDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -14625,7 +14509,7 @@ pub struct IMSVidInputDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14640,7 +14524,7 @@ impl IMSVidOutputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14648,7 +14532,7 @@ impl IMSVidOutputDevice {
     {
         (::windows_core::Interface::vtable(self).base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14670,7 +14554,7 @@ impl IMSVidOutputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14696,14 +14580,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidOutputDevice {
 pub struct IMSVidOutputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidOutputDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidOutputDeviceEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -14728,7 +14612,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidOutputDeviceEvent {
 pub struct IMSVidOutputDeviceEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14739,19 +14623,19 @@ impl IMSVidOutputDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidOutputDevice> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -14759,7 +14643,7 @@ impl IMSVidOutputDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -14798,7 +14682,7 @@ pub struct IMSVidOutputDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14813,7 +14697,7 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14821,7 +14705,7 @@ impl IMSVidPlayback {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14843,7 +14727,7 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14852,24 +14736,24 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -14886,7 +14770,7 @@ impl IMSVidPlayback {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14963,14 +14847,14 @@ pub struct IMSVidPlayback_Vtbl {
     pub PositionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpositionmode: *mut PositionModeList) -> ::windows_core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llength: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidPlaybackEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidPlaybackEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -14999,7 +14883,7 @@ pub struct IMSVidPlaybackEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EndOfMedia: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15034,13 +14918,13 @@ impl IMSVidRect {
     pub unsafe fn SetHeight(&self, heightval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetHeight)(::windows_core::Interface::as_raw(self), heightval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HWnd(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HWnd)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHWnd<P0>(&self, hwndval: P0) -> ::windows_core::Result<()>
     where
@@ -15048,7 +14932,7 @@ impl IMSVidRect {
     {
         (::windows_core::Interface::vtable(self).SetHWnd)(::windows_core::Interface::as_raw(self), hwndval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRect<P0>(&self, rectval: P0) -> ::windows_core::Result<()>
     where
@@ -15093,7 +14977,7 @@ pub struct IMSVidRect_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetRect: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15114,13 +14998,13 @@ impl IMSVidStreamBufferRecordingControl {
     pub unsafe fn SetStopTime(&self, rtstop: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStopTime)(::windows_core::Interface::as_raw(self), rtstop).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RecordingStopped(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RecordingStopped)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RecordingStarted(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15165,7 +15049,7 @@ pub struct IMSVidStreamBufferRecordingControl_Vtbl {
     pub RecordingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: *mut RecordingType) -> ::windows_core::HRESULT,
     pub RecordingAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordingattribute: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15180,7 +15064,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15188,7 +15072,7 @@ impl IMSVidStreamBufferSink {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15210,7 +15094,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15219,7 +15103,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ContentRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15228,7 +15112,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ContentRecorder)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ReferenceRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15283,7 +15167,7 @@ pub struct IMSVidStreamBufferSink_Vtbl {
     pub NameSetLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SBESink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sbeconfig: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15298,7 +15182,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15306,7 +15190,7 @@ impl IMSVidStreamBufferSink2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15328,7 +15212,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15337,7 +15221,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ContentRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15346,7 +15230,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_ContentRecorder)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ReferenceRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15393,7 +15277,7 @@ pub struct IMSVidStreamBufferSink2_Vtbl {
     pub base__: IMSVidStreamBufferSink_Vtbl,
     pub UnlockProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15408,7 +15292,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15416,7 +15300,7 @@ impl IMSVidStreamBufferSink3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15438,7 +15322,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15447,7 +15331,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ContentRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15456,7 +15340,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.get_ContentRecorder)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ReferenceRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15595,14 +15479,14 @@ pub struct IMSVidStreamBufferSink3_Vtbl {
     pub _DataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub LicenseErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hres: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15639,14 +15523,14 @@ pub struct IMSVidStreamBufferSinkEvent_Vtbl {
     pub CertificateSuccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WriteFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15688,14 +15572,14 @@ pub struct IMSVidStreamBufferSinkEvent2_Vtbl {
     pub EncryptionOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EncryptionOff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15739,14 +15623,14 @@ pub struct IMSVidStreamBufferSinkEvent3_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent2_Vtbl,
     pub LicenseChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprot: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent4 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15793,7 +15677,7 @@ pub struct IMSVidStreamBufferSinkEvent4_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent3_Vtbl,
     pub WriteFailureClear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15808,7 +15692,7 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15816,7 +15700,7 @@ impl IMSVidStreamBufferSource {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15838,7 +15722,7 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15847,24 +15731,24 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -15881,7 +15765,7 @@ impl IMSVidStreamBufferSource {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15942,7 +15826,7 @@ impl IMSVidStreamBufferSource {
     pub unsafe fn MaxRatingsLevel(&self, ensystem: EnTvRat_System, enrating: EnTvRat_GenericLevel, lbfenattr: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MaxRatingsLevel)(::windows_core::Interface::as_raw(self), ensystem, enrating, lbfenattr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnrated<P0>(&self, bblock: P0) -> ::windows_core::Result<()>
     where
@@ -15984,7 +15868,7 @@ pub struct IMSVidStreamBufferSource_Vtbl {
     pub SetUnratedDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdelay: i32) -> ::windows_core::HRESULT,
     pub SBESource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sbefilter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15999,7 +15883,7 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -16007,7 +15891,7 @@ impl IMSVidStreamBufferSource2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16029,7 +15913,7 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16038,24 +15922,24 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -16072,7 +15956,7 @@ impl IMSVidStreamBufferSource2 {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16133,7 +16017,7 @@ impl IMSVidStreamBufferSource2 {
     pub unsafe fn MaxRatingsLevel(&self, ensystem: EnTvRat_System, enrating: EnTvRat_GenericLevel, lbfenattr: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.MaxRatingsLevel)(::windows_core::Interface::as_raw(self), ensystem, enrating, lbfenattr).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnrated<P0>(&self, bblock: P0) -> ::windows_core::Result<()>
     where
@@ -16189,14 +16073,14 @@ pub struct IMSVidStreamBufferSource2_Vtbl {
     pub CCCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WSTCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16257,14 +16141,14 @@ pub struct IMSVidStreamBufferSourceEvent_Vtbl {
     pub ContentBecomingStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub StaleFileDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16320,14 +16204,14 @@ pub struct IMSVidStreamBufferSourceEvent2_Vtbl {
     pub base__: IMSVidStreamBufferSourceEvent_Vtbl,
     pub RateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwnewrate: f64, qwoldrate: f64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent3 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16408,14 +16292,14 @@ pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
     pub COPPUnblocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferV2SourceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferV2SourceEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16482,7 +16366,7 @@ pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub BroadcastEventEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -16497,7 +16381,7 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -16505,7 +16389,7 @@ impl IMSVidTuner {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16527,7 +16411,7 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16536,24 +16420,24 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Tune)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTune<P0>(&self, ptr: P0) -> ::windows_core::Result<()>
     where
@@ -16561,13 +16445,13 @@ impl IMSVidTuner {
     {
         (::windows_core::Interface::vtable(self).SetTune)(::windows_core::Interface::as_raw(self), ptr.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, plts: P0) -> ::windows_core::Result<()>
     where
@@ -16608,14 +16492,14 @@ pub struct IMSVidTuner_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetTuningSpace: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidTunerEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidTunerEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneChanged<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16644,7 +16528,7 @@ pub struct IMSVidTunerEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     TuneChanged: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -16659,7 +16543,7 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -16667,7 +16551,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16689,7 +16573,7 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16725,7 +16609,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -16735,7 +16619,7 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -16743,18 +16627,18 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -16769,7 +16653,7 @@ impl IMSVidVMR9 {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -16792,31 +16676,31 @@ impl IMSVidVMR9 {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -16824,13 +16708,13 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -16838,7 +16722,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -16848,13 +16732,13 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -16872,7 +16756,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).SetAllocator)(::windows_core::Interface::as_raw(self), allocpresent.into_param().abi(), id).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressEffects<P0>(&self, bsuppress: P0) -> ::windows_core::Result<()>
     where
@@ -16880,7 +16764,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).SetSuppressEffects)(::windows_core::Interface::as_raw(self), bsuppress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16918,14 +16802,14 @@ pub struct IMSVidVMR9_Vtbl {
     SuppressEffects: usize,
     pub Allocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocpresent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVRGraphSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVRGraphSegment {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -16990,7 +16874,7 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn Set_VMRendererMode(&self, dwmode: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_VMRendererMode)(::windows_core::Interface::as_raw(self), dwmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwner<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
@@ -16998,19 +16882,19 @@ impl IMSVidVRGraphSegment {
     {
         (::windows_core::Interface::vtable(self).SetOwner)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Owner(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Owner)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UseOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -17018,13 +16902,13 @@ impl IMSVidVRGraphSegment {
     {
         (::windows_core::Interface::vtable(self).SetUseOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Visible(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Visible)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVisible<P0>(&self, visible: P0) -> ::windows_core::Result<()>
     where
@@ -17039,29 +16923,29 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn SetColorKey(&self, colorkey: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), colorkey).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Source(&self) -> ::windows_core::Result<super::super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Source)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSource(&self, r: super::super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Destination(&self) -> ::windows_core::Result<super::super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Destination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDestination(&self, r: super::super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDestination)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_NativeSize(&self, sizeval: *mut super::super::super::Foundation::SIZE, aspectratio: *mut super::super::super::Foundation::SIZE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_NativeSize)(::windows_core::Interface::as_raw(self), sizeval, aspectratio).ok()
@@ -17073,13 +16957,13 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn SetBorderColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MaintainAspectRatio(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaintainAspectRatio)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMaintainAspectRatio<P0>(&self, fmaintain: P0) -> ::windows_core::Result<()>
     where
@@ -17093,7 +16977,7 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn DisplayChange(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisplayChange)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Graphics_Gdi`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn RePaint<P0>(&self, hdc: P0) -> ::windows_core::Result<()>
     where
@@ -17181,7 +17065,7 @@ pub struct IMSVidVRGraphSegment_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     RePaint: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17196,7 +17080,7 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17204,7 +17088,7 @@ impl IMSVidVideoInputDevice {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17226,7 +17110,7 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17235,13 +17119,13 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), v).ok()
@@ -17263,7 +17147,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidVideoInputDevice {
 pub struct IMSVidVideoInputDevice_Vtbl {
     pub base__: IMSVidInputDevice_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17278,7 +17162,7 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17286,7 +17170,7 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17308,7 +17192,7 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17344,7 +17228,7 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17354,7 +17238,7 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -17362,18 +17246,18 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -17388,7 +17272,7 @@ impl IMSVidVideoRenderer {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -17411,31 +17295,31 @@ impl IMSVidVideoRenderer {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -17443,13 +17327,13 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -17457,7 +17341,7 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17467,13 +17351,13 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -17576,7 +17460,7 @@ pub struct IMSVidVideoRenderer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDecimateInput: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17591,7 +17475,7 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17599,7 +17483,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17621,7 +17505,7 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17657,7 +17541,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17667,7 +17551,7 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -17675,18 +17559,18 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -17701,7 +17585,7 @@ impl IMSVidVideoRenderer2 {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -17724,31 +17608,31 @@ impl IMSVidVideoRenderer2 {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -17756,13 +17640,13 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -17770,7 +17654,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17780,13 +17664,13 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -17818,7 +17702,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self)._SetAllocator2)(::windows_core::Interface::as_raw(self), allocpresent.into_param().abi(), id).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressEffects<P0>(&self, bsuppress: P0) -> ::windows_core::Result<()>
     where
@@ -17826,7 +17710,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).SetSuppressEffects)(::windows_core::Interface::as_raw(self), bsuppress.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17862,7 +17746,7 @@ pub struct IMSVidVideoRenderer2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SuppressEffects: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17873,19 +17757,19 @@ impl IMSVidVideoRendererDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidVideoRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -17893,7 +17777,7 @@ impl IMSVidVideoRendererDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -17932,14 +17816,14 @@ pub struct IMSVidVideoRendererDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -17968,14 +17852,14 @@ pub struct IMSVidVideoRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OverlayUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererEvent2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -18004,7 +17888,7 @@ pub struct IMSVidVideoRendererEvent2_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OverlayUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -18019,7 +17903,7 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -18027,7 +17911,7 @@ impl IMSVidWebDVD {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18049,7 +17933,7 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18058,24 +17942,24 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18092,7 +17976,7 @@ impl IMSVidWebDVD {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18175,7 +18059,7 @@ impl IMSVidWebDVD {
     pub unsafe fn StillOff(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StillOff)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AudioLanguage<P0>(&self, lstream: i32, fformat: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -18283,13 +18167,13 @@ impl IMSVidWebDVD {
     {
         (::windows_core::Interface::vtable(self).SetDVDDirectory)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubpictureStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSubpictureStreamEnabled)(::windows_core::Interface::as_raw(self), lstream, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAudioStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18332,13 +18216,13 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SubpictureStreamsAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubpictureOn(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SubpictureOn)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubpictureOn<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18350,7 +18234,7 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DVDUniqueID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcceptParentalLevelChange<P0, P1, P2>(&self, faccept: P0, strusername: P1, strpassword: P2) -> ::windows_core::Result<()>
     where
@@ -18360,7 +18244,7 @@ impl IMSVidWebDVD {
     {
         (::windows_core::Interface::vtable(self).AcceptParentalLevelChange)(::windows_core::Interface::as_raw(self), faccept.into_param().abi(), strusername.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyParentalLevelChange<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18397,7 +18281,7 @@ impl IMSVidWebDVD {
     pub unsafe fn Eject(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Eject)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UOPValid(&self, luop: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18437,7 +18321,7 @@ impl IMSVidWebDVD {
     pub unsafe fn RegionChange(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RegionChange)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDAdm(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -18507,19 +18391,19 @@ impl IMSVidWebDVD {
     pub unsafe fn RestorePreferredSettings(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RestorePreferredSettings)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ButtonRect(&self, lbutton: i32) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ButtonRect)(::windows_core::Interface::as_raw(self), lbutton, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDScreenInMouseCoordinates(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DVDScreenInMouseCoordinates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDVDScreenInMouseCoordinates<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -18675,7 +18559,7 @@ pub struct IMSVidWebDVD_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetDVDScreenInMouseCoordinates: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -18690,7 +18574,7 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -18698,7 +18582,7 @@ impl IMSVidWebDVD2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18720,7 +18604,7 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18729,24 +18613,24 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18763,7 +18647,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18846,7 +18730,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn StillOff(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.StillOff)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AudioLanguage<P0>(&self, lstream: i32, fformat: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -18954,13 +18838,13 @@ impl IMSVidWebDVD2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetDVDDirectory)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubpictureStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsSubpictureStreamEnabled)(::windows_core::Interface::as_raw(self), lstream, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAudioStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -19003,13 +18887,13 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SubpictureStreamsAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubpictureOn(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SubpictureOn)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubpictureOn<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -19021,7 +18905,7 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DVDUniqueID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcceptParentalLevelChange<P0, P1, P2>(&self, faccept: P0, strusername: P1, strpassword: P2) -> ::windows_core::Result<()>
     where
@@ -19031,7 +18915,7 @@ impl IMSVidWebDVD2 {
     {
         (::windows_core::Interface::vtable(self).base__.AcceptParentalLevelChange)(::windows_core::Interface::as_raw(self), faccept.into_param().abi(), strusername.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyParentalLevelChange<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -19068,7 +18952,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn Eject(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Eject)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UOPValid(&self, luop: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -19108,7 +18992,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn RegionChange(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RegionChange)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDAdm(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -19178,19 +19062,19 @@ impl IMSVidWebDVD2 {
     pub unsafe fn RestorePreferredSettings(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RestorePreferredSettings)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ButtonRect(&self, lbutton: i32) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_ButtonRect)(::windows_core::Interface::as_raw(self), lbutton, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDScreenInMouseCoordinates(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DVDScreenInMouseCoordinates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDVDScreenInMouseCoordinates<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -19223,7 +19107,7 @@ pub struct IMSVidWebDVD2_Vtbl {
     pub get_Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows_core::HRESULT,
     pub put_Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwdatalength: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -19252,7 +19136,7 @@ impl IMSVidWebDVDAdm {
     {
         (::windows_core::Interface::vtable(self).SaveParentalCountry)(::windows_core::Interface::as_raw(self), country, strusername.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfirmPassword<P0, P1>(&self, strusername: P0, strpassword: P1) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -19291,13 +19175,13 @@ impl IMSVidWebDVDAdm {
     pub unsafe fn SetDefaultMenuLCID(&self, newval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDefaultMenuLCID)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BookmarkOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BookmarkOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBookmarkOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -19345,14 +19229,14 @@ pub struct IMSVidWebDVDAdm_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBookmarkOnStop: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidWebDVDEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidWebDVDEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -19360,12 +19244,12 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).base__.EndOfMedia)(::windows_core::Interface::as_raw(self), lpd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DVDNotify(&self, leventcode: i32, lparam1: super::super::super::System::Variant::VARIANT, lparam2: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DVDNotify)(::windows_core::Interface::as_raw(self), leventcode, ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayForwards<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19373,7 +19257,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayForwards)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayBackwards<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19381,7 +19265,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayBackwards)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowMenu<P0>(&self, menuid: DVDMenuIDConstants, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19389,7 +19273,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ShowMenu)(::windows_core::Interface::as_raw(self), menuid, benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Resume<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19397,7 +19281,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectOrActivateButton<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19405,7 +19289,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).SelectOrActivateButton)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StillOff<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19413,7 +19297,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).StillOff)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PauseOn<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19421,7 +19305,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PauseOn)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCurrentAudioStream<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19429,7 +19313,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeCurrentAudioStream)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCurrentSubpictureStream<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19437,7 +19321,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeCurrentSubpictureStream)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCurrentAngle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19445,7 +19329,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeCurrentAngle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayAtTimeInTitle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19453,7 +19337,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayAtTimeInTitle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayAtTime<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19461,7 +19345,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayAtTime)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayChapterInTitle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19469,7 +19353,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayChapterInTitle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19477,7 +19361,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReplayChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19485,7 +19369,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ReplayChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayNextChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19493,7 +19377,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayNextChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Stop<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19501,7 +19385,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReturnFromSubmenu<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19509,7 +19393,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ReturnFromSubmenu)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayTitle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19517,7 +19401,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayTitle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayPrevChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19525,7 +19409,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayPrevChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeKaraokePresMode<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19533,7 +19417,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeKaraokePresMode)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeVideoPresMode<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19650,7 +19534,7 @@ pub struct IMSVidWebDVDEvent_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangeVideoPresMode: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -19665,7 +19549,7 @@ impl IMSVidXDS {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -19673,7 +19557,7 @@ impl IMSVidXDS {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -19695,7 +19579,7 @@ impl IMSVidXDS {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -19726,14 +19610,14 @@ pub struct IMSVidXDS_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
     pub ChannelChangeInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkcc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidXDSEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidXDSEvent {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -19762,7 +19646,6 @@ pub struct IMSVidXDSEvent_Vtbl {
     pub base__: IMSVidFeatureEvent_Vtbl,
     pub RatingChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prevratingsystem: EnTvRat_System, prevlevel: EnTvRat_GenericLevel, prevattributes: BfEnTvRat_GenericAttributes, newratingsystem: EnTvRat_System, newlevel: EnTvRat_GenericLevel, newattributes: BfEnTvRat_GenericAttributes) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMceBurnerControl(::windows_core::IUnknown);
@@ -19784,24 +19667,23 @@ pub struct IMceBurnerControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetBurnerNoDecryption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Data(::windows_core::IUnknown);
 impl IMpeg2Data {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSection(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> ::windows_core::Result<ISectionList> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSection)(::windows_core::Interface::as_raw(self), pid, tid, pfilter, dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTable(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> ::windows_core::Result<ISectionList> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTable)(::windows_core::Interface::as_raw(self), pid, tid, pfilter, dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamOfSections<P0>(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: P0) -> ::windows_core::Result<IMpeg2Stream>
     where
@@ -19835,12 +19717,11 @@ pub struct IMpeg2Data_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetStreamOfSections: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Stream(::windows_core::IUnknown);
 impl IMpeg2Stream {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: P0, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: P1) -> ::windows_core::Result<()>
     where
@@ -19870,7 +19751,6 @@ pub struct IMpeg2Stream_Vtbl {
     Initialize: usize,
     pub SupplyDataBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstreambuffer: *const MPEG_STREAM_BUFFER) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2TableFilter(::windows_core::IUnknown);
@@ -19912,7 +19792,6 @@ pub struct IMpeg2TableFilter_Vtbl {
     pub RemoveTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: u16, t: u8) -> ::windows_core::HRESULT,
     pub RemoveExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: u16, t: u8, e: u16) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPAT(::windows_core::IUnknown);
@@ -19948,7 +19827,7 @@ impl IPAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindRecordProgramMapPid)(::windows_core::Interface::as_raw(self), wprogramnumber, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -19960,7 +19839,7 @@ impl IPAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -20001,7 +19880,6 @@ pub struct IPAT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDAAttributesDescriptor(::windows_core::IUnknown);
@@ -20033,7 +19911,6 @@ pub struct IPBDAAttributesDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetAttributePayload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbattributebuffer: *mut *mut u8, pdwattributelength: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDAEntitlementDescriptor(::windows_core::IUnknown);
@@ -20065,7 +19942,6 @@ pub struct IPBDAEntitlementDescriptor_Vtbl {
     pub GetLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbtokenbuffer: *mut *mut u8, pdwtokenlength: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDASiParser(::windows_core::IUnknown);
@@ -20100,7 +19976,6 @@ pub struct IPBDASiParser_Vtbl {
     pub GetEIT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, pbuffer: *const u8, ppeit: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetServices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsize: u32, pbuffer: *const u8, ppservices: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDA_EIT(::windows_core::IUnknown);
@@ -20171,7 +20046,6 @@ pub struct IPBDA_EIT_Vtbl {
     pub GetRecordDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPBDA_Services(::windows_core::IUnknown);
@@ -20203,7 +20077,6 @@ pub struct IPBDA_Services_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows_core::HRESULT,
     pub GetRecordByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrecordindex: u32, pul64serviceidx: *mut u64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPMT(::windows_core::IUnknown);
@@ -20267,7 +20140,7 @@ impl IPMT {
     pub unsafe fn QueryMPEInfo(&self, ppmpelist: *mut *mut MPE_ELEMENT, puicount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryMPEInfo)(::windows_core::Interface::as_raw(self), ppmpelist, puicount).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -20279,7 +20152,7 @@ impl IPMT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -20328,7 +20201,6 @@ pub struct IPMT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPSITables(::windows_core::IUnknown);
@@ -20351,12 +20223,11 @@ pub struct IPSITables_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetTable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtsid: u32, dwtid_pid: u32, dwhashedver: u32, dwpara4: u32, ppiunknown: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPTFilterLicenseRenewal(::windows_core::IUnknown);
 impl IPTFilterLicenseRenewal {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewLicenses<P0, P1, P2>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: P2) -> ::windows_core::Result<()>
     where
@@ -20387,14 +20258,14 @@ pub struct IPTFilterLicenseRenewal_Vtbl {
     RenewLicenses: usize,
     pub CancelLicenseRenewal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXml(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistTuneXml {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -20403,12 +20274,12 @@ impl IPersistTuneXml {
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Load(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Save(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -20440,12 +20311,11 @@ pub struct IPersistTuneXml_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Save: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXmlUtility(::windows_core::IUnknown);
 impl IPersistTuneXmlUtility {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Deserialize(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
@@ -20468,18 +20338,17 @@ pub struct IPersistTuneXmlUtility_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Deserialize: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXmlUtility2(::windows_core::IUnknown);
 impl IPersistTuneXmlUtility2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Deserialize(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Deserialize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<P0>(&self, pitunerequest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -20505,7 +20374,6 @@ pub struct IPersistTuneXmlUtility2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Serialize: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRegisterTuner(::windows_core::IUnknown);
@@ -20535,7 +20403,6 @@ pub struct IRegisterTuner_Vtbl {
     pub Register: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptuner: *mut ::core::ffi::c_void, pgraph: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2Crossbar(::windows_core::IUnknown);
@@ -20574,7 +20441,6 @@ pub struct ISBE2Crossbar_Vtbl {
     pub SetOutputProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: *mut ::core::ffi::c_void, pcoutputpins: *mut u32, ppoutputpins: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EnumStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreams: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2EnumStream(::windows_core::IUnknown);
@@ -20609,7 +20475,6 @@ pub struct ISBE2EnumStream_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstream: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2FileScan(::windows_core::IUnknown);
@@ -20634,12 +20499,11 @@ pub struct ISBE2FileScan_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub RepairFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2GlobalEvent(::windows_core::IUnknown);
 impl ISBE2GlobalEvent {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvent(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEvent)(::windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning, pcb, pb).ok()
@@ -20661,17 +20525,16 @@ pub struct ISBE2GlobalEvent_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2GlobalEvent2(::windows_core::IUnknown);
 impl ISBE2GlobalEvent2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvent(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEvent)(::windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning, pcb, pb).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventEx(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEventEx)(::windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning, pcb, pb, pstreamtime).ok()
@@ -20693,7 +20556,6 @@ pub struct ISBE2GlobalEvent2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetEventEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2MediaTypeProfile(::windows_core::IUnknown);
@@ -20702,13 +20564,13 @@ impl ISBE2MediaTypeProfile {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetStream(&self, index: u32) -> ::windows_core::Result<*mut super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStream)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn AddStream(&self, pmediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddStream)(::windows_core::Interface::as_raw(self), pmediatype).ok()
@@ -20739,7 +20601,6 @@ pub struct ISBE2MediaTypeProfile_Vtbl {
     AddStream: usize,
     pub DeleteStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2SpanningEvent(::windows_core::IUnknown);
@@ -20761,7 +20622,6 @@ pub struct ISBE2SpanningEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idevt: *const ::windows_core::GUID, streamid: u32, pcb: *mut u32, pb: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2StreamMap(::windows_core::IUnknown);
@@ -20792,7 +20652,6 @@ pub struct ISBE2StreamMap_Vtbl {
     pub UnmapStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: u32) -> ::windows_core::HRESULT,
     pub EnumMappedStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreams: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISCTE_EAS(::windows_core::IUnknown);
@@ -20961,7 +20820,6 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISIInbandEPG(::windows_core::IUnknown);
@@ -20972,7 +20830,7 @@ impl ISIInbandEPG {
     pub unsafe fn StopSIEPGScan(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StopSIEPGScan)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSIEPGScanRunning(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20997,7 +20855,6 @@ pub struct ISIInbandEPG_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsSIEPGScanRunning: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISIInbandEPGEvent(::windows_core::IUnknown);
@@ -21022,18 +20879,17 @@ pub struct ISIInbandEPGEvent_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SIObjectEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidvb_eit: *mut ::core::ffi::c_void, dwtable_id: u32, dwservice_id: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScanningTuner(::windows_core::IUnknown);
 impl IScanningTuner {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -21045,13 +20901,13 @@ impl IScanningTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuneRequest<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -21059,7 +20915,7 @@ impl IScanningTuner {
     {
         (::windows_core::Interface::vtable(self).base__.SetTuneRequest)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -21067,13 +20923,13 @@ impl IScanningTuner {
     {
         (::windows_core::Interface::vtable(self).base__.Validate)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredComponentTypes<P0>(&self, componenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -21121,18 +20977,17 @@ pub struct IScanningTuner_Vtbl {
     pub ScanDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, millisecondspause: i32) -> ::windows_core::HRESULT,
     pub AutoProgram: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScanningTunerEx(::windows_core::IUnknown);
 impl IScanningTunerEx {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -21144,13 +20999,13 @@ impl IScanningTunerEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuneRequest<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -21158,7 +21013,7 @@ impl IScanningTunerEx {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetTuneRequest)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -21166,13 +21021,13 @@ impl IScanningTunerEx {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Validate)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredComponentTypes<P0>(&self, componenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -21202,12 +21057,12 @@ impl IScanningTunerEx {
     pub unsafe fn AutoProgram(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AutoProgram)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurrentLocator(&self, pilocator: *const ::core::option::Option<ILocator>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentLocator)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pilocator)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformExhaustiveScan<P0>(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: P0, hevent: usize) -> ::windows_core::Result<()>
     where
@@ -21261,12 +21116,11 @@ pub struct IScanningTunerEx_Vtbl {
     pub GetCurrentTunerStandardCapability: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentbroadcaststandard: ::windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> ::windows_core::HRESULT,
     pub SetScanSignalTypeFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scanmodulationtypes: i32, analogvideostandard: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISectionList(::windows_core::IUnknown);
 impl ISectionList {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: P0, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: P1) -> ::windows_core::Result<()>
     where
@@ -21317,7 +21171,6 @@ pub struct ISectionList_Vtbl {
     pub GetProgramIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppid: *const u16) -> ::windows_core::HRESULT,
     pub GetTableIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceLocationDescriptor(::windows_core::IUnknown);
@@ -21359,7 +21212,6 @@ pub struct IServiceLocationDescriptor_Vtbl {
     pub GetElementPID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, pwval: *mut u16) -> ::windows_core::HRESULT,
     pub GetElementLanguageCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, langcode: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferConfigure(::windows_core::IUnknown);
@@ -21406,7 +21258,6 @@ pub struct IStreamBufferConfigure_Vtbl {
     pub SetBackingFileDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwseconds: u32) -> ::windows_core::HRESULT,
     pub GetBackingFileDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwseconds: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferConfigure2(::windows_core::IUnknown);
@@ -21464,7 +21315,6 @@ pub struct IStreamBufferConfigure2_Vtbl {
     pub SetFFTransitionRates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxfullframerate: u32, dwmaxnonskippingrate: u32) -> ::windows_core::HRESULT,
     pub GetFFTransitionRates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxfullframerate: *mut u32, pdwmaxnonskippingrate: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferConfigure3(::windows_core::IUnknown);
@@ -21505,7 +21355,7 @@ impl IStreamBufferConfigure3 {
     pub unsafe fn GetFFTransitionRates(&self, pdwmaxfullframerate: *mut u32, pdwmaxnonskippingrate: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFFTransitionRates)(::windows_core::Interface::as_raw(self), pdwmaxfullframerate, pdwmaxnonskippingrate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartRecConfig<P0>(&self, fstartstopscur: P0) -> ::windows_core::Result<()>
     where
@@ -21513,7 +21363,7 @@ impl IStreamBufferConfigure3 {
     {
         (::windows_core::Interface::vtable(self).SetStartRecConfig)(::windows_core::Interface::as_raw(self), fstartstopscur.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStartRecConfig(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -21552,7 +21402,6 @@ pub struct IStreamBufferConfigure3_Vtbl {
     pub SetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psznamespace: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
     pub GetNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsznamespace: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferDataCounters(::windows_core::IUnknown);
@@ -21578,12 +21427,11 @@ pub struct IStreamBufferDataCounters_Vtbl {
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppindata: *mut SBE_PIN_DATA) -> ::windows_core::HRESULT,
     pub ResetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferInitialize(::windows_core::IUnknown);
 impl IStreamBufferInitialize {
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
+    #[doc = "Required features: `Win32_System_Registry`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn SetHKEY<P0>(&self, hkeyroot: P0) -> ::windows_core::Result<()>
     where
@@ -21591,7 +21439,7 @@ impl IStreamBufferInitialize {
     {
         (::windows_core::Interface::vtable(self).SetHKEY)(::windows_core::Interface::as_raw(self), hkeyroot.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Foundation::PSID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSIDs)(::windows_core::Interface::as_raw(self), csids, ppsid).ok()
@@ -21617,7 +21465,6 @@ pub struct IStreamBufferInitialize_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSIDs: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferMediaSeeking(::windows_core::IUnknown);
@@ -21694,7 +21541,6 @@ unsafe impl ::windows_core::ComInterface for IStreamBufferMediaSeeking {
 pub struct IStreamBufferMediaSeeking_Vtbl {
     pub base__: super::IMediaSeeking_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferMediaSeeking2(::windows_core::IUnknown);
@@ -21775,7 +21621,6 @@ pub struct IStreamBufferMediaSeeking2_Vtbl {
     pub base__: IStreamBufferMediaSeeking_Vtbl,
     pub SetRateEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drate: f64, dwframespersec: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferRecComp(::windows_core::IUnknown);
@@ -21828,7 +21673,6 @@ pub struct IStreamBufferRecComp_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferRecordControl(::windows_core::IUnknown);
@@ -21839,7 +21683,7 @@ impl IStreamBufferRecordControl {
     pub unsafe fn Stop(&self, rtstop: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self), rtstop).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordingStatus(&self, phresult: *mut ::windows_core::HRESULT, pbstarted: *mut super::super::super::Foundation::BOOL, pbstopped: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordingStatus)(::windows_core::Interface::as_raw(self), phresult, pbstarted, pbstopped).ok()
@@ -21863,7 +21707,6 @@ pub struct IStreamBufferRecordControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetRecordingStatus: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferRecordingAttribute(::windows_core::IUnknown);
@@ -21909,7 +21752,6 @@ pub struct IStreamBufferRecordingAttribute_Vtbl {
     pub GetAttributeByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pulreserved: *const u32, pszattributename: ::windows_core::PWSTR, pcchnamelength: *mut u16, pstreambufferattributetype: *mut STREAMBUFFER_ATTR_DATATYPE, pbattribute: *mut u8, pcblength: *mut u16) -> ::windows_core::HRESULT,
     pub EnumAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstreambufferattrib: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSink(::windows_core::IUnknown);
@@ -21946,7 +21788,6 @@ pub struct IStreamBufferSink_Vtbl {
     pub CreateRecorder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilename: ::windows_core::PCWSTR, dwrecordtype: u32, precordingiunknown: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub IsProfileLocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSink2(::windows_core::IUnknown);
@@ -21984,7 +21825,6 @@ pub struct IStreamBufferSink2_Vtbl {
     pub base__: IStreamBufferSink_Vtbl,
     pub UnlockProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSink3(::windows_core::IUnknown);
@@ -22025,7 +21865,6 @@ pub struct IStreamBufferSink3_Vtbl {
     pub base__: IStreamBufferSink2_Vtbl,
     pub SetAvailableFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prtmin: *mut i64) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferSource(::windows_core::IUnknown);
@@ -22050,7 +21889,6 @@ pub struct IStreamBufferSource_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetStreamSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistreambuffersink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSDT(::windows_core::IUnknown);
@@ -22077,7 +21915,7 @@ impl ITSDT {
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTableDescriptorByTag)(::windows_core::Interface::as_raw(self), btag, pdwcookie, ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -22089,7 +21927,7 @@ impl ITSDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -22128,38 +21966,38 @@ pub struct ITSDT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequest {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -22204,12 +22042,11 @@ pub struct ITuneRequest_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetLocator: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequestInfo(::windows_core::IUnknown);
 impl ITuneRequestInfo {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLocatorData<P0>(&self, request: P0) -> ::windows_core::Result<()>
     where
@@ -22217,7 +22054,7 @@ impl ITuneRequestInfo {
     {
         (::windows_core::Interface::vtable(self).GetLocatorData)(::windows_core::Interface::as_raw(self), request.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetComponentData<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22225,7 +22062,7 @@ impl ITuneRequestInfo {
     {
         (::windows_core::Interface::vtable(self).GetComponentData)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentList<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22233,7 +22070,7 @@ impl ITuneRequestInfo {
     {
         (::windows_core::Interface::vtable(self).CreateComponentList)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22242,7 +22079,7 @@ impl ITuneRequestInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22251,7 +22088,7 @@ impl ITuneRequestInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPreviousProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22260,7 +22097,7 @@ impl ITuneRequestInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextLocator)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22310,12 +22147,11 @@ pub struct ITuneRequestInfo_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetPreviousLocator: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequestInfoEx(::windows_core::IUnknown);
 impl ITuneRequestInfoEx {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLocatorData<P0>(&self, request: P0) -> ::windows_core::Result<()>
     where
@@ -22323,7 +22159,7 @@ impl ITuneRequestInfoEx {
     {
         (::windows_core::Interface::vtable(self).base__.GetLocatorData)(::windows_core::Interface::as_raw(self), request.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetComponentData<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22331,7 +22167,7 @@ impl ITuneRequestInfoEx {
     {
         (::windows_core::Interface::vtable(self).base__.GetComponentData)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentList<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22339,7 +22175,7 @@ impl ITuneRequestInfoEx {
     {
         (::windows_core::Interface::vtable(self).base__.CreateComponentList)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22348,7 +22184,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22357,7 +22193,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPreviousProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22366,7 +22202,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextLocator)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22375,7 +22211,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPreviousLocator)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentListEx<P0>(&self, currentrequest: P0) -> ::windows_core::Result<::windows_core::IUnknown>
     where
@@ -22401,18 +22237,17 @@ pub struct ITuneRequestInfoEx_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateComponentListEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuner(::windows_core::IUnknown);
 impl ITuner {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -22424,13 +22259,13 @@ impl ITuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuneRequest<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -22438,7 +22273,7 @@ impl ITuner {
     {
         (::windows_core::Interface::vtable(self).SetTuneRequest)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -22446,13 +22281,13 @@ impl ITuner {
     {
         (::windows_core::Interface::vtable(self).Validate)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredComponentTypes<P0>(&self, componenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -22511,7 +22346,6 @@ pub struct ITuner_Vtbl {
     pub SignalStrength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strength: *mut i32) -> ::windows_core::HRESULT,
     pub TriggerSignalEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITunerCap(::windows_core::IUnknown);
@@ -22541,12 +22375,11 @@ pub struct ITunerCap_Vtbl {
     pub get_SupportedVideoFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulamtunermodetype: *mut u32, pulanalogvideostandard: *mut u32) -> ::windows_core::HRESULT,
     pub get_AuxInputCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcompositecount: *mut u32, pulsvideocount: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITunerCapEx(::windows_core::IUnknown);
 impl ITunerCapEx {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Has608_708Caption(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -22569,7 +22402,7 @@ pub struct ITunerCapEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Has608_708Caption: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22617,31 +22450,31 @@ impl ITuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -22659,13 +22492,13 @@ impl ITuningSpace {
     {
         (::windows_core::Interface::vtable(self).SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -22673,7 +22506,7 @@ impl ITuningSpace {
     {
         (::windows_core::Interface::vtable(self).SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -22739,7 +22572,7 @@ pub struct ITuningSpace_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22750,19 +22583,19 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Item<P0>(&self, varindex: super::super::super::System::Variant::VARIANT, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -22770,7 +22603,7 @@ impl ITuningSpaceContainer {
     {
         (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), tuningspace.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpacesForCLSID<P0>(&self, spaceclsid: P0) -> ::windows_core::Result<ITuningSpaces>
     where
@@ -22779,13 +22612,13 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpacesForCLSID)(::windows_core::Interface::as_raw(self), spaceclsid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn _TuningSpacesForCLSID2(&self, spaceclsid: *const ::windows_core::GUID) -> ::windows_core::Result<ITuningSpaces> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._TuningSpacesForCLSID2)(::windows_core::Interface::as_raw(self), spaceclsid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpacesForName<P0>(&self, name: P0) -> ::windows_core::Result<ITuningSpaces>
     where
@@ -22794,7 +22627,7 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpacesForName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[doc = "Required features: `Win32_System_Com`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindID<P0>(&self, tuningspace: P0) -> ::windows_core::Result<i32>
     where
@@ -22803,7 +22636,7 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindID)(::windows_core::Interface::as_raw(self), tuningspace.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, tuningspace: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -22816,7 +22649,7 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
@@ -22885,7 +22718,7 @@ pub struct ITuningSpaceContainer_Vtbl {
     pub MaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcount: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcount: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22896,13 +22729,13 @@ impl ITuningSpaces {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+    #[doc = "Required features: `Win32_System_Ole`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -22939,7 +22772,6 @@ pub struct ITuningSpaces_Vtbl {
     get_Item: usize,
     pub EnumTuningSpaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXDSCodec(::windows_core::IUnknown);
@@ -22988,7 +22820,6 @@ pub struct IXDSCodec_Vtbl {
     pub GetCurrLicenseExpDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prottype: *const ProtType, lpdatetime: *mut i32) -> ::windows_core::HRESULT,
     pub GetLastErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXDSCodecConfig(::windows_core::IUnknown);
@@ -23015,7 +22846,7 @@ pub struct IXDSCodecConfig_Vtbl {
     pub GetSecureChannelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkdrmsecurechannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetPauseBufferTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpausebuffertime: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -23038,7 +22869,7 @@ unsafe impl ::windows_core::ComInterface for IXDSCodecEvents {
 pub struct IXDSCodecEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -23070,7 +22901,7 @@ pub struct IXDSToRat_Vtbl {
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ParseXDSBytePair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, byte1: u8, byte2: u8, pensystem: *mut EnTvRat_System, penlevel: *mut EnTvRat_GenericLevel, plbfenattributes: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_System_Com\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -23093,2871 +22924,1438 @@ unsafe impl ::windows_core::ComInterface for _IMSVidCtlEvents {
 pub struct _IMSVidCtlEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ANALOG_AUXIN_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x742ef867_09e1_40a3_82d3_9669ba35325f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ANALOG_FM_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7728087b_2bb9_4e30_8078_449476e59dbb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ANALOG_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb820d87e_e0e3_478f_8a38_4e13f7b3df42);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSCChannelTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0369b4e6_45b6_11d3_b650_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSCComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8dcf3d5_0780_4ef4_8a83_2cffaacb8ace);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSCLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8872ff1b_98fa_4d7a_8d93_c9f1055f85bb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSCTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e30750_6c3d_11d3_b653_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_EIT_TID: u32 = 203u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_ETM_LOCATION_NOT_PRESENT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_ETM_LOCATION_RESERVED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_ETT_TID: u32 = 204u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_MGT_PID: u32 = 8187u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_MGT_TID: u32 = 199u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_PIT_TID: u32 = 208u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_RRT_PID: u32 = 8187u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_RRT_TID: u32 = 202u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_STT_PID: u32 = 8187u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_STT_TID: u32 = 205u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0dad2fdd_5fd7_11d3_8f50_00c04f7971e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_VCT_CABL_TID: u32 = 201u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_VCT_PID: u32 = 8187u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ATSC_VCT_TERR_TID: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AgeBased: EnTvRat_System = EnTvRat_System(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AnalogAudioComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28ab0005_e845_4ffa_aa9b_f4665236141c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AnalogLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49638b91_48ab_48b7_a47a_7d0e75a08ede);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AnalogRadioTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4c_1f63_11d3_b64c_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AnalogTVTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b4d_1f63_11d3_b64c_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Commentary: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Dialogue: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Emergency: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Hearing_Impaired: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Music_And_Effects: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Reserved: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Standard: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Visually_Impaired: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AudioType_Voiceover: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const AuxInTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9769a06_7aca_4e39_9cfb_97bb35f0e77e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BDANETWORKTYPE_ATSC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f51_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BDA_DEBUG_DATA_AVAILABLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69c24f54_9983_497e_b415_282be4c555fb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BDA_DEBUG_DATA_TYPE_STRING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa806e767_de5c_430c_80bf_a21ebe06c748);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BSKYB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e9e46c6_3aba_4f08_ad0e_cc5ac8148c2b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_ATSC: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_DVB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_DVB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_DVB_T: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_ISDB_C: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_ISDB_S: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_ISDB_T: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_DigitalStandard_None: BDA_DigitalSignalStandard = BDA_DigitalSignalStandard(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_LockType_Complete: BDA_LockType = BDA_LockType(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_LockType_DecoderDemod: BDA_LockType = BDA_LockType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_LockType_None: BDA_LockType = BDA_LockType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_LockType_PLL: BDA_LockType = BDA_LockType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_SignalType_Analog: BDA_SignalType = BDA_SignalType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_SignalType_Digital: BDA_SignalType = BDA_SignalType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Bda_SignalType_Unknown: BDA_SignalType = BDA_SignalType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfAttrNone: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_1: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_2: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_3: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_4: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_5: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_6: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsAttr_7: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfIsBlocked: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BfValidAttrSubmask: BfEnTvRat_GenericAttributes = BfEnTvRat_GenericAttributes(255i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const BroadcastEventService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b3ffb92_0919_4934_9d5b_619c719d0202);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_IsBlocked: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_14: EnTvRat_CAE_TV = EnTvRat_CAE_TV(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_18: EnTvRat_CAE_TV = EnTvRat_CAE_TV(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_C: EnTvRat_CAE_TV = EnTvRat_CAE_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_C8: EnTvRat_CAE_TV = EnTvRat_CAE_TV(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_Exempt: EnTvRat_CAE_TV = EnTvRat_CAE_TV(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_G: EnTvRat_CAE_TV = EnTvRat_CAE_TV(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_PG: EnTvRat_CAE_TV = EnTvRat_CAE_TV(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_TV_Reserved: EnTvRat_CAE_TV = EnTvRat_CAE_TV(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAE_ValidAttrSubmask: BfEnTvRat_Attributes_CAE_TV = BfEnTvRat_Attributes_CAE_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_IsBlocked: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_13: EnTvRat_CAF_TV = EnTvRat_CAF_TV(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_16: EnTvRat_CAF_TV = EnTvRat_CAF_TV(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_18: EnTvRat_CAF_TV = EnTvRat_CAF_TV(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_8: EnTvRat_CAF_TV = EnTvRat_CAF_TV(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_Exempt: EnTvRat_CAF_TV = EnTvRat_CAF_TV(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_G: EnTvRat_CAF_TV = EnTvRat_CAF_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_Reserved: EnTvRat_CAF_TV = EnTvRat_CAF_TV(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_TV_Reserved6: EnTvRat_CAF_TV = EnTvRat_CAF_TV(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CAF_ValidAttrSubmask: BfEnTvRat_Attributes_CAF_TV = BfEnTvRat_Attributes_CAF_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_CPCAFiltersCategory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4fc_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_DTFilterEncProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c482_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_DTFilterTagProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c492_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_ETFilterEncProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c481_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_ETFilterTagProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c491_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_Mpeg2TableFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x752845f1_758f_4c83_a043_4270c593308e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_PTFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cd31617_b303_4f96_8330_2eb173ea4dc6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_XDSCodecProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c483_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CLSID_XDSCodecTagProperties: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c493_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COMPONENT_TAG_CAPTION_MAX: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COMPONENT_TAG_CAPTION_MIN: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COMPONENT_TAG_SUPERIMPOSE_MAX: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COMPONENT_TAG_SUPERIMPOSE_MIN: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CONTENT: RecordingType = RecordingType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_Activate: COPPEventBlockReason = COPPEventBlockReason(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_AeroGlassOff: COPPEventBlockReason = COPPEventBlockReason(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_BadCertificate: COPPEventBlockReason = COPPEventBlockReason(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_BadDriver: COPPEventBlockReason = COPPEventBlockReason(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_DigitalAudioUnprotected: COPPEventBlockReason = COPPEventBlockReason(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_ForbiddenVideo: COPPEventBlockReason = COPPEventBlockReason(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_InvalidBusProtection: COPPEventBlockReason = COPPEventBlockReason(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_NoCardHDCPSupport: COPPEventBlockReason = COPPEventBlockReason(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_NoMonitorHDCPSupport: COPPEventBlockReason = COPPEventBlockReason(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_RogueApp: COPPEventBlockReason = COPPEventBlockReason(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const COPP_Unknown: COPPEventBlockReason = COPPEventBlockReason(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_COPP: CPEventBitShift = CPEventBitShift(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_DOWNRES: CPEventBitShift = CPEventBitShift(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_LICENSE: CPEventBitShift = CPEventBitShift(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_NO_PLAYREADY: CPEventBitShift = CPEventBitShift(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_PENDING_CERTIFICATE: CPEventBitShift = CPEventBitShift(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_RATINGS: CPEventBitShift = CPEventBitShift(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_ROLLBACK: CPEventBitShift = CPEventBitShift(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_SAC: CPEventBitShift = CPEventBitShift(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_STUBLIB: CPEventBitShift = CPEventBitShift(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_BITSHIFT_UNTRUSTEDGRAPH: CPEventBitShift = CPEventBitShift(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_COPP: CPEvents = CPEvents(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_DOWNRES: CPEvents = CPEvents(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_LICENSE: CPEvents = CPEvents(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_NONE: CPEvents = CPEvents(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_PROTECTWINDOWED: CPEvents = CPEvents(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_RATINGS: CPEvents = CPEvents(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_ROLLBACK: CPEvents = CPEvents(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_SAC: CPEvents = CPEvents(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_STUBLIB: CPEvents = CPEvents(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CPEVENT_UNTRUSTEDGRAPH: CPEvents = CPEvents(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CRID_LOCATION_DVB_RESERVED1: CRID_LOCATION = CRID_LOCATION(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CRID_LOCATION_DVB_RESERVED2: CRID_LOCATION = CRID_LOCATION(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CRID_LOCATION_IN_CIT: CRID_LOCATION = CRID_LOCATION(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CRID_LOCATION_IN_DESCRIPTOR: CRID_LOCATION = CRID_LOCATION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CXDSData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f4_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Canadian_English: EnTvRat_System = EnTvRat_System(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Canadian_French: EnTvRat_System = EnTvRat_System(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelChangeSpanningEvent_End: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelChangeSpanningEvent_Start: ChannelChangeSpanningEvent_State = ChannelChangeSpanningEvent_State(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelIDTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a9428a7_31a4_45e9_9efb_e055bf7bb3db);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelIDTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc829a2f_3365_463f_af13_81dbb6f3a555);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0369b4e5_45b6_11d3_b650_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeAudio: ChannelType = ChannelType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeCaptions: ChannelType = ChannelType(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeData: ChannelType = ChannelType(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeNone: ChannelType = ChannelType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeOther: ChannelType = ChannelType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeSubtitles: ChannelType = ChannelType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeSuperimpose: ChannelType = ChannelType(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeText: ChannelType = ChannelType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ChannelTypeVideo: ChannelType = ChannelType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Component: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59dc47a8_116c_11d3_9d8e_00c04f72d980);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x823535a0_0318_11d3_9d8e_00c04f72d980);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ComponentTypes: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1a2b1c4_0e3a_11d3_9d8e_00c04f72d980);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Components: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x809b6661_94c4_49e6_b6ec_3f0f862215aa);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const CreatePropBagOnRegKey: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a674b49_1f63_11d3_b64c_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DEF_MODE_PROFILE: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DEF_MODE_STREAMS: CROSSBAR_DEFAULT_FLAGS = CROSSBAR_DEFAULT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_CA_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_COMPLETE_NET_BOUQUET_SI: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_DATA: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_EPG: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_INFORMATION: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_REPLACEMENT: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_RESERVED0: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_RESERVED1: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_RESERVED2: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(255i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DESC_LINKAGE_USER: DESC_LINKAGE_TYPE = DESC_LINKAGE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DIGITAL_CABLE_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x143827ab_f77b_498d_81ca_5a007aec28bf);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DIRECT_TV_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93b66fb5_93d4_4323_921c_c1f52df61d3f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_ACTR_MINOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_ATVAC_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_ATVDC_CONTENT: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_ATVDC_SYSTEM: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_CIDTR_CHANNELID: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_CTR_CHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_DCTR_MAJOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(301i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_CHTUNER_DCTR_SRCID: DISPID_TUNER = DISPID_TUNER(302i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_DVBC_ATTRIBUTESVALID: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_DVBC_COMPONENTTYPE: DISPID_TUNER = DISPID_TUNER(104i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_DVBC_PID: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_DVBC_TAG: DISPID_TUNER = DISPID_TUNER(103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_ONID: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_SID: DISPID_TUNER = DISPID_TUNER(103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_DVBTUNER_TSID: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_MP2TUNERFACTORY_CREATETUNEREQUEST: DISPID_TUNER = DISPID_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_MP2TUNER_PROGNO: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_MP2TUNER_TSID: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_ATSCCT_FLAGS: DISPID_TUNER = DISPID_TUNER(300i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT_CATEGORY: DISPID_TUNER = DISPID_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT_CLONE: DISPID_TUNER = DISPID_TUNER(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT_MEDIAFORMATTYPE: DISPID_TUNER = DISPID_TUNER(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT_MEDIAMAJORTYPE: DISPID_TUNER = DISPID_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT_MEDIASUBTYPE: DISPID_TUNER = DISPID_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT_MEDIATYPE: DISPID_TUNER = DISPID_TUNER(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT__MEDIAFORMATTYPE: DISPID_TUNER = DISPID_TUNER(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT__MEDIAMAJORTYPE: DISPID_TUNER = DISPID_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_CT__MEDIASUBTYPE: DISPID_TUNER = DISPID_TUNER(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_ANALOG_AUDIO: DISPID_TUNER = DISPID_TUNER(201i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_CLONE: DISPID_TUNER = DISPID_TUNER(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_DESCRIPTION: DISPID_TUNER = DISPID_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_LANGID: DISPID_TUNER = DISPID_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_MP2_PCRPID: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_MP2_PID: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_MP2_PROGNO: DISPID_TUNER = DISPID_TUNER(103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_STATUS: DISPID_TUNER = DISPID_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_C_TYPE: DISPID_TUNER = DISPID_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_LCT_LANGID: DISPID_TUNER = DISPID_TUNER(100i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_ANALOG_STANDARD: DISPID_TUNER = DISPID_TUNER(601i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_ATSC_MP2_PROGNO: DISPID_TUNER = DISPID_TUNER(203i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_ATSC_PHYS_CHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_ATSC_TSID: DISPID_TUNER = DISPID_TUNER(202i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_CARRFREQ: DISPID_TUNER = DISPID_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_CLONE: DISPID_TUNER = DISPID_TUNER(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DTV_O_MAJOR_CHANNEL: DISPID_TUNER = DISPID_TUNER(701i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS2_DISEQ_LNB_SOURCE: DISPID_TUNER = DISPID_TUNER(406i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS2_PILOT: DISPID_TUNER = DISPID_TUNER(412i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS2_ROLLOFF: DISPID_TUNER = DISPID_TUNER(411i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS_AZIMUTH: DISPID_TUNER = DISPID_TUNER(404i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS_ELEVATION: DISPID_TUNER = DISPID_TUNER(405i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS_ORBITAL: DISPID_TUNER = DISPID_TUNER(403i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS_POLARISATION: DISPID_TUNER = DISPID_TUNER(401i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBS_WEST: DISPID_TUNER = DISPID_TUNER(402i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT2_PHYSICALLAYERPIPEID: DISPID_TUNER = DISPID_TUNER(351i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_BANDWIDTH: DISPID_TUNER = DISPID_TUNER(301i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_GUARDINTERVAL: DISPID_TUNER = DISPID_TUNER(304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_HALPHA: DISPID_TUNER = DISPID_TUNER(305i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_INUSE: DISPID_TUNER = DISPID_TUNER(307i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_LPINNERFECMETHOD: DISPID_TUNER = DISPID_TUNER(302i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_LPINNERFECRATE: DISPID_TUNER = DISPID_TUNER(303i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_DVBT_TRANSMISSIONMODE: DISPID_TUNER = DISPID_TUNER(306i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_INNERFECMETHOD: DISPID_TUNER = DISPID_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_INNERFECRATE: DISPID_TUNER = DISPID_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_MOD: DISPID_TUNER = DISPID_TUNER(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_OUTERFECMETHOD: DISPID_TUNER = DISPID_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_OUTERFECRATE: DISPID_TUNER = DISPID_TUNER(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_L_SYMRATE: DISPID_TUNER = DISPID_TUNER(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_MP2CT_TYPE: DISPID_TUNER = DISPID_TUNER(200i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TR_CLONE: DISPID_TUNER = DISPID_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TR_COMPONENTS: DISPID_TUNER = DISPID_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TR_LOCATOR: DISPID_TUNER = DISPID_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TR_TUNINGSPACE: DISPID_TUNER = DISPID_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_AR_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(104i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_AR_MAXFREQUENCY: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_AR_MINFREQUENCY: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_AR_STEP: DISPID_TUNER = DISPID_TUNER(103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATSC_MAXMINORCHANNEL: DISPID_TUNER = DISPID_TUNER(202i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATSC_MAXPHYSCHANNEL: DISPID_TUNER = DISPID_TUNER(204i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATSC_MINMINORCHANNEL: DISPID_TUNER = DISPID_TUNER(201i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATSC_MINPHYSCHANNEL: DISPID_TUNER = DISPID_TUNER(203i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATV_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(104i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATV_INPUTTYPE: DISPID_TUNER = DISPID_TUNER(103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATV_MAXCHANNEL: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ATV_MINCHANNEL: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_AUX_COUNTRYCODE: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_CLONE: DISPID_TUNER = DISPID_TUNER(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_CLSID: DISPID_TUNER = DISPID_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_CREATETUNEREQUEST: DISPID_TUNER = DISPID_TUNER(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DC_MAXMAJORCHANNEL: DISPID_TUNER = DISPID_TUNER(302i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DC_MAXSOURCEID: DISPID_TUNER = DISPID_TUNER(304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DC_MINMAJORCHANNEL: DISPID_TUNER = DISPID_TUNER(301i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DC_MINSOURCEID: DISPID_TUNER = DISPID_TUNER(303i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DEFAULTPREFERREDCOMPONENTTYPES: DISPID_TUNER = DISPID_TUNER(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DEFLOCATOR: DISPID_TUNER = DISPID_TUNER(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVB2_NETWORK_ID: DISPID_TUNER = DISPID_TUNER(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS2_HI_OSC_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(408i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS2_LNB_SWITCH_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(409i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS2_LOW_OSC_FREQ_OVERRIDE: DISPID_TUNER = DISPID_TUNER(407i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS2_SPECTRAL_INVERSION_OVERRIDE: DISPID_TUNER = DISPID_TUNER(410i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS_HI_OSC_FREQ: DISPID_TUNER = DISPID_TUNER(1002i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS_INPUT_RANGE: DISPID_TUNER = DISPID_TUNER(1004i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS_LNB_SWITCH_FREQ: DISPID_TUNER = DISPID_TUNER(1003i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS_LOW_OSC_FREQ: DISPID_TUNER = DISPID_TUNER(1001i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVBS_SPECTRAL_INVERSION: DISPID_TUNER = DISPID_TUNER(1005i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_DVB_SYSTEMTYPE: DISPID_TUNER = DISPID_TUNER(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ENUMCATEGORYGUIDS: DISPID_TUNER = DISPID_TUNER(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_ENUMDEVICEMONIKERS: DISPID_TUNER = DISPID_TUNER(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_FREQMAP: DISPID_TUNER = DISPID_TUNER(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_FRIENDLYNAME: DISPID_TUNER = DISPID_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_NETWORKTYPE: DISPID_TUNER = DISPID_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS_UNIQUENAME: DISPID_TUNER = DISPID_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DISPID_TUNER_TS__NETWORKTYPE: DISPID_TUNER = DISPID_TUNER(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DOWNRES_Always: DownResEventParam = DownResEventParam(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DOWNRES_InWindowOnly: DownResEventParam = DownResEventParam(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DOWNRES_Undefined: DownResEventParam = DownResEventParam(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DSATTRIB_BadSampleInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4846dda_5838_42b4_b897_6f7e5faa2f2f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DSATTRIB_WMDRMProtectionInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40749583_6b9d_4eec_b43c_67a1801e1a9b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f2_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_CardStatus_Error: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_CardStatus_FirmwareDownload: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_CardStatus_Inserted: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_CardStatus_Removed: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_Entitlement_CanDecrypt: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_Entitlement_NotEntitled: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_Entitlement_TechnicalFailure: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_MMIMessage_Close: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DTV_MMIMessage_Open: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBCLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc531d9fd_9685_4028_8b68_6e1232079f1e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBSLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df7d126_4050_47f0_a7cf_4c4ca9241333);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBSTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb64016f3_c9a2_4066_96f0_bd9563314726);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBS_SCAN_TABLE_MAX_SIZE: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBTLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cd64701_bdf3_4d14_8e03_f12983d86664);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBTLocator2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe3fa02_45d7_4920_be96_53fa7f35b0e6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15d6504a_5494_499c_886c_973c9e53b9f1);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVBTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6b14b32_76aa_4a86_a7ac_5c79aaf58da7);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_BAT_PID: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_BAT_TID: u32 = 74u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_CABLE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_DIT_PID: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_DIT_TID: u32 = 126u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_EIT_ACTUAL_TID: u32 = 78u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_EIT_OTHER_TID: u32 = 79u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_EIT_PID: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_NIT_ACTUAL_TID: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_NIT_OTHER_TID: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_NIT_PID: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_RST_PID: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_RST_TID: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa4b375a_45b4_4d45_8440_263957b11623);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_SDT_ACTUAL_TID: u32 = 66u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_SDT_OTHER_TID: u32 = 70u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_SDT_PID: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_SIT_PID: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_SIT_TID: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_ST_PID_16: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_ST_PID_17: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_ST_PID_18: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_ST_PID_19: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_ST_PID_20: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_ST_TID: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_TDT_PID: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_TDT_TID: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_TOT_PID: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DVB_TOT_TID: u32 = 115u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DigitalCableLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03c06416_d127_407a_ab4c_fdd279abbe5d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DigitalCableTuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ec0b63_aa90_458a_8df4_5659f2c8a18a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DigitalCableTuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9bb4cee_b87a_47f1_ac92_b08d9c7813fc);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const DigitalLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e50cc0d_c19b_4bf6_810b_5bd60761f5cc);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ECHOSTAR_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4f6b31b_c6bf_4759_886f_a7386dca27a0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ENCDEC_CPEVENT: EncDecEvents = EncDecEvents(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ENCDEC_RECORDING_STATUS: EncDecEvents = EncDecEvents(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ESEventFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e8a07da_71f8_40c1_a929_5e3a868ac2c6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ESEventService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc20447fc_ec60_475e_813f_d2b0a6decefe);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ETFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f1_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ARIBcontentSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a954083_93d0_463e_90b2_0742c496edf0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_AudioDescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x107bd41c_a6da_4691_8369_11b2cdaa288e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_AudioTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x501cbfbe_b849_42ce_9be9_3db869fb82b3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDAConditionalAccessTAG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefc3a459_ae8b_4b4a_8fe9_79a0d097f3ea);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDAEventingServicePendingEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ca51711_5ddc_41a6_9430_e41b8b3bbc5b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_CASBroadcastMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x676876f0_1132_404c_a7ca_e72069a9d54f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_CASCloseMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d0f550f_de2e_479d_8345_ec0e9557e8a2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_CASOpenMMI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85dac915_e593_410d_8471_d6812105f28e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_CASReleaseTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20c1a16b_441f_49a5_bb5c_e9a04495c6c1);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_CASRequestTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf39a9d8_f5d3_4685_be57_ed81dba46b27);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_DiseqCResponseAvailable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa628f8_1f2c_4b67_9ea5_acf6fa9a1f36);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_EncoderSignalLock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ec90eb9_39fa_4cfc_b93f_00bb11077f5e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_FdcStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05f25366_d0eb_43d2_bc3c_682b863df142);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_FdcTableSection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a0cd757_4ce3_4e5b_9444_7187b87152c5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_GPNVValueUpdate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff75c68c_f416_4e7e_bf17_6d55c5df1575);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_GuideDataAvailable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98db717a_478a_4cd4_92d0_95f66b89e5b1);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_GuideDataError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac33c448_6f73_4fd7_b341_594c360d8d74);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_GuideServiceInformationUpdated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1c3ea2b_175f_4458_b735_507d22db23a6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_IsdbCASResponse: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4cb1966_41bc_4ced_9a20_fdceac78f70d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_LbigsCloseConnectionHandle: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2f08b99_65ef_4314_9671_e99d4cce0bae);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_LbigsOpenConnection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x356207b2_6f31_4eb0_a271_b3fa6bb7680f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_LbigsSendData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1123277b_f1c6_4154_8b0d_48e6157059aa);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_RatingPinReset: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e048c0_c574_4c26_bcda_2f4d35eb5e85);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_TransprtStreamSelectorInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc40f9f85_09d0_489c_9e9c_0abbb56951b0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_TunerNoSignal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe29b382b_1edd_4930_bc46_682fd72d2dfb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_TunerSignalLock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1872e740_f573_429b_a00e_d9c1e408af09);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_UpdateDrmStatus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65a6f681_1462_473b_88ce_cb731427bdb5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_BDA_UpdateScanState: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55702b50_7b49_42b8_a82f_4afb691b0628);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_CADenialCountChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a65c528_2249_4070_ac16_00390cdfb2dd);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_CASFailureSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xead831ae_5529_4d1f_afce_0d8cd1257d30);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_CSDescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefe779d9_97f0_4786_800d_95cf505ddc66);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_CandidatePostTuneData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f02d3d0_9f06_4369_9f1e_3ad6ca19807e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_CardStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa265faea_f874_4b38_9ff7_c53d02969996);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ChannelChangeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9067c5e5_4c5c_4205_86c8_7afe20fe1efa);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ChannelInfoSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41f36d80_4132_4cc2_b121_01a43219d81b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ChannelTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72ab1d51_87d2_489b_ba11_0e08dc210243);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_CtxADescriptorSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ab4a2e6_4247_4b34_896c_30afa5d21c24);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DFNWithNoActualAVData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5689ffe_55f9_4bb3_96be_ae971c63bae0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DRMParingStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x000906f5_f0d1_41d6_a7df_4028697669f6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DRMParingStepComplete: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b2ebf78_b752_4420_b41e_a472dc95828e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterCOPPBlock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ea_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterCOPPUnblock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e8_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterDataFormatFailure: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ed_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterDataFormatOK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ec_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterRatingChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e2_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterRatingsBlock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e3_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterRatingsUnblock: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e4_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DTFilterXDSPacket: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e5_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DVBScramblingControlSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bd4e1c4_90a1_4109_8236_27f00e7dcc5b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DemultiplexerFilterDiscontinuity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16155770_aed5_475c_bb98_95a33070df0c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DualMonoSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9a29b56_a84b_488c_89d5_0d4e7657c8ce);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_DvbParentalRatingDescriptor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a67a58d_eca5_4eac_abcb_e734d3776d0a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_EASMessageReceived: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd10df9d5_c261_4b85_9e8a_517b3299cab2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ETDTFilterLicenseFailure: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ef_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ETDTFilterLicenseOK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4ee_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ETFilterCopyNever: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f0_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ETFilterCopyOnce: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4eb_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ETFilterEncryptionOff: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e7_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ETFilterEncryptionOn: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e6_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_EmmMessageSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf00268_4f7e_4294_aa87_e9e953e43f14);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_EncDecFilterError: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e9_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_EncDecFilterEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a1b465b_0fb9_4159_afbd_e33006a0f9f4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_EntitlementChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9071ad5d_2359_4c95_8694_afa81d70bfd5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_FormatNotSupportedEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24b2280a_b2aa_4777_bf65_63f35e7b024a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_LanguageSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe292666d_9c02_448d_aa8d_781a93fdc395);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_MMIMessage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x052c29af_09a4_4b93_890f_bd6a348968a4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_NewSignalAcquired: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc87ec52d_cd18_404a_a076_c02a273d3de7);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_PBDAParentalControlEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf947aa85_fb52_48e8_b9c5_e1e1f411a51a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_PIDListSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47fc8f65_e2bb_4634_9cef_fdbfe6261d5c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_PSITable: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b9c3703_d447_4e16_97bb_01799fc031ed);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_RRTSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6cfc8f4_da93_4f2f_bff8_ba1ee6fca3a2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_SBE2RecControlStarted: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8966a89e_f83e_4c0e_bc3b_bfa7649e04cb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_SBE2RecControlStopped: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x454b1ec8_0c9b_4caa_b1a1_1e7a2666f6c3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_STBChannelNumber: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17c4d730_d0f0_413a_8c99_500469de35ad);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_ServiceTerminated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a1d591c_e0d2_4f8e_8960_2335bef45ccb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_SignalAndServiceStatusSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8068c5cb_3c04_492b_b47d_0308820dce51);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_SignalStatusChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d9cfaf2_702d_4b01_8dff_6892ad20d191);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_StreamIDSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaf1ab68_e153_4d41_a6b3_a7c998db75ee);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_StreamTypeSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82af2ebc_30a6_4264_a80b_ad2e1372ac60);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_SubtitleSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5dcec048_d0b9_4163_872c_4f32223be88a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_TeletextSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9599d950_5f33_4617_af7c_1e54b510daa3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_TuneFailureEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd97287b2_2dfd_436a_9485_99d7d4ab5a69);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_TuneFailureSpanningEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f8aa455_5ee1_48ab_a27c_4c8d70b9aeba);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_TuningChanged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d7e6235_4b7d_425d_a6d1_d717c33b9c4c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_TuningChanging: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83183c03_c09e_45c4_a719_807a94952bf9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_XDSCodecDuplicateXDSRating: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4df_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_XDSCodecNewXDSPacket: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e1_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTID_XDSCodecNewXDSRating: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4e0_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EVENTTYPE_CASDescrambleFailureEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2127d42_7be5_4f4b_9130_6679899f4f4b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EnTag_Once: EnTag_Mode = EnTag_Mode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EnTag_Remove: EnTag_Mode = EnTag_Mode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EnTag_Repeat: EnTag_Mode = EnTag_Mode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const EvalRat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c5c5f1_3abc_11d6_b25b_00c04fa0c026);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const FORMATNOTSUPPORTED_CLEAR: FormatNotSupportedEvents = FormatNotSupportedEvents(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const FORMATNOTSUPPORTED_NOTSUPPORTED: FormatNotSupportedEvents = FormatNotSupportedEvents(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const FORMATTYPE_CPFilters_Processed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6739b36f_1d5f_4ac2_8192_28bb0e73d16a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const FORMATTYPE_ETDTFilter_Tagged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d1_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const FrameMode: PositionModeList = PositionModeList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDBSLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6504afed_a629_455c_a7f1_04964dea5cc4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_BIT_PID: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_BIT_TID: u32 = 196u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_CABLE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc974ddb5_41fe_4b25_9741_92f049f1d5d1);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_CDT_PID: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_CDT_TID: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_EMM_TID: u32 = 133u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_LDT_PID: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_LDT_TID: u32 = 199u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_NBIT_MSG_TID: u32 = 197u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_NBIT_PID: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_NBIT_REF_TID: u32 = 198u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_SATELLITE_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0a4e6a0_6a1a_4b83_bb5b_903e1d90e6b6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_SDTT_ALT_PID: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_SDTT_PID: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_SDTT_TID: u32 = 195u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_ST_TID: u32 = 114u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_S_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1e78202_1459_41b1_9ca9_2a92587a42cc);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_TERRESTRIAL_TV_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95037f6f_3ac7_4452_b6c4_45a9ce9292a2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const ISDB_T_NETWORK_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc3855a6_c901_4f2e_aba8_90815afc6c83);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSCATEGORY_BDA_IP_SINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4a_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSCATEGORY_BDA_NETWORK_EPG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f49_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSCATEGORY_BDA_NETWORK_PROVIDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4b_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSCATEGORY_BDA_NETWORK_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f48_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSCATEGORY_BDA_RECEIVER_COMPONENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0a5af4_b41d_11d2_9c95_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSCATEGORY_BDA_TRANSPORT_INFORMATION: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e3074f_6c3d_11d3_b653_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SPECIFIER_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b891420_db09_11d2_8f32_00c04f7971e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SPECIFIER_BDA_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8deda6fd_ac5f_4334_8ecf_a4ba8fa7d0f0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_ATSC_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3c7397c_d303_414d_b33c_4ed2c9d29733);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a9a213c_db08_11d2_8f32_00c04f7971e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_BDA_IP_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x499856e8_e85b_48ed_9bea_410d0dd4ef81);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_BDA_MPEG2_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4aeb342_0329_4fdd_a8fd_4aff4926c978);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_OOB_PSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x951727db_d2ce_4528_96f6_3301fabb2de0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_BDA_OPENCABLE_PSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x762e3f66_336f_48d1_bf83_2b00352c11f0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_DVB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9dd31a3_221d_4adb_8532_9af309c1a408);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_ISDB_SI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a2eeb99_6458_4538_b187_04017c41413f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_SUBTYPE_PBDA_TRANSPORT_RAW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d7aed42_cb9a_11db_9705_005056c00008);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_TYPE_BDA_ANTENNA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f41_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_TYPE_BDA_IF_SIGNAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61be0b47_a5eb_499b_9a85_5b16c07f1258);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_TYPE_BDA_IP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe25f7b8e_cccc_11d2_8f25_00c04f7971e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_TYPE_BDA_IP_CONTROL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdadd5799_7d5b_4b63_80fb_d1442f26b621);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_TYPE_MPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSDATAFORMAT_TYPE_MPEG2_SECTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENTSETID_BdaCAEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x488c4ccc_b768_4129_8eb1_b00a071f9068);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENTSETID_BdaDiseqCEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b19bbf0_4184_43ac_ad3c_0c889be4c212);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENTSETID_BdaEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae7e55b2_96d7_4e29_908f_62f95b2a1679);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENTSETID_BdaPinEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x104781cd_50bd_40d5_95fb_087e0e86a591);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENTSETID_BdaTunerEvent: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaab59e17_01c9_4ebf_93f2_fc3b79b46f91);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_CA_MODULE_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_CA_MODULE_UI_REQUESTED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_CA_SMART_CARD_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_DISEQC_DATA_RECEIVED: KSPROPERTY_BDA_DISEQC_EVENT = KSPROPERTY_BDA_DISEQC_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_EVENT_PENDINGEVENT: KSEVENT_BDA_EVENT_TYPE = KSEVENT_BDA_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_PIN_CONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_PIN_DISCONNECTED: KSPROPERTY_BDA_PIN_EVENT = KSPROPERTY_BDA_PIN_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_PROGRAM_FLOW_STATUS_CHANGED: KSPROPERTY_BDA_CA_EVENT = KSPROPERTY_BDA_CA_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSEVENT_BDA_TUNER_SCAN: KSEVENT_BDA_TUNER = KSEVENT_BDA_TUNER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaChangeSync: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0a5af3_b41d_11d2_9c95_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaConditionalAccessService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10ced3b4_320b_41bf_9824_1b2e68e71eb9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaDebug: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d4a90ec_c69d_4ee2_8c5a_fb1f63a50da1);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaDeviceConfiguration: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f45_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaDrmService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbff6b5bb_b0ae_484c_9dca_73528fb0b46e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaEventing: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf99492da_6193_4eb0_8690_6686cbff713e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaGuideDataDeliveryService: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d9d5562_1589_417d_99ce_ac531dda19f9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaIsdbConditionalAccess: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e68c627_16c2_4e6c_b1e2_d00170cdaa0f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaMux: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942aafec_4c05_4c74_b8eb_8706c2a4943f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaNameValue: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36e07304_9f0d_4e88_9118_ac0ba317b7f2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaNameValueA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c24096d_5ff5_47de_a856_062e587e3727);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaScanning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12eb49df_6249_47f3_b190_e21e6e2f8a9c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaTSSelector: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1dcfafe9_b45e_41b3_bb2a_561eb129ae98);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb774102f_ac07_478a_8228_2742d961fa7e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaUserActivity: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeda5c834_4531_483c_be0a_94e6c96ff396);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaWmdrmSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4be6fa3d_07cd_4139_8b80_8c18ba3aec88);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHODSETID_BdaWmdrmTuner: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86d979cf_a8a7_4f94_b5fb_14c0aca68fe6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CAS_CHECKENTITLEMENTTOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CAS_CLOSEMMIDIALOG: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CAS_OPENBROADCASTMMI: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CAS_SETCAPTURETOKEN: KSMETHOD_BDA_CAS_SERVICE = KSMETHOD_BDA_CAS_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CHECK_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_COMMIT_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CREATE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_CREATE_TOPOLOGY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_DEBUG_DATA: KSMETHOD_BDA_DEBUG_SERVICE = KSMETHOD_BDA_DEBUG_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_DEBUG_LEVEL: KSMETHOD_BDA_DEBUG_SERVICE = KSMETHOD_BDA_DEBUG_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_DELETE_PIN_FACTORY: KSMETHOD_BDA_DEVICE_CONFIGURATION = KSMETHOD_BDA_DEVICE_CONFIGURATION(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_DRM_CURRENT: KSMETHOD_BDA_DRM = KSMETHOD_BDA_DRM(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_DRM_DRMSTATUS: KSMETHOD_BDA_DRM = KSMETHOD_BDA_DRM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_EVENT_COMPLETE: KSMETHOD_BDA_EVENTING_SERVICE = KSMETHOD_BDA_EVENTING_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_EVENT_DATA: KSMETHOD_BDA_EVENTING_SERVICE = KSMETHOD_BDA_EVENTING_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GDDS_DATA: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GDDS_DATATYPE: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GDDS_DATAUPDATE: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GDDS_GETSERVICES: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GDDS_SERVICEFROMTUNEXML: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GDDS_TUNEXMLFROMIDX: KSMETHOD_BDA_GDDS_SERVICE = KSMETHOD_BDA_GDDS_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GET_CHANGE_STATE: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GPNV_GETVALUE: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GPNV_GETVALUEUPDATENAME: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GPNV_NAMEFROMINDEX: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_GPNV_SETVALUE: KSMETHOD_BDA_GPNV_SERVICE = KSMETHOD_BDA_GPNV_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_ISDBCAS_RESPONSEDATA: KSMETHOD_BDA_ISDB_CAS = KSMETHOD_BDA_ISDB_CAS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_ISDBCAS_SETREQUEST: KSMETHOD_BDA_ISDB_CAS = KSMETHOD_BDA_ISDB_CAS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_MUX_GETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = KSMETHOD_BDA_MUX_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_MUX_SETPIDLIST: KSMETHOD_BDA_MUX_SERVICE = KSMETHOD_BDA_MUX_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_SCANNING_STATE: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_SCAN_CAPABILTIES: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_SCAN_FILTER: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_SCAN_RESUME: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_SCAN_START: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_SCAN_STOP: KSMETHOD_BDA_SCAN_SERVICE = KSMETHOD_BDA_SCAN_SERVICE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_START_CHANGES: KSMETHOD_BDA_CHANGE_SYNC = KSMETHOD_BDA_CHANGE_SYNC(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_TS_SELECTOR_GETTSINFORMATION: KSMETHOD_BDA_TS_SELECTOR = KSMETHOD_BDA_TS_SELECTOR(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_TS_SELECTOR_SETTSID: KSMETHOD_BDA_TS_SELECTOR = KSMETHOD_BDA_TS_SELECTOR(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_TUNER_GETTUNERSTATE: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_TUNER_SETTUNER: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_TUNER_SIGNALNOISERATIO: KSMETHOD_BDA_TUNER_SERVICE = KSMETHOD_BDA_TUNER_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_USERACTIVITY_DETECTED: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_USERACTIVITY_INTERVAL: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_USERACTIVITY_USEREASON: KSMETHOD_BDA_USERACTIVITY_SERVICE = KSMETHOD_BDA_USERACTIVITY_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRMTUNER_CANCELCAPTURETOKEN: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRMTUNER_GETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRMTUNER_PURCHASE_ENTITLEMENT: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRMTUNER_SETPIDPROTECTION: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRMTUNER_SETSYNCVALUE: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRMTUNER_STARTCODEPROFILE: KSMETHOD_BDA_WMDRM_TUNER = KSMETHOD_BDA_WMDRM_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_CRL: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_KEYINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_LICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_MESSAGE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_REISSUELICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_RENEWLICENSE: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_REVINFO: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSMETHOD_BDA_WMDRM_STATUS: KSMETHOD_BDA_WMDRM = KSMETHOD_BDA_WMDRM(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_8PSK_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe957a0e7_dd98_4a3c_810b_3525157ab62e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_8VSB_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4f_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_ANALOG_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x634db199_27dd_46b8_acfb_ecc98e61a2ad);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_COFDM_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dac6e05_edbe_4b9c_b387_1b6fad7d6495);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_COMMON_CA_POD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd83ef8fc_f3b8_45ab_8b71_ecf7c339deb4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_DRI_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f95ad74_cefb_42d2_94a9_68c5b2c1aabe);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_IP_SINK: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4e_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_ISDB_S_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedde230a_9086_432d_b8a5_6670263807e9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_ISDB_T_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcea3ae3_2cb2_464d_8f5d_305c0bb778a2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_OPENCABLE_POD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x345812a0_fb7c_4790_aa7e_b1db88ac19c9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_PBDA_CAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc026869f_7129_4e71_8696_ec8f75299b77);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_PBDA_DRM: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9eeebd03_eea1_450f_96ae_633e6de63cce);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_PBDA_ISDBCAS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2cf2ab3_5b9d_40ae_ab7c_4e7ad0bd1c52);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_PBDA_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf88c7787_6678_4f4b_a13e_da09861d682b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_PBDA_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa5e8286_593c_4979_9494_46a2a9dfe076);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_PID_FILTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5412789_b0a0_44e1_ae4f_ee999b1b7fbe);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_QAM_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4d_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_QPSK_DEMODULATOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6390c905_27c1_4d67_bdb7_77c50d079300);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_RF_TUNER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f4c_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_TS_SELECTOR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eddf185_fed1_4f45_9685_bbb73c323cfc);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSNODE_BDA_VIDEO_ENCODER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd98429e3_65c9_4ac4_93aa_766782833b7a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_AUTODEMODULATE_START: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_AUTODEMODULATE_STOP: KSPROPERTY_BDA_AUTODEMODULATE = KSPROPERTY_BDA_AUTODEMODULATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_CA_MODULE_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_CA_MODULE_UI: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_CA_REMOVE_PROGRAM: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_CA_SET_PROGRAM_PIDS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_CA_SMART_CARD_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_CONTROLLING_PIN_ID: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_DISEQC_ENABLE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_DISEQC_LNB_SOURCE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_DISEQC_REPEATS: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_DISEQC_RESPONSE: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_DISEQC_SEND: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_DISEQC_USETONEBURST: KSPROPERTY_BDA_DISEQC_COMMAND = KSPROPERTY_BDA_DISEQC_COMMAND(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_ECM_MAP_STATUS: KSPROPERTY_BDA_CA = KSPROPERTY_BDA_CA(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_ETHERNET_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_ETHERNET_FILTER = KSPROPERTY_BDA_ETHERNET_FILTER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_GUARD_INTERVAL: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_INNER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_INNER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_IPv4_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv4_FILTER = KSPROPERTY_BDA_IPv4_FILTER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_LIST_SIZE: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_IPv6_FILTER_MULTICAST_MODE: KSPROPERTY_BDA_IPv6_FILTER = KSPROPERTY_BDA_IPv6_FILTER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_LNB_LOF_HIGH_BAND: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_LNB_LOF_LOW_BAND: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_LNB_SWITCH_FREQUENCY: KSPROPERTY_BDA_LNB_INFO = KSPROPERTY_BDA_LNB_INFO(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_MODULATION_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NODE_DESCRIPTORS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NODE_EVENTS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NODE_METHODS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NODE_PROPERTIES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NODE_TYPES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NULL_TRANSFORM_START: KSPROPERTY_BDA_NULL_TRANSFORM = KSPROPERTY_BDA_NULL_TRANSFORM(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_NULL_TRANSFORM_STOP: KSPROPERTY_BDA_NULL_TRANSFORM = KSPROPERTY_BDA_NULL_TRANSFORM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_OUTER_FEC_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_OUTER_FEC_TYPE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PIDFILTER_LIST_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PIDFILTER_MAP_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PIDFILTER_UNMAP_PIDS: KSPROPERTY_BDA_PIDFILTER = KSPROPERTY_BDA_PIDFILTER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PILOT: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PIN_ID: KSPROPERTY_BDA_PIN_CONTROL = KSPROPERTY_BDA_PIN_CONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PIN_TYPE: KSPROPERTY_BDA_PIN_CONTROL = KSPROPERTY_BDA_PIN_CONTROL(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PIN_TYPES: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_PLP_NUMBER: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_BANDWIDTH: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_CAPS: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_FREQUENCY_MULTIPLIER: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_POLARITY: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_RANGE: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_STANDARD: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_RF_TUNER_TRANSPONDER: KSPROPERTY_BDA_FREQUENCY_FILTER = KSPROPERTY_BDA_FREQUENCY_FILTER(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_ROLL_OFF: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SAMPLE_TIME: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNALTIMEOUTS: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNAL_LOCKED: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNAL_LOCK_CAPS: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNAL_LOCK_TYPE: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNAL_PRESENT: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNAL_QUALITY: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SIGNAL_STRENGTH: KSPROPERTY_BDA_SIGNAL_STATS = KSPROPERTY_BDA_SIGNAL_STATS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SPECTRAL_INVERSION: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_SYMBOL_RATE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_TABLE_SECTION: KSPROPERTY_IDS_BDA_TABLE = KSPROPERTY_IDS_BDA_TABLE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_TEMPLATE_CONNECTIONS: KSPROPERTY_BDA_TOPOLOGY = KSPROPERTY_BDA_TOPOLOGY(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_TRANSMISSION_MODE: KSPROPERTY_BDA_DIGITAL_DEMODULATOR = KSPROPERTY_BDA_DIGITAL_DEMODULATOR(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_VOID_TRANSFORM_START: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPERTY_BDA_VOID_TRANSFORM_STOP: KSPROPERTY_BDA_VOID_TRANSFORM = KSPROPERTY_BDA_VOID_TRANSFORM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaAutodemodulate: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf15b12_bd25_11d2_9ca0_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0693766_5278_4ec6_b9e1_3ce40560ef5a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaDigitalDemodulator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef30f379_985b_4d10_b640_a79d5e04e1e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaDiseqCommand: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaEthernetFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f43_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaFrequencyFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f47_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaIPv4Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f44_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaIPv6Filter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1785a74_2a23_4fb3_9245_a8f88017ef33);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaLNBInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x992cf102_49f9_4719_a664_c4f23e2408f4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaNullTransform: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddf15b0d_bd25_11d2_9ca0_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaPIDFilter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0a67d65_08df_4fec_8533_e5b550410b85);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaPinControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ded49d5_a8b7_4d5d_97a1_12b0c195874d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaSignalStats: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1347d106_cf3a_428a_a5cb_ac0d9a2a4338);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaTableSection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x516b99c5_971c_4aaf_b3f3_d9fda8a15e16);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa14ee835_0a23_11d3_9cc7_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const KSPROPSETID_BdaVoidTransform: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71985f46_1ca1_11d3_9cc8_00c04f7971e0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LIC_BadLicense: LicenseEventBlockReason = LicenseEventBlockReason(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LIC_Expired: LicenseEventBlockReason = LicenseEventBlockReason(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LIC_ExtenderBlocked: LicenseEventBlockReason = LicenseEventBlockReason(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LIC_NeedActivation: LicenseEventBlockReason = LicenseEventBlockReason(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LIC_NeedIndiv: LicenseEventBlockReason = LicenseEventBlockReason(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LanguageComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be49f30_0e1b_11d3_9d8e_00c04f72d980);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LastReservedDeviceDispid: SegDispidList = SegDispidList(16383i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const LastReservedDeviceEvent: SegEventidList = SegEventidList(16383i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Locator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0888c883_ac4f_4943_b516_2c38d9b34562);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MAX_COUNTRY_CODE_STRING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MEDIASUBTYPE_CPFilters_Processed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46adbd28_6fd0_4796_93b2_155c51dc048d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MEDIASUBTYPE_ETDTFilter_Tagged: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4d0_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA: EnTvRat_System = EnTvRat_System(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_G: EnTvRat_MPAA = EnTvRat_MPAA(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_IsBlocked: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_NC17: EnTvRat_MPAA = EnTvRat_MPAA(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_NotApplicable: EnTvRat_MPAA = EnTvRat_MPAA(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_NotRated: EnTvRat_MPAA = EnTvRat_MPAA(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_PG: EnTvRat_MPAA = EnTvRat_MPAA(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_PG13: EnTvRat_MPAA = EnTvRat_MPAA(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_R: EnTvRat_MPAA = EnTvRat_MPAA(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_ValidAttrSubmask: BfEnTvRat_Attributes_MPAA = BfEnTvRat_Attributes_MPAA(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPAA_X: EnTvRat_MPAA = EnTvRat_MPAA(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG2Component: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x055cb2d7_2969_45cd_914b_76890722f112);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG2ComponentType: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x418008f3_cf67_4668_9628_10dc52be1d08);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG2TuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0955ac62_bf2e_4cba_a2b9_a63f772d46cf);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG2TuneRequestFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c63e4eb_4cea_41b8_919c_e947ea19a77c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG2_FILTER_VERSION_1_SIZE: u32 = 124u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG2_FILTER_VERSION_2_SIZE: u32 = 133u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_CAT_PID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_CAT_TID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_CONTEXT_BCS_DEMUX: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_CONTEXT_WINSOCK: MPEG_CONTEXT_TYPE = MPEG_CONTEXT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_PAT_PID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_PAT_TID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_PMT_TID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_PES_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_SECTION: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_SECTIONS_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_SECTION_ASYNC: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_TABLE: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_TABLE_ASYNC: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_GET_TS_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_START_MPE_STREAM: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_RQST_UNKNOWN: MPEG_REQUEST_TYPE = MPEG_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_SECTION_IS_CURRENT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_SECTION_IS_NEXT: MPEG_CURRENT_NEXT_BIT = MPEG_CURRENT_NEXT_BIT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_TSDT_PID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MPEG_TSDT_TID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSEventBinder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x577faa18_4518_445e_8f70_1473f8cf4ba4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_ALT: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_CTRL: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_LEFT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_MIDDLE_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_RIGHT_BUTTON: MSVidCtlButtonstate = MSVidCtlButtonstate(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_SHIFT: MSVidCtlButtonstate = MSVidCtlButtonstate(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_X_BUTTON1: MSVidCtlButtonstate = MSVidCtlButtonstate(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVIDCTL_X_BUTTON2: MSVidCtlButtonstate = MSVidCtlButtonstate(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogCaptureToCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x942b7909_a28e_49a1_a207_34ebcbcb4b3b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogCaptureToDataServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cd6_9b79_11d3_b654_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogCaptureToOverlayMixer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe18af75a_08af_11d3_b64a_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogCaptureToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f50e8b1_9530_4ddc_825e_1af81d47aed6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogCaptureToXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3540d440_5b1d_49cb_821a_e84b8cf065a7);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogTVToEncoder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28953661_0231_41db_8986_21ff4388ee9b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAnalogTunerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c15d484_911d_11d2_b632_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b03544_a4c8_11d2_b634_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidAudioRendererDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccf_9b79_11d3_b654_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidBDATunerDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2e3074e_6c3d_11d3_b653_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86151827_e47b_45ee_8421_d10e6e690979);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidCCAToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ef76d68_8661_4843_8b8f_c37163d8c9ce);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidCCToAR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd76334ca_d89e_4baf_86ab_ddb59372afc2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidCCToVMR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4bf2784_ae00_41ba_9828_9c953bd3c54a);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidClosedCaptioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f9cb14d_48e4_43b6_9346_1aebc39c64d3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidClosedCaptioningSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92ed88bf_879e_448f_b6b6_a385bceb846d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidCtl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0edf163_910a_11d2_b632_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDataServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x334125c0_77e5_11d3_b653_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDataServicesToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38f03426_e83b_4e68_b65b_dcae73304838);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDataServicesToXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0429ec6e_1144_4bed_b88b_2fb9899a4a3d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e40476f_9c49_4c3e_8bb9_8587958eff74);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDevice2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30997f7d_b3b5_4a1c_983a_1fe8098cb77d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDigitalCaptureToCCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73d14237_b9db_4efa_a6dd_84350421fb2f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDigitalCaptureToITV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d8e73f7_4989_4ac8_8a98_39ba0d325302);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidDigitalCaptureToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabe40035_27c3_4a2f_8153_6624471608af);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidEVR: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc45268a2_fa81_4e19_b1e3_72edbd60aeda);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidEncoder: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb530c63_d9df_4b49_9439_63453962e598);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidEncoderToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0b9b497_afbc_45ad_a8a6_9b077c40d4f2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidFeature: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7748530b_c08a_47ea_b24c_be8695ff405f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidFeatures: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cd0_9b79_11d3_b654_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidFilePlaybackDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b0353c_a4c8_11d2_b634_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidFilePlaybackToAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc23f537_18d4_4ece_93bd_207a84726979);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidFilePlaybackToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb401c5eb_8457_427f_84ea_a4d2363364b0);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidGenericComposite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2764bce5_cc39_11d2_b639_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidGenericSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a5869cf_929d_4040_ae03_fcafc5b9cd42);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidITVCapture: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5740a302_ef0b_45ce_bf3b_4470a14a8980);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidITVPlayback: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e797ed0_5253_4243_a9b7_bd06c58f8ef3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidITVToStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92b94828_1af7_4e6e_9ebf_770657f77af5);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidInputDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac1972f2_138a_4ca3_90da_ae51112eda28);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidInputDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccc_9b79_11d3_b654_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidMPEG2DecoderToClosedCaptioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ad28ee1_5002_4e71_aaf7_bd077907b1a4);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidOutput: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87eb890d_03ad_4e9d_9866_376e5ec572ed);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidOutputDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702ccd_9b79_11d3_b654_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidRect: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb4276e6_7d5f_4cf1_9727_629c5e6db6ae);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSBESourceToCC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9193a8f9_0cba_400e_aa97_eb4709164576);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSBESourceToGenericSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x991da7e5_953f_435b_be5e_b92a05edfc42);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSBESourceToITV: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2291478c_5ee3_4bef_ab5d_b5ff2cf58352);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSEG_DEST: MSVidSegmentType = MSVidSegmentType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSEG_SOURCE: MSVidSegmentType = MSVidSegmentType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSEG_XFORM: MSVidSegmentType = MSVidSegmentType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSink_Audio: MSVidSinkStreams = MSVidSinkStreams(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSink_Other: MSVidSinkStreams = MSVidSinkStreams(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidSink_Video: MSVidSinkStreams = MSVidSinkStreams(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidStreamBufferRecordingControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaafdd83_cefc_4e3d_ba03_175f17a24f91);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidStreamBufferSink: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e77aac4_35e5_42a1_bdc2_8f3ff399847c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidStreamBufferSource: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad8e510d_217f_409b_8076_29c5e73b98e8);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidStreamBufferSourceToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c4708dc_b181_46a8_8da8_4ab0371758cd);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidStreamBufferV2Source: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd351ea1_4173_4af4_821d_80d4ae979048);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidVMR9: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24dc3975_09bf_4231_8655_3ee71f43837d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidVideoInputDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95f4820b_bb3a_4e2d_bc64_5b817bc2c30e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidVideoPlaybackDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1990d634_1a5e_4071_a34a_53aaffce9f36);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37b03543_a4c8_11d2_b634_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidVideoRendererDevices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5702cce_9b79_11d3_b654_00c04f79498e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidWebDVD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x011b3619_fe63_4814_8a84_15a194ce9ce3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidWebDVDAdm: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa7c375b_66a7_4280_879d_fd459c84bb02);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidWebDVDToAudioRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d04238e_9fd1_41c6_8de3_9e1ee309e935);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidWebDVDToVideoRenderer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x267db0b3_55e3_4902_949b_df8f5cec0191);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const MSVidXDS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0149eedf_d08f_4142_8d73_d23903d21e90);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Mpeg2Data: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc666e115_bb62_4027_a113_82d643fe2d99);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Mpeg2DataLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbaf6c1b_b6a4_4898_ae65_204f0d9509a1);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Mpeg2Stream: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf91d96c7_8509_4d0b_ab26_a0dd10904bb7);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const OCUR_PAIRING_PROTOCOL_VERSION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_ATTRIB_DIALOGUE: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_ATTRIB_FANTASY: u32 = 516u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_ATTRIB_LANGUAGE: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_ATTRIB_SEXUAL: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_ATTRIB_VIOLENCE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_CONTENT_RATING: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_TIME_RANGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PARENTAL_CONTROL_VALUE_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PBDA: EnTvRat_System = EnTvRat_System(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PBDA_ALWAYS_TUNE_IN_MUX: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e1d7141_583f_4ac2_b019_1f430eda0f4c);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PBDA_PAIRING_PROTOCOL_VERSION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_BDA_ANALOG_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd28a580a_9b1f_4b0c_9c33_9bf0a8ea636b);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_BDA_ANALOG_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c0c8281_5667_486c_8482_63e31f01a6e9);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_BDA_FM_RADIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2855fed_b2d3_4eeb_9bd0_193436a2f890);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_BDA_IF_PIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a9d4a42_f3cd_48a1_9aea_71de133cbe14);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_BDA_OPENCABLE_PSIP_PIN: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x297bb104_e5c9_4ace_b123_95c3cbb24d4f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_BDA_TRANSPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78216a81_cfa8_493e_9711_36a61c08bd9d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_IPSINK_INPUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fdffa70_ac9a_11d2_8f17_00c04f7971e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PINNAME_MPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1b06d73_1dbb_11d3_8f46_00c04f7971e2);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_BF: ProtType = ProtType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_CN_RECORDING_STOP: ProtType = ProtType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_FREE: ProtType = ProtType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_FREE_CIT: ProtType = ProtType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_FREE_SECURE: ProtType = ProtType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_INVALID: ProtType = ProtType(50i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_NEVER: ProtType = ProtType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_NEVER_REALLY: ProtType = ProtType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_NO_MORE: ProtType = ProtType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PROT_COPY_ONCE: ProtType = ProtType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const PersistTuneXmlUtility: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe77026b0_b97f_4cbb_b7fb_f4f03ad69f11);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const RECORDING_STARTED: CPRecordingStatus = CPRecordingStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const RECORDING_STOPPED: CPRecordingStatus = CPRecordingStatus(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const RECORDING_TYPE_CONTENT: RECORDING_TYPE = RECORDING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const RECORDING_TYPE_REFERENCE: RECORDING_TYPE = RECORDING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REFERENCE: RecordingType = RecordingType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REQUIRED_PARENTAL_CONTROL_TIME_RANGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REVOKED_APP_STUB: RevokedComponent = RevokedComponent(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REVOKED_COPP: RevokedComponent = RevokedComponent(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REVOKED_MAX_TYPES: RevokedComponent = RevokedComponent(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REVOKED_SAC: RevokedComponent = RevokedComponent(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const REVOKED_SECURE_PIPELINE: RevokedComponent = RevokedComponent(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Reserved4: EnTvRat_System = EnTvRat_System(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const Reserved7: EnTvRat_System = EnTvRat_System(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_B_FRAME: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_I_FRAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_NONREF_FRAME: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_P_FRAME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_REF_FRAME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_STANDALONE_FRAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_CONTENT_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_FRAME_START: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_GOP_HEADER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_PICTURE_HEADER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_SEEK_POINT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_SEQUENCE_HEADER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SAMPLE_SEQ_SEQUENCE_START: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SBE2_STREAM_DESC_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2313a4ed_bf2d_454f_ad8a_d95ba7f91fee);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SBE2_STREAM_DESC_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SBE2_V1_STREAMS_CREATION_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x000fcf09_97f5_46ac_9769_7a83b35384fb);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SBE2_V2_STREAMS_CREATION_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa72530a3_0344_4cab_a2d0_fe937dbdcab3);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SCTE_EAS_IB_PID: u32 = 8187u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SCTE_EAS_OOB_PID: u32 = 8188u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SCTE_EAS_TID: u32 = 216u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SID_DRMSecureServiceChannel: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4c4_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SID_MSVidCtl_CurrentAudioEndpoint: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf9a88f4_abcf_4ed8_9b74_7db33445459e);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STATE_PAUSE: MSVidCtlStateList = MSVidCtlStateList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STATE_PLAY: MSVidCtlStateList = MSVidCtlStateList(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STATE_STOP: MSVidCtlStateList = MSVidCtlStateList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STATE_UNBUILT: MSVidCtlStateList = MSVidCtlStateList(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STRCONV_MODE_DVB: DVB_STRCONV_MODE = DVB_STRCONV_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STRCONV_MODE_DVB_EMPHASIS: DVB_STRCONV_MODE = DVB_STRCONV_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STRCONV_MODE_DVB_WITHOUT_EMPHASIS: DVB_STRCONV_MODE = DVB_STRCONV_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STRCONV_MODE_ISDB: DVB_STRCONV_MODE = DVB_STRCONV_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_BASE: u32 = 806u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_CONTENT_BECOMING_STALE: i32 = 809i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_PRIMARY_AUDIO: i32 = 814i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_RATE_CHANGED: i32 = 813i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_RATE_CHANGING_FOR_SETPOSITIONS: i32 = 815i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_READ_FAILURE: i32 = 812i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_SETPOSITIONS_EVENTS_DONE: i32 = 816i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_STALE_DATA_READ: i32 = 807i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_STALE_FILE_DELETED: i32 = 808i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_TIMEHOLE: i32 = 806i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_WRITE_FAILURE: i32 = 810i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_EC_WRITE_FAILURE_CLEAR: i32 = 811i32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_BINARY: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_BOOL: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_DWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_GUID: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_QWORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_STRING: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const STREAMBUFFER_TYPE_WORD: STREAMBUFFER_ATTR_DATATYPE = STREAMBUFFER_ATTR_DATATYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SectionList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73da5d04_4347_45d3_a9dc_fae9ddbe558d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_AllAVScrambled: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_Clear: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_NoSubscription: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_NoTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_None: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_ServiceOffAir: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SignalAndServiceStatusSpanningEvent_WeakTVSignal: SignalAndServiceStatusSpanningEvent_State = SignalAndServiceStatusSpanningEvent_State(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const System5: EnTvRat_System = EnTvRat_System(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const System6: EnTvRat_System = EnTvRat_System(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const SystemTuningSpaces: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd02aac50_027e_11d3_9d8e_00c04f72d980);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TIFLoad: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14eb8748_1753_4393_95ae_4f7e7a87aad6);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TenthsSecondsMode: PositionModeList = PositionModeList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TuneRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb46e0d38_ab35_4a06_a137_70576b01b39f);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TunerMarshaler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6438570b_0c08_4a25_9504_8012bb4d50cf);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TuningSpace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffdc5e6_b83a_4b55_b6e8_c69e765fe9db);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_0: EnTvRat_GenericLevel = EnTvRat_GenericLevel(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_1: EnTvRat_GenericLevel = EnTvRat_GenericLevel(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_10: EnTvRat_GenericLevel = EnTvRat_GenericLevel(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_11: EnTvRat_GenericLevel = EnTvRat_GenericLevel(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_12: EnTvRat_GenericLevel = EnTvRat_GenericLevel(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_13: EnTvRat_GenericLevel = EnTvRat_GenericLevel(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_14: EnTvRat_GenericLevel = EnTvRat_GenericLevel(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_15: EnTvRat_GenericLevel = EnTvRat_GenericLevel(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_16: EnTvRat_GenericLevel = EnTvRat_GenericLevel(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_17: EnTvRat_GenericLevel = EnTvRat_GenericLevel(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_18: EnTvRat_GenericLevel = EnTvRat_GenericLevel(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_19: EnTvRat_GenericLevel = EnTvRat_GenericLevel(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_2: EnTvRat_GenericLevel = EnTvRat_GenericLevel(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_20: EnTvRat_GenericLevel = EnTvRat_GenericLevel(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_21: EnTvRat_GenericLevel = EnTvRat_GenericLevel(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_3: EnTvRat_GenericLevel = EnTvRat_GenericLevel(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_4: EnTvRat_GenericLevel = EnTvRat_GenericLevel(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_5: EnTvRat_GenericLevel = EnTvRat_GenericLevel(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_6: EnTvRat_GenericLevel = EnTvRat_GenericLevel(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_7: EnTvRat_GenericLevel = EnTvRat_GenericLevel(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_8: EnTvRat_GenericLevel = EnTvRat_GenericLevel(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_9: EnTvRat_GenericLevel = EnTvRat_GenericLevel(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_LevelDontKnow: EnTvRat_GenericLevel = EnTvRat_GenericLevel(255i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_SystemDontKnow: EnTvRat_System = EnTvRat_System(255i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_Unblock: EnTvRat_GenericLevel = EnTvRat_GenericLevel(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_kLevels: EnTvRat_GenericLevel = EnTvRat_GenericLevel(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const TvRat_kSystems: EnTvRat_System = EnTvRat_System(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV: EnTvRat_System = EnTvRat_System(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_14: EnTvRat_US_TV = EnTvRat_US_TV(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_G: EnTvRat_US_TV = EnTvRat_US_TV(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_IsAdultLanguage: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_IsBlocked: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_IsSexualSituation: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_IsSexuallySuggestiveDialog: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_IsViolent: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_MA: EnTvRat_US_TV = EnTvRat_US_TV(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_None: EnTvRat_US_TV = EnTvRat_US_TV(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_None7: EnTvRat_US_TV = EnTvRat_US_TV(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_PG: EnTvRat_US_TV = EnTvRat_US_TV(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_ValidAttrSubmask: BfEnTvRat_Attributes_US_TV = BfEnTvRat_Attributes_US_TV(31i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_Y: EnTvRat_US_TV = EnTvRat_US_TV(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const US_TV_Y7: EnTvRat_US_TV = EnTvRat_US_TV(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_FCC: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_H264_RGB: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_H264_YCgCo: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_ITU_R_BT_470_SYSTEM_B_G: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_ITU_R_BT_709: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_SMPTE_170M: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_SMPTE_240M: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_MATRIX_COEFF_UNSPECIFIED: VA_MATRIX_COEFFICIENTS = VA_MATRIX_COEFFICIENTS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_H264_GENERIC_FILM: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_B_G: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_ITU_R_BT_470_SYSTEM_M: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_ITU_R_BT_709: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_SMPTE_170M: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_SMPTE_240M: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_PRIMARIES_UNSPECIFIED: VA_COLOR_PRIMARIES = VA_COLOR_PRIMARIES(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_100_TO_1: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_H264_LOG_316_TO_1: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_B_G: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_470_SYSTEM_M: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_ITU_R_BT_709: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_LINEAR: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_170M: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_SMPTE_240M: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_TRANSFER_CHARACTERISTICS_UNSPECIFIED: VA_TRANSFER_CHARACTERISTICS = VA_TRANSFER_CHARACTERISTICS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_VIDEO_COMPONENT: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_VIDEO_MAC: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_VIDEO_NTSC: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_VIDEO_PAL: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_VIDEO_SECAM: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const VA_VIDEO_UNSPECIFIED: VA_VIDEO_FORMAT = VA_VIDEO_FORMAT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const XDSCodec: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c4c4f3_0049_4e2b_98fb_9537f6ce516d);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const XDSToRat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5c5c5f0_3abc_11d6_b25b_00c04fa0c026);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVAudioChannelConfigEvent: SegEventidList = SegEventidList(51i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVAudioChannelCountEvent: SegEventidList = SegEventidList(52i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVAudioSampleRateEvent: SegEventidList = SegEventidList(50i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVDDSurroundModeEvent: SegEventidList = SegEventidList(54i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVDecAudioDualMonoEvent: SegEventidList = SegEventidList(49i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVDecCommonInputFormatEvent: SegEventidList = SegEventidList(55i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVDecCommonMeanBitRateEvent: SegEventidList = SegEventidList(53i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAVDecCommonOutputFormatEvent: SegEventidList = SegEventidList(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAllocPresentID: SegDispidList = SegDispidList(165i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAlloctor: SegDispidList = SegDispidList(163i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAudioRenderer: MSViddispidList = MSViddispidList(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAudioRenderers: MSViddispidList = MSViddispidList(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAuxInputs: SegDispidList = SegDispidList(195i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidAvailableSourceRect: SegDispidList = SegDispidList(33i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidBookmarkOnStop: SegDispidList = SegDispidList(158i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidBuild: MSViddispidList = MSViddispidList(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidCCEnable: SegDispidList = SegDispidList(38i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidCLSID: SegDispidList = SegDispidList(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidCapture: SegDispidList = SegDispidList(161i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidChangePassword: SegDispidList = SegDispidList(149i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidChannelAvailable: SegDispidList = SegDispidList(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidClip: SegDispidList = SegDispidList(30i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidClippedSourceRect: SegDispidList = SegDispidList(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidColorKey: MSViddispidList = MSViddispidList(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidConfirmPassword: SegDispidList = SegDispidList(152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidCount: SegDispidList = SegDispidList(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidCustomCompositorClass: SegDispidList = SegDispidList(134i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDecompose: MSViddispidList = MSViddispidList(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDefaultAudioLCID: SegDispidList = SegDispidList(155i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDefaultMenuLCID: SegDispidList = SegDispidList(157i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDefaultSubpictureLCID: SegDispidList = SegDispidList(156i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevAudioFrequency: SegDispidList = SegDispidList(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevAudioSubchannel: SegDispidList = SegDispidList(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevBalance: SegDispidList = SegDispidList(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevCanStep: SegDispidList = SegDispidList(40i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevCountryCode: SegDispidList = SegDispidList(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevFileName: SegDispidList = SegDispidList(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevImageSourceHeight: SegDispidList = SegDispidList(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevImageSourceWidth: SegDispidList = SegDispidList(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevOverScan: SegDispidList = SegDispidList(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevPause: SegDispidList = SegDispidList(36i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevPower: SegDispidList = SegDispidList(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevRun: SegDispidList = SegDispidList(35i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevSAP: SegDispidList = SegDispidList(29i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevStep: SegDispidList = SegDispidList(39i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevStop: SegDispidList = SegDispidList(37i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevVideoFrequency: SegDispidList = SegDispidList(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevVideoSubchannel: SegDispidList = SegDispidList(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevView: SegDispidList = SegDispidList(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevVolume: SegDispidList = SegDispidList(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDevicePath: SegDispidList = SegDispidList(217i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDisableAudio: MSViddispidList = MSViddispidList(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDisableVideo: MSViddispidList = MSViddispidList(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDisplayChange: SegDispidList = SegDispidList(142i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidDisplaySize: MSViddispidList = MSViddispidList(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidFeatures: MSViddispidList = MSViddispidList(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidGetParentalCountry: SegDispidList = SegDispidList(154i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidGetParentalLevel: SegDispidList = SegDispidList(153i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidInput: MSViddispidList = MSViddispidList(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidInputs: MSViddispidList = MSViddispidList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidKSCat: SegDispidList = SegDispidList(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMaintainAspectRatio: MSViddispidList = MSViddispidList(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMaxVidRect: SegDispidList = SegDispidList(159i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMediaPosition: SegDispidList = SegDispidList(34i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMessageDrain: SegDispidList = SegDispidList(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMinVidRect: SegDispidList = SegDispidList(160i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMixerBitmap: SegDispidList = SegDispidList(136i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMixerBitmapOpacity: SegDispidList = SegDispidList(138i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidMixerBitmapRect: SegDispidList = SegDispidList(139i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidModes: SegDispidList = SegDispidList(194i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidName: SegDispidList = SegDispidList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidNameSetLock: SegDispidList = SegDispidList(176i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidOutput: MSViddispidList = MSViddispidList(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidOutputs: MSViddispidList = MSViddispidList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidOwner: SegDispidList = SegDispidList(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidPause: MSViddispidList = MSViddispidList(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidRateEx: SegDispidList = SegDispidList(201i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidRePaint: SegDispidList = SegDispidList(143i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidRecordingAttribute: SegDispidList = SegDispidList(179i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidRequestedClipRect: SegDispidList = SegDispidList(31i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidRun: MSViddispidList = MSViddispidList(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSBEConfigure: SegDispidList = SegDispidList(181i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSaveParentalCountry: SegDispidList = SegDispidList(151i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSaveParentalLevel: SegDispidList = SegDispidList(150i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSegment: SegDispidList = SegDispidList(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSelectedFeatures: MSViddispidList = MSViddispidList(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidService: SegDispidList = SegDispidList(186i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidServiceP: MSViddispidList = MSViddispidList(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSetAllocator: SegDispidList = SegDispidList(166i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSetMinSeek: SegDispidList = SegDispidList(200i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSetSinkFilter: SegDispidList = SegDispidList(191i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSetupMixerBitmap: SegDispidList = SegDispidList(140i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidSourceSize: SegDispidList = SegDispidList(41i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStateChange: MSViddispidList = MSViddispidList(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStatus: SegDispidList = SegDispidList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStop: MSViddispidList = MSViddispidList(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStreamBufferContentRecording: SegDispidList = SegDispidList(170i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStreamBufferReferenceRecording: SegDispidList = SegDispidList(171i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStreamBufferSinkName: SegDispidList = SegDispidList(168i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidStreamBufferSourceName: SegDispidList = SegDispidList(169i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidTS: SegDispidList = SegDispidList(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidTVFormats: SegDispidList = SegDispidList(193i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidTeleTextFilter: SegDispidList = SegDispidList(196i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidTune: SegDispidList = SegDispidList(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidTuneChan: SegDispidList = SegDispidList(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidUnlockProfile: SegDispidList = SegDispidList(198i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidUserEvent: SegDispidList = SegDispidList(220i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidUsingOverlay: SegDispidList = SegDispidList(141i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidVideoRenderer: MSViddispidList = MSViddispidList(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidVideoRenderers: MSViddispidList = MSViddispidList(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidView: MSViddispidList = MSViddispidList(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidViewNext: MSViddispidList = MSViddispidList(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidViewable: SegDispidList = SegDispidList(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidVisible: SegDispidList = SegDispidList(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_AcceptParentalLevelChange: SegDispidList = SegDispidList(97i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_ActivateAtPosition: SegDispidList = SegDispidList(67i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_ActivateButton: SegDispidList = SegDispidList(62i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_AddFilter: SegDispidList = SegDispidList(199i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_Allocator: SegDispidList = SegDispidList(164i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_AnglesAvailable: SegDispidList = SegDispidList(89i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_AudioStreamsAvailable: SegDispidList = SegDispidList(88i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_BlockUnrated: SegDispidList = SegDispidList(187i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_Bookmark: SegDispidList = SegDispidList(221i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_ButtonAtPosition: SegDispidList = SegDispidList(69i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_ButtonRect: SegDispidList = SegDispidList(131i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CCActive: SegDispidList = SegDispidList(91i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CLSID: SegDispidList = SegDispidList(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentAngle: SegDispidList = SegDispidList(90i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentAudioStream: SegDispidList = SegDispidList(87i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentCCService: SegDispidList = SegDispidList(92i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentChapter: SegDispidList = SegDispidList(77i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentDiscSide: SegDispidList = SegDispidList(75i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentDomain: SegDispidList = SegDispidList(76i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentRatings: SegDispidList = SegDispidList(182i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentSubpictureStream: SegDispidList = SegDispidList(85i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentTime: SegDispidList = SegDispidList(79i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentTitle: SegDispidList = SegDispidList(78i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CurrentVolume: SegDispidList = SegDispidList(74i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CustomCompositor: SegDispidList = SegDispidList(135i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_CustomCompositorClass: SegDispidList = SegDispidList(133i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDAdm: SegDispidList = SegDispidList(114i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDDirectory: SegDispidList = SegDispidList(82i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDScreenInMouseCoordinates: SegDispidList = SegDispidList(132i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDTextLanguageLCID: SegDispidList = SegDispidList(112i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDTextNumberOfLanguages: SegDispidList = SegDispidList(111i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDTextNumberOfStrings: SegDispidList = SegDispidList(110i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDTextString: SegDispidList = SegDispidList(109i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDTextStringType: SegDispidList = SegDispidList(108i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDTimeCode2bstr: SegDispidList = SegDispidList(81i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DVDUniqueID: SegDispidList = SegDispidList(95i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DecimateInput: SegDispidList = SegDispidList(162i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DefaultAudioLanguage: SegDispidList = SegDispidList(123i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DefaultAudioLanguageExt: SegDispidList = SegDispidList(125i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DefaultMenuLanguage: SegDispidList = SegDispidList(121i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DefaultSubpictureLanguage: SegDispidList = SegDispidList(122i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DefaultSubpictureLanguageExt: SegDispidList = SegDispidList(124i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_DeleteBookmark: SegDispidList = SegDispidList(115i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_Eject: SegDispidList = SegDispidList(104i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_EnableResetOnStop: SegDispidList = SegDispidList(96i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_FramesPerSecond: SegDispidList = SegDispidList(80i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_GPRM: SegDispidList = SegDispidList(107i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_Inputs: MSViddispidList = MSViddispidList(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_IsAudioStreamEnabled: SegDispidList = SegDispidList(84i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_IsEqualDevice: SegDispidList = SegDispidList(144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_IsSubpictureStreamEnabled: SegDispidList = SegDispidList(83i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_KSCat: SegDispidList = SegDispidList(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_KaraokeAudioPresentationMode: SegDispidList = SegDispidList(127i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_KaraokeChannelAssignment: SegDispidList = SegDispidList(129i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_KaraokeChannelContent: SegDispidList = SegDispidList(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_LanguageFromLCID: SegDispidList = SegDispidList(126i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_MaxRatingsLevel: SegDispidList = SegDispidList(183i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_MixerBitmap: SegDispidList = SegDispidList(137i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_NotifyParentalLevelChange: SegDispidList = SegDispidList(98i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_NumberOfChapters: SegDispidList = SegDispidList(70i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_Outputs: MSViddispidList = MSViddispidList(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_PlayerParentalCountry: SegDispidList = SegDispidList(102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_PlayerParentalLevel: SegDispidList = SegDispidList(103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_PreferredSubpictureStream: SegDispidList = SegDispidList(120i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_RecordingAttribute: SegDispidList = SegDispidList(180i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_RegionChange: SegDispidList = SegDispidList(113i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_RestoreBookmark: SegDispidList = SegDispidList(116i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_RestorePreferredSettings: SegDispidList = SegDispidList(130i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SPRM: SegDispidList = SegDispidList(106i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SaveBookmark: SegDispidList = SegDispidList(117i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectAndActivateButton: SegDispidList = SegDispidList(61i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectAtPosition: SegDispidList = SegDispidList(68i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectDefaultAudioLanguage: SegDispidList = SegDispidList(118i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectDefaultSubpictureLanguage: SegDispidList = SegDispidList(119i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectLeftButton: SegDispidList = SegDispidList(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectLowerButton: SegDispidList = SegDispidList(65i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectParentalCountry: SegDispidList = SegDispidList(99i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectParentalLevel: SegDispidList = SegDispidList(100i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectRightButton: SegDispidList = SegDispidList(63i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SelectUpperButton: SegDispidList = SegDispidList(66i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SetAllocator: SegDispidList = SegDispidList(167i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SinkStreams: SegDispidList = SegDispidList(192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SourceFilter: SegDispidList = SegDispidList(218i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SubpictureLanguage: SegDispidList = SegDispidList(86i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SubpictureOn: SegDispidList = SegDispidList(94i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SubpictureStreamsAvailable: SegDispidList = SegDispidList(93i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_SuppressEffects: SegDispidList = SegDispidList(189i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_TitleParentalLevels: SegDispidList = SegDispidList(101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_TitlesAvailable: SegDispidList = SegDispidList(72i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_TotalTitleTime: SegDispidList = SegDispidList(71i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_UOPValid: SegDispidList = SegDispidList(105i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_UnratedDelay: SegDispidList = SegDispidList(188i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_VolumesAvailable: SegDispidList = SegDispidList(73i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid__SourceFilter: SegDispidList = SegDispidList(219i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_audiocounter: SegDispidList = SegDispidList(206i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_audioencoderint: SegDispidList = SegDispidList(184i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_audiolanguage: SegDispidList = SegDispidList(55i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_buttonsavailable: SegDispidList = SegDispidList(59i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_cccounter: SegDispidList = SegDispidList(208i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_channelchangeint: SegDispidList = SegDispidList(197i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_currentbutton: SegDispidList = SegDispidList(60i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playattime: SegDispidList = SegDispidList(46i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playattimeintitle: SegDispidList = SegDispidList(47i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playbackwards: SegDispidList = SegDispidList(53i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playchapter: SegDispidList = SegDispidList(44i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playchapterintitle: SegDispidList = SegDispidList(43i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playchaptersautostop: SegDispidList = SegDispidList(45i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playforwards: SegDispidList = SegDispidList(52i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playnextchapter: SegDispidList = SegDispidList(51i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playperiodintitleautostop: SegDispidList = SegDispidList(48i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playprevchapter: SegDispidList = SegDispidList(50i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_playtitle: SegDispidList = SegDispidList(42i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_replaychapter: SegDispidList = SegDispidList(49i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_resetFilterList: SegDispidList = SegDispidList(216i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_resume: SegDispidList = SegDispidList(57i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_returnfromsubmenu: SegDispidList = SegDispidList(58i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_showmenu: SegDispidList = SegDispidList(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_stilloff: SegDispidList = SegDispidList(54i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_videocounter: SegDispidList = SegDispidList(207i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_videoencoderint: SegDispidList = SegDispidList(185i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispid_wstcounter: SegDispidList = SegDispidList(209i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidaudio_analysis: SegDispidList = SegDispidList(213i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidaudioanalysis: SegDispidList = SegDispidList(210i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidaudiocounter: SegDispidList = SegDispidList(202i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidbind: MSViddispidList = MSViddispidList(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidcccounter: SegDispidList = SegDispidList(204i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispiddata_analysis: SegDispidList = SegDispidList(215i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispiddataanalysis: SegDispidList = SegDispidList(212i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidgetState: MSViddispidList = MSViddispidList(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidlength: SegDispidList = SegDispidList(148i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidlicenseerrorcode: SegEventidList = SegEventidList(45i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidposition: SegDispidList = SegDispidList(146i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidpositionmode: SegDispidList = SegDispidList(147i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidrate: SegDispidList = SegDispidList(145i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidrecordingstarted: SegDispidList = SegDispidList(175i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidrecordingstopped: SegDispidList = SegDispidList(174i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidrecordingtype: SegDispidList = SegDispidList(177i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidsbesource: SegDispidList = SegDispidList(190i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidstart: SegDispidList = SegDispidList(178i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidstarttime: SegDispidList = SegDispidList(172i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidstoptime: SegDispidList = SegDispidList(173i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidunbind: MSViddispidList = MSViddispidList(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidvideo_analysis: SegDispidList = SegDispidList(214i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidvideoanalysis: SegDispidList = SegDispidList(211i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidvideocounter: SegDispidList = SegDispidList(203i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dispidwstcounter: SegDispidList = SegDispidList(205i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslDefaultSize: DisplaySizeList = DisplaySizeList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslDoubleSourceSize: DisplaySizeList = DisplaySizeList(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslFullScreen: DisplaySizeList = DisplaySizeList(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslHalfScreen: DisplaySizeList = DisplaySizeList(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslHalfSourceSize: DisplaySizeList = DisplaySizeList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslQuarterScreen: DisplaySizeList = DisplaySizeList(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslSixteenthScreen: DisplaySizeList = DisplaySizeList(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dslSourceSize: DisplaySizeList = DisplaySizeList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdChannel_Audio: DVDTextStringType = DVDTextStringType(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdGeneral_Comments: DVDTextStringType = DVDTextStringType(49i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdGeneral_Name: DVDTextStringType = DVDTextStringType(48i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdMenu_Angle: DVDMenuIDConstants = DVDMenuIDConstants(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdMenu_Audio: DVDMenuIDConstants = DVDMenuIDConstants(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdMenu_Chapter: DVDMenuIDConstants = DVDMenuIDConstants(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdMenu_Root: DVDMenuIDConstants = DVDMenuIDConstants(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdMenu_Subpicture: DVDMenuIDConstants = DVDMenuIDConstants(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdMenu_Title: DVDMenuIDConstants = DVDMenuIDConstants(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdOther_Cut: DVDTextStringType = DVDTextStringType(81i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdOther_Scene: DVDTextStringType = DVDTextStringType(80i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdOther_Take: DVDTextStringType = DVDTextStringType(82i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_CC_Big: DVDSPExt = DVDSPExt(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_CC_Children: DVDSPExt = DVDSPExt(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_CC_Normal: DVDSPExt = DVDSPExt(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_Caption_Big: DVDSPExt = DVDSPExt(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_Caption_Children: DVDSPExt = DVDSPExt(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_Caption_Normal: DVDSPExt = DVDSPExt(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_DirectorComments_Big: DVDSPExt = DVDSPExt(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_DirectorComments_Children: DVDSPExt = DVDSPExt(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_DirectorComments_Normal: DVDSPExt = DVDSPExt(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_Forced: DVDSPExt = DVDSPExt(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdSPExt_NotSpecified: DVDSPExt = DVDSPExt(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdState_Paused: DVDFilterState = DVDFilterState(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdState_Running: DVDFilterState = DVDFilterState(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdState_Stopped: DVDFilterState = DVDFilterState(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdState_Undefined: DVDFilterState = DVDFilterState(-2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdState_Unitialized: DVDFilterState = DVDFilterState(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStream_Angle: DVDTextStringType = DVDTextStringType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStream_Audio: DVDTextStringType = DVDTextStringType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStream_Subpicture: DVDTextStringType = DVDTextStringType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStruct_Cell: DVDTextStringType = DVDTextStringType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStruct_ParentalID: DVDTextStringType = DVDTextStringType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStruct_PartOfTitle: DVDTextStringType = DVDTextStringType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStruct_Title: DVDTextStringType = DVDTextStringType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdStruct_Volume: DVDTextStringType = DVDTextStringType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Album: DVDTextStringType = DVDTextStringType(59i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Movie: DVDTextStringType = DVDTextStringType(57i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Orig_Album: DVDTextStringType = DVDTextStringType(75i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Orig_Movie: DVDTextStringType = DVDTextStringType(73i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Orig_Other: DVDTextStringType = DVDTextStringType(79i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Orig_Series: DVDTextStringType = DVDTextStringType(72i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Orig_Song: DVDTextStringType = DVDTextStringType(76i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Orig_Video: DVDTextStringType = DVDTextStringType(74i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Other: DVDTextStringType = DVDTextStringType(63i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Series: DVDTextStringType = DVDTextStringType(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Song: DVDTextStringType = DVDTextStringType(60i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Sub_Album: DVDTextStringType = DVDTextStringType(67i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Sub_Movie: DVDTextStringType = DVDTextStringType(65i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Sub_Other: DVDTextStringType = DVDTextStringType(71i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Sub_Series: DVDTextStringType = DVDTextStringType(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Sub_Song: DVDTextStringType = DVDTextStringType(68i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Sub_Video: DVDTextStringType = DVDTextStringType(66i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const dvdTitle_Video: DVDTextStringType = DVDTextStringType(58i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidBroadcastEvent: SegEventidList = SegEventidList(46i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidBroadcastEventEx: SegEventidList = SegEventidList(47i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidCOPPBlocked: SegEventidList = SegEventidList(43i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidCOPPUnblocked: SegEventidList = SegEventidList(44i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidChangeCurrentAngle: SegEventidList = SegEventidList(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidChangeCurrentAudioStream: SegEventidList = SegEventidList(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidChangeCurrentSubpictureStream: SegEventidList = SegEventidList(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidChangeKaraokePresMode: SegEventidList = SegEventidList(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidChangeVideoPresMode: SegEventidList = SegEventidList(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidContentBecomingStale: SegEventidList = SegEventidList(37i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidContentPrimarilyAudio: SegEventidList = SegEventidList(48i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidDVDNotify: SegEventidList = SegEventidList(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidEncryptionOff: SegEventidList = SegEventidList(40i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidEncryptionOn: SegEventidList = SegEventidList(39i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidEndOfMedia: SegEventidList = SegEventidList(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidLicenseChange: SegEventidList = SegEventidList(42i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidOnTuneChanged: SegEventidList = SegEventidList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidOverlayUnavailable: SegEventidList = SegEventidList(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPauseOn: SegEventidList = SegEventidList(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayAtTime: SegEventidList = SegEventidList(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayAtTimeInTitle: SegEventidList = SegEventidList(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayBackwards: SegEventidList = SegEventidList(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayChapter: SegEventidList = SegEventidList(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayChapterInTitle: SegEventidList = SegEventidList(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayForwards: SegEventidList = SegEventidList(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayNextChapter: SegEventidList = SegEventidList(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayPrevChapter: SegEventidList = SegEventidList(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidPlayTitle: SegEventidList = SegEventidList(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidRateChange: SegEventidList = SegEventidList(41i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidRatingsBlocked: SegEventidList = SegEventidList(31i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidRatingsChanged: SegEventidList = SegEventidList(33i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidRatingsUnlocked: SegEventidList = SegEventidList(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidReplayChapter: SegEventidList = SegEventidList(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidResume: SegEventidList = SegEventidList(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidReturnFromSubmenu: SegEventidList = SegEventidList(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidSelectOrActivateButton: SegEventidList = SegEventidList(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidShowMenu: SegEventidList = SegEventidList(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidSinkCertificateFailure: SegEventidList = SegEventidList(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidSinkCertificateSuccess: SegEventidList = SegEventidList(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidSourceCertificateFailure: SegEventidList = SegEventidList(29i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidSourceCertificateSuccess: SegEventidList = SegEventidList(30i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidStaleDataRead: SegEventidList = SegEventidList(36i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidStaleFileDeleted: SegEventidList = SegEventidList(38i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidStateChange: SegEventidList = SegEventidList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidStillOff: SegEventidList = SegEventidList(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidStop: SegEventidList = SegEventidList(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidTimeHole: SegEventidList = SegEventidList(35i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidWriteFailure: SegEventidList = SegEventidList(34i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const eventidWriteFailureClear: SegEventidList = SegEventidList(57i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingAlbumArtist: ::windows_core::PCWSTR = ::windows_core::w!("WM/AlbumArtist");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingAlbumCoverURL: ::windows_core::PCWSTR = ::windows_core::w!("WM/AlbumCoverURL");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingAlbumTitle: ::windows_core::PCWSTR = ::windows_core::w!("WM/AlbumTitle");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingAspectRatioX: ::windows_core::PCWSTR = ::windows_core::w!("AspectRatioX");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingAspectRatioY: ::windows_core::PCWSTR = ::windows_core::w!("AspectRatioY");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingAuthor: ::windows_core::PCWSTR = ::windows_core::w!("Author");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingBannerImageData: ::windows_core::PCWSTR = ::windows_core::w!("BannerImageData");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingBannerImageType: ::windows_core::PCWSTR = ::windows_core::w!("BannerImageType");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingBannerImageURL: ::windows_core::PCWSTR = ::windows_core::w!("BannerImageURL");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingBitrate: ::windows_core::PCWSTR = ::windows_core::w!("Bitrate");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingBroadcast: ::windows_core::PCWSTR = ::windows_core::w!("Broadcast");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingComposer: ::windows_core::PCWSTR = ::windows_core::w!("WM/Composer");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingCopyright: ::windows_core::PCWSTR = ::windows_core::w!("Copyright");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingCopyrightURL: ::windows_core::PCWSTR = ::windows_core::w!("CopyrightURL");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingCurrentBitrate: ::windows_core::PCWSTR = ::windows_core::w!("CurrentBitrate");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingDRM_Flags: ::windows_core::PCWSTR = ::windows_core::w!("DRM_Flags");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingDRM_Level: ::windows_core::PCWSTR = ::windows_core::w!("DRM_Level");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingDescription: ::windows_core::PCWSTR = ::windows_core::w!("Description");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingDuration: ::windows_core::PCWSTR = ::windows_core::w!("Duration");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingFileSize: ::windows_core::PCWSTR = ::windows_core::w!("FileSize");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingGenre: ::windows_core::PCWSTR = ::windows_core::w!("WM/Genre");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingGenreID: ::windows_core::PCWSTR = ::windows_core::w!("WM/GenreID");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasArbitraryDataStream: ::windows_core::PCWSTR = ::windows_core::w!("HasArbitraryDataStream");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasAttachedImages: ::windows_core::PCWSTR = ::windows_core::w!("HasAttachedImages");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasAudio: ::windows_core::PCWSTR = ::windows_core::w!("HasAudio");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasFileTransferStream: ::windows_core::PCWSTR = ::windows_core::w!("HasFileTransferStream");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasImage: ::windows_core::PCWSTR = ::windows_core::w!("HasImage");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasScript: ::windows_core::PCWSTR = ::windows_core::w!("HasScript");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingHasVideo: ::windows_core::PCWSTR = ::windows_core::w!("HasVideo");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingIsVBR: ::windows_core::PCWSTR = ::windows_core::w!("IsVBR");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingLyrics: ::windows_core::PCWSTR = ::windows_core::w!("WM/Lyrics");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingMCDI: ::windows_core::PCWSTR = ::windows_core::w!("WM/MCDI");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingNSCAddress: ::windows_core::PCWSTR = ::windows_core::w!("NSC_Address");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingNSCDescription: ::windows_core::PCWSTR = ::windows_core::w!("NSC_Description");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingNSCEmail: ::windows_core::PCWSTR = ::windows_core::w!("NSC_Email");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingNSCName: ::windows_core::PCWSTR = ::windows_core::w!("NSC_Name");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingNSCPhone: ::windows_core::PCWSTR = ::windows_core::w!("NSC_Phone");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingNumberOfFrames: ::windows_core::PCWSTR = ::windows_core::w!("NumberOfFrames");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingOptimalBitrate: ::windows_core::PCWSTR = ::windows_core::w!("OptimalBitrate");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingPromotionURL: ::windows_core::PCWSTR = ::windows_core::w!("WM/PromotionURL");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingProtected: ::windows_core::PCWSTR = ::windows_core::w!("Is_Protected");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingRating: ::windows_core::PCWSTR = ::windows_core::w!("Rating");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingSeekable: ::windows_core::PCWSTR = ::windows_core::w!("Seekable");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingSignature_Name: ::windows_core::PCWSTR = ::windows_core::w!("Signature_Name");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingSkipBackward: ::windows_core::PCWSTR = ::windows_core::w!("Can_Skip_Backward");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingSkipForward: ::windows_core::PCWSTR = ::windows_core::w!("Can_Skip_Forward");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingStridable: ::windows_core::PCWSTR = ::windows_core::w!("Stridable");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingTitle: ::windows_core::PCWSTR = ::windows_core::w!("Title");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingToolName: ::windows_core::PCWSTR = ::windows_core::w!("WM/ToolName");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingToolVersion: ::windows_core::PCWSTR = ::windows_core::w!("WM/ToolVersion");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingTrack: ::windows_core::PCWSTR = ::windows_core::w!("WM/Track");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingTrackNumber: ::windows_core::PCWSTR = ::windows_core::w!("WM/TrackNumber");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingTrusted: ::windows_core::PCWSTR = ::windows_core::w!("Is_Trusted");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingUse_DRM: ::windows_core::PCWSTR = ::windows_core::w!("Use_DRM");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const g_wszStreamBufferRecordingYear: ::windows_core::PCWSTR = ::windows_core::w!("WM/Year");
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const sslClipByClipRect: SourceSizeList = SourceSizeList(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const sslClipByOverScan: SourceSizeList = SourceSizeList(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub const sslFullSize: SourceSizeList = SourceSizeList(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_DigitalSignalStandard(pub i32);
@@ -25980,7 +24378,6 @@ impl ::core::fmt::Debug for BDA_DigitalSignalStandard {
         f.debug_tuple("BDA_DigitalSignalStandard").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_LockType(pub i32);
@@ -26003,7 +24400,6 @@ impl ::core::fmt::Debug for BDA_LockType {
         f.debug_tuple("BDA_LockType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_SignalType(pub i32);
@@ -26026,7 +24422,6 @@ impl ::core::fmt::Debug for BDA_SignalType {
         f.debug_tuple("BDA_SignalType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BfEnTvRat_Attributes_CAE_TV(pub i32);
@@ -26049,7 +24444,6 @@ impl ::core::fmt::Debug for BfEnTvRat_Attributes_CAE_TV {
         f.debug_tuple("BfEnTvRat_Attributes_CAE_TV").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BfEnTvRat_Attributes_CAF_TV(pub i32);
@@ -26072,7 +24466,6 @@ impl ::core::fmt::Debug for BfEnTvRat_Attributes_CAF_TV {
         f.debug_tuple("BfEnTvRat_Attributes_CAF_TV").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BfEnTvRat_Attributes_MPAA(pub i32);
@@ -26095,7 +24488,6 @@ impl ::core::fmt::Debug for BfEnTvRat_Attributes_MPAA {
         f.debug_tuple("BfEnTvRat_Attributes_MPAA").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BfEnTvRat_Attributes_US_TV(pub i32);
@@ -26118,7 +24510,6 @@ impl ::core::fmt::Debug for BfEnTvRat_Attributes_US_TV {
         f.debug_tuple("BfEnTvRat_Attributes_US_TV").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BfEnTvRat_GenericAttributes(pub i32);
@@ -26141,7 +24532,6 @@ impl ::core::fmt::Debug for BfEnTvRat_GenericAttributes {
         f.debug_tuple("BfEnTvRat_GenericAttributes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPPEventBlockReason(pub i32);
@@ -26164,7 +24554,6 @@ impl ::core::fmt::Debug for COPPEventBlockReason {
         f.debug_tuple("COPPEventBlockReason").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CPEventBitShift(pub i32);
@@ -26187,7 +24576,6 @@ impl ::core::fmt::Debug for CPEventBitShift {
         f.debug_tuple("CPEventBitShift").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CPEvents(pub i32);
@@ -26210,7 +24598,6 @@ impl ::core::fmt::Debug for CPEvents {
         f.debug_tuple("CPEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CPRecordingStatus(pub i32);
@@ -26233,7 +24620,6 @@ impl ::core::fmt::Debug for CPRecordingStatus {
         f.debug_tuple("CPRecordingStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRID_LOCATION(pub i32);
@@ -26256,7 +24642,6 @@ impl ::core::fmt::Debug for CRID_LOCATION {
         f.debug_tuple("CRID_LOCATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CROSSBAR_DEFAULT_FLAGS(pub i32);
@@ -26279,7 +24664,6 @@ impl ::core::fmt::Debug for CROSSBAR_DEFAULT_FLAGS {
         f.debug_tuple("CROSSBAR_DEFAULT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChannelChangeSpanningEvent_State(pub i32);
@@ -26302,7 +24686,6 @@ impl ::core::fmt::Debug for ChannelChangeSpanningEvent_State {
         f.debug_tuple("ChannelChangeSpanningEvent_State").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ChannelType(pub i32);
@@ -26325,7 +24708,6 @@ impl ::core::fmt::Debug for ChannelType {
         f.debug_tuple("ChannelType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DESC_LINKAGE_TYPE(pub i32);
@@ -26348,7 +24730,6 @@ impl ::core::fmt::Debug for DESC_LINKAGE_TYPE {
         f.debug_tuple("DESC_LINKAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_TUNER(pub i32);
@@ -26371,7 +24752,6 @@ impl ::core::fmt::Debug for DISPID_TUNER {
         f.debug_tuple("DISPID_TUNER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVB_STRCONV_MODE(pub i32);
@@ -26394,7 +24774,6 @@ impl ::core::fmt::Debug for DVB_STRCONV_MODE {
         f.debug_tuple("DVB_STRCONV_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVDFilterState(pub i32);
@@ -26417,7 +24796,6 @@ impl ::core::fmt::Debug for DVDFilterState {
         f.debug_tuple("DVDFilterState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVDMenuIDConstants(pub i32);
@@ -26440,7 +24818,6 @@ impl ::core::fmt::Debug for DVDMenuIDConstants {
         f.debug_tuple("DVDMenuIDConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVDSPExt(pub i32);
@@ -26463,7 +24840,6 @@ impl ::core::fmt::Debug for DVDSPExt {
         f.debug_tuple("DVDSPExt").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVDTextStringType(pub i32);
@@ -26486,7 +24862,6 @@ impl ::core::fmt::Debug for DVDTextStringType {
         f.debug_tuple("DVDTextStringType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplaySizeList(pub i32);
@@ -26509,7 +24884,6 @@ impl ::core::fmt::Debug for DisplaySizeList {
         f.debug_tuple("DisplaySizeList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DownResEventParam(pub i32);
@@ -26532,7 +24906,6 @@ impl ::core::fmt::Debug for DownResEventParam {
         f.debug_tuple("DownResEventParam").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTag_Mode(pub i32);
@@ -26555,7 +24928,6 @@ impl ::core::fmt::Debug for EnTag_Mode {
         f.debug_tuple("EnTag_Mode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTvRat_CAE_TV(pub i32);
@@ -26578,7 +24950,6 @@ impl ::core::fmt::Debug for EnTvRat_CAE_TV {
         f.debug_tuple("EnTvRat_CAE_TV").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTvRat_CAF_TV(pub i32);
@@ -26601,7 +24972,6 @@ impl ::core::fmt::Debug for EnTvRat_CAF_TV {
         f.debug_tuple("EnTvRat_CAF_TV").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTvRat_GenericLevel(pub i32);
@@ -26624,7 +24994,6 @@ impl ::core::fmt::Debug for EnTvRat_GenericLevel {
         f.debug_tuple("EnTvRat_GenericLevel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTvRat_MPAA(pub i32);
@@ -26647,7 +25016,6 @@ impl ::core::fmt::Debug for EnTvRat_MPAA {
         f.debug_tuple("EnTvRat_MPAA").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTvRat_System(pub i32);
@@ -26670,7 +25038,6 @@ impl ::core::fmt::Debug for EnTvRat_System {
         f.debug_tuple("EnTvRat_System").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnTvRat_US_TV(pub i32);
@@ -26693,7 +25060,6 @@ impl ::core::fmt::Debug for EnTvRat_US_TV {
         f.debug_tuple("EnTvRat_US_TV").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EncDecEvents(pub i32);
@@ -26716,7 +25082,6 @@ impl ::core::fmt::Debug for EncDecEvents {
         f.debug_tuple("EncDecEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FormatNotSupportedEvents(pub i32);
@@ -26739,7 +25104,6 @@ impl ::core::fmt::Debug for FormatNotSupportedEvents {
         f.debug_tuple("FormatNotSupportedEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSEVENT_BDA_EVENT_TYPE(pub i32);
@@ -26762,7 +25126,6 @@ impl ::core::fmt::Debug for KSEVENT_BDA_EVENT_TYPE {
         f.debug_tuple("KSEVENT_BDA_EVENT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSEVENT_BDA_TUNER(pub i32);
@@ -26785,7 +25148,6 @@ impl ::core::fmt::Debug for KSEVENT_BDA_TUNER {
         f.debug_tuple("KSEVENT_BDA_TUNER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_CAS_SERVICE(pub i32);
@@ -26808,7 +25170,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_CAS_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_CAS_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_CHANGE_SYNC(pub i32);
@@ -26831,7 +25192,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_CHANGE_SYNC {
         f.debug_tuple("KSMETHOD_BDA_CHANGE_SYNC").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_DEBUG_SERVICE(pub i32);
@@ -26854,7 +25214,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_DEBUG_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_DEBUG_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_DEVICE_CONFIGURATION(pub i32);
@@ -26877,7 +25236,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_DEVICE_CONFIGURATION {
         f.debug_tuple("KSMETHOD_BDA_DEVICE_CONFIGURATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_DRM(pub i32);
@@ -26900,7 +25258,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_DRM {
         f.debug_tuple("KSMETHOD_BDA_DRM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_EVENTING_SERVICE(pub i32);
@@ -26923,7 +25280,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_EVENTING_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_EVENTING_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_GDDS_SERVICE(pub i32);
@@ -26946,7 +25302,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_GDDS_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_GDDS_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_GPNV_SERVICE(pub i32);
@@ -26969,7 +25324,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_GPNV_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_GPNV_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_ISDB_CAS(pub i32);
@@ -26992,7 +25346,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_ISDB_CAS {
         f.debug_tuple("KSMETHOD_BDA_ISDB_CAS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_MUX_SERVICE(pub i32);
@@ -27015,7 +25368,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_MUX_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_MUX_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_SCAN_SERVICE(pub i32);
@@ -27038,7 +25390,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_SCAN_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_SCAN_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_TS_SELECTOR(pub i32);
@@ -27061,7 +25412,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_TS_SELECTOR {
         f.debug_tuple("KSMETHOD_BDA_TS_SELECTOR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_TUNER_SERVICE(pub i32);
@@ -27084,7 +25434,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_TUNER_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_TUNER_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_USERACTIVITY_SERVICE(pub i32);
@@ -27107,7 +25456,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_USERACTIVITY_SERVICE {
         f.debug_tuple("KSMETHOD_BDA_USERACTIVITY_SERVICE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_WMDRM(pub i32);
@@ -27130,7 +25478,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_WMDRM {
         f.debug_tuple("KSMETHOD_BDA_WMDRM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSMETHOD_BDA_WMDRM_TUNER(pub i32);
@@ -27153,7 +25500,6 @@ impl ::core::fmt::Debug for KSMETHOD_BDA_WMDRM_TUNER {
         f.debug_tuple("KSMETHOD_BDA_WMDRM_TUNER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_AUTODEMODULATE(pub i32);
@@ -27176,7 +25522,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_AUTODEMODULATE {
         f.debug_tuple("KSPROPERTY_BDA_AUTODEMODULATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_CA(pub i32);
@@ -27199,7 +25544,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_CA {
         f.debug_tuple("KSPROPERTY_BDA_CA").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_CA_EVENT(pub i32);
@@ -27222,7 +25566,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_CA_EVENT {
         f.debug_tuple("KSPROPERTY_BDA_CA_EVENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_DIGITAL_DEMODULATOR(pub i32);
@@ -27245,7 +25588,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_DIGITAL_DEMODULATOR {
         f.debug_tuple("KSPROPERTY_BDA_DIGITAL_DEMODULATOR").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_DISEQC_COMMAND(pub i32);
@@ -27268,7 +25610,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_DISEQC_COMMAND {
         f.debug_tuple("KSPROPERTY_BDA_DISEQC_COMMAND").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_DISEQC_EVENT(pub i32);
@@ -27291,7 +25632,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_DISEQC_EVENT {
         f.debug_tuple("KSPROPERTY_BDA_DISEQC_EVENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_ETHERNET_FILTER(pub i32);
@@ -27314,7 +25654,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_ETHERNET_FILTER {
         f.debug_tuple("KSPROPERTY_BDA_ETHERNET_FILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_FREQUENCY_FILTER(pub i32);
@@ -27337,7 +25676,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_FREQUENCY_FILTER {
         f.debug_tuple("KSPROPERTY_BDA_FREQUENCY_FILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_IPv4_FILTER(pub i32);
@@ -27360,7 +25698,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_IPv4_FILTER {
         f.debug_tuple("KSPROPERTY_BDA_IPv4_FILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_IPv6_FILTER(pub i32);
@@ -27383,7 +25720,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_IPv6_FILTER {
         f.debug_tuple("KSPROPERTY_BDA_IPv6_FILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_LNB_INFO(pub i32);
@@ -27406,7 +25742,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_LNB_INFO {
         f.debug_tuple("KSPROPERTY_BDA_LNB_INFO").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_NULL_TRANSFORM(pub i32);
@@ -27429,7 +25764,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_NULL_TRANSFORM {
         f.debug_tuple("KSPROPERTY_BDA_NULL_TRANSFORM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_PIDFILTER(pub i32);
@@ -27452,7 +25786,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_PIDFILTER {
         f.debug_tuple("KSPROPERTY_BDA_PIDFILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_PIN_CONTROL(pub i32);
@@ -27475,7 +25808,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_PIN_CONTROL {
         f.debug_tuple("KSPROPERTY_BDA_PIN_CONTROL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_PIN_EVENT(pub i32);
@@ -27498,7 +25830,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_PIN_EVENT {
         f.debug_tuple("KSPROPERTY_BDA_PIN_EVENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_SIGNAL_STATS(pub i32);
@@ -27521,7 +25852,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_SIGNAL_STATS {
         f.debug_tuple("KSPROPERTY_BDA_SIGNAL_STATS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_TOPOLOGY(pub i32);
@@ -27544,7 +25874,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_TOPOLOGY {
         f.debug_tuple("KSPROPERTY_BDA_TOPOLOGY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_BDA_VOID_TRANSFORM(pub i32);
@@ -27567,7 +25896,6 @@ impl ::core::fmt::Debug for KSPROPERTY_BDA_VOID_TRANSFORM {
         f.debug_tuple("KSPROPERTY_BDA_VOID_TRANSFORM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_IDS_BDA_TABLE(pub i32);
@@ -27590,7 +25918,6 @@ impl ::core::fmt::Debug for KSPROPERTY_IDS_BDA_TABLE {
         f.debug_tuple("KSPROPERTY_IDS_BDA_TABLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LicenseEventBlockReason(pub i32);
@@ -27613,7 +25940,6 @@ impl ::core::fmt::Debug for LicenseEventBlockReason {
         f.debug_tuple("LicenseEventBlockReason").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEG_CONTEXT_TYPE(pub i32);
@@ -27636,7 +25962,6 @@ impl ::core::fmt::Debug for MPEG_CONTEXT_TYPE {
         f.debug_tuple("MPEG_CONTEXT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEG_CURRENT_NEXT_BIT(pub i32);
@@ -27659,7 +25984,6 @@ impl ::core::fmt::Debug for MPEG_CURRENT_NEXT_BIT {
         f.debug_tuple("MPEG_CURRENT_NEXT_BIT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEG_REQUEST_TYPE(pub i32);
@@ -27682,7 +26006,6 @@ impl ::core::fmt::Debug for MPEG_REQUEST_TYPE {
         f.debug_tuple("MPEG_REQUEST_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSVidCCService(pub i32);
@@ -27713,7 +26036,6 @@ impl ::core::fmt::Debug for MSVidCCService {
         f.debug_tuple("MSVidCCService").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSVidCtlButtonstate(pub i32);
@@ -27736,7 +26058,6 @@ impl ::core::fmt::Debug for MSVidCtlButtonstate {
         f.debug_tuple("MSVidCtlButtonstate").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSVidCtlStateList(pub i32);
@@ -27759,7 +26080,6 @@ impl ::core::fmt::Debug for MSVidCtlStateList {
         f.debug_tuple("MSVidCtlStateList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSVidSegmentType(pub i32);
@@ -27782,7 +26102,6 @@ impl ::core::fmt::Debug for MSVidSegmentType {
         f.debug_tuple("MSVidSegmentType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSVidSinkStreams(pub i32);
@@ -27805,7 +26124,6 @@ impl ::core::fmt::Debug for MSVidSinkStreams {
         f.debug_tuple("MSVidSinkStreams").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSViddispidList(pub i32);
@@ -27828,7 +26146,6 @@ impl ::core::fmt::Debug for MSViddispidList {
         f.debug_tuple("MSViddispidList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PositionModeList(pub i32);
@@ -27851,7 +26168,6 @@ impl ::core::fmt::Debug for PositionModeList {
         f.debug_tuple("PositionModeList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProtType(pub i32);
@@ -27874,7 +26190,6 @@ impl ::core::fmt::Debug for ProtType {
         f.debug_tuple("ProtType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RECORDING_TYPE(pub i32);
@@ -27897,7 +26212,6 @@ impl ::core::fmt::Debug for RECORDING_TYPE {
         f.debug_tuple("RECORDING_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RecordingType(pub i32);
@@ -27920,7 +26234,6 @@ impl ::core::fmt::Debug for RecordingType {
         f.debug_tuple("RecordingType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RevokedComponent(pub i32);
@@ -27943,7 +26256,6 @@ impl ::core::fmt::Debug for RevokedComponent {
         f.debug_tuple("RevokedComponent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAMBUFFER_ATTR_DATATYPE(pub i32);
@@ -27966,7 +26278,6 @@ impl ::core::fmt::Debug for STREAMBUFFER_ATTR_DATATYPE {
         f.debug_tuple("STREAMBUFFER_ATTR_DATATYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SegDispidList(pub i32);
@@ -27989,7 +26300,6 @@ impl ::core::fmt::Debug for SegDispidList {
         f.debug_tuple("SegDispidList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SegEventidList(pub i32);
@@ -28012,7 +26322,6 @@ impl ::core::fmt::Debug for SegEventidList {
         f.debug_tuple("SegEventidList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SignalAndServiceStatusSpanningEvent_State(pub i32);
@@ -28035,7 +26344,6 @@ impl ::core::fmt::Debug for SignalAndServiceStatusSpanningEvent_State {
         f.debug_tuple("SignalAndServiceStatusSpanningEvent_State").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SourceSizeList(pub i32);
@@ -28058,7 +26366,6 @@ impl ::core::fmt::Debug for SourceSizeList {
         f.debug_tuple("SourceSizeList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VA_COLOR_PRIMARIES(pub i32);
@@ -28081,7 +26388,6 @@ impl ::core::fmt::Debug for VA_COLOR_PRIMARIES {
         f.debug_tuple("VA_COLOR_PRIMARIES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VA_MATRIX_COEFFICIENTS(pub i32);
@@ -28104,7 +26410,6 @@ impl ::core::fmt::Debug for VA_MATRIX_COEFFICIENTS {
         f.debug_tuple("VA_MATRIX_COEFFICIENTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VA_TRANSFER_CHARACTERISTICS(pub i32);
@@ -28127,7 +26432,6 @@ impl ::core::fmt::Debug for VA_TRANSFER_CHARACTERISTICS {
         f.debug_tuple("VA_TRANSFER_CHARACTERISTICS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VA_VIDEO_FORMAT(pub i32);
@@ -28151,7 +26455,7 @@ impl ::core::fmt::Debug for VA_VIDEO_FORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ATSC_FILTER_OPTIONS {
     pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
@@ -28176,7 +26480,6 @@ impl ::core::default::Default for ATSC_FILTER_OPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct BDA_DEBUG_DATA {
     pub lResult: i32,
     pub uuidDebugDataType: ::windows_core::GUID,
@@ -28209,7 +26512,6 @@ impl ::core::default::Default for BDA_DEBUG_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct BDA_EVENT_DATA {
     pub lResult: i32,
     pub ulEventID: u32,
@@ -28243,7 +26545,6 @@ impl ::core::default::Default for BDA_EVENT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct BDA_TRANSPORT_INFO {
     pub ulcbPhyiscalPacket: u32,
     pub ulcbPhyiscalFrame: u32,
@@ -28276,7 +26577,6 @@ impl ::core::default::Default for BDA_TRANSPORT_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct BadSampleInfo {
     pub hrReason: ::windows_core::HRESULT,
 }
@@ -28295,7 +26595,6 @@ impl ::core::default::Default for BadSampleInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct CAPTURE_STREAMTIME {
     pub StreamTime: i64,
 }
@@ -28325,7 +26624,6 @@ impl ::core::default::Default for CAPTURE_STREAMTIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ChannelChangeInfo {
     pub state: ChannelChangeSpanningEvent_State,
     pub TimeStamp: u64,
@@ -28356,7 +26654,6 @@ impl ::core::default::Default for ChannelChangeInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ChannelInfo {
     pub lFrequency: i32,
     pub Anonymous: ChannelInfo_0,
@@ -28376,7 +26673,6 @@ impl ::core::default::Default for ChannelInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union ChannelInfo_0 {
     pub DVB: ChannelInfo_0_2,
     pub DC: ChannelInfo_0_1,
@@ -28397,7 +26693,6 @@ impl ::core::default::Default for ChannelInfo_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ChannelInfo_0_0 {
     pub lProgNumber: i32,
 }
@@ -28427,7 +26722,6 @@ impl ::core::default::Default for ChannelInfo_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ChannelInfo_0_1 {
     pub lProgNumber: i32,
 }
@@ -28457,7 +26751,6 @@ impl ::core::default::Default for ChannelInfo_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ChannelInfo_0_2 {
     pub lONID: i32,
     pub lTSID: i32,
@@ -28489,7 +26782,6 @@ impl ::core::default::Default for ChannelInfo_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ChannelTypeInfo {
     pub channelType: ChannelType,
     pub timeStamp: u64,
@@ -28520,7 +26812,7 @@ impl ::core::default::Default for ChannelTypeInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
@@ -28562,7 +26854,6 @@ impl ::core::default::Default for DSHOW_STREAM_DESC {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct DSMCC_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
@@ -28585,7 +26876,7 @@ impl ::core::default::Default for DSMCC_ELEMENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSMCC_FILTER_OPTIONS {
     pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
@@ -28623,7 +26914,6 @@ impl ::core::default::Default for DSMCC_FILTER_OPTIONS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct DSMCC_SECTION {
     pub TableId: u8,
     pub Header: DSMCC_SECTION_0,
@@ -28655,7 +26945,6 @@ impl ::core::default::Default for DSMCC_SECTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union DSMCC_SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
@@ -28675,7 +26964,6 @@ impl ::core::default::Default for DSMCC_SECTION_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union DSMCC_SECTION_1 {
     pub S: MPEG_HEADER_VERSION_BITS_MIDL,
     pub B: u8,
@@ -28695,7 +26983,7 @@ impl ::core::default::Default for DSMCC_SECTION_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
@@ -28734,7 +27022,7 @@ impl ::core::default::Default for DVBScramblingControlSpanningEvent {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVB_EIT_FILTER_OPTIONS {
     pub fSpecifySegment: super::super::super::Foundation::BOOL,
@@ -28759,7 +27047,7 @@ impl ::core::default::Default for DVB_EIT_FILTER_OPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
@@ -28802,7 +27090,6 @@ impl ::core::default::Default for DVR_STREAM_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct DualMonoInfo {
     pub LangID1: u16,
     pub LangID2: u16,
@@ -28835,7 +27122,6 @@ impl ::core::default::Default for DualMonoInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct DvbParentalRatingDescriptor {
     pub ulNumParams: u32,
     pub pParams: [DvbParentalRatingParam; 1],
@@ -28866,7 +27152,6 @@ impl ::core::default::Default for DvbParentalRatingDescriptor {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct DvbParentalRatingParam {
     pub szCountryCode: [u8; 4],
     pub bRating: u8,
@@ -28897,7 +27182,7 @@ impl ::core::default::Default for DvbParentalRatingParam {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_KernelStreaming`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
     pub EventData: super::super::KernelStreaming::KSEVENTDATA,
@@ -28924,7 +27209,7 @@ impl ::core::default::Default for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_BUFFER {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -28950,7 +27235,7 @@ impl ::core::default::Default for KSM_BDA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_CAPTURETOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -28976,7 +27261,7 @@ impl ::core::default::Default for KSM_BDA_CAS_CAPTURETOKEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29004,7 +27289,7 @@ impl ::core::default::Default for KSM_BDA_CAS_CLOSEMMIDIALOG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29033,7 +27318,7 @@ impl ::core::default::Default for KSM_BDA_CAS_ENTITLEMENTTOKEN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29060,7 +27345,7 @@ impl ::core::default::Default for KSM_BDA_CAS_OPENBROADCASTMMI {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_DEBUG_LEVEL {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29087,7 +27372,7 @@ impl ::core::default::Default for KSM_BDA_DEBUG_LEVEL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_DRM_SETDRM {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29112,7 +27397,7 @@ impl ::core::default::Default for KSM_BDA_DRM_SETDRM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_EVENT_COMPLETE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29138,7 +27423,7 @@ impl ::core::default::Default for KSM_BDA_EVENT_COMPLETE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GDDS_SERVICEFROMTUNEXML {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29164,7 +27449,7 @@ impl ::core::default::Default for KSM_BDA_GDDS_SERVICEFROMTUNEXML {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GDDS_TUNEXMLFROMIDX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29189,7 +27474,7 @@ impl ::core::default::Default for KSM_BDA_GDDS_TUNEXMLFROMIDX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_GETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29216,7 +27501,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_GETVALUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_NAMEINDEX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29241,7 +27526,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_NAMEINDEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_SETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29270,7 +27555,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_SETVALUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_ISDBCAS_REQUEST {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29297,7 +27582,7 @@ impl ::core::default::Default for KSM_BDA_ISDBCAS_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_PIN {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29323,7 +27608,7 @@ impl ::core::default::Default for KSM_BDA_PIN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub union KSM_BDA_PIN_0 {
     pub PinId: u32,
@@ -29348,7 +27633,7 @@ impl ::core::default::Default for KSM_BDA_PIN_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_PIN_PAIR {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29374,7 +27659,7 @@ impl ::core::default::Default for KSM_BDA_PIN_PAIR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub union KSM_BDA_PIN_PAIR_0 {
     pub InputPinId: u32,
@@ -29399,7 +27684,7 @@ impl ::core::default::Default for KSM_BDA_PIN_PAIR_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub union KSM_BDA_PIN_PAIR_1 {
     pub OutputPinId: u32,
@@ -29424,7 +27709,7 @@ impl ::core::default::Default for KSM_BDA_PIN_PAIR_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_CAPABILTIES {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29449,7 +27734,7 @@ impl ::core::default::Default for KSM_BDA_SCAN_CAPABILTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_FILTER {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29476,7 +27761,7 @@ impl ::core::default::Default for KSM_BDA_SCAN_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_START {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29502,7 +27787,7 @@ impl ::core::default::Default for KSM_BDA_SCAN_START {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_TS_SELECTOR_SETTSID {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29527,7 +27812,7 @@ impl ::core::default::Default for KSM_BDA_TS_SELECTOR_SETTSID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_TUNER_TUNEREQUEST {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29553,7 +27838,7 @@ impl ::core::default::Default for KSM_BDA_TUNER_TUNEREQUEST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_USERACTIVITY_USEREASON {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29578,7 +27863,7 @@ impl ::core::default::Default for KSM_BDA_USERACTIVITY_USEREASON {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29603,7 +27888,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29631,7 +27916,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29657,7 +27942,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_SYNCVALUE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29682,7 +27967,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_SYNCVALUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRM_LICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29707,7 +27992,7 @@ impl ::core::default::Default for KSM_BDA_WMDRM_LICENSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRM_RENEWLICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -29734,7 +28019,7 @@ impl ::core::default::Default for KSM_BDA_WMDRM_RENEWLICENSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -29767,7 +28052,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -29795,7 +28080,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Media_KernelStreaming`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -29820,7 +28105,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -29846,7 +28131,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_BDA_NODE_PIN {
     pub Property: super::super::KernelStreaming::KSIDENTIFIER,
@@ -29873,7 +28158,7 @@ impl ::core::default::Default for KSP_BDA_NODE_PIN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_NODE_ESPID {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -29898,7 +28183,7 @@ impl ::core::default::Default for KSP_NODE_ESPID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KS_DATARANGE_BDA_ANTENNA {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
@@ -29922,7 +28207,7 @@ impl ::core::default::Default for KS_DATARANGE_BDA_ANTENNA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Media_KernelStreaming\"`*"]
+#[doc = "Required features: `Win32_Media_KernelStreaming`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KS_DATARANGE_BDA_TRANSPORT {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
@@ -29947,7 +28232,6 @@ impl ::core::default::Default for KS_DATARANGE_BDA_TRANSPORT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct LONG_SECTION {
     pub TableId: u8,
     pub Header: LONG_SECTION_0,
@@ -29972,7 +28256,6 @@ impl ::core::default::Default for LONG_SECTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union LONG_SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
@@ -29992,7 +28275,6 @@ impl ::core::default::Default for LONG_SECTION_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union LONG_SECTION_1 {
     pub S: MPEG_HEADER_VERSION_BITS_MIDL,
     pub B: u8,
@@ -30012,7 +28294,6 @@ impl ::core::default::Default for LONG_SECTION_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct LanguageInfo {
     pub LangID: u16,
     pub lISOLangCode: i32,
@@ -30043,7 +28324,7 @@ impl ::core::default::Default for LanguageInfo {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER {
     pub bVersionNumber: u8,
@@ -30083,7 +28364,7 @@ impl ::core::default::Default for MPEG2_FILTER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER2 {
     pub Anonymous: MPEG2_FILTER2_0,
@@ -30109,7 +28390,7 @@ impl ::core::default::Default for MPEG2_FILTER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MPEG2_FILTER2_0 {
     pub Anonymous: MPEG2_FILTER2_0_0,
@@ -30134,7 +28415,7 @@ impl ::core::default::Default for MPEG2_FILTER2_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER2_0_0 {
     pub bVersionNumber: u8,
@@ -30174,7 +28455,6 @@ impl ::core::default::Default for MPEG2_FILTER2_0_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_BCS_DEMUX {
     pub AVMGraphId: u32,
 }
@@ -30193,7 +28473,6 @@ impl ::core::default::Default for MPEG_BCS_DEMUX {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_CONTEXT {
     pub Type: MPEG_CONTEXT_TYPE,
     pub U: MPEG_CONTEXT_0,
@@ -30213,7 +28492,6 @@ impl ::core::default::Default for MPEG_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union MPEG_CONTEXT_0 {
     pub Demux: MPEG_BCS_DEMUX,
     pub Winsock: MPEG_WINSOCK,
@@ -30233,7 +28511,6 @@ impl ::core::default::Default for MPEG_CONTEXT_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_DATE {
     pub Date: u8,
     pub Month: u8,
@@ -30254,7 +28531,6 @@ impl ::core::default::Default for MPEG_DATE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_DATE_AND_TIME {
     pub D: MPEG_DATE,
     pub T: MPEG_TIME,
@@ -30274,7 +28550,6 @@ impl ::core::default::Default for MPEG_DATE_AND_TIME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_HEADER_BITS {
     pub _bitfield: u16,
 }
@@ -30293,7 +28568,6 @@ impl ::core::default::Default for MPEG_HEADER_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_HEADER_BITS_MIDL {
     pub Bits: u16,
 }
@@ -30312,7 +28586,6 @@ impl ::core::default::Default for MPEG_HEADER_BITS_MIDL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_HEADER_VERSION_BITS {
     pub _bitfield: u8,
 }
@@ -30342,7 +28615,6 @@ impl ::core::default::Default for MPEG_HEADER_VERSION_BITS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_HEADER_VERSION_BITS_MIDL {
     pub Bits: u8,
 }
@@ -30372,7 +28644,6 @@ impl ::core::default::Default for MPEG_HEADER_VERSION_BITS_MIDL {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_PACKET_LIST {
     pub wPacketCount: u16,
     pub PacketList: [*mut MPEG_RQST_PACKET; 1],
@@ -30392,7 +28663,6 @@ impl ::core::default::Default for MPEG_PACKET_LIST {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_RQST_PACKET {
     pub dwLength: u32,
     pub pSection: *mut SECTION,
@@ -30412,7 +28682,7 @@ impl ::core::default::Default for MPEG_RQST_PACKET {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG_SERVICE_REQUEST {
     pub Type: MPEG_REQUEST_TYPE,
@@ -30441,7 +28711,6 @@ impl ::core::default::Default for MPEG_SERVICE_REQUEST {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_SERVICE_RESPONSE {
     pub IPAddress: u32,
     pub Port: u16,
@@ -30461,7 +28730,6 @@ impl ::core::default::Default for MPEG_SERVICE_RESPONSE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_STREAM_BUFFER {
     pub hr: ::windows_core::HRESULT,
     pub dwDataBufferSize: u32,
@@ -30483,7 +28751,7 @@ impl ::core::default::Default for MPEG_STREAM_BUFFER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG_STREAM_FILTER {
     pub wPidValue: u16,
@@ -30511,7 +28779,6 @@ impl ::core::default::Default for MPEG_STREAM_FILTER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_TIME {
     pub Hours: u8,
     pub Minutes: u8,
@@ -30532,7 +28799,6 @@ impl ::core::default::Default for MPEG_TIME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPEG_WINSOCK {
     pub AVMGraphId: u32,
 }
@@ -30551,7 +28817,6 @@ impl ::core::default::Default for MPEG_WINSOCK {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct MPE_ELEMENT {
     pub pid: u16,
     pub bComponentTag: u8,
@@ -30572,7 +28837,6 @@ impl ::core::default::Default for MPE_ELEMENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct Mpeg2TableSampleHdr {
     pub SectionCount: u8,
     pub Reserved: [u8; 3],
@@ -30593,7 +28857,6 @@ impl ::core::default::Default for Mpeg2TableSampleHdr {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct PBDAParentalControl {
     pub rating_system_count: u32,
     pub rating_systems: *mut RATING_SYSTEM,
@@ -30613,7 +28876,6 @@ impl ::core::default::Default for PBDAParentalControl {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct PBDA_TAG_ATTRIBUTE {
     pub TableUUId: ::windows_core::GUID,
     pub TableId: u8,
@@ -30647,7 +28909,6 @@ impl ::core::default::Default for PBDA_TAG_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct PIC_SEQ_SAMPLE {
     pub _bitfield: u32,
 }
@@ -30677,7 +28938,6 @@ impl ::core::default::Default for PIC_SEQ_SAMPLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct PIDListSpanningEvent {
     pub wPIDCount: u16,
     pub pulPIDs: [u32; 1],
@@ -30708,7 +28968,6 @@ impl ::core::default::Default for PIDListSpanningEvent {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct PID_BITS {
     pub _bitfield: u16,
 }
@@ -30727,7 +28986,6 @@ impl ::core::default::Default for PID_BITS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct PID_BITS_MIDL {
     pub Bits: u16,
 }
@@ -30746,7 +29004,6 @@ impl ::core::default::Default for PID_BITS_MIDL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct ProgramElement {
     pub wProgramNumber: u16,
     pub wProgramMapPID: u16,
@@ -30777,7 +29034,6 @@ impl ::core::default::Default for ProgramElement {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct RATING_ATTRIBUTE {
     pub rating_attribute_id: u32,
     pub rating_attribute_value: u32,
@@ -30797,7 +29053,6 @@ impl ::core::default::Default for RATING_ATTRIBUTE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct RATING_INFO {
     pub rating_system_count: u32,
     pub lpratingsystem: *mut RATING_SYSTEM,
@@ -30817,7 +29072,6 @@ impl ::core::default::Default for RATING_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct RATING_SYSTEM {
     pub rating_system_id: ::windows_core::GUID,
     pub _bitfield: u8,
@@ -30840,7 +29094,6 @@ impl ::core::default::Default for RATING_SYSTEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SAMPLE_LIVE_STREAM_TIME {
     pub qwStreamTime: u64,
     pub qwLiveTime: u64,
@@ -30871,7 +29124,6 @@ impl ::core::default::Default for SAMPLE_LIVE_STREAM_TIME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SAMPLE_SEQ_OFFSET {
     pub _bitfield: u32,
 }
@@ -30901,7 +29153,6 @@ impl ::core::default::Default for SAMPLE_SEQ_OFFSET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SBE2_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
@@ -30934,7 +29185,6 @@ impl ::core::default::Default for SBE2_STREAM_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SBE_PIN_DATA {
     pub cDataBytes: u64,
     pub cSamplesProcessed: u64,
@@ -30968,7 +29218,6 @@ impl ::core::default::Default for SBE_PIN_DATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SECTION {
     pub TableId: u8,
     pub Header: SECTION_0,
@@ -30989,7 +29238,6 @@ impl ::core::default::Default for SECTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union SECTION_0 {
     pub S: MPEG_HEADER_BITS_MIDL,
     pub W: u16,
@@ -31009,7 +29257,6 @@ impl ::core::default::Default for SECTION_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct STREAMBUFFER_ATTRIBUTE {
     pub pszName: ::windows_core::PWSTR,
     pub StreamBufferAttributeType: STREAMBUFFER_ATTR_DATATYPE,
@@ -31042,7 +29289,6 @@ impl ::core::default::Default for STREAMBUFFER_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SpanningEventDescriptor {
     pub wDataLen: u16,
     pub wProgNumber: u16,
@@ -31075,7 +29321,6 @@ impl ::core::default::Default for SpanningEventDescriptor {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct SpanningEventEmmMessage {
     pub bCAbroadcasterGroupId: u8,
     pub bMessageControl: u8,
@@ -31131,7 +29376,6 @@ impl ::core::default::Default for SpanningEventEmmMessage {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct TID_EXTENSION {
     pub wTidExt: u16,
     pub wCount: u16,
@@ -31151,7 +29395,6 @@ impl ::core::default::Default for TID_EXTENSION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct TRANSPORT_PROPERTIES {
     pub PID: u32,
     pub PCR: i64,
@@ -31172,7 +29415,6 @@ impl ::core::default::Default for TRANSPORT_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub union TRANSPORT_PROPERTIES_0 {
     pub Others: TRANSPORT_PROPERTIES_0_0,
     pub Value: i64,
@@ -31192,7 +29434,6 @@ impl ::core::default::Default for TRANSPORT_PROPERTIES_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct TRANSPORT_PROPERTIES_0_0 {
     pub _bitfield: i64,
 }
@@ -31222,7 +29463,7 @@ impl ::core::default::Default for TRANSPORT_PROPERTIES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UDCR_TAG {
     pub bVersion: u8,
@@ -31267,7 +29508,6 @@ impl ::core::default::Default for UDCR_TAG {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct VA_OPTIONAL_VIDEO_PROPERTIES {
     pub dwPictureHeight: u16,
     pub dwPictureWidth: u16,
@@ -31304,7 +29544,6 @@ impl ::core::default::Default for VA_OPTIONAL_VIDEO_PROPERTIES {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Tv\"`*"]
 pub struct WMDRMProtectionInfo {
     pub wszKID: [u16; 25],
     pub qwCounter: u64,

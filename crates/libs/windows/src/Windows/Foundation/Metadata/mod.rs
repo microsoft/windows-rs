@@ -23,7 +23,6 @@ pub struct IApiInformationStatics_Vtbl {
     pub IsApiContractPresentByMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows_core::HRESULT,
     pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::std::mem::MaybeUninit<::windows_core::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 pub struct ApiInformation;
 impl ApiInformation {
     pub fn IsTypePresent(typename: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
@@ -95,7 +94,6 @@ impl ApiInformation {
 impl ::windows_core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AttributeTargets(pub u32);
@@ -169,7 +167,6 @@ impl ::core::ops::Not for AttributeTargets {
 impl ::windows_core::RuntimeType for AttributeTargets {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionType(pub i32);
@@ -199,7 +196,6 @@ impl ::core::fmt::Debug for CompositionType {
 impl ::windows_core::RuntimeType for CompositionType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeprecationType(pub i32);
@@ -229,7 +225,6 @@ impl ::core::fmt::Debug for DeprecationType {
 impl ::windows_core::RuntimeType for DeprecationType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FeatureStage(pub i32);
@@ -261,7 +256,6 @@ impl ::core::fmt::Debug for FeatureStage {
 impl ::windows_core::RuntimeType for FeatureStage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GCPressureAmount(pub i32);
@@ -292,7 +286,6 @@ impl ::core::fmt::Debug for GCPressureAmount {
 impl ::windows_core::RuntimeType for GCPressureAmount {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarshalingType(pub i32);
@@ -324,7 +317,6 @@ impl ::core::fmt::Debug for MarshalingType {
 impl ::windows_core::RuntimeType for MarshalingType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Platform(pub i32);
@@ -354,7 +346,6 @@ impl ::core::fmt::Debug for Platform {
 impl ::windows_core::RuntimeType for Platform {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ThreadingModel(pub i32);

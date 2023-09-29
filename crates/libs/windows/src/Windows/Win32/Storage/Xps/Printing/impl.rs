@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPrintDocumentPackageStatusEvent_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
     fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows_core::Result<()>;
@@ -22,7 +22,6 @@ impl IPrintDocumentPackageStatusEvent_Vtbl {
         *iid == <IPrintDocumentPackageStatusEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
 pub trait IPrintDocumentPackageTarget_Impl: Sized {
     fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn GetPackageTarget(&self, guidtargettype: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -57,7 +56,7 @@ impl IPrintDocumentPackageTarget_Vtbl {
         *iid == <IPrintDocumentPackageTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPrintDocumentPackageTarget2_Impl: Sized {
     fn GetIsTargetIppPrinter(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
@@ -94,7 +93,7 @@ impl IPrintDocumentPackageTarget2_Vtbl {
         *iid == <IPrintDocumentPackageTarget2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPrintDocumentPackageTargetFactory_Impl: Sized {
     fn CreateDocumentPackageTargetForPrintJob(&self, printername: &::windows_core::PCWSTR, jobname: &::windows_core::PCWSTR, joboutputstream: ::core::option::Option<&super::super::super::System::Com::IStream>, jobprintticketstream: ::core::option::Option<&super::super::super::System::Com::IStream>) -> ::windows_core::Result<IPrintDocumentPackageTarget>;
@@ -124,7 +123,6 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
         *iid == <IPrintDocumentPackageTargetFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"implement\"`*"]
 pub trait IXpsPrintJob_Impl: Sized {
     fn Cancel(&self) -> ::windows_core::Result<()>;
     fn GetJobStatus(&self, jobstatus: *mut XPS_JOB_STATUS) -> ::windows_core::Result<()>;
@@ -152,7 +150,7 @@ impl IXpsPrintJob_Vtbl {
         *iid == <IXpsPrintJob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_System_Com`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IXpsPrintJobStream_Impl: Sized + super::super::super::System::Com::ISequentialStream_Impl {
     fn Close(&self) -> ::windows_core::Result<()>;

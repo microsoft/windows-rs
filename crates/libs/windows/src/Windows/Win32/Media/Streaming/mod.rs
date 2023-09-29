@@ -1,14 +1,8 @@
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(0i32);
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_MEDIASOURCE_STATUS_INFO_UNKNOWN: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(1i32);
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
@@ -31,7 +25,6 @@ impl ::core::fmt::Debug for MF_MEDIASOURCE_STATUS_INFO {
         f.debug_tuple("MF_MEDIASOURCE_STATUS_INFO").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
@@ -55,7 +48,6 @@ impl ::core::fmt::Debug for MF_TRANSFER_VIDEO_FRAME_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct CapturedMetadataExposureCompensation {
     pub Flags: u64,
     pub Value: i32,
@@ -86,7 +78,6 @@ impl ::core::default::Default for CapturedMetadataExposureCompensation {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct CapturedMetadataISOGains {
     pub AnalogGain: f32,
     pub DigitalGain: f32,
@@ -117,7 +108,6 @@ impl ::core::default::Default for CapturedMetadataISOGains {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct CapturedMetadataWhiteBalanceGains {
     pub R: f32,
     pub G: f32,
@@ -149,7 +139,6 @@ impl ::core::default::Default for CapturedMetadataWhiteBalanceGains {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct FaceCharacterization {
     pub BlinkScoreLeft: u32,
     pub BlinkScoreRight: u32,
@@ -182,7 +171,6 @@ impl ::core::default::Default for FaceCharacterization {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct FaceCharacterizationBlobHeader {
     pub Size: u32,
     pub Count: u32,
@@ -213,7 +201,7 @@ impl ::core::default::Default for FaceCharacterizationBlobHeader {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FaceRectInfo {
     pub Region: super::super::Foundation::RECT,
@@ -252,7 +240,6 @@ impl ::core::default::Default for FaceRectInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct FaceRectInfoBlobHeader {
     pub Size: u32,
     pub Count: u32,
@@ -283,7 +270,6 @@ impl ::core::default::Default for FaceRectInfoBlobHeader {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct HistogramBlobHeader {
     pub Size: u32,
     pub Histograms: u32,
@@ -314,7 +300,6 @@ impl ::core::default::Default for HistogramBlobHeader {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct HistogramDataHeader {
     pub Size: u32,
     pub ChannelMask: u32,
@@ -346,7 +331,7 @@ impl ::core::default::Default for HistogramDataHeader {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HistogramGrid {
     pub Width: u32,
@@ -386,7 +371,7 @@ impl ::core::default::Default for HistogramGrid {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HistogramHeader {
     pub Size: u32,
@@ -428,7 +413,6 @@ impl ::core::default::Default for HistogramHeader {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub struct MetadataTimeStamps {
     pub Flags: u32,
     pub Device: i64,

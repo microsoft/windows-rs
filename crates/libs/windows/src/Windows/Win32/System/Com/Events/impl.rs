@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IDontSupportEventSubscription_Impl: Sized {}
 impl ::windows_core::RuntimeName for IDontSupportEventSubscription {}
 impl IDontSupportEventSubscription_Vtbl {
@@ -9,7 +8,6 @@ impl IDontSupportEventSubscription_Vtbl {
         *iid == <IDontSupportEventSubscription as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IEnumEventObject_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumEventObject>;
     fn Next(&self, creqelem: u32, ppinterface: *mut ::core::option::Option<::windows_core::IUnknown>, cretelem: *mut u32) -> ::windows_core::Result<()>;
@@ -57,7 +55,7 @@ impl IEnumEventObject_Vtbl {
         *iid == <IEnumEventObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventClass_Impl: Sized + super::IDispatch_Impl {
     fn EventClassID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -214,7 +212,7 @@ impl IEventClass_Vtbl {
         *iid == <IEventClass as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventClass2_Impl: Sized + IEventClass_Impl {
     fn PublisherID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -311,7 +309,7 @@ impl IEventClass2_Vtbl {
         *iid == <IEventClass2 as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID || *iid == <IEventClass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventControl_Impl: Sized + super::IDispatch_Impl {
     fn SetPublisherFilter(&self, methodname: &::windows_core::BSTR, ppublisherfilter: ::core::option::Option<&IPublisherFilter>) -> ::windows_core::Result<()>;
@@ -381,7 +379,6 @@ impl IEventControl_Vtbl {
         *iid == <IEventControl as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IEventObjectChange_Impl: Sized {
     fn ChangedSubscription(&self, changetype: EOC_ChangeType, bstrsubscriptionid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn ChangedEventClass(&self, changetype: EOC_ChangeType, bstreventclassid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -416,7 +413,6 @@ impl IEventObjectChange_Vtbl {
         *iid == <IEventObjectChange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IEventObjectChange2_Impl: Sized {
     fn ChangedSubscription(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows_core::Result<()>;
     fn ChangedEventClass(&self, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows_core::Result<()>;
@@ -444,7 +440,7 @@ impl IEventObjectChange2_Vtbl {
         *iid == <IEventObjectChange2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventObjectCollection_Impl: Sized + super::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -527,7 +523,7 @@ impl IEventObjectCollection_Vtbl {
         *iid == <IEventObjectCollection as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventProperty_Impl: Sized + super::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -584,7 +580,7 @@ impl IEventProperty_Vtbl {
         *iid == <IEventProperty as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventPublisher_Impl: Sized + super::IDispatch_Impl {
     fn PublisherID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -741,7 +737,7 @@ impl IEventPublisher_Vtbl {
         *iid == <IEventPublisher as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventSubscription_Impl: Sized + super::IDispatch_Impl {
     fn SubscriptionID(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -1098,7 +1094,7 @@ impl IEventSubscription_Vtbl {
         *iid == <IEventSubscription as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventSystem_Impl: Sized + super::IDispatch_Impl {
     fn Query(&self, progid: &::windows_core::BSTR, querycriteria: &::windows_core::BSTR, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -1175,7 +1171,7 @@ impl IEventSystem_Vtbl {
         *iid == <IEventSystem as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFiringControl_Impl: Sized + super::IDispatch_Impl {
     fn FireSubscription(&self, subscription: ::core::option::Option<&IEventSubscription>) -> ::windows_core::Result<()>;
@@ -1196,7 +1192,7 @@ impl IFiringControl_Vtbl {
         *iid == <IFiringControl as ::windows_core::ComInterface>::IID || *iid == <super::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMultiInterfaceEventControl_Impl: Sized {
     fn SetMultiInterfacePublisherFilter(&self, classfilter: ::core::option::Option<&IMultiInterfacePublisherFilter>) -> ::windows_core::Result<()>;
@@ -1286,7 +1282,6 @@ impl IMultiInterfaceEventControl_Vtbl {
         *iid == <IMultiInterfaceEventControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IMultiInterfacePublisherFilter_Impl: Sized {
     fn Initialize(&self, peic: ::core::option::Option<&IMultiInterfaceEventControl>) -> ::windows_core::Result<()>;
     fn PrepareToFire(&self, iid: *const ::windows_core::GUID, methodname: &::windows_core::BSTR, firingcontrol: ::core::option::Option<&IFiringControl>) -> ::windows_core::Result<()>;
@@ -1314,7 +1309,6 @@ impl IMultiInterfacePublisherFilter_Vtbl {
         *iid == <IMultiInterfacePublisherFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"implement\"`*"]
 pub trait IPublisherFilter_Impl: Sized {
     fn Initialize(&self, methodname: &::windows_core::BSTR, dispuserdefined: ::core::option::Option<&super::IDispatch>) -> ::windows_core::Result<()>;
     fn PrepareToFire(&self, methodname: &::windows_core::BSTR, firingcontrol: ::core::option::Option<&IFiringControl>) -> ::windows_core::Result<()>;

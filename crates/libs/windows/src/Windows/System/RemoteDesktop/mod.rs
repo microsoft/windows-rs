@@ -1,4 +1,5 @@
 #[cfg(feature = "System_RemoteDesktop_Input")]
+#[doc = "Required features: `System_RemoteDesktop_Input`"]
 pub mod Input;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -16,7 +17,6 @@ pub struct IInteractiveSessionStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub IsRemote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"System_RemoteDesktop\"`*"]
 pub struct InteractiveSession;
 impl InteractiveSession {
     pub fn IsRemote() -> ::windows_core::Result<bool> {

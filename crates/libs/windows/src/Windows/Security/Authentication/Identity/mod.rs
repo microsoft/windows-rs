@@ -1,4 +1,5 @@
 #[cfg(feature = "Security_Authentication_Identity_Core")]
+#[doc = "Required features: `Security_Authentication_Identity_Core`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -55,7 +56,6 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(::windows_core::IUnknown);
@@ -111,12 +111,11 @@ impl ::windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
 ::windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
-#[doc = "*Required features: `\"Security_Authentication_Identity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows_core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRegistrationsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;

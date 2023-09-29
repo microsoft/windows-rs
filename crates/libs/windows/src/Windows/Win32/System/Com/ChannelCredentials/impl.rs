@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_Com_ChannelCredentials\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IChannelCredentials_Impl: Sized + super::IDispatch_Impl {
     fn SetWindowsCredential(&self, domain: &::windows_core::BSTR, username: &::windows_core::BSTR, password: &::windows_core::BSTR, impersonationlevel: i32, allowntlm: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;

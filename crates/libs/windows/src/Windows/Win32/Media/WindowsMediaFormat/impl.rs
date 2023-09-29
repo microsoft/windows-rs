@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INSNetSourceCreator_Impl: Sized {
     fn Initialize(&self) -> ::windows_core::Result<()>;
@@ -95,7 +95,6 @@ impl INSNetSourceCreator_Vtbl {
         *iid == <INSNetSourceCreator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait INSSBuffer_Impl: Sized {
     fn GetLength(&self) -> ::windows_core::Result<u32>;
     fn SetLength(&self, dwlength: u32) -> ::windows_core::Result<()>;
@@ -162,7 +161,6 @@ impl INSSBuffer_Vtbl {
         *iid == <INSSBuffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait INSSBuffer2_Impl: Sized + INSSBuffer_Impl {
     fn GetSampleProperties(&self, cbproperties: u32) -> ::windows_core::Result<u8>;
     fn SetSampleProperties(&self, cbproperties: u32, pbproperties: *const u8) -> ::windows_core::Result<()>;
@@ -196,7 +194,6 @@ impl INSSBuffer2_Vtbl {
         *iid == <INSSBuffer2 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait INSSBuffer3_Impl: Sized + INSSBuffer2_Impl {
     fn SetProperty(&self, guidbufferproperty: &::windows_core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows_core::Result<()>;
     fn GetProperty(&self, guidbufferproperty: &::windows_core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows_core::Result<()>;
@@ -224,7 +221,6 @@ impl INSSBuffer3_Vtbl {
         *iid == <INSSBuffer3 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait INSSBuffer4_Impl: Sized + INSSBuffer3_Impl {
     fn GetPropertyCount(&self) -> ::windows_core::Result<u32>;
     fn GetPropertyByIndex(&self, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows_core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows_core::Result<()>;
@@ -258,7 +254,6 @@ impl INSSBuffer4_Vtbl {
         *iid == <INSSBuffer4 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer2 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMAddressAccess_Impl: Sized {
     fn GetAccessEntryCount(&self, aetype: WM_AETYPE) -> ::windows_core::Result<u32>;
     fn GetAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows_core::Result<WM_ADDRESS_ACCESSENTRY>;
@@ -312,7 +307,6 @@ impl IWMAddressAccess_Vtbl {
         *iid == <IWMAddressAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMAddressAccess2_Impl: Sized + IWMAddressAccess_Impl {
     fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: *mut ::windows_core::BSTR, pbstrmask: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn AddAccessEntryEx(&self, aetype: WM_AETYPE, bstraddress: &::windows_core::BSTR, bstrmask: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -340,7 +334,6 @@ impl IWMAddressAccess2_Vtbl {
         *iid == <IWMAddressAccess2 as ::windows_core::ComInterface>::IID || *iid == <IWMAddressAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMAuthorizer_Impl: Sized {
     fn GetCertCount(&self) -> ::windows_core::Result<u32>;
     fn GetCert(&self, dwindex: u32) -> ::windows_core::Result<*mut u8>;
@@ -393,7 +386,6 @@ impl IWMAuthorizer_Vtbl {
         *iid == <IWMAuthorizer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMBackupRestoreProps_Impl: Sized {
     fn GetPropCount(&self) -> ::windows_core::Result<u16>;
     fn GetPropByIndex(&self, windex: u16, pwszname: ::windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>;
@@ -455,7 +447,6 @@ impl IWMBackupRestoreProps_Vtbl {
         *iid == <IWMBackupRestoreProps as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMBandwidthSharing_Impl: Sized + IWMStreamList_Impl {
     fn GetType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn SetType(&self, guidtype: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -503,7 +494,6 @@ impl IWMBandwidthSharing_Vtbl {
         *iid == <IWMBandwidthSharing as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMClientConnections_Impl: Sized {
     fn GetClientCount(&self) -> ::windows_core::Result<u32>;
     fn GetClientProperties(&self, dwclientnum: u32) -> ::windows_core::Result<WM_CLIENT_PROPERTIES>;
@@ -543,7 +533,6 @@ impl IWMClientConnections_Vtbl {
         *iid == <IWMClientConnections as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMClientConnections2_Impl: Sized + IWMClientConnections_Impl {
     fn GetClientInfo(&self, dwclientnum: u32, pwsznetworkaddress: ::windows_core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: ::windows_core::PWSTR, pcchport: *mut u32, pwszdnsname: ::windows_core::PWSTR, pcchdnsname: *mut u32) -> ::windows_core::Result<()>;
 }
@@ -561,7 +550,6 @@ impl IWMClientConnections2_Vtbl {
         *iid == <IWMClientConnections2 as ::windows_core::ComInterface>::IID || *iid == <IWMClientConnections as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMCodecInfo_Impl: Sized {
     fn GetCodecInfoCount(&self, guidtype: *const ::windows_core::GUID) -> ::windows_core::Result<u32>;
     fn GetCodecFormatCount(&self, guidtype: *const ::windows_core::GUID, dwcodecindex: u32) -> ::windows_core::Result<u32>;
@@ -614,7 +602,6 @@ impl IWMCodecInfo_Vtbl {
         *iid == <IWMCodecInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMCodecInfo2_Impl: Sized + IWMCodecInfo_Impl {
     fn GetCodecName(&self, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, wszname: ::windows_core::PWSTR, pcchname: *mut u32) -> ::windows_core::Result<()>;
     fn GetCodecFormatDesc(&self, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut ::core::option::Option<IWMStreamConfig>, wszdesc: ::windows_core::PWSTR, pcchdesc: *mut u32) -> ::windows_core::Result<()>;
@@ -642,7 +629,6 @@ impl IWMCodecInfo2_Vtbl {
         *iid == <IWMCodecInfo2 as ::windows_core::ComInterface>::IID || *iid == <IWMCodecInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMCodecInfo3_Impl: Sized + IWMCodecInfo2_Impl {
     fn GetCodecFormatProp(&self, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, dwformatindex: u32, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>;
     fn GetCodecProp(&self, guidtype: *const ::windows_core::GUID, dwcodecindex: u32, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>;
@@ -684,7 +670,6 @@ impl IWMCodecInfo3_Vtbl {
         *iid == <IWMCodecInfo3 as ::windows_core::ComInterface>::IID || *iid == <IWMCodecInfo as ::windows_core::ComInterface>::IID || *iid == <IWMCodecInfo2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMCredentialCallback_Impl: Sized {
     fn AcquireCredentials(&self, pwszrealm: &::windows_core::PCWSTR, pwszsite: &::windows_core::PCWSTR, pwszuser: ::windows_core::PWSTR, cchuser: u32, pwszpassword: ::windows_core::PWSTR, cchpassword: u32, hrstatus: ::windows_core::HRESULT, pdwflags: *mut u32) -> ::windows_core::Result<()>;
 }
@@ -702,7 +687,6 @@ impl IWMCredentialCallback_Vtbl {
         *iid == <IWMCredentialCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDRMEditor_Impl: Sized {
     fn GetDRMProperty(&self, pwstrname: &::windows_core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>;
 }
@@ -720,7 +704,6 @@ impl IWMDRMEditor_Vtbl {
         *iid == <IWMDRMEditor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDRMMessageParser_Impl: Sized {
     fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: *const u8, cbregistrationreqmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16) -> ::windows_core::Result<()>;
     fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: *const u8, cblicenserequestmsg: u32, ppdevicecert: *mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: *mut DRM_VAL16, pbstraction: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -748,7 +731,6 @@ impl IWMDRMMessageParser_Vtbl {
         *iid == <IWMDRMMessageParser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDRMReader_Impl: Sized {
     fn AcquireLicense(&self, dwflags: u32) -> ::windows_core::Result<()>;
     fn CancelLicenseAcquisition(&self) -> ::windows_core::Result<()>;
@@ -818,7 +800,7 @@ impl IWMDRMReader_Vtbl {
         *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader2_Impl: Sized + IWMDRMReader_Impl {
     fn SetEvaluateOutputLevelLicenses(&self, fevaluate: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -863,7 +845,7 @@ impl IWMDRMReader2_Vtbl {
         *iid == <IWMDRMReader2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader3_Impl: Sized + IWMDRMReader2_Impl {
     fn GetInclusionList(&self, ppguids: *mut *mut ::windows_core::GUID, pcguids: *mut u32) -> ::windows_core::Result<()>;
@@ -884,7 +866,6 @@ impl IWMDRMReader3_Vtbl {
         *iid == <IWMDRMReader3 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDRMTranscryptionManager_Impl: Sized {
     fn CreateTranscryptor(&self) -> ::windows_core::Result<IWMDRMTranscryptor>;
 }
@@ -908,7 +889,6 @@ impl IWMDRMTranscryptionManager_Vtbl {
         *iid == <IWMDRMTranscryptionManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDRMTranscryptor_Impl: Sized {
     fn Initialize(&self, bstrfilename: &::windows_core::BSTR, pblicenserequestmsg: *mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: ::core::option::Option<&IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Seek(&self, hnstime: u64) -> ::windows_core::Result<()>;
@@ -950,7 +930,7 @@ impl IWMDRMTranscryptor_Vtbl {
         *iid == <IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMTranscryptor2_Impl: Sized + IWMDRMTranscryptor_Impl {
     fn SeekEx(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1007,7 +987,6 @@ impl IWMDRMTranscryptor2_Vtbl {
         *iid == <IWMDRMTranscryptor2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDRMWriter_Impl: Sized {
     fn GenerateKeySeed(&self, pwszkeyseed: ::windows_core::PWSTR, pcwchlength: *mut u32) -> ::windows_core::Result<()>;
     fn GenerateKeyID(&self, pwszkeyid: ::windows_core::PWSTR, pcwchlength: *mut u32) -> ::windows_core::Result<()>;
@@ -1049,7 +1028,7 @@ impl IWMDRMWriter_Vtbl {
         *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter2_Impl: Sized + IWMDRMWriter_Impl {
     fn SetWMDRMNetEncryption(&self, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows_core::Result<()>;
@@ -1070,7 +1049,7 @@ impl IWMDRMWriter2_Vtbl {
         *iid == <IWMDRMWriter2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter3_Impl: Sized + IWMDRMWriter2_Impl {
     fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows_core::Result<()>;
@@ -1091,7 +1070,6 @@ impl IWMDRMWriter3_Vtbl {
         *iid == <IWMDRMWriter3 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMDeviceRegistration_Impl: Sized {
     fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows_core::Result<IWMRegisteredDevice>;
     fn UnregisterDevice(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: &DRM_VAL16) -> ::windows_core::Result<()>;
@@ -1177,7 +1155,6 @@ impl IWMDeviceRegistration_Vtbl {
         *iid == <IWMDeviceRegistration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMGetSecureChannel_Impl: Sized {
     fn GetPeerSecureChannelInterface(&self) -> ::windows_core::Result<IWMSecureChannel>;
 }
@@ -1204,7 +1181,6 @@ impl IWMGetSecureChannel_Vtbl {
         *iid == <IWMGetSecureChannel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMHeaderInfo_Impl: Sized {
     fn GetAttributeCount(&self, wstreamnum: u16) -> ::windows_core::Result<u16>;
     fn GetAttributeByIndex(&self, windex: u16, pwstreamnum: *mut u16, pwszname: ::windows_core::PWSTR, pcchnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>;
@@ -1320,7 +1296,6 @@ impl IWMHeaderInfo_Vtbl {
         *iid == <IWMHeaderInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMHeaderInfo2_Impl: Sized + IWMHeaderInfo_Impl {
     fn GetCodecInfoCount(&self) -> ::windows_core::Result<u32>;
     fn GetCodecInfo(&self, windex: u32, pcchname: *mut u16, pwszname: ::windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows_core::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows_core::Result<()>;
@@ -1354,7 +1329,6 @@ impl IWMHeaderInfo2_Vtbl {
         *iid == <IWMHeaderInfo2 as ::windows_core::ComInterface>::IID || *iid == <IWMHeaderInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMHeaderInfo3_Impl: Sized + IWMHeaderInfo2_Impl {
     fn GetAttributeCountEx(&self, wstreamnum: u16) -> ::windows_core::Result<u16>;
     fn GetAttributeIndices(&self, wstreamnum: u16, pwszname: &::windows_core::PCWSTR, pwlangindex: *const u16, pwindices: *mut u16, pwcount: *mut u16) -> ::windows_core::Result<()>;
@@ -1423,7 +1397,6 @@ impl IWMHeaderInfo3_Vtbl {
         *iid == <IWMHeaderInfo3 as ::windows_core::ComInterface>::IID || *iid == <IWMHeaderInfo as ::windows_core::ComInterface>::IID || *iid == <IWMHeaderInfo2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMIStreamProps_Impl: Sized {
     fn GetProperty(&self, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>;
 }
@@ -1441,7 +1414,6 @@ impl IWMIStreamProps_Vtbl {
         *iid == <IWMIStreamProps as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMImageInfo_Impl: Sized {
     fn GetImageCount(&self) -> ::windows_core::Result<u32>;
     fn GetImage(&self, windex: u32, pcchmimetype: *mut u16, pwszmimetype: ::windows_core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows_core::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows_core::Result<()>;
@@ -1475,7 +1447,6 @@ impl IWMImageInfo_Vtbl {
         *iid == <IWMImageInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMIndexer_Impl: Sized {
     fn StartIndexing(&self, pwszurl: &::windows_core::PCWSTR, pcallback: ::core::option::Option<&IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Cancel(&self) -> ::windows_core::Result<()>;
@@ -1503,7 +1474,6 @@ impl IWMIndexer_Vtbl {
         *iid == <IWMIndexer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMIndexer2_Impl: Sized + IWMIndexer_Impl {
     fn Configure(&self, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -1521,7 +1491,7 @@ impl IWMIndexer2_Vtbl {
         *iid == <IWMIndexer2 as ::windows_core::ComInterface>::IID || *iid == <IWMIndexer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMInputMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetConnectionName(&self, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::Result<()>;
@@ -1552,7 +1522,6 @@ impl IWMInputMediaProps_Vtbl {
         *iid == <IWMInputMediaProps as ::windows_core::ComInterface>::IID || *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMLanguageList_Impl: Sized {
     fn GetLanguageCount(&self) -> ::windows_core::Result<u16>;
     fn GetLanguageDetails(&self, windex: u16, pwszlanguagestring: ::windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows_core::Result<()>;
@@ -1599,7 +1568,6 @@ impl IWMLanguageList_Vtbl {
         *iid == <IWMLanguageList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMLicenseBackup_Impl: Sized {
     fn BackupLicenses(&self, dwflags: u32, pcallback: ::core::option::Option<&IWMStatusCallback>) -> ::windows_core::Result<()>;
     fn CancelLicenseBackup(&self) -> ::windows_core::Result<()>;
@@ -1627,7 +1595,6 @@ impl IWMLicenseBackup_Vtbl {
         *iid == <IWMLicenseBackup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMLicenseRestore_Impl: Sized {
     fn RestoreLicenses(&self, dwflags: u32, pcallback: ::core::option::Option<&IWMStatusCallback>) -> ::windows_core::Result<()>;
     fn CancelLicenseRestore(&self) -> ::windows_core::Result<()>;
@@ -1655,7 +1622,6 @@ impl IWMLicenseRestore_Vtbl {
         *iid == <IWMLicenseRestore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMLicenseRevocationAgent_Impl: Sized {
     fn GetLRBChallenge(&self, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows_core::Result<()>;
     fn ProcessLRB(&self, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows_core::Result<()>;
@@ -1683,7 +1649,7 @@ impl IWMLicenseRevocationAgent_Vtbl {
         *iid == <IWMLicenseRevocationAgent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMMediaProps_Impl: Sized {
     fn GetType(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1727,7 +1693,6 @@ impl IWMMediaProps_Vtbl {
         *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMMetadataEditor_Impl: Sized {
     fn Open(&self, pwszfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -1762,7 +1727,6 @@ impl IWMMetadataEditor_Vtbl {
         *iid == <IWMMetadataEditor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMMetadataEditor2_Impl: Sized + IWMMetadataEditor_Impl {
     fn OpenEx(&self, pwszfilename: &::windows_core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows_core::Result<()>;
 }
@@ -1780,7 +1744,6 @@ impl IWMMetadataEditor2_Vtbl {
         *iid == <IWMMetadataEditor2 as ::windows_core::ComInterface>::IID || *iid == <IWMMetadataEditor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMMutualExclusion_Impl: Sized + IWMStreamList_Impl {
     fn GetType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn SetType(&self, guidtype: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1814,7 +1777,6 @@ impl IWMMutualExclusion_Vtbl {
         *iid == <IWMMutualExclusion as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMMutualExclusion2_Impl: Sized + IWMMutualExclusion_Impl {
     fn GetName(&self, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::Result<()>;
     fn SetName(&self, pwszname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1904,7 +1866,7 @@ impl IWMMutualExclusion2_Vtbl {
         *iid == <IWMMutualExclusion2 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID || *iid == <IWMMutualExclusion as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMOutputMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetStreamGroupName(&self, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::Result<()>;
@@ -1935,7 +1897,6 @@ impl IWMOutputMediaProps_Vtbl {
         *iid == <IWMOutputMediaProps as ::windows_core::ComInterface>::IID || *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMPacketSize_Impl: Sized {
     fn GetMaxPacketSize(&self) -> ::windows_core::Result<u32>;
     fn SetMaxPacketSize(&self, dwmaxpacketsize: u32) -> ::windows_core::Result<()>;
@@ -1969,7 +1930,6 @@ impl IWMPacketSize_Vtbl {
         *iid == <IWMPacketSize as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMPacketSize2_Impl: Sized + IWMPacketSize_Impl {
     fn GetMinPacketSize(&self) -> ::windows_core::Result<u32>;
     fn SetMinPacketSize(&self, dwminpacketsize: u32) -> ::windows_core::Result<()>;
@@ -2003,7 +1963,6 @@ impl IWMPacketSize2_Vtbl {
         *iid == <IWMPacketSize2 as ::windows_core::ComInterface>::IID || *iid == <IWMPacketSize as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMPlayerHook_Impl: Sized {
     fn PreDecode(&self) -> ::windows_core::Result<()>;
 }
@@ -2021,7 +1980,6 @@ impl IWMPlayerHook_Vtbl {
         *iid == <IWMPlayerHook as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMPlayerTimestampHook_Impl: Sized {
     fn MapTimestamp(&self, rtin: i64) -> ::windows_core::Result<i64>;
 }
@@ -2045,7 +2003,6 @@ impl IWMPlayerTimestampHook_Vtbl {
         *iid == <IWMPlayerTimestampHook as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProfile_Impl: Sized {
     fn GetVersion(&self) -> ::windows_core::Result<WMT_VERSION>;
     fn GetName(&self, pwszname: ::windows_core::PWSTR, pcchname: *mut u32) -> ::windows_core::Result<()>;
@@ -2233,7 +2190,6 @@ impl IWMProfile_Vtbl {
         *iid == <IWMProfile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProfile2_Impl: Sized + IWMProfile_Impl {
     fn GetProfileID(&self) -> ::windows_core::Result<::windows_core::GUID>;
 }
@@ -2257,7 +2213,6 @@ impl IWMProfile2_Vtbl {
         *iid == <IWMProfile2 as ::windows_core::ComInterface>::IID || *iid == <IWMProfile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProfile3_Impl: Sized + IWMProfile2_Impl {
     fn GetStorageFormat(&self) -> ::windows_core::Result<WMT_STORAGE_FORMAT>;
     fn SetStorageFormat(&self, nstorageformat: WMT_STORAGE_FORMAT) -> ::windows_core::Result<()>;
@@ -2397,7 +2352,6 @@ impl IWMProfile3_Vtbl {
         *iid == <IWMProfile3 as ::windows_core::ComInterface>::IID || *iid == <IWMProfile as ::windows_core::ComInterface>::IID || *iid == <IWMProfile2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProfileManager_Impl: Sized {
     fn CreateEmptyProfile(&self, dwversion: WMT_VERSION) -> ::windows_core::Result<IWMProfile>;
     fn LoadProfileByID(&self, guidprofile: *const ::windows_core::GUID) -> ::windows_core::Result<IWMProfile>;
@@ -2483,7 +2437,6 @@ impl IWMProfileManager_Vtbl {
         *iid == <IWMProfileManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProfileManager2_Impl: Sized + IWMProfileManager_Impl {
     fn GetSystemProfileVersion(&self, pdwversion: *mut WMT_VERSION) -> ::windows_core::Result<()>;
     fn SetSystemProfileVersion(&self, dwversion: WMT_VERSION) -> ::windows_core::Result<()>;
@@ -2511,7 +2464,6 @@ impl IWMProfileManager2_Vtbl {
         *iid == <IWMProfileManager2 as ::windows_core::ComInterface>::IID || *iid == <IWMProfileManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProfileManagerLanguage_Impl: Sized {
     fn GetUserLanguageID(&self, wlangid: *mut u16) -> ::windows_core::Result<()>;
     fn SetUserLanguageID(&self, wlangid: u16) -> ::windows_core::Result<()>;
@@ -2539,7 +2491,6 @@ impl IWMProfileManagerLanguage_Vtbl {
         *iid == <IWMProfileManagerLanguage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMPropertyVault_Impl: Sized {
     fn GetPropertyCount(&self, pdwcount: *const u32) -> ::windows_core::Result<()>;
     fn GetPropertyByName(&self, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>;
@@ -2595,7 +2546,6 @@ impl IWMPropertyVault_Vtbl {
         *iid == <IWMPropertyVault as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMProximityDetection_Impl: Sized {
     fn StartDetection(&self, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut ::core::option::Option<INSSBuffer>, pcallback: ::core::option::Option<&IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -2613,7 +2563,6 @@ impl IWMProximityDetection_Vtbl {
         *iid == <IWMProximityDetection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReader_Impl: Sized {
     fn Open(&self, pwszurl: &::windows_core::PCWSTR, pcallback: ::core::option::Option<&IWMReaderCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Close(&self) -> ::windows_core::Result<()>;
@@ -2728,7 +2677,7 @@ impl IWMReader_Vtbl {
         *iid == <IWMReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderAccelerator_Impl: Sized {
     fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const ::windows_core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2759,7 +2708,7 @@ impl IWMReaderAccelerator_Vtbl {
         *iid == <IWMReaderAccelerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderAdvanced_Impl: Sized {
     fn SetUserProvidedClock(&self, fuserclock: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2970,7 +2919,7 @@ impl IWMReaderAdvanced_Vtbl {
         *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced2_Impl: Sized + IWMReaderAdvanced_Impl {
     fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows_core::Result<()>;
@@ -3110,7 +3059,7 @@ impl IWMReaderAdvanced2_Vtbl {
         *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced2_Impl {
     fn StopNetStreaming(&self) -> ::windows_core::Result<()>;
@@ -3141,7 +3090,7 @@ impl IWMReaderAdvanced3_Vtbl {
         *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced3_Impl {
     fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows_core::Result<u16>;
@@ -3245,7 +3194,7 @@ impl IWMReaderAdvanced4_Vtbl {
         *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced4_Impl {
     fn SetPlayerHook(&self, dwoutputnum: u32, phook: ::core::option::Option<&IWMPlayerHook>) -> ::windows_core::Result<()>;
@@ -3266,7 +3215,7 @@ impl IWMReaderAdvanced5_Vtbl {
         *iid == <IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced5_Impl {
     fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows_core::Result<()>;
@@ -3287,7 +3236,6 @@ impl IWMReaderAdvanced6_Vtbl {
         *iid == <IWMReaderAdvanced6 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReaderAllocatorEx_Impl: Sized {
     fn AllocateForStreamEx(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn AllocateForOutputEx(&self, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3315,7 +3263,6 @@ impl IWMReaderAllocatorEx_Vtbl {
         *iid == <IWMReaderAllocatorEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReaderCallback_Impl: Sized + IWMStatusCallback_Impl {
     fn OnSample(&self, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::core::option::Option<&INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -3333,7 +3280,7 @@ impl IWMReaderCallback_Vtbl {
         *iid == <IWMReaderCallback as ::windows_core::ComInterface>::IID || *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderCallbackAdvanced_Impl: Sized {
     fn OnStreamSample(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::core::option::Option<&INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3392,7 +3339,7 @@ impl IWMReaderCallbackAdvanced_Vtbl {
         *iid == <IWMReaderCallbackAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderNetworkConfig_Impl: Sized {
     fn GetBufferingTime(&self) -> ::windows_core::Result<u64>;
@@ -3712,7 +3659,7 @@ impl IWMReaderNetworkConfig_Vtbl {
         *iid == <IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderNetworkConfig2_Impl: Sized + IWMReaderNetworkConfig_Impl {
     fn GetEnableContentCaching(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3862,7 +3809,6 @@ impl IWMReaderNetworkConfig2_Vtbl {
         *iid == <IWMReaderNetworkConfig2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReaderPlaylistBurn_Impl: Sized {
     fn InitPlaylistBurn(&self, cfiles: u32, ppwszfilenames: *const ::windows_core::PCWSTR, pcallback: ::core::option::Option<&IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn GetInitResults(&self, cfiles: u32) -> ::windows_core::Result<::windows_core::HRESULT>;
@@ -3910,7 +3856,6 @@ impl IWMReaderPlaylistBurn_Vtbl {
         *iid == <IWMReaderPlaylistBurn as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReaderStreamClock_Impl: Sized {
     fn GetTime(&self, pcnsnow: *const u64) -> ::windows_core::Result<()>;
     fn SetTimer(&self, cnswhen: u64, pvparam: *const ::core::ffi::c_void) -> ::windows_core::Result<u32>;
@@ -3951,7 +3896,6 @@ impl IWMReaderStreamClock_Vtbl {
         *iid == <IWMReaderStreamClock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReaderTimecode_Impl: Sized {
     fn GetTimecodeRangeCount(&self, wstreamnum: u16) -> ::windows_core::Result<u16>;
     fn GetTimecodeRangeBounds(&self, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows_core::Result<()>;
@@ -3985,7 +3929,6 @@ impl IWMReaderTimecode_Vtbl {
         *iid == <IWMReaderTimecode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMReaderTypeNegotiation_Impl: Sized {
     fn TryOutputProps(&self, dwoutputnum: u32, poutput: ::core::option::Option<&IWMOutputMediaProps>) -> ::windows_core::Result<()>;
 }
@@ -4003,7 +3946,6 @@ impl IWMReaderTypeNegotiation_Vtbl {
         *iid == <IWMReaderTypeNegotiation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMRegisterCallback_Impl: Sized {
     fn Advise(&self, pcallback: ::core::option::Option<&IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn Unadvise(&self, pcallback: ::core::option::Option<&IWMStatusCallback>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -4031,7 +3973,7 @@ impl IWMRegisterCallback_Vtbl {
         *iid == <IWMRegisterCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMRegisteredDevice_Impl: Sized {
     fn GetDeviceSerialNumber(&self) -> ::windows_core::Result<DRM_VAL16>;
@@ -4200,7 +4142,6 @@ impl IWMRegisteredDevice_Vtbl {
         *iid == <IWMRegisteredDevice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMSBufferAllocator_Impl: Sized {
     fn AllocateBuffer(&self, dwmaxbuffersize: u32) -> ::windows_core::Result<INSSBuffer>;
     fn AllocatePageSizeBuffer(&self, dwmaxbuffersize: u32) -> ::windows_core::Result<INSSBuffer>;
@@ -4240,7 +4181,7 @@ impl IWMSBufferAllocator_Vtbl {
         *iid == <IWMSBufferAllocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource_Impl: Sized {
     fn Initialize(&self, psharednamespace: ::core::option::Option<&::windows_core::IUnknown>, pnamespacenode: ::core::option::Option<&::windows_core::IUnknown>, pnetsourcecreator: ::core::option::Option<&INSNetSourceCreator>, fembeddedinserver: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4352,7 +4293,7 @@ impl IWMSInternalAdminNetSource_Vtbl {
         *iid == <IWMSInternalAdminNetSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource2_Impl: Sized {
     fn SetCredentialsEx(&self, bstrrealm: &::windows_core::BSTR, bstrurl: &::windows_core::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &::windows_core::BSTR, bstrpassword: &::windows_core::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4397,7 +4338,7 @@ impl IWMSInternalAdminNetSource2_Vtbl {
         *iid == <IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource3_Impl: Sized + IWMSInternalAdminNetSource2_Impl {
     fn GetNetSourceCreator2(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -4475,7 +4416,7 @@ impl IWMSInternalAdminNetSource3_Vtbl {
         *iid == <IWMSInternalAdminNetSource3 as ::windows_core::ComInterface>::IID || *iid == <IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSecureChannel_Impl: Sized + IWMAuthorizer_Impl {
     fn WMSC_AddCertificate(&self, pcert: ::core::option::Option<&IWMAuthorizer>) -> ::windows_core::Result<()>;
@@ -4575,7 +4516,6 @@ impl IWMSecureChannel_Vtbl {
         *iid == <IWMSecureChannel as ::windows_core::ComInterface>::IID || *iid == <IWMAuthorizer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMStatusCallback_Impl: Sized {
     fn OnStatus(&self, status: WMT_STATUS, hr: ::windows_core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -4593,7 +4533,6 @@ impl IWMStatusCallback_Vtbl {
         *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMStreamConfig_Impl: Sized {
     fn GetStreamType(&self) -> ::windows_core::Result<::windows_core::GUID>;
     fn GetStreamNumber(&self) -> ::windows_core::Result<u16>;
@@ -4708,7 +4647,6 @@ impl IWMStreamConfig_Vtbl {
         *iid == <IWMStreamConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMStreamConfig2_Impl: Sized + IWMStreamConfig_Impl {
     fn GetTransportType(&self) -> ::windows_core::Result<WMT_TRANSPORT_TYPE>;
     fn SetTransportType(&self, ntransporttype: WMT_TRANSPORT_TYPE) -> ::windows_core::Result<()>;
@@ -4776,7 +4714,6 @@ impl IWMStreamConfig2_Vtbl {
         *iid == <IWMStreamConfig2 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMStreamConfig3_Impl: Sized + IWMStreamConfig2_Impl {
     fn GetLanguage(&self, pwszlanguagestring: ::windows_core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows_core::Result<()>;
     fn SetLanguage(&self, pwszlanguagestring: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -4804,7 +4741,6 @@ impl IWMStreamConfig3_Vtbl {
         *iid == <IWMStreamConfig3 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamConfig as ::windows_core::ComInterface>::IID || *iid == <IWMStreamConfig2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMStreamList_Impl: Sized {
     fn GetStreams(&self, pwstreamnumarray: *mut u16, pcstreams: *mut u16) -> ::windows_core::Result<()>;
     fn AddStream(&self, wstreamnum: u16) -> ::windows_core::Result<()>;
@@ -4839,7 +4775,7 @@ impl IWMStreamList_Vtbl {
         *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMStreamPrioritization_Impl: Sized {
     fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows_core::Result<()>;
@@ -4870,7 +4806,7 @@ impl IWMStreamPrioritization_Vtbl {
         *iid == <IWMStreamPrioritization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMSyncReader_Impl: Sized {
     fn Open(&self, pwszfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -5094,7 +5030,7 @@ impl IWMSyncReader_Vtbl {
         *iid == <IWMSyncReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMSyncReader2_Impl: Sized + IWMSyncReader_Impl {
     fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows_core::Result<()>;
@@ -5171,7 +5107,7 @@ impl IWMSyncReader2_Vtbl {
         *iid == <IWMSyncReader2 as ::windows_core::ComInterface>::IID || *iid == <IWMSyncReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMVideoMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetMaxKeyFrameSpacing(&self) -> ::windows_core::Result<i64>;
@@ -5228,7 +5164,6 @@ impl IWMVideoMediaProps_Vtbl {
         *iid == <IWMVideoMediaProps as ::windows_core::ComInterface>::IID || *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMWatermarkInfo_Impl: Sized {
     fn GetWatermarkEntryCount(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE) -> ::windows_core::Result<u32>;
     fn GetWatermarkEntry(&self, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> ::windows_core::Result<()>;
@@ -5262,7 +5197,6 @@ impl IWMWatermarkInfo_Vtbl {
         *iid == <IWMWatermarkInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMWriter_Impl: Sized {
     fn SetProfileByID(&self, guidprofile: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn SetProfile(&self, pprofile: ::core::option::Option<&IWMProfile>) -> ::windows_core::Result<()>;
@@ -5397,7 +5331,7 @@ impl IWMWriter_Vtbl {
         *iid == <IWMWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced_Impl: Sized {
     fn GetSinkCount(&self) -> ::windows_core::Result<u32>;
@@ -5521,7 +5455,7 @@ impl IWMWriterAdvanced_Vtbl {
         *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced2_Impl: Sized + IWMWriterAdvanced_Impl {
     fn GetInputSetting(&self, dwinputnum: u32, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>;
@@ -5552,7 +5486,7 @@ impl IWMWriterAdvanced2_Vtbl {
         *iid == <IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced2_Impl {
     fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows_core::Result<()>;
@@ -5583,7 +5517,7 @@ impl IWMWriterAdvanced3_Vtbl {
         *iid == <IWMWriterAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink_Impl: Sized + IWMWriterSink_Impl {
     fn Open(&self, pwszfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -5604,7 +5538,7 @@ impl IWMWriterFileSink_Vtbl {
         *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink2_Impl: Sized + IWMWriterFileSink_Impl {
     fn Start(&self, cnsstarttime: u64) -> ::windows_core::Result<()>;
@@ -5694,7 +5628,7 @@ impl IWMWriterFileSink2_Vtbl {
         *iid == <IWMWriterFileSink2 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink3_Impl: Sized + IWMWriterFileSink2_Impl {
     fn SetAutoIndexing(&self, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -5785,7 +5719,7 @@ impl IWMWriterFileSink3_Vtbl {
         *iid == <IWMWriterFileSink3 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterNetworkSink_Impl: Sized + IWMWriterSink_Impl {
     fn SetMaximumClients(&self, dwmaxclients: u32) -> ::windows_core::Result<()>;
@@ -5870,7 +5804,7 @@ impl IWMWriterNetworkSink_Vtbl {
         *iid == <IWMWriterNetworkSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterPostView_Impl: Sized {
     fn SetPostViewCallback(&self, pcallback: ::core::option::Option<&IWMWriterPostViewCallback>, pvcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -5980,7 +5914,6 @@ impl IWMWriterPostView_Vtbl {
         *iid == <IWMWriterPostView as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMWriterPostViewCallback_Impl: Sized + IWMStatusCallback_Impl {
     fn OnPostViewSample(&self, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::core::option::Option<&INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
     fn AllocateForPostView(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut ::core::option::Option<INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -6008,7 +5941,6 @@ impl IWMWriterPostViewCallback_Vtbl {
         *iid == <IWMWriterPostViewCallback as ::windows_core::ComInterface>::IID || *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
 pub trait IWMWriterPreprocess_Impl: Sized {
     fn GetMaxPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32) -> ::windows_core::Result<u32>;
     fn SetNumPreprocessingPasses(&self, dwinputnum: u32, dwflags: u32, dwnumpasses: u32) -> ::windows_core::Result<()>;
@@ -6063,7 +5995,7 @@ impl IWMWriterPreprocess_Vtbl {
         *iid == <IWMWriterPreprocess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterPushSink_Impl: Sized + IWMWriterSink_Impl {
     fn Connect(&self, pwszurl: &::windows_core::PCWSTR, pwsztemplateurl: &::windows_core::PCWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6101,7 +6033,7 @@ impl IWMWriterPushSink_Vtbl {
         *iid == <IWMWriterPushSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterSink_Impl: Sized {
     fn OnHeader(&self, pheader: ::core::option::Option<&INSSBuffer>) -> ::windows_core::Result<()>;

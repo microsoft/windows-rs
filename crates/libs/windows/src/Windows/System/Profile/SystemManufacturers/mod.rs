@@ -93,12 +93,11 @@ pub struct ISystemSupportInfoStatics2_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
     pub LocalDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OemSupportInfo(::windows_core::IUnknown);
 impl OemSupportInfo {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SupportLink(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -107,7 +106,7 @@ impl OemSupportInfo {
             (::windows_core::Interface::vtable(this).SupportLink)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn SupportAppLink(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -139,7 +138,6 @@ impl ::windows_core::RuntimeName for OemSupportInfo {
 ::windows_core::imp::interface_hierarchy!(OemSupportInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OemSupportInfo {}
 unsafe impl ::core::marker::Sync for OemSupportInfo {}
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 pub struct SmbiosInformation;
 impl SmbiosInformation {
     pub fn SerialNumber() -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -157,7 +155,6 @@ impl SmbiosInformation {
 impl ::windows_core::RuntimeName for SmbiosInformation {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SmbiosInformation";
 }
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemSupportDeviceInfo(::windows_core::IUnknown);
@@ -227,7 +224,6 @@ impl ::windows_core::RuntimeName for SystemSupportDeviceInfo {
 ::windows_core::imp::interface_hierarchy!(SystemSupportDeviceInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 pub struct SystemSupportInfo;
 impl SystemSupportInfo {
     pub fn LocalSystemEdition() -> ::windows_core::Result<::windows_core::HSTRING> {

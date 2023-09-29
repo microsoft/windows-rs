@@ -114,12 +114,11 @@ pub struct IOcrWord_Vtbl {
     BoundingRect: usize,
     pub Text: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::std::mem::MaybeUninit<::windows_core::HSTRING>) -> ::windows_core::HRESULT,
 }
-#[doc = "*Required features: `\"Media_Ocr\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OcrEngine(::windows_core::IUnknown);
 impl OcrEngine {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
+    #[doc = "Required features: `Foundation`, `Graphics_Imaging`"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>
     where
@@ -131,7 +130,7 @@ impl OcrEngine {
             (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Globalization\"`*"]
+    #[doc = "Required features: `Globalization`"]
     #[cfg(feature = "Globalization")]
     pub fn RecognizerLanguage(&self) -> ::windows_core::Result<super::super::Globalization::Language> {
         let this = self;
@@ -146,7 +145,7 @@ impl OcrEngine {
             (::windows_core::Interface::vtable(this).MaxImageDimension)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Globalization\"`*"]
+    #[doc = "Required features: `Foundation_Collections`, `Globalization`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Globalization"))]
     pub fn AvailableRecognizerLanguages() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::IOcrEngineStatics(|this| unsafe {
@@ -154,7 +153,7 @@ impl OcrEngine {
             (::windows_core::Interface::vtable(this).AvailableRecognizerLanguages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization\"`*"]
+    #[doc = "Required features: `Globalization`"]
     #[cfg(feature = "Globalization")]
     pub fn IsLanguageSupported<P0>(language: P0) -> ::windows_core::Result<bool>
     where
@@ -165,7 +164,7 @@ impl OcrEngine {
             (::windows_core::Interface::vtable(this).IsLanguageSupported)(::windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "*Required features: `\"Globalization\"`*"]
+    #[doc = "Required features: `Globalization`"]
     #[cfg(feature = "Globalization")]
     pub fn TryCreateFromLanguage<P0>(language: P0) -> ::windows_core::Result<OcrEngine>
     where
@@ -203,12 +202,11 @@ impl ::windows_core::RuntimeName for OcrEngine {
 ::windows_core::imp::interface_hierarchy!(OcrEngine, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OcrEngine {}
 unsafe impl ::core::marker::Sync for OcrEngine {}
-#[doc = "*Required features: `\"Media_Ocr\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OcrLine(::windows_core::IUnknown);
 impl OcrLine {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Words(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<OcrWord>> {
         let this = self;
@@ -240,12 +238,11 @@ impl ::windows_core::RuntimeName for OcrLine {
 ::windows_core::imp::interface_hierarchy!(OcrLine, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OcrLine {}
 unsafe impl ::core::marker::Sync for OcrLine {}
-#[doc = "*Required features: `\"Media_Ocr\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OcrResult(::windows_core::IUnknown);
 impl OcrResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[doc = "Required features: `Foundation_Collections`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lines(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<OcrLine>> {
         let this = self;
@@ -254,7 +251,7 @@ impl OcrResult {
             (::windows_core::Interface::vtable(this).Lines)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn TextAngle(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -286,12 +283,11 @@ impl ::windows_core::RuntimeName for OcrResult {
 ::windows_core::imp::interface_hierarchy!(OcrResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OcrResult {}
 unsafe impl ::core::marker::Sync for OcrResult {}
-#[doc = "*Required features: `\"Media_Ocr\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OcrWord(::windows_core::IUnknown);
 impl OcrWord {
-    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[doc = "Required features: `Foundation`"]
     #[cfg(feature = "Foundation")]
     pub fn BoundingRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;

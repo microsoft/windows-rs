@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupEventLogA<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> ::windows_core::Result<()>
@@ -9,7 +9,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     BackupEventLogA(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupEventLogW<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> ::windows_core::Result<()>
@@ -20,7 +20,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn BackupEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     BackupEventLogW(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClearEventLogA<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> ::windows_core::Result<()>
@@ -31,7 +31,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogA(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     ClearEventLogA(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClearEventLogW<P0, P1>(heventlog: P0, lpbackupfilename: P1) -> ::windows_core::Result<()>
@@ -42,7 +42,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn ClearEventLogW(heventlog : super::super::Foundation:: HANDLE, lpbackupfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     ClearEventLogW(heventlog.into_param().abi(), lpbackupfilename.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseEventLog<P0>(heventlog: P0) -> ::windows_core::Result<()>
@@ -52,7 +52,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn CloseEventLog(heventlog : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     CloseEventLog(heventlog.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeregisterEventSource<P0>(heventlog: P0) -> ::windows_core::Result<()>
@@ -62,7 +62,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn DeregisterEventSource(heventlog : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     DeregisterEventSource(heventlog.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtArchiveExportedLog<P0, P1>(session: P0, logfilepath: P1, locale: u32, flags: u32) -> ::windows_core::Result<()>
@@ -73,7 +73,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtArchiveExportedLog(session : EVT_HANDLE, logfilepath : ::windows_core::PCWSTR, locale : u32, flags : u32) -> super::super::Foundation:: BOOL);
     EvtArchiveExportedLog(session.into_param().abi(), logfilepath.into_param().abi(), locale, flags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtCancel<P0>(object: P0) -> ::windows_core::Result<()>
@@ -83,7 +83,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtCancel(object : EVT_HANDLE) -> super::super::Foundation:: BOOL);
     EvtCancel(object.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtClearLog<P0, P1, P2>(session: P0, channelpath: P1, targetfilepath: P2, flags: u32) -> ::windows_core::Result<()>
@@ -95,7 +95,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtClearLog(session : EVT_HANDLE, channelpath : ::windows_core::PCWSTR, targetfilepath : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     EvtClearLog(session.into_param().abi(), channelpath.into_param().abi(), targetfilepath.into_param().abi(), flags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtClose<P0>(object: P0) -> ::windows_core::Result<()>
@@ -105,7 +105,6 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtClose(object : EVT_HANDLE) -> super::super::Foundation:: BOOL);
     EvtClose(object.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtCreateBookmark<P0>(bookmarkxml: P0) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -115,14 +114,13 @@ where
     let result__ = EvtCreateBookmark(bookmarkxml.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtCreateRenderContext(valuepaths: ::core::option::Option<&[::windows_core::PCWSTR]>, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtCreateRenderContext(valuepaths.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(valuepaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtExportLog<P0, P1, P2, P3>(session: P0, path: P1, query: P2, targetfilepath: P3, flags: u32) -> ::windows_core::Result<()>
@@ -135,7 +133,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtExportLog(session : EVT_HANDLE, path : ::windows_core::PCWSTR, query : ::windows_core::PCWSTR, targetfilepath : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
     EvtExportLog(session.into_param().abi(), path.into_param().abi(), query.into_param().abi(), targetfilepath.into_param().abi(), flags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtFormatMessage<P0, P1>(publishermetadata: P0, event: P1, messageid: u32, values: ::core::option::Option<&[EVT_VARIANT]>, flags: u32, buffer: ::core::option::Option<&mut [u16]>, bufferused: *mut u32) -> ::windows_core::Result<()>
@@ -146,7 +144,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtFormatMessage(publishermetadata : EVT_HANDLE, event : EVT_HANDLE, messageid : u32, valuecount : u32, values : *const EVT_VARIANT, flags : u32, buffersize : u32, buffer : ::windows_core::PWSTR, bufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtFormatMessage(publishermetadata.into_param().abi(), event.into_param().abi(), messageid, values.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(values.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags, buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetChannelConfigProperty<P0>(channelconfig: P0, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> ::windows_core::Result<()>
@@ -156,7 +154,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetChannelConfigProperty(channelconfig.into_param().abi(), propertyid, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetEventInfo<P0>(event: P0, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> ::windows_core::Result<()>
@@ -166,7 +164,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetEventInfo(event.into_param().abi(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetEventMetadataProperty<P0>(eventmetadata: P0, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: u32, eventmetadatapropertybuffersize: u32, eventmetadatapropertybuffer: ::core::option::Option<*mut EVT_VARIANT>, eventmetadatapropertybufferused: *mut u32) -> ::windows_core::Result<()>
@@ -176,13 +174,12 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : *mut EVT_VARIANT, eventmetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetEventMetadataProperty(eventmetadata.into_param().abi(), propertyid, flags, eventmetadatapropertybuffersize, ::core::mem::transmute(eventmetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), eventmetadatapropertybufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtGetExtendedStatus(buffer: ::core::option::Option<&mut [u16]>, bufferused: *mut u32) -> u32 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetExtendedStatus(buffersize : u32, buffer : ::windows_core::PWSTR, bufferused : *mut u32) -> u32);
     EvtGetExtendedStatus(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), bufferused)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetLogInfo<P0>(log: P0, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> ::windows_core::Result<()>
@@ -192,21 +189,21 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetLogInfo(log.into_param().abi(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : isize, propertyid : u32, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetObjectArraySize(objectarray : isize, objectarraysize : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetObjectArraySize(objectarray, objectarraysize).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetPublisherMetadataProperty<P0>(publishermetadata: P0, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: u32, publishermetadatapropertybuffersize: u32, publishermetadatapropertybuffer: ::core::option::Option<*mut EVT_VARIANT>, publishermetadatapropertybufferused: *mut u32) -> ::windows_core::Result<()>
@@ -216,7 +213,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : *mut EVT_VARIANT, publishermetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetPublisherMetadataProperty(publishermetadata.into_param().abi(), propertyid, flags, publishermetadatapropertybuffersize, ::core::mem::transmute(publishermetadatapropertybuffer.unwrap_or(::std::ptr::null_mut())), publishermetadatapropertybufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtGetQueryInfo<P0>(queryorsubscription: P0, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: u32, propertyvaluebuffer: ::core::option::Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> ::windows_core::Result<()>
@@ -226,7 +223,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtGetQueryInfo(queryorsubscription.into_param().abi(), propertyid, propertyvaluebuffersize, ::core::mem::transmute(propertyvaluebuffer.unwrap_or(::std::ptr::null_mut())), propertyvaluebufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtNext<P0>(resultset: P0, events: &mut [isize], timeout: u32, flags: u32, returned: *mut u32) -> ::windows_core::Result<()>
@@ -236,7 +233,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNext(resultset : EVT_HANDLE, eventssize : u32, events : *mut isize, timeout : u32, flags : u32, returned : *mut u32) -> super::super::Foundation:: BOOL);
     EvtNext(resultset.into_param().abi(), events.len() as _, ::core::mem::transmute(events.as_ptr()), timeout, flags, returned).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtNextChannelPath<P0>(channelenum: P0, channelpathbuffer: ::core::option::Option<&mut [u16]>, channelpathbufferused: *mut u32) -> ::windows_core::Result<()>
@@ -246,7 +243,6 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextChannelPath(channelenum : EVT_HANDLE, channelpathbuffersize : u32, channelpathbuffer : ::windows_core::PWSTR, channelpathbufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtNextChannelPath(channelenum.into_param().abi(), channelpathbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(channelpathbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), channelpathbufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtNextEventMetadata<P0>(eventmetadataenum: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -256,7 +252,7 @@ where
     let result__ = EvtNextEventMetadata(eventmetadataenum.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtNextPublisherId<P0>(publisherenum: P0, publisheridbuffer: ::core::option::Option<&mut [u16]>, publisheridbufferused: *mut u32) -> ::windows_core::Result<()>
@@ -266,7 +262,6 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextPublisherId(publisherenum : EVT_HANDLE, publisheridbuffersize : u32, publisheridbuffer : ::windows_core::PWSTR, publisheridbufferused : *mut u32) -> super::super::Foundation:: BOOL);
     EvtNextPublisherId(publisherenum.into_param().abi(), publisheridbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(publisheridbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), publisheridbufferused).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenChannelConfig<P0, P1>(session: P0, channelpath: P1, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -277,7 +272,6 @@ where
     let result__ = EvtOpenChannelConfig(session.into_param().abi(), channelpath.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenChannelEnum<P0>(session: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -287,7 +281,6 @@ where
     let result__ = EvtOpenChannelEnum(session.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenEventMetadataEnum<P0>(publishermetadata: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -297,7 +290,6 @@ where
     let result__ = EvtOpenEventMetadataEnum(publishermetadata.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenLog<P0, P1>(session: P0, path: P1, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -308,7 +300,6 @@ where
     let result__ = EvtOpenLog(session.into_param().abi(), path.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenPublisherEnum<P0>(session: P0, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -318,7 +309,6 @@ where
     let result__ = EvtOpenPublisherEnum(session.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenPublisherMetadata<P0, P1, P2>(session: P0, publisherid: P1, logfilepath: P2, locale: u32, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -330,14 +320,12 @@ where
     let result__ = EvtOpenPublisherMetadata(session.into_param().abi(), publisherid.into_param().abi(), logfilepath.into_param().abi(), locale, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : *const ::core::ffi::c_void, timeout : u32, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenSession(loginclass, login, timeout, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtQuery<P0, P1, P2>(session: P0, path: P1, query: P2, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
 where
@@ -349,7 +337,7 @@ where
     let result__ = EvtQuery(session.into_param().abi(), path.into_param().abi(), query.into_param().abi(), flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtRender<P0, P1>(context: P0, fragment: P1, flags: u32, buffersize: u32, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, bufferused: *mut u32, propertycount: *mut u32) -> ::windows_core::Result<()>
@@ -360,7 +348,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut ::core::ffi::c_void, bufferused : *mut u32, propertycount : *mut u32) -> super::super::Foundation:: BOOL);
     EvtRender(context.into_param().abi(), fragment.into_param().abi(), flags, buffersize, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), bufferused, propertycount).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtSaveChannelConfig<P0>(channelconfig: P0, flags: u32) -> ::windows_core::Result<()>
@@ -370,7 +358,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSaveChannelConfig(channelconfig : EVT_HANDLE, flags : u32) -> super::super::Foundation:: BOOL);
     EvtSaveChannelConfig(channelconfig.into_param().abi(), flags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtSeek<P0, P1>(resultset: P0, position: i64, bookmark: P1, timeout: u32, flags: u32) -> ::windows_core::Result<()>
@@ -381,7 +369,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSeek(resultset : EVT_HANDLE, position : i64, bookmark : EVT_HANDLE, timeout : u32, flags : u32) -> super::super::Foundation:: BOOL);
     EvtSeek(resultset.into_param().abi(), position, bookmark.into_param().abi(), timeout, flags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtSetChannelConfigProperty<P0>(channelconfig: P0, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: u32, propertyvalue: *const EVT_VARIANT) -> ::windows_core::Result<()>
@@ -391,7 +379,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvalue : *const EVT_VARIANT) -> super::super::Foundation:: BOOL);
     EvtSetChannelConfigProperty(channelconfig.into_param().abi(), propertyid, flags, propertyvalue).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtSubscribe<P0, P1, P2, P3, P4>(session: P0, signalevent: P1, channelpath: P2, query: P3, bookmark: P4, context: ::core::option::Option<*const ::core::ffi::c_void>, callback: EVT_SUBSCRIBE_CALLBACK, flags: u32) -> ::windows_core::Result<EVT_HANDLE>
@@ -406,7 +394,7 @@ where
     let result__ = EvtSubscribe(session.into_param().abi(), signalevent.into_param().abi(), channelpath.into_param().abi(), query.into_param().abi(), bookmark.into_param().abi(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EvtUpdateBookmark<P0, P1>(bookmark: P0, event: P1) -> ::windows_core::Result<()>
@@ -417,7 +405,7 @@ where
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtUpdateBookmark(bookmark : EVT_HANDLE, event : EVT_HANDLE) -> super::super::Foundation:: BOOL);
     EvtUpdateBookmark(bookmark.into_param().abi(), event.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEventLogInformation<P0>(heventlog: P0, dwinfolevel: u32, lpbuffer: *mut ::core::ffi::c_void, cbbufsize: u32, pcbbytesneeded: *mut u32) -> ::windows_core::Result<()>
@@ -427,7 +415,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn GetEventLogInformation(heventlog : super::super::Foundation:: HANDLE, dwinfolevel : u32, lpbuffer : *mut ::core::ffi::c_void, cbbufsize : u32, pcbbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
     GetEventLogInformation(heventlog.into_param().abi(), dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumberOfEventLogRecords<P0>(heventlog: P0, numberofrecords: *mut u32) -> ::windows_core::Result<()>
@@ -437,7 +425,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn GetNumberOfEventLogRecords(heventlog : super::super::Foundation:: HANDLE, numberofrecords : *mut u32) -> super::super::Foundation:: BOOL);
     GetNumberOfEventLogRecords(heventlog.into_param().abi(), numberofrecords).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOldestEventLogRecord<P0>(heventlog: P0, oldestrecord: *mut u32) -> ::windows_core::Result<()>
@@ -447,7 +435,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn GetOldestEventLogRecord(heventlog : super::super::Foundation:: HANDLE, oldestrecord : *mut u32) -> super::super::Foundation:: BOOL);
     GetOldestEventLogRecord(heventlog.into_param().abi(), oldestrecord).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NotifyChangeEventLog<P0, P1>(heventlog: P0, hevent: P1) -> ::windows_core::Result<()>
@@ -458,7 +446,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn NotifyChangeEventLog(heventlog : super::super::Foundation:: HANDLE, hevent : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     NotifyChangeEventLog(heventlog.into_param().abi(), hevent.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenBackupEventLogA<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -470,7 +458,7 @@ where
     let result__ = OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenBackupEventLogW<P0, P1>(lpuncservername: P0, lpfilename: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -482,7 +470,7 @@ where
     let result__ = OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEventLogA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -494,7 +482,7 @@ where
     let result__ = OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEventLogW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -506,7 +494,7 @@ where
     let result__ = OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadEventLogA<P0>(heventlog: P0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> ::windows_core::Result<()>
@@ -516,7 +504,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogA(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
     ReadEventLogA(heventlog.into_param().abi(), dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadEventLogW<P0>(heventlog: P0, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: u32, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, pnbytesread: *mut u32, pnminnumberofbytesneeded: *mut u32) -> ::windows_core::Result<()>
@@ -526,7 +514,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn ReadEventLogW(heventlog : super::super::Foundation:: HANDLE, dwreadflags : READ_EVENT_LOG_READ_FLAGS, dwrecordoffset : u32, lpbuffer : *mut ::core::ffi::c_void, nnumberofbytestoread : u32, pnbytesread : *mut u32, pnminnumberofbytesneeded : *mut u32) -> super::super::Foundation:: BOOL);
     ReadEventLogW(heventlog.into_param().abi(), dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterEventSourceA<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -538,7 +526,7 @@ where
     let result__ = RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterEventSourceW<P0, P1>(lpuncservername: P0, lpsourcename: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -550,7 +538,7 @@ where
     let result__ = RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportEventA<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: ::core::option::Option<&[::windows_core::PCSTR]>, lprawdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -561,7 +549,7 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_core::PCSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReportEventA(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len() as _), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportEventW<P0, P1>(heventlog: P0, wtype: REPORT_EVENT_TYPE, wcategory: u16, dweventid: u32, lpusersid: P1, dwdatasize: u32, lpstrings: ::core::option::Option<&[::windows_core::PCWSTR]>, lprawdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -572,387 +560,196 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Foundation:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const ::windows_core::PCWSTR, lprawdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     ReportEventW(heventlog.into_param().abi(), wtype, wcategory, dweventid, lpusersid.into_param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len() as _), dwdatasize, ::core::mem::transmute(lpstrings.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lprawdata.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(16u16);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(8u16);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_ERROR_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(1u16);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_INFORMATION_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(4u16);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_SEEK_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_SEQUENTIAL_READ: READ_EVENT_LOG_READ_FLAGS = READ_EVENT_LOG_READ_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(0u16);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVENTLOG_WARNING_TYPE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(2u16);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_ALL_ACCESS: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_READ_ACCESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventChannel: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventID: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventKeyword: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventLevel: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventMessageID: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventOpcode: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventTask: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventTemplate: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EventMetadataEventVersion: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelClockTypeQPC: EVT_CHANNEL_CLOCK_TYPE = EVT_CHANNEL_CLOCK_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelClockTypeSystemTime: EVT_CHANNEL_CLOCK_TYPE = EVT_CHANNEL_CLOCK_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigAccess: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigClassicEventlog: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigEnabled: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigIsolation: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigOwningPublisher: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigPropertyIdEND: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(21i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelConfigType: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelIsolationTypeApplication: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelIsolationTypeCustom: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelIsolationTypeSystem: EVT_CHANNEL_ISOLATION_TYPE = EVT_CHANNEL_ISOLATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelLoggingConfigAutoBackup: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelLoggingConfigLogFilePath: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelLoggingConfigMaxSize: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelLoggingConfigRetention: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublisherList: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(19i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigBufferSize: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigClockType: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigControlGuid: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigFileMax: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(20i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigKeywords: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigLatency: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigLevel: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigMaxBuffers: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigMinBuffers: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelPublishingConfigSidType: EVT_CHANNEL_CONFIG_PROPERTY_ID = EVT_CHANNEL_CONFIG_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelReferenceImported: EVT_CHANNEL_REFERENCE_FLAGS = EVT_CHANNEL_REFERENCE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelSidTypeNone: EVT_CHANNEL_SID_TYPE = EVT_CHANNEL_SID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelSidTypePublishing: EVT_CHANNEL_SID_TYPE = EVT_CHANNEL_SID_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelTypeAdmin: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelTypeAnalytic: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelTypeDebug: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtChannelTypeOperational: EVT_CHANNEL_TYPE = EVT_CHANNEL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtEventMetadataPropertyIdEND: EVT_EVENT_METADATA_PROPERTY_ID = EVT_EVENT_METADATA_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtEventPath: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtEventPropertyIdEND: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtEventQueryIDs: EVT_EVENT_PROPERTY_ID = EVT_EVENT_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtExportLogChannelPath: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtExportLogFilePath: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtExportLogOverwrite: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtExportLogTolerateQueryErrors: EVT_EXPORTLOG_FLAGS = EVT_EXPORTLOG_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageChannel: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageEvent: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageId: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageKeyword: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(5u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageLevel: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageOpcode: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageProvider: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(7u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageTask: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtFormatMessageXml: EVT_FORMAT_MESSAGE_FLAGS = EVT_FORMAT_MESSAGE_FLAGS(9u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogAttributes: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogCreationTime: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogFileSize: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogFull: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogLastAccessTime: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogLastWriteTime: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogNumberOfLogRecords: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtLogOldestRecordNumber: EVT_LOG_PROPERTY_ID = EVT_LOG_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtOpenChannelPath: EVT_OPEN_LOG_FLAGS = EVT_OPEN_LOG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtOpenFilePath: EVT_OPEN_LOG_FLAGS = EVT_OPEN_LOG_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataChannelReferenceFlags: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataChannelReferenceID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataChannelReferenceIndex: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataChannelReferenceMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataChannelReferencePath: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataChannelReferences: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataHelpLink: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataKeywordMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(28i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataKeywordName: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(26i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataKeywordValue: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(27i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataKeywords: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(25i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataLevelMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataLevelName: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataLevelValue: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataLevels: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataMessageFilePath: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataOpcodeMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(24i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataOpcodeName: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(22i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataOpcodeValue: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(23i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataOpcodes: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(21i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataParameterFilePath: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataPropertyIdEND: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(29i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataPublisherGuid: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataPublisherMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataResourceFilePath: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataTaskEventGuid: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataTaskMessageID: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(20i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataTaskName: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataTaskValue: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(19i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtPublisherMetadataTasks: EVT_PUBLISHER_METADATA_PROPERTY_ID = EVT_PUBLISHER_METADATA_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryChannelPath: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryFilePath: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryForwardDirection: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryNames: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryPropertyIdEND: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryReverseDirection: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryStatuses: EVT_QUERY_PROPERTY_ID = EVT_QUERY_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtQueryTolerateQueryErrors: EVT_QUERY_FLAGS = EVT_QUERY_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderBookmark: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderContextSystem: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderContextUser: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderContextValues: EVT_RENDER_CONTEXT_FLAGS = EVT_RENDER_CONTEXT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderEventValues: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRenderEventXml: EVT_RENDER_FLAGS = EVT_RENDER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLogin: EVT_LOGIN_CLASS = EVT_LOGIN_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLoginAuthDefault: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLoginAuthKerberos: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLoginAuthNTLM: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtRpcLoginAuthNegotiate: EVT_RPC_LOGIN_FLAGS = EVT_RPC_LOGIN_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekOriginMask: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(7u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekRelativeToBookmark: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekRelativeToCurrent: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekRelativeToFirst: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekRelativeToLast: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSeekStrict: EVT_SEEK_FLAGS = EVT_SEEK_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeActionDeliver: EVT_SUBSCRIBE_NOTIFY_ACTION = EVT_SUBSCRIBE_NOTIFY_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeActionError: EVT_SUBSCRIBE_NOTIFY_ACTION = EVT_SUBSCRIBE_NOTIFY_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeOriginMask: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeStartAfterBookmark: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeStartAtOldestRecord: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeStrict: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeToFutureEvents: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSubscribeTolerateQueryErrors: EVT_SUBSCRIBE_FLAGS = EVT_SUBSCRIBE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemActivityID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemChannel: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemComputer: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemEventID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemEventRecordId: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemKeywords: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemLevel: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemOpcode: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemProcessID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemPropertyIdEND: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemProviderGuid: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemProviderName: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemQualifiers: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemRelatedActivityID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemTask: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemThreadID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemTimeCreated: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemUserID: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtSystemVersion: EVT_SYSTEM_PROPERTY_ID = EVT_SYSTEM_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeAnsiString: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeBinary: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeBoolean: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeByte: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeDouble: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeEvtHandle: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeEvtXml: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(35i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeFileTime: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeGuid: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeHexInt32: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeHexInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeInt16: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeInt32: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeNull: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeSByte: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeSid: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeSingle: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeSizeT: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeString: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeSysTime: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = EVT_VARIANT_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_CLOCK_TYPE(pub i32);
@@ -975,7 +772,6 @@ impl ::core::fmt::Debug for EVT_CHANNEL_CLOCK_TYPE {
         f.debug_tuple("EVT_CHANNEL_CLOCK_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_CONFIG_PROPERTY_ID(pub i32);
@@ -998,7 +794,6 @@ impl ::core::fmt::Debug for EVT_CHANNEL_CONFIG_PROPERTY_ID {
         f.debug_tuple("EVT_CHANNEL_CONFIG_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_ISOLATION_TYPE(pub i32);
@@ -1021,7 +816,6 @@ impl ::core::fmt::Debug for EVT_CHANNEL_ISOLATION_TYPE {
         f.debug_tuple("EVT_CHANNEL_ISOLATION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_REFERENCE_FLAGS(pub u32);
@@ -1044,7 +838,6 @@ impl ::core::fmt::Debug for EVT_CHANNEL_REFERENCE_FLAGS {
         f.debug_tuple("EVT_CHANNEL_REFERENCE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_SID_TYPE(pub i32);
@@ -1067,7 +860,6 @@ impl ::core::fmt::Debug for EVT_CHANNEL_SID_TYPE {
         f.debug_tuple("EVT_CHANNEL_SID_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_CHANNEL_TYPE(pub i32);
@@ -1090,7 +882,6 @@ impl ::core::fmt::Debug for EVT_CHANNEL_TYPE {
         f.debug_tuple("EVT_CHANNEL_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_EVENT_METADATA_PROPERTY_ID(pub i32);
@@ -1113,7 +904,6 @@ impl ::core::fmt::Debug for EVT_EVENT_METADATA_PROPERTY_ID {
         f.debug_tuple("EVT_EVENT_METADATA_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_EVENT_PROPERTY_ID(pub i32);
@@ -1136,7 +926,6 @@ impl ::core::fmt::Debug for EVT_EVENT_PROPERTY_ID {
         f.debug_tuple("EVT_EVENT_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_EXPORTLOG_FLAGS(pub u32);
@@ -1159,7 +948,6 @@ impl ::core::fmt::Debug for EVT_EXPORTLOG_FLAGS {
         f.debug_tuple("EVT_EXPORTLOG_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_FORMAT_MESSAGE_FLAGS(pub u32);
@@ -1182,7 +970,6 @@ impl ::core::fmt::Debug for EVT_FORMAT_MESSAGE_FLAGS {
         f.debug_tuple("EVT_FORMAT_MESSAGE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_LOGIN_CLASS(pub i32);
@@ -1205,7 +992,6 @@ impl ::core::fmt::Debug for EVT_LOGIN_CLASS {
         f.debug_tuple("EVT_LOGIN_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_LOG_PROPERTY_ID(pub i32);
@@ -1228,7 +1014,6 @@ impl ::core::fmt::Debug for EVT_LOG_PROPERTY_ID {
         f.debug_tuple("EVT_LOG_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_OPEN_LOG_FLAGS(pub u32);
@@ -1251,7 +1036,6 @@ impl ::core::fmt::Debug for EVT_OPEN_LOG_FLAGS {
         f.debug_tuple("EVT_OPEN_LOG_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_PUBLISHER_METADATA_PROPERTY_ID(pub i32);
@@ -1274,7 +1058,6 @@ impl ::core::fmt::Debug for EVT_PUBLISHER_METADATA_PROPERTY_ID {
         f.debug_tuple("EVT_PUBLISHER_METADATA_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_QUERY_FLAGS(pub u32);
@@ -1297,7 +1080,6 @@ impl ::core::fmt::Debug for EVT_QUERY_FLAGS {
         f.debug_tuple("EVT_QUERY_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_QUERY_PROPERTY_ID(pub i32);
@@ -1320,7 +1102,6 @@ impl ::core::fmt::Debug for EVT_QUERY_PROPERTY_ID {
         f.debug_tuple("EVT_QUERY_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_RENDER_CONTEXT_FLAGS(pub u32);
@@ -1343,7 +1124,6 @@ impl ::core::fmt::Debug for EVT_RENDER_CONTEXT_FLAGS {
         f.debug_tuple("EVT_RENDER_CONTEXT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_RENDER_FLAGS(pub u32);
@@ -1366,7 +1146,6 @@ impl ::core::fmt::Debug for EVT_RENDER_FLAGS {
         f.debug_tuple("EVT_RENDER_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_RPC_LOGIN_FLAGS(pub u32);
@@ -1389,7 +1168,6 @@ impl ::core::fmt::Debug for EVT_RPC_LOGIN_FLAGS {
         f.debug_tuple("EVT_RPC_LOGIN_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SEEK_FLAGS(pub u32);
@@ -1412,7 +1190,6 @@ impl ::core::fmt::Debug for EVT_SEEK_FLAGS {
         f.debug_tuple("EVT_SEEK_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SUBSCRIBE_FLAGS(pub u32);
@@ -1435,7 +1212,6 @@ impl ::core::fmt::Debug for EVT_SUBSCRIBE_FLAGS {
         f.debug_tuple("EVT_SUBSCRIBE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SUBSCRIBE_NOTIFY_ACTION(pub i32);
@@ -1458,7 +1234,6 @@ impl ::core::fmt::Debug for EVT_SUBSCRIBE_NOTIFY_ACTION {
         f.debug_tuple("EVT_SUBSCRIBE_NOTIFY_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_SYSTEM_PROPERTY_ID(pub i32);
@@ -1481,7 +1256,6 @@ impl ::core::fmt::Debug for EVT_SYSTEM_PROPERTY_ID {
         f.debug_tuple("EVT_SYSTEM_PROPERTY_ID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVT_VARIANT_TYPE(pub i32);
@@ -1504,7 +1278,6 @@ impl ::core::fmt::Debug for EVT_VARIANT_TYPE {
         f.debug_tuple("EVT_VARIANT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READ_EVENT_LOG_READ_FLAGS(pub u32);
@@ -1527,7 +1300,6 @@ impl ::core::fmt::Debug for READ_EVENT_LOG_READ_FLAGS {
         f.debug_tuple("READ_EVENT_LOG_READ_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REPORT_EVENT_TYPE(pub u16);
@@ -1551,7 +1323,6 @@ impl ::core::fmt::Debug for REPORT_EVENT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -1613,7 +1384,6 @@ impl ::core::default::Default for EVENTLOGRECORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub struct EVENTLOG_FULL_INFORMATION {
     pub dwFull: u32,
 }
@@ -1643,7 +1413,6 @@ impl ::core::default::Default for EVENTLOG_FULL_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
@@ -1703,7 +1472,6 @@ impl ::windows_core::TypeKind for EVT_HANDLE {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub struct EVT_RPC_LOGIN {
     pub Server: ::windows_core::PWSTR,
     pub User: ::windows_core::PWSTR,
@@ -1737,7 +1505,7 @@ impl ::core::default::Default for EVT_RPC_LOGIN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVT_VARIANT {
     pub Anonymous: EVT_VARIANT_0,
@@ -1763,7 +1531,7 @@ impl ::core::default::Default for EVT_VARIANT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EVT_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
@@ -1825,5 +1593,4 @@ impl ::core::default::Default for EVT_VARIANT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: EVT_HANDLE) -> u32>;

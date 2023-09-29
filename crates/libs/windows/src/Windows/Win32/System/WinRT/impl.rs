@@ -1,4 +1,4 @@
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAccountsSettingsPaneInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, accountssettingspane: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -36,7 +36,6 @@ impl IAccountsSettingsPaneInterop_Vtbl {
         *iid == <IAccountsSettingsPaneInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IActivationFactory_Impl: Sized {
     fn ActivateInstance(&self) -> ::windows_core::Result<::windows_core::IInspectable>;
 }
@@ -63,7 +62,6 @@ impl IActivationFactory_Vtbl {
         *iid == <IActivationFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IAgileReference_Impl: Sized {
     fn Resolve(&self, riid: *const ::windows_core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -81,7 +79,6 @@ impl IAgileReference_Vtbl {
         *iid == <IAgileReference as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IApartmentShutdown_Impl: Sized {
     fn OnUninitialize(&self, ui64apartmentidentifier: u64);
 }
@@ -99,7 +96,6 @@ impl IApartmentShutdown_Vtbl {
         *iid == <IApartmentShutdown as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IAppServiceConnectionExtendedExecution_Impl: Sized {
     fn OpenForExtendedExecutionAsync(&self, riid: *const ::windows_core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -120,7 +116,6 @@ impl IAppServiceConnectionExtendedExecution_Vtbl {
         *iid == <IAppServiceConnectionExtendedExecution as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IBufferByteAccess_Impl: Sized {
     fn Buffer(&self) -> ::windows_core::Result<*mut u8>;
 }
@@ -144,7 +139,6 @@ impl IBufferByteAccess_Vtbl {
         *iid == <IBufferByteAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ICastingController_Impl: Sized {
     fn Initialize(&self, castingengine: ::core::option::Option<&::windows_core::IUnknown>, castingsource: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn Connect(&self) -> ::windows_core::Result<()>;
@@ -199,7 +193,6 @@ impl ICastingController_Vtbl {
         *iid == <ICastingController as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ICastingEventHandler_Impl: Sized {
     fn OnStateChanged(&self, newstate: CASTING_CONNECTION_STATE) -> ::windows_core::Result<()>;
     fn OnError(&self, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -227,7 +220,7 @@ impl ICastingEventHandler_Vtbl {
         *iid == <ICastingEventHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_UI_Shell_PropertiesSystem\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait ICastingSourceInfo_Impl: Sized {
     fn GetController(&self) -> ::windows_core::Result<ICastingController>;
@@ -270,7 +263,6 @@ impl ICastingSourceInfo_Vtbl {
         *iid == <ICastingSourceInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ICoreInputInterop_Impl: Sized {
     fn SetInputSource(&self, value: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
     fn SetMessageHandled(&self, value: u8) -> ::windows_core::Result<()>;
@@ -298,7 +290,6 @@ impl ICoreInputInterop_Vtbl {
         *iid == <ICoreInputInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ICoreWindowAdapterInterop_Impl: Sized {
     fn AppActivationClientAdapter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn ApplicationViewClientAdapter(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -410,7 +401,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
         *iid == <ICoreWindowAdapterInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICoreWindowComponentInterop_Impl: Sized {
     fn ConfigureComponentInput(&self, hostviewinstanceid: u32, hwndhost: super::super::Foundation::HWND, inputsourcevisual: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -447,7 +438,7 @@ impl ICoreWindowComponentInterop_Vtbl {
         *iid == <ICoreWindowComponentInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICoreWindowInterop_Impl: Sized {
     fn WindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
@@ -484,7 +475,6 @@ impl ICoreWindowInterop_Vtbl {
         *iid == <ICoreWindowInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ICorrelationVectorInformation_Impl: Sized {
     fn LastCorrelationVectorForThread(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
     fn NextCorrelationVectorForThread(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -531,7 +521,6 @@ impl ICorrelationVectorInformation_Vtbl {
         *iid == <ICorrelationVectorInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ICorrelationVectorSource_Impl: Sized {
     fn CorrelationVector(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
 }
@@ -555,7 +544,7 @@ impl ICorrelationVectorSource_Vtbl {
         *iid == <ICorrelationVectorSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDragDropManagerInterop_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -579,7 +568,7 @@ impl IDragDropManagerInterop_Vtbl {
         *iid == <IDragDropManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHolographicSpaceInterop_Impl: Sized {
     fn CreateForWindow(&self, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, holographicspace: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -603,7 +592,7 @@ impl IHolographicSpaceInterop_Vtbl {
         *iid == <IHolographicSpaceInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInputPaneInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, inputpane: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -624,7 +613,6 @@ impl IInputPaneInterop_Vtbl {
         *iid == <IInputPaneInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ILanguageExceptionErrorInfo_Impl: Sized {
     fn GetLanguageException(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
@@ -648,7 +636,6 @@ impl ILanguageExceptionErrorInfo_Vtbl {
         *iid == <ILanguageExceptionErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ILanguageExceptionErrorInfo2_Impl: Sized + ILanguageExceptionErrorInfo_Impl {
     fn GetPreviousLanguageExceptionErrorInfo(&self) -> ::windows_core::Result<ILanguageExceptionErrorInfo2>;
     fn CapturePropagationContext(&self, languageexception: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -695,7 +682,6 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
         *iid == <ILanguageExceptionErrorInfo2 as ::windows_core::ComInterface>::IID || *iid == <ILanguageExceptionErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ILanguageExceptionStackBackTrace_Impl: Sized {
     fn GetStackBackTrace(&self, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows_core::Result<()>;
 }
@@ -713,7 +699,6 @@ impl ILanguageExceptionStackBackTrace_Vtbl {
         *iid == <ILanguageExceptionStackBackTrace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait ILanguageExceptionTransform_Impl: Sized {
     fn GetTransformedRestrictedErrorInfo(&self) -> ::windows_core::Result<IRestrictedErrorInfo>;
 }
@@ -740,7 +725,6 @@ impl ILanguageExceptionTransform_Vtbl {
         *iid == <ILanguageExceptionTransform as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IMemoryBufferByteAccess_Impl: Sized {
     fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> ::windows_core::Result<()>;
 }
@@ -758,7 +742,6 @@ impl IMemoryBufferByteAccess_Vtbl {
         *iid == <IMemoryBufferByteAccess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IMessageDispatcher_Impl: Sized {
     fn PumpMessages(&self) -> ::windows_core::Result<()>;
 }
@@ -776,7 +759,7 @@ impl IMessageDispatcher_Vtbl {
         *iid == <IMessageDispatcher as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPlayToManagerInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, playtomanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -807,7 +790,6 @@ impl IPlayToManagerInterop_Vtbl {
         *iid == <IPlayToManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IRestrictedErrorInfo_Impl: Sized {
     fn GetErrorDetails(&self, description: *mut ::windows_core::BSTR, error: *mut ::windows_core::HRESULT, restricteddescription: *mut ::windows_core::BSTR, capabilitysid: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetReference(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -841,7 +823,7 @@ impl IRestrictedErrorInfo_Vtbl {
         *iid == <IRestrictedErrorInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IShareWindowCommandEventArgsInterop_Impl: Sized {
     fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND>;
@@ -868,7 +850,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
         *iid == <IShareWindowCommandEventArgsInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IShareWindowCommandSourceInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, sharewindowcommandsource: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -889,7 +871,7 @@ impl IShareWindowCommandSourceInterop_Vtbl {
         *iid == <IShareWindowCommandSourceInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISpatialInteractionManagerInterop_Impl: Sized {
     fn GetForWindow(&self, window: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, spatialinteractionmanager: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -913,7 +895,7 @@ impl ISpatialInteractionManagerInterop_Vtbl {
         *iid == <ISpatialInteractionManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISystemMediaTransportControlsInterop_Impl: Sized {
     fn GetForWindow(&self, appwindow: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, mediatransportcontrol: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -937,7 +919,7 @@ impl ISystemMediaTransportControlsInterop_Vtbl {
         *iid == <ISystemMediaTransportControlsInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIViewSettingsInterop_Impl: Sized {
     fn GetForWindow(&self, hwnd: super::super::Foundation::HWND, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -961,7 +943,7 @@ impl IUIViewSettingsInterop_Vtbl {
         *iid == <IUIViewSettingsInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserActivityInterop_Impl: Sized {
     fn CreateSessionForWindow(&self, window: super::super::Foundation::HWND, iid: *const ::windows_core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -985,7 +967,7 @@ impl IUserActivityInterop_Vtbl {
         *iid == <IUserActivityInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserActivityRequestManagerInterop_Impl: Sized {
     fn GetForWindow(&self, window: super::super::Foundation::HWND, iid: *const ::windows_core::GUID, value: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1009,7 +991,6 @@ impl IUserActivityRequestManagerInterop_Vtbl {
         *iid == <IUserActivityRequestManagerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IUserActivitySourceHostInterop_Impl: Sized {
     fn SetActivitySourceHost(&self, activitysourcehost: &::windows_core::HSTRING) -> ::windows_core::Result<()>;
 }
@@ -1030,7 +1011,7 @@ impl IUserActivitySourceHostInterop_Vtbl {
         *iid == <IUserActivitySourceHostInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUserConsentVerifierInterop_Impl: Sized {
     fn RequestVerificationForWindowAsync(&self, appwindow: super::super::Foundation::HWND, message: &::windows_core::HSTRING, riid: *const ::windows_core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1054,7 +1035,6 @@ impl IUserConsentVerifierInterop_Vtbl {
         *iid == <IUserConsentVerifierInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IWeakReference_Impl: Sized {
     fn Resolve(&self, riid: *const ::windows_core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
 }
@@ -1072,7 +1052,6 @@ impl IWeakReference_Vtbl {
         *iid == <IWeakReference as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"implement\"`*"]
 pub trait IWeakReferenceSource_Impl: Sized {
     fn GetWeakReference(&self) -> ::windows_core::Result<IWeakReference>;
 }
@@ -1096,7 +1075,7 @@ impl IWeakReferenceSource_Vtbl {
         *iid == <IWeakReferenceSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
+#[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWebAuthenticationCoreManagerInterop_Impl: Sized {
     fn RequestTokenForWindowAsync(&self, appwindow: super::super::Foundation::HWND, request: ::core::option::Option<&::windows_core::IInspectable>, riid: *const ::windows_core::GUID, asyncinfo: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;

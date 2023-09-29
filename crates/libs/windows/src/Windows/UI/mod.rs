@@ -1,30 +1,44 @@
 #[cfg(feature = "UI_Accessibility")]
+#[doc = "Required features: `UI_Accessibility`"]
 pub mod Accessibility;
 #[cfg(feature = "UI_ApplicationSettings")]
+#[doc = "Required features: `UI_ApplicationSettings`"]
 pub mod ApplicationSettings;
 #[cfg(feature = "UI_Composition")]
+#[doc = "Required features: `UI_Composition`"]
 pub mod Composition;
 #[cfg(feature = "UI_Core")]
+#[doc = "Required features: `UI_Core`"]
 pub mod Core;
 #[cfg(feature = "UI_Input")]
+#[doc = "Required features: `UI_Input`"]
 pub mod Input;
 #[cfg(feature = "UI_Notifications")]
+#[doc = "Required features: `UI_Notifications`"]
 pub mod Notifications;
 #[cfg(feature = "UI_Popups")]
+#[doc = "Required features: `UI_Popups`"]
 pub mod Popups;
 #[cfg(feature = "UI_Shell")]
+#[doc = "Required features: `UI_Shell`"]
 pub mod Shell;
 #[cfg(feature = "UI_StartScreen")]
+#[doc = "Required features: `UI_StartScreen`"]
 pub mod StartScreen;
 #[cfg(feature = "UI_Text")]
+#[doc = "Required features: `UI_Text`"]
 pub mod Text;
 #[cfg(feature = "UI_UIAutomation")]
+#[doc = "Required features: `UI_UIAutomation`"]
 pub mod UIAutomation;
 #[cfg(feature = "UI_ViewManagement")]
+#[doc = "Required features: `UI_ViewManagement`"]
 pub mod ViewManagement;
 #[cfg(feature = "UI_WebUI")]
+#[doc = "Required features: `UI_WebUI`"]
 pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
+#[doc = "Required features: `UI_WindowManagement`"]
 pub mod WindowManagement;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -275,7 +289,6 @@ unsafe impl ::windows_core::ComInterface for IUIContext {
 pub struct IUIContext_Vtbl {
     pub base__: ::windows_core::IInspectable_Vtbl,
 }
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ColorHelper(::windows_core::IUnknown);
@@ -318,7 +331,6 @@ impl ::windows_core::RuntimeName for ColorHelper {
 ::windows_core::imp::interface_hierarchy!(ColorHelper, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ColorHelper {}
 unsafe impl ::core::marker::Sync for ColorHelper {}
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Colors(::windows_core::IUnknown);
@@ -1190,7 +1202,6 @@ impl ::windows_core::RuntimeName for Colors {
 ::windows_core::imp::interface_hierarchy!(Colors, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for Colors {}
 unsafe impl ::core::marker::Sync for Colors {}
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UIContentRoot(::windows_core::IUnknown);
@@ -1218,7 +1229,6 @@ impl ::windows_core::RuntimeName for UIContentRoot {
 ::windows_core::imp::interface_hierarchy!(UIContentRoot, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UIContentRoot {}
 unsafe impl ::core::marker::Sync for UIContentRoot {}
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UIContext(::windows_core::IUnknown);
@@ -1239,7 +1249,6 @@ impl ::windows_core::RuntimeName for UIContext {
 unsafe impl ::core::marker::Send for UIContext {}
 unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]
-#[doc = "*Required features: `\"UI\"`*"]
 pub struct Color {
     pub A: u8,
     pub R: u8,
@@ -1275,7 +1284,6 @@ impl ::core::default::Default for Color {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"UI\"`*"]
 pub struct WindowId {
     pub Value: u64,
 }
