@@ -1,21 +1,21 @@
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteA<P0>(targetname: P0, r#type: u32, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn CredDeleteA<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredDeleteA(targetname : ::windows_core::PCSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn CredDeleteA(targetname : ::windows_core::PCSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
     CredDeleteA(targetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredDeleteW<P0>(targetname: P0, r#type: u32, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn CredDeleteW<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredDeleteW(targetname : ::windows_core::PCWSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn CredDeleteW(targetname : ::windows_core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
     CredDeleteW(targetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -189,11 +189,11 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadA<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALA) -> ::windows_core::Result<()>
+pub unsafe fn CredReadA<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32, credential: *mut *mut CREDENTIALA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredReadA(targetname : ::windows_core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn CredReadA(targetname : ::windows_core::PCSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
     CredReadA(targetname.into_param().abi(), r#type, flags, credential).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -213,33 +213,33 @@ pub unsafe fn CredReadDomainCredentialsW(targetinfo: *const CREDENTIAL_TARGET_IN
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredReadW<P0>(targetname: P0, r#type: u32, flags: u32, credential: *mut *mut CREDENTIALW) -> ::windows_core::Result<()>
+pub unsafe fn CredReadW<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32, credential: *mut *mut CREDENTIALW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredReadW(targetname : ::windows_core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn CredReadW(targetname : ::windows_core::PCWSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
     CredReadW(targetname.into_param().abi(), r#type, flags, credential).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameA<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: u32, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn CredRenameA<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: CRED_TYPE, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredRenameA(oldtargetname : ::windows_core::PCSTR, newtargetname : ::windows_core::PCSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn CredRenameA(oldtargetname : ::windows_core::PCSTR, newtargetname : ::windows_core::PCSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
     CredRenameA(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CredRenameW<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: u32, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn CredRenameW<P0, P1>(oldtargetname: P0, newtargetname: P1, r#type: CRED_TYPE, flags: u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : ::windows_core::PCWSTR, newtargetname : ::windows_core::PCWSTR, r#type : u32, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn CredRenameW(oldtargetname : ::windows_core::PCWSTR, newtargetname : ::windows_core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
     CredRenameW(oldtargetname.into_param().abi(), newtargetname.into_param().abi(), r#type, flags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]

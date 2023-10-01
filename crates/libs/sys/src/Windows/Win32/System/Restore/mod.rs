@@ -1,3 +1,4 @@
+::windows_targets::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("sfc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -79,11 +80,15 @@ impl ::core::clone::Clone for RESTOREPOINTINFOW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STATEMGRSTATUS {
-    pub nStatus: u32,
+    pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STATEMGRSTATUS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STATEMGRSTATUS {
     fn clone(&self) -> Self {
         *self

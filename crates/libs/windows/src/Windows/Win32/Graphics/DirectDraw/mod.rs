@@ -153,7 +153,9 @@ impl IDirectDraw {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -210,7 +212,10 @@ pub struct IDirectDraw_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetVerticalBlankStatus: usize,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -285,7 +290,9 @@ impl IDirectDraw2 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -345,7 +352,10 @@ pub struct IDirectDraw2_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetVerticalBlankStatus: usize,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -421,7 +431,9 @@ impl IDirectDraw4 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -499,7 +511,10 @@ pub struct IDirectDraw4_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetVerticalBlankStatus: usize,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -582,7 +597,9 @@ impl IDirectDraw7 {
     pub unsafe fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanLine)(::windows_core::Interface::as_raw(self), param0).ok()
     }
-    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVerticalBlankStatus)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -668,7 +685,10 @@ pub struct IDirectDraw7_Vtbl {
     pub GetGDISurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetMonitorFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     pub GetScanLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
-    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetVerticalBlankStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetVerticalBlankStatus: usize,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub RestoreDisplayMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -2204,7 +2224,9 @@ impl IDirectDrawVideoPort {
     pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: ::core::option::Option<*mut DDPIXELFORMAT>, param3: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOutputFormats)(::windows_core::Interface::as_raw(self), param0, lpnumformats, ::core::mem::transmute(param2.unwrap_or(::std::ptr::null_mut())), param3).ok()
     }
-    pub unsafe fn GetFieldPolarity(&self, param0: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFieldPolarity)(::windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetVideoLine(&self, param0: *mut u32) -> ::windows_core::Result<()> {
@@ -2255,7 +2277,10 @@ pub struct IDirectDrawVideoPort_Vtbl {
     pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,
     pub GetInputFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows_core::HRESULT,
     pub GetOutputFormats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows_core::HRESULT,
-    pub GetFieldPolarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetFieldPolarity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetFieldPolarity: usize,
     pub GetVideoLine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     pub GetVideoSignalStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows_core::HRESULT,
     pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows_core::HRESULT,

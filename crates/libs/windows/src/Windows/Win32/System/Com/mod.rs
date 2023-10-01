@@ -4406,8 +4406,12 @@ pub struct IServerSecurity_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServiceProvider(::windows_core::IUnknown);
 impl IServiceProvider {
-    pub unsafe fn QueryService(&self, guidservice: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).QueryService)(::windows_core::Interface::as_raw(self), guidservice, riid, ppvobject).ok()
+    pub unsafe fn QueryService<T>(&self, guidservice: *const ::windows_core::GUID) -> ::windows_core::Result<T>
+    where
+        T: ::windows_core::ComInterface,
+    {
+        let mut result__ = ::std::ptr::null_mut();
+        (::windows_core::Interface::vtable(self).QueryService)(::windows_core::Interface::as_raw(self), guidservice, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IServiceProvider, ::windows_core::IUnknown);

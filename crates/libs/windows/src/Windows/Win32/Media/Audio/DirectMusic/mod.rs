@@ -503,7 +503,7 @@ impl IDirectMusicSynth {
     }
     #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows_core::Result<()> {
+    pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Download)(::windows_core::Interface::as_raw(self), phdownload, pvdata, pbfree).ok()
     }
     #[doc = "Required features: `Win32_Foundation`"]
@@ -582,7 +582,7 @@ pub struct IDirectMusicSynth_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetNumChannelGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwgroups: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows_core::HRESULT,
+    pub Download: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Download: usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -622,7 +622,7 @@ impl IDirectMusicSynth8 {
     }
     #[doc = "Required features: `Win32_Foundation`"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows_core::Result<()> {
+    pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Download)(::windows_core::Interface::as_raw(self), phdownload, pvdata, pbfree).ok()
     }
     #[doc = "Required features: `Win32_Foundation`"]

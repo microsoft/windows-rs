@@ -1692,7 +1692,7 @@ pub trait IAMLine21Decoder_Impl: Sized {
     fn SetOutputFormat(&self, lpbmi: *mut super::super::Graphics::Gdi::BITMAPINFO) -> ::windows_core::Result<()>;
     fn GetBackgroundColor(&self, pdwphyscolor: *mut u32) -> ::windows_core::Result<()>;
     fn SetBackgroundColor(&self, dwphyscolor: u32) -> ::windows_core::Result<()>;
-    fn GetRedrawAlways(&self, lpboption: *mut i32) -> ::windows_core::Result<()>;
+    fn GetRedrawAlways(&self, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetRedrawAlways(&self, boption: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetDrawBackgroundMode(&self, lpmode: *mut AM_LINE21_DRAWBGMODE) -> ::windows_core::Result<()>;
     fn SetDrawBackgroundMode(&self, mode: AM_LINE21_DRAWBGMODE) -> ::windows_core::Result<()>;
@@ -1747,7 +1747,7 @@ impl IAMLine21Decoder_Vtbl {
             let this = (*this).get_impl();
             this.SetBackgroundColor(::core::mem::transmute_copy(&dwphyscolor)).into()
         }
-        unsafe extern "system" fn GetRedrawAlways<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMLine21Decoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpboption: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRedrawAlways<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMLine21Decoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRedrawAlways(::core::mem::transmute_copy(&lpboption)).into()
@@ -4487,7 +4487,7 @@ pub trait IAMWstDecoder_Impl: Sized {
     fn SetOutputFormat(&self, lpbmi: *mut super::super::Graphics::Gdi::BITMAPINFO) -> ::windows_core::Result<()>;
     fn GetBackgroundColor(&self, pdwphyscolor: *mut u32) -> ::windows_core::Result<()>;
     fn SetBackgroundColor(&self, dwphyscolor: u32) -> ::windows_core::Result<()>;
-    fn GetRedrawAlways(&self, lpboption: *mut i32) -> ::windows_core::Result<()>;
+    fn GetRedrawAlways(&self, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetRedrawAlways(&self, boption: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetDrawBackgroundMode(&self, lpmode: *mut AM_WST_DRAWBGMODE) -> ::windows_core::Result<()>;
     fn SetDrawBackgroundMode(&self, mode: AM_WST_DRAWBGMODE) -> ::windows_core::Result<()>;
@@ -4543,7 +4543,7 @@ impl IAMWstDecoder_Vtbl {
             let this = (*this).get_impl();
             this.SetBackgroundColor(::core::mem::transmute_copy(&dwphyscolor)).into()
         }
-        unsafe extern "system" fn GetRedrawAlways<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMWstDecoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpboption: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRedrawAlways<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAMWstDecoder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetRedrawAlways(::core::mem::transmute_copy(&lpboption)).into()
@@ -17209,7 +17209,7 @@ impl IVPBaseNotify_Vtbl {
 #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVPConfig_Impl: Sized + IVPBaseConfig_Impl {
-    fn IsVPDecimationAllowed(&self, pbisdecimationallowed: *mut i32) -> ::windows_core::Result<()>;
+    fn IsVPDecimationAllowed(&self, pbisdecimationallowed: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn SetScalingFactors(&self, pamvpsize: *mut AMVPSIZE) -> ::windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
@@ -17217,7 +17217,7 @@ impl ::windows_core::RuntimeName for IVPConfig {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 impl IVPConfig_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVPConfig_Impl, const OFFSET: isize>() -> IVPConfig_Vtbl {
-        unsafe extern "system" fn IsVPDecimationAllowed<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVPConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisdecimationallowed: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn IsVPDecimationAllowed<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVPConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisdecimationallowed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.IsVPDecimationAllowed(::core::mem::transmute_copy(&pbisdecimationallowed)).into()

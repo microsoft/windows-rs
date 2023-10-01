@@ -60,7 +60,7 @@ pub trait IDirectDraw_Impl: Sized {
     fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> ::windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::Result<()>;
@@ -154,7 +154,7 @@ impl IDirectDraw_Vtbl {
             let this = (*this).get_impl();
             this.GetScanLine(::core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetVerticalBlankStatus(::core::mem::transmute_copy(&param0)).into()
@@ -229,7 +229,7 @@ pub trait IDirectDraw2_Impl: Sized {
     fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> ::windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::Result<()>;
@@ -324,7 +324,7 @@ impl IDirectDraw2_Vtbl {
             let this = (*this).get_impl();
             this.GetScanLine(::core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetVerticalBlankStatus(::core::mem::transmute_copy(&param0)).into()
@@ -405,7 +405,7 @@ pub trait IDirectDraw4_Impl: Sized {
     fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface4>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> ::windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::Result<()>;
@@ -504,7 +504,7 @@ impl IDirectDraw4_Vtbl {
             let this = (*this).get_impl();
             this.GetScanLine(::core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetVerticalBlankStatus(::core::mem::transmute_copy(&param0)).into()
@@ -615,7 +615,7 @@ pub trait IDirectDraw7_Impl: Sized {
     fn GetGDISurface(&self) -> ::windows_core::Result<IDirectDrawSurface7>;
     fn GetMonitorFrequency(&self, param0: *mut u32) -> ::windows_core::Result<()>;
     fn GetScanLine(&self, param0: *mut u32) -> ::windows_core::Result<()>;
-    fn GetVerticalBlankStatus(&self, param0: *mut i32) -> ::windows_core::Result<()>;
+    fn GetVerticalBlankStatus(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn Initialize(&self, param0: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn RestoreDisplayMode(&self) -> ::windows_core::Result<()>;
     fn SetCooperativeLevel(&self, param0: super::super::Foundation::HWND, param1: u32) -> ::windows_core::Result<()>;
@@ -716,7 +716,7 @@ impl IDirectDraw7_Vtbl {
             let this = (*this).get_impl();
             this.GetScanLine(::core::mem::transmute_copy(&param0)).into()
         }
-        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetVerticalBlankStatus<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetVerticalBlankStatus(::core::mem::transmute_copy(&param0)).into()
@@ -2552,7 +2552,7 @@ pub trait IDirectDrawVideoPort_Impl: Sized {
     fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()>;
     fn GetInputFormats(&self, lpnumformats: *mut u32, param1: *mut DDPIXELFORMAT, param2: u32) -> ::windows_core::Result<()>;
     fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: *mut DDPIXELFORMAT, param3: u32) -> ::windows_core::Result<()>;
-    fn GetFieldPolarity(&self, param0: *mut i32) -> ::windows_core::Result<()>;
+    fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
     fn GetVideoLine(&self, param0: *mut u32) -> ::windows_core::Result<()>;
     fn GetVideoSignalStatus(&self, param0: *mut u32) -> ::windows_core::Result<()>;
     fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> ::windows_core::Result<()>;
@@ -2592,7 +2592,7 @@ impl IDirectDrawVideoPort_Vtbl {
             let this = (*this).get_impl();
             this.GetOutputFormats(::core::mem::transmute_copy(&param0), ::core::mem::transmute_copy(&lpnumformats), ::core::mem::transmute_copy(&param2), ::core::mem::transmute_copy(&param3)).into()
         }
-        unsafe extern "system" fn GetFieldPolarity<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetFieldPolarity<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDirectDrawVideoPort_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFieldPolarity(::core::mem::transmute_copy(&param0)).into()

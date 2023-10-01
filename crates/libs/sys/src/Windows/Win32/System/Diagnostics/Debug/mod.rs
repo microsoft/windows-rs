@@ -101,7 +101,7 @@ pub mod Extensions;
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetThreadWaitChain(wcthandle : *const ::core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut i32) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetThreadWaitChain(wcthandle : *const ::core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dbghelp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
@@ -7852,7 +7852,7 @@ pub type PTRANSLATE_ADDRESS_ROUTINE64 = ::core::option::Option<unsafe extern "sy
 pub type PVECTORED_EXCEPTION_HANDLER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32) -> ()>;
+pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL) -> ()>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SYMADDSOURCESTREAM = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: ::windows_sys::core::PCSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;

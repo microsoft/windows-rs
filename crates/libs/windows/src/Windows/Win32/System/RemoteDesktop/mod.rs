@@ -234,23 +234,23 @@ pub unsafe fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Founda
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn WTSGetListenerSecurityA<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn WTSGetListenerSecurityA<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
     WTSGetListenerSecurityA(hserver.into_param().abi(), preserved, reserved, plistenername.into_param().abi(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded).ok()
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn WTSGetListenerSecurityW<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn WTSGetListenerSecurityW<P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
     WTSGetListenerSecurityW(hserver.into_param().abi(), preserved, reserved, plistenername.into_param().abi(), securityinformation, psecuritydescriptor, nlength, lpnlengthneeded).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -430,25 +430,25 @@ where
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn WTSSetListenerSecurityA<P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> ::windows_core::Result<()>
+pub unsafe fn WTSSetListenerSecurityA<P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P2) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
     WTSSetListenerSecurityA(hserver.into_param().abi(), preserved, reserved, plistenername.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn WTSSetListenerSecurityW<P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> ::windows_core::Result<()>
+pub unsafe fn WTSSetListenerSecurityW<P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P2) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("wtsapi32.dll" "system" fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
     WTSSetListenerSecurityW(hserver.into_param().abi(), preserved, reserved, plistenername.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]

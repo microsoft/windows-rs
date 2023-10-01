@@ -286,12 +286,12 @@ where
 #[doc = "Required features: `Win32_Security`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn MQSetQueueSecurity<P0, P1>(lpwcsformatname: P0, securityinformation: u32, psecuritydescriptor: P1) -> ::windows_core::Result<()>
+pub unsafe fn MQSetQueueSecurity<P0, P1>(lpwcsformatname: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : ::windows_core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("mqrt.dll" "system" fn MQSetQueueSecurity(lpwcsformatname : ::windows_core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_core::HRESULT);
     MQSetQueueSecurity(lpwcsformatname.into_param().abi(), securityinformation, psecuritydescriptor.into_param().abi()).ok()
 }
 #[doc = "Required features: `Win32_System_Com`"]

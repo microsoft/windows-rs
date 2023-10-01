@@ -1503,11 +1503,11 @@ pub unsafe fn ImageList_GetDragImage(ppt: ::core::option::Option<*mut super::sup
 #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn ImageList_GetIcon<P0>(himl: P0, i: i32, flags: u32) -> super::WindowsAndMessaging::HICON
+pub unsafe fn ImageList_GetIcon<P0>(himl: P0, i: i32, flags: IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging::HICON
 where
     P0: ::windows_core::IntoParam<HIMAGELIST>,
 {
-    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : u32) -> super::WindowsAndMessaging:: HICON);
+    ::windows_targets::link!("comctl32.dll" "system" fn ImageList_GetIcon(himl : HIMAGELIST, i : i32, flags : IMAGE_LIST_DRAW_STYLE) -> super::WindowsAndMessaging:: HICON);
     ImageList_GetIcon(himl.into_param().abi(), i, flags)
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -3788,21 +3788,21 @@ pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN
 pub const LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(2u32);
 pub const LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(1u32);
 pub const LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(4u32);
-pub const LVGF_ALIGN: u32 = 8u32;
-pub const LVGF_DESCRIPTIONBOTTOM: u32 = 2048u32;
-pub const LVGF_DESCRIPTIONTOP: u32 = 1024u32;
-pub const LVGF_EXTENDEDIMAGE: u32 = 8192u32;
+pub const LVGF_ALIGN: LVGROUP_MASK = LVGROUP_MASK(8u32);
+pub const LVGF_DESCRIPTIONBOTTOM: LVGROUP_MASK = LVGROUP_MASK(2048u32);
+pub const LVGF_DESCRIPTIONTOP: LVGROUP_MASK = LVGROUP_MASK(1024u32);
+pub const LVGF_EXTENDEDIMAGE: LVGROUP_MASK = LVGROUP_MASK(8192u32);
 pub const LVGF_FOOTER: LVGROUP_MASK = LVGROUP_MASK(2u32);
-pub const LVGF_GROUPID: u32 = 16u32;
+pub const LVGF_GROUPID: LVGROUP_MASK = LVGROUP_MASK(16u32);
 pub const LVGF_HEADER: LVGROUP_MASK = LVGROUP_MASK(1u32);
-pub const LVGF_ITEMS: u32 = 16384u32;
+pub const LVGF_ITEMS: LVGROUP_MASK = LVGROUP_MASK(16384u32);
 pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
 pub const LVGF_STATE: LVGROUP_MASK = LVGROUP_MASK(4u32);
-pub const LVGF_SUBSET: u32 = 32768u32;
-pub const LVGF_SUBSETITEMS: u32 = 65536u32;
-pub const LVGF_SUBTITLE: u32 = 256u32;
-pub const LVGF_TASK: u32 = 512u32;
-pub const LVGF_TITLEIMAGE: u32 = 4096u32;
+pub const LVGF_SUBSET: LVGROUP_MASK = LVGROUP_MASK(32768u32);
+pub const LVGF_SUBSETITEMS: LVGROUP_MASK = LVGROUP_MASK(65536u32);
+pub const LVGF_SUBTITLE: LVGROUP_MASK = LVGROUP_MASK(256u32);
+pub const LVGF_TASK: LVGROUP_MASK = LVGROUP_MASK(512u32);
+pub const LVGF_TITLEIMAGE: LVGROUP_MASK = LVGROUP_MASK(4096u32);
 pub const LVGGR_GROUP: u32 = 0u32;
 pub const LVGGR_HEADER: u32 = 1u32;
 pub const LVGGR_LABEL: u32 = 2u32;
@@ -3881,7 +3881,7 @@ pub const LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2048u32)
 pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4u32);
 pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
 pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
-pub const LVIM_AFTER: LIST_VIEW_INSERT_MARK_FLAGS = LIST_VIEW_INSERT_MARK_FLAGS(1u32);
+pub const LVIM_AFTER: u32 = 1u32;
 pub const LVIR_BOUNDS: u32 = 0u32;
 pub const LVIR_ICON: u32 = 1u32;
 pub const LVIR_LABEL: u32 = 2u32;
@@ -5486,11 +5486,16 @@ pub const TCS_SINGLELINE: u32 = 0u32;
 pub const TCS_TABS: u32 = 0u32;
 pub const TCS_TOOLTIPS: u32 = 16384u32;
 pub const TCS_VERTICAL: u32 = 128u32;
+pub const TDCBF_ABORT_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(65536i32);
 pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(8i32);
 pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(32i32);
+pub const TDCBF_CONTINUE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(524288i32);
+pub const TDCBF_HELP_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(1048576i32);
+pub const TDCBF_IGNORE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(131072i32);
 pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(4i32);
 pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(1i32);
 pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(16i32);
+pub const TDCBF_TRYAGAIN_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(262144i32);
 pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(2i32);
 pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(0i32);
 pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(1i32);
@@ -10489,61 +10494,6 @@ impl ::core::ops::Not for LIST_VIEW_GROUP_STATE_FLAGS {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LIST_VIEW_INSERT_MARK_FLAGS(pub u32);
-impl ::core::marker::Copy for LIST_VIEW_INSERT_MARK_FLAGS {}
-impl ::core::clone::Clone for LIST_VIEW_INSERT_MARK_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LIST_VIEW_INSERT_MARK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for LIST_VIEW_INSERT_MARK_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for LIST_VIEW_INSERT_MARK_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LIST_VIEW_INSERT_MARK_FLAGS").field(&self.0).finish()
-    }
-}
-impl LIST_VIEW_INSERT_MARK_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for LIST_VIEW_INSERT_MARK_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for LIST_VIEW_INSERT_MARK_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LIST_VIEW_INSERT_MARK_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LIST_VIEW_INSERT_MARK_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for LIST_VIEW_INSERT_MARK_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(pub i32);
 impl ::core::marker::Copy for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
@@ -13851,6 +13801,39 @@ impl ::windows_core::TypeKind for TASKDIALOG_COMMON_BUTTON_FLAGS {
 impl ::core::fmt::Debug for TASKDIALOG_COMMON_BUTTON_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TASKDIALOG_COMMON_BUTTON_FLAGS").field(&self.0).finish()
+    }
+}
+impl TASKDIALOG_COMMON_BUTTON_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TASKDIALOG_COMMON_BUTTON_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -17827,7 +17810,7 @@ impl ::core::default::Default for LVINSERTGROUPSORTED {
 #[repr(C)]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
-    pub dwFlags: LIST_VIEW_INSERT_MARK_FLAGS,
+    pub dwFlags: u32,
     pub iItem: i32,
     pub dwReserved: u32,
 }
@@ -17870,7 +17853,7 @@ pub struct LVITEMA {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
     pub iIndent: i32,
-    pub iGroupId: LVITEMA_GROUP_ID,
+    pub iGroupId: i32,
     pub cColumns: u32,
     pub puColumns: *mut u32,
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,
@@ -17968,7 +17951,7 @@ pub struct LVITEMW {
     pub iImage: i32,
     pub lParam: super::super::Foundation::LPARAM,
     pub iIndent: i32,
-    pub iGroupId: LVITEMA_GROUP_ID,
+    pub iGroupId: i32,
     pub cColumns: u32,
     pub puColumns: *mut u32,
     pub piColFmt: *mut LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS,

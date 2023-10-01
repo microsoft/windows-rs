@@ -1581,8 +1581,8 @@ pub unsafe fn CryptCreateAsyncHandle(dwflags: u32, phasync: *mut HCRYPTASYNC) ->
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptCreateHash(hprov: usize, algid: u32, hkey: usize, dwflags: u32, phhash: *mut usize) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("advapi32.dll" "system" fn CryptCreateHash(hprov : usize, algid : u32, hkey : usize, dwflags : u32, phhash : *mut usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn CryptCreateHash(hprov: usize, algid: ALG_ID, hkey: usize, dwflags: u32, phhash: *mut usize) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("advapi32.dll" "system" fn CryptCreateHash(hprov : usize, algid : ALG_ID, hkey : usize, dwflags : u32, phhash : *mut usize) -> super::super::Foundation:: BOOL);
     CryptCreateHash(hprov, algid, hkey, dwflags, phhash).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1664,8 +1664,8 @@ pub unsafe fn CryptDecryptMessage(pdecryptpara: *const CRYPT_DECRYPT_MESSAGE_PAR
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptDeriveKey(hprov: usize, algid: u32, hbasedata: usize, dwflags: u32, phkey: *mut usize) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("advapi32.dll" "system" fn CryptDeriveKey(hprov : usize, algid : u32, hbasedata : usize, dwflags : u32, phkey : *mut usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn CryptDeriveKey(hprov: usize, algid: ALG_ID, hbasedata: usize, dwflags: u32, phkey: *mut usize) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("advapi32.dll" "system" fn CryptDeriveKey(hprov : usize, algid : ALG_ID, hbasedata : usize, dwflags : u32, phkey : *mut usize) -> super::super::Foundation:: BOOL);
     CryptDeriveKey(hprov, algid, hbasedata, dwflags, phkey).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1878,8 +1878,8 @@ pub unsafe fn CryptFreeOIDFunctionAddress(hfuncaddr: *const ::core::ffi::c_void,
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptGenKey(hprov: usize, algid: u32, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("advapi32.dll" "system" fn CryptGenKey(hprov : usize, algid : u32, dwflags : CRYPT_KEY_FLAGS, phkey : *mut usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn CryptGenKey(hprov: usize, algid: ALG_ID, dwflags: CRYPT_KEY_FLAGS, phkey: *mut usize) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("advapi32.dll" "system" fn CryptGenKey(hprov : usize, algid : ALG_ID, dwflags : CRYPT_KEY_FLAGS, phkey : *mut usize) -> super::super::Foundation:: BOOL);
     CryptGenKey(hprov, algid, dwflags, phkey).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -2018,11 +2018,11 @@ pub unsafe fn CryptGetUserKey(hprov: usize, dwkeyspec: u32, phuserkey: *mut usiz
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptHashCertificate<P0>(hcryptprov: P0, algid: u32, dwflags: u32, pbencoded: &[u8], pbcomputedhash: ::core::option::Option<*mut u8>, pcbcomputedhash: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn CryptHashCertificate<P0>(hcryptprov: P0, algid: ALG_ID, dwflags: u32, pbencoded: &[u8], pbcomputedhash: ::core::option::Option<*mut u8>, pcbcomputedhash: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HCRYPTPROV_LEGACY>,
 {
-    ::windows_targets::link!("crypt32.dll" "system" fn CryptHashCertificate(hcryptprov : HCRYPTPROV_LEGACY, algid : u32, dwflags : u32, pbencoded : *const u8, cbencoded : u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("crypt32.dll" "system" fn CryptHashCertificate(hcryptprov : HCRYPTPROV_LEGACY, algid : ALG_ID, dwflags : u32, pbencoded : *const u8, cbencoded : u32, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
     CryptHashCertificate(hcryptprov.into_param().abi(), algid, dwflags, ::core::mem::transmute(pbencoded.as_ptr()), pbencoded.len() as _, ::core::mem::transmute(pbcomputedhash.unwrap_or(::std::ptr::null_mut())), pcbcomputedhash).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -2055,11 +2055,11 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptHashPublicKeyInfo<P0>(hcryptprov: P0, algid: u32, dwflags: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, pbcomputedhash: ::core::option::Option<*mut u8>, pcbcomputedhash: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn CryptHashPublicKeyInfo<P0>(hcryptprov: P0, algid: ALG_ID, dwflags: u32, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, pbcomputedhash: ::core::option::Option<*mut u8>, pcbcomputedhash: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HCRYPTPROV_LEGACY>,
 {
-    ::windows_targets::link!("crypt32.dll" "system" fn CryptHashPublicKeyInfo(hcryptprov : HCRYPTPROV_LEGACY, algid : u32, dwflags : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("crypt32.dll" "system" fn CryptHashPublicKeyInfo(hcryptprov : HCRYPTPROV_LEGACY, algid : ALG_ID, dwflags : u32, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, pbcomputedhash : *mut u8, pcbcomputedhash : *mut u32) -> super::super::Foundation:: BOOL);
     CryptHashPublicKeyInfo(hcryptprov.into_param().abi(), algid, dwflags, dwcertencodingtype, pinfo, ::core::mem::transmute(pbcomputedhash.unwrap_or(::std::ptr::null_mut())), pcbcomputedhash).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -2103,8 +2103,8 @@ pub unsafe fn CryptImportPublicKeyInfo(hcryptprov: usize, dwcertencodingtype: CE
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptImportPublicKeyInfoEx(hcryptprov: usize, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, aikeyalg: u32, dwflags: u32, pvauxinfo: ::core::option::Option<*const ::core::ffi::c_void>, phkey: *mut usize) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfoEx(hcryptprov : usize, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, aikeyalg : u32, dwflags : u32, pvauxinfo : *const ::core::ffi::c_void, phkey : *mut usize) -> super::super::Foundation:: BOOL);
+pub unsafe fn CryptImportPublicKeyInfoEx(hcryptprov: usize, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: *const CERT_PUBLIC_KEY_INFO, aikeyalg: ALG_ID, dwflags: u32, pvauxinfo: ::core::option::Option<*const ::core::ffi::c_void>, phkey: *mut usize) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("crypt32.dll" "system" fn CryptImportPublicKeyInfoEx(hcryptprov : usize, dwcertencodingtype : CERT_QUERY_ENCODING_TYPE, pinfo : *const CERT_PUBLIC_KEY_INFO, aikeyalg : ALG_ID, dwflags : u32, pvauxinfo : *const ::core::ffi::c_void, phkey : *mut usize) -> super::super::Foundation:: BOOL);
     CryptImportPublicKeyInfoEx(hcryptprov, dwcertencodingtype, pinfo, aikeyalg, dwflags, ::core::mem::transmute(pvauxinfo.unwrap_or(::std::ptr::null())), phkey).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -3439,11 +3439,11 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SignerTimeStampEx2<P0>(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, dwalgid: u32, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut SIGNER_CONTEXT>
+pub unsafe fn SignerTimeStampEx2<P0>(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: *const SIGNER_SUBJECT_INFO, pwszhttptimestamp: P0, dwalgid: ALG_ID, psrequest: *const CRYPT_ATTRIBUTES, psipdata: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut SIGNER_CONTEXT>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_core::PCWSTR, dwalgid : u32, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("mssign32.dll" "system" fn SignerTimeStampEx2(dwflags : SIGNER_TIMESTAMP_FLAGS, psubjectinfo : *const SIGNER_SUBJECT_INFO, pwszhttptimestamp : ::windows_core::PCWSTR, dwalgid : ALG_ID, psrequest : *const CRYPT_ATTRIBUTES, psipdata : *const ::core::ffi::c_void, ppsignercontext : *mut *mut SIGNER_CONTEXT) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     SignerTimeStampEx2(dwflags, psubjectinfo, pwszhttptimestamp.into_param().abi(), dwalgid, psrequest, psipdata, &mut result__).from_abi(result__)
 }
@@ -4514,8 +4514,61 @@ pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
 pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(2u32);
 pub const BCRYPT_XTS_AES_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("XTS-AES");
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897u32 as _);
+pub const CALG_3DES: ALG_ID = ALG_ID(26115u32);
+pub const CALG_3DES_112: ALG_ID = ALG_ID(26121u32);
+pub const CALG_AES: ALG_ID = ALG_ID(26129u32);
+pub const CALG_AES_128: ALG_ID = ALG_ID(26126u32);
+pub const CALG_AES_192: ALG_ID = ALG_ID(26127u32);
+pub const CALG_AES_256: ALG_ID = ALG_ID(26128u32);
+pub const CALG_AGREEDKEY_ANY: ALG_ID = ALG_ID(43523u32);
+pub const CALG_CYLINK_MEK: ALG_ID = ALG_ID(26124u32);
+pub const CALG_DES: ALG_ID = ALG_ID(26113u32);
+pub const CALG_DESX: ALG_ID = ALG_ID(26116u32);
+pub const CALG_DH_EPHEM: ALG_ID = ALG_ID(43522u32);
+pub const CALG_DH_SF: ALG_ID = ALG_ID(43521u32);
+pub const CALG_DSS_SIGN: ALG_ID = ALG_ID(8704u32);
+pub const CALG_ECDH: ALG_ID = ALG_ID(43525u32);
+pub const CALG_ECDH_EPHEM: ALG_ID = ALG_ID(44550u32);
+pub const CALG_ECDSA: ALG_ID = ALG_ID(8707u32);
+pub const CALG_ECMQV: ALG_ID = ALG_ID(40961u32);
+pub const CALG_HASH_REPLACE_OWF: ALG_ID = ALG_ID(32779u32);
+pub const CALG_HMAC: ALG_ID = ALG_ID(32777u32);
+pub const CALG_HUGHES_MD5: ALG_ID = ALG_ID(40963u32);
+pub const CALG_KEA_KEYX: ALG_ID = ALG_ID(43524u32);
+pub const CALG_MAC: ALG_ID = ALG_ID(32773u32);
+pub const CALG_MD2: ALG_ID = ALG_ID(32769u32);
+pub const CALG_MD4: ALG_ID = ALG_ID(32770u32);
+pub const CALG_MD5: ALG_ID = ALG_ID(32771u32);
+pub const CALG_NO_SIGN: ALG_ID = ALG_ID(8192u32);
+pub const CALG_NULLCIPHER: ALG_ID = ALG_ID(24576u32);
 pub const CALG_OID_INFO_CNG_ONLY: u32 = 4294967295u32;
 pub const CALG_OID_INFO_PARAMETERS: u32 = 4294967294u32;
+pub const CALG_PCT1_MASTER: ALG_ID = ALG_ID(19460u32);
+pub const CALG_RC2: ALG_ID = ALG_ID(26114u32);
+pub const CALG_RC4: ALG_ID = ALG_ID(26625u32);
+pub const CALG_RC5: ALG_ID = ALG_ID(26125u32);
+pub const CALG_RSA_KEYX: ALG_ID = ALG_ID(41984u32);
+pub const CALG_RSA_SIGN: ALG_ID = ALG_ID(9216u32);
+pub const CALG_SCHANNEL_ENC_KEY: ALG_ID = ALG_ID(19463u32);
+pub const CALG_SCHANNEL_MAC_KEY: ALG_ID = ALG_ID(19459u32);
+pub const CALG_SCHANNEL_MASTER_HASH: ALG_ID = ALG_ID(19458u32);
+pub const CALG_SEAL: ALG_ID = ALG_ID(26626u32);
+pub const CALG_SHA: ALG_ID = ALG_ID(32772u32);
+pub const CALG_SHA1: ALG_ID = ALG_ID(32772u32);
+pub const CALG_SHA_256: ALG_ID = ALG_ID(32780u32);
+pub const CALG_SHA_384: ALG_ID = ALG_ID(32781u32);
+pub const CALG_SHA_512: ALG_ID = ALG_ID(32782u32);
+pub const CALG_SKIPJACK: ALG_ID = ALG_ID(26122u32);
+pub const CALG_SSL2_MASTER: ALG_ID = ALG_ID(19461u32);
+pub const CALG_SSL3_MASTER: ALG_ID = ALG_ID(19457u32);
+pub const CALG_SSL3_SHAMD5: ALG_ID = ALG_ID(32776u32);
+pub const CALG_TEK: ALG_ID = ALG_ID(26123u32);
+pub const CALG_THIRDPARTY_CIPHER: ALG_ID = ALG_ID(28672u32);
+pub const CALG_THIRDPARTY_HASH: ALG_ID = ALG_ID(36864u32);
+pub const CALG_THIRDPARTY_KEY_EXCHANGE: ALG_ID = ALG_ID(45056u32);
+pub const CALG_THIRDPARTY_SIGNATURE: ALG_ID = ALG_ID(12288u32);
+pub const CALG_TLS1PRF: ALG_ID = ALG_ID(32778u32);
+pub const CALG_TLS1_MASTER: ALG_ID = ALG_ID(19462u32);
 pub const CCertSrvSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
 pub const CCertSrvSetupKeyInformation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
 pub const CCertificateEnrollmentPolicyServerSetup: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
@@ -5647,16 +5700,16 @@ pub const CRYPTPROTECT_PROMPT_STRONG: u32 = 8u32;
 pub const CRYPTPROTECT_UI_FORBIDDEN: u32 = 1u32;
 pub const CRYPTPROTECT_VERIFY_PROTECTION: u32 = 64u32;
 pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
-pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: u32 = 65536u32;
+pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(65536u32);
 pub const CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(1u32);
 pub const CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(4u32);
-pub const CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: u32 = 458752u32;
+pub const CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(458752u32);
 pub const CRYPT_ACQUIRE_NO_HEALING: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(8u32);
-pub const CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: u32 = 262144u32;
-pub const CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: u32 = 131072u32;
+pub const CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(262144u32);
+pub const CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(131072u32);
 pub const CRYPT_ACQUIRE_SILENT_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(64u32);
 pub const CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(2u32);
-pub const CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: u32 = 128u32;
+pub const CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(128u32);
 pub const CRYPT_AIA_RETRIEVAL: u32 = 524288u32;
 pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(1u32);
 pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(2u32);
@@ -7518,6 +7571,28 @@ pub const wszXMLNS_DIGSIG_Id: ::windows_core::PCWSTR = ::windows_core::w!("Id");
 pub const wszXMLNS_DIGSIG_SignatureProperties: ::windows_core::PCWSTR = ::windows_core::w!("http://www.w3.org/2000/09/xmldsig#SignatureProperties");
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ALG_ID(pub u32);
+impl ::core::marker::Copy for ALG_ID {}
+impl ::core::clone::Clone for ALG_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ALG_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for ALG_ID {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for ALG_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ALG_ID").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPTGENRANDOM_FLAGS(pub u32);
 impl ::core::marker::Copy for BCRYPTGENRANDOM_FLAGS {}
 impl ::core::clone::Clone for BCRYPTGENRANDOM_FLAGS {
@@ -8361,6 +8436,39 @@ impl ::windows_core::TypeKind for CERT_OPEN_STORE_FLAGS {
 impl ::core::fmt::Debug for CERT_OPEN_STORE_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CERT_OPEN_STORE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CERT_OPEN_STORE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CERT_OPEN_STORE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_OPEN_STORE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_OPEN_STORE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_OPEN_STORE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_OPEN_STORE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -16852,7 +16960,7 @@ impl ::core::default::Default for CMSG_STREAM_INFO {
 #[repr(C)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
-    pub Algid: u32,
+    pub Algid: ALG_ID,
     pub pszContentEncObjId: ::windows_core::PSTR,
     pub PubInfo: CRYPT_INTEGER_BLOB,
     pub pReserved: *mut ::core::ffi::c_void,
@@ -16885,7 +16993,7 @@ impl ::core::default::Default for CMS_DH_KEY_INFO {
 #[repr(C)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
-    pub Algid: u32,
+    pub Algid: ALG_ID,
     pub pbOID: *mut u8,
     pub cbOID: u32,
 }
@@ -18867,7 +18975,7 @@ impl ::core::default::Default for CRYPT_OID_INFO {
 #[repr(C)]
 pub union CRYPT_OID_INFO_0 {
     pub dwValue: u32,
-    pub Algid: u32,
+    pub Algid: ALG_ID,
     pub dwLength: u32,
 }
 impl ::core::marker::Copy for CRYPT_OID_INFO_0 {}
@@ -21718,7 +21826,7 @@ impl ::windows_core::TypeKind for HCRYPTPROV_OR_NCRYPT_KEY_HANDLE {
 }
 #[repr(C)]
 pub struct HMAC_INFO {
-    pub HashAlgid: u32,
+    pub HashAlgid: ALG_ID,
     pub pbInnerString: *mut u8,
     pub cbInnerString: u32,
     pub pbOuterString: *mut u8,
@@ -23403,7 +23511,7 @@ impl ::core::default::Default for PRIVKEYVER3 {
 }
 #[repr(C)]
 pub struct PROV_ENUMALGS {
-    pub aiAlgid: u32,
+    pub aiAlgid: ALG_ID,
     pub dwBitLen: u32,
     pub dwNameLen: u32,
     pub szName: [u8; 20],
@@ -23435,7 +23543,7 @@ impl ::core::default::Default for PROV_ENUMALGS {
 }
 #[repr(C)]
 pub struct PROV_ENUMALGS_EX {
-    pub aiAlgid: u32,
+    pub aiAlgid: ALG_ID,
     pub dwDefaultLen: u32,
     pub dwMinLen: u32,
     pub dwMaxLen: u32,
@@ -23538,7 +23646,7 @@ pub struct PUBLICKEYSTRUC {
     pub bType: u8,
     pub bVersion: u8,
     pub reserved: u16,
-    pub aiKeyAlg: u32,
+    pub aiKeyAlg: ALG_ID,
 }
 impl ::core::marker::Copy for PUBLICKEYSTRUC {}
 impl ::core::clone::Clone for PUBLICKEYSTRUC {
@@ -23699,7 +23807,7 @@ impl ::core::default::Default for RSAPUBKEY {
 #[repr(C)]
 pub struct SCHANNEL_ALG {
     pub dwUse: u32,
-    pub Algid: u32,
+    pub Algid: ALG_ID,
     pub cBits: u32,
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -24138,7 +24246,7 @@ impl ::core::default::Default for SIGNER_PROVIDER_INFO_0 {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SIGNER_SIGNATURE_INFO {
     pub cbSize: u32,
-    pub algidHash: u32,
+    pub algidHash: ALG_ID,
     pub dwAttrChoice: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE,
     pub Anonymous: SIGNER_SIGNATURE_INFO_0,
     pub psAuthenticated: *mut CRYPT_ATTRIBUTES,
@@ -24455,16 +24563,16 @@ pub type PFNCryptStreamOutputCallback = ::core::option::Option<unsafe extern "sy
 pub type PFNCryptStreamOutputCallbackEx = ::core::option::Option<unsafe extern "system" fn(pvcallbackctxt: *const ::core::ffi::c_void, pbdata: *const u8, cbdata: usize, hdescriptor: super::NCRYPT_DESCRIPTOR_HANDLE, ffinal: super::super::Foundation::BOOL) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICODE_DIGEST_SIGN = ::core::option::Option<unsafe extern "system" fn(psigningcert: *const CERT_CONTEXT, pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, psigneddigest: *mut CRYPT_INTEGER_BLOB) -> ::windows_core::HRESULT>;
+pub type PFN_AUTHENTICODE_DIGEST_SIGN = ::core::option::Option<unsafe extern "system" fn(psigningcert: *const CERT_CONTEXT, pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: ALG_ID, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, psigneddigest: *mut CRYPT_INTEGER_BLOB) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICODE_DIGEST_SIGN_EX = ::core::option::Option<unsafe extern "system" fn(pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, psigneddigest: *mut CRYPT_INTEGER_BLOB, ppsignercert: *mut *mut CERT_CONTEXT, hcertchainstore: HCERTSTORE) -> ::windows_core::HRESULT>;
+pub type PFN_AUTHENTICODE_DIGEST_SIGN_EX = ::core::option::Option<unsafe extern "system" fn(pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: ALG_ID, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, psigneddigest: *mut CRYPT_INTEGER_BLOB, ppsignercert: *mut *mut CERT_CONTEXT, hcertchainstore: HCERTSTORE) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE = ::core::option::Option<unsafe extern "system" fn(pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, hfile: super::super::Foundation::HANDLE, psigneddigest: *mut CRYPT_INTEGER_BLOB, ppsignercert: *mut *mut CERT_CONTEXT, hcertchainstore: HCERTSTORE) -> ::windows_core::HRESULT>;
+pub type PFN_AUTHENTICODE_DIGEST_SIGN_EX_WITHFILEHANDLE = ::core::option::Option<unsafe extern "system" fn(pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: ALG_ID, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, hfile: super::super::Foundation::HANDLE, psigneddigest: *mut CRYPT_INTEGER_BLOB, ppsignercert: *mut *mut CERT_CONTEXT, hcertchainstore: HCERTSTORE) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE = ::core::option::Option<unsafe extern "system" fn(psigningcert: *const CERT_CONTEXT, pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: u32, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, hfile: super::super::Foundation::HANDLE, psigneddigest: *mut CRYPT_INTEGER_BLOB) -> ::windows_core::HRESULT>;
+pub type PFN_AUTHENTICODE_DIGEST_SIGN_WITHFILEHANDLE = ::core::option::Option<unsafe extern "system" fn(psigningcert: *const CERT_CONTEXT, pmetadatablob: *const CRYPT_INTEGER_BLOB, digestalgid: ALG_ID, pbtobesigneddigest: *const u8, cbtobesigneddigest: u32, hfile: super::super::Foundation::HANDLE, psigneddigest: *mut CRYPT_INTEGER_BLOB) -> ::windows_core::HRESULT>;
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CANCEL_ASYNC_RETRIEVAL_FUNC = ::core::option::Option<unsafe extern "system" fn(hasyncretrieve: HCRYPTASYNC) -> super::super::Foundation::BOOL>;

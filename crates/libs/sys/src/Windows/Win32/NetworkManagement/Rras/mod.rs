@@ -255,8 +255,10 @@
 ::windows_targets::link!("rasapi32.dll" "system" fn RasFreeEapUserIdentityW(praseapuseridentity : *const RASEAPUSERIDENTITYW) -> ());
 ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressA(param0 : ::windows_sys::core::PCSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYA, param3 : *mut u32, param4 : *mut u32) -> u32);
 ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialAddressW(param0 : ::windows_sys::core::PCWSTR, param1 : *const u32, param2 : *mut RASAUTODIALENTRYW, param3 : *mut u32, param4 : *mut u32) -> u32);
-::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialEnableA(param0 : u32, param1 : *mut i32) -> u32);
-::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialEnableW(param0 : u32, param1 : *mut i32) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RasGetAutodialEnableA(param0 : u32, param1 : *mut super::super::Foundation:: BOOL) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RasGetAutodialEnableW(param0 : u32, param1 : *mut super::super::Foundation:: BOOL) -> u32);
 ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialParamA(param0 : u32, param1 : *mut ::core::ffi::c_void, param2 : *mut u32) -> u32);
 ::windows_targets::link!("rasapi32.dll" "system" fn RasGetAutodialParamW(param0 : u32, param1 : *mut ::core::ffi::c_void, param2 : *mut u32) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -278,8 +280,10 @@
 ::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RasGetEapUserIdentityA(pszphonebook : ::windows_sys::core::PCSTR, pszentry : ::windows_sys::core::PCSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RasGetEapUserIdentityW(pszphonebook : ::windows_sys::core::PCWSTR, pszentry : ::windows_sys::core::PCWSTR, dwflags : u32, hwnd : super::super::Foundation:: HWND, ppraseapuseridentity : *mut *mut RASEAPUSERIDENTITYW) -> u32);
-::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsA(param0 : ::windows_sys::core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut i32) -> u32);
-::windows_targets::link!("rasapi32.dll" "system" fn RasGetEntryDialParamsW(param0 : ::windows_sys::core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut i32) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RasGetEntryDialParamsA(param0 : ::windows_sys::core::PCSTR, param1 : *mut RASDIALPARAMSA, param2 : *mut super::super::Foundation:: BOOL) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RasGetEntryDialParamsW(param0 : ::windows_sys::core::PCWSTR, param1 : *mut RASDIALPARAMSW, param2 : *mut super::super::Foundation:: BOOL) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 ::windows_targets::link!("rasapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"] fn RasGetEntryPropertiesA(param0 : ::windows_sys::core::PCSTR, param1 : ::windows_sys::core::PCSTR, param2 : *mut RASENTRYA, param3 : *mut u32, param4 : *mut u8, param5 : *mut u32) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]

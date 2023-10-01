@@ -71,7 +71,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegFlushKey(hkey : HKEY) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn RegGetKeySecurity(hkey : HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn RegGetKeySecurity(hkey : HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegGetValueA(hkey : HKEY, lpsubkey : ::windows_sys::core::PCSTR, lpvalue : ::windows_sys::core::PCSTR, dwflags : REG_ROUTINE_FLAGS, pdwtype : *mut REG_VALUE_TYPE, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
@@ -145,7 +145,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn RegSaveKeyW(hkey : HKEY, lpfile : ::windows_sys::core::PCWSTR, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn RegSetKeySecurity(hkey : HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn RegSetKeySecurity(hkey : HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegSetKeyValueA(hkey : HKEY, lpsubkey : ::windows_sys::core::PCSTR, lpvaluename : ::windows_sys::core::PCSTR, dwtype : u32, lpdata : *const ::core::ffi::c_void, cbdata : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]

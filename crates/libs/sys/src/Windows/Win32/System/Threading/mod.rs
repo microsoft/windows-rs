@@ -38,6 +38,8 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CallbackMayRunLong(pci : PTP_CALLBACK_INSTANCE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn CancelThreadpoolIo(pio : PTP_IO) -> ());
 #[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CancelWaitableTimer(htimer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ChangeTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE, duetime : u32, period : u32) -> super::super::Foundation:: BOOL);
@@ -122,6 +124,10 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CreateUmsCompletionList(umscompletionlist : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CreateUmsThreadContext(lpumsthread : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn CreateWaitableTimerExW(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows_sys::core::PCWSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -343,6 +349,8 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenThread(dwdesiredaccess : THREAD_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, dwthreadid : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn OpenThreadToken(threadhandle : super::super::Foundation:: HANDLE, desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK, openasself : super::super::Foundation:: BOOL, tokenhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenWaitableTimerW(dwdesiredaccess : SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
@@ -579,6 +587,7 @@ pub type IRtwqAsyncResult = *mut ::core::ffi::c_void;
 pub type IRtwqPlatformEvents = *mut ::core::ffi::c_void;
 pub type RTWQASYNCRESULT = *mut ::core::ffi::c_void;
 pub const ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32768u32;
+pub const ALL_PROCESSOR_GROUPS: u16 = 65535u16;
 pub const AVRT_PRIORITY_CRITICAL: AVRT_PRIORITY = 2i32;
 pub const AVRT_PRIORITY_HIGH: AVRT_PRIORITY = 1i32;
 pub const AVRT_PRIORITY_LOW: AVRT_PRIORITY = -1i32;
@@ -638,29 +647,47 @@ pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 19i32;
 pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u32;
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 7u32;
+pub const PF_ALPHA_BYTE_INSTRUCTIONS: PROCESSOR_FEATURE_ID = 5u32;
 pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = 25u32;
 pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 24u32;
 pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: PROCESSOR_FEATURE_ID = 26u32;
 pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 27u32;
+pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 19u32;
 pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 34u32;
+pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 43u32;
+pub const PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 44u32;
+pub const PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 45u32;
 pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 31u32;
 pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 30u32;
 pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 29u32;
 pub const PF_ARM_VFP_32_REGISTERS_AVAILABLE: PROCESSOR_FEATURE_ID = 18u32;
+pub const PF_AVX2_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 40u32;
+pub const PF_AVX512F_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 41u32;
+pub const PF_AVX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 39u32;
 pub const PF_CHANNELS_ENABLED: PROCESSOR_FEATURE_ID = 16u32;
 pub const PF_COMPARE64_EXCHANGE128: PROCESSOR_FEATURE_ID = 15u32;
 pub const PF_COMPARE_EXCHANGE128: PROCESSOR_FEATURE_ID = 14u32;
 pub const PF_COMPARE_EXCHANGE_DOUBLE: PROCESSOR_FEATURE_ID = 2u32;
+pub const PF_ERMS_AVAILABLE: PROCESSOR_FEATURE_ID = 42u32;
 pub const PF_FASTFAIL_AVAILABLE: PROCESSOR_FEATURE_ID = 23u32;
 pub const PF_FLOATING_POINT_EMULATED: PROCESSOR_FEATURE_ID = 1u32;
 pub const PF_FLOATING_POINT_PRECISION_ERRATA: PROCESSOR_FEATURE_ID = 0u32;
 pub const PF_MMX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 3u32;
+pub const PF_MONITORX_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 35u32;
 pub const PF_NX_ENABLED: PROCESSOR_FEATURE_ID = 12u32;
 pub const PF_PAE_ENABLED: PROCESSOR_FEATURE_ID = 9u32;
+pub const PF_PPC_MOVEMEM_64BIT_OK: PROCESSOR_FEATURE_ID = 4u32;
+pub const PF_RDPID_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 33u32;
+pub const PF_RDRAND_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 28u32;
+pub const PF_RDTSCP_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 32u32;
 pub const PF_RDTSC_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 8u32;
 pub const PF_RDWRFSGSBASE_AVAILABLE: PROCESSOR_FEATURE_ID = 22u32;
 pub const PF_SECOND_LEVEL_ADDRESS_TRANSLATION: PROCESSOR_FEATURE_ID = 20u32;
 pub const PF_SSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 13u32;
+pub const PF_SSE4_1_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 37u32;
+pub const PF_SSE4_2_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 38u32;
+pub const PF_SSE_DAZ_MODE_AVAILABLE: PROCESSOR_FEATURE_ID = 11u32;
+pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 36u32;
 pub const PF_VIRT_FIRMWARE_ENABLED: PROCESSOR_FEATURE_ID = 21u32;
 pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 10u32;
 pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 6u32;

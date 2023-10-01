@@ -3778,17 +3778,17 @@ pub const GUID_WICPixelFormat96bppRGBFixedPoint: ::windows_core::GUID = ::window
 pub const GUID_WICPixelFormat96bppRGBFloat: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3fed78f_e8db_4acf_84c1_e97f6136b327);
 pub const GUID_WICPixelFormatBlackWhite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc905);
 pub const GUID_WICPixelFormatDontCare: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc900);
-pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
-pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
-pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
-pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
-pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2u32);
-pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(3u32);
-pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
-pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
-pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(5u32);
-pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
-pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(4u32);
+pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2i32);
+pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1i32);
+pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1i32);
+pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0i32);
+pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2i32);
+pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(3i32);
+pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7i32);
+pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1i32);
+pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(5i32);
+pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6i32);
+pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(4i32);
 pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
 pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
 pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
@@ -3868,47 +3868,47 @@ pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i
 pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
 pub const WICDecoder: WICComponentType = WICComponentType(1i32);
 pub const WICEncoder: WICComponentType = WICComponentType(2i32);
-pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
-pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
-pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
-pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
-pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
-pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(3u32);
-pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
-pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2u32);
-pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(4u32);
-pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(6u32);
-pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
-pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(5u32);
-pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
-pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
-pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2u32);
-pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(3u32);
-pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
-pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(5u32);
-pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(4u32);
-pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(7u32);
-pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(3u32);
-pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
-pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(6u32);
-pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2u32);
-pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
-pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
-pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(2u32);
-pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
-pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
-pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(3u32);
-pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
-pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
-pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
-pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
-pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
-pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
-pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
-pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
-pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
-pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
-pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
+pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1i32);
+pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2i32);
+pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1i32);
+pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4i32);
+pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1i32);
+pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(3i32);
+pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5i32);
+pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2i32);
+pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(4i32);
+pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(6i32);
+pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1i32);
+pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(5i32);
+pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8i32);
+pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7i32);
+pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2i32);
+pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(3i32);
+pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8i32);
+pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(5i32);
+pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(4i32);
+pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(7i32);
+pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(3i32);
+pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9i32);
+pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(6i32);
+pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2i32);
+pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1i32);
+pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5i32);
+pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(2i32);
+pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1i32);
+pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4i32);
+pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(3i32);
+pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1i32);
+pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1i32);
+pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1i32);
+pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0i32);
+pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1i32);
+pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1i32);
+pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0i32);
+pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1i32);
+pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2i32);
+pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1i32);
+pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0i32);
 pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(1i32);
 pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2i32);
 pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
@@ -3929,23 +3929,23 @@ pub const WICPersistOptionPreferUTF8: WICPersistOptions = WICPersistOptions(8i32
 pub const WICPersistOptionStrictFormat: WICPersistOptions = WICPersistOptions(2i32);
 pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
 pub const WICPixelFormatConverter: WICComponentType = WICComponentType(4i32);
-pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
-pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
-pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(1u32);
-pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(3u32);
-pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2u32);
-pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
+pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4i32);
+pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5i32);
+pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(1i32);
+pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(3i32);
+pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2i32);
+pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0i32);
 pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
 pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
-pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
-pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
-pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
-pub const WICPngChrmGreenX: WICPngChrmProperties = WICPngChrmProperties(5u32);
-pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
-pub const WICPngChrmRedX: WICPngChrmProperties = WICPngChrmProperties(3u32);
-pub const WICPngChrmRedY: WICPngChrmProperties = WICPngChrmProperties(4u32);
-pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
-pub const WICPngChrmWhitePointY: WICPngChrmProperties = WICPngChrmProperties(2u32);
+pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1i32);
+pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7i32);
+pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8i32);
+pub const WICPngChrmGreenX: WICPngChrmProperties = WICPngChrmProperties(5i32);
+pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6i32);
+pub const WICPngChrmRedX: WICPngChrmProperties = WICPngChrmProperties(3i32);
+pub const WICPngChrmRedY: WICPngChrmProperties = WICPngChrmProperties(4i32);
+pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1i32);
+pub const WICPngChrmWhitePointY: WICPngChrmProperties = WICPngChrmProperties(2i32);
 pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
 pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
 pub const WICPngFilterNone: WICPngFilterOption = WICPngFilterOption(1i32);
@@ -3953,22 +3953,22 @@ pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
 pub const WICPngFilterSub: WICPngFilterOption = WICPngFilterOption(2i32);
 pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
 pub const WICPngFilterUp: WICPngFilterOption = WICPngFilterOption(3i32);
-pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
-pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
-pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
-pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
-pub const WICPngItxtCompressionFlag: WICPngItxtProperties = WICPngItxtProperties(2u32);
-pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
-pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u32);
-pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
-pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
-pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
-pub const WICPngTimeDay: WICPngTimeProperties = WICPngTimeProperties(3u32);
-pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
-pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
-pub const WICPngTimeMonth: WICPngTimeProperties = WICPngTimeProperties(2u32);
-pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
-pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
+pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1i32);
+pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1i32);
+pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2i32);
+pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1i32);
+pub const WICPngItxtCompressionFlag: WICPngItxtProperties = WICPngItxtProperties(2i32);
+pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1i32);
+pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3i32);
+pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5i32);
+pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4i32);
+pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1i32);
+pub const WICPngTimeDay: WICPngTimeProperties = WICPngTimeProperties(3i32);
+pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4i32);
+pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5i32);
+pub const WICPngTimeMonth: WICPngTimeProperties = WICPngTimeProperties(2i32);
+pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6i32);
+pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1i32);
 pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
 pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
 pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotification(131072i32);
@@ -4000,8 +4000,8 @@ pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = W
 pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(1i32);
 pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
 pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
-pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
-pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
+pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1i32);
+pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3i32);
 pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = WICTiffCompressionOption(2i32);
 pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = WICTiffCompressionOption(3i32);
 pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
@@ -4011,8 +4011,8 @@ pub const WICTiffCompressionNone: WICTiffCompressionOption = WICTiffCompressionO
 pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOption(5i32);
 pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
 pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
-pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
-pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
+pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1i32);
+pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1i32);
 pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
 pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
 pub const WICWhitePointCloudy: WICNamedWhitePoint = WICNamedWhitePoint(4i32);
@@ -4047,7 +4047,7 @@ pub const WINCODEC_SDK_VERSION1: u32 = 566u32;
 pub const WINCODEC_SDK_VERSION2: u32 = 567u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WIC8BIMIptcDigestProperties(pub u32);
+pub struct WIC8BIMIptcDigestProperties(pub i32);
 impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
     fn clone(&self) -> Self {
@@ -4069,7 +4069,7 @@ impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WIC8BIMIptcProperties(pub u32);
+pub struct WIC8BIMIptcProperties(pub i32);
 impl ::core::marker::Copy for WIC8BIMIptcProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcProperties {
     fn clone(&self) -> Self {
@@ -4091,7 +4091,7 @@ impl ::core::fmt::Debug for WIC8BIMIptcProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WIC8BIMResolutionInfoProperties(pub u32);
+pub struct WIC8BIMResolutionInfoProperties(pub i32);
 impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
 impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
     fn clone(&self) -> Self {
@@ -4465,7 +4465,7 @@ impl ::core::fmt::Debug for WICDecodeOptions {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICGifApplicationExtensionProperties(pub u32);
+pub struct WICGifApplicationExtensionProperties(pub i32);
 impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
 impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
     fn clone(&self) -> Self {
@@ -4487,7 +4487,7 @@ impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICGifCommentExtensionProperties(pub u32);
+pub struct WICGifCommentExtensionProperties(pub i32);
 impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
 impl ::core::clone::Clone for WICGifCommentExtensionProperties {
     fn clone(&self) -> Self {
@@ -4509,7 +4509,7 @@ impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICGifGraphicControlExtensionProperties(pub u32);
+pub struct WICGifGraphicControlExtensionProperties(pub i32);
 impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
 impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
     fn clone(&self) -> Self {
@@ -4531,7 +4531,7 @@ impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICGifImageDescriptorProperties(pub u32);
+pub struct WICGifImageDescriptorProperties(pub i32);
 impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
 impl ::core::clone::Clone for WICGifImageDescriptorProperties {
     fn clone(&self) -> Self {
@@ -4553,7 +4553,7 @@ impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICGifLogicalScreenDescriptorProperties(pub u32);
+pub struct WICGifLogicalScreenDescriptorProperties(pub i32);
 impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
 impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
     fn clone(&self) -> Self {
@@ -4575,7 +4575,7 @@ impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICHeifHdrProperties(pub u32);
+pub struct WICHeifHdrProperties(pub i32);
 impl ::core::marker::Copy for WICHeifHdrProperties {}
 impl ::core::clone::Clone for WICHeifHdrProperties {
     fn clone(&self) -> Self {
@@ -4597,7 +4597,7 @@ impl ::core::fmt::Debug for WICHeifHdrProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICHeifProperties(pub u32);
+pub struct WICHeifProperties(pub i32);
 impl ::core::marker::Copy for WICHeifProperties {}
 impl ::core::clone::Clone for WICHeifProperties {
     fn clone(&self) -> Self {
@@ -4619,7 +4619,7 @@ impl ::core::fmt::Debug for WICHeifProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICJpegChrominanceProperties(pub u32);
+pub struct WICJpegChrominanceProperties(pub i32);
 impl ::core::marker::Copy for WICJpegChrominanceProperties {}
 impl ::core::clone::Clone for WICJpegChrominanceProperties {
     fn clone(&self) -> Self {
@@ -4641,7 +4641,7 @@ impl ::core::fmt::Debug for WICJpegChrominanceProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICJpegCommentProperties(pub u32);
+pub struct WICJpegCommentProperties(pub i32);
 impl ::core::marker::Copy for WICJpegCommentProperties {}
 impl ::core::clone::Clone for WICJpegCommentProperties {
     fn clone(&self) -> Self {
@@ -4663,7 +4663,7 @@ impl ::core::fmt::Debug for WICJpegCommentProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICJpegIndexingOptions(pub u32);
+pub struct WICJpegIndexingOptions(pub i32);
 impl ::core::marker::Copy for WICJpegIndexingOptions {}
 impl ::core::clone::Clone for WICJpegIndexingOptions {
     fn clone(&self) -> Self {
@@ -4685,7 +4685,7 @@ impl ::core::fmt::Debug for WICJpegIndexingOptions {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICJpegLuminanceProperties(pub u32);
+pub struct WICJpegLuminanceProperties(pub i32);
 impl ::core::marker::Copy for WICJpegLuminanceProperties {}
 impl ::core::clone::Clone for WICJpegLuminanceProperties {
     fn clone(&self) -> Self {
@@ -4707,7 +4707,7 @@ impl ::core::fmt::Debug for WICJpegLuminanceProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICJpegScanType(pub u32);
+pub struct WICJpegScanType(pub i32);
 impl ::core::marker::Copy for WICJpegScanType {}
 impl ::core::clone::Clone for WICJpegScanType {
     fn clone(&self) -> Self {
@@ -4729,7 +4729,7 @@ impl ::core::fmt::Debug for WICJpegScanType {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICJpegTransferMatrix(pub u32);
+pub struct WICJpegTransferMatrix(pub i32);
 impl ::core::marker::Copy for WICJpegTransferMatrix {}
 impl ::core::clone::Clone for WICJpegTransferMatrix {
     fn clone(&self) -> Self {
@@ -4839,7 +4839,7 @@ impl ::core::fmt::Debug for WICPersistOptions {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPixelFormatNumericRepresentation(pub u32);
+pub struct WICPixelFormatNumericRepresentation(pub i32);
 impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
 impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
     fn clone(&self) -> Self {
@@ -4883,7 +4883,7 @@ impl ::core::fmt::Debug for WICPlanarOptions {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngBkgdProperties(pub u32);
+pub struct WICPngBkgdProperties(pub i32);
 impl ::core::marker::Copy for WICPngBkgdProperties {}
 impl ::core::clone::Clone for WICPngBkgdProperties {
     fn clone(&self) -> Self {
@@ -4905,7 +4905,7 @@ impl ::core::fmt::Debug for WICPngBkgdProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngChrmProperties(pub u32);
+pub struct WICPngChrmProperties(pub i32);
 impl ::core::marker::Copy for WICPngChrmProperties {}
 impl ::core::clone::Clone for WICPngChrmProperties {
     fn clone(&self) -> Self {
@@ -4949,7 +4949,7 @@ impl ::core::fmt::Debug for WICPngFilterOption {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngGamaProperties(pub u32);
+pub struct WICPngGamaProperties(pub i32);
 impl ::core::marker::Copy for WICPngGamaProperties {}
 impl ::core::clone::Clone for WICPngGamaProperties {
     fn clone(&self) -> Self {
@@ -4971,7 +4971,7 @@ impl ::core::fmt::Debug for WICPngGamaProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngHistProperties(pub u32);
+pub struct WICPngHistProperties(pub i32);
 impl ::core::marker::Copy for WICPngHistProperties {}
 impl ::core::clone::Clone for WICPngHistProperties {
     fn clone(&self) -> Self {
@@ -4993,7 +4993,7 @@ impl ::core::fmt::Debug for WICPngHistProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngIccpProperties(pub u32);
+pub struct WICPngIccpProperties(pub i32);
 impl ::core::marker::Copy for WICPngIccpProperties {}
 impl ::core::clone::Clone for WICPngIccpProperties {
     fn clone(&self) -> Self {
@@ -5015,7 +5015,7 @@ impl ::core::fmt::Debug for WICPngIccpProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngItxtProperties(pub u32);
+pub struct WICPngItxtProperties(pub i32);
 impl ::core::marker::Copy for WICPngItxtProperties {}
 impl ::core::clone::Clone for WICPngItxtProperties {
     fn clone(&self) -> Self {
@@ -5037,7 +5037,7 @@ impl ::core::fmt::Debug for WICPngItxtProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngSrgbProperties(pub u32);
+pub struct WICPngSrgbProperties(pub i32);
 impl ::core::marker::Copy for WICPngSrgbProperties {}
 impl ::core::clone::Clone for WICPngSrgbProperties {
     fn clone(&self) -> Self {
@@ -5059,7 +5059,7 @@ impl ::core::fmt::Debug for WICPngSrgbProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICPngTimeProperties(pub u32);
+pub struct WICPngTimeProperties(pub i32);
 impl ::core::marker::Copy for WICPngTimeProperties {}
 impl ::core::clone::Clone for WICPngTimeProperties {
     fn clone(&self) -> Self {
@@ -5213,7 +5213,7 @@ impl ::core::fmt::Debug for WICRawRotationCapabilities {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICSectionAccessLevel(pub u32);
+pub struct WICSectionAccessLevel(pub i32);
 impl ::core::marker::Copy for WICSectionAccessLevel {}
 impl ::core::clone::Clone for WICSectionAccessLevel {
     fn clone(&self) -> Self {
@@ -5257,7 +5257,7 @@ impl ::core::fmt::Debug for WICTiffCompressionOption {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICWebpAnimProperties(pub u32);
+pub struct WICWebpAnimProperties(pub i32);
 impl ::core::marker::Copy for WICWebpAnimProperties {}
 impl ::core::clone::Clone for WICWebpAnimProperties {
     fn clone(&self) -> Self {
@@ -5279,7 +5279,7 @@ impl ::core::fmt::Debug for WICWebpAnimProperties {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WICWebpAnmfProperties(pub u32);
+pub struct WICWebpAnmfProperties(pub i32);
 impl ::core::marker::Copy for WICWebpAnmfProperties {}
 impl ::core::clone::Clone for WICWebpAnmfProperties {
     fn clone(&self) -> Self {

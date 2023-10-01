@@ -219,13 +219,13 @@ pub unsafe fn CM_Enable_DevNode_Ex(dndevinst: u32, ulflags: u32, hmachine: isize
     CM_Enable_DevNode_Ex(dndevinst, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Enumerate_Classes(ulclassindex: u32, classguid: *mut ::windows_core::GUID, ulflags: u32) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Enumerate_Classes(ulclassindex : u32, classguid : *mut ::windows_core::GUID, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_Classes(ulclassindex: u32, classguid: *mut ::windows_core::GUID, ulflags: CM_ENUMERATE_FLAGS) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Enumerate_Classes(ulclassindex : u32, classguid : *mut ::windows_core::GUID, ulflags : CM_ENUMERATE_FLAGS) -> CONFIGRET);
     CM_Enumerate_Classes(ulclassindex, classguid, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windows_core::GUID, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Enumerate_Classes_Ex(ulclassindex : u32, classguid : *mut ::windows_core::GUID, ulflags : u32, hmachine : isize) -> CONFIGRET);
+pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut ::windows_core::GUID, ulflags: CM_ENUMERATE_FLAGS, hmachine: isize) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Enumerate_Classes_Ex(ulclassindex : u32, classguid : *mut ::windows_core::GUID, ulflags : CM_ENUMERATE_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Enumerate_Classes_Ex(ulclassindex, classguid, ulflags, hmachine)
 }
 #[inline]
@@ -477,13 +477,13 @@ pub unsafe fn CM_Get_DevNode_Registry_Property_ExW(dndevinst: u32, ulproperty: u
     CM_Get_DevNode_Registry_Property_ExW(dndevinst, ulproperty, ::core::mem::transmute(pulregdatatype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), pullength, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_DevNode_Status(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Status(pulstatus : *mut u32, pulproblemnumber : *mut u32, dndevinst : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Status(pulstatus: *mut CM_DEVNODE_STATUS_FLAGS, pulproblemnumber: *mut CM_PROB, dndevinst: u32, ulflags: u32) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Status(pulstatus : *mut CM_DEVNODE_STATUS_FLAGS, pulproblemnumber : *mut CM_PROB, dndevinst : u32, ulflags : u32) -> CONFIGRET);
     CM_Get_DevNode_Status(pulstatus, pulproblemnumber, dndevinst, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: *mut u32, pulproblemnumber: *mut u32, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Status_Ex(pulstatus : *mut u32, pulproblemnumber : *mut u32, dndevinst : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
+pub unsafe fn CM_Get_DevNode_Status_Ex(pulstatus: *mut CM_DEVNODE_STATUS_FLAGS, pulproblemnumber: *mut CM_PROB, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_DevNode_Status_Ex(pulstatus : *mut CM_DEVNODE_STATUS_FLAGS, pulproblemnumber : *mut CM_PROB, dndevinst : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_DevNode_Status_Ex(pulstatus, pulproblemnumber, dndevinst, ulflags, hmachine)
 }
 #[inline]
@@ -613,19 +613,19 @@ where
     CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface.into_param().abi(), aliasinterfaceguid, ::core::mem::transmute(pszaliasdeviceinterface), pullength, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListA<P0>(interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, buffer: &mut [u8], ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_ListA<P0>(interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, buffer: &mut [u8], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCSTR, buffer : ::windows_core::PSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListA(interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCSTR, buffer : ::windows_core::PSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_ListA(interfaceclassguid, pdeviceid.into_param().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListW<P0>(interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, buffer: &mut [u16], ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_ListW<P0>(interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, buffer: &mut [u16], ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCWSTR, buffer : ::windows_core::PWSTR, bufferlen : u32, ulflags : u32) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_ListW(interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCWSTR, buffer : ::windows_core::PWSTR, bufferlen : u32, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_ListW(interfaceclassguid, pdeviceid.into_param().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
 }
 #[inline]
@@ -645,35 +645,35 @@ where
     CM_Get_Device_Interface_List_ExW(interfaceclassguid, pdeviceid.into_param().abi(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeA<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_SizeA<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeA(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeA(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_List_SizeA(pullen, interfaceclassguid, pdeviceid.into_param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeW<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_SizeW<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeW(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_SizeW(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCWSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS) -> CONFIGRET);
     CM_Get_Device_Interface_List_SizeW(pullen, interfaceclassguid, pdeviceid.into_param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExA<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExA<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExA(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExA(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_Interface_List_Size_ExA(pullen, interfaceclassguid, pdeviceid.into_param().abi(), ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExW<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExW<P0>(pullen: *mut u32, interfaceclassguid: *const ::windows_core::GUID, pdeviceid: P0, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: isize) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExW(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCWSTR, ulflags : u32, hmachine : isize) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Device_Interface_List_Size_ExW(pullen : *mut u32, interfaceclassguid : *const ::windows_core::GUID, pdeviceid : ::windows_core::PCWSTR, ulflags : CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine : isize) -> CONFIGRET);
     CM_Get_Device_Interface_List_Size_ExW(pullen, interfaceclassguid, pdeviceid.into_param().abi(), ulflags, hmachine)
 }
 #[doc = "Required features: `Win32_Devices_Properties`"]
@@ -717,13 +717,13 @@ where
     CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface.into_param().abi(), ::core::mem::transmute(propertykeyarray.unwrap_or(::std::ptr::null_mut())), propertykeycount, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_First_Log_Conf(plclogconf: ::core::option::Option<*mut usize>, dndevinst: u32, ulflags: u32) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_First_Log_Conf(plclogconf : *mut usize, dndevinst : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_First_Log_Conf(plclogconf: ::core::option::Option<*mut usize>, dndevinst: u32, ulflags: CM_LOG_CONF) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_First_Log_Conf(plclogconf : *mut usize, dndevinst : u32, ulflags : CM_LOG_CONF) -> CONFIGRET);
     CM_Get_First_Log_Conf(::core::mem::transmute(plclogconf.unwrap_or(::std::ptr::null_mut())), dndevinst, ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_First_Log_Conf_Ex(plclogconf: ::core::option::Option<*mut usize>, dndevinst: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_First_Log_Conf_Ex(plclogconf : *mut usize, dndevinst : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
+pub unsafe fn CM_Get_First_Log_Conf_Ex(plclogconf: ::core::option::Option<*mut usize>, dndevinst: u32, ulflags: CM_LOG_CONF, hmachine: isize) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_First_Log_Conf_Ex(plclogconf : *mut usize, dndevinst : u32, ulflags : CM_LOG_CONF, hmachine : isize) -> CONFIGRET);
     CM_Get_First_Log_Conf_Ex(::core::mem::transmute(plclogconf.unwrap_or(::std::ptr::null_mut())), dndevinst, ulflags, hmachine)
 }
 #[inline]
@@ -809,13 +809,13 @@ pub unsafe fn CM_Get_Next_Log_Conf_Ex(plclogconf: ::core::option::Option<*mut us
     CM_Get_Next_Log_Conf_Ex(::core::mem::transmute(plclogconf.unwrap_or(::std::ptr::null_mut())), lclogconf, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Get_Next_Res_Des(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: ::core::option::Option<*mut u32>, ulflags: u32) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Next_Res_Des(prdresdes : *mut usize, rdresdes : usize, forresource : u32, presourceid : *mut u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Get_Next_Res_Des(prdresdes: *mut usize, rdresdes: usize, forresource: CM_RESTYPE, presourceid: ::core::option::Option<*mut CM_RESTYPE>, ulflags: u32) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Next_Res_Des(prdresdes : *mut usize, rdresdes : usize, forresource : CM_RESTYPE, presourceid : *mut CM_RESTYPE, ulflags : u32) -> CONFIGRET);
     CM_Get_Next_Res_Des(prdresdes, rdresdes, forresource, ::core::mem::transmute(presourceid.unwrap_or(::std::ptr::null_mut())), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Get_Next_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, forresource: u32, presourceid: ::core::option::Option<*mut u32>, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Next_Res_Des_Ex(prdresdes : *mut usize, rdresdes : usize, forresource : u32, presourceid : *mut u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
+pub unsafe fn CM_Get_Next_Res_Des_Ex(prdresdes: *mut usize, rdresdes: usize, forresource: CM_RESTYPE, presourceid: ::core::option::Option<*mut CM_RESTYPE>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Get_Next_Res_Des_Ex(prdresdes : *mut usize, rdresdes : usize, forresource : CM_RESTYPE, presourceid : *mut CM_RESTYPE, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Get_Next_Res_Des_Ex(prdresdes, rdresdes, forresource, ::core::mem::transmute(presourceid.unwrap_or(::std::ptr::null_mut())), ulflags, hmachine)
 }
 #[inline]
@@ -922,19 +922,19 @@ pub unsafe fn CM_Is_Version_Available_Ex(wversion: u16, hmachine: isize) -> supe
     CM_Is_Version_Available_Ex(wversion, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Locate_DevNodeA<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Locate_DevNodeA<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNodeA(pdndevinst : *mut u32, pdeviceid : ::windows_core::PCSTR, ulflags : u32) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNodeA(pdndevinst : *mut u32, pdeviceid : ::windows_core::PCSTR, ulflags : CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET);
     CM_Locate_DevNodeA(pdndevinst, pdeviceid.into_param().abi(), ulflags)
 }
 #[inline]
-pub unsafe fn CM_Locate_DevNodeW<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+pub unsafe fn CM_Locate_DevNodeW<P0>(pdndevinst: *mut u32, pdeviceid: P0, ulflags: CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNodeW(pdndevinst : *mut u32, pdeviceid : ::windows_core::PCWSTR, ulflags : u32) -> CONFIGRET);
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Locate_DevNodeW(pdndevinst : *mut u32, pdeviceid : ::windows_core::PCWSTR, ulflags : CM_LOCATE_DEVNODE_FLAGS) -> CONFIGRET);
     CM_Locate_DevNodeW(pdndevinst, pdeviceid.into_param().abi(), ulflags)
 }
 #[inline]
@@ -1133,13 +1133,13 @@ pub unsafe fn CM_Query_Remove_SubTree_Ex(dnancestor: u32, ulflags: u32, hmachine
     CM_Query_Remove_SubTree_Ex(dnancestor, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: u32, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Query_Resource_Conflict_List(pclconflictlist : *mut usize, dndevinst : u32, resourceid : u32, resourcedata : *const ::core::ffi::c_void, resourcelen : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
+pub unsafe fn CM_Query_Resource_Conflict_List(pclconflictlist: *mut usize, dndevinst: u32, resourceid: CM_RESTYPE, resourcedata: *const ::core::ffi::c_void, resourcelen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Query_Resource_Conflict_List(pclconflictlist : *mut usize, dndevinst : u32, resourceid : CM_RESTYPE, resourcedata : *const ::core::ffi::c_void, resourcelen : u32, ulflags : u32, hmachine : isize) -> CONFIGRET);
     CM_Query_Resource_Conflict_List(pclconflictlist, dndevinst, resourceid, resourcedata, resourcelen, ulflags, hmachine)
 }
 #[inline]
-pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: u32) -> CONFIGRET {
-    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Reenumerate_DevNode(dndevinst : u32, ulflags : u32) -> CONFIGRET);
+pub unsafe fn CM_Reenumerate_DevNode(dndevinst: u32, ulflags: CM_REENUMERATE_FLAGS) -> CONFIGRET {
+    ::windows_targets::link!("cfgmgr32.dll" "system" fn CM_Reenumerate_DevNode(dndevinst : u32, ulflags : CM_REENUMERATE_FLAGS) -> CONFIGRET);
     CM_Reenumerate_DevNode(dndevinst, ulflags)
 }
 #[inline]
@@ -1444,45 +1444,45 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiInstallDevice<P0, P1>(hwndparent: P0, deviceinfoset: P1, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: ::core::option::Option<*const SP_DRVINFO_DATA_V2_W>, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn DiInstallDevice<P0, P1>(hwndparent: P0, deviceinfoset: P1, deviceinfodata: *const SP_DEVINFO_DATA, driverinfodata: ::core::option::Option<*const SP_DRVINFO_DATA_V2_W>, flags: DIINSTALLDEVICE_FLAGS, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDevice(hwndparent : super::super::Foundation:: HWND, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : *const SP_DRVINFO_DATA_V2_W, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDevice(hwndparent : super::super::Foundation:: HWND, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, driverinfodata : *const SP_DRVINFO_DATA_V2_W, flags : DIINSTALLDEVICE_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiInstallDevice(hwndparent.into_param().abi(), deviceinfoset.into_param().abi(), deviceinfodata, ::core::mem::transmute(driverinfodata.unwrap_or(::std::ptr::null())), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiInstallDriverA<P0, P1>(hwndparent: P0, infpath: P1, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn DiInstallDriverA<P0, P1>(hwndparent: P0, infpath: P1, flags: DIINSTALLDRIVER_FLAGS, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDriverA(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCSTR, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDriverA(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCSTR, flags : DIINSTALLDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiInstallDriverA(hwndparent.into_param().abi(), infpath.into_param().abi(), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiInstallDriverW<P0, P1>(hwndparent: P0, infpath: P1, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn DiInstallDriverW<P0, P1>(hwndparent: P0, infpath: P1, flags: DIINSTALLDRIVER_FLAGS, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDriverW(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCWSTR, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiInstallDriverW(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCWSTR, flags : DIINSTALLDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiInstallDriverW(hwndparent.into_param().abi(), infpath.into_param().abi(), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiRollbackDriver<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: P1, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn DiRollbackDriver<P0, P1>(deviceinfoset: P0, deviceinfodata: *const SP_DEVINFO_DATA, hwndparent: P1, flags: DIROLLBACKDRIVER_FLAGS, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<HDEVINFO>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiRollbackDriver(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, hwndparent : super::super::Foundation:: HWND, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiRollbackDriver(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, hwndparent : super::super::Foundation:: HWND, flags : DIROLLBACKDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiRollbackDriver(deviceinfoset.into_param().abi(), deviceinfodata, hwndparent.into_param().abi(), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1521,23 +1521,23 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiUninstallDriverA<P0, P1>(hwndparent: P0, infpath: P1, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn DiUninstallDriverA<P0, P1>(hwndparent: P0, infpath: P1, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiUninstallDriverA(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCSTR, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiUninstallDriverA(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCSTR, flags : DIUNINSTALLDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiUninstallDriverA(hwndparent.into_param().abi(), infpath.into_param().abi(), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DiUninstallDriverW<P0, P1>(hwndparent: P0, infpath: P1, flags: u32, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn DiUninstallDriverW<P0, P1>(hwndparent: P0, infpath: P1, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn DiUninstallDriverW(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCWSTR, flags : u32, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn DiUninstallDriverW(hwndparent : super::super::Foundation:: HWND, infpath : ::windows_core::PCWSTR, flags : DIUNINSTALLDRIVER_FLAGS, needreboot : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     DiUninstallDriverW(hwndparent.into_param().abi(), infpath.into_param().abi(), flags, ::core::mem::transmute(needreboot.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1787,23 +1787,23 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCopyOEMInfA<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, destinationinffilenamecomponent: ::core::option::Option<*mut ::windows_core::PSTR>) -> ::windows_core::Result<()>
+pub unsafe fn SetupCopyOEMInfA<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>, destinationinffilenamecomponent: ::core::option::Option<*mut ::windows_core::PSTR>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : ::windows_core::PCSTR, oemsourcemedialocation : ::windows_core::PCSTR, oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE, copystyle : u32, destinationinffilename : ::windows_core::PSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut ::windows_core::PSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupCopyOEMInfA(sourceinffilename : ::windows_core::PCSTR, oemsourcemedialocation : ::windows_core::PCSTR, oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE, copystyle : SP_COPY_STYLE, destinationinffilename : ::windows_core::PSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut ::windows_core::PSTR) -> super::super::Foundation:: BOOL);
     SetupCopyOEMInfA(sourceinffilename.into_param().abi(), oemsourcemedialocation.into_param().abi(), oemsourcemediatype, copystyle, ::core::mem::transmute(destinationinffilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destinationinffilename.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(destinationinffilenamecomponent.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupCopyOEMInfW<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: u32, destinationinffilename: ::core::option::Option<&mut [u16]>, requiredsize: ::core::option::Option<*mut u32>, destinationinffilenamecomponent: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
+pub unsafe fn SetupCopyOEMInfW<P0, P1>(sourceinffilename: P0, oemsourcemedialocation: P1, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: ::core::option::Option<&mut [u16]>, requiredsize: ::core::option::Option<*mut u32>, destinationinffilenamecomponent: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : ::windows_core::PCWSTR, oemsourcemedialocation : ::windows_core::PCWSTR, oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE, copystyle : u32, destinationinffilename : ::windows_core::PWSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut ::windows_core::PWSTR) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupCopyOEMInfW(sourceinffilename : ::windows_core::PCWSTR, oemsourcemedialocation : ::windows_core::PCWSTR, oemsourcemediatype : OEM_SOURCE_MEDIA_TYPE, copystyle : SP_COPY_STYLE, destinationinffilename : ::windows_core::PWSTR, destinationinffilenamesize : u32, requiredsize : *mut u32, destinationinffilenamecomponent : *mut ::windows_core::PWSTR) -> super::super::Foundation:: BOOL);
     SetupCopyOEMInfW(sourceinffilename.into_param().abi(), oemsourcemedialocation.into_param().abi(), oemsourcemediatype, copystyle, ::core::mem::transmute(destinationinffilename.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destinationinffilename.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(destinationinffilenamecomponent.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -3559,21 +3559,21 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupGetInfFileListA<P0>(directorypath: P0, infstyle: u32, returnbuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn SetupGetInfFileListA<P0>(directorypath: P0, infstyle: INF_STYLE, returnbuffer: ::core::option::Option<&mut [u8]>, requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : ::windows_core::PCSTR, infstyle : u32, returnbuffer : ::windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupGetInfFileListA(directorypath : ::windows_core::PCSTR, infstyle : INF_STYLE, returnbuffer : ::windows_core::PSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetInfFileListA(directorypath.into_param().abi(), infstyle, ::core::mem::transmute(returnbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), returnbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupGetInfFileListW<P0>(directorypath: P0, infstyle: u32, returnbuffer: &mut [u16], requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn SetupGetInfFileListW<P0>(directorypath: P0, infstyle: INF_STYLE, returnbuffer: &mut [u16], requiredsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : ::windows_core::PCWSTR, infstyle : u32, returnbuffer : ::windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupGetInfFileListW(directorypath : ::windows_core::PCWSTR, infstyle : INF_STYLE, returnbuffer : ::windows_core::PWSTR, returnbuffersize : u32, requiredsize : *mut u32) -> super::super::Foundation:: BOOL);
     SetupGetInfFileListW(directorypath.into_param().abi(), infstyle, ::core::mem::transmute(returnbuffer.as_ptr()), returnbuffer.len() as _, ::core::mem::transmute(requiredsize.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -3929,43 +3929,43 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionA<P0>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionA<P0>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionA(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionA(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCSTR, flags : SPSVCINST_FLAGS) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionA(infhandle, sectionname.into_param().abi(), flags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionExA<P0, P1>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: u32, deviceinfoset: P1, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, reserved2: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionExA<P0, P1>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS, deviceinfoset: P1, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, reserved2: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const ::core::ffi::c_void, reserved2 : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExA(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCSTR, flags : SPSVCINST_FLAGS, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const ::core::ffi::c_void, reserved2 : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionExA(infhandle, sectionname.into_param().abi(), flags, deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionExW<P0, P1>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: u32, deviceinfoset: P1, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, reserved2: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionExW<P0, P1>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS, deviceinfoset: P1, deviceinfodata: ::core::option::Option<*const SP_DEVINFO_DATA>, reserved1: ::core::option::Option<*const ::core::ffi::c_void>, reserved2: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<HDEVINFO>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCWSTR, flags : u32, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const ::core::ffi::c_void, reserved2 : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionExW(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCWSTR, flags : SPSVCINST_FLAGS, deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, reserved1 : *const ::core::ffi::c_void, reserved2 : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionExW(infhandle, sectionname.into_param().abi(), flags, deviceinfoset.into_param().abi(), ::core::mem::transmute(deviceinfodata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved1.unwrap_or(::std::ptr::null())), ::core::mem::transmute(reserved2.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupInstallServicesFromInfSectionW<P0>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: u32) -> ::windows_core::Result<()>
+pub unsafe fn SetupInstallServicesFromInfSectionW<P0>(infhandle: *const ::core::ffi::c_void, sectionname: P0, flags: SPSVCINST_FLAGS) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionW(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupInstallServicesFromInfSectionW(infhandle : *const ::core::ffi::c_void, sectionname : ::windows_core::PCWSTR, flags : SPSVCINST_FLAGS) -> super::super::Foundation:: BOOL);
     SetupInstallServicesFromInfSectionW(infhandle, sectionname.into_param().abi(), flags).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -4064,21 +4064,21 @@ pub unsafe fn SetupOpenFileQueue() -> *mut ::core::ffi::c_void {
     SetupOpenFileQueue()
 }
 #[inline]
-pub unsafe fn SetupOpenInfFileA<P0, P1>(filename: P0, infclass: P1, infstyle: u32, errorline: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void
+pub unsafe fn SetupOpenInfFileA<P0, P1>(filename: P0, infclass: P1, infstyle: INF_STYLE, errorline: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupOpenInfFileA(filename : ::windows_core::PCSTR, infclass : ::windows_core::PCSTR, infstyle : u32, errorline : *mut u32) -> *mut ::core::ffi::c_void);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupOpenInfFileA(filename : ::windows_core::PCSTR, infclass : ::windows_core::PCSTR, infstyle : INF_STYLE, errorline : *mut u32) -> *mut ::core::ffi::c_void);
     SetupOpenInfFileA(filename.into_param().abi(), infclass.into_param().abi(), infstyle, ::core::mem::transmute(errorline.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn SetupOpenInfFileW<P0, P1>(filename: P0, infclass: P1, infstyle: u32, errorline: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void
+pub unsafe fn SetupOpenInfFileW<P0, P1>(filename: P0, infclass: P1, infstyle: INF_STYLE, errorline: ::core::option::Option<*mut u32>) -> *mut ::core::ffi::c_void
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupOpenInfFileW(filename : ::windows_core::PCWSTR, infclass : ::windows_core::PCWSTR, infstyle : u32, errorline : *mut u32) -> *mut ::core::ffi::c_void);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupOpenInfFileW(filename : ::windows_core::PCWSTR, infclass : ::windows_core::PCWSTR, infstyle : INF_STYLE, errorline : *mut u32) -> *mut ::core::ffi::c_void);
     SetupOpenInfFileW(filename.into_param().abi(), infclass.into_param().abi(), infstyle, ::core::mem::transmute(errorline.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -4586,21 +4586,21 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupScanFileQueueA<P0>(filequeue: *const ::core::ffi::c_void, flags: u32, window: P0, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, result: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn SetupScanFileQueueA<P0>(filequeue: *const ::core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: P0, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, result: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : *const ::core::ffi::c_void, flags : u32, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const ::core::ffi::c_void, result : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupScanFileQueueA(filequeue : *const ::core::ffi::c_void, flags : SETUPSCANFILEQUEUE_FLAGS, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_A, callbackcontext : *const ::core::ffi::c_void, result : *mut u32) -> super::super::Foundation:: BOOL);
     SetupScanFileQueueA(filequeue, flags, window.into_param().abi(), callbackroutine, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupScanFileQueueW<P0>(filequeue: *const ::core::ffi::c_void, flags: u32, window: P0, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, result: *mut u32) -> ::windows_core::Result<()>
+pub unsafe fn SetupScanFileQueueW<P0>(filequeue: *const ::core::ffi::c_void, flags: SETUPSCANFILEQUEUE_FLAGS, window: P0, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, result: *mut u32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : *const ::core::ffi::c_void, flags : u32, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const ::core::ffi::c_void, result : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("setupapi.dll" "system" fn SetupScanFileQueueW(filequeue : *const ::core::ffi::c_void, flags : SETUPSCANFILEQUEUE_FLAGS, window : super::super::Foundation:: HWND, callbackroutine : PSP_FILE_CALLBACK_W, callbackcontext : *const ::core::ffi::c_void, result : *mut u32) -> super::super::Foundation:: BOOL);
     SetupScanFileQueueW(filequeue, flags, window.into_param().abi(), callbackroutine, ::core::mem::transmute(callbackcontext.unwrap_or(::std::ptr::null())), result).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -4802,44 +4802,44 @@ pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *co
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<P0, P1, P2>(hwndparent: P0, hardwareid: P1, fullinfpath: P2, installflags: u32, brebootrequired: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn UpdateDriverForPlugAndPlayDevicesA<P0, P1, P2>(hwndparent: P0, hardwareid: P1, fullinfpath: P2, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesA(hwndparent : super::super::Foundation:: HWND, hardwareid : ::windows_core::PCSTR, fullinfpath : ::windows_core::PCSTR, installflags : u32, brebootrequired : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesA(hwndparent : super::super::Foundation:: HWND, hardwareid : ::windows_core::PCSTR, fullinfpath : ::windows_core::PCSTR, installflags : UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdateDriverForPlugAndPlayDevicesA(hwndparent.into_param().abi(), hardwareid.into_param().abi(), fullinfpath.into_param().abi(), installflags, ::core::mem::transmute(brebootrequired.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<P0, P1, P2>(hwndparent: P0, hardwareid: P1, fullinfpath: P2, installflags: u32, brebootrequired: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
+pub unsafe fn UpdateDriverForPlugAndPlayDevicesW<P0, P1, P2>(hwndparent: P0, hardwareid: P1, fullinfpath: P2, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesW(hwndparent : super::super::Foundation:: HWND, hardwareid : ::windows_core::PCWSTR, fullinfpath : ::windows_core::PCWSTR, installflags : u32, brebootrequired : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("newdev.dll" "system" fn UpdateDriverForPlugAndPlayDevicesW(hwndparent : super::super::Foundation:: HWND, hardwareid : ::windows_core::PCWSTR, fullinfpath : ::windows_core::PCWSTR, installflags : UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     UpdateDriverForPlugAndPlayDevicesW(hwndparent.into_param().abi(), hardwareid.into_param().abi(), fullinfpath.into_param().abi(), installflags, ::core::mem::transmute(brebootrequired.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-pub const ALLOC_LOG_CONF: u32 = 2u32;
-pub const BASIC_LOG_CONF: u32 = 0u32;
-pub const BOOT_LOG_CONF: u32 = 3u32;
+pub const ALLOC_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(2u32);
+pub const BASIC_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(0u32);
+pub const BOOT_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(3u32);
 pub const CM_ADD_ID_BITS: u32 = 1u32;
 pub const CM_ADD_ID_COMPATIBLE: u32 = 1u32;
 pub const CM_ADD_ID_HARDWARE: u32 = 0u32;
 pub const CM_ADD_RANGE_ADDIFCONFLICT: u32 = 0u32;
 pub const CM_ADD_RANGE_BITS: u32 = 1u32;
 pub const CM_ADD_RANGE_DONOTADDIFCONFLICT: u32 = 1u32;
-pub const CM_CDFLAGS_DRIVER: u32 = 1u32;
-pub const CM_CDFLAGS_RESERVED: u32 = 4u32;
-pub const CM_CDFLAGS_ROOT_OWNED: u32 = 2u32;
-pub const CM_CDMASK_DESCRIPTION: u32 = 8u32;
-pub const CM_CDMASK_DEVINST: u32 = 1u32;
-pub const CM_CDMASK_FLAGS: u32 = 4u32;
-pub const CM_CDMASK_RESDES: u32 = 2u32;
-pub const CM_CDMASK_VALID: u32 = 15u32;
+pub const CM_CDFLAGS_DRIVER: CM_CDFLAGS = CM_CDFLAGS(1u32);
+pub const CM_CDFLAGS_RESERVED: CM_CDFLAGS = CM_CDFLAGS(4u32);
+pub const CM_CDFLAGS_ROOT_OWNED: CM_CDFLAGS = CM_CDFLAGS(2u32);
+pub const CM_CDMASK_DESCRIPTION: CM_CDMASK = CM_CDMASK(8u32);
+pub const CM_CDMASK_DEVINST: CM_CDMASK = CM_CDMASK(1u32);
+pub const CM_CDMASK_FLAGS: CM_CDMASK = CM_CDMASK(4u32);
+pub const CM_CDMASK_RESDES: CM_CDMASK = CM_CDMASK(2u32);
+pub const CM_CDMASK_VALID: CM_CDMASK = CM_CDMASK(15u32);
 pub const CM_CLASS_PROPERTY_BITS: u32 = 1u32;
 pub const CM_CLASS_PROPERTY_INSTALLER: u32 = 0u32;
 pub const CM_CLASS_PROPERTY_INTERFACE: u32 = 1u32;
@@ -4875,17 +4875,17 @@ pub const CM_DETECT_CRASHED: u32 = 2u32;
 pub const CM_DETECT_HWPROF_FIRST_BOOT: u32 = 4u32;
 pub const CM_DETECT_NEW_PROFILE: u32 = 1u32;
 pub const CM_DETECT_RUN: u32 = 2147483648u32;
-pub const CM_DEVCAP_DOCKDEVICE: u32 = 8u32;
-pub const CM_DEVCAP_EJECTSUPPORTED: u32 = 2u32;
-pub const CM_DEVCAP_HARDWAREDISABLED: u32 = 256u32;
-pub const CM_DEVCAP_LOCKSUPPORTED: u32 = 1u32;
-pub const CM_DEVCAP_NONDYNAMIC: u32 = 512u32;
-pub const CM_DEVCAP_RAWDEVICEOK: u32 = 64u32;
-pub const CM_DEVCAP_REMOVABLE: u32 = 4u32;
-pub const CM_DEVCAP_SECUREDEVICE: u32 = 1024u32;
-pub const CM_DEVCAP_SILENTINSTALL: u32 = 32u32;
-pub const CM_DEVCAP_SURPRISEREMOVALOK: u32 = 128u32;
-pub const CM_DEVCAP_UNIQUEID: u32 = 16u32;
+pub const CM_DEVCAP_DOCKDEVICE: CM_DEVCAP = CM_DEVCAP(8u32);
+pub const CM_DEVCAP_EJECTSUPPORTED: CM_DEVCAP = CM_DEVCAP(2u32);
+pub const CM_DEVCAP_HARDWAREDISABLED: CM_DEVCAP = CM_DEVCAP(256u32);
+pub const CM_DEVCAP_LOCKSUPPORTED: CM_DEVCAP = CM_DEVCAP(1u32);
+pub const CM_DEVCAP_NONDYNAMIC: CM_DEVCAP = CM_DEVCAP(512u32);
+pub const CM_DEVCAP_RAWDEVICEOK: CM_DEVCAP = CM_DEVCAP(64u32);
+pub const CM_DEVCAP_REMOVABLE: CM_DEVCAP = CM_DEVCAP(4u32);
+pub const CM_DEVCAP_SECUREDEVICE: CM_DEVCAP = CM_DEVCAP(1024u32);
+pub const CM_DEVCAP_SILENTINSTALL: CM_DEVCAP = CM_DEVCAP(32u32);
+pub const CM_DEVCAP_SURPRISEREMOVALOK: CM_DEVCAP = CM_DEVCAP(128u32);
+pub const CM_DEVCAP_UNIQUEID: CM_DEVCAP = CM_DEVCAP(16u32);
 pub const CM_DEVICE_PANEL_EDGE_BOTTOM: u32 = 2u32;
 pub const CM_DEVICE_PANEL_EDGE_LEFT: u32 = 3u32;
 pub const CM_DEVICE_PANEL_EDGE_RIGHT: u32 = 4u32;
@@ -4953,9 +4953,9 @@ pub const CM_DRP_UNUSED0: u32 = 4u32;
 pub const CM_DRP_UNUSED1: u32 = 6u32;
 pub const CM_DRP_UNUSED2: u32 = 7u32;
 pub const CM_DRP_UPPERFILTERS: u32 = 18u32;
-pub const CM_ENUMERATE_CLASSES_BITS: u32 = 1u32;
-pub const CM_ENUMERATE_CLASSES_INSTALLER: u32 = 0u32;
-pub const CM_ENUMERATE_CLASSES_INTERFACE: u32 = 1u32;
+pub const CM_ENUMERATE_CLASSES_BITS: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(1u32);
+pub const CM_ENUMERATE_CLASSES_INSTALLER: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(0u32);
+pub const CM_ENUMERATE_CLASSES_INTERFACE: CM_ENUMERATE_FLAGS = CM_ENUMERATE_FLAGS(1u32);
 pub const CM_GETIDLIST_DONOTGENERATE: u32 = 268435520u32;
 pub const CM_GETIDLIST_FILTER_BITS: u32 = 268435583u32;
 pub const CM_GETIDLIST_FILTER_BUSRELATIONS: u32 = 32u32;
@@ -4968,9 +4968,9 @@ pub const CM_GETIDLIST_FILTER_PRESENT: u32 = 256u32;
 pub const CM_GETIDLIST_FILTER_REMOVALRELATIONS: u32 = 8u32;
 pub const CM_GETIDLIST_FILTER_SERVICE: u32 = 2u32;
 pub const CM_GETIDLIST_FILTER_TRANSPORTRELATIONS: u32 = 128u32;
-pub const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: u32 = 1u32;
-pub const CM_GET_DEVICE_INTERFACE_LIST_BITS: u32 = 1u32;
-pub const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: u32 = 0u32;
+pub const CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(1u32);
+pub const CM_GET_DEVICE_INTERFACE_LIST_BITS: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(1u32);
+pub const CM_GET_DEVICE_INTERFACE_LIST_PRESENT: CM_GET_DEVICE_INTERFACE_LIST_FLAGS = CM_GET_DEVICE_INTERFACE_LIST_FLAGS(0u32);
 pub const CM_GLOBAL_STATE_CAN_DO_UI: u32 = 1u32;
 pub const CM_GLOBAL_STATE_DETECTION_PENDING: u32 = 16u32;
 pub const CM_GLOBAL_STATE_ON_BIG_STACK: u32 = 2u32;
@@ -4980,20 +4980,15 @@ pub const CM_GLOBAL_STATE_SHUTTING_DOWN: u32 = 8u32;
 pub const CM_HWPI_DOCKED: u32 = 2u32;
 pub const CM_HWPI_NOT_DOCKABLE: u32 = 0u32;
 pub const CM_HWPI_UNDOCKED: u32 = 1u32;
-pub const CM_INSTALL_STATE_FAILED_INSTALL: u32 = 2u32;
-pub const CM_INSTALL_STATE_FINISH_INSTALL: u32 = 3u32;
-pub const CM_INSTALL_STATE_INSTALLED: u32 = 0u32;
-pub const CM_INSTALL_STATE_NEEDS_REINSTALL: u32 = 1u32;
-pub const CM_LOCATE_DEVINST_BITS: u32 = 7u32;
-pub const CM_LOCATE_DEVINST_CANCELREMOVE: u32 = 2u32;
-pub const CM_LOCATE_DEVINST_NORMAL: u32 = 0u32;
-pub const CM_LOCATE_DEVINST_NOVALIDATION: u32 = 4u32;
-pub const CM_LOCATE_DEVINST_PHANTOM: u32 = 1u32;
-pub const CM_LOCATE_DEVNODE_BITS: u32 = 7u32;
-pub const CM_LOCATE_DEVNODE_CANCELREMOVE: u32 = 2u32;
-pub const CM_LOCATE_DEVNODE_NORMAL: u32 = 0u32;
-pub const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4u32;
-pub const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1u32;
+pub const CM_INSTALL_STATE_FAILED_INSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(2u32);
+pub const CM_INSTALL_STATE_FINISH_INSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(3u32);
+pub const CM_INSTALL_STATE_INSTALLED: CM_INSTALL_STATE = CM_INSTALL_STATE(0u32);
+pub const CM_INSTALL_STATE_NEEDS_REINSTALL: CM_INSTALL_STATE = CM_INSTALL_STATE(1u32);
+pub const CM_LOCATE_DEVNODE_BITS: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(7u32);
+pub const CM_LOCATE_DEVNODE_CANCELREMOVE: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(2u32);
+pub const CM_LOCATE_DEVNODE_NORMAL: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(0u32);
+pub const CM_LOCATE_DEVNODE_NOVALIDATION: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(4u32);
+pub const CM_LOCATE_DEVNODE_PHANTOM: CM_LOCATE_DEVNODE_FLAGS = CM_LOCATE_DEVNODE_FLAGS(1u32);
 pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
 pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
@@ -5016,73 +5011,73 @@ pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TY
 pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 pub const CM_OPEN_CLASS_KEY_INSTALLER: u32 = 0u32;
 pub const CM_OPEN_CLASS_KEY_INTERFACE: u32 = 1u32;
-pub const CM_PROB_BIOS_TABLE: u32 = 35u32;
-pub const CM_PROB_BOOT_CONFIG_CONFLICT: u32 = 6u32;
-pub const CM_PROB_CANT_SHARE_IRQ: u32 = 30u32;
-pub const CM_PROB_CONSOLE_LOCKED: u32 = 55u32;
-pub const CM_PROB_DEVICE_NOT_THERE: u32 = 24u32;
-pub const CM_PROB_DEVICE_RESET: u32 = 54u32;
-pub const CM_PROB_DEVLOADER_FAILED: u32 = 2u32;
-pub const CM_PROB_DEVLOADER_NOT_FOUND: u32 = 8u32;
-pub const CM_PROB_DEVLOADER_NOT_READY: u32 = 23u32;
-pub const CM_PROB_DISABLED: u32 = 22u32;
-pub const CM_PROB_DISABLED_SERVICE: u32 = 32u32;
-pub const CM_PROB_DRIVER_BLOCKED: u32 = 48u32;
-pub const CM_PROB_DRIVER_FAILED_LOAD: u32 = 39u32;
-pub const CM_PROB_DRIVER_FAILED_PRIOR_UNLOAD: u32 = 38u32;
-pub const CM_PROB_DRIVER_SERVICE_KEY_INVALID: u32 = 40u32;
-pub const CM_PROB_DUPLICATE_DEVICE: u32 = 42u32;
-pub const CM_PROB_ENTRY_IS_WRONG_TYPE: u32 = 4u32;
-pub const CM_PROB_FAILED_ADD: u32 = 31u32;
-pub const CM_PROB_FAILED_DRIVER_ENTRY: u32 = 37u32;
-pub const CM_PROB_FAILED_FILTER: u32 = 7u32;
-pub const CM_PROB_FAILED_INSTALL: u32 = 28u32;
-pub const CM_PROB_FAILED_POST_START: u32 = 43u32;
-pub const CM_PROB_FAILED_START: u32 = 10u32;
-pub const CM_PROB_GUEST_ASSIGNMENT_FAILED: u32 = 57u32;
-pub const CM_PROB_HALTED: u32 = 44u32;
-pub const CM_PROB_HARDWARE_DISABLED: u32 = 29u32;
-pub const CM_PROB_HELD_FOR_EJECT: u32 = 47u32;
-pub const CM_PROB_INVALID_DATA: u32 = 9u32;
-pub const CM_PROB_IRQ_TRANSLATION_FAILED: u32 = 36u32;
-pub const CM_PROB_LACKED_ARBITRATOR: u32 = 5u32;
-pub const CM_PROB_LEGACY_SERVICE_NO_DEVICES: u32 = 41u32;
-pub const CM_PROB_LIAR: u32 = 11u32;
-pub const CM_PROB_MOVED: u32 = 25u32;
-pub const CM_PROB_NEED_CLASS_CONFIG: u32 = 56u32;
-pub const CM_PROB_NEED_RESTART: u32 = 14u32;
-pub const CM_PROB_NORMAL_CONFLICT: u32 = 12u32;
-pub const CM_PROB_NOT_CONFIGURED: u32 = 1u32;
-pub const CM_PROB_NOT_VERIFIED: u32 = 13u32;
-pub const CM_PROB_NO_SOFTCONFIG: u32 = 34u32;
-pub const CM_PROB_NO_VALID_LOG_CONF: u32 = 27u32;
-pub const CM_PROB_OUT_OF_MEMORY: u32 = 3u32;
-pub const CM_PROB_PARTIAL_LOG_CONF: u32 = 16u32;
-pub const CM_PROB_PHANTOM: u32 = 45u32;
-pub const CM_PROB_REENUMERATION: u32 = 15u32;
-pub const CM_PROB_REGISTRY: u32 = 19u32;
-pub const CM_PROB_REGISTRY_TOO_LARGE: u32 = 49u32;
-pub const CM_PROB_REINSTALL: u32 = 18u32;
-pub const CM_PROB_SETPROPERTIES_FAILED: u32 = 50u32;
-pub const CM_PROB_SYSTEM_SHUTDOWN: u32 = 46u32;
-pub const CM_PROB_TOO_EARLY: u32 = 26u32;
-pub const CM_PROB_TRANSLATION_FAILED: u32 = 33u32;
-pub const CM_PROB_UNKNOWN_RESOURCE: u32 = 17u32;
-pub const CM_PROB_UNSIGNED_DRIVER: u32 = 52u32;
-pub const CM_PROB_USED_BY_DEBUGGER: u32 = 53u32;
-pub const CM_PROB_VXDLDR: u32 = 20u32;
-pub const CM_PROB_WAITING_ON_DEPENDENCY: u32 = 51u32;
-pub const CM_PROB_WILL_BE_REMOVED: u32 = 21u32;
+pub const CM_PROB_BIOS_TABLE: CM_PROB = CM_PROB(35u32);
+pub const CM_PROB_BOOT_CONFIG_CONFLICT: CM_PROB = CM_PROB(6u32);
+pub const CM_PROB_CANT_SHARE_IRQ: CM_PROB = CM_PROB(30u32);
+pub const CM_PROB_CONSOLE_LOCKED: CM_PROB = CM_PROB(55u32);
+pub const CM_PROB_DEVICE_NOT_THERE: CM_PROB = CM_PROB(24u32);
+pub const CM_PROB_DEVICE_RESET: CM_PROB = CM_PROB(54u32);
+pub const CM_PROB_DEVLOADER_FAILED: CM_PROB = CM_PROB(2u32);
+pub const CM_PROB_DEVLOADER_NOT_FOUND: CM_PROB = CM_PROB(8u32);
+pub const CM_PROB_DEVLOADER_NOT_READY: CM_PROB = CM_PROB(23u32);
+pub const CM_PROB_DISABLED: CM_PROB = CM_PROB(22u32);
+pub const CM_PROB_DISABLED_SERVICE: CM_PROB = CM_PROB(32u32);
+pub const CM_PROB_DRIVER_BLOCKED: CM_PROB = CM_PROB(48u32);
+pub const CM_PROB_DRIVER_FAILED_LOAD: CM_PROB = CM_PROB(39u32);
+pub const CM_PROB_DRIVER_FAILED_PRIOR_UNLOAD: CM_PROB = CM_PROB(38u32);
+pub const CM_PROB_DRIVER_SERVICE_KEY_INVALID: CM_PROB = CM_PROB(40u32);
+pub const CM_PROB_DUPLICATE_DEVICE: CM_PROB = CM_PROB(42u32);
+pub const CM_PROB_ENTRY_IS_WRONG_TYPE: CM_PROB = CM_PROB(4u32);
+pub const CM_PROB_FAILED_ADD: CM_PROB = CM_PROB(31u32);
+pub const CM_PROB_FAILED_DRIVER_ENTRY: CM_PROB = CM_PROB(37u32);
+pub const CM_PROB_FAILED_FILTER: CM_PROB = CM_PROB(7u32);
+pub const CM_PROB_FAILED_INSTALL: CM_PROB = CM_PROB(28u32);
+pub const CM_PROB_FAILED_POST_START: CM_PROB = CM_PROB(43u32);
+pub const CM_PROB_FAILED_START: CM_PROB = CM_PROB(10u32);
+pub const CM_PROB_GUEST_ASSIGNMENT_FAILED: CM_PROB = CM_PROB(57u32);
+pub const CM_PROB_HALTED: CM_PROB = CM_PROB(44u32);
+pub const CM_PROB_HARDWARE_DISABLED: CM_PROB = CM_PROB(29u32);
+pub const CM_PROB_HELD_FOR_EJECT: CM_PROB = CM_PROB(47u32);
+pub const CM_PROB_INVALID_DATA: CM_PROB = CM_PROB(9u32);
+pub const CM_PROB_IRQ_TRANSLATION_FAILED: CM_PROB = CM_PROB(36u32);
+pub const CM_PROB_LACKED_ARBITRATOR: CM_PROB = CM_PROB(5u32);
+pub const CM_PROB_LEGACY_SERVICE_NO_DEVICES: CM_PROB = CM_PROB(41u32);
+pub const CM_PROB_LIAR: CM_PROB = CM_PROB(11u32);
+pub const CM_PROB_MOVED: CM_PROB = CM_PROB(25u32);
+pub const CM_PROB_NEED_CLASS_CONFIG: CM_PROB = CM_PROB(56u32);
+pub const CM_PROB_NEED_RESTART: CM_PROB = CM_PROB(14u32);
+pub const CM_PROB_NORMAL_CONFLICT: CM_PROB = CM_PROB(12u32);
+pub const CM_PROB_NOT_CONFIGURED: CM_PROB = CM_PROB(1u32);
+pub const CM_PROB_NOT_VERIFIED: CM_PROB = CM_PROB(13u32);
+pub const CM_PROB_NO_SOFTCONFIG: CM_PROB = CM_PROB(34u32);
+pub const CM_PROB_NO_VALID_LOG_CONF: CM_PROB = CM_PROB(27u32);
+pub const CM_PROB_OUT_OF_MEMORY: CM_PROB = CM_PROB(3u32);
+pub const CM_PROB_PARTIAL_LOG_CONF: CM_PROB = CM_PROB(16u32);
+pub const CM_PROB_PHANTOM: CM_PROB = CM_PROB(45u32);
+pub const CM_PROB_REENUMERATION: CM_PROB = CM_PROB(15u32);
+pub const CM_PROB_REGISTRY: CM_PROB = CM_PROB(19u32);
+pub const CM_PROB_REGISTRY_TOO_LARGE: CM_PROB = CM_PROB(49u32);
+pub const CM_PROB_REINSTALL: CM_PROB = CM_PROB(18u32);
+pub const CM_PROB_SETPROPERTIES_FAILED: CM_PROB = CM_PROB(50u32);
+pub const CM_PROB_SYSTEM_SHUTDOWN: CM_PROB = CM_PROB(46u32);
+pub const CM_PROB_TOO_EARLY: CM_PROB = CM_PROB(26u32);
+pub const CM_PROB_TRANSLATION_FAILED: CM_PROB = CM_PROB(33u32);
+pub const CM_PROB_UNKNOWN_RESOURCE: CM_PROB = CM_PROB(17u32);
+pub const CM_PROB_UNSIGNED_DRIVER: CM_PROB = CM_PROB(52u32);
+pub const CM_PROB_USED_BY_DEBUGGER: CM_PROB = CM_PROB(53u32);
+pub const CM_PROB_VXDLDR: CM_PROB = CM_PROB(20u32);
+pub const CM_PROB_WAITING_ON_DEPENDENCY: CM_PROB = CM_PROB(51u32);
+pub const CM_PROB_WILL_BE_REMOVED: CM_PROB = CM_PROB(21u32);
 pub const CM_QUERY_ARBITRATOR_BITS: u32 = 1u32;
 pub const CM_QUERY_ARBITRATOR_RAW: u32 = 0u32;
 pub const CM_QUERY_ARBITRATOR_TRANSLATED: u32 = 1u32;
 pub const CM_QUERY_REMOVE_UI_NOT_OK: u32 = 1u32;
 pub const CM_QUERY_REMOVE_UI_OK: u32 = 0u32;
-pub const CM_REENUMERATE_ASYNCHRONOUS: u32 = 4u32;
-pub const CM_REENUMERATE_BITS: u32 = 7u32;
-pub const CM_REENUMERATE_NORMAL: u32 = 0u32;
-pub const CM_REENUMERATE_RETRY_INSTALLATION: u32 = 2u32;
-pub const CM_REENUMERATE_SYNCHRONOUS: u32 = 1u32;
+pub const CM_REENUMERATE_ASYNCHRONOUS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(4u32);
+pub const CM_REENUMERATE_BITS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(7u32);
+pub const CM_REENUMERATE_NORMAL: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(0u32);
+pub const CM_REENUMERATE_RETRY_INSTALLATION: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(2u32);
+pub const CM_REENUMERATE_SYNCHRONOUS: CM_REENUMERATE_FLAGS = CM_REENUMERATE_FLAGS(1u32);
 pub const CM_REGISTER_DEVICE_DRIVER_BITS: u32 = 3u32;
 pub const CM_REGISTER_DEVICE_DRIVER_DISABLEABLE: u32 = 1u32;
 pub const CM_REGISTER_DEVICE_DRIVER_REMOVABLE: u32 = 2u32;
@@ -5092,9 +5087,9 @@ pub const CM_REGISTRY_CONFIG: u32 = 512u32;
 pub const CM_REGISTRY_HARDWARE: u32 = 0u32;
 pub const CM_REGISTRY_SOFTWARE: u32 = 1u32;
 pub const CM_REGISTRY_USER: u32 = 256u32;
-pub const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: u32 = 1u32;
-pub const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: u32 = 2u32;
-pub const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: u32 = 3u32;
+pub const CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(1u32);
+pub const CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(2u32);
+pub const CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL: CM_REMOVAL_POLICY = CM_REMOVAL_POLICY(3u32);
 pub const CM_REMOVE_BITS: u32 = 7u32;
 pub const CM_REMOVE_DISABLE: u32 = 4u32;
 pub const CM_REMOVE_NO_RESTART: u32 = 2u32;
@@ -5276,18 +5271,20 @@ pub const DIGCF_DEVICEINTERFACE: u32 = 16u32;
 pub const DIGCF_INTERFACEDEVICE: u32 = 16u32;
 pub const DIGCF_PRESENT: u32 = 2u32;
 pub const DIGCF_PROFILE: u32 = 8u32;
-pub const DIIDFLAG_BITS: u32 = 15u32;
-pub const DIIDFLAG_INSTALLCOPYINFDRIVERS: u32 = 8u32;
-pub const DIIDFLAG_INSTALLNULLDRIVER: u32 = 4u32;
-pub const DIIDFLAG_NOFINISHINSTALLUI: u32 = 2u32;
-pub const DIIDFLAG_SHOWSEARCHUI: u32 = 1u32;
-pub const DIIRFLAG_FORCE_INF: u32 = 2u32;
-pub const DIIRFLAG_HOTPATCH: u32 = 8u32;
-pub const DIIRFLAG_HW_USING_THE_INF: u32 = 4u32;
-pub const DIIRFLAG_INF_ALREADY_COPIED: u32 = 1u32;
-pub const DIIRFLAG_INSTALL_AS_SET: u32 = 64u32;
-pub const DIIRFLAG_NOBACKUP: u32 = 16u32;
-pub const DIIRFLAG_PRE_CONFIGURE_INF: u32 = 32u32;
+pub const DIIDFLAG_BITS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(15u32);
+pub const DIIDFLAG_INSTALLCOPYINFDRIVERS: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(8u32);
+pub const DIIDFLAG_INSTALLNULLDRIVER: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(4u32);
+pub const DIIDFLAG_NOFINISHINSTALLUI: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(2u32);
+pub const DIIDFLAG_SHOWSEARCHUI: DIINSTALLDEVICE_FLAGS = DIINSTALLDEVICE_FLAGS(1u32);
+pub const DIIRFLAG_BITS: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(106u32);
+pub const DIIRFLAG_FORCE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(2u32);
+pub const DIIRFLAG_HOTPATCH: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(8u32);
+pub const DIIRFLAG_HW_USING_THE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(4u32);
+pub const DIIRFLAG_INF_ALREADY_COPIED: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(1u32);
+pub const DIIRFLAG_INSTALL_AS_SET: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(64u32);
+pub const DIIRFLAG_NOBACKUP: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(16u32);
+pub const DIIRFLAG_PRE_CONFIGURE_INF: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(32u32);
+pub const DIIRFLAG_SYSTEM_BITS: DIINSTALLDRIVER_FLAGS = DIINSTALLDRIVER_FLAGS(127u32);
 pub const DIOCR_INSTALLER: u32 = 1u32;
 pub const DIOCR_INTERFACE: u32 = 2u32;
 pub const DIODI_NO_ADD: u32 = 1u32;
@@ -5334,8 +5331,9 @@ pub const DIRID_USER: u32 = 32768u32;
 pub const DIRID_USERPROFILE: u32 = 53u32;
 pub const DIRID_VIEWERS: u32 = 21u32;
 pub const DIRID_WINDOWS: u32 = 10u32;
-pub const DIURFLAG_NO_REMOVE_INF: u32 = 1u32;
-pub const DIURFLAG_RESERVED: u32 = 2u32;
+pub const DIURFLAG_NO_REMOVE_INF: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(1u32);
+pub const DIURFLAG_RESERVED: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(2u32);
+pub const DIURFLAG_VALID: DIUNINSTALLDRIVER_FLAGS = DIUNINSTALLDRIVER_FLAGS(3u32);
 pub const DI_AUTOASSIGNRES: i32 = 64i32;
 pub const DI_CLASSINSTALLPARAMS: i32 = 1048576i32;
 pub const DI_COMPAT_FROM_CLASS: i32 = 524288i32;
@@ -5438,45 +5436,46 @@ pub const DNF_UNUSED_28: u32 = 268435456u32;
 pub const DNF_UNUSED_29: u32 = 536870912u32;
 pub const DNF_UNUSED_30: u32 = 1073741824u32;
 pub const DNF_UNUSED_31: u32 = 2147483648u32;
-pub const DN_APM_DRIVER: u32 = 268435456u32;
-pub const DN_APM_ENUMERATOR: u32 = 134217728u32;
-pub const DN_ARM_WAKEUP: u32 = 67108864u32;
-pub const DN_BAD_PARTIAL: u32 = 4194304u32;
-pub const DN_BOOT_LOG_PROB: u32 = 2147483648u32;
-pub const DN_CHILD_WITH_INVALID_ID: u32 = 512u32;
-pub const DN_DEVICE_DISCONNECTED: u32 = 33554432u32;
-pub const DN_DISABLEABLE: u32 = 8192u32;
-pub const DN_DRIVER_BLOCKED: u32 = 64u32;
-pub const DN_DRIVER_LOADED: u32 = 2u32;
-pub const DN_ENUM_LOADED: u32 = 4u32;
-pub const DN_FILTERED: u32 = 2048u32;
-pub const DN_HARDWARE_ENUM: u32 = 128u32;
-pub const DN_HAS_MARK: u32 = 512u32;
-pub const DN_HAS_PROBLEM: u32 = 1024u32;
-pub const DN_LEGACY_DRIVER: u32 = 4096u32;
-pub const DN_LIAR: u32 = 256u32;
-pub const DN_MANUAL: u32 = 16u32;
-pub const DN_MF_CHILD: u32 = 131072u32;
-pub const DN_MF_PARENT: u32 = 65536u32;
-pub const DN_MOVED: u32 = 4096u32;
-pub const DN_NEEDS_LOCKING: u32 = 33554432u32;
-pub const DN_NEED_RESTART: u32 = 256u32;
-pub const DN_NEED_TO_ENUM: u32 = 32u32;
-pub const DN_NOT_FIRST_TIME: u32 = 64u32;
-pub const DN_NOT_FIRST_TIMEE: u32 = 524288u32;
-pub const DN_NO_SHOW_IN_DM: u32 = 1073741824u32;
-pub const DN_NT_DRIVER: u32 = 16777216u32;
-pub const DN_NT_ENUMERATOR: u32 = 8388608u32;
-pub const DN_PRIVATE_PROBLEM: u32 = 32768u32;
-pub const DN_QUERY_REMOVE_ACTIVE: u32 = 131072u32;
-pub const DN_QUERY_REMOVE_PENDING: u32 = 65536u32;
-pub const DN_REBAL_CANDIDATE: u32 = 2097152u32;
-pub const DN_REMOVABLE: u32 = 16384u32;
-pub const DN_ROOT_ENUMERATED: u32 = 1u32;
-pub const DN_SILENT_INSTALL: u32 = 536870912u32;
-pub const DN_STARTED: u32 = 8u32;
-pub const DN_STOP_FREE_RES: u32 = 1048576u32;
-pub const DN_WILL_BE_REMOVED: u32 = 262144u32;
+pub const DN_APM_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(268435456u32);
+pub const DN_APM_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(134217728u32);
+pub const DN_ARM_WAKEUP: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(67108864u32);
+pub const DN_BAD_PARTIAL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4194304u32);
+pub const DN_BOOT_LOG_PROB: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2147483648u32);
+pub const DN_CHANGEABLE_FLAGS: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1639670464u32);
+pub const DN_CHILD_WITH_INVALID_ID: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(512u32);
+pub const DN_DEVICE_DISCONNECTED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(33554432u32);
+pub const DN_DISABLEABLE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8192u32);
+pub const DN_DRIVER_BLOCKED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(64u32);
+pub const DN_DRIVER_LOADED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2u32);
+pub const DN_ENUM_LOADED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4u32);
+pub const DN_FILTERED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2048u32);
+pub const DN_HARDWARE_ENUM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(128u32);
+pub const DN_HAS_MARK: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(512u32);
+pub const DN_HAS_PROBLEM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1024u32);
+pub const DN_LEGACY_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4096u32);
+pub const DN_LIAR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(256u32);
+pub const DN_MANUAL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16u32);
+pub const DN_MF_CHILD: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(131072u32);
+pub const DN_MF_PARENT: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(65536u32);
+pub const DN_MOVED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(4096u32);
+pub const DN_NEEDS_LOCKING: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(33554432u32);
+pub const DN_NEED_RESTART: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(256u32);
+pub const DN_NEED_TO_ENUM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(32u32);
+pub const DN_NOT_FIRST_TIME: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(64u32);
+pub const DN_NOT_FIRST_TIMEE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(524288u32);
+pub const DN_NO_SHOW_IN_DM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1073741824u32);
+pub const DN_NT_DRIVER: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16777216u32);
+pub const DN_NT_ENUMERATOR: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8388608u32);
+pub const DN_PRIVATE_PROBLEM: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(32768u32);
+pub const DN_QUERY_REMOVE_ACTIVE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(131072u32);
+pub const DN_QUERY_REMOVE_PENDING: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(65536u32);
+pub const DN_REBAL_CANDIDATE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(2097152u32);
+pub const DN_REMOVABLE: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(16384u32);
+pub const DN_ROOT_ENUMERATED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1u32);
+pub const DN_SILENT_INSTALL: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(536870912u32);
+pub const DN_STARTED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(8u32);
+pub const DN_STOP_FREE_RES: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(1048576u32);
+pub const DN_WILL_BE_REMOVED: CM_DEVNODE_STATUS_FLAGS = CM_DEVNODE_STATUS_FLAGS(262144u32);
 pub const DPROMPT_BUFFERTOOSMALL: u32 = 3u32;
 pub const DPROMPT_CANCEL: u32 = 1u32;
 pub const DPROMPT_OUTOFMEMORY: u32 = 4u32;
@@ -5512,7 +5511,7 @@ pub const FILE_COMPRESSION_MSZIP: u32 = 2u32;
 pub const FILE_COMPRESSION_NONE: u32 = 0u32;
 pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
 pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
-pub const FILTERED_LOG_CONF: u32 = 1u32;
+pub const FILTERED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(1u32);
 pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
 pub const FLG_ADDPROPERTY_APPEND: u32 = 4u32;
 pub const FLG_ADDPROPERTY_NOCLOBBER: u32 = 1u32;
@@ -5552,7 +5551,7 @@ pub const FLG_PROFITEM_DELETE: u32 = 2u32;
 pub const FLG_PROFITEM_GROUP: u32 = 4u32;
 pub const FLG_REGSVR_DLLINSTALL: u32 = 2u32;
 pub const FLG_REGSVR_DLLREGISTER: u32 = 1u32;
-pub const FORCED_LOG_CONF: u32 = 4u32;
+pub const FORCED_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(4u32);
 pub const GUID_ACPI_CMOS_INTERFACE_STANDARD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a8d0384_6505_40ca_bc39_56c15f8c5fed);
 pub const GUID_ACPI_INTERFACE_STANDARD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb091a08a_ba97_11d0_bd14_00aa00b7b32a);
 pub const GUID_ACPI_INTERFACE_STANDARD2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8695f63_1831_4870_a8cf_9c2f03f9dcb5);
@@ -5963,16 +5962,16 @@ pub const INFSTR_SUBKEY_POSSIBLEDUPS: ::windows_core::PCWSTR = ::windows_core::w
 pub const INFSTR_SUBKEY_SERVICES: ::windows_core::PCWSTR = ::windows_core::w!("Services");
 pub const INFSTR_SUBKEY_SOFTWARE: ::windows_core::PCWSTR = ::windows_core::w!("Software");
 pub const INFSTR_SUBKEY_WMI: ::windows_core::PCWSTR = ::windows_core::w!("WMI");
-pub const INF_STYLE_CACHE_DISABLE: u32 = 32u32;
-pub const INF_STYLE_CACHE_ENABLE: u32 = 16u32;
-pub const INF_STYLE_CACHE_IGNORE: u32 = 64u32;
-pub const INF_STYLE_NONE: SP_INF_STYLE = SP_INF_STYLE(0u32);
-pub const INF_STYLE_OLDNT: SP_INF_STYLE = SP_INF_STYLE(1u32);
-pub const INF_STYLE_WIN4: SP_INF_STYLE = SP_INF_STYLE(2u32);
-pub const INSTALLFLAG_BITS: u32 = 7u32;
-pub const INSTALLFLAG_FORCE: u32 = 1u32;
-pub const INSTALLFLAG_NONINTERACTIVE: u32 = 4u32;
-pub const INSTALLFLAG_READONLY: u32 = 2u32;
+pub const INF_STYLE_CACHE_DISABLE: INF_STYLE = INF_STYLE(32u32);
+pub const INF_STYLE_CACHE_ENABLE: INF_STYLE = INF_STYLE(16u32);
+pub const INF_STYLE_CACHE_IGNORE: INF_STYLE = INF_STYLE(64u32);
+pub const INF_STYLE_NONE: INF_STYLE = INF_STYLE(0u32);
+pub const INF_STYLE_OLDNT: INF_STYLE = INF_STYLE(1u32);
+pub const INF_STYLE_WIN4: INF_STYLE = INF_STYLE(2u32);
+pub const INSTALLFLAG_BITS: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(7u32);
+pub const INSTALLFLAG_FORCE: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(1u32);
+pub const INSTALLFLAG_NONINTERACTIVE: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(4u32);
+pub const INSTALLFLAG_READONLY: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS = UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(2u32);
 pub const IOA_Local: u32 = 255u32;
 pub const IO_ALIAS_10_BIT_DECODE: u32 = 4u32;
 pub const IO_ALIAS_12_BIT_DECODE: u32 = 16u32;
@@ -6051,8 +6050,8 @@ pub const NUM_CM_PROB_V7: u32 = 55u32;
 pub const NUM_CM_PROB_V8: u32 = 57u32;
 pub const NUM_CM_PROB_V9: u32 = 58u32;
 pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
-pub const NUM_LOG_CONF: u32 = 6u32;
-pub const OVERRIDE_LOG_CONF: u32 = 5u32;
+pub const NUM_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(6u32);
+pub const OVERRIDE_LOG_CONF: CM_LOG_CONF = CM_LOG_CONF(5u32);
 pub const PCD_MAX_IO: u32 = 2u32;
 pub const PCD_MAX_MEMORY: u32 = 2u32;
 pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
@@ -6072,28 +6071,28 @@ pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
-pub const ROLLBACK_BITS: u32 = 1u32;
-pub const ROLLBACK_FLAG_NO_UI: u32 = 1u32;
+pub const ROLLBACK_BITS: DIROLLBACKDRIVER_FLAGS = DIROLLBACKDRIVER_FLAGS(1u32);
+pub const ROLLBACK_FLAG_NO_UI: DIROLLBACKDRIVER_FLAGS = DIROLLBACKDRIVER_FLAGS(1u32);
 pub const RegDisposition_Bits: u32 = 1u32;
 pub const RegDisposition_OpenAlways: u32 = 0u32;
 pub const RegDisposition_OpenExisting: u32 = 1u32;
-pub const ResType_All: u32 = 0u32;
-pub const ResType_BusNumber: u32 = 6u32;
-pub const ResType_ClassSpecific: u32 = 65535u32;
-pub const ResType_Connection: u32 = 32772u32;
-pub const ResType_DMA: u32 = 3u32;
-pub const ResType_DevicePrivate: u32 = 32769u32;
-pub const ResType_DoNotUse: u32 = 5u32;
-pub const ResType_IO: u32 = 2u32;
-pub const ResType_IRQ: u32 = 4u32;
-pub const ResType_Ignored_Bit: u32 = 32768u32;
-pub const ResType_MAX: u32 = 7u32;
-pub const ResType_Mem: u32 = 1u32;
-pub const ResType_MemLarge: u32 = 7u32;
-pub const ResType_MfCardConfig: u32 = 32771u32;
-pub const ResType_None: u32 = 0u32;
-pub const ResType_PcCardConfig: u32 = 32770u32;
-pub const ResType_Reserved: u32 = 32768u32;
+pub const ResType_All: CM_RESTYPE = CM_RESTYPE(0u32);
+pub const ResType_BusNumber: CM_RESTYPE = CM_RESTYPE(6u32);
+pub const ResType_ClassSpecific: CM_RESTYPE = CM_RESTYPE(65535u32);
+pub const ResType_Connection: CM_RESTYPE = CM_RESTYPE(32772u32);
+pub const ResType_DMA: CM_RESTYPE = CM_RESTYPE(3u32);
+pub const ResType_DevicePrivate: CM_RESTYPE = CM_RESTYPE(32769u32);
+pub const ResType_DoNotUse: CM_RESTYPE = CM_RESTYPE(5u32);
+pub const ResType_IO: CM_RESTYPE = CM_RESTYPE(2u32);
+pub const ResType_IRQ: CM_RESTYPE = CM_RESTYPE(4u32);
+pub const ResType_Ignored_Bit: CM_RESTYPE = CM_RESTYPE(32768u32);
+pub const ResType_MAX: CM_RESTYPE = CM_RESTYPE(7u32);
+pub const ResType_Mem: CM_RESTYPE = CM_RESTYPE(1u32);
+pub const ResType_MemLarge: CM_RESTYPE = CM_RESTYPE(7u32);
+pub const ResType_MfCardConfig: CM_RESTYPE = CM_RESTYPE(32771u32);
+pub const ResType_None: CM_RESTYPE = CM_RESTYPE(0u32);
+pub const ResType_PcCardConfig: CM_RESTYPE = CM_RESTYPE(32770u32);
+pub const ResType_Reserved: CM_RESTYPE = CM_RESTYPE(32768u32);
 pub const SCWMI_CLOBBER_SECURITY: u32 = 1u32;
 pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240u32;
@@ -6231,17 +6230,17 @@ pub const SPQ_FLAG_BACKUP_AWARE: u32 = 1u32;
 pub const SPQ_FLAG_DO_SHUFFLEMOVE: u32 = 8u32;
 pub const SPQ_FLAG_FILES_MODIFIED: u32 = 4u32;
 pub const SPQ_FLAG_VALID: u32 = 15u32;
-pub const SPQ_SCAN_ACTIVATE_DRP: u32 = 1024u32;
-pub const SPQ_SCAN_FILE_COMPARISON: u32 = 512u32;
-pub const SPQ_SCAN_FILE_PRESENCE: u32 = 1u32;
-pub const SPQ_SCAN_FILE_PRESENCE_WITHOUT_SOURCE: u32 = 256u32;
-pub const SPQ_SCAN_FILE_VALIDITY: u32 = 2u32;
-pub const SPQ_SCAN_INFORM_USER: u32 = 16u32;
-pub const SPQ_SCAN_PRUNE_COPY_QUEUE: u32 = 32u32;
-pub const SPQ_SCAN_PRUNE_DELREN: u32 = 128u32;
-pub const SPQ_SCAN_USE_CALLBACK: u32 = 4u32;
-pub const SPQ_SCAN_USE_CALLBACKEX: u32 = 8u32;
-pub const SPQ_SCAN_USE_CALLBACK_SIGNERINFO: u32 = 64u32;
+pub const SPQ_SCAN_ACTIVATE_DRP: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(1024u32);
+pub const SPQ_SCAN_FILE_COMPARISON: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(512u32);
+pub const SPQ_SCAN_FILE_PRESENCE: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(1u32);
+pub const SPQ_SCAN_FILE_PRESENCE_WITHOUT_SOURCE: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(256u32);
+pub const SPQ_SCAN_FILE_VALIDITY: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(2u32);
+pub const SPQ_SCAN_INFORM_USER: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(16u32);
+pub const SPQ_SCAN_PRUNE_COPY_QUEUE: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(32u32);
+pub const SPQ_SCAN_PRUNE_DELREN: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(128u32);
+pub const SPQ_SCAN_USE_CALLBACK: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(4u32);
+pub const SPQ_SCAN_USE_CALLBACKEX: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(8u32);
+pub const SPQ_SCAN_USE_CALLBACK_SIGNERINFO: SETUPSCANFILEQUEUE_FLAGS = SETUPSCANFILEQUEUE_FLAGS(64u32);
 pub const SPRDI_FIND_DUPS: u32 = 1u32;
 pub const SPREG_DLLINSTALL: u32 = 4u32;
 pub const SPREG_GETPROCADDR: u32 = 2u32;
@@ -6250,24 +6249,24 @@ pub const SPREG_REGSVR: u32 = 3u32;
 pub const SPREG_SUCCESS: u32 = 0u32;
 pub const SPREG_TIMEOUT: u32 = 5u32;
 pub const SPREG_UNKNOWN: u32 = 4294967295u32;
-pub const SPSVCINST_ASSOCSERVICE: u32 = 2u32;
-pub const SPSVCINST_CLOBBER_SECURITY: u32 = 1024u32;
-pub const SPSVCINST_DELETEEVENTLOGENTRY: u32 = 4u32;
-pub const SPSVCINST_NOCLOBBER_DELAYEDAUTOSTART: u32 = 32768u32;
-pub const SPSVCINST_NOCLOBBER_DEPENDENCIES: u32 = 128u32;
-pub const SPSVCINST_NOCLOBBER_DESCRIPTION: u32 = 256u32;
-pub const SPSVCINST_NOCLOBBER_DISPLAYNAME: u32 = 8u32;
-pub const SPSVCINST_NOCLOBBER_ERRORCONTROL: u32 = 32u32;
-pub const SPSVCINST_NOCLOBBER_FAILUREACTIONS: u32 = 131072u32;
-pub const SPSVCINST_NOCLOBBER_LOADORDERGROUP: u32 = 64u32;
-pub const SPSVCINST_NOCLOBBER_REQUIREDPRIVILEGES: u32 = 4096u32;
-pub const SPSVCINST_NOCLOBBER_SERVICESIDTYPE: u32 = 16384u32;
-pub const SPSVCINST_NOCLOBBER_STARTTYPE: u32 = 16u32;
-pub const SPSVCINST_NOCLOBBER_TRIGGERS: u32 = 8192u32;
-pub const SPSVCINST_STARTSERVICE: u32 = 2048u32;
-pub const SPSVCINST_STOPSERVICE: u32 = 512u32;
-pub const SPSVCINST_TAGTOFRONT: u32 = 1u32;
-pub const SPSVCINST_UNIQUE_NAME: u32 = 65536u32;
+pub const SPSVCINST_ASSOCSERVICE: SPSVCINST_FLAGS = SPSVCINST_FLAGS(2u32);
+pub const SPSVCINST_CLOBBER_SECURITY: SPSVCINST_FLAGS = SPSVCINST_FLAGS(1024u32);
+pub const SPSVCINST_DELETEEVENTLOGENTRY: SPSVCINST_FLAGS = SPSVCINST_FLAGS(4u32);
+pub const SPSVCINST_NOCLOBBER_DELAYEDAUTOSTART: SPSVCINST_FLAGS = SPSVCINST_FLAGS(32768u32);
+pub const SPSVCINST_NOCLOBBER_DEPENDENCIES: SPSVCINST_FLAGS = SPSVCINST_FLAGS(128u32);
+pub const SPSVCINST_NOCLOBBER_DESCRIPTION: SPSVCINST_FLAGS = SPSVCINST_FLAGS(256u32);
+pub const SPSVCINST_NOCLOBBER_DISPLAYNAME: SPSVCINST_FLAGS = SPSVCINST_FLAGS(8u32);
+pub const SPSVCINST_NOCLOBBER_ERRORCONTROL: SPSVCINST_FLAGS = SPSVCINST_FLAGS(32u32);
+pub const SPSVCINST_NOCLOBBER_FAILUREACTIONS: SPSVCINST_FLAGS = SPSVCINST_FLAGS(131072u32);
+pub const SPSVCINST_NOCLOBBER_LOADORDERGROUP: SPSVCINST_FLAGS = SPSVCINST_FLAGS(64u32);
+pub const SPSVCINST_NOCLOBBER_REQUIREDPRIVILEGES: SPSVCINST_FLAGS = SPSVCINST_FLAGS(4096u32);
+pub const SPSVCINST_NOCLOBBER_SERVICESIDTYPE: SPSVCINST_FLAGS = SPSVCINST_FLAGS(16384u32);
+pub const SPSVCINST_NOCLOBBER_STARTTYPE: SPSVCINST_FLAGS = SPSVCINST_FLAGS(16u32);
+pub const SPSVCINST_NOCLOBBER_TRIGGERS: SPSVCINST_FLAGS = SPSVCINST_FLAGS(8192u32);
+pub const SPSVCINST_STARTSERVICE: SPSVCINST_FLAGS = SPSVCINST_FLAGS(2048u32);
+pub const SPSVCINST_STOPSERVICE: SPSVCINST_FLAGS = SPSVCINST_FLAGS(512u32);
+pub const SPSVCINST_TAGTOFRONT: SPSVCINST_FLAGS = SPSVCINST_FLAGS(1u32);
+pub const SPSVCINST_UNIQUE_NAME: SPSVCINST_FLAGS = SPSVCINST_FLAGS(65536u32);
 pub const SPWPT_SELECTDEVICE: u32 = 1u32;
 pub const SPWP_USE_DEVINFO_DATA: u32 = 1u32;
 pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2u32;
@@ -6479,6 +6478,369 @@ pub const mPCD_MEM_WS: u32 = 768u32;
 pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_CDFLAGS(pub u32);
+impl ::core::marker::Copy for CM_CDFLAGS {}
+impl ::core::clone::Clone for CM_CDFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_CDFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_CDFLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_CDFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_CDFLAGS").field(&self.0).finish()
+    }
+}
+impl CM_CDFLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_CDFLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_CDFLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_CDFLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_CDFLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_CDFLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_CDMASK(pub u32);
+impl ::core::marker::Copy for CM_CDMASK {}
+impl ::core::clone::Clone for CM_CDMASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_CDMASK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_CDMASK {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_CDMASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_CDMASK").field(&self.0).finish()
+    }
+}
+impl CM_CDMASK {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_CDMASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_CDMASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_CDMASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_CDMASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_CDMASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_DEVCAP(pub u32);
+impl ::core::marker::Copy for CM_DEVCAP {}
+impl ::core::clone::Clone for CM_DEVCAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_DEVCAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_DEVCAP {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_DEVCAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_DEVCAP").field(&self.0).finish()
+    }
+}
+impl CM_DEVCAP {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_DEVCAP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_DEVCAP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_DEVCAP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_DEVCAP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_DEVCAP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_DEVNODE_STATUS_FLAGS(pub u32);
+impl ::core::marker::Copy for CM_DEVNODE_STATUS_FLAGS {}
+impl ::core::clone::Clone for CM_DEVNODE_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_DEVNODE_STATUS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_DEVNODE_STATUS_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_DEVNODE_STATUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_DEVNODE_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
+impl CM_DEVNODE_STATUS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_DEVNODE_STATUS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_DEVNODE_STATUS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_DEVNODE_STATUS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_DEVNODE_STATUS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_DEVNODE_STATUS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_ENUMERATE_FLAGS(pub u32);
+impl ::core::marker::Copy for CM_ENUMERATE_FLAGS {}
+impl ::core::clone::Clone for CM_ENUMERATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_ENUMERATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_ENUMERATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_ENUMERATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_ENUMERATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CM_ENUMERATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_ENUMERATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_ENUMERATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_ENUMERATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_ENUMERATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_ENUMERATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_GET_DEVICE_INTERFACE_LIST_FLAGS(pub u32);
+impl ::core::marker::Copy for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {}
+impl ::core::clone::Clone for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_GET_DEVICE_INTERFACE_LIST_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_GET_DEVICE_INTERFACE_LIST_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_INSTALL_STATE(pub u32);
+impl ::core::marker::Copy for CM_INSTALL_STATE {}
+impl ::core::clone::Clone for CM_INSTALL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_INSTALL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_INSTALL_STATE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_INSTALL_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_INSTALL_STATE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_LOCATE_DEVNODE_FLAGS(pub u32);
+impl ::core::marker::Copy for CM_LOCATE_DEVNODE_FLAGS {}
+impl ::core::clone::Clone for CM_LOCATE_DEVNODE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_LOCATE_DEVNODE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_LOCATE_DEVNODE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_LOCATE_DEVNODE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_LOCATE_DEVNODE_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_LOG_CONF(pub u32);
+impl ::core::marker::Copy for CM_LOG_CONF {}
+impl ::core::clone::Clone for CM_LOG_CONF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_LOG_CONF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_LOG_CONF {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_LOG_CONF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_LOG_CONF").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_NOTIFY_ACTION(pub i32);
 impl ::core::marker::Copy for CM_NOTIFY_ACTION {}
 impl ::core::clone::Clone for CM_NOTIFY_ACTION {
@@ -6523,6 +6885,127 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_PROB(pub u32);
+impl ::core::marker::Copy for CM_PROB {}
+impl ::core::clone::Clone for CM_PROB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_PROB {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_PROB {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_PROB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_PROB").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_REENUMERATE_FLAGS(pub u32);
+impl ::core::marker::Copy for CM_REENUMERATE_FLAGS {}
+impl ::core::clone::Clone for CM_REENUMERATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_REENUMERATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_REENUMERATE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_REENUMERATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_REENUMERATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl CM_REENUMERATE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for CM_REENUMERATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CM_REENUMERATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CM_REENUMERATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CM_REENUMERATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CM_REENUMERATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_REMOVAL_POLICY(pub u32);
+impl ::core::marker::Copy for CM_REMOVAL_POLICY {}
+impl ::core::clone::Clone for CM_REMOVAL_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_REMOVAL_POLICY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_REMOVAL_POLICY {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_REMOVAL_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_REMOVAL_POLICY").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CM_RESTYPE(pub u32);
+impl ::core::marker::Copy for CM_RESTYPE {}
+impl ::core::clone::Clone for CM_RESTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CM_RESTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for CM_RESTYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for CM_RESTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_RESTYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFIGRET(pub u32);
 impl ::core::marker::Copy for CONFIGRET {}
 impl ::core::clone::Clone for CONFIGRET {
@@ -6541,6 +7024,281 @@ impl ::windows_core::TypeKind for CONFIGRET {
 impl ::core::fmt::Debug for CONFIGRET {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CONFIGRET").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIINSTALLDEVICE_FLAGS(pub u32);
+impl ::core::marker::Copy for DIINSTALLDEVICE_FLAGS {}
+impl ::core::clone::Clone for DIINSTALLDEVICE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIINSTALLDEVICE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DIINSTALLDEVICE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DIINSTALLDEVICE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIINSTALLDEVICE_FLAGS").field(&self.0).finish()
+    }
+}
+impl DIINSTALLDEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIINSTALLDEVICE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIINSTALLDEVICE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIINSTALLDEVICE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIINSTALLDEVICE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIINSTALLDEVICE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIINSTALLDRIVER_FLAGS(pub u32);
+impl ::core::marker::Copy for DIINSTALLDRIVER_FLAGS {}
+impl ::core::clone::Clone for DIINSTALLDRIVER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIINSTALLDRIVER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DIINSTALLDRIVER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DIINSTALLDRIVER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIINSTALLDRIVER_FLAGS").field(&self.0).finish()
+    }
+}
+impl DIINSTALLDRIVER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIINSTALLDRIVER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIINSTALLDRIVER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIINSTALLDRIVER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIINSTALLDRIVER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIINSTALLDRIVER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIROLLBACKDRIVER_FLAGS(pub u32);
+impl ::core::marker::Copy for DIROLLBACKDRIVER_FLAGS {}
+impl ::core::clone::Clone for DIROLLBACKDRIVER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIROLLBACKDRIVER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DIROLLBACKDRIVER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DIROLLBACKDRIVER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIROLLBACKDRIVER_FLAGS").field(&self.0).finish()
+    }
+}
+impl DIROLLBACKDRIVER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIROLLBACKDRIVER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIROLLBACKDRIVER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIROLLBACKDRIVER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIROLLBACKDRIVER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIROLLBACKDRIVER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIUNINSTALLDRIVER_FLAGS(pub u32);
+impl ::core::marker::Copy for DIUNINSTALLDRIVER_FLAGS {}
+impl ::core::clone::Clone for DIUNINSTALLDRIVER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIUNINSTALLDRIVER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DIUNINSTALLDRIVER_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DIUNINSTALLDRIVER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIUNINSTALLDRIVER_FLAGS").field(&self.0).finish()
+    }
+}
+impl DIUNINSTALLDRIVER_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for DIUNINSTALLDRIVER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DIUNINSTALLDRIVER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DIUNINSTALLDRIVER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DIUNINSTALLDRIVER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DIUNINSTALLDRIVER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INF_STYLE(pub u32);
+impl ::core::marker::Copy for INF_STYLE {}
+impl ::core::clone::Clone for INF_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INF_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for INF_STYLE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for INF_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INF_STYLE").field(&self.0).finish()
+    }
+}
+impl INF_STYLE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for INF_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INF_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INF_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INF_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INF_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -6589,6 +7347,61 @@ impl ::core::fmt::Debug for PNP_VETO_TYPE {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SETUPSCANFILEQUEUE_FLAGS(pub u32);
+impl ::core::marker::Copy for SETUPSCANFILEQUEUE_FLAGS {}
+impl ::core::clone::Clone for SETUPSCANFILEQUEUE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SETUPSCANFILEQUEUE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for SETUPSCANFILEQUEUE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SETUPSCANFILEQUEUE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SETUPSCANFILEQUEUE_FLAGS").field(&self.0).finish()
+    }
+}
+impl SETUPSCANFILEQUEUE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SETUPSCANFILEQUEUE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SETUPSCANFILEQUEUE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SETUPSCANFILEQUEUE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SETUPSCANFILEQUEUE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SETUPSCANFILEQUEUE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
 impl ::core::marker::Copy for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {}
 impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
@@ -6629,6 +7442,61 @@ impl ::windows_core::TypeKind for SETUP_FILE_OPERATION {
 impl ::core::fmt::Debug for SETUP_FILE_OPERATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SETUP_FILE_OPERATION").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPSVCINST_FLAGS(pub u32);
+impl ::core::marker::Copy for SPSVCINST_FLAGS {}
+impl ::core::clone::Clone for SPSVCINST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPSVCINST_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for SPSVCINST_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for SPSVCINST_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPSVCINST_FLAGS").field(&self.0).finish()
+    }
+}
+impl SPSVCINST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for SPSVCINST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SPSVCINST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SPSVCINST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SPSVCINST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SPSVCINST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -6688,28 +7556,6 @@ impl ::core::ops::Not for SP_COPY_STYLE {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SP_INF_STYLE(pub u32);
-impl ::core::marker::Copy for SP_INF_STYLE {}
-impl ::core::clone::Clone for SP_INF_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SP_INF_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for SP_INF_STYLE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for SP_INF_STYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SP_INF_STYLE").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetupFileLogInfo(pub i32);
 impl ::core::marker::Copy for SetupFileLogInfo {}
 impl ::core::clone::Clone for SetupFileLogInfo {
@@ -6728,6 +7574,61 @@ impl ::windows_core::TypeKind for SetupFileLogInfo {
 impl ::core::fmt::Debug for SetupFileLogInfo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SetupFileLogInfo").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS(pub u32);
+impl ::core::marker::Copy for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {}
+impl ::core::clone::Clone for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS").field(&self.0).finish()
+    }
+}
+impl UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(C, packed(1))]
@@ -7264,10 +8165,10 @@ impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
 #[repr(C)]
 pub struct CONFLICT_DETAILS_A {
     pub CD_ulSize: u32,
-    pub CD_ulMask: u32,
+    pub CD_ulMask: CM_CDMASK,
     pub CD_dnDevInst: u32,
     pub CD_rdResDes: usize,
-    pub CD_ulFlags: u32,
+    pub CD_ulFlags: CM_CDFLAGS,
     pub CD_szDescription: [u8; 260],
 }
 impl ::core::marker::Copy for CONFLICT_DETAILS_A {}
@@ -7298,10 +8199,10 @@ impl ::core::default::Default for CONFLICT_DETAILS_A {
 #[repr(C)]
 pub struct CONFLICT_DETAILS_W {
     pub CD_ulSize: u32,
-    pub CD_ulMask: u32,
+    pub CD_ulMask: CM_CDMASK,
     pub CD_dnDevInst: u32,
     pub CD_rdResDes: usize,
-    pub CD_ulFlags: u32,
+    pub CD_ulFlags: CM_CDFLAGS,
     pub CD_szDescription: [u16; 260],
 }
 impl ::core::marker::Copy for CONFLICT_DETAILS_W {}
@@ -10328,7 +11229,7 @@ impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct SP_INF_INFORMATION {
-    pub InfStyle: SP_INF_STYLE,
+    pub InfStyle: INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
 }
@@ -10353,7 +11254,7 @@ impl ::core::default::Default for SP_INF_INFORMATION {
 #[repr(C, packed(1))]
 #[cfg(target_arch = "x86")]
 pub struct SP_INF_INFORMATION {
-    pub InfStyle: SP_INF_STYLE,
+    pub InfStyle: INF_STYLE,
     pub InfCount: u32,
     pub VersionData: [u8; 1],
 }

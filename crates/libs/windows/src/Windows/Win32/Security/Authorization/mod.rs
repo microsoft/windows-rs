@@ -494,21 +494,21 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows_core::PSTR, stringsecuritydescriptorlen: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorA<P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: super::OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor: *mut ::windows_core::PSTR, stringsecuritydescriptorlen: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor : super:: PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : u32, stringsecuritydescriptor : *mut ::windows_core::PSTR, stringsecuritydescriptorlen : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor : super:: PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super:: OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor : *mut ::windows_core::PSTR, stringsecuritydescriptorlen : *mut u32) -> super::super::Foundation:: BOOL);
     ConvertSecurityDescriptorToStringSecurityDescriptorA(securitydescriptor.into_param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, ::core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: u32, stringsecuritydescriptor: *mut ::windows_core::PWSTR, stringsecuritydescriptorlen: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+pub unsafe fn ConvertSecurityDescriptorToStringSecurityDescriptorW<P0>(securitydescriptor: P0, requestedstringsdrevision: u32, securityinformation: super::OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor: *mut ::windows_core::PWSTR, stringsecuritydescriptorlen: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::PSECURITY_DESCRIPTOR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor : super:: PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : u32, stringsecuritydescriptor : *mut ::windows_core::PWSTR, stringsecuritydescriptorlen : *mut u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("advapi32.dll" "system" fn ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor : super:: PSECURITY_DESCRIPTOR, requestedstringsdrevision : u32, securityinformation : super:: OBJECT_SECURITY_INFORMATION, stringsecuritydescriptor : *mut ::windows_core::PWSTR, stringsecuritydescriptorlen : *mut u32) -> super::super::Foundation:: BOOL);
     ConvertSecurityDescriptorToStringSecurityDescriptorW(securitydescriptor.into_param().abi(), requestedstringsdrevision, securityinformation, stringsecuritydescriptor, ::core::mem::transmute(stringsecuritydescriptorlen.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -623,23 +623,23 @@ pub unsafe fn GetExplicitEntriesFromAclW(pacl: *const super::ACL, pccountofexpli
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInheritanceSourceA<P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows_core::GUID]>, pacl: *const super::ACL, pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> ::windows_core::Result<()>
+pub unsafe fn GetInheritanceSourceA<P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows_core::GUID]>, pacl: *const super::ACL, pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMA) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn GetInheritanceSourceA(pobjectname : ::windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : u32, container : super::super::Foundation:: BOOL, pobjectclassguids : *const *const ::windows_core::GUID, guidcount : u32, pacl : *const super:: ACL, pfnarray : *const FN_OBJECT_MGR_FUNCTS, pgenericmapping : *const super:: GENERIC_MAPPING, pinheritarray : *mut INHERITED_FROMA) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn GetInheritanceSourceA(pobjectname : ::windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, container : super::super::Foundation:: BOOL, pobjectclassguids : *const *const ::windows_core::GUID, guidcount : u32, pacl : *const super:: ACL, pfnarray : *const FN_OBJECT_MGR_FUNCTS, pgenericmapping : *const super:: GENERIC_MAPPING, pinheritarray : *mut INHERITED_FROMA) -> super::super::Foundation:: WIN32_ERROR);
     GetInheritanceSourceA(pobjectname.into_param().abi(), objecttype, securityinfo, container.into_param().abi(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), pacl, ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())), pgenericmapping, pinheritarray).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetInheritanceSourceW<P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows_core::GUID]>, pacl: *const super::ACL, pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> ::windows_core::Result<()>
+pub unsafe fn GetInheritanceSourceW<P0, P1>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, container: P1, pobjectclassguids: ::core::option::Option<&[*const ::windows_core::GUID]>, pacl: *const super::ACL, pfnarray: ::core::option::Option<*const FN_OBJECT_MGR_FUNCTS>, pgenericmapping: *const super::GENERIC_MAPPING, pinheritarray: *mut INHERITED_FROMW) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn GetInheritanceSourceW(pobjectname : ::windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : u32, container : super::super::Foundation:: BOOL, pobjectclassguids : *const *const ::windows_core::GUID, guidcount : u32, pacl : *const super:: ACL, pfnarray : *const FN_OBJECT_MGR_FUNCTS, pgenericmapping : *const super:: GENERIC_MAPPING, pinheritarray : *mut INHERITED_FROMW) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn GetInheritanceSourceW(pobjectname : ::windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, container : super::super::Foundation:: BOOL, pobjectclassguids : *const *const ::windows_core::GUID, guidcount : u32, pacl : *const super:: ACL, pfnarray : *const FN_OBJECT_MGR_FUNCTS, pgenericmapping : *const super:: GENERIC_MAPPING, pinheritarray : *mut INHERITED_FROMW) -> super::super::Foundation:: WIN32_ERROR);
     GetInheritanceSourceW(pobjectname.into_param().abi(), objecttype, securityinfo, container.into_param().abi(), ::core::mem::transmute(pobjectclassguids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pobjectclassguids.as_deref().map_or(0, |slice| slice.len() as _), pacl, ::core::mem::transmute(pfnarray.unwrap_or(::std::ptr::null())), pgenericmapping, pinheritarray).ok()
 }
 #[inline]
@@ -685,11 +685,11 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSecurityInfo<P0>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, ppsidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<*mut *mut super::ACL>, ppsacl: ::core::option::Option<*mut *mut super::ACL>, ppsecuritydescriptor: ::core::option::Option<*mut super::PSECURITY_DESCRIPTOR>) -> ::windows_core::Result<()>
+pub unsafe fn GetSecurityInfo<P0>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, ppsidowner: ::core::option::Option<*mut super::super::Foundation::PSID>, ppsidgroup: ::core::option::Option<*mut super::super::Foundation::PSID>, ppdacl: ::core::option::Option<*mut *mut super::ACL>, ppsacl: ::core::option::Option<*mut *mut super::ACL>, ppsecuritydescriptor: ::core::option::Option<*mut super::PSECURITY_DESCRIPTOR>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn GetSecurityInfo(handle : super::super::Foundation:: HANDLE, objecttype : SE_OBJECT_TYPE, securityinfo : u32, ppsidowner : *mut super::super::Foundation:: PSID, ppsidgroup : *mut super::super::Foundation:: PSID, ppdacl : *mut *mut super:: ACL, ppsacl : *mut *mut super:: ACL, ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn GetSecurityInfo(handle : super::super::Foundation:: HANDLE, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, ppsidowner : *mut super::super::Foundation:: PSID, ppsidgroup : *mut super::super::Foundation:: PSID, ppdacl : *mut *mut super:: ACL, ppsacl : *mut *mut super:: ACL, ppsecuritydescriptor : *mut super:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: WIN32_ERROR);
     GetSecurityInfo(handle.into_param().abi(), objecttype, securityinfo, ::core::mem::transmute(ppsidowner.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsidgroup.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsacl.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppsecuritydescriptor.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[inline]
@@ -783,63 +783,63 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSecurityInfo<P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>) -> ::windows_core::Result<()>
+pub unsafe fn SetSecurityInfo<P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityInfo(handle : super::super::Foundation:: HANDLE, objecttype : SE_OBJECT_TYPE, securityinfo : u32, psidowner : super::super::Foundation:: PSID, psidgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn SetSecurityInfo(handle : super::super::Foundation:: HANDLE, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, psidowner : super::super::Foundation:: PSID, psidgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL) -> super::super::Foundation:: WIN32_ERROR);
     SetSecurityInfo(handle.into_param().abi(), objecttype, securityinfo, psidowner.into_param().abi(), psidgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoA<P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn TreeResetNamedSecurityInfoA<P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(pobjectname : ::windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : u32, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoA(pobjectname : ::windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     TreeResetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), keepexplicit.into_param().abi(), fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeResetNamedSecurityInfoW<P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn TreeResetNamedSecurityInfoW<P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P3: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : ::windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : u32, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn TreeResetNamedSecurityInfoW(pobjectname : ::windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, keepexplicit : super::super::Foundation:: BOOL, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     TreeResetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), keepexplicit.into_param().abi(), fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoA<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn TreeSetNamedSecurityInfoA<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoA(pobjectname : ::windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : u32, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoA(pobjectname : ::windows_core::PCSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     TreeSetNamedSecurityInfoA(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), dwaction, fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TreeSetNamedSecurityInfoW<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
+pub unsafe fn TreeSetNamedSecurityInfoW<P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, powner: P1, pgroup: P2, pdacl: ::core::option::Option<*const super::ACL>, psacl: ::core::option::Option<*const super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     P2: ::windows_core::IntoParam<super::super::Foundation::PSID>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : ::windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : u32, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+    ::windows_targets::link!("advapi32.dll" "system" fn TreeSetNamedSecurityInfoW(pobjectname : ::windows_core::PCWSTR, objecttype : SE_OBJECT_TYPE, securityinfo : super:: OBJECT_SECURITY_INFORMATION, powner : super::super::Foundation:: PSID, pgroup : super::super::Foundation:: PSID, pdacl : *const super:: ACL, psacl : *const super:: ACL, dwaction : TREE_SEC_INFO, fnprogress : FN_PROGRESS, progressinvokesetting : PROG_INVOKE_SETTING, args : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
     TreeSetNamedSecurityInfoW(pobjectname.into_param().abi(), objecttype, securityinfo, powner.into_param().abi(), pgroup.into_param().abi(), ::core::mem::transmute(pdacl.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psacl.unwrap_or(::std::ptr::null())), dwaction, fnprogress, progressinvokesetting, ::core::mem::transmute(args.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "Required features: `Win32_System_Com`"]

@@ -143,12 +143,19 @@ where
     ::windows_targets::link!("user32.dll" "system" fn ShutdownBlockReasonQuery(hwnd : super::super::Foundation:: HWND, pwszbuff : ::windows_core::PWSTR, pcchbuff : *mut u32) -> super::super::Foundation:: BOOL);
     ShutdownBlockReasonQuery(hwnd.into_param().abi(), ::core::mem::transmute(pwszbuff), pcchbuff).ok()
 }
+pub const EWX_ARSO: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(67108864u32);
+pub const EWX_BOOTOPTIONS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(16777216u32);
+pub const EWX_CHECK_SAFE_FOR_SERVER: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(134217728u32);
+pub const EWX_FORCE: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(4u32);
+pub const EWX_FORCEIFHUNG: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(16u32);
 pub const EWX_HYBRID_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(4194304u32);
 pub const EWX_LOGOFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(0u32);
 pub const EWX_POWEROFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(8u32);
+pub const EWX_QUICKRESOLVE: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(32u32);
 pub const EWX_REBOOT: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(2u32);
 pub const EWX_RESTARTAPPS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(64u32);
 pub const EWX_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(1u32);
+pub const EWX_SYSTEM_INITIATED: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(268435456u32);
 pub const MAX_NUM_REASONS: u32 = 256u32;
 pub const MAX_REASON_BUGID_LEN: u32 = 32u32;
 pub const MAX_REASON_COMMENT_LEN: u32 = 512u32;
@@ -250,6 +257,39 @@ impl ::windows_core::TypeKind for EXIT_WINDOWS_FLAGS {
 impl ::core::fmt::Debug for EXIT_WINDOWS_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EXIT_WINDOWS_FLAGS").field(&self.0).finish()
+    }
+}
+impl EXIT_WINDOWS_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for EXIT_WINDOWS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EXIT_WINDOWS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EXIT_WINDOWS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EXIT_WINDOWS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EXIT_WINDOWS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]

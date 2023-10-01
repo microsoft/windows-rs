@@ -33,7 +33,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("icm32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CMGetNamedProfileInfo(hprofile : isize, pnamedprofileinfo : *mut NAMED_PROFILE_INFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("icm32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CMIsProfileValid(hprofile : isize, lpbvalid : *mut i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("icm32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CMIsProfileValid(hprofile : isize, lpbvalid : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("icm32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CMTranslateColors(hcmtransform : isize, lpainputcolors : *const COLOR, ncolors : u32, ctinput : COLORTYPE, lpaoutputcolors : *mut COLOR, ctoutput : COLORTYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]

@@ -5270,7 +5270,7 @@ pub struct IWbemRefresher_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemServices(::windows_core::IUnknown);
 impl IWbemServices {
-    pub unsafe fn OpenNamespace<P0, P1>(&self, strnamespace: P0, lflags: i32, pctx: P1, ppworkingnamespace: ::core::option::Option<*mut ::core::option::Option<IWbemServices>>, ppresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn OpenNamespace<P0, P1>(&self, strnamespace: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, ppworkingnamespace: ::core::option::Option<*mut ::core::option::Option<IWbemServices>>, ppresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5283,18 +5283,18 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).CancelAsyncCall)(::windows_core::Interface::as_raw(self), psink.into_param().abi()).ok()
     }
-    pub unsafe fn QueryObjectSink(&self, lflags: i32) -> ::windows_core::Result<IWbemObjectSink> {
+    pub unsafe fn QueryObjectSink(&self, lflags: WBEM_GENERIC_FLAG_TYPE) -> ::windows_core::Result<IWbemObjectSink> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryObjectSink)(::windows_core::Interface::as_raw(self), lflags, &mut result__).from_abi(result__)
     }
-    pub unsafe fn GetObject<P0, P1>(&self, strobjectpath: P0, lflags: i32, pctx: P1, ppobject: ::core::option::Option<*mut ::core::option::Option<IWbemClassObject>>, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn GetObject<P0, P1>(&self, strobjectpath: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, ppobject: ::core::option::Option<*mut ::core::option::Option<IWbemClassObject>>, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
     {
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), strobjectpath.into_param().abi(), lflags, pctx.into_param().abi(), ::core::mem::transmute(ppobject.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppcallresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn GetObjectAsync<P0, P1, P2>(&self, strobjectpath: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn GetObjectAsync<P0, P1, P2>(&self, strobjectpath: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5302,14 +5302,14 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).GetObjectAsync)(::windows_core::Interface::as_raw(self), strobjectpath.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn PutClass<P0, P1>(&self, pobject: P0, lflags: i32, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn PutClass<P0, P1>(&self, pobject: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWbemClassObject>,
         P1: ::windows_core::IntoParam<IWbemContext>,
     {
         (::windows_core::Interface::vtable(self).PutClass)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), lflags, pctx.into_param().abi(), ::core::mem::transmute(ppcallresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn PutClassAsync<P0, P1, P2>(&self, pobject: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn PutClassAsync<P0, P1, P2>(&self, pobject: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWbemClassObject>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5317,14 +5317,14 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).PutClassAsync)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn DeleteClass<P0, P1>(&self, strclass: P0, lflags: i32, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteClass<P0, P1>(&self, strclass: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
     {
         (::windows_core::Interface::vtable(self).DeleteClass)(::windows_core::Interface::as_raw(self), strclass.into_param().abi(), lflags, pctx.into_param().abi(), ::core::mem::transmute(ppcallresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn DeleteClassAsync<P0, P1, P2>(&self, strclass: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteClassAsync<P0, P1, P2>(&self, strclass: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5332,7 +5332,7 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).DeleteClassAsync)(::windows_core::Interface::as_raw(self), strclass.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn CreateClassEnum<P0, P1>(&self, strsuperclass: P0, lflags: i32, pctx: P1) -> ::windows_core::Result<IEnumWbemClassObject>
+    pub unsafe fn CreateClassEnum<P0, P1>(&self, strsuperclass: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1) -> ::windows_core::Result<IEnumWbemClassObject>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5340,7 +5340,7 @@ impl IWbemServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClassEnum)(::windows_core::Interface::as_raw(self), strsuperclass.into_param().abi(), lflags, pctx.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn CreateClassEnumAsync<P0, P1, P2>(&self, strsuperclass: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn CreateClassEnumAsync<P0, P1, P2>(&self, strsuperclass: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5348,14 +5348,14 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).CreateClassEnumAsync)(::windows_core::Interface::as_raw(self), strsuperclass.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn PutInstance<P0, P1>(&self, pinst: P0, lflags: i32, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn PutInstance<P0, P1>(&self, pinst: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWbemClassObject>,
         P1: ::windows_core::IntoParam<IWbemContext>,
     {
         (::windows_core::Interface::vtable(self).PutInstance)(::windows_core::Interface::as_raw(self), pinst.into_param().abi(), lflags, pctx.into_param().abi(), ::core::mem::transmute(ppcallresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn PutInstanceAsync<P0, P1, P2>(&self, pinst: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn PutInstanceAsync<P0, P1, P2>(&self, pinst: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<IWbemClassObject>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5363,14 +5363,14 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).PutInstanceAsync)(::windows_core::Interface::as_raw(self), pinst.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn DeleteInstance<P0, P1>(&self, strobjectpath: P0, lflags: i32, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteInstance<P0, P1>(&self, strobjectpath: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
     {
         (::windows_core::Interface::vtable(self).DeleteInstance)(::windows_core::Interface::as_raw(self), strobjectpath.into_param().abi(), lflags, pctx.into_param().abi(), ::core::mem::transmute(ppcallresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn DeleteInstanceAsync<P0, P1, P2>(&self, strobjectpath: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn DeleteInstanceAsync<P0, P1, P2>(&self, strobjectpath: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5378,7 +5378,7 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).DeleteInstanceAsync)(::windows_core::Interface::as_raw(self), strobjectpath.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn CreateInstanceEnum<P0, P1>(&self, strfilter: P0, lflags: i32, pctx: P1) -> ::windows_core::Result<IEnumWbemClassObject>
+    pub unsafe fn CreateInstanceEnum<P0, P1>(&self, strfilter: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1) -> ::windows_core::Result<IEnumWbemClassObject>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5386,7 +5386,7 @@ impl IWbemServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateInstanceEnum)(::windows_core::Interface::as_raw(self), strfilter.into_param().abi(), lflags, pctx.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn CreateInstanceEnumAsync<P0, P1, P2>(&self, strfilter: P0, lflags: i32, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
+    pub unsafe fn CreateInstanceEnumAsync<P0, P1, P2>(&self, strfilter: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IWbemContext>,
@@ -5403,7 +5403,7 @@ impl IWbemServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ExecQuery)(::windows_core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), lflags, pctx.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ExecQueryAsync<P0, P1, P2, P3>(&self, strquerylanguage: P0, strquery: P1, lflags: i32, pctx: P2, presponsehandler: P3) -> ::windows_core::Result<()>
+    pub unsafe fn ExecQueryAsync<P0, P1, P2, P3>(&self, strquerylanguage: P0, strquery: P1, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5412,7 +5412,7 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).ExecQueryAsync)(::windows_core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn ExecNotificationQuery<P0, P1, P2>(&self, strquerylanguage: P0, strquery: P1, lflags: i32, pctx: P2) -> ::windows_core::Result<IEnumWbemClassObject>
+    pub unsafe fn ExecNotificationQuery<P0, P1, P2>(&self, strquerylanguage: P0, strquery: P1, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2) -> ::windows_core::Result<IEnumWbemClassObject>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5421,7 +5421,7 @@ impl IWbemServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ExecNotificationQuery)(::windows_core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), lflags, pctx.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn ExecNotificationQueryAsync<P0, P1, P2, P3>(&self, strquerylanguage: P0, strquery: P1, lflags: i32, pctx: P2, presponsehandler: P3) -> ::windows_core::Result<()>
+    pub unsafe fn ExecNotificationQueryAsync<P0, P1, P2, P3>(&self, strquerylanguage: P0, strquery: P1, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, presponsehandler: P3) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5430,7 +5430,7 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).ExecNotificationQueryAsync)(::windows_core::Interface::as_raw(self), strquerylanguage.into_param().abi(), strquery.into_param().abi(), lflags, pctx.into_param().abi(), presponsehandler.into_param().abi()).ok()
     }
-    pub unsafe fn ExecMethod<P0, P1, P2, P3>(&self, strobjectpath: P0, strmethodname: P1, lflags: i32, pctx: P2, pinparams: P3, ppoutparams: ::core::option::Option<*mut ::core::option::Option<IWbemClassObject>>, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
+    pub unsafe fn ExecMethod<P0, P1, P2, P3>(&self, strobjectpath: P0, strmethodname: P1, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, pinparams: P3, ppoutparams: ::core::option::Option<*mut ::core::option::Option<IWbemClassObject>>, ppcallresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5439,7 +5439,7 @@ impl IWbemServices {
     {
         (::windows_core::Interface::vtable(self).ExecMethod)(::windows_core::Interface::as_raw(self), strobjectpath.into_param().abi(), strmethodname.into_param().abi(), lflags, pctx.into_param().abi(), pinparams.into_param().abi(), ::core::mem::transmute(ppoutparams.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppcallresult.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    pub unsafe fn ExecMethodAsync<P0, P1, P2, P3, P4>(&self, strobjectpath: P0, strmethodname: P1, lflags: i32, pctx: P2, pinparams: P3, presponsehandler: P4) -> ::windows_core::Result<()>
+    pub unsafe fn ExecMethodAsync<P0, P1, P2, P3, P4>(&self, strobjectpath: P0, strmethodname: P1, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, pinparams: P3, presponsehandler: P4) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
@@ -5461,29 +5461,29 @@ unsafe impl ::windows_core::ComInterface for IWbemServices {
 #[doc(hidden)]
 pub struct IWbemServices_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub OpenNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespace: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppworkingnamespace: *mut *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub OpenNamespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strnamespace: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppworkingnamespace: *mut *mut ::core::ffi::c_void, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CancelAsyncCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub QueryObjectSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: i32, ppresponsehandler: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub GetObjectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PutClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, lflags: i32, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PutClassAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteClassAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateClassEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsuperclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateClassEnumAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsuperclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PutInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinst: *mut ::core::ffi::c_void, lflags: i32, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub PutInstanceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinst: *mut ::core::ffi::c_void, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub DeleteInstanceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInstanceEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilter: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub CreateInstanceEnumAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilter: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub QueryObjectSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lflags: WBEM_GENERIC_FLAG_TYPE, ppresponsehandler: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub GetObjectAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PutClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PutClassAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteClassAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClassEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsuperclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateClassEnumAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsuperclass: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PutInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinst: *mut ::core::ffi::c_void, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub PutInstanceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinst: *mut ::core::ffi::c_void, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub DeleteInstanceAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstanceEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilter: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub CreateInstanceEnumAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strfilter: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ExecQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExecQueryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExecNotificationQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExecNotificationQueryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExecMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, strmethodname: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, pinparams: *mut ::core::ffi::c_void, ppoutparams: *mut *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    pub ExecMethodAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, strmethodname: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: i32, pctx: *mut ::core::ffi::c_void, pinparams: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExecQueryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExecNotificationQuery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExecNotificationQueryAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strquerylanguage: ::std::mem::MaybeUninit<::windows_core::BSTR>, strquery: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExecMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, strmethodname: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, pinparams: *mut ::core::ffi::c_void, ppoutparams: *mut *mut ::core::ffi::c_void, ppcallresult: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub ExecMethodAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strobjectpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, strmethodname: ::std::mem::MaybeUninit<::windows_core::BSTR>, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: *mut ::core::ffi::c_void, pinparams: *mut ::core::ffi::c_void, presponsehandler: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

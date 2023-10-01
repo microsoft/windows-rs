@@ -425,21 +425,21 @@ where
     GetFileMUIPath(dwflags, pcwszfilepath.into_param().abi(), ::core::mem::transmute(pwszlanguage), pcchlanguage, ::core::mem::transmute(pwszfilemuipath), pcchfilemuipath, pululenumerator).ok()
 }
 #[inline]
-pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: ::core::option::Option<&mut [u8]>, langid: u16) -> i32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : u32, lpgeodata : ::windows_core::PSTR, cchdata : i32, langid : u16) -> i32);
+pub unsafe fn GetGeoInfoA(location: i32, geotype: SYSGEOTYPE, lpgeodata: ::core::option::Option<&mut [u8]>, langid: u16) -> i32 {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoA(location : i32, geotype : SYSGEOTYPE, lpgeodata : ::windows_core::PSTR, cchdata : i32, langid : u16) -> i32);
     GetGeoInfoA(location, geotype, ::core::mem::transmute(lpgeodata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len() as _), langid)
 }
 #[inline]
-pub unsafe fn GetGeoInfoEx<P0>(location: P0, geotype: u32, geodata: ::core::option::Option<&mut [u16]>) -> i32
+pub unsafe fn GetGeoInfoEx<P0>(location: P0, geotype: SYSGEOTYPE, geodata: ::core::option::Option<&mut [u16]>) -> i32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : ::windows_core::PCWSTR, geotype : u32, geodata : ::windows_core::PWSTR, geodatacount : i32) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoEx(location : ::windows_core::PCWSTR, geotype : SYSGEOTYPE, geodata : ::windows_core::PWSTR, geodatacount : i32) -> i32);
     GetGeoInfoEx(location.into_param().abi(), geotype, ::core::mem::transmute(geodata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), geodata.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[inline]
-pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: ::core::option::Option<&mut [u16]>, langid: u16) -> i32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : u32, lpgeodata : ::windows_core::PWSTR, cchdata : i32, langid : u16) -> i32);
+pub unsafe fn GetGeoInfoW(location: i32, geotype: SYSGEOTYPE, lpgeodata: ::core::option::Option<&mut [u16]>, langid: u16) -> i32 {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetGeoInfoW(location : i32, geotype : SYSGEOTYPE, lpgeodata : ::windows_core::PWSTR, cchdata : i32, langid : u16) -> i32);
     GetGeoInfoW(location, geotype, ::core::mem::transmute(lpgeodata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpgeodata.as_deref().map_or(0, |slice| slice.len() as _), langid)
 }
 #[inline]
@@ -687,8 +687,8 @@ pub unsafe fn GetUserDefaultUILanguage() -> u16 {
     GetUserDefaultUILanguage()
 }
 #[inline]
-pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : u32) -> i32);
+pub unsafe fn GetUserGeoID(geoclass: SYSGEOCLASS) -> i32 {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : SYSGEOCLASS) -> i32);
     GetUserGeoID(geoclass)
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1372,12 +1372,14 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : u32, lplocalescripts : ::windows_core::PCWSTR, cchlocalescripts : i32, lptestscripts : ::windows_core::PCWSTR, cchtestscripts : i32) -> super::Foundation:: BOOL);
     VerifyScripts(dwflags, lplocalescripts.into_param().abi(), cchlocalescripts, lptestscripts.into_param().abi(), cchtestscripts).ok()
 }
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WideCharToMultiByte<P0>(codepage: u32, dwflags: u32, lpwidecharstr: &[u16], lpmultibytestr: ::core::option::Option<&mut [u8]>, lpdefaultchar: P0, lpuseddefaultchar: ::core::option::Option<*mut i32>) -> i32
+pub unsafe fn WideCharToMultiByte<P0>(codepage: u32, dwflags: u32, lpwidecharstr: &[u16], lpmultibytestr: ::core::option::Option<&mut [u8]>, lpdefaultchar: P0, lpuseddefaultchar: ::core::option::Option<*mut super::Foundation::BOOL>) -> i32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : ::windows_core::PCWSTR, cchwidechar : i32, lpmultibytestr : ::windows_core::PSTR, cbmultibyte : i32, lpdefaultchar : ::windows_core::PCSTR, lpuseddefaultchar : *mut i32) -> i32);
+    ::windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : ::windows_core::PCWSTR, cchwidechar : i32, lpmultibytestr : ::windows_core::PSTR, cbmultibyte : i32, lpdefaultchar : ::windows_core::PCSTR, lpuseddefaultchar : *mut super::Foundation:: BOOL) -> i32);
     WideCharToMultiByte(codepage, dwflags, ::core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len() as _, ::core::mem::transmute(lpmultibytestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpmultibytestr.as_deref().map_or(0, |slice| slice.len() as _), lpdefaultchar.into_param().abi(), ::core::mem::transmute(lpuseddefaultchar.unwrap_or(::std::ptr::null_mut())))
 }
 #[inline]

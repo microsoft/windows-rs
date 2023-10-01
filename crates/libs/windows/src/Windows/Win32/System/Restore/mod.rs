@@ -1,3 +1,8 @@
+#[inline]
+pub unsafe fn SRRemoveRestorePoint(dwrpnum: u32) -> u32 {
+    ::windows_targets::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
+    SRRemoveRestorePoint(dwrpnum)
+}
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -157,19 +162,25 @@ impl ::core::default::Default for RESTOREPOINTINFOW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STATEMGRSTATUS {
-    pub nStatus: u32,
+    pub nStatus: super::super::Foundation::WIN32_ERROR,
     pub llSequenceNumber: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STATEMGRSTATUS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STATEMGRSTATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for STATEMGRSTATUS {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STATEMGRSTATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -1335,7 +1335,9 @@ impl IAMLine21Decoder {
     pub unsafe fn SetBackgroundColor(&self, dwphyscolor: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBackgroundColor)(::windows_core::Interface::as_raw(self), dwphyscolor).ok()
     }
-    pub unsafe fn GetRedrawAlways(&self, lpboption: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetRedrawAlways(&self, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRedrawAlways)(::windows_core::Interface::as_raw(self), lpboption).ok()
     }
     #[doc = "Required features: `Win32_Foundation`"]
@@ -1379,7 +1381,10 @@ pub struct IAMLine21Decoder_Vtbl {
     SetOutputFormat: usize,
     pub GetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwphyscolor: *mut u32) -> ::windows_core::HRESULT,
     pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwphyscolor: u32) -> ::windows_core::HRESULT,
-    pub GetRedrawAlways: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpboption: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetRedrawAlways: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetRedrawAlways: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetRedrawAlways: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boption: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3773,7 +3778,9 @@ impl IAMWstDecoder {
     pub unsafe fn SetBackgroundColor(&self, dwphyscolor: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBackgroundColor)(::windows_core::Interface::as_raw(self), dwphyscolor).ok()
     }
-    pub unsafe fn GetRedrawAlways(&self, lpboption: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetRedrawAlways(&self, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRedrawAlways)(::windows_core::Interface::as_raw(self), lpboption).ok()
     }
     #[doc = "Required features: `Win32_Foundation`"]
@@ -3848,7 +3855,10 @@ pub struct IAMWstDecoder_Vtbl {
     SetOutputFormat: usize,
     pub GetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwphyscolor: *mut u32) -> ::windows_core::HRESULT,
     pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwphyscolor: u32) -> ::windows_core::HRESULT,
-    pub GetRedrawAlways: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpboption: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetRedrawAlways: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpboption: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetRedrawAlways: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetRedrawAlways: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, boption: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -15207,7 +15217,9 @@ impl IVPConfig {
     pub unsafe fn SetSurfaceParameters(&self, dwpitch: u32, dwxorigin: u32, dwyorigin: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSurfaceParameters)(::windows_core::Interface::as_raw(self), dwpitch, dwxorigin, dwyorigin).ok()
     }
-    pub unsafe fn IsVPDecimationAllowed(&self, pbisdecimationallowed: *mut i32) -> ::windows_core::Result<()> {
+    #[doc = "Required features: `Win32_Foundation`"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsVPDecimationAllowed(&self, pbisdecimationallowed: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsVPDecimationAllowed)(::windows_core::Interface::as_raw(self), pbisdecimationallowed).ok()
     }
     pub unsafe fn SetScalingFactors(&self, pamvpsize: *mut AMVPSIZE) -> ::windows_core::Result<()> {
@@ -15225,7 +15237,10 @@ unsafe impl ::windows_core::ComInterface for IVPConfig {
 #[doc(hidden)]
 pub struct IVPConfig_Vtbl {
     pub base__: IVPBaseConfig_Vtbl,
-    pub IsVPDecimationAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisdecimationallowed: *mut i32) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub IsVPDecimationAllowed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbisdecimationallowed: *mut super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    IsVPDecimationAllowed: usize,
     pub SetScalingFactors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pamvpsize: *mut AMVPSIZE) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]

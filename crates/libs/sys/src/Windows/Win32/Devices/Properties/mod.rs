@@ -195,10 +195,12 @@ pub const DEVPKEY_DrvPkg_Model: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_sys::
 pub const DEVPKEY_DrvPkg_VendorWebSite: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
 pub const DEVPKEY_NAME: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows_sys::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0u8;
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = 0i32;
 pub const DEVPROP_STORE_USER: DEVPROPSTORE = 1i32;
+pub const DEVPROP_TRUE: DEVPROP_BOOLEAN = 255u8;
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;
 pub const DEVPROP_TYPEMOD_LIST: u32 = 8192u32;
 pub const DEVPROP_TYPE_BINARY: DEVPROPTYPE = 4099u32;
@@ -269,3 +271,4 @@ impl ::core::clone::Clone for DEVPROPKEY {
         *self
     }
 }
+pub type DEVPROP_BOOLEAN = u8;

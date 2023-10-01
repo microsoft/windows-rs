@@ -959,7 +959,7 @@ pub trait IAudioSessionControl2_Impl: Sized + IAudioSessionControl_Impl {
     fn GetSessionIdentifier(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetSessionInstanceIdentifier(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetProcessId(&self) -> ::windows_core::Result<u32>;
-    fn IsSystemSoundsSession(&self) -> ::windows_core::Result<()>;
+    fn IsSystemSoundsSession(&self) -> ::windows_core::HRESULT;
     fn SetDuckingPreference(&self, optout: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1003,7 +1003,7 @@ impl IAudioSessionControl2_Vtbl {
         unsafe extern "system" fn IsSystemSoundsSession<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.IsSystemSoundsSession().into()
+            this.IsSystemSoundsSession()
         }
         unsafe extern "system" fn SetDuckingPreference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IAudioSessionControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optout: super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

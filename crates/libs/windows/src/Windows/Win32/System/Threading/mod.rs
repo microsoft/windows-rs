@@ -202,6 +202,17 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
+pub unsafe fn CancelTimerQueueTimer<P0, P1>(timerqueue: P0, timer: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+    CancelTimerQueueTimer(timerqueue.into_param().abi(), timer.into_param().abi())
+}
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CancelWaitableTimer<P0>(htimer: P0) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
@@ -673,6 +684,27 @@ pub unsafe fn CreateUmsCompletionList(umscompletionlist: *mut *mut ::core::ffi::
 pub unsafe fn CreateUmsThreadContext(lpumsthread: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateUmsThreadContext(lpumsthread : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CreateUmsThreadContext(lpumsthread).ok()
+}
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn CreateWaitableTimerA<P0, P1>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, bmanualreset: P0, lptimername: P1) -> super::super::Foundation::HANDLE
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    CreateWaitableTimerA(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), bmanualreset.into_param().abi(), lptimername.into_param().abi())
+}
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn CreateWaitableTimerExA<P0>(lptimerattributes: ::core::option::Option<*const super::super::Security::SECURITY_ATTRIBUTES>, lptimername: P0, dwflags: u32, dwdesiredaccess: u32) -> super::super::Foundation::HANDLE
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
+    CreateWaitableTimerExA(::core::mem::transmute(lptimerattributes.unwrap_or(::std::ptr::null())), lptimername.into_param().abi(), dwflags, dwdesiredaccess)
 }
 #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1676,6 +1708,17 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenThreadToken(threadhandle : super::super::Foundation:: HANDLE, desiredaccess : super::super::Security:: TOKEN_ACCESS_MASK, openasself : super::super::Foundation:: BOOL, tokenhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     OpenThreadToken(threadhandle.into_param().abi(), desiredaccess, openasself.into_param().abi(), tokenhandle).ok()
+}
+#[doc = "Required features: `Win32_Foundation`"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenWaitableTimerA<P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lptimername: P1) -> super::super::Foundation::HANDLE
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
+    OpenWaitableTimerA(dwdesiredaccess, binherithandle.into_param().abi(), lptimername.into_param().abi())
 }
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2972,6 +3015,7 @@ pub struct RTWQASYNCRESULT_Vtbl {
     pub base__: IRtwqAsyncResult_Vtbl,
 }
 pub const ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(32768u32);
+pub const ALL_PROCESSOR_GROUPS: u16 = 65535u16;
 pub const AVRT_PRIORITY_CRITICAL: AVRT_PRIORITY = AVRT_PRIORITY(2i32);
 pub const AVRT_PRIORITY_HIGH: AVRT_PRIORITY = AVRT_PRIORITY(1i32);
 pub const AVRT_PRIORITY_LOW: AVRT_PRIORITY = AVRT_PRIORITY(-1i32);
@@ -3031,29 +3075,47 @@ pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = SYNCHRONIZATION_AC
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(19i32);
 pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(32u32);
 pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(7u32);
+pub const PF_ALPHA_BYTE_INSTRUCTIONS: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(5u32);
 pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(25u32);
 pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(24u32);
 pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(26u32);
 pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(27u32);
+pub const PF_ARM_NEON_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(19u32);
 pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(34u32);
+pub const PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(43u32);
+pub const PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(44u32);
+pub const PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(45u32);
 pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(31u32);
 pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(30u32);
 pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(29u32);
 pub const PF_ARM_VFP_32_REGISTERS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(18u32);
+pub const PF_AVX2_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(40u32);
+pub const PF_AVX512F_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(41u32);
+pub const PF_AVX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(39u32);
 pub const PF_CHANNELS_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(16u32);
 pub const PF_COMPARE64_EXCHANGE128: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(15u32);
 pub const PF_COMPARE_EXCHANGE128: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(14u32);
 pub const PF_COMPARE_EXCHANGE_DOUBLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(2u32);
+pub const PF_ERMS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(42u32);
 pub const PF_FASTFAIL_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(23u32);
 pub const PF_FLOATING_POINT_EMULATED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(1u32);
 pub const PF_FLOATING_POINT_PRECISION_ERRATA: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(0u32);
 pub const PF_MMX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(3u32);
+pub const PF_MONITORX_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(35u32);
 pub const PF_NX_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(12u32);
 pub const PF_PAE_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(9u32);
+pub const PF_PPC_MOVEMEM_64BIT_OK: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(4u32);
+pub const PF_RDPID_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(33u32);
+pub const PF_RDRAND_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(28u32);
+pub const PF_RDTSCP_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(32u32);
 pub const PF_RDTSC_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(8u32);
 pub const PF_RDWRFSGSBASE_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(22u32);
 pub const PF_SECOND_LEVEL_ADDRESS_TRANSLATION: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(20u32);
 pub const PF_SSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(13u32);
+pub const PF_SSE4_1_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(37u32);
+pub const PF_SSE4_2_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(38u32);
+pub const PF_SSE_DAZ_MODE_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(11u32);
+pub const PF_SSSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(36u32);
 pub const PF_VIRT_FIRMWARE_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(21u32);
 pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(10u32);
 pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(6u32);

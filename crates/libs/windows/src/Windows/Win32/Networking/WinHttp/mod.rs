@@ -388,6 +388,217 @@ where
     ::windows_targets::link!("winhttp.dll" "system" fn WinHttpWriteProxySettings(hsession : *const ::core::ffi::c_void, fforceupdate : super::super::Foundation:: BOOL, pwinhttpproxysettings : *const WINHTTP_PROXY_SETTINGS) -> u32);
     WinHttpWriteProxySettings(hsession, fforceupdate.into_param().abi(), pwinhttpproxysettings)
 }
+#[doc = "Required features: `Win32_System_Com`"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IWinHttpRequest(::windows_core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl IWinHttpRequest {
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetProxy(&self, proxysetting: i32, proxyserver: super::super::System::Variant::VARIANT, bypasslist: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetProxy)(::windows_core::Interface::as_raw(self), proxysetting, ::core::mem::transmute(proxyserver), ::core::mem::transmute(bypasslist)).ok()
+    }
+    pub unsafe fn SetCredentials<P0, P1>(&self, username: P0, password: P1, flags: i32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        (::windows_core::Interface::vtable(self).SetCredentials)(::windows_core::Interface::as_raw(self), username.into_param().abi(), password.into_param().abi(), flags).ok()
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Open<P0, P1>(&self, method: P0, url: P1, r#async: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), method.into_param().abi(), url.into_param().abi(), ::core::mem::transmute(r#async)).ok()
+    }
+    pub unsafe fn SetRequestHeader<P0, P1>(&self, header: P0, value: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+        P1: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        (::windows_core::Interface::vtable(self).SetRequestHeader)(::windows_core::Interface::as_raw(self), header.into_param().abi(), value.into_param().abi()).ok()
+    }
+    pub unsafe fn GetResponseHeader<P0>(&self, header: P0) -> ::windows_core::Result<::windows_core::BSTR>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetResponseHeader)(::windows_core::Interface::as_raw(self), header.into_param().abi(), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetAllResponseHeaders(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Send(&self, body: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Send)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(body)).ok()
+    }
+    pub unsafe fn Status(&self) -> ::windows_core::Result<i32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn StatusText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).StatusText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn ResponseText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).ResponseText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ResponseBody(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).ResponseBody)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn ResponseStream(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).ResponseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn get_Option(&self, option: WinHttpRequestOption) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_Option)(::windows_core::Interface::as_raw(self), option, &mut result__).from_abi(result__)
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn put_Option(&self, option: WinHttpRequestOption, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).put_Option)(::windows_core::Interface::as_raw(self), option, ::core::mem::transmute(value)).ok()
+    }
+    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn WaitForResponse(&self, timeout: super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).WaitForResponse)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(timeout), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn Abort(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Abort)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn SetTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetTimeouts)(::windows_core::Interface::as_raw(self), resolvetimeout, connecttimeout, sendtimeout, receivetimeout).ok()
+    }
+    pub unsafe fn SetClientCertificate<P0>(&self, clientcertificate: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        (::windows_core::Interface::vtable(self).SetClientCertificate)(::windows_core::Interface::as_raw(self), clientcertificate.into_param().abi()).ok()
+    }
+    pub unsafe fn SetAutoLogonPolicy(&self, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetAutoLogonPolicy)(::windows_core::Interface::as_raw(self), autologonpolicy).ok()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+::windows_core::imp::interface_hierarchy!(IWinHttpRequest, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows_core::Interface for IWinHttpRequest {
+    type Vtable = IWinHttpRequest_Vtbl;
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows_core::ComInterface for IWinHttpRequest {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x016fe2ec_b2c8_45f8_b23b_39e53a75396b);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWinHttpRequest_Vtbl {
+    pub base__: super::super::System::Com::IDispatch_Vtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetProxy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proxysetting: i32, proxyserver: super::super::System::Variant::VARIANT, bypasslist: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    SetProxy: usize,
+    pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, username: ::std::mem::MaybeUninit<::windows_core::BSTR>, password: ::std::mem::MaybeUninit<::windows_core::BSTR>, flags: i32) -> ::windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::std::mem::MaybeUninit<::windows_core::BSTR>, url: ::std::mem::MaybeUninit<::windows_core::BSTR>, r#async: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Open: usize,
+    pub SetRequestHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, header: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetResponseHeader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, header: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub GetAllResponseHeaders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headers: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Send: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Send: usize,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut i32) -> ::windows_core::HRESULT,
+    pub StatusText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub ResponseText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ResponseBody: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ResponseBody: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub ResponseStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, body: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    ResponseStream: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub get_Option: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    get_Option: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub put_Option: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: WinHttpRequestOption, value: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    put_Option: usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub WaitForResponse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: super::super::System::Variant::VARIANT, succeeded: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    WaitForResponse: usize,
+    pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub SetTimeouts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> ::windows_core::HRESULT,
+    pub SetClientCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clientcertificate: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
+    pub SetAutoLogonPolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, autologonpolicy: WinHttpRequestAutoLogonPolicy) -> ::windows_core::HRESULT,
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
+pub struct IWinHttpRequestEvents(::windows_core::IUnknown);
+impl IWinHttpRequestEvents {
+    pub unsafe fn OnResponseStart<P0>(&self, status: i32, contenttype: P0)
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        (::windows_core::Interface::vtable(self).OnResponseStart)(::windows_core::Interface::as_raw(self), status, contenttype.into_param().abi())
+    }
+    #[doc = "Required features: `Win32_System_Com`"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn OnResponseDataAvailable(&self, data: *const *const super::super::System::Com::SAFEARRAY) {
+        (::windows_core::Interface::vtable(self).OnResponseDataAvailable)(::windows_core::Interface::as_raw(self), data)
+    }
+    pub unsafe fn OnResponseFinished(&self) {
+        (::windows_core::Interface::vtable(self).OnResponseFinished)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn OnError<P0>(&self, errornumber: i32, errordescription: P0)
+    where
+        P0: ::windows_core::IntoParam<::windows_core::BSTR>,
+    {
+        (::windows_core::Interface::vtable(self).OnError)(::windows_core::Interface::as_raw(self), errornumber, errordescription.into_param().abi())
+    }
+}
+::windows_core::imp::interface_hierarchy!(IWinHttpRequestEvents, ::windows_core::IUnknown);
+unsafe impl ::windows_core::Interface for IWinHttpRequestEvents {
+    type Vtable = IWinHttpRequestEvents_Vtbl;
+}
+unsafe impl ::windows_core::ComInterface for IWinHttpRequestEvents {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf97f4e15_b787_4212_80d1_d380cbbf982e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWinHttpRequestEvents_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub OnResponseStart: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: i32, contenttype: ::std::mem::MaybeUninit<::windows_core::BSTR>),
+    #[cfg(feature = "Win32_System_Com")]
+    pub OnResponseDataAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *const *const super::super::System::Com::SAFEARRAY),
+    #[cfg(not(feature = "Win32_System_Com"))]
+    OnResponseDataAvailable: usize,
+    pub OnResponseFinished: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errornumber: i32, errordescription: ::std::mem::MaybeUninit<::windows_core::BSTR>),
+}
 pub const API_GET_PROXY_FOR_URL: u32 = 6u32;
 pub const API_GET_PROXY_SETTINGS: u32 = 7u32;
 pub const API_QUERY_DATA_AVAILABLE: u32 = 2u32;
@@ -395,6 +606,9 @@ pub const API_READ_DATA: u32 = 3u32;
 pub const API_RECEIVE_RESPONSE: u32 = 1u32;
 pub const API_SEND_REQUEST: u32 = 5u32;
 pub const API_WRITE_DATA: u32 = 4u32;
+pub const AutoLogonPolicy_Always: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(0i32);
+pub const AutoLogonPolicy_Never: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(2i32);
+pub const AutoLogonPolicy_OnlyIfBypassProxy: WinHttpRequestAutoLogonPolicy = WinHttpRequestAutoLogonPolicy(1i32);
 pub const ERROR_WINHTTP_AUTODETECTION_FAILED: u32 = 12180u32;
 pub const ERROR_WINHTTP_AUTO_PROXY_SERVICE_ERROR: u32 = 12178u32;
 pub const ERROR_WINHTTP_BAD_AUTO_PROXY_SCRIPT: u32 = 12166u32;
@@ -450,6 +664,12 @@ pub const ERROR_WINHTTP_TIMEOUT: u32 = 12002u32;
 pub const ERROR_WINHTTP_UNABLE_TO_DOWNLOAD_SCRIPT: u32 = 12167u32;
 pub const ERROR_WINHTTP_UNHANDLED_SCRIPT_TYPE: u32 = 12176u32;
 pub const ERROR_WINHTTP_UNRECOGNIZED_SCHEME: u32 = 12006u32;
+pub const HTTPREQUEST_PROXYSETTING_DEFAULT: u32 = 0u32;
+pub const HTTPREQUEST_PROXYSETTING_DIRECT: u32 = 1u32;
+pub const HTTPREQUEST_PROXYSETTING_PRECONFIG: u32 = 0u32;
+pub const HTTPREQUEST_PROXYSETTING_PROXY: u32 = 2u32;
+pub const HTTPREQUEST_SETCREDENTIALS_FOR_PROXY: u32 = 1u32;
+pub const HTTPREQUEST_SETCREDENTIALS_FOR_SERVER: u32 = 0u32;
 pub const HTTP_STATUS_ACCEPTED: u32 = 202u32;
 pub const HTTP_STATUS_AMBIGUOUS: u32 = 300u32;
 pub const HTTP_STATUS_BAD_GATEWAY: u32 = 502u32;
@@ -514,6 +734,17 @@ pub const SECURITY_FLAG_SECURE: u32 = 1u32;
 pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
 pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
 pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
+pub const SecureProtocol_ALL: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(168i32);
+pub const SecureProtocol_SSL2: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(8i32);
+pub const SecureProtocol_SSL3: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(32i32);
+pub const SecureProtocol_TLS1: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(128i32);
+pub const SecureProtocol_TLS1_1: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(512i32);
+pub const SecureProtocol_TLS1_2: WinHttpRequestSecureProtocols = WinHttpRequestSecureProtocols(2048i32);
+pub const SslErrorFlag_CertCNInvalid: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(4096i32);
+pub const SslErrorFlag_CertDateInvalid: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(8192i32);
+pub const SslErrorFlag_CertWrongUsage: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(512i32);
+pub const SslErrorFlag_Ignore_All: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(13056i32);
+pub const SslErrorFlag_UnknownCA: WinHttpRequestSslErrorFlags = WinHttpRequestSslErrorFlags(256i32);
 pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(4u32);
 pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(0u32);
 pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(3u32);
@@ -1016,8 +1247,29 @@ pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_EN
 pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(23i32);
 pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(25i32);
 pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(22i32);
+pub const WinHttpRequest: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2087c2f4_2cef_4953_a8ab_66779b670495);
 pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(7i32);
 pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(6i32);
+pub const WinHttpRequestOption_EnableCertificateRevocationCheck: WinHttpRequestOption = WinHttpRequestOption(18i32);
+pub const WinHttpRequestOption_EnableHttp1_1: WinHttpRequestOption = WinHttpRequestOption(17i32);
+pub const WinHttpRequestOption_EnableHttpsToHttpRedirects: WinHttpRequestOption = WinHttpRequestOption(12i32);
+pub const WinHttpRequestOption_EnablePassportAuthentication: WinHttpRequestOption = WinHttpRequestOption(13i32);
+pub const WinHttpRequestOption_EnableRedirects: WinHttpRequestOption = WinHttpRequestOption(6i32);
+pub const WinHttpRequestOption_EnableTracing: WinHttpRequestOption = WinHttpRequestOption(10i32);
+pub const WinHttpRequestOption_EscapePercentInURL: WinHttpRequestOption = WinHttpRequestOption(3i32);
+pub const WinHttpRequestOption_MaxAutomaticRedirects: WinHttpRequestOption = WinHttpRequestOption(14i32);
+pub const WinHttpRequestOption_MaxResponseDrainSize: WinHttpRequestOption = WinHttpRequestOption(16i32);
+pub const WinHttpRequestOption_MaxResponseHeaderSize: WinHttpRequestOption = WinHttpRequestOption(15i32);
+pub const WinHttpRequestOption_RejectUserpwd: WinHttpRequestOption = WinHttpRequestOption(19i32);
+pub const WinHttpRequestOption_RevertImpersonationOverSsl: WinHttpRequestOption = WinHttpRequestOption(11i32);
+pub const WinHttpRequestOption_SecureProtocols: WinHttpRequestOption = WinHttpRequestOption(9i32);
+pub const WinHttpRequestOption_SelectCertificate: WinHttpRequestOption = WinHttpRequestOption(5i32);
+pub const WinHttpRequestOption_SslErrorIgnoreFlags: WinHttpRequestOption = WinHttpRequestOption(4i32);
+pub const WinHttpRequestOption_URL: WinHttpRequestOption = WinHttpRequestOption(1i32);
+pub const WinHttpRequestOption_URLCodePage: WinHttpRequestOption = WinHttpRequestOption(2i32);
+pub const WinHttpRequestOption_UrlEscapeDisable: WinHttpRequestOption = WinHttpRequestOption(7i32);
+pub const WinHttpRequestOption_UrlEscapeDisableQuery: WinHttpRequestOption = WinHttpRequestOption(8i32);
+pub const WinHttpRequestOption_UserAgentString: WinHttpRequestOption = WinHttpRequestOption(0i32);
 pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(16i32);
 pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(32i32);
 pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(36i32);
@@ -1343,6 +1595,94 @@ impl ::windows_core::TypeKind for WIN_HTTP_CREATE_URL_FLAGS {
 impl ::core::fmt::Debug for WIN_HTTP_CREATE_URL_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WIN_HTTP_CREATE_URL_FLAGS").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WinHttpRequestAutoLogonPolicy(pub i32);
+impl ::core::marker::Copy for WinHttpRequestAutoLogonPolicy {}
+impl ::core::clone::Clone for WinHttpRequestAutoLogonPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WinHttpRequestAutoLogonPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WinHttpRequestAutoLogonPolicy {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WinHttpRequestAutoLogonPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WinHttpRequestAutoLogonPolicy").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WinHttpRequestOption(pub i32);
+impl ::core::marker::Copy for WinHttpRequestOption {}
+impl ::core::clone::Clone for WinHttpRequestOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WinHttpRequestOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WinHttpRequestOption {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WinHttpRequestOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WinHttpRequestOption").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WinHttpRequestSecureProtocols(pub i32);
+impl ::core::marker::Copy for WinHttpRequestSecureProtocols {}
+impl ::core::clone::Clone for WinHttpRequestSecureProtocols {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WinHttpRequestSecureProtocols {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WinHttpRequestSecureProtocols {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WinHttpRequestSecureProtocols {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WinHttpRequestSecureProtocols").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WinHttpRequestSslErrorFlags(pub i32);
+impl ::core::marker::Copy for WinHttpRequestSslErrorFlags {}
+impl ::core::clone::Clone for WinHttpRequestSslErrorFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WinHttpRequestSslErrorFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WinHttpRequestSslErrorFlags {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WinHttpRequestSslErrorFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WinHttpRequestSslErrorFlags").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -2596,3 +2936,5 @@ impl ::core::default::Default for WINHTTP_WEB_SOCKET_STATUS {
 }
 pub type WINHTTP_PROXY_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const ::core::ffi::c_void) -> ()>;
 pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32) -> ()>;
+#[cfg(feature = "implement")]
+::core::include!("impl.rs");

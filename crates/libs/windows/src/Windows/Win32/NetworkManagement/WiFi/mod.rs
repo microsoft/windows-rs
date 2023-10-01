@@ -422,12 +422,12 @@ where
 #[doc = "Required features: `Win32_Foundation`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WlanRegisterNotification<P0, P1>(hclienthandle: P0, dwnotifsource: u32, bignoreduplicate: P1, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwprevnotifsource: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn WlanRegisterNotification<P0, P1>(hclienthandle: P0, dwnotifsource: WLAN_NOTIFICATION_SOURCES, bignoreduplicate: P1, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwprevnotifsource: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : u32, bignoreduplicate : super::super::Foundation:: BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
+    ::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : super::super::Foundation:: BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
     WlanRegisterNotification(hclienthandle.into_param().abi(), dwnotifsource, bignoreduplicate.into_param().abi(), funccallback, ::core::mem::transmute(pcallbackcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwprevnotifsource.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "Required features: `Win32_Foundation`"]
@@ -1044,6 +1044,60 @@ pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::Devices::Prop
 pub const DEVPKEY_InfraCast_Supported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 17 };
 #[doc = "Required features: `Win32_Devices_Properties`"]
 #[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_ASPMSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 8 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_ClockPowerManagementSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 9 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_CurrentSpeedAndMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 2 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_DeviceIDMessagingCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 4 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_ExtendedConfigAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 6 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_ExtendedPCIConfigOpRegionSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 7 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_MSISupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 11 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_NativePciExpressControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 17 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_PCIExpressAERControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 15 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_PCIExpressCapabilityControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 16 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_PCIExpressNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 12 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_PCIExpressNativePMEControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 14 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_PCISegmentGroupsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 10 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_SHPCNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 13 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_SecondaryBusWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 5 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_SecondaryInterface: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 1 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_SupportedSpeedsAndModes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 3 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_PciRootBus_SystemMsiSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 18 };
+#[doc = "Required features: `Win32_Devices_Properties`"]
+#[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5 };
 #[doc = "Required features: `Win32_Devices_Properties`"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -1514,95 +1568,95 @@ pub const DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = D
 pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = DOT11_WPS_DEVICE_PASSWORD_ID(8i32);
 pub const DOT11_WPS_VERSION_1_0: u32 = 1u32;
 pub const DOT11_WPS_VERSION_2_0: u32 = 2u32;
-pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_Enhanced: u32 = 4u32;
-pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_NoP2PSupported: u32 = 2u32;
-pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_NotSupported: u32 = 0u32;
-pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_SingleFunctionSupported: u32 = 1u32;
-pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_Supported: u32 = 3u32;
-pub const DevProp_PciDevice_AcsSupport_Missing: u32 = 2u32;
-pub const DevProp_PciDevice_AcsSupport_NotNeeded: u32 = 1u32;
-pub const DevProp_PciDevice_AcsSupport_Present: u32 = 0u32;
-pub const DevProp_PciDevice_BridgeType_PciConventional: u32 = 6u32;
-pub const DevProp_PciDevice_BridgeType_PciExpressDownstreamSwitchPort: u32 = 10u32;
-pub const DevProp_PciDevice_BridgeType_PciExpressEventCollector: u32 = 14u32;
-pub const DevProp_PciDevice_BridgeType_PciExpressRootPort: u32 = 8u32;
-pub const DevProp_PciDevice_BridgeType_PciExpressToPciXBridge: u32 = 11u32;
-pub const DevProp_PciDevice_BridgeType_PciExpressTreatedAsPci: u32 = 13u32;
-pub const DevProp_PciDevice_BridgeType_PciExpressUpstreamSwitchPort: u32 = 9u32;
-pub const DevProp_PciDevice_BridgeType_PciX: u32 = 7u32;
-pub const DevProp_PciDevice_BridgeType_PciXToExpressBridge: u32 = 12u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_100Mhz: u32 = 2u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_133MHZ: u32 = 3u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_66Mhz: u32 = 1u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_100Mhz: u32 = 6u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_133Mhz: u32 = 7u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_66Mhz: u32 = 5u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_100MHz: u32 = 10u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_133MHz: u32 = 11u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_66MHz: u32 = 9u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_100MHz: u32 = 14u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_133MHz: u32 = 15u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_66MHz: u32 = 13u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode_Conventional_Pci: u32 = 0u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_33MHz: u32 = 0u32;
-pub const DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_66MHz: u32 = 1u32;
-pub const DevProp_PciDevice_DeviceType_PciConventional: u32 = 0u32;
-pub const DevProp_PciDevice_DeviceType_PciExpressEndpoint: u32 = 2u32;
-pub const DevProp_PciDevice_DeviceType_PciExpressLegacyEndpoint: u32 = 3u32;
-pub const DevProp_PciDevice_DeviceType_PciExpressRootComplexIntegratedEndpoint: u32 = 4u32;
-pub const DevProp_PciDevice_DeviceType_PciExpressTreatedAsPci: u32 = 5u32;
-pub const DevProp_PciDevice_DeviceType_PciX: u32 = 1u32;
-pub const DevProp_PciDevice_InterruptType_LineBased: u32 = 1u32;
-pub const DevProp_PciDevice_InterruptType_Msi: u32 = 2u32;
-pub const DevProp_PciDevice_InterruptType_MsiX: u32 = 4u32;
-pub const DevProp_PciDevice_SriovSupport_DidntGetVfBarSpace: u32 = 4u32;
-pub const DevProp_PciDevice_SriovSupport_MissingAcs: u32 = 1u32;
-pub const DevProp_PciDevice_SriovSupport_MissingPfDriver: u32 = 2u32;
-pub const DevProp_PciDevice_SriovSupport_NoBusResource: u32 = 3u32;
-pub const DevProp_PciDevice_SriovSupport_Ok: u32 = 0u32;
-pub const DevProp_PciExpressDevice_LinkSpeed_Five_Gbps: u32 = 2u32;
-pub const DevProp_PciExpressDevice_LinkSpeed_TwoAndHalf_Gbps: u32 = 1u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_1: u32 = 1u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_12: u32 = 12u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_16: u32 = 16u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_2: u32 = 2u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_32: u32 = 32u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_4: u32 = 4u32;
-pub const DevProp_PciExpressDevice_LinkWidth_By_8: u32 = 8u32;
-pub const DevProp_PciExpressDevice_PayloadOrRequestSize_1024Bytes: u32 = 3u32;
-pub const DevProp_PciExpressDevice_PayloadOrRequestSize_128Bytes: u32 = 0u32;
-pub const DevProp_PciExpressDevice_PayloadOrRequestSize_2048Bytes: u32 = 4u32;
-pub const DevProp_PciExpressDevice_PayloadOrRequestSize_256Bytes: u32 = 1u32;
-pub const DevProp_PciExpressDevice_PayloadOrRequestSize_4096Bytes: u32 = 5u32;
-pub const DevProp_PciExpressDevice_PayloadOrRequestSize_512Bytes: u32 = 2u32;
-pub const DevProp_PciExpressDevice_Spec_Version_10: u32 = 1u32;
-pub const DevProp_PciExpressDevice_Spec_Version_11: u32 = 2u32;
-pub const DevProp_PciRootBus_BusWidth_32Bits: u32 = 0u32;
-pub const DevProp_PciRootBus_BusWidth_64Bits: u32 = 1u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_33Mhz: u32 = 0u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_66Mhz: u32 = 1u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_100Mhz: u32 = 9u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_133Mhz: u32 = 10u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_66Mhz: u32 = 8u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_100Mhz: u32 = 12u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_133Mhz: u32 = 13u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_66Mhz: u32 = 11u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_100Mhz: u32 = 3u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_133Mhz: u32 = 4u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_66Mhz: u32 = 2u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_100Mhz: u32 = 6u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_133Mhz: u32 = 7u32;
-pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_66Mhz: u32 = 5u32;
-pub const DevProp_PciRootBus_SecondaryInterface_PciConventional: u32 = 0u32;
-pub const DevProp_PciRootBus_SecondaryInterface_PciExpress: u32 = 3u32;
-pub const DevProp_PciRootBus_SecondaryInterface_PciXMode1: u32 = 1u32;
-pub const DevProp_PciRootBus_SecondaryInterface_PciXMode2: u32 = 2u32;
-pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_33Mhz: u32 = 1u32;
-pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_66Mhz: u32 = 2u32;
-pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz: u32 = 8u32;
-pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: u32 = 16u32;
-pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: u32 = 32u32;
-pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: u32 = 4u32;
+pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_Enhanced: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(4u32);
+pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_NoP2PSupported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(2u32);
+pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_NotSupported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(0u32);
+pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_SingleFunctionSupported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(1u32);
+pub const DevProp_PciDevice_AcsCompatibleUpHierarchy_Supported: DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(3u32);
+pub const DevProp_PciDevice_AcsSupport_Missing: DEVPROP_PCIDEVICE_ACSSUPPORT = DEVPROP_PCIDEVICE_ACSSUPPORT(2u32);
+pub const DevProp_PciDevice_AcsSupport_NotNeeded: DEVPROP_PCIDEVICE_ACSSUPPORT = DEVPROP_PCIDEVICE_ACSSUPPORT(1u32);
+pub const DevProp_PciDevice_AcsSupport_Present: DEVPROP_PCIDEVICE_ACSSUPPORT = DEVPROP_PCIDEVICE_ACSSUPPORT(0u32);
+pub const DevProp_PciDevice_BridgeType_PciConventional: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(6u32);
+pub const DevProp_PciDevice_BridgeType_PciExpressDownstreamSwitchPort: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(10u32);
+pub const DevProp_PciDevice_BridgeType_PciExpressEventCollector: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(14u32);
+pub const DevProp_PciDevice_BridgeType_PciExpressRootPort: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(8u32);
+pub const DevProp_PciDevice_BridgeType_PciExpressToPciXBridge: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(11u32);
+pub const DevProp_PciDevice_BridgeType_PciExpressTreatedAsPci: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(13u32);
+pub const DevProp_PciDevice_BridgeType_PciExpressUpstreamSwitchPort: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(9u32);
+pub const DevProp_PciDevice_BridgeType_PciX: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(7u32);
+pub const DevProp_PciDevice_BridgeType_PciXToExpressBridge: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(12u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_100Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(2u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_133MHZ: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(3u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_66Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(1u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_100Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(6u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_133Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(7u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_66Mhz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(5u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_100MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(10u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_133MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(11u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_66MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(9u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_100MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(14u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_133MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(15u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_66MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(13u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode_Conventional_Pci: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(0u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_33MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(0u32);
+pub const DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_66MHz: DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(1u32);
+pub const DevProp_PciDevice_DeviceType_PciConventional: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(0u32);
+pub const DevProp_PciDevice_DeviceType_PciExpressEndpoint: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(2u32);
+pub const DevProp_PciDevice_DeviceType_PciExpressLegacyEndpoint: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(3u32);
+pub const DevProp_PciDevice_DeviceType_PciExpressRootComplexIntegratedEndpoint: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(4u32);
+pub const DevProp_PciDevice_DeviceType_PciExpressTreatedAsPci: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(5u32);
+pub const DevProp_PciDevice_DeviceType_PciX: DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(1u32);
+pub const DevProp_PciDevice_InterruptType_LineBased: DEVPROP_PCIDEVICE_INTERRUPTTYPE = DEVPROP_PCIDEVICE_INTERRUPTTYPE(1u32);
+pub const DevProp_PciDevice_InterruptType_Msi: DEVPROP_PCIDEVICE_INTERRUPTTYPE = DEVPROP_PCIDEVICE_INTERRUPTTYPE(2u32);
+pub const DevProp_PciDevice_InterruptType_MsiX: DEVPROP_PCIDEVICE_INTERRUPTTYPE = DEVPROP_PCIDEVICE_INTERRUPTTYPE(4u32);
+pub const DevProp_PciDevice_SriovSupport_DidntGetVfBarSpace: DEVPROP_PCIDEVICE_SRIOVSUPPORT = DEVPROP_PCIDEVICE_SRIOVSUPPORT(4u32);
+pub const DevProp_PciDevice_SriovSupport_MissingAcs: DEVPROP_PCIDEVICE_SRIOVSUPPORT = DEVPROP_PCIDEVICE_SRIOVSUPPORT(1u32);
+pub const DevProp_PciDevice_SriovSupport_MissingPfDriver: DEVPROP_PCIDEVICE_SRIOVSUPPORT = DEVPROP_PCIDEVICE_SRIOVSUPPORT(2u32);
+pub const DevProp_PciDevice_SriovSupport_NoBusResource: DEVPROP_PCIDEVICE_SRIOVSUPPORT = DEVPROP_PCIDEVICE_SRIOVSUPPORT(3u32);
+pub const DevProp_PciDevice_SriovSupport_Ok: DEVPROP_PCIDEVICE_SRIOVSUPPORT = DEVPROP_PCIDEVICE_SRIOVSUPPORT(0u32);
+pub const DevProp_PciExpressDevice_LinkSpeed_Five_Gbps: DEVPROP_PCIEXPRESSDEVICE_LINKSPEED = DEVPROP_PCIEXPRESSDEVICE_LINKSPEED(2u32);
+pub const DevProp_PciExpressDevice_LinkSpeed_TwoAndHalf_Gbps: DEVPROP_PCIEXPRESSDEVICE_LINKSPEED = DEVPROP_PCIEXPRESSDEVICE_LINKSPEED(1u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_1: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(1u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_12: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(12u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_16: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(16u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_2: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(2u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_32: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(32u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_4: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(4u32);
+pub const DevProp_PciExpressDevice_LinkWidth_By_8: DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(8u32);
+pub const DevProp_PciExpressDevice_PayloadOrRequestSize_1024Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(3u32);
+pub const DevProp_PciExpressDevice_PayloadOrRequestSize_128Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(0u32);
+pub const DevProp_PciExpressDevice_PayloadOrRequestSize_2048Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(4u32);
+pub const DevProp_PciExpressDevice_PayloadOrRequestSize_256Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(1u32);
+pub const DevProp_PciExpressDevice_PayloadOrRequestSize_4096Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(5u32);
+pub const DevProp_PciExpressDevice_PayloadOrRequestSize_512Bytes: DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(2u32);
+pub const DevProp_PciExpressDevice_Spec_Version_10: DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION = DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION(1u32);
+pub const DevProp_PciExpressDevice_Spec_Version_11: DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION = DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION(2u32);
+pub const DevProp_PciRootBus_BusWidth_32Bits: DEVPROP_PCIROOTBUS_BUSWIDTH = DEVPROP_PCIROOTBUS_BUSWIDTH(0u32);
+pub const DevProp_PciRootBus_BusWidth_64Bits: DEVPROP_PCIROOTBUS_BUSWIDTH = DEVPROP_PCIROOTBUS_BUSWIDTH(1u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_33Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(0u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(1u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(9u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(10u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(8u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(12u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(13u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(11u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(3u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(4u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(2u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_100Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(6u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_133Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(7u32);
+pub const DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_66Mhz: DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(5u32);
+pub const DevProp_PciRootBus_SecondaryInterface_PciConventional: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = DEVPROP_PCIROOTBUS_SECONDARYINTERFACE(0u32);
+pub const DevProp_PciRootBus_SecondaryInterface_PciExpress: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = DEVPROP_PCIROOTBUS_SECONDARYINTERFACE(3u32);
+pub const DevProp_PciRootBus_SecondaryInterface_PciXMode1: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = DEVPROP_PCIROOTBUS_SECONDARYINTERFACE(1u32);
+pub const DevProp_PciRootBus_SecondaryInterface_PciXMode2: DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = DEVPROP_PCIROOTBUS_SECONDARYINTERFACE(2u32);
+pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_33Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(1u32);
+pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_66Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(2u32);
+pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(8u32);
+pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(16u32);
+pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(32u32);
+pub const DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz: DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(4u32);
 pub const Dot11AdHocManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd06a84f_83bd_4d01_8ab9_2389fea0869e);
 pub const GUID_AEPSERVICE_WIFIDIRECT_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc29827c_9caf_4928_99a9_18f7c2381389);
 pub const GUID_DEVINTERFACE_ASP_INFRA_DEVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff823995_7a72_4c80_8757_c67ee13d1a49);
@@ -1862,15 +1916,15 @@ pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64
 pub const WLAN_MAX_NAME_LENGTH: u32 = 256u32;
 pub const WLAN_MAX_PHY_INDEX: u32 = 64u32;
 pub const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8u32;
-pub const WLAN_NOTIFICATION_SOURCE_ACM: u32 = 8u32;
-pub const WLAN_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
-pub const WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: u32 = 2048u32;
-pub const WLAN_NOTIFICATION_SOURCE_HNWK: u32 = 128u32;
-pub const WLAN_NOTIFICATION_SOURCE_IHV: u32 = 64u32;
-pub const WLAN_NOTIFICATION_SOURCE_MSM: u32 = 16u32;
-pub const WLAN_NOTIFICATION_SOURCE_NONE: u32 = 0u32;
-pub const WLAN_NOTIFICATION_SOURCE_ONEX: u32 = 4u32;
-pub const WLAN_NOTIFICATION_SOURCE_SECURITY: u32 = 32u32;
+pub const WLAN_NOTIFICATION_SOURCE_ACM: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(8u32);
+pub const WLAN_NOTIFICATION_SOURCE_ALL: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(65535u32);
+pub const WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(2048u32);
+pub const WLAN_NOTIFICATION_SOURCE_HNWK: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(128u32);
+pub const WLAN_NOTIFICATION_SOURCE_IHV: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(64u32);
+pub const WLAN_NOTIFICATION_SOURCE_MSM: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(16u32);
+pub const WLAN_NOTIFICATION_SOURCE_NONE: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(0u32);
+pub const WLAN_NOTIFICATION_SOURCE_ONEX: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(4u32);
+pub const WLAN_NOTIFICATION_SOURCE_SECURITY: WLAN_NOTIFICATION_SOURCES = WLAN_NOTIFICATION_SOURCES(32u32);
 pub const WLAN_PROFILE_CONNECTION_MODE_AUTO: u32 = 131072u32;
 pub const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536u32;
 pub const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4u32;
@@ -2345,6 +2399,314 @@ impl ::windows_core::TypeKind for CH_DESCRIPTION_TYPE {
 impl ::core::fmt::Debug for CH_DESCRIPTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CH_DESCRIPTION_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY {}
+impl ::core::clone::Clone for DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIDEVICE_ACSSUPPORT(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIDEVICE_ACSSUPPORT {}
+impl ::core::clone::Clone for DEVPROP_PCIDEVICE_ACSSUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIDEVICE_ACSSUPPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIDEVICE_ACSSUPPORT {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIDEVICE_ACSSUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIDEVICE_ACSSUPPORT").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE {}
+impl ::core::clone::Clone for DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE {}
+impl ::core::clone::Clone for DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIDEVICE_INTERRUPTTYPE(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIDEVICE_INTERRUPTTYPE {}
+impl ::core::clone::Clone for DEVPROP_PCIDEVICE_INTERRUPTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIDEVICE_INTERRUPTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIDEVICE_INTERRUPTTYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIDEVICE_INTERRUPTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIDEVICE_INTERRUPTTYPE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIDEVICE_SRIOVSUPPORT(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIDEVICE_SRIOVSUPPORT {}
+impl ::core::clone::Clone for DEVPROP_PCIDEVICE_SRIOVSUPPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIDEVICE_SRIOVSUPPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIDEVICE_SRIOVSUPPORT {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIDEVICE_SRIOVSUPPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIDEVICE_SRIOVSUPPORT").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIEXPRESSDEVICE_LINKSPEED(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIEXPRESSDEVICE_LINKSPEED {}
+impl ::core::clone::Clone for DEVPROP_PCIEXPRESSDEVICE_LINKSPEED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIEXPRESSDEVICE_LINKSPEED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_LINKSPEED {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIEXPRESSDEVICE_LINKSPEED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIEXPRESSDEVICE_LINKSPEED").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH {}
+impl ::core::clone::Clone for DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE {}
+impl ::core::clone::Clone for DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION {}
+impl ::core::clone::Clone for DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIROOTBUS_BUSWIDTH(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIROOTBUS_BUSWIDTH {}
+impl ::core::clone::Clone for DEVPROP_PCIROOTBUS_BUSWIDTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIROOTBUS_BUSWIDTH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIROOTBUS_BUSWIDTH {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIROOTBUS_BUSWIDTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIROOTBUS_BUSWIDTH").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE {}
+impl ::core::clone::Clone for DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIROOTBUS_SECONDARYINTERFACE(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIROOTBUS_SECONDARYINTERFACE {}
+impl ::core::clone::Clone for DEVPROP_PCIROOTBUS_SECONDARYINTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIROOTBUS_SECONDARYINTERFACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIROOTBUS_SECONDARYINTERFACE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIROOTBUS_SECONDARYINTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIROOTBUS_SECONDARYINTERFACE").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES(pub u32);
+impl ::core::marker::Copy for DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES {}
+impl ::core::clone::Clone for DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES").field(&self.0).finish()
     }
 }
 #[repr(transparent)]
@@ -3643,6 +4005,61 @@ impl ::windows_core::TypeKind for WLAN_NOTIFICATION_SECURITY {
 impl ::core::fmt::Debug for WLAN_NOTIFICATION_SECURITY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WLAN_NOTIFICATION_SECURITY").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLAN_NOTIFICATION_SOURCES(pub u32);
+impl ::core::marker::Copy for WLAN_NOTIFICATION_SOURCES {}
+impl ::core::clone::Clone for WLAN_NOTIFICATION_SOURCES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLAN_NOTIFICATION_SOURCES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WLAN_NOTIFICATION_SOURCES {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WLAN_NOTIFICATION_SOURCES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLAN_NOTIFICATION_SOURCES").field(&self.0).finish()
+    }
+}
+impl WLAN_NOTIFICATION_SOURCES {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WLAN_NOTIFICATION_SOURCES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WLAN_NOTIFICATION_SOURCES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WLAN_NOTIFICATION_SOURCES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WLAN_NOTIFICATION_SOURCES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WLAN_NOTIFICATION_SOURCES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[repr(transparent)]
@@ -13141,7 +13558,7 @@ impl ::core::default::Default for DOT11_WPS_DEVICE_NAME {
 }
 #[repr(C)]
 pub struct L2_NOTIFICATION_DATA {
-    pub NotificationSource: u32,
+    pub NotificationSource: WLAN_NOTIFICATION_SOURCES,
     pub NotificationCode: u32,
     pub InterfaceGuid: ::windows_core::GUID,
     pub dwDataSize: u32,

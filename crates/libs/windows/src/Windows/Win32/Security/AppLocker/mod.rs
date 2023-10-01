@@ -43,8 +43,8 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
     ::windows_targets::link!("advapi32.dll" "system" fn SaferGetPolicyInformation(dwscopeid : u32, saferpolicyinfoclass : SAFER_POLICY_INFO_CLASS, infobuffersize : u32, infobuffer : *mut ::core::ffi::c_void, infobufferretsize : *mut u32, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, infobufferretsize, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: ::core::option::Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut super::SAFER_LEVEL_HANDLE, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut super:: SAFER_LEVEL_HANDLE, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
@@ -284,8 +284,8 @@ impl ::core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -295,20 +295,20 @@ pub struct SAFER_CODE_PROPERTIES_V1 {
     pub ImageHash: [u8; 64],
     pub dwImageHashSize: u32,
     pub ImageSize: i64,
-    pub HashAlgorithm: u32,
+    pub HashAlgorithm: super::Cryptography::ALG_ID,
     pub pByteBlock: *mut u8,
     pub hWndParent: super::super::Foundation::HWND,
     pub dwWVTUIChoice: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for SAFER_CODE_PROPERTIES_V1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SAFER_CODE_PROPERTIES_V1")
@@ -327,27 +327,27 @@ impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V1 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for SAFER_CODE_PROPERTIES_V1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for SAFER_CODE_PROPERTIES_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -357,7 +357,7 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub ImageHash: [u8; 64],
     pub dwImageHashSize: u32,
     pub ImageSize: i64,
-    pub HashAlgorithm: u32,
+    pub HashAlgorithm: super::Cryptography::ALG_ID,
     pub pByteBlock: *mut u8,
     pub hWndParent: super::super::Foundation::HWND,
     pub dwWVTUIChoice: u32,
@@ -367,15 +367,15 @@ pub struct SAFER_CODE_PROPERTIES_V2 {
     pub PackageVersion: u64,
     pub PackageIsFramework: super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for SAFER_CODE_PROPERTIES_V2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for SAFER_CODE_PROPERTIES_V2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SAFER_CODE_PROPERTIES_V2")
@@ -399,105 +399,105 @@ impl ::core::fmt::Debug for SAFER_CODE_PROPERTIES_V2 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for SAFER_CODE_PROPERTIES_V2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SAFER_CODE_PROPERTIES_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.dwCheckFlags == other.dwCheckFlags && self.ImagePath == other.ImagePath && self.hImageFileHandle == other.hImageFileHandle && self.UrlZoneId == other.UrlZoneId && self.ImageHash == other.ImageHash && self.dwImageHashSize == other.dwImageHashSize && self.ImageSize == other.ImageSize && self.HashAlgorithm == other.HashAlgorithm && self.pByteBlock == other.pByteBlock && self.hWndParent == other.hWndParent && self.dwWVTUIChoice == other.dwWVTUIChoice && self.PackageMoniker == other.PackageMoniker && self.PackagePublisher == other.PackagePublisher && self.PackageName == other.PackageName && self.PackageVersion == other.PackageVersion && self.PackageIsFramework == other.PackageIsFramework
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for SAFER_CODE_PROPERTIES_V2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for SAFER_CODE_PROPERTIES_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
     pub FriendlyName: [u16; 256],
     pub HashSize: u32,
     pub ImageHash: [u8; 64],
-    pub HashAlgorithm: u32,
+    pub HashAlgorithm: super::Cryptography::ALG_ID,
     pub ImageSize: i64,
     pub dwSaferFlags: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for SAFER_HASH_IDENTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for SAFER_HASH_IDENTIFICATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SAFER_HASH_IDENTIFICATION").field("header", &self.header).field("Description", &self.Description).field("FriendlyName", &self.FriendlyName).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).field("ImageSize", &self.ImageSize).field("dwSaferFlags", &self.dwSaferFlags).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for SAFER_HASH_IDENTIFICATION {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION {
     fn eq(&self, other: &Self) -> bool {
         self.header == other.header && self.Description == other.Description && self.FriendlyName == other.FriendlyName && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm && self.ImageSize == other.ImageSize && self.dwSaferFlags == other.dwSaferFlags
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for SAFER_HASH_IDENTIFICATION {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for SAFER_HASH_IDENTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
     pub ImageHash: [u8; 64],
-    pub HashAlgorithm: u32,
+    pub HashAlgorithm: super::Cryptography::ALG_ID,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::marker::Copy for SAFER_HASH_IDENTIFICATION2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::clone::Clone for SAFER_HASH_IDENTIFICATION2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::fmt::Debug for SAFER_HASH_IDENTIFICATION2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("SAFER_HASH_IDENTIFICATION2").field("hashIdentification", &self.hashIdentification).field("HashSize", &self.HashSize).field("ImageHash", &self.ImageHash).field("HashAlgorithm", &self.HashAlgorithm).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::windows_core::TypeKind for SAFER_HASH_IDENTIFICATION2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::PartialEq for SAFER_HASH_IDENTIFICATION2 {
     fn eq(&self, other: &Self) -> bool {
         self.hashIdentification == other.hashIdentification && self.HashSize == other.HashSize && self.ImageHash == other.ImageHash && self.HashAlgorithm == other.HashAlgorithm
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::cmp::Eq for SAFER_HASH_IDENTIFICATION2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::core::default::Default for SAFER_HASH_IDENTIFICATION2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

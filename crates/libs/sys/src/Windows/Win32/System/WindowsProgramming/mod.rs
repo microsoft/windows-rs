@@ -8,15 +8,9 @@
 ::windows_targets::link!("apphelp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ApphelpCheckShellObject(objectclsid : *const ::windows_sys::core::GUID, bshimifnecessary : super::super::Foundation:: BOOL, pullflags : *mut u64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CancelDeviceWakeupRequest(hdevice : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CancelTimerQueueTimer(timerqueue : super::super::Foundation:: HANDLE, timer : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advpack.dll" "system" fn CloseINFEngine(hinf : *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertAuxiliaryCounterToPerformanceCounter(ullauxiliarycountervalue : u64, lpperformancecountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn ConvertPerformanceCounterToAuxiliaryCounter(ullperformancecountervalue : u64, lpauxiliarycountervalue : *mut u64, lpconversionerror : *mut u64) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn CreateWaitableTimerA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, bmanualreset : super::super::Foundation:: BOOL, lptimername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn CreateWaitableTimerExA(lptimerattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lptimername : ::windows_sys::core::PCSTR, dwflags : u32, dwdesiredaccess : u32) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("dciman32.dll" "system" fn DCIBeginAccess(pdci : *mut DCISURFACEINFO, x : i32, y : i32, dx : i32, dy : i32) -> i32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
 ::windows_targets::link!("dciman32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn DCICloseProvider(hdc : super::super::Graphics::Gdi:: HDC) -> ());
@@ -172,8 +166,6 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenMutexA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenSemaphoreA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenWaitableTimerA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lptimername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : *mut u64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn QueryIdleProcessorCycleTime(bufferlength : *mut u32, processoridlecycletime : *mut u64) -> super::super::Foundation:: BOOL);

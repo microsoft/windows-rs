@@ -54,7 +54,7 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 ::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"] fn MQSetQueueProperties(lpwcsformatname : ::windows_sys::core::PCWSTR, pqueueprops : *mut MQQUEUEPROPS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `Win32_Security`"] fn MQSetQueueSecurity(lpwcsformatname : ::windows_sys::core::PCWSTR, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("mqrt.dll" "system" #[doc = "Required features: `Win32_Security`"] fn MQSetQueueSecurity(lpwcsformatname : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT);
 pub type IMSMQApplication = *mut ::core::ffi::c_void;
 pub type IMSMQApplication2 = *mut ::core::ffi::c_void;
 pub type IMSMQApplication3 = *mut ::core::ffi::c_void;
