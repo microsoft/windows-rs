@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetExtensionVersion(pver : *mut HSE_VERSION_INFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetFilterVersion(pver : *mut HTTP_FILTER_VERSION) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
+::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HttpExtensionProc(pecb : *const EXTENSION_CONTROL_BLOCK) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("rpcproxy.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HttpFilterProc(pfc : *mut HTTP_FILTER_CONTEXT, notificationtype : u32, pvnotification : *mut ::core::ffi::c_void) -> u32);
 pub type AsyncIFtpAuthenticationProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpAuthorizationProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpHomeDirectoryProvider = *mut ::core::ffi::c_void;
@@ -1011,7 +1011,7 @@ pub type SF_PROPERTY_IIS = i32;
 pub type SF_REQ_TYPE = i32;
 pub type SF_STATUS_TYPE = i32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_Cryptography`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
@@ -1038,7 +1038,7 @@ impl ::core::clone::Clone for CONFIGURATION_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
@@ -1069,7 +1069,7 @@ impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
 }
 pub type HCONN = *mut ::core::ffi::c_void;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: ::windows_sys::core::PSTR,
@@ -1085,7 +1085,7 @@ impl ::core::clone::Clone for HSE_CUSTOM_ERROR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: ::windows_sys::core::PWSTR,
@@ -1104,7 +1104,7 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
@@ -1131,7 +1131,7 @@ impl ::core::clone::Clone for HSE_EXEC_URL_ENTITY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: ::windows_sys::core::PSTR,
@@ -1162,7 +1162,7 @@ impl ::core::clone::Clone for HSE_EXEC_URL_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
@@ -1192,7 +1192,7 @@ impl ::core::clone::Clone for HSE_RESPONSE_VECTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: ::windows_sys::core::PCSTR,
@@ -1210,7 +1210,7 @@ impl ::core::clone::Clone for HSE_SEND_HEADER_EX_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
@@ -1234,7 +1234,7 @@ impl ::core::clone::Clone for HSE_TF_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: super::super::Foundation::BOOL,
@@ -1328,7 +1328,7 @@ impl ::core::clone::Clone for HTTP_FILTER_AUTHENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
@@ -1348,7 +1348,7 @@ impl ::core::clone::Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
@@ -1460,7 +1460,7 @@ impl ::core::clone::Clone for HTTP_FILTER_VERSION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *const ::windows_sys::core::GUID,
@@ -1623,7 +1623,7 @@ impl ::core::clone::Clone for METADATA_RECORD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POST_PROCESS_PARAMETERS {
     pub pszSessionId: ::windows_sys::core::PCWSTR,
@@ -1656,7 +1656,7 @@ impl ::core::clone::Clone for POST_PROCESS_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRE_PROCESS_PARAMETERS {
     pub pszSessionId: ::windows_sys::core::PCWSTR,
@@ -1681,30 +1681,30 @@ impl ::core::clone::Clone for PRE_PROCESS_PARAMETERS {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_GETEXTENSIONVERSION = ::core::option::Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszurl: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszprotocolmanagerdll: ::windows_sys::core::PCWSTR, pszprotocolmanagerdllinitfunction: ::windows_sys::core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IIS_GETSERVERVARIABLE = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: ::windows_sys::core::PCSTR, param2: *mut ::core::ffi::c_void, param3: *mut u32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IIS_READCLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IIS_SERVERSUPPORTFUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: u32, param2: *mut ::core::ffi::c_void, param3: *mut u32, param4: *mut u32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IIS_WRITECLIENT = ::core::option::Option<unsafe extern "system" fn(param0: HCONN, param1: *mut ::core::ffi::c_void, param2: *mut u32, param3: u32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_TERMINATEEXTENSION = ::core::option::Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
 pub type PFN_WEB_CORE_ACTIVATE = ::core::option::Option<unsafe extern "system" fn(pszapphostconfigfile: ::windows_sys::core::PCWSTR, pszrootwebconfigfile: ::windows_sys::core::PCWSTR, pszinstancename: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;

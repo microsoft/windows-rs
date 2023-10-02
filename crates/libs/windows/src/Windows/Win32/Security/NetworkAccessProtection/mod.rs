@@ -193,7 +193,7 @@ impl ::core::fmt::Debug for RemoteConfigurationType {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CorrelationId {
     pub connId: ::windows_core::GUID,
@@ -262,7 +262,7 @@ impl ::core::default::Default for CountedString {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
@@ -390,7 +390,7 @@ impl ::core::default::Default for Ipv6Address {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
@@ -430,7 +430,7 @@ impl ::core::default::Default for IsolationInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
@@ -471,7 +471,7 @@ impl ::core::default::Default for IsolationInfoEx {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,

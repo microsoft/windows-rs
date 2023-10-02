@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INSNetSourceCreator_Impl: Sized {
     fn Initialize(&self) -> ::windows_core::Result<()>;
@@ -800,7 +800,7 @@ impl IWMDRMReader_Vtbl {
         *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader2_Impl: Sized + IWMDRMReader_Impl {
     fn SetEvaluateOutputLevelLicenses(&self, fevaluate: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -845,7 +845,7 @@ impl IWMDRMReader2_Vtbl {
         *iid == <IWMDRMReader2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMReader3_Impl: Sized + IWMDRMReader2_Impl {
     fn GetInclusionList(&self, ppguids: *mut *mut ::windows_core::GUID, pcguids: *mut u32) -> ::windows_core::Result<()>;
@@ -930,7 +930,7 @@ impl IWMDRMTranscryptor_Vtbl {
         *iid == <IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMTranscryptor2_Impl: Sized + IWMDRMTranscryptor_Impl {
     fn SeekEx(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1028,7 +1028,7 @@ impl IWMDRMWriter_Vtbl {
         *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter2_Impl: Sized + IWMDRMWriter_Impl {
     fn SetWMDRMNetEncryption(&self, fsamplesencrypted: super::super::Foundation::BOOL, pbkeyid: *const u8, cbkeyid: u32) -> ::windows_core::Result<()>;
@@ -1049,7 +1049,7 @@ impl IWMDRMWriter2_Vtbl {
         *iid == <IWMDRMWriter2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMDRMWriter3_Impl: Sized + IWMDRMWriter2_Impl {
     fn SetProtectStreamSamples(&self, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows_core::Result<()>;
@@ -1491,7 +1491,7 @@ impl IWMIndexer2_Vtbl {
         *iid == <IWMIndexer2 as ::windows_core::ComInterface>::IID || *iid == <IWMIndexer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMInputMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetConnectionName(&self, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::Result<()>;
@@ -1649,7 +1649,7 @@ impl IWMLicenseRevocationAgent_Vtbl {
         *iid == <IWMLicenseRevocationAgent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMMediaProps_Impl: Sized {
     fn GetType(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1866,7 +1866,7 @@ impl IWMMutualExclusion2_Vtbl {
         *iid == <IWMMutualExclusion2 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID || *iid == <IWMMutualExclusion as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMOutputMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetStreamGroupName(&self, pwszname: ::windows_core::PWSTR, pcchname: *mut u16) -> ::windows_core::Result<()>;
@@ -2677,7 +2677,7 @@ impl IWMReader_Vtbl {
         *iid == <IWMReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderAccelerator_Impl: Sized {
     fn GetCodecInterface(&self, dwoutputnum: u32, riid: *const ::windows_core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -2708,7 +2708,7 @@ impl IWMReaderAccelerator_Vtbl {
         *iid == <IWMReaderAccelerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderAdvanced_Impl: Sized {
     fn SetUserProvidedClock(&self, fuserclock: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2919,7 +2919,7 @@ impl IWMReaderAdvanced_Vtbl {
         *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced2_Impl: Sized + IWMReaderAdvanced_Impl {
     fn SetPlayMode(&self, mode: WMT_PLAY_MODE) -> ::windows_core::Result<()>;
@@ -3059,7 +3059,7 @@ impl IWMReaderAdvanced2_Vtbl {
         *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced3_Impl: Sized + IWMReaderAdvanced2_Impl {
     fn StopNetStreaming(&self) -> ::windows_core::Result<()>;
@@ -3090,7 +3090,7 @@ impl IWMReaderAdvanced3_Vtbl {
         *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced4_Impl: Sized + IWMReaderAdvanced3_Impl {
     fn GetLanguageCount(&self, dwoutputnum: u32) -> ::windows_core::Result<u16>;
@@ -3194,7 +3194,7 @@ impl IWMReaderAdvanced4_Vtbl {
         *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced5_Impl: Sized + IWMReaderAdvanced4_Impl {
     fn SetPlayerHook(&self, dwoutputnum: u32, phook: ::core::option::Option<&IWMPlayerHook>) -> ::windows_core::Result<()>;
@@ -3215,7 +3215,7 @@ impl IWMReaderAdvanced5_Vtbl {
         *iid == <IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMReaderAdvanced6_Impl: Sized + IWMReaderAdvanced5_Impl {
     fn SetProtectStreamSamples(&self, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows_core::Result<()>;
@@ -3280,7 +3280,7 @@ impl IWMReaderCallback_Vtbl {
         *iid == <IWMReaderCallback as ::windows_core::ComInterface>::IID || *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderCallbackAdvanced_Impl: Sized {
     fn OnStreamSample(&self, wstreamnum: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: ::core::option::Option<&INSSBuffer>, pvcontext: *const ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -3339,7 +3339,7 @@ impl IWMReaderCallbackAdvanced_Vtbl {
         *iid == <IWMReaderCallbackAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderNetworkConfig_Impl: Sized {
     fn GetBufferingTime(&self) -> ::windows_core::Result<u64>;
@@ -3659,7 +3659,7 @@ impl IWMReaderNetworkConfig_Vtbl {
         *iid == <IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMReaderNetworkConfig2_Impl: Sized + IWMReaderNetworkConfig_Impl {
     fn GetEnableContentCaching(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3973,7 +3973,7 @@ impl IWMRegisterCallback_Vtbl {
         *iid == <IWMRegisterCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMRegisteredDevice_Impl: Sized {
     fn GetDeviceSerialNumber(&self) -> ::windows_core::Result<DRM_VAL16>;
@@ -4181,7 +4181,7 @@ impl IWMSBufferAllocator_Vtbl {
         *iid == <IWMSBufferAllocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource_Impl: Sized {
     fn Initialize(&self, psharednamespace: ::core::option::Option<&::windows_core::IUnknown>, pnamespacenode: ::core::option::Option<&::windows_core::IUnknown>, pnetsourcecreator: ::core::option::Option<&INSNetSourceCreator>, fembeddedinserver: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4293,7 +4293,7 @@ impl IWMSInternalAdminNetSource_Vtbl {
         *iid == <IWMSInternalAdminNetSource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource2_Impl: Sized {
     fn SetCredentialsEx(&self, bstrrealm: &::windows_core::BSTR, bstrurl: &::windows_core::BSTR, fproxy: super::super::Foundation::BOOL, bstrname: &::windows_core::BSTR, bstrpassword: &::windows_core::BSTR, fpersist: super::super::Foundation::BOOL, fconfirmedgood: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4338,7 +4338,7 @@ impl IWMSInternalAdminNetSource2_Vtbl {
         *iid == <IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSInternalAdminNetSource3_Impl: Sized + IWMSInternalAdminNetSource2_Impl {
     fn GetNetSourceCreator2(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -4416,7 +4416,7 @@ impl IWMSInternalAdminNetSource3_Vtbl {
         *iid == <IWMSInternalAdminNetSource3 as ::windows_core::ComInterface>::IID || *iid == <IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMSecureChannel_Impl: Sized + IWMAuthorizer_Impl {
     fn WMSC_AddCertificate(&self, pcert: ::core::option::Option<&IWMAuthorizer>) -> ::windows_core::Result<()>;
@@ -4775,7 +4775,7 @@ impl IWMStreamList_Vtbl {
         *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMStreamPrioritization_Impl: Sized {
     fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: *mut u16) -> ::windows_core::Result<()>;
@@ -4806,7 +4806,7 @@ impl IWMStreamPrioritization_Vtbl {
         *iid == <IWMStreamPrioritization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMSyncReader_Impl: Sized {
     fn Open(&self, pwszfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -5030,7 +5030,7 @@ impl IWMSyncReader_Vtbl {
         *iid == <IWMSyncReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IWMSyncReader2_Impl: Sized + IWMSyncReader_Impl {
     fn SetRangeByTimecode(&self, wstreamnum: u16, pstart: *const WMT_TIMECODE_EXTENSION_DATA, pend: *const WMT_TIMECODE_EXTENSION_DATA) -> ::windows_core::Result<()>;
@@ -5107,7 +5107,7 @@ impl IWMSyncReader2_Vtbl {
         *iid == <IWMSyncReader2 as ::windows_core::ComInterface>::IID || *iid == <IWMSyncReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMVideoMediaProps_Impl: Sized + IWMMediaProps_Impl {
     fn GetMaxKeyFrameSpacing(&self) -> ::windows_core::Result<i64>;
@@ -5331,7 +5331,7 @@ impl IWMWriter_Vtbl {
         *iid == <IWMWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced_Impl: Sized {
     fn GetSinkCount(&self) -> ::windows_core::Result<u32>;
@@ -5455,7 +5455,7 @@ impl IWMWriterAdvanced_Vtbl {
         *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced2_Impl: Sized + IWMWriterAdvanced_Impl {
     fn GetInputSetting(&self, dwinputnum: u32, pszname: &::windows_core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows_core::Result<()>;
@@ -5486,7 +5486,7 @@ impl IWMWriterAdvanced2_Vtbl {
         *iid == <IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterAdvanced3_Impl: Sized + IWMWriterAdvanced2_Impl {
     fn GetStatisticsEx(&self, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows_core::Result<()>;
@@ -5517,7 +5517,7 @@ impl IWMWriterAdvanced3_Vtbl {
         *iid == <IWMWriterAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink_Impl: Sized + IWMWriterSink_Impl {
     fn Open(&self, pwszfilename: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -5538,7 +5538,7 @@ impl IWMWriterFileSink_Vtbl {
         *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink2_Impl: Sized + IWMWriterFileSink_Impl {
     fn Start(&self, cnsstarttime: u64) -> ::windows_core::Result<()>;
@@ -5628,7 +5628,7 @@ impl IWMWriterFileSink2_Vtbl {
         *iid == <IWMWriterFileSink2 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterFileSink3_Impl: Sized + IWMWriterFileSink2_Impl {
     fn SetAutoIndexing(&self, fdoautoindexing: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -5719,7 +5719,7 @@ impl IWMWriterFileSink3_Vtbl {
         *iid == <IWMWriterFileSink3 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterNetworkSink_Impl: Sized + IWMWriterSink_Impl {
     fn SetMaximumClients(&self, dwmaxclients: u32) -> ::windows_core::Result<()>;
@@ -5804,7 +5804,7 @@ impl IWMWriterNetworkSink_Vtbl {
         *iid == <IWMWriterNetworkSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterPostView_Impl: Sized {
     fn SetPostViewCallback(&self, pcallback: ::core::option::Option<&IWMWriterPostViewCallback>, pvcontext: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -5995,7 +5995,7 @@ impl IWMWriterPreprocess_Vtbl {
         *iid == <IWMWriterPreprocess as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterPushSink_Impl: Sized + IWMWriterSink_Impl {
     fn Connect(&self, pwszurl: &::windows_core::PCWSTR, pwsztemplateurl: &::windows_core::PCWSTR, fautodestroy: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6033,7 +6033,7 @@ impl IWMWriterPushSink_Vtbl {
         *iid == <IWMWriterPushSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWMWriterSink_Impl: Sized {
     fn OnHeader(&self, pheader: ::core::option::Option<&INSSBuffer>) -> ::windows_core::Result<()>;

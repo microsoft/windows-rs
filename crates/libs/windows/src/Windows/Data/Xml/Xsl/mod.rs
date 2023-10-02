@@ -59,7 +59,7 @@ pub struct IXsltProcessorFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XsltProcessor(::windows_core::IUnknown);
 impl XsltProcessor {
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<P0>(&self, inputnode: P0) -> ::windows_core::Result<::windows_core::HSTRING>
     where
@@ -71,7 +71,7 @@ impl XsltProcessor {
             (::windows_core::Interface::vtable(this).TransformToString)(::windows_core::Interface::as_raw(this), inputnode.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToDocument<P0>(&self, inputnode: P0) -> ::windows_core::Result<super::Dom::XmlDocument>
     where
@@ -83,7 +83,7 @@ impl XsltProcessor {
             (::windows_core::Interface::vtable(this).TransformToDocument)(::windows_core::Interface::as_raw(this), inputnode.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance<P0>(document: P0) -> ::windows_core::Result<XsltProcessor>
     where

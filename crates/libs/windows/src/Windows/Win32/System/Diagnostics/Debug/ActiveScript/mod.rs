@@ -92,7 +92,7 @@ impl IActiveScript {
     pub unsafe fn AddTypeLib(&self, rguidtypelib: *const ::windows_core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddTypeLib)(::windows_core::Interface::as_raw(self), rguidtypelib, dwmajor, dwminor, dwflags).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetScriptDispatch<P0>(&self, pstritemname: P0) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -113,7 +113,7 @@ impl IActiveScript {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScriptThreadState)(::windows_core::Interface::as_raw(self), stidthread, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InterruptScriptThread(&self, stidthread: u32, pexcepinfo: *const super::super::super::Com::EXCEPINFO, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InterruptScriptThread)(::windows_core::Interface::as_raw(self), stidthread, pexcepinfo, dwflags).ok()
@@ -158,7 +158,7 @@ pub struct IActiveScript_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptAuthor(::windows_core::IUnknown);
 impl IActiveScriptAuthor {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddNamedItem<P0, P1>(&self, pszname: P0, dwflags: u32, pdisp: P1) -> ::windows_core::Result<()>
     where
@@ -208,7 +208,7 @@ impl IActiveScriptAuthor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLanguageFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEventHandler<P0, P1, P2, P3>(&self, pdisp: P0, pszitem: P1, pszsubitem: P2, pszevent: P3) -> ::windows_core::Result<IScriptEntry>
     where
@@ -242,7 +242,7 @@ impl IActiveScriptAuthor {
     {
         (::windows_core::Interface::vtable(self).GetInfoFromContext)(::windows_core::Interface::as_raw(self), pszcode.into_param().abi(), cchcode, ichcurrentposition, dwlisttypesrequested, pdwlisttypesprovided, pichlistanchorposition, pichfuncanchorposition, pmemid, picurrentparameter, ::core::mem::transmute(ppunk)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCommitChar(&self, ch: u16) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -288,7 +288,7 @@ pub struct IActiveScriptAuthor_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptAuthorProcedure(::windows_core::IUnknown);
 impl IActiveScriptAuthorProcedure {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pszcode: P0, pszformalparams: P1, pszprocedurename: P2, pszitemname: P3, pszdelimiter: P4, dwcookie: u32, dwflags: u32, pdispfor: P5) -> ::windows_core::Result<()>
     where
@@ -433,7 +433,7 @@ pub struct IActiveScriptEncode_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptError(::windows_core::IUnknown);
 impl IActiveScriptError {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetExceptionInfo)(::windows_core::Interface::as_raw(self), pexcepinfo).ok()
@@ -468,7 +468,7 @@ pub struct IActiveScriptError_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptError64(::windows_core::IUnknown);
 impl IActiveScriptError64 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetExceptionInfo)(::windows_core::Interface::as_raw(self), pexcepinfo).ok()
@@ -501,7 +501,7 @@ pub struct IActiveScriptError64_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptErrorDebug(::windows_core::IUnknown);
 impl IActiveScriptErrorDebug {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetExceptionInfo)(::windows_core::Interface::as_raw(self), pexcepinfo).ok()
@@ -611,7 +611,7 @@ impl IActiveScriptParse32 {
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddScriptlet<P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
@@ -624,7 +624,7 @@ impl IActiveScriptParse32 {
     {
         (::windows_core::Interface::vtable(self).AddScriptlet)(::windows_core::Interface::as_raw(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
@@ -664,7 +664,7 @@ impl IActiveScriptParse64 {
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddScriptlet<P0, P1, P2, P3, P4, P5>(&self, pstrdefaultname: P0, pstrcode: P1, pstritemname: P2, pstrsubitemname: P3, pstreventname: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut ::windows_core::BSTR, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
@@ -677,7 +677,7 @@ impl IActiveScriptParse64 {
     {
         (::windows_core::Interface::vtable(self).AddScriptlet)(::windows_core::Interface::as_raw(self), pstrdefaultname.into_param().abi(), pstrcode.into_param().abi(), pstritemname.into_param().abi(), pstrsubitemname.into_param().abi(), pstreventname.into_param().abi(), pstrdelimiter.into_param().abi(), dwsourcecontextcookie, ulstartinglinenumber, dwflags, ::core::mem::transmute(pbstrname), pexcepinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ParseScriptText<P0, P1, P2, P3>(&self, pstrcode: P0, pstritemname: P1, punkcontext: P2, pstrdelimiter: P3, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::super::Variant::VARIANT, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
@@ -714,7 +714,7 @@ pub struct IActiveScriptParse64_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptParseProcedure2_32(::windows_core::IUnknown);
 impl IActiveScriptParseProcedure2_32 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -745,7 +745,7 @@ pub struct IActiveScriptParseProcedure2_32_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptParseProcedure2_64(::windows_core::IUnknown);
 impl IActiveScriptParseProcedure2_64 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -776,7 +776,7 @@ pub struct IActiveScriptParseProcedure2_64_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptParseProcedure32(::windows_core::IUnknown);
 impl IActiveScriptParseProcedure32 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -811,7 +811,7 @@ pub struct IActiveScriptParseProcedure32_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptParseProcedure64(::windows_core::IUnknown);
 impl IActiveScriptParseProcedure64 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4, P5>(&self, pstrcode: P0, pstrformalparams: P1, pstrprocedurename: P2, pstritemname: P3, punkcontext: P4, pstrdelimiter: P5, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -846,7 +846,7 @@ pub struct IActiveScriptParseProcedure64_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptParseProcedureOld32(::windows_core::IUnknown);
 impl IActiveScriptParseProcedureOld32 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4>(&self, pstrcode: P0, pstrformalparams: P1, pstritemname: P2, punkcontext: P3, pstrdelimiter: P4, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -880,7 +880,7 @@ pub struct IActiveScriptParseProcedureOld32_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptParseProcedureOld64(::windows_core::IUnknown);
 impl IActiveScriptParseProcedureOld64 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ParseProcedureText<P0, P1, P2, P3, P4>(&self, pstrcode: P0, pstrformalparams: P1, pstritemname: P2, punkcontext: P3, pstrdelimiter: P4, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32) -> ::windows_core::Result<super::super::super::Com::IDispatch>
     where
@@ -1296,13 +1296,13 @@ pub struct IActiveScriptProfilerHeapEnum_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptProperty(::windows_core::IUnknown);
 impl IActiveScriptProperty {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), dwproperty, pvarindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty(&self, dwproperty: u32, pvarindex: *const super::super::super::Variant::VARIANT, pvarvalue: *const super::super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), dwproperty, pvarindex, pvarvalue).ok()
@@ -1358,7 +1358,7 @@ impl IActiveScriptSite {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLCID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetItemInfo<P0>(&self, pstrname: P0, dwreturnmask: u32, ppiunkitem: *mut ::core::option::Option<::windows_core::IUnknown>, ppti: *mut ::core::option::Option<super::super::super::Com::ITypeInfo>) -> ::windows_core::Result<()>
     where
@@ -1370,7 +1370,7 @@ impl IActiveScriptSite {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDocVersionString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn OnScriptTerminate(&self, pvarresult: *const super::super::super::Variant::VARIANT, pexcepinfo: *const super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnScriptTerminate)(::windows_core::Interface::as_raw(self), pvarresult, pexcepinfo).ok()
@@ -1433,7 +1433,7 @@ impl IActiveScriptSiteDebug32 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRootApplicationNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnScriptErrorDebug<P0>(&self, perrordebug: P0, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -1477,7 +1477,7 @@ impl IActiveScriptSiteDebug64 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRootApplicationNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnScriptErrorDebug<P0>(&self, perrordebug: P0, pfenterdebugger: *mut super::super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -1509,7 +1509,7 @@ pub struct IActiveScriptSiteDebug64_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptSiteDebugEx(::windows_core::IUnknown);
 impl IActiveScriptSiteDebugEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnCanNotJITScriptErrorDebug<P0>(&self, perrordebug: P0) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL>
     where
@@ -1603,13 +1603,13 @@ pub struct IActiveScriptSiteUIControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptSiteWindow(::windows_core::IUnknown);
 impl IActiveScriptSiteWindow {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWindow)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -1725,7 +1725,7 @@ pub struct IActiveScriptTraceInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActiveScriptWinRTErrorDebug(::windows_core::IUnknown);
 impl IActiveScriptWinRTErrorDebug {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExceptionInfo(&self, pexcepinfo: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetExceptionInfo)(::windows_core::Interface::as_raw(self), pexcepinfo).ok()
@@ -1855,7 +1855,7 @@ pub struct IApplicationDebuggerUI_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBindEventHandler(::windows_core::IUnknown);
 impl IBindEventHandler {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BindHandler<P0, P1>(&self, pstrevent: P0, pdisp: P1) -> ::windows_core::Result<()>
     where
@@ -1908,7 +1908,7 @@ impl IDebugApplication11032 {
     {
         (::windows_core::Interface::vtable(self).AsynchronousCallInMainThread)(::windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallableWaitForHandles(&self, phandles: &[super::super::super::super::Foundation::HANDLE]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -1960,7 +1960,7 @@ impl IDebugApplication11064 {
     {
         (::windows_core::Interface::vtable(self).AsynchronousCallInMainThread)(::windows_core::Interface::as_raw(self), pptc.into_param().abi(), dwparam1, dwparam2, dwparam3).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallableWaitForHandles(&self, phandles: &[super::super::super::super::Foundation::HANDLE]) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -2105,7 +2105,7 @@ impl IDebugApplication32 {
     {
         (::windows_core::Interface::vtable(self).FireDebuggerEvent)(::windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandleRuntimeError<P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -2114,12 +2114,12 @@ impl IDebugApplication32 {
     {
         (::windows_core::Interface::vtable(self).HandleRuntimeError)(::windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), pscriptsite.into_param().abi(), pbra, perra, pfcallonscripterror).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).FCanJitDebug)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).FIsAutoJitDebugEnabled)(::windows_core::Interface::as_raw(self))
@@ -2296,7 +2296,7 @@ impl IDebugApplication64 {
     {
         (::windows_core::Interface::vtable(self).FireDebuggerEvent)(::windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandleRuntimeError<P0, P1>(&self, perrordebug: P0, pscriptsite: P1, pbra: *mut BREAKRESUMEACTION, perra: *mut ERRORRESUMEACTION, pfcallonscripterror: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -2305,12 +2305,12 @@ impl IDebugApplication64 {
     {
         (::windows_core::Interface::vtable(self).HandleRuntimeError)(::windows_core::Interface::as_raw(self), perrordebug.into_param().abi(), pscriptsite.into_param().abi(), pbra, perra, pfcallonscripterror).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FCanJitDebug(&self) -> super::super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).FCanJitDebug)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FIsAutoJitDebugEnabled(&self) -> super::super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).FIsAutoJitDebugEnabled)(::windows_core::Interface::as_raw(self))
@@ -2595,13 +2595,13 @@ impl IDebugApplicationThread11032 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActiveThreadRequestCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSuspendedForBreakPoint(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSuspendedForBreakPoint)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThreadCallable(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2644,13 +2644,13 @@ impl IDebugApplicationThread11064 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActiveThreadRequestCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSuspendedForBreakPoint(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSuspendedForBreakPoint)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThreadCallable(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3007,7 +3007,7 @@ impl IDebugDocumentHelper32 {
     pub unsafe fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDeferredText)(::windows_core::Interface::as_raw(self), cchars, dwtextstartcookie).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefineScriptBlock<P0, P1>(&self, ulcharoffset: u32, cchars: u32, pas: P0, fscriptlet: P1) -> ::windows_core::Result<u32>
     where
@@ -3134,7 +3134,7 @@ impl IDebugDocumentHelper64 {
     pub unsafe fn AddDeferredText(&self, cchars: u32, dwtextstartcookie: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddDeferredText)(::windows_core::Interface::as_raw(self), cchars, dwtextstartcookie).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefineScriptBlock<P0, P1>(&self, ulcharoffset: u32, cchars: u32, pas: P0, fscriptlet: P1) -> ::windows_core::Result<u64>
     where
@@ -3237,7 +3237,7 @@ impl IDebugDocumentHost {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OnCreateDocumentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPathName(&self, pbstrlongname: *mut ::windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPathName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstrlongname), pfisoriginalfile).ok()
@@ -3496,7 +3496,7 @@ pub struct IDebugDocumentTextEvents_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugDocumentTextExternalAuthor(::windows_core::IUnknown);
 impl IDebugDocumentTextExternalAuthor {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPathName(&self, pbstrlongname: *mut ::windows_core::BSTR, pfisoriginalfile: *mut super::super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPathName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbstrlongname), pfisoriginalfile).ok()
@@ -3622,13 +3622,13 @@ pub struct IDebugExpressionContext_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugFormatter(::windows_core::IUnknown);
 impl IDebugFormatter {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStringForVariant(&self, pvar: *const super::super::super::Variant::VARIANT, nradix: u32) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStringForVariant)(::windows_core::Interface::as_raw(self), pvar, nradix, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetVariantForString<P0>(&self, pwstrvalue: P0) -> ::windows_core::Result<super::super::super::Variant::VARIANT>
     where
@@ -3637,7 +3637,7 @@ impl IDebugFormatter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVariantForString)(::windows_core::Interface::as_raw(self), pwstrvalue.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStringForVarType(&self, vt: super::super::super::Variant::VARENUM, ptdescarraytype: *const super::super::super::Com::TYPEDESC) -> ::windows_core::Result<::windows_core::BSTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -3672,7 +3672,7 @@ pub struct IDebugFormatter_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHelper(::windows_core::IUnknown);
 impl IDebugHelper {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyBrowser<P0, P1>(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: P0, pdat: P1) -> ::windows_core::Result<super::IDebugProperty>
     where
@@ -3682,7 +3682,7 @@ impl IDebugHelper {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePropertyBrowser)(::windows_core::Interface::as_raw(self), pvar, bstrname.into_param().abi(), pdat.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreatePropertyBrowserEx<P0, P1, P2>(&self, pvar: *const super::super::super::Variant::VARIANT, bstrname: P0, pdat: P1, pdf: P2) -> ::windows_core::Result<super::IDebugProperty>
     where
@@ -3693,7 +3693,7 @@ impl IDebugHelper {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePropertyBrowserEx)(::windows_core::Interface::as_raw(self), pvar, bstrname.into_param().abi(), pdat.into_param().abi(), pdf.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSimpleConnectionPoint<P0>(&self, pdisp: P0) -> ::windows_core::Result<ISimpleConnectionPoint>
     where
@@ -3759,7 +3759,7 @@ impl IDebugStackFrame {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescriptionString<P0>(&self, flong: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -3768,7 +3768,7 @@ impl IDebugStackFrame {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescriptionString)(::windows_core::Interface::as_raw(self), flong.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLanguageString<P0>(&self, flong: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -3817,7 +3817,7 @@ impl IDebugStackFrame110 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCodeContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescriptionString<P0>(&self, flong: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -3826,7 +3826,7 @@ impl IDebugStackFrame110 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDescriptionString)(::windows_core::Interface::as_raw(self), flong.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLanguageString<P0>(&self, flong: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -4119,7 +4119,7 @@ pub struct IEnumDebugExpressionContexts_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDebugStackFrames(::windows_core::IUnknown);
 impl IEnumDebugStackFrames {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, prgdsfd, pceltfetched).ok()
@@ -4158,7 +4158,7 @@ pub struct IEnumDebugStackFrames_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDebugStackFrames64(::windows_core::IUnknown);
 impl IEnumDebugStackFrames64 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Next)(::windows_core::Interface::as_raw(self), celt, prgdsfd, pceltfetched).ok()
@@ -4173,7 +4173,7 @@ impl IEnumDebugStackFrames64 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next64(&self, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next64)(::windows_core::Interface::as_raw(self), celt, prgdsfd, pceltfetched).ok()
@@ -4317,7 +4317,7 @@ pub struct IJsDebug_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJsDebugBreakPoint(::windows_core::IUnknown);
 impl IJsDebugBreakPoint {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> ::windows_core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4473,7 +4473,7 @@ impl IJsDebugProcess {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateStackWalker)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateBreakPoint<P0>(&self, documentid: u64, characteroffset: u32, charactercount: u32, isenabled: P0) -> ::windows_core::Result<IJsDebugBreakPoint>
     where
@@ -5133,7 +5133,7 @@ impl IScriptEntry {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateChildEntry)(::windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateChildHandler<P0, P1, P2, P3>(&self, pszdefaultname: P0, prgpsznames: &[::windows_core::PCWSTR], pszevent: P1, pszdelimiter: P2, ptisignature: P3, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows_core::Result<IScriptEntry>
     where
@@ -5185,12 +5185,12 @@ impl IScriptEntry {
     {
         (::windows_core::Interface::vtable(self).SetItemName)(::windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignature(&self, ppti: *mut ::core::option::Option<super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSignature)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppti), pimethod).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignature<P0>(&self, pti: P0, imethod: u32) -> ::windows_core::Result<()>
     where
@@ -5304,7 +5304,7 @@ impl IScriptNode {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateChildEntry)(::windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateChildHandler<P0, P1, P2, P3>(&self, pszdefaultname: P0, prgpsznames: &[::windows_core::PCWSTR], pszevent: P1, pszdelimiter: P2, ptisignature: P3, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows_core::Result<IScriptEntry>
     where
@@ -5383,7 +5383,7 @@ impl IScriptScriptlet {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateChildEntry)(::windows_core::Interface::as_raw(self), isn, dwcookie, pszdelimiter.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateChildHandler<P0, P1, P2, P3>(&self, pszdefaultname: P0, prgpsznames: &[::windows_core::PCWSTR], pszevent: P1, pszdelimiter: P2, ptisignature: P3, imethodsignature: u32, isn: u32, dwcookie: u32) -> ::windows_core::Result<IScriptEntry>
     where
@@ -5435,12 +5435,12 @@ impl IScriptScriptlet {
     {
         (::windows_core::Interface::vtable(self).base__.SetItemName)(::windows_core::Interface::as_raw(self), psz.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSignature(&self, ppti: *mut ::core::option::Option<super::super::super::Com::ITypeInfo>, pimethod: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetSignature)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppti), pimethod).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSignature<P0>(&self, pti: P0, imethod: u32) -> ::windows_core::Result<()>
     where
@@ -5511,7 +5511,7 @@ impl ISimpleConnectionPoint {
     pub unsafe fn DescribeEvents(&self, ievent: u32, cevents: u32, prgid: *mut i32, prgbstr: *mut ::windows_core::BSTR, pceventsfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DescribeEvents)(::windows_core::Interface::as_raw(self), ievent, cevents, prgid, ::core::mem::transmute(prgbstr), pceventsfetched).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Advise<P0>(&self, pdisp: P0) -> ::windows_core::Result<u32>
     where
@@ -5547,7 +5547,7 @@ pub struct ISimpleConnectionPoint_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITridentEventSink(::windows_core::IUnknown);
 impl ITridentEventSink {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn FireEvent<P0>(&self, pstrevent: P0, pdp: *const super::super::super::Com::DISPPARAMS, pvarres: *mut super::super::super::Variant::VARIANT, pei: *mut super::super::super::Com::EXCEPINFO) -> ::windows_core::Result<()>
     where
@@ -5576,7 +5576,7 @@ pub struct ITridentEventSink_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAppDiagnosticsObjectInitialization(::windows_core::IUnknown);
 impl IWebAppDiagnosticsObjectInitialization {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, hpassedhandle: P0, pdebugapplication: P1) -> ::windows_core::Result<()>
     where
@@ -5606,7 +5606,7 @@ pub struct IWebAppDiagnosticsObjectInitialization_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAppDiagnosticsSetup(::windows_core::IUnknown);
 impl IWebAppDiagnosticsSetup {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DiagnosticsSupported(&self) -> ::windows_core::Result<super::super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6714,7 +6714,7 @@ impl ::core::fmt::Debug for SCRIPT_INVOCATION_CONTEXT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: ::std::mem::ManuallyDrop<::core::option::Option<IDebugStackFrame>>,
@@ -6754,7 +6754,7 @@ impl ::core::default::Default for DebugStackFrameDescriptor {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor64 {
     pub pdsf: ::std::mem::ManuallyDrop<::core::option::Option<IDebugStackFrame>>,

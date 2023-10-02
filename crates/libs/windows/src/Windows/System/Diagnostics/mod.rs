@@ -1,11 +1,11 @@
 #[cfg(feature = "System_Diagnostics_DevicePortal")]
-#[doc = "Required features: `System_Diagnostics_DevicePortal`"]
+#[doc = "Required features: `\"System_Diagnostics_DevicePortal\"`"]
 pub mod DevicePortal;
 #[cfg(feature = "System_Diagnostics_Telemetry")]
-#[doc = "Required features: `System_Diagnostics_Telemetry`"]
+#[doc = "Required features: `\"System_Diagnostics_Telemetry\"`"]
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
-#[doc = "Required features: `System_Diagnostics_TraceReporting`"]
+#[doc = "Required features: `\"System_Diagnostics_TraceReporting\"`"]
 pub mod TraceReporting;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -421,7 +421,7 @@ impl DiagnosticActionResult {
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Results(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -450,7 +450,7 @@ unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticInvoker(::windows_core::IUnknown);
 impl DiagnosticInvoker {
-    #[doc = "Required features: `Data_Json`, `Foundation`"]
+    #[doc = "Required features: `\"Data_Json\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
     pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
@@ -462,7 +462,7 @@ impl DiagnosticInvoker {
             (::windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RunDiagnosticActionFromStringAsync(&self, context: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &::windows_core::ComInterface::cast::<IDiagnosticInvoker2>(self)?;
@@ -544,7 +544,7 @@ unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProcessCpuUsageReport(::windows_core::IUnknown);
 impl ProcessCpuUsageReport {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -553,7 +553,7 @@ impl ProcessCpuUsageReport {
             (::windows_core::Interface::vtable(this).KernelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -603,7 +603,7 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).Parent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProcessStartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -633,7 +633,7 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).CpuUsage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAppDiagnosticInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>> {
         let this = &::windows_core::ComInterface::cast::<IProcessDiagnosticInfo2>(self)?;
@@ -649,7 +649,7 @@ impl ProcessDiagnosticInfo {
             (::windows_core::Interface::vtable(this).IsPackaged)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetForProcesses() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
@@ -946,7 +946,7 @@ unsafe impl ::core::marker::Sync for SystemCpuUsage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemCpuUsageReport(::windows_core::IUnknown);
 impl SystemCpuUsageReport {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn KernelTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -955,7 +955,7 @@ impl SystemCpuUsageReport {
             (::windows_core::Interface::vtable(this).KernelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UserTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -964,7 +964,7 @@ impl SystemCpuUsageReport {
             (::windows_core::Interface::vtable(this).UserTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IdleTime(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;

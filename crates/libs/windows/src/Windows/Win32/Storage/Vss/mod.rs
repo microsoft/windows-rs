@@ -248,7 +248,7 @@ impl IVssComponent {
     pub unsafe fn GetFileRestoreStatus(&self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFileRestoreStatus)(::windows_core::Interface::as_raw(self), pstatus).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows_core::Result<()>
     where
@@ -258,7 +258,7 @@ impl IVssComponent {
     {
         (::windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(::windows_core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), ::core::mem::transmute(ftlastmodifytime)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: P3) -> ::windows_core::Result<()>
     where
@@ -272,7 +272,7 @@ impl IVssComponent {
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDifferencedFilesCount)(::windows_core::Interface::as_raw(self), pcdifferencedfiles).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut ::windows_core::BSTR, pbstrfilespec: *mut ::windows_core::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::windows_core::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDifferencedFile)(::windows_core::Interface::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), pbrecursive, ::core::mem::transmute(pbstrlsnstring), pftlastmodifytime).ok()
@@ -474,7 +474,7 @@ impl IVssComponentEx {
     pub unsafe fn GetFileRestoreStatus(&self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFileRestoreStatus)(::windows_core::Interface::as_raw(self), pstatus).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows_core::Result<()>
     where
@@ -484,7 +484,7 @@ impl IVssComponentEx {
     {
         (::windows_core::Interface::vtable(self).base__.AddDifferencedFilesByLastModifyTime)(::windows_core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), ::core::mem::transmute(ftlastmodifytime)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: P3) -> ::windows_core::Result<()>
     where
@@ -498,7 +498,7 @@ impl IVssComponentEx {
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDifferencedFilesCount)(::windows_core::Interface::as_raw(self), pcdifferencedfiles).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut ::windows_core::BSTR, pbstrfilespec: *mut ::windows_core::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::windows_core::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDifferencedFile)(::windows_core::Interface::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), pbrecursive, ::core::mem::transmute(pbstrlsnstring), pftlastmodifytime).ok()
@@ -691,7 +691,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetFileRestoreStatus(&self, pstatus: *mut VSS_FILE_RESTORE_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetFileRestoreStatus)(::windows_core::Interface::as_raw(self), pstatus).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDifferencedFilesByLastModifyTime<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, ftlastmodifytime: super::super::Foundation::FILETIME) -> ::windows_core::Result<()>
     where
@@ -701,7 +701,7 @@ impl IVssComponentEx2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.AddDifferencedFilesByLastModifyTime)(::windows_core::Interface::as_raw(self), wszpath.into_param().abi(), wszfilespec.into_param().abi(), brecursive.into_param().abi(), ::core::mem::transmute(ftlastmodifytime)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1, P2, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: P2, bstrlsnstring: P3) -> ::windows_core::Result<()>
     where
@@ -715,7 +715,7 @@ impl IVssComponentEx2 {
     pub unsafe fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetDifferencedFilesCount)(::windows_core::Interface::as_raw(self), pcdifferencedfiles).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut ::windows_core::BSTR, pbstrfilespec: *mut ::windows_core::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut ::windows_core::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetDifferencedFile)(::windows_core::Interface::as_raw(self), idifferencedfile, ::core::mem::transmute(pbstrpath), ::core::mem::transmute(pbstrfilespec), pbrecursive, ::core::mem::transmute(pbstrlsnstring), pftlastmodifytime).ok()
@@ -929,7 +929,7 @@ impl IVssCreateWriterMetadata {
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBackupSchema)(::windows_core::Interface::as_raw(self), dwschemamask).ok()
     }
-    #[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetDocument(&self) -> ::windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMDocument> {
         let mut result__ = ::std::mem::zeroed();
@@ -1032,7 +1032,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.QueryDiffAreasForSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeDiffAreaMaximumSizeEx<P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> ::windows_core::Result<()>
     where
@@ -1096,7 +1096,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.QueryDiffAreasForSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeDiffAreaMaximumSizeEx<P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> ::windows_core::Result<()>
     where
@@ -1117,7 +1117,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3 {
     pub unsafe fn SetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVolumeProtectLevel)(::windows_core::Interface::as_raw(self), pwszvolumename, protectionlevel).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: *mut VSS_VOLUME_PROTECTION_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVolumeProtectLevel)(::windows_core::Interface::as_raw(self), pwszvolumename, protectionlevel).ok()
@@ -1272,7 +1272,7 @@ impl IVssFileShareSnapshotProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteSnapshots<P0>(&self, sourceobjectid: ::windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -1283,18 +1283,18 @@ impl IVssFileShareSnapshotProvider {
     pub unsafe fn BeginPrepareSnapshot(&self, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BeginPrepareSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotsetid), ::core::mem::transmute(snapshotid), pwszsharepath, lnewcontext, ::core::mem::transmute(providerid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPathSupported(&self, pwszsharepath: *const u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsPathSupported)(::windows_core::Interface::as_raw(self), pwszsharepath, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPathSnapshotted(&self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsPathSnapshotted)(::windows_core::Interface::as_raw(self), pwszsharepath, pbsnapshotspresent, plsnapshotcompatibility).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSnapshotProperty(&self, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSnapshotProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
@@ -1336,32 +1336,32 @@ pub struct IVssFileShareSnapshotProvider_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVssHardwareSnapshotProvider(::windows_core::IUnknown);
 impl IVssHardwareSnapshotProvider {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AreLunsSupported)(::windows_core::Interface::as_raw(self), lluncount, lcontext, rgwszdevices, pluninformation, pbissupported).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn FillInLunInfo(&self, wszdevicename: *const u16, pluninfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FillInLunInfo)(::windows_core::Interface::as_raw(self), wszdevicename, pluninfo, pbissupported).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn BeginPrepareSnapshot(&self, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BeginPrepareSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotsetid), ::core::mem::transmute(snapshotid), lcontext, lluncount, rgdevicenames, rgluninformation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn GetTargetLuns(&self, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTargetLuns)(::windows_core::Interface::as_raw(self), lluncount, rgdevicenames, rgsourceluns, rgdestinationluns).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn LocateLuns(&self, rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LocateLuns)(::windows_core::Interface::as_raw(self), rgsourceluns.len() as _, ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn OnLunEmpty(&self, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnLunEmpty)(::windows_core::Interface::as_raw(self), wszdevicename, pinformation).ok()
@@ -1407,32 +1407,32 @@ pub struct IVssHardwareSnapshotProvider_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVssHardwareSnapshotProviderEx(::windows_core::IUnknown);
 impl IVssHardwareSnapshotProviderEx {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AreLunsSupported)(::windows_core::Interface::as_raw(self), lluncount, lcontext, rgwszdevices, pluninformation, pbissupported).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn FillInLunInfo(&self, wszdevicename: *const u16, pluninfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.FillInLunInfo)(::windows_core::Interface::as_raw(self), wszdevicename, pluninfo, pbissupported).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn BeginPrepareSnapshot(&self, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.BeginPrepareSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotsetid), ::core::mem::transmute(snapshotid), lcontext, lluncount, rgdevicenames, rgluninformation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn GetTargetLuns(&self, lluncount: i32, rgdevicenames: *const *const u16, rgsourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, rgdestinationluns: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetTargetLuns)(::windows_core::Interface::as_raw(self), lluncount, rgdevicenames, rgsourceluns, rgdestinationluns).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn LocateLuns(&self, rgsourceluns: &[super::VirtualDiskService::VDS_LUN_INFORMATION]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.LocateLuns)(::windows_core::Interface::as_raw(self), rgsourceluns.len() as _, ::core::mem::transmute(rgsourceluns.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn OnLunEmpty(&self, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnLunEmpty)(::windows_core::Interface::as_raw(self), wszdevicename, pinformation).ok()
@@ -1441,18 +1441,18 @@ impl IVssHardwareSnapshotProviderEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProviderCapabilities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn OnLunStateChange(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnLunStateChange)(::windows_core::Interface::as_raw(self), psnapshotluns, poriginalluns, dwcount, dwflags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn ResyncLuns(&self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows_core::Result<IVssAsync> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResyncLuns)(::windows_core::Interface::as_raw(self), psourceluns, ptargetluns, dwcount, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_VirtualDiskService`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_VirtualDiskService\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     pub unsafe fn OnReuseLuns(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnReuseLuns)(::windows_core::Interface::as_raw(self), psnapshotluns, poriginalluns, dwcount).ok()
@@ -1538,7 +1538,7 @@ impl IVssProviderNotifications {
     {
         (::windows_core::Interface::vtable(self).OnLoad)(::windows_core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUnload<P0>(&self, bforceunload: P0) -> ::windows_core::Result<()>
     where
@@ -1632,7 +1632,7 @@ impl IVssSoftwareSnapshotProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteSnapshots<P0>(&self, sourceobjectid: ::windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut ::windows_core::GUID) -> ::windows_core::Result<()>
     where
@@ -1643,18 +1643,18 @@ impl IVssSoftwareSnapshotProvider {
     pub unsafe fn BeginPrepareSnapshot(&self, snapshotsetid: ::windows_core::GUID, snapshotid: ::windows_core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BeginPrepareSnapshot)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotsetid), ::core::mem::transmute(snapshotid), pwszvolumename, lnewcontext).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVolumeSupported(&self, pwszvolumename: *const u16) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsVolumeSupported)(::windows_core::Interface::as_raw(self), pwszvolumename, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVolumeSnapshotted(&self, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsVolumeSnapshotted)(::windows_core::Interface::as_raw(self), pwszvolumename, pbsnapshotspresent, plsnapshotcompatibility).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetSnapshotProperty(&self, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSnapshotProperty)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(snapshotid), esnapshotpropertyid, ::core::mem::transmute(vproperty)).ok()
@@ -3028,7 +3028,7 @@ impl ::core::default::Default for VSS_VOLUME_PROP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_protectionLevel: VSS_PROTECTION_LEVEL,

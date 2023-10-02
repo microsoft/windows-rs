@@ -549,12 +549,12 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinMLEvaluationContext(::windows_core::IUnknown);
 impl IWinMLEvaluationContext {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BindValue)(::windows_core::Interface::as_raw(self), pdescriptor).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetValueByName<P0>(&self, name: P0) -> ::windows_core::Result<*mut WINML_BINDING_DESC>
     where
@@ -599,13 +599,13 @@ impl IWinMLModel {
     pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut ::windows_core::PCWSTR, pvalue: *mut ::windows_core::PCWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumerateMetadata)(::windows_core::Interface::as_raw(self), index, pkey, pvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateModelInputs(&self, index: u32) -> ::windows_core::Result<*mut WINML_VARIABLE_DESC> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateModelInputs)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateModelOutputs(&self, index: u32) -> ::windows_core::Result<*mut WINML_VARIABLE_DESC> {
         let mut result__ = ::std::mem::zeroed();
@@ -645,7 +645,7 @@ impl IWinMLRuntime {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoadModel)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateEvaluationContext<P0>(&self, device: P0) -> ::windows_core::Result<IWinMLEvaluationContext>
     where
@@ -1402,7 +1402,7 @@ impl ::core::default::Default for MLOperatorSetId {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_BINDING_DESC {
     pub Name: ::windows_core::PCWSTR,
@@ -1426,7 +1426,7 @@ impl ::core::default::Default for WINML_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
@@ -1641,7 +1641,7 @@ impl ::core::default::Default for WINML_MODEL_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct WINML_RESOURCE_BINDING_DESC {
     pub ElementType: WINML_TENSOR_DATA_TYPE,
@@ -1814,7 +1814,7 @@ impl ::core::default::Default for WINML_TENSOR_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINML_VARIABLE_DESC {
     pub Name: ::windows_core::PWSTR,
@@ -1842,7 +1842,7 @@ impl ::core::default::Default for WINML_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,

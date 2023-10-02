@@ -15,7 +15,7 @@ impl IInkCommitRequestHandler_Vtbl {
         *iid == <IInkCommitRequestHandler as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInkD2DRenderer_Impl: Sized {
     fn Draw(&self, pd2d1devicecontext: ::core::option::Option<&::windows_core::IUnknown>, pinkstrokeiterable: ::core::option::Option<&::windows_core::IUnknown>, fhighcontrast: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;

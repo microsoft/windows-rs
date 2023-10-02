@@ -1,9 +1,9 @@
 #[cfg(feature = "Win32_System_Search_Common")]
-#[doc = "Required features: `Win32_System_Search_Common`"]
+#[doc = "Required features: `\"Win32_System_Search_Common\"`"]
 pub mod Common;
 ::windows_targets::link!("odbc32.dll" "system" fn ODBCGetTryWaitValue() -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("odbc32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ODBCSetTryWaitValue(dwvalue : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("odbc32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ODBCSetTryWaitValue(dwvalue : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLAllocConnect(environmenthandle : *mut ::core::ffi::c_void, connectionhandle : *mut *mut ::core::ffi::c_void) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLAllocEnv(environmenthandle : *mut *mut ::core::ffi::c_void) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLAllocHandle(handletype : i16, inputhandle : *mut ::core::ffi::c_void, outputhandle : *mut *mut ::core::ffi::c_void) -> i16);
@@ -29,7 +29,7 @@ pub mod Common;
 ::windows_targets::link!("odbc32.dll" "system" fn SQLCancelHandle(handletype : i16, inputhandle : *mut ::core::ffi::c_void) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLCloseCursor(statementhandle : *mut ::core::ffi::c_void) -> i16);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("odbcbcp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SQLCloseEnumServers(henumhandle : super::super::Foundation:: HANDLE) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SQLCloseEnumServers(henumhandle : super::super::Foundation:: HANDLE) -> i16);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 ::windows_targets::link!("odbc32.dll" "system" fn SQLColAttribute(statementhandle : *mut ::core::ffi::c_void, columnnumber : u16, fieldidentifier : u16, characterattribute : *mut ::core::ffi::c_void, bufferlength : i16, stringlength : *mut i16, numericattribute : *mut i64) -> i16);
 #[cfg(target_arch = "x86")]
@@ -155,7 +155,7 @@ pub mod Common;
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfoA(hdbc : *mut ::core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut ::core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetInfoW(hdbc : *mut ::core::ffi::c_void, finfotype : u16, rgbinfovalue : *mut ::core::ffi::c_void, cbinfovaluemax : i16, pcbinfovalue : *mut i16) -> i16);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("odbcbcp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SQLGetNextEnumeration(henumhandle : super::super::Foundation:: HANDLE, prgenumdata : *mut u8, pienumlength : *mut i32) -> i16);
+::windows_targets::link!("odbcbcp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SQLGetNextEnumeration(henumhandle : super::super::Foundation:: HANDLE, prgenumdata : *mut u8, pienumlength : *mut i32) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttr(statementhandle : *mut ::core::ffi::c_void, attribute : i32, value : *mut ::core::ffi::c_void, bufferlength : i32, stringlength : *mut i32) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttrA(hstmt : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetStmtAttrW(hstmt : *mut ::core::ffi::c_void, fattribute : i32, rgbvalue : *mut ::core::ffi::c_void, cbvaluemax : i32, pcbvalue : *mut i32) -> i16);
@@ -164,7 +164,7 @@ pub mod Common;
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfoA(statementhandle : *mut ::core::ffi::c_void, datatype : i16) -> i16);
 ::windows_targets::link!("odbc32.dll" "system" fn SQLGetTypeInfoW(statementhandle : *mut ::core::ffi::c_void, datatype : i16) -> i16);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("odbcbcp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SQLInitEnumServers(pwchservername : ::windows_sys::core::PCWSTR, pwchinstancename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("odbcbcp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SQLInitEnumServers(pwchservername : ::windows_sys::core::PCWSTR, pwchinstancename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedCatalogsA(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCSTR, param2 : i16) -> i16);
 ::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedCatalogsW(param0 : *mut ::core::ffi::c_void, param1 : ::windows_sys::core::PCWSTR, param2 : i16) -> i16);
 ::windows_targets::link!("odbcbcp.dll" "system" fn SQLLinkedServers(param0 : *mut ::core::ffi::c_void) -> i16);
@@ -5030,7 +5030,7 @@ impl ::core::clone::Clone for BUCKETCATEGORIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct CATEGORIZATION {
     pub ulCatType: u32,
@@ -5046,7 +5046,7 @@ impl ::core::clone::Clone for CATEGORIZATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
@@ -5062,7 +5062,7 @@ impl ::core::clone::Clone for CATEGORIZATION_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
@@ -5077,7 +5077,7 @@ impl ::core::clone::Clone for CATEGORIZATIONSET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct COLUMNSET {
     pub cCol: u32,
@@ -5092,7 +5092,7 @@ impl ::core::clone::Clone for COLUMNSET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CONTENTRESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -5149,7 +5149,7 @@ impl ::core::clone::Clone for DBBINDEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 pub struct DBBINDING {
@@ -5180,7 +5180,7 @@ impl ::core::clone::Clone for DBBINDING {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 pub struct DBBINDING {
@@ -5211,7 +5211,7 @@ impl ::core::clone::Clone for DBBINDING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBCOLUMNACCESS {
@@ -5236,7 +5236,7 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBCOLUMNACCESS {
@@ -5261,7 +5261,7 @@ impl ::core::clone::Clone for DBCOLUMNACCESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCOLUMNDESC {
@@ -5287,7 +5287,7 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCOLUMNDESC {
@@ -5313,7 +5313,7 @@ impl ::core::clone::Clone for DBCOLUMNDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
@@ -5338,7 +5338,7 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
@@ -5363,7 +5363,7 @@ impl ::core::clone::Clone for DBCOLUMNINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCONSTRAINTDESC {
@@ -5393,7 +5393,7 @@ impl ::core::clone::Clone for DBCONSTRAINTDESC {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBCONSTRAINTDESC {
@@ -5547,7 +5547,7 @@ impl ::core::clone::Clone for DBIMPLICITSESSION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBINDEXCOLUMNDESC {
@@ -5565,7 +5565,7 @@ impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct DBINDEXCOLUMNDESC {
@@ -5583,7 +5583,7 @@ impl ::core::clone::Clone for DBINDEXCOLUMNDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBLITERALINFO {
@@ -5605,7 +5605,7 @@ impl ::core::clone::Clone for DBLITERALINFO {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBLITERALINFO {
@@ -5702,7 +5702,7 @@ impl ::core::clone::Clone for DBPARAMBINDINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 pub struct DBPARAMINFO {
@@ -5726,7 +5726,7 @@ impl ::core::clone::Clone for DBPARAMINFO {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 pub struct DBPARAMINFO {
@@ -5780,7 +5780,7 @@ impl ::core::clone::Clone for DBPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROP {
@@ -5801,7 +5801,7 @@ impl ::core::clone::Clone for DBPROP {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROP {
@@ -5852,7 +5852,7 @@ impl ::core::clone::Clone for DBPROPIDSET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFO {
@@ -5873,7 +5873,7 @@ impl ::core::clone::Clone for DBPROPINFO {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFO {
@@ -5894,7 +5894,7 @@ impl ::core::clone::Clone for DBPROPINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFOSET {
@@ -5913,7 +5913,7 @@ impl ::core::clone::Clone for DBPROPINFOSET {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPINFOSET {
@@ -5932,7 +5932,7 @@ impl ::core::clone::Clone for DBPROPINFOSET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPSET {
@@ -5951,7 +5951,7 @@ impl ::core::clone::Clone for DBPROPSET {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DBPROPSET {
@@ -6128,7 +6128,7 @@ impl ::core::clone::Clone for DB_VARNUMERIC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DCINFO {
     pub eInfoType: u32,
@@ -6202,7 +6202,7 @@ impl ::core::clone::Clone for HITRANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
@@ -6217,7 +6217,7 @@ impl ::core::clone::Clone for INCREMENTAL_ACCESS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ITEMPROP {
     pub variantValue: super::Variant::VARIANT,
@@ -6246,7 +6246,7 @@ impl ::core::clone::Clone for ITEM_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
@@ -6262,7 +6262,7 @@ impl ::core::clone::Clone for KAGGETDIAG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`"]
 #[cfg(feature = "Win32_System_Variant")]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
@@ -6314,7 +6314,7 @@ impl ::core::clone::Clone for MDAXISINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NATLANGUAGERESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -6330,7 +6330,7 @@ impl ::core::clone::Clone for NATLANGUAGERESTRICTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct NODERESTRICTION {
     pub cRes: u32,
@@ -6346,7 +6346,7 @@ impl ::core::clone::Clone for NODERESTRICTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
@@ -6396,7 +6396,7 @@ impl ::core::clone::Clone for ODBC_VS_ARGS_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
@@ -6412,7 +6412,7 @@ impl ::core::clone::Clone for PROPERTYRESTRICTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROXY_INFO {
     pub dwSize: u32,
@@ -6432,7 +6432,7 @@ impl ::core::clone::Clone for PROXY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RANGECATEGORIZE {
     pub cRange: u32,
@@ -6447,7 +6447,7 @@ impl ::core::clone::Clone for RANGECATEGORIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct RESTRICTION {
     pub rt: u32,
@@ -6463,7 +6463,7 @@ impl ::core::clone::Clone for RESTRICTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
@@ -6484,7 +6484,7 @@ impl ::core::clone::Clone for RESTRICTION_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct RMTPACK {
@@ -6514,7 +6514,7 @@ impl ::core::clone::Clone for RMTPACK {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct RMTPACK {
@@ -6544,7 +6544,7 @@ impl ::core::clone::Clone for RMTPACK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::Com::StructuredStorage::PROPVARIANT,
@@ -6559,7 +6559,7 @@ impl ::core::clone::Clone for SEARCH_COLUMN_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
@@ -6601,7 +6601,7 @@ impl ::core::clone::Clone for SEARCH_ITEM_PERSISTENT_CHANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct SEC_OBJECT {
@@ -6619,7 +6619,7 @@ impl ::core::clone::Clone for SEC_OBJECT {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct SEC_OBJECT {
@@ -6637,7 +6637,7 @@ impl ::core::clone::Clone for SEC_OBJECT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct SEC_OBJECT_ELEMENT {
@@ -6655,7 +6655,7 @@ impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "Required features: `Win32_Storage_IndexServer`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Storage_IndexServer")]
 pub struct SEC_OBJECT_ELEMENT {
@@ -6673,7 +6673,7 @@ impl ::core::clone::Clone for SEC_OBJECT_ELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SORTKEY {
     pub propColumn: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -6689,7 +6689,7 @@ impl ::core::clone::Clone for SORTKEY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SORTSET {
     pub cCol: u32,
@@ -6823,7 +6823,7 @@ impl ::core::clone::Clone for SSERRORINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT {
     pub vt: u16,
@@ -6840,7 +6840,7 @@ impl ::core::clone::Clone for SSVARIANT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union SSVARIANT_0 {
     pub bTinyIntVal: u8,
@@ -6869,7 +6869,7 @@ impl ::core::clone::Clone for SSVARIANT_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
@@ -6884,7 +6884,7 @@ impl ::core::clone::Clone for SSVARIANT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
@@ -6901,7 +6901,7 @@ impl ::core::clone::Clone for SSVARIANT_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
@@ -6920,7 +6920,7 @@ impl ::core::clone::Clone for SSVARIANT_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_3 {
     pub sActualLength: i16,
@@ -6939,7 +6939,7 @@ impl ::core::clone::Clone for SSVARIANT_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_4 {
     pub dwActualLength: u32,
@@ -6955,7 +6955,7 @@ impl ::core::clone::Clone for SSVARIANT_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SUBSCRIPTIONINFO {
     pub cbSize: u32,
@@ -7054,7 +7054,7 @@ impl ::core::clone::Clone for TIME_STRUCT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
@@ -7069,6 +7069,6 @@ impl ::core::clone::Clone for VECTORRESTRICTION {
     }
 }
 pub type PFNFILLTEXTBUFFER = ::core::option::Option<unsafe extern "system" fn(ptextsource: *mut TEXT_SOURCE) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SQL_ASYNC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;

@@ -76,7 +76,7 @@ impl PlatformDiagnosticActions {
             (::windows_core::Interface::vtable(this).IsScenarioEnabled)(::windows_core::Interface::as_raw(this), scenarioid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryEscalateScenario<P0>(scenarioid: ::windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &::windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P0) -> ::windows_core::Result<bool>
     where
@@ -93,7 +93,7 @@ impl PlatformDiagnosticActions {
             (::windows_core::Interface::vtable(this).DownloadLatestSettingsForNamespace)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(partner), ::core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetActiveScenarioList() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
@@ -119,7 +119,7 @@ impl PlatformDiagnosticActions {
             (::windows_core::Interface::vtable(this).GetActiveTraceRuntime)(::windows_core::Interface::as_raw(this), slottype, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {

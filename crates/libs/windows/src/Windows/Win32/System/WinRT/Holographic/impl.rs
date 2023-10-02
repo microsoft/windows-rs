@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IHolographicCameraInterop_Impl: Sized {
     fn CreateDirect3D12BackBufferResource(&self, pdevice: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
@@ -62,7 +62,7 @@ impl IHolographicCameraInterop_Vtbl {
         *iid == <IHolographicCameraInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IHolographicCameraRenderingParametersInterop_Impl: Sized {
     fn CommitDirect3D12Resource(&self, pcolorresourcetocommit: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows_core::Result<()>;
@@ -93,7 +93,7 @@ impl IHolographicCameraRenderingParametersInterop_Vtbl {
         *iid == <IHolographicCameraRenderingParametersInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IHolographicQuadLayerInterop_Impl: Sized {
     fn CreateDirect3D12ContentBufferResource(&self, pdevice: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Device>, ptexture2ddesc: *const super::super::super::Graphics::Direct3D12::D3D12_RESOURCE_DESC) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
@@ -157,7 +157,7 @@ impl IHolographicQuadLayerInterop_Vtbl {
         *iid == <IHolographicQuadLayerInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IHolographicQuadLayerUpdateParametersInterop_Impl: Sized {
     fn CommitDirect3D12Resource(&self, pcolorresourcetocommit: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Resource>, pcolorresourcefence: ::core::option::Option<&super::super::super::Graphics::Direct3D12::ID3D12Fence>, colorresourcefencesignalvalue: u64) -> ::windows_core::Result<()>;

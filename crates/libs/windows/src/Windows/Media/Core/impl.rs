@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IMediaCue_Impl: Sized {
     fn SetStartTime(&self, value: &super::super::Foundation::TimeSpan) -> ::windows_core::Result<()>;
@@ -273,7 +273,7 @@ impl IMediaTrack_Vtbl {
         *iid == <IMediaTrack as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait ISingleSelectMediaTrackList_Impl: Sized {
     fn SelectedIndexChanged(&self, handler: ::core::option::Option<&super::super::Foundation::TypedEventHandler<ISingleSelectMediaTrackList, ::windows_core::IInspectable>>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>;
@@ -332,7 +332,7 @@ impl ISingleSelectMediaTrackList_Vtbl {
         *iid == <ISingleSelectMediaTrackList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait ITimedMetadataTrackProvider_Impl: Sized {
     fn TimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<TimedMetadataTrack>>;

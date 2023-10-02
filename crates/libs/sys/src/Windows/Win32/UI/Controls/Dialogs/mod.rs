@@ -1,42 +1,42 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChooseColorA(param0 : *mut CHOOSECOLORA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChooseColorW(param0 : *mut CHOOSECOLORW) -> super::super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ChooseFontA(param0 : *mut CHOOSEFONTA) -> super::super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ChooseFontW(param0 : *mut CHOOSEFONTW) -> super::super::super::Foundation:: BOOL);
 ::windows_targets::link!("comdlg32.dll" "system" fn CommDlgExtendedError() -> COMMON_DLG_ERRORS);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FindTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FindTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FindTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FindTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
 ::windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : ::windows_sys::core::PCSTR, buf : ::windows_sys::core::PSTR, cchsize : u16) -> i16);
 ::windows_targets::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : ::windows_sys::core::PCWSTR, buf : ::windows_sys::core::PWSTR, cchsize : u16) -> i16);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetOpenFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetOpenFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetSaveFileNameA(param0 : *mut OPENFILENAMEA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetSaveFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetSaveFileNameW(param0 : *mut OPENFILENAMEW) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PageSetupDlgA(param0 : *mut PAGESETUPDLGA) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PageSetupDlgW(param0 : *mut PAGESETUPDLGW) -> super::super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PrintDlgA(ppd : *mut PRINTDLGA) -> super::super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PrintDlgW(ppd : *mut PRINTDLGW) -> super::super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReplaceTextA(param0 : *mut FINDREPLACEA) -> super::super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
+::windows_targets::link!("comdlg32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReplaceTextW(param0 : *mut FINDREPLACEW) -> super::super::super::Foundation:: HWND);
 pub type IPrintDialogCallback = *mut ::core::ffi::c_void;
 pub type IPrintDialogServices = *mut ::core::ffi::c_void;
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = 256u16;
@@ -329,7 +329,7 @@ pub type OPEN_FILENAME_FLAGS_EX = u32;
 pub type PAGESETUPDLG_FLAGS = u32;
 pub type PRINTDLGEX_FLAGS = u32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORA {
@@ -354,7 +354,7 @@ impl ::core::clone::Clone for CHOOSECOLORA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORA {
@@ -379,7 +379,7 @@ impl ::core::clone::Clone for CHOOSECOLORA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORW {
@@ -404,7 +404,7 @@ impl ::core::clone::Clone for CHOOSECOLORW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORW {
@@ -429,7 +429,7 @@ impl ::core::clone::Clone for CHOOSECOLORW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTA {
@@ -461,7 +461,7 @@ impl ::core::clone::Clone for CHOOSEFONTA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTA {
@@ -493,7 +493,7 @@ impl ::core::clone::Clone for CHOOSEFONTA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTW {
@@ -525,7 +525,7 @@ impl ::core::clone::Clone for CHOOSEFONTW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTW {
@@ -589,7 +589,7 @@ impl ::core::clone::Clone for DEVNAMES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEA {
@@ -616,7 +616,7 @@ impl ::core::clone::Clone for FINDREPLACEA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEA {
@@ -643,7 +643,7 @@ impl ::core::clone::Clone for FINDREPLACEA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEW {
@@ -670,7 +670,7 @@ impl ::core::clone::Clone for FINDREPLACEW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEW {
@@ -697,7 +697,7 @@ impl ::core::clone::Clone for FINDREPLACEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYA {
@@ -716,7 +716,7 @@ impl ::core::clone::Clone for OFNOTIFYA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYA {
@@ -735,7 +735,7 @@ impl ::core::clone::Clone for OFNOTIFYA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXA {
@@ -755,7 +755,7 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXA {
@@ -775,7 +775,7 @@ impl ::core::clone::Clone for OFNOTIFYEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXW {
@@ -795,7 +795,7 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXW {
@@ -815,7 +815,7 @@ impl ::core::clone::Clone for OFNOTIFYEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYW {
@@ -834,7 +834,7 @@ impl ::core::clone::Clone for OFNOTIFYW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYW {
@@ -853,7 +853,7 @@ impl ::core::clone::Clone for OFNOTIFYW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEA {
@@ -892,7 +892,7 @@ impl ::core::clone::Clone for OPENFILENAMEA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEA {
@@ -931,7 +931,7 @@ impl ::core::clone::Clone for OPENFILENAMEA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEW {
@@ -970,7 +970,7 @@ impl ::core::clone::Clone for OPENFILENAMEW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEW {
@@ -1009,7 +1009,7 @@ impl ::core::clone::Clone for OPENFILENAMEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4A {
@@ -1045,7 +1045,7 @@ impl ::core::clone::Clone for OPENFILENAME_NT4A {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4A {
@@ -1081,7 +1081,7 @@ impl ::core::clone::Clone for OPENFILENAME_NT4A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4W {
@@ -1117,7 +1117,7 @@ impl ::core::clone::Clone for OPENFILENAME_NT4W {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4W {
@@ -1153,7 +1153,7 @@ impl ::core::clone::Clone for OPENFILENAME_NT4W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGA {
@@ -1183,7 +1183,7 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGA {
@@ -1213,7 +1213,7 @@ impl ::core::clone::Clone for PAGESETUPDLGA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGW {
@@ -1243,7 +1243,7 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGW {
@@ -1273,7 +1273,7 @@ impl ::core::clone::Clone for PAGESETUPDLGW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGA {
@@ -1308,7 +1308,7 @@ impl ::core::clone::Clone for PRINTDLGA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGA {
@@ -1343,7 +1343,7 @@ impl ::core::clone::Clone for PRINTDLGA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXA {
@@ -1380,7 +1380,7 @@ impl ::core::clone::Clone for PRINTDLGEXA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXA {
@@ -1417,7 +1417,7 @@ impl ::core::clone::Clone for PRINTDLGEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXW {
@@ -1454,7 +1454,7 @@ impl ::core::clone::Clone for PRINTDLGEXW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXW {
@@ -1491,7 +1491,7 @@ impl ::core::clone::Clone for PRINTDLGEXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGW {
@@ -1526,7 +1526,7 @@ impl ::core::clone::Clone for PRINTDLGW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGW {
@@ -1588,27 +1588,27 @@ impl ::core::clone::Clone for PRINTPAGERANGE {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCFHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFRHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOFNHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPAGEPAINTHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPAGESETUPHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;

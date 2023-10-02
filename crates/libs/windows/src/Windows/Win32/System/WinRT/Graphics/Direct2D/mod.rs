@@ -2,13 +2,13 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeometrySource2DInterop(::windows_core::IUnknown);
 impl IGeometrySource2DInterop {
-    #[doc = "Required features: `Win32_Graphics_Direct2D`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct2D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn GetGeometry(&self) -> ::windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGeometry)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct2D`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct2D\"`"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn TryGetGeometryUsingFactory<P0>(&self, factory: P0) -> ::windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>
     where
@@ -56,13 +56,13 @@ impl IGraphicsEffectD2D1Interop {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPropertyCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub unsafe fn GetProperty(&self, index: u32) -> ::windows_core::Result<super::super::super::super::super::Foundation::IPropertyValue> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Graphics_Effects`"]
+    #[doc = "Required features: `\"Graphics_Effects\"`"]
     #[cfg(feature = "Graphics_Effects")]
     pub unsafe fn GetSource(&self, index: u32) -> ::windows_core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let mut result__ = ::std::mem::zeroed();

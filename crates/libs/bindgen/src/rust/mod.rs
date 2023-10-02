@@ -144,7 +144,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     for (name, tree) in &tree.nested {
         let name = to_ident(name);
         let feature = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
-        let doc = format!("Required features: `{feature}`");
+        let doc = format!(r#"Required features: `\"{feature}\"`"#);
         if writer.package {
             tokens.combine(&quote! {
                 #[cfg(feature = #feature)]

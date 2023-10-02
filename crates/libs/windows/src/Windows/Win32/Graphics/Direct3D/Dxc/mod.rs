@@ -7,7 +7,7 @@ where
     let mut result__ = ::std::ptr::null_mut();
     DxcCreateInstance(rclsid, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DxcCreateInstance2<P0, T>(pmalloc: P0, rclsid: *const ::windows_core::GUID) -> ::windows_core::Result<T>
@@ -79,7 +79,7 @@ impl IDxcBlobEncoding {
     pub unsafe fn GetBufferSize(&self) -> usize {
         (::windows_core::Interface::vtable(self).base__.GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEncoding)(::windows_core::Interface::as_raw(self), pknown, pcodepage).ok()
@@ -111,7 +111,7 @@ impl IDxcBlobUtf16 {
     pub unsafe fn GetBufferSize(&self) -> usize {
         (::windows_core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEncoding)(::windows_core::Interface::as_raw(self), pknown, pcodepage).ok()
@@ -147,7 +147,7 @@ impl IDxcBlobUtf8 {
     pub unsafe fn GetBufferSize(&self) -> usize {
         (::windows_core::Interface::vtable(self).base__.base__.GetBufferSize)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEncoding)(::windows_core::Interface::as_raw(self), pknown, pcodepage).ok()
@@ -506,7 +506,7 @@ pub struct IDxcIncludeHandler_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDxcLibrary(::windows_core::IUnknown);
 impl IDxcLibrary {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMalloc<P0>(&self, pmalloc: P0) -> ::windows_core::Result<()>
     where
@@ -536,7 +536,7 @@ impl IDxcLibrary {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateBlobWithEncodingOnHeapCopy)(::windows_core::Interface::as_raw(self), ptext, size, codepage, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBlobWithEncodingOnMalloc<P0>(&self, ptext: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows_core::Result<IDxcBlobEncoding>
     where
@@ -549,7 +549,7 @@ impl IDxcLibrary {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateIncludeHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStreamFromBlobReadOnly<P0>(&self, pblob: P0) -> ::windows_core::Result<super::super::super::System::Com::IStream>
     where
@@ -819,7 +819,7 @@ impl IDxcPdbUtils {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsFullPDB)(::windows_core::Interface::as_raw(self))
@@ -907,7 +907,7 @@ impl IDxcResult {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetErrorBuffer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).HasOutput)(::windows_core::Interface::as_raw(self), dxcoutkind)
@@ -963,7 +963,7 @@ impl IDxcUtils {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateBlobFromPinned)(::windows_core::Interface::as_raw(self), pdata, size, codepage, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MoveToBlob<P0>(&self, pdata: *const ::core::ffi::c_void, pimalloc: P0, size: u32, codepage: DXC_CP) -> ::windows_core::Result<IDxcBlobEncoding>
     where
@@ -983,7 +983,7 @@ impl IDxcUtils {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LoadFile)(::windows_core::Interface::as_raw(self), pfilename.into_param().abi(), ::core::mem::transmute(pcodepage.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReadOnlyStreamFromBlob<P0>(&self, pblob: P0) -> ::windows_core::Result<super::super::super::System::Com::IStream>
     where
@@ -1416,7 +1416,7 @@ impl ::core::default::Default for DxcShaderHash {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" fn(pmalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>, rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
 pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;

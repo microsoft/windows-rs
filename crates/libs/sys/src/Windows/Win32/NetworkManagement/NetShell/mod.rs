@@ -1,16 +1,16 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : ::windows_sys::core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
+::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MatchEnumTag(hmodule : super::super::Foundation:: HANDLE, pwcarg : ::windows_sys::core::PCWSTR, dwnumarg : u32, penumtable : *const TOKEN_VALUE, pdwvalue : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MatchToken(pwszusertoken : ::windows_sys::core::PCWSTR, pwszcmdtoken : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MatchToken(pwszusertoken : ::windows_sys::core::PCWSTR, pwszcmdtoken : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut ::windows_sys::core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
+::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PreprocessCommand(hmodule : super::super::Foundation:: HANDLE, ppwcarguments : *mut ::windows_sys::core::PWSTR, dwcurrentindex : u32, dwargcount : u32, ptttags : *mut TAG_TYPE, dwtagcount : u32, dwminargs : u32, dwmaxargs : u32, pdwtagtype : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32, ...) -> u32);
+::windows_targets::link!("netsh.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrintError(hmodule : super::super::Foundation:: HANDLE, dwerrid : u32, ...) -> u32);
 ::windows_targets::link!("netsh.dll" "cdecl" fn PrintMessage(pwszformat : ::windows_sys::core::PCWSTR, ...) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32, ...) -> u32);
+::windows_targets::link!("netsh.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrintMessageFromModule(hmodule : super::super::Foundation:: HANDLE, dwmsgid : u32, ...) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
+::windows_targets::link!("netsh.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterContext(pchildcontext : *const NS_CONTEXT_ATTRIBUTES) -> u32);
 ::windows_targets::link!("netsh.dll" "system" fn RegisterHelper(pguidparentcontext : *const ::windows_sys::core::GUID, pfnregistersubcontext : *const NS_HELPER_ATTRIBUTES) -> u32);
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
@@ -70,7 +70,7 @@ pub type NS_EVENTS = i32;
 pub type NS_MODE_CHANGE = i32;
 pub type NS_REQS = i32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: ::windows_sys::core::PCWSTR,
@@ -90,7 +90,7 @@ impl ::core::clone::Clone for CMD_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: ::windows_sys::core::PCWSTR,
@@ -109,7 +109,7 @@ impl ::core::clone::Clone for CMD_GROUP_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
@@ -136,7 +136,7 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
@@ -151,7 +151,7 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
@@ -201,7 +201,7 @@ impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAG_TYPE {
     pub pwszTag: ::windows_sys::core::PCWSTR,
@@ -227,10 +227,10 @@ impl ::core::clone::Clone for TOKEN_VALUE {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_CUSTOM_HELP = ::core::option::Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: ::windows_sys::core::PCWSTR) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: ::windows_sys::core::PCWSTR, ppwcarguments: *mut ::windows_sys::core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
 pub type PGET_RESOURCE_STRING_FN = ::core::option::Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: ::windows_sys::core::PCWSTR, nbuffermax: u32) -> u32>;
@@ -241,6 +241,6 @@ pub type PNS_DLL_INIT_FN = ::core::option::Option<unsafe extern "system" fn(dwne
 pub type PNS_DLL_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
 pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows_sys::core::GUID, dwversion: u32) -> u32>;
 pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: ::windows_sys::core::PCWSTR, cimosbuildnumber: ::windows_sys::core::PCWSTR, cimservicepackmajorversion: ::windows_sys::core::PCWSTR, cimservicepackminorversion: ::windows_sys::core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;

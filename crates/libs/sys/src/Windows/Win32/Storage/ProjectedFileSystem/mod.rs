@@ -3,28 +3,28 @@
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : ::windows_sys::core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjDoesNameContainWildCards(filename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjDoesNameContainWildCards(filename : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : ::windows_sys::core::PCWSTR, filename2 : ::windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjFileNameMatch(filenametocheck : ::windows_sys::core::PCWSTR, pattern : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjFileNameMatch(filenametocheck : ::windows_sys::core::PCWSTR, pattern : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOLEAN);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjFillDirEntryBuffer(filename : ::windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjFillDirEntryBuffer(filename : ::windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : ::windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : ::windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : ::windows_sys::core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : ::windows_sys::core::PCWSTR, targetpathname : ::windows_sys::core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjStartVirtualizing(virtualizationrootpath : ::windows_sys::core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const ::core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjStartVirtualizing(virtualizationrootpath : ::windows_sys::core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const ::core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const ::windows_sys::core::GUID, buffer : *const ::core::ffi::c_void, byteoffset : u64, length : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("projectedfslib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : ::windows_sys::core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> ::windows_sys::core::HRESULT);
 pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = 1i32;
 pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = 2i32;
 pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = 2i32;
@@ -89,7 +89,7 @@ pub type PRJ_STARTVIRTUALIZING_FLAGS = i32;
 pub type PRJ_UPDATE_FAILURE_CAUSES = i32;
 pub type PRJ_UPDATE_TYPES = i32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_CALLBACKS {
     pub StartDirectoryEnumerationCallback: PRJ_START_DIRECTORY_ENUMERATION_CB,
@@ -205,7 +205,7 @@ impl ::core::clone::Clone for PRJ_EXTENDED_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_FILE_BASIC_INFO {
     pub IsDirectory: super::super::Foundation::BOOLEAN,
@@ -237,7 +237,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_MAPPING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PRJ_NOTIFICATION_PARAMETERS {
     pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
@@ -253,7 +253,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
@@ -267,7 +267,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
@@ -281,7 +281,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
@@ -295,7 +295,7 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO {
     pub FileBasicInfo: PRJ_FILE_BASIC_INFO,
@@ -314,7 +314,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
@@ -329,7 +329,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
@@ -344,7 +344,7 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
@@ -399,7 +399,7 @@ pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows_sys::core::GUID, searchexpression: ::windows_sys::core::PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows_sys::core::HRESULT>;
 pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, byteoffset: u64, length: u32) -> ::windows_sys::core::HRESULT>;
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_NOTIFICATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: ::windows_sys::core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows_sys::core::HRESULT>;
 pub type PRJ_QUERY_FILE_NAME_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows_sys::core::HRESULT>;

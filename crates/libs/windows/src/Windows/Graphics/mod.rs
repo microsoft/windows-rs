@@ -1,26 +1,26 @@
 #[cfg(feature = "Graphics_Capture")]
-#[doc = "Required features: `Graphics_Capture`"]
+#[doc = "Required features: `\"Graphics_Capture\"`"]
 pub mod Capture;
 #[cfg(feature = "Graphics_DirectX")]
-#[doc = "Required features: `Graphics_DirectX`"]
+#[doc = "Required features: `\"Graphics_DirectX\"`"]
 pub mod DirectX;
 #[cfg(feature = "Graphics_Display")]
-#[doc = "Required features: `Graphics_Display`"]
+#[doc = "Required features: `\"Graphics_Display\"`"]
 pub mod Display;
 #[cfg(feature = "Graphics_Effects")]
-#[doc = "Required features: `Graphics_Effects`"]
+#[doc = "Required features: `\"Graphics_Effects\"`"]
 pub mod Effects;
 #[cfg(feature = "Graphics_Holographic")]
-#[doc = "Required features: `Graphics_Holographic`"]
+#[doc = "Required features: `\"Graphics_Holographic\"`"]
 pub mod Holographic;
 #[cfg(feature = "Graphics_Imaging")]
-#[doc = "Required features: `Graphics_Imaging`"]
+#[doc = "Required features: `\"Graphics_Imaging\"`"]
 pub mod Imaging;
 #[cfg(feature = "Graphics_Printing")]
-#[doc = "Required features: `Graphics_Printing`"]
+#[doc = "Required features: `\"Graphics_Printing\"`"]
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
-#[doc = "Required features: `Graphics_Printing3D`"]
+#[doc = "Required features: `\"Graphics_Printing3D\"`"]
 pub mod Printing3D;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

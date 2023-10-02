@@ -77,7 +77,7 @@ pub struct ISyndicationCategoryFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISyndicationClient(::windows_core::IUnknown);
 impl ISyndicationClient {
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -86,7 +86,7 @@ impl ISyndicationClient {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -95,7 +95,7 @@ impl ISyndicationClient {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -104,7 +104,7 @@ impl ISyndicationClient {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -150,7 +150,7 @@ impl ISyndicationClient {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRequestHeader)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
     where
@@ -644,7 +644,7 @@ impl ISyndicationNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -653,7 +653,7 @@ impl ISyndicationNode {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -662,7 +662,7 @@ impl ISyndicationNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = self;
@@ -671,7 +671,7 @@ impl ISyndicationNode {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = self;
@@ -680,7 +680,7 @@ impl ISyndicationNode {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -822,7 +822,7 @@ impl ISyndicationText {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetType)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Xml(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -831,7 +831,7 @@ impl ISyndicationText {
             (::windows_core::Interface::vtable(this).Xml)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn SetXml<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -884,7 +884,7 @@ impl ISyndicationText {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -893,7 +893,7 @@ impl ISyndicationText {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -902,7 +902,7 @@ impl ISyndicationText {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -911,7 +911,7 @@ impl ISyndicationText {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -920,7 +920,7 @@ impl ISyndicationText {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1146,7 +1146,7 @@ impl SyndicationCategory {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1155,7 +1155,7 @@ impl SyndicationCategory {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1164,7 +1164,7 @@ impl SyndicationCategory {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1173,7 +1173,7 @@ impl SyndicationCategory {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1182,7 +1182,7 @@ impl SyndicationCategory {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1224,7 +1224,7 @@ impl SyndicationClient {
         static SHARED: ::windows_core::imp::FactoryCache<SyndicationClient, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -1233,7 +1233,7 @@ impl SyndicationClient {
             (::windows_core::Interface::vtable(this).ServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1242,7 +1242,7 @@ impl SyndicationClient {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -1251,7 +1251,7 @@ impl SyndicationClient {
             (::windows_core::Interface::vtable(this).ProxyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1297,7 +1297,7 @@ impl SyndicationClient {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetRequestHeader)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<SyndicationFeed, RetrievalProgress>>
     where
@@ -1309,7 +1309,7 @@ impl SyndicationClient {
             (::windows_core::Interface::vtable(this).RetrieveFeedAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateSyndicationClient<P0>(servercredential: P0) -> ::windows_core::Result<SyndicationClient>
     where
@@ -1353,7 +1353,7 @@ impl SyndicationContent {
         static SHARED: ::windows_core::imp::FactoryCache<SyndicationContent, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SourceUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1362,7 +1362,7 @@ impl SyndicationContent {
             (::windows_core::Interface::vtable(this).SourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSourceUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1377,7 +1377,7 @@ impl SyndicationContent {
             (::windows_core::Interface::vtable(this).CreateSyndicationContent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), r#type, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSyndicationContentWithSourceUri<P0>(sourceuri: P0) -> ::windows_core::Result<SyndicationContent>
     where
@@ -1432,7 +1432,7 @@ impl SyndicationContent {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1441,7 +1441,7 @@ impl SyndicationContent {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1450,7 +1450,7 @@ impl SyndicationContent {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1459,7 +1459,7 @@ impl SyndicationContent {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1468,7 +1468,7 @@ impl SyndicationContent {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1499,7 +1499,7 @@ impl SyndicationContent {
         let this = &::windows_core::ComInterface::cast::<ISyndicationText>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetType)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Xml(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationText>(self)?;
@@ -1508,7 +1508,7 @@ impl SyndicationContent {
             (::windows_core::Interface::vtable(this).Xml)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn SetXml<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1568,7 +1568,7 @@ impl SyndicationFeed {
         static SHARED: ::windows_core::imp::FactoryCache<SyndicationFeed, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Authors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
         let this = self;
@@ -1577,7 +1577,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).Authors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Categories(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>> {
         let this = self;
@@ -1586,7 +1586,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).Categories)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Contributors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
         let this = self;
@@ -1609,7 +1609,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetGenerator)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IconUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1618,7 +1618,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).IconUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIconUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1638,7 +1638,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationItem>> {
         let this = self;
@@ -1647,7 +1647,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).Items)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastUpdatedTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1656,13 +1656,13 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).LastUpdatedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastUpdatedTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLastUpdatedTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Links(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>> {
         let this = self;
@@ -1671,7 +1671,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).Links)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ImageUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1680,7 +1680,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).ImageUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetImageUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1731,7 +1731,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FirstUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1740,7 +1740,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).FirstUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1749,7 +1749,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).LastUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NextUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1758,7 +1758,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).NextUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PreviousUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1778,7 +1778,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Load)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(feed)).ok() }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn LoadFromXml<P0>(&self, feeddocument: P0) -> ::windows_core::Result<()>
     where
@@ -1787,7 +1787,7 @@ impl SyndicationFeed {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).LoadFromXml)(::windows_core::Interface::as_raw(this), feeddocument.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSyndicationFeed<P0>(title: &::windows_core::HSTRING, subtitle: &::windows_core::HSTRING, uri: P0) -> ::windows_core::Result<SyndicationFeed>
     where
@@ -1842,7 +1842,7 @@ impl SyndicationFeed {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1851,7 +1851,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1860,7 +1860,7 @@ impl SyndicationFeed {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1869,7 +1869,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1878,7 +1878,7 @@ impl SyndicationFeed {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -1931,7 +1931,7 @@ impl SyndicationGenerator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1940,7 +1940,7 @@ impl SyndicationGenerator {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2010,7 +2010,7 @@ impl SyndicationGenerator {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2019,7 +2019,7 @@ impl SyndicationGenerator {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2028,7 +2028,7 @@ impl SyndicationGenerator {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2037,7 +2037,7 @@ impl SyndicationGenerator {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2046,7 +2046,7 @@ impl SyndicationGenerator {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2088,7 +2088,7 @@ impl SyndicationItem {
         static SHARED: ::windows_core::imp::FactoryCache<SyndicationItem, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Authors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
         let this = self;
@@ -2097,7 +2097,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).Authors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Categories(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationCategory>> {
         let this = self;
@@ -2106,7 +2106,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).Categories)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Contributors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationPerson>> {
         let this = self;
@@ -2140,7 +2140,7 @@ impl SyndicationItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastUpdatedTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2149,13 +2149,13 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).LastUpdatedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastUpdatedTime(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLastUpdatedTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Links(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationLink>> {
         let this = self;
@@ -2164,7 +2164,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).Links)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PublishedDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2173,7 +2173,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).PublishedDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPublishedDate(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<()> {
         let this = self;
@@ -2235,7 +2235,7 @@ impl SyndicationItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CommentsUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2244,7 +2244,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).CommentsUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCommentsUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2253,7 +2253,7 @@ impl SyndicationItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCommentsUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EditUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2262,7 +2262,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).EditUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EditMediaUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2278,7 +2278,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).ETag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ItemUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2291,7 +2291,7 @@ impl SyndicationItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Load)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item)).ok() }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn LoadFromXml<P0>(&self, itemdocument: P0) -> ::windows_core::Result<()>
     where
@@ -2300,7 +2300,7 @@ impl SyndicationItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).LoadFromXml)(::windows_core::Interface::as_raw(this), itemdocument.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSyndicationItem<P0, P1>(title: &::windows_core::HSTRING, content: P0, uri: P1) -> ::windows_core::Result<SyndicationItem>
     where
@@ -2356,7 +2356,7 @@ impl SyndicationItem {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2365,7 +2365,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2374,7 +2374,7 @@ impl SyndicationItem {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2383,7 +2383,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2392,7 +2392,7 @@ impl SyndicationItem {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2478,7 +2478,7 @@ impl SyndicationLink {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2487,7 +2487,7 @@ impl SyndicationLink {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2507,7 +2507,7 @@ impl SyndicationLink {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetResourceLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSyndicationLink<P0>(uri: P0) -> ::windows_core::Result<SyndicationLink>
     where
@@ -2518,7 +2518,7 @@ impl SyndicationLink {
             (::windows_core::Interface::vtable(this).CreateSyndicationLink)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSyndicationLinkEx<P0>(uri: P0, relationship: &::windows_core::HSTRING, title: &::windows_core::HSTRING, mediatype: &::windows_core::HSTRING, length: u32) -> ::windows_core::Result<SyndicationLink>
     where
@@ -2573,7 +2573,7 @@ impl SyndicationLink {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2582,7 +2582,7 @@ impl SyndicationLink {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2591,7 +2591,7 @@ impl SyndicationLink {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2600,7 +2600,7 @@ impl SyndicationLink {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2609,7 +2609,7 @@ impl SyndicationLink {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2695,7 +2695,7 @@ impl SyndicationNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2704,7 +2704,7 @@ impl SyndicationNode {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2713,7 +2713,7 @@ impl SyndicationNode {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = self;
@@ -2722,7 +2722,7 @@ impl SyndicationNode {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = self;
@@ -2731,7 +2731,7 @@ impl SyndicationNode {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -2823,7 +2823,7 @@ impl SyndicationPerson {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2832,7 +2832,7 @@ impl SyndicationPerson {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2841,7 +2841,7 @@ impl SyndicationPerson {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2850,7 +2850,7 @@ impl SyndicationPerson {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2859,7 +2859,7 @@ impl SyndicationPerson {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -2890,7 +2890,7 @@ impl SyndicationPerson {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2899,7 +2899,7 @@ impl SyndicationPerson {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2914,7 +2914,7 @@ impl SyndicationPerson {
             (::windows_core::Interface::vtable(this).CreateSyndicationPerson)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSyndicationPersonEx<P0>(name: &::windows_core::HSTRING, email: &::windows_core::HSTRING, uri: P0) -> ::windows_core::Result<SyndicationPerson>
     where
@@ -3002,7 +3002,7 @@ impl SyndicationText {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -3011,7 +3011,7 @@ impl SyndicationText {
             (::windows_core::Interface::vtable(this).BaseUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3020,7 +3020,7 @@ impl SyndicationText {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AttributeExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<SyndicationAttribute>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -3029,7 +3029,7 @@ impl SyndicationText {
             (::windows_core::Interface::vtable(this).AttributeExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ElementExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ISyndicationNode>> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -3038,7 +3038,7 @@ impl SyndicationText {
             (::windows_core::Interface::vtable(this).ElementExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetXmlDocument(&self, format: SyndicationFormat) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = &::windows_core::ComInterface::cast::<ISyndicationNode>(self)?;
@@ -3069,7 +3069,7 @@ impl SyndicationText {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetType)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn Xml(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -3078,7 +3078,7 @@ impl SyndicationText {
             (::windows_core::Interface::vtable(this).Xml)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn SetXml<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where

@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ICompositionFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetContentTag(&self) -> usize;
@@ -36,7 +36,7 @@ impl ICompositionFramePresentStatistics_Vtbl {
         *iid == <ICompositionFramePresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIndependentFlipFramePresentStatistics_Impl: Sized + IPresentStatistics_Impl {
     fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID;
@@ -142,7 +142,7 @@ impl IPresentStatusPresentStatistics_Vtbl {
         *iid == <IPresentStatusPresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationBuffer_Impl: Sized {
     fn GetAvailableEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
@@ -242,7 +242,7 @@ impl IPresentationFactory_Vtbl {
         *iid == <IPresentationFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPresentationManager_Impl: Sized {
     fn AddBufferFromResource(&self, resource: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<IPresentationBuffer>;
@@ -386,7 +386,7 @@ impl IPresentationManager_Vtbl {
         *iid == <IPresentationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IPresentationSurface_Impl: Sized + IPresentationContent_Impl {
     fn SetBuffer(&self, presentationbuffer: ::core::option::Option<&IPresentationBuffer>) -> ::windows_core::Result<()>;

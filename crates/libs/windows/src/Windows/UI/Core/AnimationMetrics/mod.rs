@@ -74,7 +74,7 @@ impl IPropertyAnimation {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -83,7 +83,7 @@ impl IPropertyAnimation {
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -92,7 +92,7 @@ impl IPropertyAnimation {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -101,7 +101,7 @@ impl IPropertyAnimation {
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -176,7 +176,7 @@ pub struct IScaleAnimation_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AnimationDescription(::windows_core::IUnknown);
 impl AnimationDescription {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Animations(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
         let this = self;
@@ -185,7 +185,7 @@ impl AnimationDescription {
             (::windows_core::Interface::vtable(this).Animations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StaggerDelay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -201,7 +201,7 @@ impl AnimationDescription {
             (::windows_core::Interface::vtable(this).StaggerDelayFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DelayLimit(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -248,7 +248,7 @@ unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OpacityAnimation(::windows_core::IUnknown);
 impl OpacityAnimation {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InitialOpacity(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -271,7 +271,7 @@ impl OpacityAnimation {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -280,7 +280,7 @@ impl OpacityAnimation {
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -289,7 +289,7 @@ impl OpacityAnimation {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -298,7 +298,7 @@ impl OpacityAnimation {
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -335,7 +335,7 @@ impl PropertyAnimation {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -344,7 +344,7 @@ impl PropertyAnimation {
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -353,7 +353,7 @@ impl PropertyAnimation {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -362,7 +362,7 @@ impl PropertyAnimation {
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -399,7 +399,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -408,7 +408,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -417,7 +417,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -426,7 +426,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<IPropertyAnimation>(self)?;
@@ -435,7 +435,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).Control2)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InitialScaleX(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -444,7 +444,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).InitialScaleX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InitialScaleY(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -467,7 +467,7 @@ impl ScaleAnimation {
             (::windows_core::Interface::vtable(this).FinalScaleY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NormalizedOrigin(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -504,7 +504,7 @@ impl TranslationAnimation {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delay(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -513,7 +513,7 @@ impl TranslationAnimation {
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -522,7 +522,7 @@ impl TranslationAnimation {
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control1(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
@@ -531,7 +531,7 @@ impl TranslationAnimation {
             (::windows_core::Interface::vtable(this).Control1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Control2(&self) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;

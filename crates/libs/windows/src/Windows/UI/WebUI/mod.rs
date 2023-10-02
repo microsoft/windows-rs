@@ -1,5 +1,5 @@
 #[cfg(feature = "UI_WebUI_Core")]
-#[doc = "Required features: `UI_WebUI_Core`"]
+#[doc = "Required features: `\"UI_WebUI_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -465,14 +465,14 @@ impl ::windows_core::RuntimeName for ActivatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedOperation";
 }
 ::windows_core::imp::interface_hierarchy!(ActivatedOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BackgroundActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl BackgroundActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Background\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Background"))]
     pub fn TaskInstance(&self) -> ::windows_core::Result<super::super::ApplicationModel::Background::IBackgroundTaskInstance> {
         let this = self;
@@ -506,14 +506,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IBac
 unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnteredBackgroundEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl EnteredBackgroundEventArgs {
-    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -551,7 +551,7 @@ unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HtmlPrintDocumentSource(::windows_core::IUnknown);
 impl HtmlPrintDocumentSource {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -679,14 +679,14 @@ impl ::windows_core::CanTryInto<super::super::Foundation::IClosable> for HtmlPri
 impl ::windows_core::CanTryInto<super::super::Graphics::Printing::IPrintDocumentSource> for HtmlPrintDocumentSource {}
 unsafe impl ::core::marker::Send for HtmlPrintDocumentSource {}
 unsafe impl ::core::marker::Sync for HtmlPrintDocumentSource {}
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LeavingBackgroundEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl LeavingBackgroundEventArgs {
-    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -731,7 +731,7 @@ impl NewWebUIViewCreatedEventArgs {
             (::windows_core::Interface::vtable(this).WebUIView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ActivatedEventArgs(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::IActivatedEventArgs> {
         let this = self;
@@ -747,7 +747,7 @@ impl NewWebUIViewCreatedEventArgs {
             (::windows_core::Interface::vtable(this).HasPendingNavigate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -770,14 +770,14 @@ impl ::windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
 }
 ::windows_core::imp::interface_hierarchy!(NewWebUIViewCreatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SuspendingDeferral(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingDeferral {
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Complete(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -804,14 +804,14 @@ impl ::windows_core::RuntimeName for SuspendingDeferral {
 ::windows_core::imp::interface_hierarchy!(SuspendingDeferral, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::ISuspendingDeferral> for SuspendingDeferral {}
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SuspendingEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingEventArgs {
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn SuspendingOperation(&self) -> ::windows_core::Result<super::super::ApplicationModel::SuspendingOperation> {
         let this = self;
@@ -841,14 +841,14 @@ impl ::windows_core::RuntimeName for SuspendingEventArgs {
 ::windows_core::imp::interface_hierarchy!(SuspendingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::ISuspendingEventArgs> for SuspendingEventArgs {}
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SuspendingOperation(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
 impl SuspendingOperation {
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::ApplicationModel::SuspendingDeferral> {
         let this = self;
@@ -857,7 +857,7 @@ impl SuspendingOperation {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -889,7 +889,7 @@ impl ::windows_core::RuntimeName for SuspendingOperation {
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::ISuspendingOperation> for SuspendingOperation {}
 pub struct WebUIApplication;
 impl WebUIApplication {
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn Activated<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -900,12 +900,12 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).Activated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveActivated)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn Suspending<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -916,12 +916,12 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).Suspending)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSuspending(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveSuspending)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Resuming<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -932,12 +932,12 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).Resuming)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResuming(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveResuming)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Navigated<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -948,12 +948,12 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).Navigated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNavigated(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveNavigated)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn LeavingBackground<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -964,12 +964,12 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).LeavingBackground)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLeavingBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveLeavingBackground)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `ApplicationModel`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))]
     pub fn EnteredBackground<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -980,7 +980,7 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).EnteredBackground)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnteredBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveEnteredBackground)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -988,7 +988,7 @@ impl WebUIApplication {
     pub fn EnablePrelaunch(value: bool) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).EnablePrelaunch)(::windows_core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "Required features: `ApplicationModel_Core`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
     pub fn RequestRestartAsync(launcharguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>> {
         Self::IWebUIActivationStatics3(|this| unsafe {
@@ -996,7 +996,7 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).RequestRestartAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(launcharguments), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `ApplicationModel_Core`, `Foundation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation", feature = "System"))]
     pub fn RequestRestartForUserAsync<P0>(user: P0, launcharguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::Core::AppRestartFailureReason>>
     where
@@ -1007,7 +1007,7 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).RequestRestartForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(launcharguments), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NewWebUIViewCreated<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1018,12 +1018,12 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).NewWebUIViewCreated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNewWebUIViewCreated(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveNewWebUIViewCreated)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn BackgroundActivated<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1034,7 +1034,7 @@ impl WebUIApplication {
             (::windows_core::Interface::vtable(this).BackgroundActivated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackgroundActivated(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IWebUIActivationStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveBackgroundActivated)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -1063,14 +1063,14 @@ impl WebUIApplication {
 impl ::windows_core::RuntimeName for WebUIApplication {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIApplication";
 }
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1079,7 +1079,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1088,7 +1088,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1104,7 +1104,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1113,7 +1113,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
@@ -1122,7 +1122,7 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     pub fn AddAppointmentOperation(&self) -> ::windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation> {
         let this = self;
@@ -1160,14 +1160,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1176,7 +1176,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1185,7 +1185,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1201,7 +1201,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1210,7 +1210,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
@@ -1219,7 +1219,7 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     pub fn RemoveAppointmentOperation(&self) -> ::windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
         let this = self;
@@ -1257,14 +1257,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1273,7 +1273,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1282,7 +1282,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1298,7 +1298,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1307,7 +1307,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
@@ -1316,7 +1316,7 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Appointments_AppointmentsProvider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Appointments_AppointmentsProvider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Appointments_AppointmentsProvider"))]
     pub fn ReplaceAppointmentOperation(&self) -> ::windows_core::Result<super::super::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
         let this = self;
@@ -1354,14 +1354,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1370,7 +1370,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1379,7 +1379,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1395,7 +1395,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1404,7 +1404,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
@@ -1413,7 +1413,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1422,7 +1422,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).InstanceStartDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn LocalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1431,7 +1431,7 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).LocalId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn RoamingId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1469,14 +1469,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1485,7 +1485,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1494,7 +1494,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1510,7 +1510,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1519,7 +1519,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>(self)?;
@@ -1528,7 +1528,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn TimeToShow(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1537,7 +1537,7 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TimeToShow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn Duration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1596,7 +1596,7 @@ impl ::windows_core::RuntimeName for WebUIBackgroundTaskInstance {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(::windows_core::IUnknown);
 impl WebUIBackgroundTaskInstanceRuntimeClass {
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
@@ -1605,7 +1605,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn Task(&self) -> ::windows_core::Result<super::super::ApplicationModel::Background::BackgroundTaskRegistration> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
@@ -1614,7 +1614,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (::windows_core::Interface::vtable(this).Task)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn Progress(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
@@ -1623,13 +1623,13 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn SetProgress(&self, value: u32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProgress)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn TriggerDetails(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
@@ -1638,7 +1638,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Background`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation"))]
     pub fn Canceled<P0>(&self, cancelhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1650,13 +1650,13 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), cancelhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Background`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation"))]
     pub fn RemoveCanceled(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCanceled)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn SuspendedCount(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
@@ -1665,7 +1665,7 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (::windows_core::Interface::vtable(this).SuspendedCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Background`"]
+    #[doc = "Required features: `\"ApplicationModel_Background\"`"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::ApplicationModel::Background::BackgroundTaskDeferral> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
@@ -1702,14 +1702,14 @@ impl ::windows_core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Background::IBackgroundTaskInstance> for WebUIBackgroundTaskInstanceRuntimeClass {}
 impl ::windows_core::CanTryInto<IWebUIBackgroundTaskInstance> for WebUIBackgroundTaskInstanceRuntimeClass {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIBarcodeScannerPreviewActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1718,7 +1718,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1727,7 +1727,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1743,7 +1743,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1752,7 +1752,7 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ConnectionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1792,14 +1792,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IBar
 unsafe impl ::core::marker::Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICachedFileUpdaterActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1808,7 +1808,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1817,7 +1817,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1833,7 +1833,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1842,7 +1842,7 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Storage_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Provider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Provider"))]
     pub fn CachedFileUpdaterUI(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
         let this = self;
@@ -1878,14 +1878,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUICachedFile
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUICachedFileUpdaterActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> for WebUICachedFileUpdaterActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICameraSettingsActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICameraSettingsActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1894,7 +1894,7 @@ impl WebUICameraSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1903,7 +1903,7 @@ impl WebUICameraSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1919,7 +1919,7 @@ impl WebUICameraSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn VideoDeviceController(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -1928,7 +1928,7 @@ impl WebUICameraSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).VideoDeviceController)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn VideoDeviceExtension(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -1962,14 +1962,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUICameraSettingsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> for WebUICameraSettingsActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandLineActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUICommandLineActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1978,7 +1978,7 @@ impl WebUICommandLineActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1987,7 +1987,7 @@ impl WebUICommandLineActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2003,7 +2003,7 @@ impl WebUICommandLineActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -2012,7 +2012,7 @@ impl WebUICommandLineActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Operation(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::CommandLineActivationOperation> {
         let this = self;
@@ -2052,14 +2052,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ICom
 unsafe impl ::core::marker::Send for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUICommandLineActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactCallActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactCallActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2068,7 +2068,7 @@ impl WebUIContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2077,7 +2077,7 @@ impl WebUIContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2093,7 +2093,7 @@ impl WebUIContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
@@ -2102,7 +2102,7 @@ impl WebUIContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2111,7 +2111,7 @@ impl WebUIContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2120,7 +2120,7 @@ impl WebUIContactCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Contact(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
@@ -2156,14 +2156,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIContactCal
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for WebUIContactCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs> for WebUIContactCallActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactMapActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMapActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2172,7 +2172,7 @@ impl WebUIContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2181,7 +2181,7 @@ impl WebUIContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2197,7 +2197,7 @@ impl WebUIContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
@@ -2206,7 +2206,7 @@ impl WebUIContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Address(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::ContactAddress> {
         let this = self;
@@ -2215,7 +2215,7 @@ impl WebUIContactMapActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Address)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Contact(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
@@ -2251,14 +2251,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIContactMap
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for WebUIContactMapActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs> for WebUIContactMapActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactMessageActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactMessageActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2267,7 +2267,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2276,7 +2276,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2292,7 +2292,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
@@ -2301,7 +2301,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2310,7 +2310,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2319,7 +2319,7 @@ impl WebUIContactMessageActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Contact(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
@@ -2355,14 +2355,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIContactMes
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for WebUIContactMessageActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs> for WebUIContactMessageActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactPanelActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPanelActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2371,7 +2371,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2380,7 +2380,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2396,7 +2396,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -2405,7 +2405,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn ContactPanel(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::ContactPanel> {
         let this = self;
@@ -2414,7 +2414,7 @@ impl WebUIContactPanelActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ContactPanel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Contact(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
@@ -2454,14 +2454,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ICon
 unsafe impl ::core::marker::Send for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIContactPanelActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactPickerActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPickerActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2470,7 +2470,7 @@ impl WebUIContactPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2479,7 +2479,7 @@ impl WebUIContactPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2495,7 +2495,7 @@ impl WebUIContactPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts_Provider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts_Provider"))]
     pub fn ContactPickerUI(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Provider::ContactPickerUI> {
         let this = self;
@@ -2529,14 +2529,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIContactPickerActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs> for WebUIContactPickerActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactPostActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactPostActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2545,7 +2545,7 @@ impl WebUIContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2554,7 +2554,7 @@ impl WebUIContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2570,7 +2570,7 @@ impl WebUIContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
@@ -2579,7 +2579,7 @@ impl WebUIContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2588,7 +2588,7 @@ impl WebUIContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2597,7 +2597,7 @@ impl WebUIContactPostActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Contact(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
@@ -2633,14 +2633,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIContactPos
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for WebUIContactPostActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs> for WebUIContactPostActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIContactVideoCallActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIContactVideoCallActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2649,7 +2649,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2658,7 +2658,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2674,7 +2674,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContactActivatedEventArgs>(self)?;
@@ -2683,7 +2683,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2692,7 +2692,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn ServiceUserId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2701,7 +2701,7 @@ impl WebUIContactVideoCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ServiceUserId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Contacts`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Contacts\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Contacts"))]
     pub fn Contact(&self) -> ::windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
@@ -2737,14 +2737,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIContactVid
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactActivatedEventArgs> for WebUIContactVideoCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> for WebUIContactVideoCallActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIDeviceActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDeviceActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2753,7 +2753,7 @@ impl WebUIDeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2762,7 +2762,7 @@ impl WebUIDeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2778,7 +2778,7 @@ impl WebUIDeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -2787,7 +2787,7 @@ impl WebUIDeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -2796,7 +2796,7 @@ impl WebUIDeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn DeviceInformationId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2805,7 +2805,7 @@ impl WebUIDeviceActivatedEventArgs {
             (::windows_core::Interface::vtable(this).DeviceInformationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2843,14 +2843,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for WebUIDeviceActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs> for WebUIDeviceActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIDevicePairingActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDevicePairingActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2859,7 +2859,7 @@ impl WebUIDevicePairingActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2868,7 +2868,7 @@ impl WebUIDevicePairingActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2884,7 +2884,7 @@ impl WebUIDevicePairingActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -2893,7 +2893,7 @@ impl WebUIDevicePairingActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Devices_Enumeration`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Enumeration\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Enumeration"))]
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::DeviceInformation> {
         let this = self;
@@ -2929,14 +2929,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIDevicePair
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUIDevicePairingActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> for WebUIDevicePairingActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIDialReceiverActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIDialReceiverActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2945,7 +2945,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2954,7 +2954,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -2970,7 +2970,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -2979,7 +2979,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -2988,7 +2988,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn AppName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2997,7 +2997,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).AppName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
@@ -3006,7 +3006,7 @@ impl WebUIDialReceiverActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
@@ -3046,14 +3046,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApp
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> for WebUIDialReceiverActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for WebUIDialReceiverActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIFileActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3062,7 +3062,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3071,7 +3071,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3087,7 +3087,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3096,7 +3096,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -3105,7 +3105,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "Storage"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
         let this = self;
@@ -3114,7 +3114,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Files)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Verb(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3123,7 +3123,7 @@ impl WebUIFileActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Verb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Storage_Search`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Search\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Search"))]
     pub fn NeighboringFilesQuery(&self) -> ::windows_core::Result<super::super::Storage::Search::StorageFileQueryResult> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>(self)?;
@@ -3163,14 +3163,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApp
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileActivatedEventArgs> for WebUIFileActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles> for WebUIFileActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileOpenPickerActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3179,7 +3179,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3188,7 +3188,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3204,7 +3204,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3213,7 +3213,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Storage_Pickers_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Pickers_Provider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Pickers_Provider"))]
     pub fn FileOpenPickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
         let this = self;
@@ -3222,7 +3222,7 @@ impl WebUIFileOpenPickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).FileOpenPickerUI)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>(self)?;
@@ -3260,14 +3260,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> for WebUIFileOpenPickerActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2> for WebUIFileOpenPickerActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`, `deprecated`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileOpenPickerContinuationEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3276,7 +3276,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3285,7 +3285,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3301,7 +3301,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3310,7 +3310,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
@@ -3319,7 +3319,7 @@ impl WebUIFileOpenPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`, `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn Files(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
@@ -3357,14 +3357,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for WebUIFileOpenPickerContinuationEventArgs {}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> for WebUIFileOpenPickerContinuationEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIFileSavePickerActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIFileSavePickerActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3373,7 +3373,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3382,7 +3382,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3398,7 +3398,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3407,7 +3407,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Storage_Pickers_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Storage_Pickers_Provider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage_Pickers_Provider"))]
     pub fn FileSavePickerUI(&self) -> ::windows_core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
         let this = self;
@@ -3416,7 +3416,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).FileSavePickerUI)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
@@ -3425,7 +3425,7 @@ impl WebUIFileSavePickerActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn EnterpriseId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>(self)?;
@@ -3463,14 +3463,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> for WebUIFileSavePickerActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2> for WebUIFileSavePickerActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`, `deprecated`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIFileSavePickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFileSavePickerContinuationEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3479,7 +3479,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3488,7 +3488,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3504,7 +3504,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3513,7 +3513,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
@@ -3522,7 +3522,7 @@ impl WebUIFileSavePickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage", feature = "deprecated"))]
     pub fn File(&self) -> ::windows_core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -3560,14 +3560,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for WebUIFileSavePickerContinuationEventArgs {}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> for WebUIFileSavePickerContinuationEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`, `deprecated`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIFolderPickerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIFolderPickerContinuationEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3576,7 +3576,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3585,7 +3585,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3601,7 +3601,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3610,7 +3610,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
@@ -3619,7 +3619,7 @@ impl WebUIFolderPickerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Storage`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Storage\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Storage", feature = "deprecated"))]
     pub fn Folder(&self) -> ::windows_core::Result<super::super::Storage::StorageFolder> {
         let this = self;
@@ -3657,14 +3657,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs> for WebUIFolderPickerContinuationEventArgs {}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> for WebUIFolderPickerContinuationEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUILaunchActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILaunchActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3673,7 +3673,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3682,7 +3682,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3698,7 +3698,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3707,7 +3707,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -3716,7 +3716,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3725,7 +3725,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -3734,7 +3734,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileActivatedInfo(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::TileActivatedInfo> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2>(self)?;
@@ -3743,7 +3743,7 @@ impl WebUILaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TileActivatedInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PrelaunchActivated(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>(self)?;
@@ -3785,14 +3785,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ILau
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs2> for WebUILaunchActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> for WebUILaunchActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUILockScreenActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3801,7 +3801,7 @@ impl WebUILockScreenActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3810,7 +3810,7 @@ impl WebUILockScreenActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3826,7 +3826,7 @@ impl WebUILockScreenActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3835,7 +3835,7 @@ impl WebUILockScreenActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -3844,7 +3844,7 @@ impl WebUILockScreenActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Info(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -3882,14 +3882,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> for WebUILockScreenActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs> for WebUILockScreenActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUILockScreenCallActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenCallActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3898,7 +3898,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3907,7 +3907,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3923,7 +3923,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -3932,7 +3932,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
@@ -3941,7 +3941,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TileId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>(self)?;
@@ -3950,7 +3950,7 @@ impl WebUILockScreenCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).TileId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Calls`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Calls\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Calls"))]
     pub fn CallUI(&self) -> ::windows_core::Result<super::super::ApplicationModel::Calls::LockScreenCallUI> {
         let this = self;
@@ -3988,14 +3988,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApp
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs> for WebUILockScreenCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> for WebUILockScreenCallActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUILockScreenComponentActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUILockScreenComponentActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = self;
@@ -4004,7 +4004,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = self;
@@ -4013,7 +4013,7 @@ impl WebUILockScreenComponentActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = self;
@@ -4125,14 +4125,14 @@ impl ::windows_core::RuntimeName for WebUINavigatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedOperation";
 }
 ::windows_core::imp::interface_hierarchy!(WebUINavigatedOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIPhoneCallActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPhoneCallActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4141,7 +4141,7 @@ impl WebUIPhoneCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4150,7 +4150,7 @@ impl WebUIPhoneCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4166,7 +4166,7 @@ impl WebUIPhoneCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -4175,7 +4175,7 @@ impl WebUIPhoneCallActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -4215,14 +4215,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IPho
 unsafe impl ::core::marker::Send for WebUIPhoneCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIPhoneCallActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrint3DWorkflowActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4231,7 +4231,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4240,7 +4240,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4256,7 +4256,7 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Devices_Printers_Extensions`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Printers_Extensions\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Printers_Extensions"))]
     pub fn Workflow(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::Print3DWorkflow> {
         let this = self;
@@ -4290,14 +4290,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIPrint3DWorkflowActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> for WebUIPrint3DWorkflowActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintTaskSettingsActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4306,7 +4306,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4315,7 +4315,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4331,7 +4331,7 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Devices_Printers_Extensions`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Devices_Printers_Extensions\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Devices_Printers_Extensions"))]
     pub fn Configuration(&self) -> ::windows_core::Result<super::super::Devices::Printers::Extensions::PrintTaskConfiguration> {
         let this = self;
@@ -4365,14 +4365,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIPrintTaskSettingsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> for WebUIPrintTaskSettingsActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = self;
@@ -4381,7 +4381,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = self;
@@ -4390,7 +4390,7 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = self;
@@ -4429,14 +4429,14 @@ impl ::windows_core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEv
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgs> for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIProtocolActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4445,7 +4445,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4454,7 +4454,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4470,7 +4470,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -4479,7 +4479,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -4488,7 +4488,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -4497,7 +4497,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
@@ -4506,7 +4506,7 @@ impl WebUIProtocolActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
@@ -4546,14 +4546,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApp
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs> for WebUIProtocolActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for WebUIProtocolActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIProtocolForResultsActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4562,7 +4562,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4571,7 +4571,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4587,7 +4587,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -4596,7 +4596,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -4605,7 +4605,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>(self)?;
@@ -4614,7 +4614,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
@@ -4623,7 +4623,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>(self)?;
@@ -4632,7 +4632,7 @@ impl WebUIProtocolForResultsActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn ProtocolForResultsOperation(&self) -> ::windows_core::Result<super::super::System::ProtocolForResultsOperation> {
         let this = self;
@@ -4674,14 +4674,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IPro
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for WebUIProtocolForResultsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> for WebUIProtocolForResultsActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIRestrictedLaunchActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4690,7 +4690,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4699,7 +4699,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4715,7 +4715,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -4724,7 +4724,7 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SharedContext(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -4760,14 +4760,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIRestricted
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUIRestrictedLaunchActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> for WebUIRestrictedLaunchActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUISearchActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUISearchActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4776,7 +4776,7 @@ impl WebUISearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4785,7 +4785,7 @@ impl WebUISearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4801,7 +4801,7 @@ impl WebUISearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn CurrentlyShownApplicationViewId(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>(self)?;
@@ -4810,7 +4810,7 @@ impl WebUISearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -4819,7 +4819,7 @@ impl WebUISearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).QueryText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -4828,7 +4828,7 @@ impl WebUISearchActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Search`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Search\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Search"))]
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<super::super::ApplicationModel::Search::SearchPaneQueryLinguisticDetails> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>(self)?;
@@ -4866,14 +4866,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IApp
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ISearchActivatedEventArgs> for WebUISearchActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails> for WebUISearchActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIShareTargetActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIShareTargetActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4882,7 +4882,7 @@ impl WebUIShareTargetActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4891,7 +4891,7 @@ impl WebUIShareTargetActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4907,7 +4907,7 @@ impl WebUIShareTargetActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -4916,7 +4916,7 @@ impl WebUIShareTargetActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_DataTransfer_ShareTarget`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_DataTransfer_ShareTarget\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_DataTransfer_ShareTarget"))]
     pub fn ShareOperation(&self) -> ::windows_core::Result<super::super::ApplicationModel::DataTransfer::ShareTarget::ShareOperation> {
         let this = self;
@@ -4952,14 +4952,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIShareTarge
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUIShareTargetActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs> for WebUIShareTargetActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIStartupTaskActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIStartupTaskActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4968,7 +4968,7 @@ impl WebUIStartupTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4977,7 +4977,7 @@ impl WebUIStartupTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -4993,7 +4993,7 @@ impl WebUIStartupTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -5002,7 +5002,7 @@ impl WebUIStartupTaskActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -5042,14 +5042,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::ISta
 unsafe impl ::core::marker::Send for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIStartupTaskActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIToastNotificationActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIToastNotificationActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5058,7 +5058,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5067,7 +5067,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5083,7 +5083,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -5092,7 +5092,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Argument(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -5101,7 +5101,7 @@ impl WebUIToastNotificationActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Argument)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn UserInput(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -5137,14 +5137,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIToastNotif
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUIToastNotificationActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> for WebUIToastNotificationActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIUserDataAccountProviderActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5153,7 +5153,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5162,7 +5162,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5178,7 +5178,7 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_UserDataAccounts_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_UserDataAccounts_Provider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_UserDataAccounts_Provider"))]
     pub fn Operation(&self) -> ::windows_core::Result<super::super::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation> {
         let this = self;
@@ -5223,7 +5223,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).ApplicationViewId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5235,13 +5235,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveClosed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn Activated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5253,7 +5253,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).Activated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -5270,7 +5270,7 @@ impl WebUIView {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIgnoreApplicationContentUriRulesNavigationRestrictions)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WebUIView>> {
         Self::IWebUIViewStatics(|this| unsafe {
@@ -5278,7 +5278,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithUriAsync<P0>(uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WebUIView>>
     where
@@ -5289,7 +5289,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).CreateWithUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn Source(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5298,7 +5298,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn SetSource<P0>(&self, source: P0) -> ::windows_core::Result<()>
     where
@@ -5307,7 +5307,7 @@ impl WebUIView {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSource)(::windows_core::Interface::as_raw(this), source.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn DocumentTitle(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5316,7 +5316,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).DocumentTitle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn CanGoBack(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5325,7 +5325,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).CanGoBack)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn CanGoForward(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5334,13 +5334,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).CanGoForward)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn SetDefaultBackgroundColor(&self, value: super::Color) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetDefaultBackgroundColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn DefaultBackgroundColor(&self) -> ::windows_core::Result<super::Color> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5349,7 +5349,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).DefaultBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn ContainsFullScreenElement(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5358,7 +5358,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).ContainsFullScreenElement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn Settings(&self) -> ::windows_core::Result<super::super::Web::UI::WebViewControlSettings> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5367,7 +5367,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).Settings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
     pub fn DeferredPermissionRequests(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Web::UI::WebViewControlDeferredPermissionRequest>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5376,31 +5376,31 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).DeferredPermissionRequests)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn GoForward(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GoForward)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn GoBack(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GoBack)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn Refresh(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Refresh)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn Stop(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn Navigate<P0>(&self, source: P0) -> ::windows_core::Result<()>
     where
@@ -5409,13 +5409,13 @@ impl WebUIView {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Navigate)(::windows_core::Interface::as_raw(this), source.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn NavigateToString(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).NavigateToString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn NavigateToLocalStreamUri<P0, P1>(&self, source: P0, streamresolver: P1) -> ::windows_core::Result<()>
     where
@@ -5425,7 +5425,7 @@ impl WebUIView {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).NavigateToLocalStreamUri)(::windows_core::Interface::as_raw(this), source.into_param().abi(), streamresolver.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Web_Http`, `Web_UI`"]
+    #[doc = "Required features: `\"Web_Http\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Web_Http", feature = "Web_UI"))]
     pub fn NavigateWithHttpRequestMessage<P0>(&self, requestmessage: P0) -> ::windows_core::Result<()>
     where
@@ -5434,7 +5434,7 @@ impl WebUIView {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(::windows_core::Interface::as_raw(this), requestmessage.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_UI"))]
     pub fn InvokeScriptAsync<P0>(&self, scriptname: &::windows_core::HSTRING, arguments: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -5446,7 +5446,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).InvokeScriptAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(scriptname), arguments.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_UI"))]
     pub fn CapturePreviewToStreamAsync<P0>(&self, stream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -5458,7 +5458,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).CapturePreviewToStreamAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_DataTransfer`, `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "Web_UI"))]
     pub fn CaptureSelectedContentToDataPackageAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5467,7 +5467,7 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).CaptureSelectedContentToDataPackageAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn BuildLocalStreamUri(&self, contentidentifier: &::windows_core::HSTRING, relativepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
@@ -5476,13 +5476,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).BuildLocalStreamUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contentidentifier), ::core::mem::transmute_copy(relativepath), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut ::core::option::Option<super::super::Web::UI::WebViewControlDeferredPermissionRequest>) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetDeferredPermissionRequestById)(::windows_core::Interface::as_raw(this), id, result as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn NavigationStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5494,13 +5494,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).NavigationStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveNavigationStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNavigationStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn ContentLoading<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5512,13 +5512,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).ContentLoading)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveContentLoading(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveContentLoading)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn DOMContentLoaded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5530,13 +5530,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).DOMContentLoaded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveDOMContentLoaded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDOMContentLoaded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn NavigationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5548,13 +5548,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).NavigationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveNavigationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNavigationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn FrameNavigationStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5566,13 +5566,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).FrameNavigationStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameNavigationStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFrameNavigationStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn FrameContentLoading<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5584,13 +5584,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).FrameContentLoading)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameContentLoading(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFrameContentLoading)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn FrameDOMContentLoaded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5602,13 +5602,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).FrameDOMContentLoaded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameDOMContentLoaded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFrameDOMContentLoaded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn FrameNavigationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5620,13 +5620,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).FrameNavigationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveFrameNavigationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveFrameNavigationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn ScriptNotify<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5638,13 +5638,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).ScriptNotify)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveScriptNotify(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveScriptNotify)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn LongRunningScriptDetected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5656,13 +5656,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).LongRunningScriptDetected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveLongRunningScriptDetected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveLongRunningScriptDetected)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn UnsafeContentWarningDisplaying<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5674,13 +5674,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).UnsafeContentWarningDisplaying)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveUnsafeContentWarningDisplaying(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUnsafeContentWarningDisplaying)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn UnviewableContentIdentified<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5692,13 +5692,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).UnviewableContentIdentified)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveUnviewableContentIdentified(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUnviewableContentIdentified)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn PermissionRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5710,13 +5710,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).PermissionRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemovePermissionRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemovePermissionRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn UnsupportedUriSchemeIdentified<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5728,13 +5728,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveUnsupportedUriSchemeIdentified(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveUnsupportedUriSchemeIdentified)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn NewWindowRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5746,13 +5746,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).NewWindowRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveNewWindowRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveNewWindowRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn ContainsFullScreenElementChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5764,13 +5764,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).ContainsFullScreenElementChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveContainsFullScreenElementChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveContainsFullScreenElementChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn WebResourceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5782,13 +5782,13 @@ impl WebUIView {
             (::windows_core::Interface::vtable(this).WebResourceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Web_UI`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Web_UI\"`"]
     #[cfg(all(feature = "Foundation", feature = "Web_UI"))]
     pub fn RemoveWebResourceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveWebResourceRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Web_UI`"]
+    #[doc = "Required features: `\"Web_UI\"`"]
     #[cfg(feature = "Web_UI")]
     pub fn AddInitializeScript(&self, script: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Web::UI::IWebViewControl2>(self)?;
@@ -5817,14 +5817,14 @@ impl ::windows_core::RuntimeName for WebUIView {
 impl ::windows_core::CanTryInto<super::super::Web::UI::IWebViewControl> for WebUIView {}
 #[cfg(feature = "Web_UI")]
 impl ::windows_core::CanTryInto<super::super::Web::UI::IWebViewControl2> for WebUIView {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIVoiceCommandActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIVoiceCommandActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5833,7 +5833,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5842,7 +5842,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5858,7 +5858,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -5867,7 +5867,7 @@ impl WebUIVoiceCommandActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Media_SpeechRecognition`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Media_SpeechRecognition\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Media_SpeechRecognition"))]
     pub fn Result(&self) -> ::windows_core::Result<super::super::Media::SpeechRecognition::SpeechRecognitionResult> {
         let this = self;
@@ -5903,14 +5903,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIVoiceComma
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUIVoiceCommandActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> for WebUIVoiceCommandActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`, `deprecated`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIWalletActionActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl WebUIWalletActionActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5919,7 +5919,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5928,7 +5928,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -5944,7 +5944,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn ItemId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -5953,7 +5953,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ItemId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `ApplicationModel_Wallet`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"ApplicationModel_Wallet\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "ApplicationModel_Wallet", feature = "deprecated"))]
     pub fn ActionKind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Wallet::WalletActionKind> {
         let this = self;
@@ -5962,7 +5962,7 @@ impl WebUIWalletActionActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActionKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `deprecated`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
     pub fn ActionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -5996,14 +5996,14 @@ impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IAct
 impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIWalletActionActivatedEventArgs {}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs> for WebUIWalletActionActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAccountProviderActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -6012,7 +6012,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -6021,7 +6021,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -6037,7 +6037,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -6046,7 +6046,7 @@ impl WebUIWebAccountProviderActivatedEventArgs {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Security_Authentication_Web_Provider`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Security_Authentication_Web_Provider\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Security_Authentication_Web_Provider"))]
     pub fn Operation(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::Provider::IWebAccountProviderOperation> {
         let this = self;
@@ -6082,14 +6082,14 @@ impl ::windows_core::CanTryInto<IActivatedEventArgsDeferral> for WebUIWebAccount
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser> for WebUIWebAccountProviderActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows_core::CanTryInto<super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> for WebUIWebAccountProviderActivatedEventArgs {}
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl WebUIWebAuthenticationBrokerContinuationEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -6098,7 +6098,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -6107,7 +6107,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -6123,7 +6123,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ActivatedOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation_Collections"))]
     pub fn ContinuationData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IContinuationActivatedEventArgs>(self)?;
@@ -6132,7 +6132,7 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (::windows_core::Interface::vtable(this).ContinuationData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `Security_Authentication_Web`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"Security_Authentication_Web\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Security_Authentication_Web"))]
     pub fn WebAuthenticationResult(&self) -> ::windows_core::Result<super::super::Security::Authentication::Web::WebAuthenticationResult> {
         let this = self;
@@ -6199,7 +6199,7 @@ impl ::core::fmt::Debug for PrintContent {
 impl ::windows_core::RuntimeType for PrintContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.PrintContent;i4)");
 }
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6210,7 +6210,7 @@ impl ActivatedEventHandler {
         let com = ActivatedEventHandlerBox::<F> { vtable: &ActivatedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> ::windows_core::Result<()>
     where
@@ -6286,7 +6286,7 @@ pub struct ActivatedEventHandler_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Activation"))]
     Invoke: usize,
 }
-#[doc = "Required features: `ApplicationModel_Activation`"]
+#[doc = "Required features: `\"ApplicationModel_Activation\"`"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6297,7 +6297,7 @@ impl BackgroundActivatedEventHandler {
         let com = BackgroundActivatedEventHandlerBox::<F> { vtable: &BackgroundActivatedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Invoke<P0, P1>(&self, sender: P0, eventargs: P1) -> ::windows_core::Result<()>
     where
@@ -6373,7 +6373,7 @@ pub struct BackgroundActivatedEventHandler_Vtbl {
     #[cfg(not(feature = "ApplicationModel_Activation"))]
     Invoke: usize,
 }
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6384,7 +6384,7 @@ impl EnteredBackgroundEventHandler {
         let com = EnteredBackgroundEventHandlerBox::<F> { vtable: &EnteredBackgroundEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
     where
@@ -6460,7 +6460,7 @@ pub struct EnteredBackgroundEventHandler_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     Invoke: usize,
 }
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6471,7 +6471,7 @@ impl LeavingBackgroundEventHandler {
         let com = LeavingBackgroundEventHandlerBox::<F> { vtable: &LeavingBackgroundEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
     where
@@ -6692,7 +6692,7 @@ pub struct ResumingEventHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `ApplicationModel`"]
+#[doc = "Required features: `\"ApplicationModel\"`"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -6703,7 +6703,7 @@ impl SuspendingEventHandler {
         let com = SuspendingEventHandlerBox::<F> { vtable: &SuspendingEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    #[doc = "Required features: `ApplicationModel`"]
+    #[doc = "Required features: `\"ApplicationModel\"`"]
     #[cfg(feature = "ApplicationModel")]
     pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
     where

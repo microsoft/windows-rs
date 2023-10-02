@@ -1,35 +1,35 @@
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IATSCChannelTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IATSCChannelTuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -70,7 +70,7 @@ pub struct IATSCChannelTuneRequest_Vtbl {
     pub MinorChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minorchannel: *mut i32) -> ::windows_core::HRESULT,
     pub SetMinorChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minorchannel: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -135,18 +135,18 @@ impl IATSCComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -192,7 +192,7 @@ pub struct IATSCComponentType_Vtbl {
     pub Flags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows_core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -248,7 +248,7 @@ impl IATSCLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -289,7 +289,7 @@ pub struct IATSCLocator_Vtbl {
     pub TSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tsid: *mut i32) -> ::windows_core::HRESULT,
     pub SetTSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tsid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -345,7 +345,7 @@ impl IATSCLocator2 {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -391,7 +391,7 @@ pub struct IATSCLocator2_Vtbl {
     pub ProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: *mut i32) -> ::windows_core::HRESULT,
     pub SetProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -439,31 +439,31 @@ impl IATSCTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -481,13 +481,13 @@ impl IATSCTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -495,7 +495,7 @@ impl IATSCTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -909,31 +909,31 @@ impl IATSC_VCT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordEtmLocation)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsAccessControlledBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsAccessControlledBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsHiddenBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsHiddenBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsPathSelectBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsPathSelectBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsOutOfBandBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordIsOutOfBandBitSet)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordIsHideGuideBitSet(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1022,7 +1022,7 @@ pub struct IATSC_VCT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1087,18 +1087,18 @@ impl IAnalogAudioComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -1130,7 +1130,7 @@ pub struct IAnalogAudioComponentType_Vtbl {
     pub AnalogAudioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: *mut super::TVAudioMode) -> ::windows_core::HRESULT,
     pub SetAnalogAudioMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::TVAudioMode) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1186,7 +1186,7 @@ impl IAnalogLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -1218,7 +1218,7 @@ pub struct IAnalogLocator_Vtbl {
     pub VideoStandard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, avs: *mut super::AnalogVideoStandard) -> ::windows_core::HRESULT,
     pub SetVideoStandard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, avs: super::AnalogVideoStandard) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1266,31 +1266,31 @@ impl IAnalogRadioTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1308,13 +1308,13 @@ impl IAnalogRadioTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1322,7 +1322,7 @@ impl IAnalogRadioTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1372,7 +1372,7 @@ pub struct IAnalogRadioTuningSpace_Vtbl {
     pub Step: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stepval: *mut i32) -> ::windows_core::HRESULT,
     pub SetStep: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstepval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1420,31 +1420,31 @@ impl IAnalogRadioTuningSpace2 {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1462,13 +1462,13 @@ impl IAnalogRadioTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1476,7 +1476,7 @@ impl IAnalogRadioTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1529,7 +1529,7 @@ pub struct IAnalogRadioTuningSpace2_Vtbl {
     pub CountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, countrycodeval: *mut i32) -> ::windows_core::HRESULT,
     pub SetCountryCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcountrycodeval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1577,31 +1577,31 @@ impl IAnalogTVTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1619,13 +1619,13 @@ impl IAnalogTVTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1633,7 +1633,7 @@ impl IAnalogTVTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -1778,7 +1778,7 @@ impl IAtscPsipParser {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMGT)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVCT<P0>(&self, tableid: u8, fgetnexttable: P0) -> ::windows_core::Result<IATSC_VCT>
     where
@@ -1881,7 +1881,7 @@ pub struct IAttributeSet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub SetAttrib: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidattribute: ::windows_core::GUID, pbattribute: *const u8, dwattributelength: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1929,31 +1929,31 @@ impl IAuxInTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -1971,13 +1971,13 @@ impl IAuxInTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -1985,7 +1985,7 @@ impl IAuxInTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -2008,7 +2008,7 @@ unsafe impl ::windows_core::ComInterface for IAuxInTuningSpace {
 pub struct IAuxInTuningSpace_Vtbl {
     pub base__: ITuningSpace_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2056,31 +2056,31 @@ impl IAuxInTuningSpace2 {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -2098,13 +2098,13 @@ impl IAuxInTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -2112,7 +2112,7 @@ impl IAuxInTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -2148,7 +2148,7 @@ pub struct IAuxInTuningSpace2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDAComparable(::windows_core::IUnknown);
 impl IBDAComparable {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareExact<P0>(&self, compareto: P0) -> ::windows_core::Result<i32>
     where
@@ -2157,7 +2157,7 @@ impl IBDAComparable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareExact)(::windows_core::Interface::as_raw(self), compareto.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CompareEquivalent<P0>(&self, compareto: P0, dwflags: u32) -> ::windows_core::Result<i32>
     where
@@ -2211,7 +2211,7 @@ pub struct IBDAComparable_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBDACreateTuneRequestEx(::windows_core::IUnknown);
 impl IBDACreateTuneRequestEx {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequestEx(&self, tunerequestiid: *const ::windows_core::GUID) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
@@ -2288,7 +2288,7 @@ impl ICAT {
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTableDescriptorByTag)(::windows_core::Interface::as_raw(self), btag, pdwcookie, ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -2300,7 +2300,7 @@ impl ICAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -2385,38 +2385,38 @@ pub struct ICaptionServiceDescriptor_Vtbl {
     pub GetEasyReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetWideAspectRatio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bindex: u8, pbval: *mut u8) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelIDTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelIDTuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -2453,38 +2453,38 @@ pub struct IChannelIDTuneRequest_Vtbl {
     pub ChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetChannelID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChannelTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IChannelTuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -2518,20 +2518,20 @@ pub struct IChannelTuneRequest_Vtbl {
     pub Channel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: *mut i32) -> ::windows_core::HRESULT,
     pub SetChannel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComponent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetType<P0>(&self, ct: P0) -> ::windows_core::Result<()>
     where
@@ -2563,7 +2563,7 @@ impl IComponent {
     {
         (::windows_core::Interface::vtable(self).SetDescription)(::windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
@@ -2604,7 +2604,7 @@ pub struct IComponent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2669,18 +2669,18 @@ impl IComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -2729,7 +2729,7 @@ pub struct IComponentType_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2740,7 +2740,7 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2750,13 +2750,13 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Item<P0>(&self, index: super::super::super::System::Variant::VARIANT, componenttype: P0) -> ::windows_core::Result<()>
     where
@@ -2764,7 +2764,7 @@ impl IComponentTypes {
     {
         (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), componenttype.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, componenttype: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2773,12 +2773,12 @@ impl IComponentTypes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), componenttype.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
@@ -2827,7 +2827,7 @@ pub struct IComponentTypes_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2838,7 +2838,7 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2848,13 +2848,13 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2863,18 +2863,18 @@ impl IComponents {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), component.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Item<P0>(&self, index: super::super::super::System::Variant::VARIANT, ppcomponent: P0) -> ::windows_core::Result<()>
     where
@@ -2925,7 +2925,7 @@ pub struct IComponents_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     put_Item: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -2936,7 +2936,7 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -2946,13 +2946,13 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumComponents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, component: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -2961,12 +2961,12 @@ impl IComponentsOld {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), component.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
@@ -3015,7 +3015,7 @@ pub struct IComponentsOld_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICreatePropBagOnRegKey(::windows_core::IUnknown);
 impl ICreatePropBagOnRegKey {
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Create<P0, P1>(&self, hkey: P0, subkey: P1, uloptions: u32, samdesired: u32, iid: *const ::windows_core::GUID, ppbag: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -3059,13 +3059,13 @@ impl IDTFilter {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -3125,13 +3125,13 @@ impl IDTFilter2 {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -3191,13 +3191,13 @@ impl IDTFilter3 {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -3227,7 +3227,7 @@ impl IDTFilter3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProtectionType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LicenseHasExpirationDate(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3280,7 +3280,7 @@ pub struct IDTFilterConfig_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetSecureChannelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkdrmsecurechannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3324,7 +3324,7 @@ pub struct IDTFilterLicenseRenewal_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetLicenseRenewalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszfilename: *mut ::windows_core::PWSTR, ppwszexpiredkid: *mut ::windows_core::PWSTR, ppwsztunerid: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3380,7 +3380,7 @@ impl IDVBCLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -3403,7 +3403,7 @@ unsafe impl ::windows_core::ComInterface for IDVBCLocator {
 pub struct IDVBCLocator_Vtbl {
     pub base__: IDigitalLocator_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3459,7 +3459,7 @@ impl IDVBSLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -3472,13 +3472,13 @@ impl IDVBSLocator {
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSignalPolarisation)(::windows_core::Interface::as_raw(self), polarisationval).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WestPosition(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WestPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> ::windows_core::Result<()>
     where
@@ -3540,7 +3540,7 @@ pub struct IDVBSLocator_Vtbl {
     pub Elevation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elevation: *mut i32) -> ::windows_core::HRESULT,
     pub SetElevation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elevation: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3596,7 +3596,7 @@ impl IDVBSLocator2 {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -3609,13 +3609,13 @@ impl IDVBSLocator2 {
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSignalPolarisation)(::windows_core::Interface::as_raw(self), polarisationval).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WestPosition(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.WestPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> ::windows_core::Result<()>
     where
@@ -3724,7 +3724,7 @@ pub struct IDVBSLocator2_Vtbl {
     pub SignalPilot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilotval: *mut super::Pilot) -> ::windows_core::HRESULT,
     pub SetSignalPilot: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilotval: super::Pilot) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3772,31 +3772,31 @@ impl IDVBSTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -3814,13 +3814,13 @@ impl IDVBSTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -3828,7 +3828,7 @@ impl IDVBSTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -3913,7 +3913,7 @@ pub struct IDVBSTuningSpace_Vtbl {
     pub SpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spectralinversionval: *mut super::SpectralInversion) -> ::windows_core::HRESULT,
     pub SetSpectralInversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spectralinversionval: super::SpectralInversion) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -3969,7 +3969,7 @@ impl IDVBTLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -4017,13 +4017,13 @@ impl IDVBTLocator {
     pub unsafe fn SetMode(&self, mode: super::TransmissionMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OtherFrequencyInUse(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OtherFrequencyInUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOtherFrequencyInUse<P0>(&self, otherfrequencyinuseval: P0) -> ::windows_core::Result<()>
     where
@@ -4068,7 +4068,7 @@ pub struct IDVBTLocator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetOtherFrequencyInUse: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4124,7 +4124,7 @@ impl IDVBTLocator2 {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -4172,13 +4172,13 @@ impl IDVBTLocator2 {
     pub unsafe fn SetMode(&self, mode: super::TransmissionMode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMode)(::windows_core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OtherFrequencyInUse(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OtherFrequencyInUse)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOtherFrequencyInUse<P0>(&self, otherfrequencyinuseval: P0) -> ::windows_core::Result<()>
     where
@@ -4212,38 +4212,38 @@ pub struct IDVBTLocator2_Vtbl {
     pub PhysicalLayerPipeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, physicallayerpipeidval: *mut i32) -> ::windows_core::HRESULT,
     pub SetPhysicalLayerPipeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, physicallayerpipeidval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDVBTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDVBTuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -4295,7 +4295,7 @@ pub struct IDVBTuneRequest_Vtbl {
     pub SID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: *mut i32) -> ::windows_core::HRESULT,
     pub SetSID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4343,31 +4343,31 @@ impl IDVBTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -4385,13 +4385,13 @@ impl IDVBTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -4399,7 +4399,7 @@ impl IDVBTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -4431,7 +4431,7 @@ pub struct IDVBTuningSpace_Vtbl {
     pub SystemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systype: *mut super::DVBSystemType) -> ::windows_core::HRESULT,
     pub SetSystemType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systype: super::DVBSystemType) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -4479,31 +4479,31 @@ impl IDVBTuningSpace2 {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -4521,13 +4521,13 @@ impl IDVBTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -4535,7 +4535,7 @@ impl IDVBTuningSpace2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -4626,7 +4626,7 @@ impl IDVB_BAT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -4638,7 +4638,7 @@ impl IDVB_BAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -4694,7 +4694,7 @@ impl IDVB_DIT {
     {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), psectionlist.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransitionFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4773,7 +4773,7 @@ impl IDVB_EIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4790,7 +4790,7 @@ impl IDVB_EIT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -4802,7 +4802,7 @@ impl IDVB_EIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -4915,7 +4915,7 @@ impl IDVB_EIT2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4932,7 +4932,7 @@ impl IDVB_EIT2 {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -4944,7 +4944,7 @@ impl IDVB_EIT2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5034,7 +5034,7 @@ impl IDVB_NIT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -5046,7 +5046,7 @@ impl IDVB_NIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5182,13 +5182,13 @@ impl IDVB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordServiceId)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordEITScheduleFlag)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5198,7 +5198,7 @@ impl IDVB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5215,7 +5215,7 @@ impl IDVB_SDT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -5227,7 +5227,7 @@ impl IDVB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5337,7 +5337,7 @@ impl IDVB_SIT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -5349,7 +5349,7 @@ impl IDVB_SIT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -5500,7 +5500,7 @@ pub struct IDVB_TOT_Vtbl {
     pub GetTableDescriptorByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetTableDescriptorByTag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5556,7 +5556,7 @@ impl IDigitalCableLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -5600,38 +5600,38 @@ unsafe impl ::windows_core::ComInterface for IDigitalCableLocator {
 pub struct IDigitalCableLocator_Vtbl {
     pub base__: IATSCLocator2_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDigitalCableTuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDigitalCableTuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -5688,7 +5688,7 @@ pub struct IDigitalCableTuneRequest_Vtbl {
     pub SourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourceid: *mut i32) -> ::windows_core::HRESULT,
     pub SetSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourceid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5736,31 +5736,31 @@ impl IDigitalCableTuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -5778,13 +5778,13 @@ impl IDigitalCableTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -5792,7 +5792,7 @@ impl IDigitalCableTuningSpace {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -5907,7 +5907,7 @@ pub struct IDigitalCableTuningSpace_Vtbl {
     pub MaxSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxsourceidval: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxSourceID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newmaxsourceidval: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -5963,7 +5963,7 @@ impl IDigitalLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -6903,13 +6903,13 @@ impl IDvbServiceAttributeDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordServiceId)(::windows_core::Interface::as_raw(self), brecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordNumericSelectionFlag(&self, brecordindex: u8) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecordNumericSelectionFlag)(::windows_core::Interface::as_raw(self), brecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordVisibleServiceFlag(&self, brecordindex: u8) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7590,7 +7590,7 @@ impl IESCloseMmiEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7737,7 +7737,7 @@ impl IESFileExpiryDateEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7763,13 +7763,13 @@ impl IESFileExpiryDateEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMaxRenewalCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEntitlementTokenPresent(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsEntitlementTokenPresent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesExpireAfterFirstUse(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7815,7 +7815,7 @@ impl IESIsdbCasResponseEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7837,7 +7837,7 @@ impl IESIsdbCasResponseEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetResponseData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7878,7 +7878,7 @@ impl IESLicenseRenewalResultEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7896,13 +7896,13 @@ impl IESLicenseRenewalResultEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFileName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRenewalSuccessful(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsRenewalSuccessful)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCheckEntitlementCallRequired(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -7928,7 +7928,7 @@ impl IESLicenseRenewalResultEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEntitlementTokenLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetEntitlementToken(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -7986,7 +7986,7 @@ impl IESOpenMmiEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8003,7 +8003,7 @@ impl IESOpenMmiEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDialogType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDialogData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8047,7 +8047,7 @@ impl IESRequestTunerEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8105,7 +8105,7 @@ impl IESValueUpdatedEvent {
     pub unsafe fn SetCompletionStatus(&self, dwresult: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCompletionStatus)(::windows_core::Interface::as_raw(self), dwresult).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8115,7 +8115,7 @@ impl IESValueUpdatedEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStringData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetValueNames(&self) -> ::windows_core::Result<*mut super::super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::std::mem::zeroed();
@@ -8156,7 +8156,7 @@ impl IETFilter {
     pub unsafe fn GetLastErrorCode(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLastErrorCode)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRecordingOn<P0>(&self, frecstate: P0) -> ::windows_core::Result<()>
     where
@@ -8211,7 +8211,7 @@ pub struct IETFilterConfig_Vtbl {
     pub InitLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, licenseid: i32) -> ::windows_core::HRESULT,
     pub GetSecureChannelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkdrmsecurechannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8238,7 +8238,7 @@ pub struct IETFilterEvents_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumComponentTypes(::windows_core::IUnknown);
 impl IEnumComponentTypes {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IComponentType>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -8277,7 +8277,7 @@ pub struct IEnumComponentTypes_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumComponents(::windows_core::IUnknown);
 impl IEnumComponents {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IComponent>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -8350,7 +8350,7 @@ pub struct IEnumGuideDataProperties_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumMSVidGraphSegment(::windows_core::IUnknown);
 impl IEnumMSVidGraphSegment {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IMSVidGraphSegment>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(rgelt), pceltfetched).ok()
@@ -8423,7 +8423,7 @@ pub struct IEnumStreamBufferRecordingAttrib_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTuneRequests(::windows_core::IUnknown);
 impl IEnumTuneRequests {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppprop: *mut ::core::option::Option<ITuneRequest>, pcelt: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(ppprop), pcelt).ok()
@@ -8462,7 +8462,7 @@ pub struct IEnumTuneRequests_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTuningSpaces(::windows_core::IUnknown);
 impl IEnumTuningSpaces {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<ITuningSpace>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), pceltfetched).ok()
@@ -8497,7 +8497,7 @@ pub struct IEnumTuningSpaces_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8511,13 +8511,13 @@ impl IEvalRat {
     pub unsafe fn put_BlockedRatingAttributes(&self, ensystem: EnTvRat_System, enlevel: EnTvRat_GenericLevel, lbfattrs: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).put_BlockedRatingAttributes)(::windows_core::Interface::as_raw(self), ensystem, enlevel, lbfattrs).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BlockUnRated(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BlockUnRated)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnRated<P0>(&self, fblockunratedshows: P0) -> ::windows_core::Result<()>
     where
@@ -8667,7 +8667,7 @@ impl IGuideData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetServices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetServiceProperties<P0>(&self, ptunerequest: P0) -> ::windows_core::Result<IEnumGuideDataProperties>
     where
@@ -8676,25 +8676,25 @@ impl IGuideData {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetServiceProperties)(::windows_core::Interface::as_raw(self), ptunerequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetGuideProgramIDs(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGuideProgramIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProgramProperties(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProgramProperties)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetScheduleEntryIDs(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScheduleEntryIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetScheduleEntryProperties(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IEnumGuideDataProperties> {
         let mut result__ = ::std::mem::zeroed();
@@ -8741,32 +8741,32 @@ impl IGuideDataEvent {
     pub unsafe fn GuideDataAcquired(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GuideDataAcquired)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ProgramChanged(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProgramChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ServiceChanged(&self, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ServiceChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varservicedescriptionid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ScheduleEntryChanged(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ScheduleEntryChanged)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ProgramDeleted(&self, varprogramdescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ProgramDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varprogramdescriptionid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ServiceDeleted(&self, varservicedescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ServiceDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varservicedescriptionid)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ScheduleDeleted(&self, varscheduleentrydescriptionid: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ScheduleDeleted)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varscheduleentrydescriptionid)).ok()
@@ -8849,7 +8849,7 @@ impl IGuideDataProperty {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Language)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -8874,7 +8874,7 @@ pub struct IGuideDataProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Value: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -8930,7 +8930,7 @@ impl IISDBSLocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -8943,13 +8943,13 @@ impl IISDBSLocator {
     pub unsafe fn SetSignalPolarisation(&self, polarisationval: super::Polarisation) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSignalPolarisation)(::windows_core::Interface::as_raw(self), polarisationval).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WestPosition(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.WestPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWestPosition<P0>(&self, westlongitude: P0) -> ::windows_core::Result<()>
     where
@@ -9411,13 +9411,13 @@ impl IISDB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordServiceId)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITScheduleFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordEITScheduleFlag)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordEITPresentFollowingFlag(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9427,7 +9427,7 @@ impl IISDB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecordRunningStatus)(::windows_core::Interface::as_raw(self), dwrecordindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9444,7 +9444,7 @@ impl IISDB_SDT {
     pub unsafe fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: ::core::option::Option<*mut u32>, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetRecordDescriptorByTag)(::windows_core::Interface::as_raw(self), dwrecordindex, btag, ::core::mem::transmute(pdwcookie.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -9456,7 +9456,7 @@ impl IISDB_SDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -9640,13 +9640,13 @@ impl IIsdbAudioComponentDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSimulcastGroupTag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetESMultiLingualFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetESMultiLingualFlag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMainComponentFlag(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10047,7 +10047,7 @@ impl IIsdbDownloadContentDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFlags(&self, pfreboot: *mut super::super::super::Foundation::BOOL, pfaddon: *mut super::super::super::Foundation::BOOL, pfcompatibility: *mut super::super::super::Foundation::BOOL, pfmoduleinfo: *mut super::super::super::Foundation::BOOL, pftextinfo: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), pfreboot, pfaddon, pfcompatibility, pfmoduleinfo, pftextinfo).ok()
@@ -10420,7 +10420,7 @@ impl IIsdbSeriesDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProgramPattern)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetExpireDate(&self, pfvalid: *mut super::super::super::Foundation::BOOL, pmdtval: *mut MPEG_DATE_AND_TIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetExpireDate)(::windows_core::Interface::as_raw(self), pfvalid, pmdtval).ok()
@@ -10689,7 +10689,7 @@ pub struct IIsdbTerrestrialDeliverySystemDescriptor_Vtbl {
     pub GetCountOfRecords: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbval: *mut u8) -> ::windows_core::HRESULT,
     pub GetRecordFrequency: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brecordindex: u8, pdwval: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10754,18 +10754,18 @@ impl ILanguageComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -10797,7 +10797,7 @@ pub struct ILanguageComponentType_Vtbl {
     pub LangID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: *mut i32) -> ::windows_core::HRESULT,
     pub SetLangID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -10853,7 +10853,7 @@ impl ILocator {
     pub unsafe fn SetSymbolRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSymbolRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
@@ -10894,20 +10894,20 @@ pub struct ILocator_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2Component(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2Component {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetType<P0>(&self, ct: P0) -> ::windows_core::Result<()>
     where
@@ -10939,7 +10939,7 @@ impl IMPEG2Component {
     {
         (::windows_core::Interface::vtable(self).base__.SetDescription)(::windows_core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponent> {
         let mut result__ = ::std::mem::zeroed();
@@ -10989,7 +10989,7 @@ pub struct IMPEG2Component_Vtbl {
     pub ProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: *mut i32) -> ::windows_core::HRESULT,
     pub SetProgramNumber: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, programnumber: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11054,18 +11054,18 @@ impl IMPEG2ComponentType {
     pub unsafe fn Set_MediaFormatType(&self, mediaformattypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Set_MediaFormatType)(::windows_core::Interface::as_raw(self), mediaformattypeguid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn MediaType(&self) -> ::windows_core::Result<super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.MediaType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetMediaType)(::windows_core::Interface::as_raw(self), mediatype).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IComponentType> {
         let mut result__ = ::std::mem::zeroed();
@@ -11104,38 +11104,38 @@ pub struct IMPEG2ComponentType_Vtbl {
     pub StreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mp2streamtype: *mut super::MPEG2StreamType) -> ::windows_core::HRESULT,
     pub SetStreamType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mp2streamtype: super::MPEG2StreamType) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -11178,14 +11178,14 @@ pub struct IMPEG2TuneRequest_Vtbl {
     pub ProgNo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progno: *mut i32) -> ::windows_core::HRESULT,
     pub SetProgNo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progno: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMPEG2TuneRequestFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMPEG2TuneRequestFactory {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest<P0>(&self, tuningspace: P0) -> ::windows_core::Result<IMPEG2TuneRequest>
     where
@@ -11276,14 +11276,14 @@ pub struct IMPEG2_TIF_CONTROL_Vtbl {
     pub GetPIDCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcpids: *mut u32) -> ::windows_core::HRESULT,
     pub GetPIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulcpids: *mut u32, pulpids: *mut u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSEventBinder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSEventBinder {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Bind<P0, P1, P2>(&self, peventobject: P0, eventname: P1, eventhandler: P2) -> ::windows_core::Result<i32>
     where
@@ -11319,7 +11319,7 @@ pub struct IMSEventBinder_Vtbl {
     Bind: usize,
     pub Unbind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cancelcookie: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11334,7 +11334,7 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11342,7 +11342,7 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11364,7 +11364,7 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11373,24 +11373,24 @@ impl IMSVidAnalogTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Tune)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTune<P0>(&self, ptr: P0) -> ::windows_core::Result<()>
     where
@@ -11398,13 +11398,13 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).base__.SetTune)(::windows_core::Interface::as_raw(self), ptr.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, plts: P0) -> ::windows_core::Result<()>
     where
@@ -11434,13 +11434,13 @@ impl IMSVidAnalogTuner {
     pub unsafe fn SetCountryCode(&self, lcc: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCountryCode)(::windows_core::Interface::as_raw(self), lcc).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAP(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SAP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAP<P0>(&self, fsapon: P0) -> ::windows_core::Result<()>
     where
@@ -11448,7 +11448,7 @@ impl IMSVidAnalogTuner {
     {
         (::windows_core::Interface::vtable(self).SetSAP)(::windows_core::Interface::as_raw(self), fsapon.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, fsignalpresent).ok()
@@ -11488,7 +11488,7 @@ pub struct IMSVidAnalogTuner_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChannelAvailable: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11503,7 +11503,7 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11511,7 +11511,7 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11533,7 +11533,7 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11542,24 +11542,24 @@ impl IMSVidAnalogTuner2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Tune)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTune<P0>(&self, ptr: P0) -> ::windows_core::Result<()>
     where
@@ -11567,13 +11567,13 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetTune)(::windows_core::Interface::as_raw(self), ptr.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, plts: P0) -> ::windows_core::Result<()>
     where
@@ -11603,13 +11603,13 @@ impl IMSVidAnalogTuner2 {
     pub unsafe fn SetCountryCode(&self, lcc: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCountryCode)(::windows_core::Interface::as_raw(self), lcc).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAP(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SAP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAP<P0>(&self, fsapon: P0) -> ::windows_core::Result<()>
     where
@@ -11617,7 +11617,7 @@ impl IMSVidAnalogTuner2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetSAP)(::windows_core::Interface::as_raw(self), fsapon.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChannelAvailable(&self, nchannel: i32, signalstrength: *mut i32, fsignalpresent: *mut super::super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ChannelAvailable)(::windows_core::Interface::as_raw(self), nchannel, signalstrength, fsignalpresent).ok()
@@ -11654,14 +11654,14 @@ pub struct IMSVidAnalogTuner2_Vtbl {
     pub TunerModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modes: *mut i32) -> ::windows_core::HRESULT,
     pub NumAuxInputs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputs: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAnalogTunerEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAnalogTunerEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneChanged<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -11686,7 +11686,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidAnalogTunerEvent {
 pub struct IMSVidAnalogTunerEvent_Vtbl {
     pub base__: IMSVidTunerEvent_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11701,7 +11701,7 @@ impl IMSVidAudioRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11709,7 +11709,7 @@ impl IMSVidAudioRenderer {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11731,7 +11731,7 @@ impl IMSVidAudioRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11775,7 +11775,7 @@ pub struct IMSVidAudioRenderer_Vtbl {
     pub SetBalance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbal: i32) -> ::windows_core::HRESULT,
     pub Balance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbal: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11786,19 +11786,19 @@ impl IMSVidAudioRendererDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidAudioRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -11806,7 +11806,7 @@ impl IMSVidAudioRendererDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -11845,14 +11845,14 @@ pub struct IMSVidAudioRendererDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -11877,14 +11877,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidAudioRendererEvent {
 pub struct IMSVidAudioRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidAudioRendererEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidAudioRendererEvent2 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -11941,7 +11941,7 @@ pub struct IMSVidAudioRendererEvent2_Vtbl {
     pub AVDecCommonInputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AVDecCommonOutputFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -11956,7 +11956,7 @@ impl IMSVidClosedCaptioning {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -11964,7 +11964,7 @@ impl IMSVidClosedCaptioning {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11986,7 +11986,7 @@ impl IMSVidClosedCaptioning {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -11995,13 +11995,13 @@ impl IMSVidClosedCaptioning {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> ::windows_core::Result<()>
     where
@@ -12034,7 +12034,7 @@ pub struct IMSVidClosedCaptioning_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetEnable: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12049,7 +12049,7 @@ impl IMSVidClosedCaptioning2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12057,7 +12057,7 @@ impl IMSVidClosedCaptioning2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12079,7 +12079,7 @@ impl IMSVidClosedCaptioning2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12088,13 +12088,13 @@ impl IMSVidClosedCaptioning2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> ::windows_core::Result<()>
     where
@@ -12128,7 +12128,7 @@ pub struct IMSVidClosedCaptioning2_Vtbl {
     pub Service: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, on: *mut MSVidCCService) -> ::windows_core::HRESULT,
     pub SetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, on: MSVidCCService) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12143,7 +12143,7 @@ impl IMSVidClosedCaptioning3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12151,7 +12151,7 @@ impl IMSVidClosedCaptioning3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12173,7 +12173,7 @@ impl IMSVidClosedCaptioning3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12182,13 +12182,13 @@ impl IMSVidClosedCaptioning3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Enable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<P0>(&self, on: P0) -> ::windows_core::Result<()>
     where
@@ -12225,14 +12225,14 @@ pub struct IMSVidClosedCaptioning3_Vtbl {
     pub base__: IMSVidClosedCaptioning2_Vtbl,
     pub TeleTextFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkttfilter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidCompositionSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCompositionSegment {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -12294,7 +12294,7 @@ impl IMSVidCompositionSegment {
     pub unsafe fn Decompose(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Decompose)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Compose<P0, P1>(&self, upstream: P0, downstream: P1) -> ::windows_core::Result<()>
     where
@@ -12303,13 +12303,13 @@ impl IMSVidCompositionSegment {
     {
         (::windows_core::Interface::vtable(self).Compose)(::windows_core::Interface::as_raw(self), upstream.into_param().abi(), downstream.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Up(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Up)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Down(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
@@ -12344,20 +12344,20 @@ pub struct IMSVidCompositionSegment_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Down: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidCtl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidCtl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AutoSize(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AutoSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoSize<P0>(&self, vbool: P0) -> ::windows_core::Result<()>
     where
@@ -12372,13 +12372,13 @@ impl IMSVidCtl {
     pub unsafe fn SetBackColor(&self, backcolor: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBackColor)(::windows_core::Interface::as_raw(self), backcolor).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<P0>(&self, vbool: P0) -> ::windows_core::Result<()>
     where
@@ -12386,13 +12386,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetEnabled)(::windows_core::Interface::as_raw(self), vbool.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TabStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TabStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTabStop<P0>(&self, vbool: P0) -> ::windows_core::Result<()>
     where
@@ -12400,7 +12400,7 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetTabStop)(::windows_core::Interface::as_raw(self), vbool.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Window(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -12416,13 +12416,13 @@ impl IMSVidCtl {
     pub unsafe fn SetDisplaySize(&self, newvalue: DisplaySizeList) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDisplaySize)(::windows_core::Interface::as_raw(self), newvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MaintainAspectRatio(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaintainAspectRatio)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMaintainAspectRatio<P0>(&self, newvalue: P0) -> ::windows_core::Result<()>
     where
@@ -12437,7 +12437,7 @@ impl IMSVidCtl {
     pub unsafe fn SetColorKey(&self, newvalue: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), newvalue).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_InputsAvailable<P0>(&self, categoryguid: P0) -> ::windows_core::Result<IMSVidInputDevices>
     where
@@ -12446,7 +12446,7 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_InputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_OutputsAvailable<P0>(&self, categoryguid: P0) -> ::windows_core::Result<IMSVidOutputDevices>
     where
@@ -12455,43 +12455,43 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_OutputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get__InputsAvailable(&self, categoryguid: *const ::windows_core::GUID) -> ::windows_core::Result<IMSVidInputDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get__InputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get__OutputsAvailable(&self, categoryguid: *const ::windows_core::GUID) -> ::windows_core::Result<IMSVidOutputDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get__OutputsAvailable)(::windows_core::Interface::as_raw(self), categoryguid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRenderersAvailable(&self) -> ::windows_core::Result<IMSVidVideoRendererDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VideoRenderersAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRenderersAvailable(&self) -> ::windows_core::Result<IMSVidAudioRendererDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioRenderersAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FeaturesAvailable(&self) -> ::windows_core::Result<IMSVidFeatures> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FeaturesAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InputActive(&self) -> ::windows_core::Result<IMSVidInputDevice> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InputActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetInputActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12499,13 +12499,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetInputActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutputsActive(&self) -> ::windows_core::Result<IMSVidOutputDevices> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputsActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetOutputsActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12513,13 +12513,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetOutputsActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRendererActive(&self) -> ::windows_core::Result<IMSVidVideoRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VideoRendererActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetVideoRendererActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12527,13 +12527,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetVideoRendererActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRendererActive(&self) -> ::windows_core::Result<IMSVidAudioRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioRendererActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAudioRendererActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12541,13 +12541,13 @@ impl IMSVidCtl {
     {
         (::windows_core::Interface::vtable(self).SetAudioRendererActive)(::windows_core::Interface::as_raw(self), pval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FeaturesActive(&self) -> ::windows_core::Result<IMSVidFeatures> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FeaturesActive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFeaturesActive<P0>(&self, pval: P0) -> ::windows_core::Result<()>
     where
@@ -12559,7 +12559,7 @@ impl IMSVidCtl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), v).ok()
@@ -12585,7 +12585,7 @@ impl IMSVidCtl {
     pub unsafe fn DisableAudio(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisableAudio)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ViewNext(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ViewNext)(::windows_core::Interface::as_raw(self), v).ok()
@@ -12734,7 +12734,7 @@ pub struct IMSVidCtl_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ViewNext: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12749,7 +12749,7 @@ impl IMSVidDataServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12757,7 +12757,7 @@ impl IMSVidDataServices {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12779,7 +12779,7 @@ impl IMSVidDataServices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12805,14 +12805,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidDataServices {
 pub struct IMSVidDataServices_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDataServicesEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDataServicesEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -12837,7 +12837,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidDataServicesEvent {
 pub struct IMSVidDataServicesEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12852,7 +12852,7 @@ impl IMSVidDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -12860,7 +12860,7 @@ impl IMSVidDevice {
     {
         (::windows_core::Interface::vtable(self).SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12882,7 +12882,7 @@ impl IMSVidDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -12948,14 +12948,14 @@ pub struct IMSVidDevice2_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub DevicePath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devpath: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidDeviceEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -12984,7 +12984,7 @@ pub struct IMSVidDeviceEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     StateChange: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -12999,7 +12999,7 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13007,7 +13007,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13029,7 +13029,7 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13065,7 +13065,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -13075,7 +13075,7 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -13083,18 +13083,18 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -13109,7 +13109,7 @@ impl IMSVidEVR {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -13132,31 +13132,31 @@ impl IMSVidEVR {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -13164,13 +13164,13 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -13178,7 +13178,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -13188,13 +13188,13 @@ impl IMSVidEVR {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -13202,13 +13202,13 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).base__.SetDecimateInput)(::windows_core::Interface::as_raw(self), pdeci.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn Presenter(&self) -> ::windows_core::Result<super::super::MediaFoundation::IMFVideoPresenter> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Presenter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn SetPresenter<P0>(&self, pallocpresent: P0) -> ::windows_core::Result<()>
     where
@@ -13216,7 +13216,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).SetPresenter)(::windows_core::Interface::as_raw(self), pallocpresent.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressEffects<P0>(&self, bsuppress: P0) -> ::windows_core::Result<()>
     where
@@ -13224,7 +13224,7 @@ impl IMSVidEVR {
     {
         (::windows_core::Interface::vtable(self).SetSuppressEffects)(::windows_core::Interface::as_raw(self), bsuppress.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13263,14 +13263,14 @@ pub struct IMSVidEVR_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SuppressEffects: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidEVREvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidEVREvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -13299,7 +13299,7 @@ pub struct IMSVidEVREvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OnUserEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leventcode: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13314,7 +13314,7 @@ impl IMSVidEncoder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13322,7 +13322,7 @@ impl IMSVidEncoder {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13344,7 +13344,7 @@ impl IMSVidEncoder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13380,7 +13380,7 @@ pub struct IMSVidEncoder_Vtbl {
     pub VideoEncoderInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppencint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub AudioEncoderInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppencint: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13395,7 +13395,7 @@ impl IMSVidFeature {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13403,7 +13403,7 @@ impl IMSVidFeature {
     {
         (::windows_core::Interface::vtable(self).base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13425,7 +13425,7 @@ impl IMSVidFeature {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13451,14 +13451,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidFeature {
 pub struct IMSVidFeature_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFeatureEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFeatureEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -13483,7 +13483,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidFeatureEvent {
 pub struct IMSVidFeatureEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13494,19 +13494,19 @@ impl IMSVidFeatures {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidFeature> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -13514,7 +13514,7 @@ impl IMSVidFeatures {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -13553,7 +13553,7 @@ pub struct IMSVidFeatures_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13568,7 +13568,7 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13576,7 +13576,7 @@ impl IMSVidFilePlayback {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13598,7 +13598,7 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13607,24 +13607,24 @@ impl IMSVidFilePlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -13641,7 +13641,7 @@ impl IMSVidFilePlayback {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13707,7 +13707,7 @@ pub struct IMSVidFilePlayback_Vtbl {
     pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub SetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13722,7 +13722,7 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13730,7 +13730,7 @@ impl IMSVidFilePlayback2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13752,7 +13752,7 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13761,24 +13761,24 @@ impl IMSVidFilePlayback2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -13795,7 +13795,7 @@ impl IMSVidFilePlayback2 {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13870,14 +13870,14 @@ pub struct IMSVidFilePlayback2_Vtbl {
     pub Set_SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Set__SourceFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::windows_core::GUID) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidFilePlaybackEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidFilePlaybackEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -13902,7 +13902,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidFilePlaybackEvent {
 pub struct IMSVidFilePlaybackEvent_Vtbl {
     pub base__: IMSVidPlaybackEvent_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -13917,7 +13917,7 @@ impl IMSVidGenericSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -13925,7 +13925,7 @@ impl IMSVidGenericSink {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -13947,7 +13947,7 @@ impl IMSVidGenericSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -13989,7 +13989,7 @@ pub struct IMSVidGenericSink_Vtbl {
     pub SinkStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstreams: *mut MSVidSinkStreams) -> ::windows_core::HRESULT,
     pub SetSinkStreams: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streams: MSVidSinkStreams) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14004,7 +14004,7 @@ impl IMSVidGenericSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14012,7 +14012,7 @@ impl IMSVidGenericSink2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14034,7 +14034,7 @@ impl IMSVidGenericSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14084,14 +14084,14 @@ pub struct IMSVidGenericSink2_Vtbl {
     pub AddFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub ResetFilterList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidGraphSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidGraphSegment {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -14193,7 +14193,7 @@ impl IMSVidGraphSegmentContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Graph)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Input(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
@@ -14203,13 +14203,13 @@ impl IMSVidGraphSegmentContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Outputs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VideoRenderer(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VideoRenderer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioRenderer(&self) -> ::windows_core::Result<IMSVidGraphSegment> {
         let mut result__ = ::std::mem::zeroed();
@@ -14227,7 +14227,7 @@ impl IMSVidGraphSegmentContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ParentContainer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Decompose<P0>(&self, psegment: P0) -> ::windows_core::Result<()>
     where
@@ -14326,7 +14326,7 @@ pub struct IMSVidGraphSegmentUserInput_Vtbl {
     pub MouseMove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttonstate: i16, shiftstate: i16, x: i32, y: i32) -> ::windows_core::HRESULT,
     pub MouseUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buttonstate: i16, shiftstate: i16, x: i32, y: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14341,7 +14341,7 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14349,7 +14349,7 @@ impl IMSVidInputDevice {
     {
         (::windows_core::Interface::vtable(self).base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14371,7 +14371,7 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14380,13 +14380,13 @@ impl IMSVidInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).View)(::windows_core::Interface::as_raw(self), v).ok()
@@ -14416,7 +14416,7 @@ pub struct IMSVidInputDevice_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     View: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14439,7 +14439,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidInputDeviceEvent {
 pub struct IMSVidInputDeviceEvent_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14450,19 +14450,19 @@ impl IMSVidInputDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidInputDevice> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -14470,7 +14470,7 @@ impl IMSVidInputDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -14509,7 +14509,7 @@ pub struct IMSVidInputDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14524,7 +14524,7 @@ impl IMSVidOutputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14532,7 +14532,7 @@ impl IMSVidOutputDevice {
     {
         (::windows_core::Interface::vtable(self).base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14554,7 +14554,7 @@ impl IMSVidOutputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14580,14 +14580,14 @@ unsafe impl ::windows_core::ComInterface for IMSVidOutputDevice {
 pub struct IMSVidOutputDevice_Vtbl {
     pub base__: IMSVidDevice_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidOutputDeviceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidOutputDeviceEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -14612,7 +14612,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidOutputDeviceEvent {
 pub struct IMSVidOutputDeviceEvent_Vtbl {
     pub base__: IMSVidDeviceEvent_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14623,19 +14623,19 @@ impl IMSVidOutputDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidOutputDevice> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -14643,7 +14643,7 @@ impl IMSVidOutputDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -14682,7 +14682,7 @@ pub struct IMSVidOutputDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14697,7 +14697,7 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -14705,7 +14705,7 @@ impl IMSVidPlayback {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14727,7 +14727,7 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14736,24 +14736,24 @@ impl IMSVidPlayback {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -14770,7 +14770,7 @@ impl IMSVidPlayback {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -14847,14 +14847,14 @@ pub struct IMSVidPlayback_Vtbl {
     pub PositionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpositionmode: *mut PositionModeList) -> ::windows_core::HRESULT,
     pub Length: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llength: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidPlaybackEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidPlaybackEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -14883,7 +14883,7 @@ pub struct IMSVidPlaybackEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EndOfMedia: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14918,13 +14918,13 @@ impl IMSVidRect {
     pub unsafe fn SetHeight(&self, heightval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetHeight)(::windows_core::Interface::as_raw(self), heightval).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HWnd(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HWnd)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHWnd<P0>(&self, hwndval: P0) -> ::windows_core::Result<()>
     where
@@ -14932,7 +14932,7 @@ impl IMSVidRect {
     {
         (::windows_core::Interface::vtable(self).SetHWnd)(::windows_core::Interface::as_raw(self), hwndval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRect<P0>(&self, rectval: P0) -> ::windows_core::Result<()>
     where
@@ -14977,7 +14977,7 @@ pub struct IMSVidRect_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetRect: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -14998,13 +14998,13 @@ impl IMSVidStreamBufferRecordingControl {
     pub unsafe fn SetStopTime(&self, rtstop: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStopTime)(::windows_core::Interface::as_raw(self), rtstop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RecordingStopped(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RecordingStopped)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RecordingStarted(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15049,7 +15049,7 @@ pub struct IMSVidStreamBufferRecordingControl_Vtbl {
     pub RecordingType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: *mut RecordingType) -> ::windows_core::HRESULT,
     pub RecordingAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precordingattribute: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15064,7 +15064,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15072,7 +15072,7 @@ impl IMSVidStreamBufferSink {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15094,7 +15094,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15103,7 +15103,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ContentRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15112,7 +15112,7 @@ impl IMSVidStreamBufferSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ContentRecorder)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ReferenceRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15167,7 +15167,7 @@ pub struct IMSVidStreamBufferSink_Vtbl {
     pub NameSetLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SBESink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sbeconfig: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15182,7 +15182,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15190,7 +15190,7 @@ impl IMSVidStreamBufferSink2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15212,7 +15212,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15221,7 +15221,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ContentRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15230,7 +15230,7 @@ impl IMSVidStreamBufferSink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_ContentRecorder)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ReferenceRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15277,7 +15277,7 @@ pub struct IMSVidStreamBufferSink2_Vtbl {
     pub base__: IMSVidStreamBufferSink_Vtbl,
     pub UnlockProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15292,7 +15292,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15300,7 +15300,7 @@ impl IMSVidStreamBufferSink3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15322,7 +15322,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15331,7 +15331,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ContentRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15340,7 +15340,7 @@ impl IMSVidStreamBufferSink3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.get_ContentRecorder)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ReferenceRecorder<P0>(&self, pszfilename: P0) -> ::windows_core::Result<IMSVidStreamBufferRecordingControl>
     where
@@ -15479,14 +15479,14 @@ pub struct IMSVidStreamBufferSink3_Vtbl {
     pub _DataAnalysisFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub LicenseErrorCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hres: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15523,14 +15523,14 @@ pub struct IMSVidStreamBufferSinkEvent_Vtbl {
     pub CertificateSuccess: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WriteFailure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent2 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15572,14 +15572,14 @@ pub struct IMSVidStreamBufferSinkEvent2_Vtbl {
     pub EncryptionOn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub EncryptionOff: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent3 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15623,14 +15623,14 @@ pub struct IMSVidStreamBufferSinkEvent3_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent2_Vtbl,
     pub LicenseChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprot: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSinkEvent4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSinkEvent4 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -15677,7 +15677,7 @@ pub struct IMSVidStreamBufferSinkEvent4_Vtbl {
     pub base__: IMSVidStreamBufferSinkEvent3_Vtbl,
     pub WriteFailureClear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15692,7 +15692,7 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15700,7 +15700,7 @@ impl IMSVidStreamBufferSource {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15722,7 +15722,7 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15731,24 +15731,24 @@ impl IMSVidStreamBufferSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -15765,7 +15765,7 @@ impl IMSVidStreamBufferSource {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15826,7 +15826,7 @@ impl IMSVidStreamBufferSource {
     pub unsafe fn MaxRatingsLevel(&self, ensystem: EnTvRat_System, enrating: EnTvRat_GenericLevel, lbfenattr: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MaxRatingsLevel)(::windows_core::Interface::as_raw(self), ensystem, enrating, lbfenattr).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnrated<P0>(&self, bblock: P0) -> ::windows_core::Result<()>
     where
@@ -15868,7 +15868,7 @@ pub struct IMSVidStreamBufferSource_Vtbl {
     pub SetUnratedDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdelay: i32) -> ::windows_core::HRESULT,
     pub SBESource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sbefilter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -15883,7 +15883,7 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -15891,7 +15891,7 @@ impl IMSVidStreamBufferSource2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15913,7 +15913,7 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -15922,24 +15922,24 @@ impl IMSVidStreamBufferSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -15956,7 +15956,7 @@ impl IMSVidStreamBufferSource2 {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16017,7 +16017,7 @@ impl IMSVidStreamBufferSource2 {
     pub unsafe fn MaxRatingsLevel(&self, ensystem: EnTvRat_System, enrating: EnTvRat_GenericLevel, lbfenattr: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.MaxRatingsLevel)(::windows_core::Interface::as_raw(self), ensystem, enrating, lbfenattr).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBlockUnrated<P0>(&self, bblock: P0) -> ::windows_core::Result<()>
     where
@@ -16073,14 +16073,14 @@ pub struct IMSVidStreamBufferSource2_Vtbl {
     pub CCCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub WSTCounter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16141,14 +16141,14 @@ pub struct IMSVidStreamBufferSourceEvent_Vtbl {
     pub ContentBecomingStale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub StaleFileDeleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent2 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16204,14 +16204,14 @@ pub struct IMSVidStreamBufferSourceEvent2_Vtbl {
     pub base__: IMSVidStreamBufferSourceEvent_Vtbl,
     pub RateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwnewrate: f64, qwoldrate: f64) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferSourceEvent3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferSourceEvent3 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16292,14 +16292,14 @@ pub struct IMSVidStreamBufferSourceEvent3_Vtbl {
     pub COPPUnblocked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidStreamBufferV2SourceEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidStreamBufferV2SourceEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16366,7 +16366,7 @@ pub struct IMSVidStreamBufferV2SourceEvent_Vtbl {
     pub BroadcastEventEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows_core::HRESULT,
     pub ContentPrimarilyAudio: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -16381,7 +16381,7 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -16389,7 +16389,7 @@ impl IMSVidTuner {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16411,7 +16411,7 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16420,24 +16420,24 @@ impl IMSVidTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tune(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Tune)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTune<P0>(&self, ptr: P0) -> ::windows_core::Result<()>
     where
@@ -16445,13 +16445,13 @@ impl IMSVidTuner {
     {
         (::windows_core::Interface::vtable(self).SetTune)(::windows_core::Interface::as_raw(self), ptr.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, plts: P0) -> ::windows_core::Result<()>
     where
@@ -16492,14 +16492,14 @@ pub struct IMSVidTuner_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetTuningSpace: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidTunerEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidTunerEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneChanged<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -16528,7 +16528,7 @@ pub struct IMSVidTunerEvent_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     TuneChanged: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -16543,7 +16543,7 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -16551,7 +16551,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16573,7 +16573,7 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -16609,7 +16609,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -16619,7 +16619,7 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -16627,18 +16627,18 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -16653,7 +16653,7 @@ impl IMSVidVMR9 {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -16676,31 +16676,31 @@ impl IMSVidVMR9 {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -16708,13 +16708,13 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -16722,7 +16722,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -16732,13 +16732,13 @@ impl IMSVidVMR9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -16756,7 +16756,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).SetAllocator)(::windows_core::Interface::as_raw(self), allocpresent.into_param().abi(), id).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressEffects<P0>(&self, bsuppress: P0) -> ::windows_core::Result<()>
     where
@@ -16764,7 +16764,7 @@ impl IMSVidVMR9 {
     {
         (::windows_core::Interface::vtable(self).SetSuppressEffects)(::windows_core::Interface::as_raw(self), bsuppress.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -16802,14 +16802,14 @@ pub struct IMSVidVMR9_Vtbl {
     SuppressEffects: usize,
     pub Allocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocpresent: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVRGraphSegment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVRGraphSegment {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -16874,7 +16874,7 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn Set_VMRendererMode(&self, dwmode: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_VMRendererMode)(::windows_core::Interface::as_raw(self), dwmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwner<P0>(&self, window: P0) -> ::windows_core::Result<()>
     where
@@ -16882,19 +16882,19 @@ impl IMSVidVRGraphSegment {
     {
         (::windows_core::Interface::vtable(self).SetOwner)(::windows_core::Interface::as_raw(self), window.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Owner(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Owner)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UseOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -16902,13 +16902,13 @@ impl IMSVidVRGraphSegment {
     {
         (::windows_core::Interface::vtable(self).SetUseOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Visible(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Visible)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVisible<P0>(&self, visible: P0) -> ::windows_core::Result<()>
     where
@@ -16923,29 +16923,29 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn SetColorKey(&self, colorkey: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetColorKey)(::windows_core::Interface::as_raw(self), colorkey).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Source(&self) -> ::windows_core::Result<super::super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Source)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSource(&self, r: super::super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSource)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Destination(&self) -> ::windows_core::Result<super::super::super::Foundation::RECT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Destination)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDestination(&self, r: super::super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDestination)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_NativeSize(&self, sizeval: *mut super::super::super::Foundation::SIZE, aspectratio: *mut super::super::super::Foundation::SIZE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_NativeSize)(::windows_core::Interface::as_raw(self), sizeval, aspectratio).ok()
@@ -16957,13 +16957,13 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn SetBorderColor(&self, color: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), color).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MaintainAspectRatio(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaintainAspectRatio)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMaintainAspectRatio<P0>(&self, fmaintain: P0) -> ::windows_core::Result<()>
     where
@@ -16977,7 +16977,7 @@ impl IMSVidVRGraphSegment {
     pub unsafe fn DisplayChange(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DisplayChange)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn RePaint<P0>(&self, hdc: P0) -> ::windows_core::Result<()>
     where
@@ -17065,7 +17065,7 @@ pub struct IMSVidVRGraphSegment_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     RePaint: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17080,7 +17080,7 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17088,7 +17088,7 @@ impl IMSVidVideoInputDevice {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17110,7 +17110,7 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17119,13 +17119,13 @@ impl IMSVidVideoInputDevice {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.View)(::windows_core::Interface::as_raw(self), v).ok()
@@ -17147,7 +17147,7 @@ unsafe impl ::windows_core::ComInterface for IMSVidVideoInputDevice {
 pub struct IMSVidVideoInputDevice_Vtbl {
     pub base__: IMSVidInputDevice_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17162,7 +17162,7 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17170,7 +17170,7 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17192,7 +17192,7 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17228,7 +17228,7 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17238,7 +17238,7 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -17246,18 +17246,18 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -17272,7 +17272,7 @@ impl IMSVidVideoRenderer {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -17295,31 +17295,31 @@ impl IMSVidVideoRenderer {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -17327,13 +17327,13 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -17341,7 +17341,7 @@ impl IMSVidVideoRenderer {
     {
         (::windows_core::Interface::vtable(self).SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17351,13 +17351,13 @@ impl IMSVidVideoRenderer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -17460,7 +17460,7 @@ pub struct IMSVidVideoRenderer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDecimateInput: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17475,7 +17475,7 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17483,7 +17483,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17505,7 +17505,7 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17541,7 +17541,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.Set_CustomCompositor)(::windows_core::Interface::as_raw(self), compositor.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixerBitmap(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17551,7 +17551,7 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._MixerBitmap)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMixerBitmap<P0>(&self, mixerpicturedisp: P0) -> ::windows_core::Result<()>
     where
@@ -17559,18 +17559,18 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicturedisp.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Set_MixerBitmap)(::windows_core::Interface::as_raw(self), mixerpicture).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MixerBitmapPositionRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MixerBitmapPositionRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMixerBitmapPositionRect<P0>(&self, rdest: P0) -> ::windows_core::Result<()>
     where
@@ -17585,7 +17585,7 @@ impl IMSVidVideoRenderer2 {
     pub unsafe fn SetMixerBitmapOpacity(&self, opacity: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetMixerBitmapOpacity)(::windows_core::Interface::as_raw(self), opacity).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetupMixerBitmap<P0, P1>(&self, mixerpicturedisp: P0, opacity: i32, rdest: P1) -> ::windows_core::Result<()>
     where
@@ -17608,31 +17608,31 @@ impl IMSVidVideoRenderer2 {
     pub unsafe fn SetOverScan(&self, lpercent: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetOverScan)(::windows_core::Interface::as_raw(self), lpercent).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AvailableSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaxVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaxVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MinVidRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MinVidRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClippedSourceRect(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ClippedSourceRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClippedSourceRect<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -17640,13 +17640,13 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetClippedSourceRect)(::windows_core::Interface::as_raw(self), prect.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UsingOverlay(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UsingOverlay)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUsingOverlay<P0>(&self, useoverlayval: P0) -> ::windows_core::Result<()>
     where
@@ -17654,7 +17654,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetUsingOverlay)(::windows_core::Interface::as_raw(self), useoverlayval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Capture(&self) -> ::windows_core::Result<super::super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::std::mem::zeroed();
@@ -17664,13 +17664,13 @@ impl IMSVidVideoRenderer2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FramesPerSecond)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DecimateInput(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DecimateInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDecimateInput<P0>(&self, pdeci: P0) -> ::windows_core::Result<()>
     where
@@ -17702,7 +17702,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self)._SetAllocator2)(::windows_core::Interface::as_raw(self), allocpresent.into_param().abi(), id).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuppressEffects<P0>(&self, bsuppress: P0) -> ::windows_core::Result<()>
     where
@@ -17710,7 +17710,7 @@ impl IMSVidVideoRenderer2 {
     {
         (::windows_core::Interface::vtable(self).SetSuppressEffects)(::windows_core::Interface::as_raw(self), bsuppress.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuppressEffects(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17746,7 +17746,7 @@ pub struct IMSVidVideoRenderer2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SuppressEffects: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17757,19 +17757,19 @@ impl IMSVidVideoRendererDevices {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<IMSVidVideoRenderer> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, pdb: P0) -> ::windows_core::Result<()>
     where
@@ -17777,7 +17777,7 @@ impl IMSVidVideoRendererDevices {
     {
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), pdb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, v: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(v)).ok()
@@ -17816,14 +17816,14 @@ pub struct IMSVidVideoRendererDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Remove: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -17852,14 +17852,14 @@ pub struct IMSVidVideoRendererEvent_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OverlayUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidVideoRendererEvent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidVideoRendererEvent2 {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -17888,7 +17888,7 @@ pub struct IMSVidVideoRendererEvent2_Vtbl {
     pub base__: IMSVidOutputDeviceEvent_Vtbl,
     pub OverlayUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -17903,7 +17903,7 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -17911,7 +17911,7 @@ impl IMSVidWebDVD {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -17933,7 +17933,7 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -17942,24 +17942,24 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -17976,7 +17976,7 @@ impl IMSVidWebDVD {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18059,7 +18059,7 @@ impl IMSVidWebDVD {
     pub unsafe fn StillOff(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StillOff)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AudioLanguage<P0>(&self, lstream: i32, fformat: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -18167,13 +18167,13 @@ impl IMSVidWebDVD {
     {
         (::windows_core::Interface::vtable(self).SetDVDDirectory)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubpictureStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsSubpictureStreamEnabled)(::windows_core::Interface::as_raw(self), lstream, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAudioStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18216,13 +18216,13 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SubpictureStreamsAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubpictureOn(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SubpictureOn)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubpictureOn<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18234,7 +18234,7 @@ impl IMSVidWebDVD {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DVDUniqueID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcceptParentalLevelChange<P0, P1, P2>(&self, faccept: P0, strusername: P1, strpassword: P2) -> ::windows_core::Result<()>
     where
@@ -18244,7 +18244,7 @@ impl IMSVidWebDVD {
     {
         (::windows_core::Interface::vtable(self).AcceptParentalLevelChange)(::windows_core::Interface::as_raw(self), faccept.into_param().abi(), strusername.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyParentalLevelChange<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18281,7 +18281,7 @@ impl IMSVidWebDVD {
     pub unsafe fn Eject(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Eject)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UOPValid(&self, luop: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18321,7 +18321,7 @@ impl IMSVidWebDVD {
     pub unsafe fn RegionChange(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RegionChange)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDAdm(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -18391,19 +18391,19 @@ impl IMSVidWebDVD {
     pub unsafe fn RestorePreferredSettings(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RestorePreferredSettings)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ButtonRect(&self, lbutton: i32) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ButtonRect)(::windows_core::Interface::as_raw(self), lbutton, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDScreenInMouseCoordinates(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DVDScreenInMouseCoordinates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDVDScreenInMouseCoordinates<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -18559,7 +18559,7 @@ pub struct IMSVidWebDVD_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetDVDScreenInMouseCoordinates: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -18574,7 +18574,7 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -18582,7 +18582,7 @@ impl IMSVidWebDVD2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18604,7 +18604,7 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18613,24 +18613,24 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsEqualDevice)(::windows_core::Interface::as_raw(self), device.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn IsViewable(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsViewable)(::windows_core::Interface::as_raw(self), v, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.View)(::windows_core::Interface::as_raw(self), v).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableResetOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnableResetOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResetOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18647,7 +18647,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn Stop(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Stop)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_CanStep<P0>(&self, fbackwards: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -18730,7 +18730,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn StillOff(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.StillOff)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_AudioLanguage<P0>(&self, lstream: i32, fformat: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -18838,13 +18838,13 @@ impl IMSVidWebDVD2 {
     {
         (::windows_core::Interface::vtable(self).base__.SetDVDDirectory)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubpictureStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsSubpictureStreamEnabled)(::windows_core::Interface::as_raw(self), lstream, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAudioStreamEnabled(&self, lstream: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18887,13 +18887,13 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SubpictureStreamsAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubpictureOn(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SubpictureOn)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubpictureOn<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18905,7 +18905,7 @@ impl IMSVidWebDVD2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DVDUniqueID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcceptParentalLevelChange<P0, P1, P2>(&self, faccept: P0, strusername: P1, strpassword: P2) -> ::windows_core::Result<()>
     where
@@ -18915,7 +18915,7 @@ impl IMSVidWebDVD2 {
     {
         (::windows_core::Interface::vtable(self).base__.AcceptParentalLevelChange)(::windows_core::Interface::as_raw(self), faccept.into_param().abi(), strusername.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyParentalLevelChange<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -18952,7 +18952,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn Eject(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Eject)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UOPValid(&self, luop: i32) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18992,7 +18992,7 @@ impl IMSVidWebDVD2 {
     pub unsafe fn RegionChange(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RegionChange)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDAdm(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__ = ::std::mem::zeroed();
@@ -19062,19 +19062,19 @@ impl IMSVidWebDVD2 {
     pub unsafe fn RestorePreferredSettings(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RestorePreferredSettings)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ButtonRect(&self, lbutton: i32) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_ButtonRect)(::windows_core::Interface::as_raw(self), lbutton, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DVDScreenInMouseCoordinates(&self) -> ::windows_core::Result<IMSVidRect> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DVDScreenInMouseCoordinates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDVDScreenInMouseCoordinates<P0>(&self, prect: P0) -> ::windows_core::Result<()>
     where
@@ -19107,7 +19107,7 @@ pub struct IMSVidWebDVD2_Vtbl {
     pub get_Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pdatalength: *mut u32) -> ::windows_core::HRESULT,
     pub put_Bookmark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwdatalength: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -19136,7 +19136,7 @@ impl IMSVidWebDVDAdm {
     {
         (::windows_core::Interface::vtable(self).SaveParentalCountry)(::windows_core::Interface::as_raw(self), country, strusername.into_param().abi(), strpassword.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfirmPassword<P0, P1>(&self, strusername: P0, strpassword: P1) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -19175,13 +19175,13 @@ impl IMSVidWebDVDAdm {
     pub unsafe fn SetDefaultMenuLCID(&self, newval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDefaultMenuLCID)(::windows_core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BookmarkOnStop(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BookmarkOnStop)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBookmarkOnStop<P0>(&self, newval: P0) -> ::windows_core::Result<()>
     where
@@ -19229,14 +19229,14 @@ pub struct IMSVidWebDVDAdm_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBookmarkOnStop: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidWebDVDEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidWebDVDEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EndOfMedia<P0>(&self, lpd: P0) -> ::windows_core::Result<()>
     where
@@ -19244,12 +19244,12 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).base__.EndOfMedia)(::windows_core::Interface::as_raw(self), lpd.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn DVDNotify(&self, leventcode: i32, lparam1: super::super::super::System::Variant::VARIANT, lparam2: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DVDNotify)(::windows_core::Interface::as_raw(self), leventcode, ::core::mem::transmute(lparam1), ::core::mem::transmute(lparam2)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayForwards<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19257,7 +19257,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayForwards)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayBackwards<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19265,7 +19265,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayBackwards)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowMenu<P0>(&self, menuid: DVDMenuIDConstants, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19273,7 +19273,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ShowMenu)(::windows_core::Interface::as_raw(self), menuid, benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Resume<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19281,7 +19281,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectOrActivateButton<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19289,7 +19289,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).SelectOrActivateButton)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StillOff<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19297,7 +19297,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).StillOff)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PauseOn<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19305,7 +19305,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PauseOn)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCurrentAudioStream<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19313,7 +19313,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeCurrentAudioStream)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCurrentSubpictureStream<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19321,7 +19321,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeCurrentSubpictureStream)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCurrentAngle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19329,7 +19329,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeCurrentAngle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayAtTimeInTitle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19337,7 +19337,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayAtTimeInTitle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayAtTime<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19345,7 +19345,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayAtTime)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayChapterInTitle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19353,7 +19353,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayChapterInTitle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19361,7 +19361,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReplayChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19369,7 +19369,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ReplayChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayNextChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19377,7 +19377,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayNextChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Stop<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19385,7 +19385,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReturnFromSubmenu<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19393,7 +19393,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ReturnFromSubmenu)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayTitle<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19401,7 +19401,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayTitle)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlayPrevChapter<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19409,7 +19409,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).PlayPrevChapter)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeKaraokePresMode<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19417,7 +19417,7 @@ impl IMSVidWebDVDEvent {
     {
         (::windows_core::Interface::vtable(self).ChangeKaraokePresMode)(::windows_core::Interface::as_raw(self), benabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeVideoPresMode<P0>(&self, benabled: P0) -> ::windows_core::Result<()>
     where
@@ -19534,7 +19534,7 @@ pub struct IMSVidWebDVDEvent_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangeVideoPresMode: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -19549,7 +19549,7 @@ impl IMSVidXDS {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPower<P0>(&self, power: P0) -> ::windows_core::Result<()>
     where
@@ -19557,7 +19557,7 @@ impl IMSVidXDS {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetPower)(::windows_core::Interface::as_raw(self), power.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Power(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -19579,7 +19579,7 @@ impl IMSVidXDS {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__._ClassID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn IsEqualDevice<P0>(&self, device: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -19610,14 +19610,14 @@ pub struct IMSVidXDS_Vtbl {
     pub base__: IMSVidFeature_Vtbl,
     pub ChannelChangeInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkcc: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSVidXDSEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSVidXDSEvent {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StateChange<P0>(&self, lpd: P0, oldstate: i32, newstate: i32) -> ::windows_core::Result<()>
     where
@@ -19671,19 +19671,19 @@ pub struct IMceBurnerControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Data(::windows_core::IUnknown);
 impl IMpeg2Data {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSection(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> ::windows_core::Result<ISectionList> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSection)(::windows_core::Interface::as_raw(self), pid, tid, pfilter, dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTable(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, dwtimeout: u32) -> ::windows_core::Result<ISectionList> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTable)(::windows_core::Interface::as_raw(self), pid, tid, pfilter, dwtimeout, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamOfSections<P0>(&self, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: P0) -> ::windows_core::Result<IMpeg2Stream>
     where
@@ -19721,7 +19721,7 @@ pub struct IMpeg2Data_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMpeg2Stream(::windows_core::IUnknown);
 impl IMpeg2Stream {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: P0, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: P1) -> ::windows_core::Result<()>
     where
@@ -19827,7 +19827,7 @@ impl IPAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindRecordProgramMapPid)(::windows_core::Interface::as_raw(self), wprogramnumber, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -19839,7 +19839,7 @@ impl IPAT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -20140,7 +20140,7 @@ impl IPMT {
     pub unsafe fn QueryMPEInfo(&self, ppmpelist: *mut *mut MPE_ELEMENT, puicount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryMPEInfo)(::windows_core::Interface::as_raw(self), ppmpelist, puicount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -20152,7 +20152,7 @@ impl IPMT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -20227,7 +20227,7 @@ pub struct IPSITables_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPTFilterLicenseRenewal(::windows_core::IUnknown);
 impl IPTFilterLicenseRenewal {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenewLicenses<P0, P1, P2>(&self, wszfilename: P0, wszexpiredkid: P1, dwcallersid: u32, bhighpriority: P2) -> ::windows_core::Result<()>
     where
@@ -20258,14 +20258,14 @@ pub struct IPTFilterLicenseRenewal_Vtbl {
     RenewLicenses: usize,
     pub CancelLicenseRenewal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXml(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistTuneXml {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
@@ -20274,12 +20274,12 @@ impl IPersistTuneXml {
     pub unsafe fn InitNew(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).InitNew)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Load(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Save(&self) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -20315,7 +20315,7 @@ pub struct IPersistTuneXml_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXmlUtility(::windows_core::IUnknown);
 impl IPersistTuneXmlUtility {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Deserialize(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
@@ -20342,13 +20342,13 @@ pub struct IPersistTuneXmlUtility_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistTuneXmlUtility2(::windows_core::IUnknown);
 impl IPersistTuneXmlUtility2 {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Deserialize(&self, varvalue: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<::windows_core::IUnknown> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Deserialize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<P0>(&self, pitunerequest: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
@@ -20503,7 +20503,7 @@ pub struct ISBE2FileScan_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2GlobalEvent(::windows_core::IUnknown);
 impl ISBE2GlobalEvent {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvent(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEvent)(::windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning, pcb, pb).ok()
@@ -20529,12 +20529,12 @@ pub struct ISBE2GlobalEvent_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISBE2GlobalEvent2(::windows_core::IUnknown);
 impl ISBE2GlobalEvent2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEvent(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetEvent)(::windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning, pcb, pb).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEventEx(&self, idevt: *const ::windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32, pspanning: *mut super::super::super::Foundation::BOOL, pcb: *mut u32, pb: *mut u8, pstreamtime: *mut i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEventEx)(::windows_core::Interface::as_raw(self), idevt, param1, param2, param3, param4, pspanning, pcb, pb, pstreamtime).ok()
@@ -20564,13 +20564,13 @@ impl ISBE2MediaTypeProfile {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn GetStream(&self, index: u32) -> ::windows_core::Result<*mut super::super::MediaFoundation::AM_MEDIA_TYPE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStream)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn AddStream(&self, pmediatype: *const super::super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddStream)(::windows_core::Interface::as_raw(self), pmediatype).ok()
@@ -20830,7 +20830,7 @@ impl ISIInbandEPG {
     pub unsafe fn StopSIEPGScan(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StopSIEPGScan)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSIEPGScanRunning(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20883,13 +20883,13 @@ pub struct ISIInbandEPGEvent_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScanningTuner(::windows_core::IUnknown);
 impl IScanningTuner {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -20901,13 +20901,13 @@ impl IScanningTuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.TuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuneRequest<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -20915,7 +20915,7 @@ impl IScanningTuner {
     {
         (::windows_core::Interface::vtable(self).base__.SetTuneRequest)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -20923,13 +20923,13 @@ impl IScanningTuner {
     {
         (::windows_core::Interface::vtable(self).base__.Validate)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredComponentTypes<P0>(&self, componenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -20981,13 +20981,13 @@ pub struct IScanningTuner_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScanningTunerEx(::windows_core::IUnknown);
 impl IScanningTunerEx {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -20999,13 +20999,13 @@ impl IScanningTunerEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.TuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuneRequest<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -21013,7 +21013,7 @@ impl IScanningTunerEx {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetTuneRequest)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -21021,13 +21021,13 @@ impl IScanningTunerEx {
     {
         (::windows_core::Interface::vtable(self).base__.base__.Validate)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.PreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredComponentTypes<P0>(&self, componenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -21057,12 +21057,12 @@ impl IScanningTunerEx {
     pub unsafe fn AutoProgram(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.AutoProgram)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetCurrentLocator(&self, pilocator: *const ::core::option::Option<ILocator>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentLocator)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pilocator)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerformExhaustiveScan<P0>(&self, dwlowerfreq: i32, dwhigherfreq: i32, bfinetune: P0, hevent: usize) -> ::windows_core::Result<()>
     where
@@ -21120,7 +21120,7 @@ pub struct IScanningTunerEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISectionList(::windows_core::IUnknown);
 impl ISectionList {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: P0, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: P1) -> ::windows_core::Result<()>
     where
@@ -21355,7 +21355,7 @@ impl IStreamBufferConfigure3 {
     pub unsafe fn GetFFTransitionRates(&self, pdwmaxfullframerate: *mut u32, pdwmaxnonskippingrate: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetFFTransitionRates)(::windows_core::Interface::as_raw(self), pdwmaxfullframerate, pdwmaxnonskippingrate).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartRecConfig<P0>(&self, fstartstopscur: P0) -> ::windows_core::Result<()>
     where
@@ -21363,7 +21363,7 @@ impl IStreamBufferConfigure3 {
     {
         (::windows_core::Interface::vtable(self).SetStartRecConfig)(::windows_core::Interface::as_raw(self), fstartstopscur.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStartRecConfig(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -21431,7 +21431,7 @@ pub struct IStreamBufferDataCounters_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStreamBufferInitialize(::windows_core::IUnknown);
 impl IStreamBufferInitialize {
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn SetHKEY<P0>(&self, hkeyroot: P0) -> ::windows_core::Result<()>
     where
@@ -21439,7 +21439,7 @@ impl IStreamBufferInitialize {
     {
         (::windows_core::Interface::vtable(self).SetHKEY)(::windows_core::Interface::as_raw(self), hkeyroot.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSIDs(&self, csids: u32, ppsid: *mut super::super::super::Foundation::PSID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSIDs)(::windows_core::Interface::as_raw(self), csids, ppsid).ok()
@@ -21683,7 +21683,7 @@ impl IStreamBufferRecordControl {
     pub unsafe fn Stop(&self, rtstop: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stop)(::windows_core::Interface::as_raw(self), rtstop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRecordingStatus(&self, phresult: *mut ::windows_core::HRESULT, pbstarted: *mut super::super::super::Foundation::BOOL, pbstopped: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRecordingStatus)(::windows_core::Interface::as_raw(self), phresult, pbstarted, pbstopped).ok()
@@ -21915,7 +21915,7 @@ impl ITSDT {
     pub unsafe fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: *mut ::core::option::Option<IGenericDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTableDescriptorByTag)(::windows_core::Interface::as_raw(self), btag, pdwcookie, ::core::mem::transmute(ppdescriptor)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForNextTable<P0>(&self, hnexttableavailable: P0) -> ::windows_core::Result<()>
     where
@@ -21927,7 +21927,7 @@ impl ITSDT {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextTable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterForWhenCurrent<P0>(&self, hnexttableiscurrent: P0) -> ::windows_core::Result<()>
     where
@@ -21966,38 +21966,38 @@ pub struct ITSDT_Vtbl {
     RegisterForWhenCurrent: usize,
     pub ConvertNextToCurrent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequest {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Components(&self) -> ::windows_core::Result<IComponents> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Components)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Locator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Locator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLocator<P0>(&self, locator: P0) -> ::windows_core::Result<()>
     where
@@ -22046,7 +22046,7 @@ pub struct ITuneRequest_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequestInfo(::windows_core::IUnknown);
 impl ITuneRequestInfo {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLocatorData<P0>(&self, request: P0) -> ::windows_core::Result<()>
     where
@@ -22054,7 +22054,7 @@ impl ITuneRequestInfo {
     {
         (::windows_core::Interface::vtable(self).GetLocatorData)(::windows_core::Interface::as_raw(self), request.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetComponentData<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22062,7 +22062,7 @@ impl ITuneRequestInfo {
     {
         (::windows_core::Interface::vtable(self).GetComponentData)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentList<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22070,7 +22070,7 @@ impl ITuneRequestInfo {
     {
         (::windows_core::Interface::vtable(self).CreateComponentList)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22079,7 +22079,7 @@ impl ITuneRequestInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22088,7 +22088,7 @@ impl ITuneRequestInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPreviousProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22097,7 +22097,7 @@ impl ITuneRequestInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextLocator)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22151,7 +22151,7 @@ pub struct ITuneRequestInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuneRequestInfoEx(::windows_core::IUnknown);
 impl ITuneRequestInfoEx {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLocatorData<P0>(&self, request: P0) -> ::windows_core::Result<()>
     where
@@ -22159,7 +22159,7 @@ impl ITuneRequestInfoEx {
     {
         (::windows_core::Interface::vtable(self).base__.GetLocatorData)(::windows_core::Interface::as_raw(self), request.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetComponentData<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22167,7 +22167,7 @@ impl ITuneRequestInfoEx {
     {
         (::windows_core::Interface::vtable(self).base__.GetComponentData)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentList<P0>(&self, currentrequest: P0) -> ::windows_core::Result<()>
     where
@@ -22175,7 +22175,7 @@ impl ITuneRequestInfoEx {
     {
         (::windows_core::Interface::vtable(self).base__.CreateComponentList)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22184,7 +22184,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousProgram<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22193,7 +22193,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPreviousProgram)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetNextLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22202,7 +22202,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNextLocator)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreviousLocator<P0>(&self, currentrequest: P0) -> ::windows_core::Result<ITuneRequest>
     where
@@ -22211,7 +22211,7 @@ impl ITuneRequestInfoEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPreviousLocator)(::windows_core::Interface::as_raw(self), currentrequest.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateComponentListEx<P0>(&self, currentrequest: P0) -> ::windows_core::Result<::windows_core::IUnknown>
     where
@@ -22241,13 +22241,13 @@ pub struct ITuneRequestInfoEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITuner(::windows_core::IUnknown);
 impl ITuner {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpace(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuningSpace<P0>(&self, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -22259,13 +22259,13 @@ impl ITuner {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTuneRequest<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -22273,7 +22273,7 @@ impl ITuner {
     {
         (::windows_core::Interface::vtable(self).SetTuneRequest)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Validate<P0>(&self, tunerequest: P0) -> ::windows_core::Result<()>
     where
@@ -22281,13 +22281,13 @@ impl ITuner {
     {
         (::windows_core::Interface::vtable(self).Validate)(::windows_core::Interface::as_raw(self), tunerequest.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredComponentTypes<P0>(&self, componenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -22379,7 +22379,7 @@ pub struct ITunerCap_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITunerCapEx(::windows_core::IUnknown);
 impl ITunerCapEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Has608_708Caption(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -22402,7 +22402,7 @@ pub struct ITunerCapEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Has608_708Caption: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22450,31 +22450,31 @@ impl ITuningSpace {
     pub unsafe fn Set_NetworkType(&self, networktypeguid: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Set_NetworkType)(::windows_core::Interface::as_raw(self), networktypeguid).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTuneRequest(&self) -> ::windows_core::Result<ITuneRequest> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTuneRequest)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoryGUIDs(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumGUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumCategoryGUIDs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumDeviceMonikers(&self) -> ::windows_core::Result<super::super::super::System::Com::IEnumMoniker> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumDeviceMonikers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultPreferredComponentTypes(&self) -> ::windows_core::Result<IComponentTypes> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefaultPreferredComponentTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultPreferredComponentTypes<P0>(&self, newcomponenttypes: P0) -> ::windows_core::Result<()>
     where
@@ -22492,13 +22492,13 @@ impl ITuningSpace {
     {
         (::windows_core::Interface::vtable(self).SetFrequencyMapping)(::windows_core::Interface::as_raw(self), mapping.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultLocator(&self) -> ::windows_core::Result<ILocator> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefaultLocator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDefaultLocator<P0>(&self, locatorval: P0) -> ::windows_core::Result<()>
     where
@@ -22506,7 +22506,7 @@ impl ITuningSpace {
     {
         (::windows_core::Interface::vtable(self).SetDefaultLocator)(::windows_core::Interface::as_raw(self), locatorval.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -22572,7 +22572,7 @@ pub struct ITuningSpace_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22583,19 +22583,19 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn put_Item<P0>(&self, varindex: super::super::super::System::Variant::VARIANT, tuningspace: P0) -> ::windows_core::Result<()>
     where
@@ -22603,7 +22603,7 @@ impl ITuningSpaceContainer {
     {
         (::windows_core::Interface::vtable(self).put_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), tuningspace.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpacesForCLSID<P0>(&self, spaceclsid: P0) -> ::windows_core::Result<ITuningSpaces>
     where
@@ -22612,13 +22612,13 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpacesForCLSID)(::windows_core::Interface::as_raw(self), spaceclsid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn _TuningSpacesForCLSID2(&self, spaceclsid: *const ::windows_core::GUID) -> ::windows_core::Result<ITuningSpaces> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._TuningSpacesForCLSID2)(::windows_core::Interface::as_raw(self), spaceclsid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TuningSpacesForName<P0>(&self, name: P0) -> ::windows_core::Result<ITuningSpaces>
     where
@@ -22627,7 +22627,7 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TuningSpacesForName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindID<P0>(&self, tuningspace: P0) -> ::windows_core::Result<i32>
     where
@@ -22636,7 +22636,7 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindID)(::windows_core::Interface::as_raw(self), tuningspace.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Add<P0>(&self, tuningspace: P0) -> ::windows_core::Result<super::super::super::System::Variant::VARIANT>
     where
@@ -22649,7 +22649,7 @@ impl ITuningSpaceContainer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumTuningSpaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Remove(&self, index: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Remove)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
@@ -22718,7 +22718,7 @@ pub struct ITuningSpaceContainer_Vtbl {
     pub MaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcount: *mut i32) -> ::windows_core::HRESULT,
     pub SetMaxCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxcount: i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22729,13 +22729,13 @@ impl ITuningSpaces {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<super::super::super::System::Ole::IEnumVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn get_Item(&self, varindex: super::super::super::System::Variant::VARIANT) -> ::windows_core::Result<ITuningSpace> {
         let mut result__ = ::std::mem::zeroed();
@@ -22846,7 +22846,7 @@ pub struct IXDSCodecConfig_Vtbl {
     pub GetSecureChannelObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkdrmsecurechannel: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub SetPauseBufferTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpausebuffertime: u32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22869,7 +22869,7 @@ unsafe impl ::windows_core::ComInterface for IXDSCodecEvents {
 pub struct IXDSCodecEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -22901,7 +22901,7 @@ pub struct IXDSToRat_Vtbl {
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub ParseXDSBytePair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, byte1: u8, byte2: u8, pensystem: *mut EnTvRat_System, penlevel: *mut EnTvRat_GenericLevel, plbfenattributes: *mut i32) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -26455,7 +26455,7 @@ impl ::core::fmt::Debug for VA_VIDEO_FORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ATSC_FILTER_OPTIONS {
     pub fSpecifyEtmId: super::super::super::Foundation::BOOL,
@@ -26812,7 +26812,7 @@ impl ::core::default::Default for ChannelTypeInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSHOW_STREAM_DESC {
     pub VersionNo: u32,
@@ -26876,7 +26876,7 @@ impl ::core::default::Default for DSMCC_ELEMENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSMCC_FILTER_OPTIONS {
     pub fSpecifyProtocol: super::super::super::Foundation::BOOL,
@@ -26983,7 +26983,7 @@ impl ::core::default::Default for DSMCC_SECTION_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVBScramblingControlSpanningEvent {
     pub ulPID: u32,
@@ -27022,7 +27022,7 @@ impl ::core::default::Default for DVBScramblingControlSpanningEvent {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DVB_EIT_FILTER_OPTIONS {
     pub fSpecifySegment: super::super::super::Foundation::BOOL,
@@ -27047,7 +27047,7 @@ impl ::core::default::Default for DVB_EIT_FILTER_OPTIONS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
@@ -27182,7 +27182,7 @@ impl ::core::default::Default for DvbParentalRatingParam {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
     pub EventData: super::super::KernelStreaming::KSEVENTDATA,
@@ -27209,7 +27209,7 @@ impl ::core::default::Default for KSEVENTDATA_BDA_RF_TUNER_SCAN_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_BUFFER {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27235,7 +27235,7 @@ impl ::core::default::Default for KSM_BDA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_CAPTURETOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27261,7 +27261,7 @@ impl ::core::default::Default for KSM_BDA_CAS_CAPTURETOKEN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_CLOSEMMIDIALOG {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27289,7 +27289,7 @@ impl ::core::default::Default for KSM_BDA_CAS_CLOSEMMIDIALOG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_ENTITLEMENTTOKEN {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27318,7 +27318,7 @@ impl ::core::default::Default for KSM_BDA_CAS_ENTITLEMENTTOKEN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_CAS_OPENBROADCASTMMI {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27345,7 +27345,7 @@ impl ::core::default::Default for KSM_BDA_CAS_OPENBROADCASTMMI {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_DEBUG_LEVEL {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27372,7 +27372,7 @@ impl ::core::default::Default for KSM_BDA_DEBUG_LEVEL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_DRM_SETDRM {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27397,7 +27397,7 @@ impl ::core::default::Default for KSM_BDA_DRM_SETDRM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_EVENT_COMPLETE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27423,7 +27423,7 @@ impl ::core::default::Default for KSM_BDA_EVENT_COMPLETE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GDDS_SERVICEFROMTUNEXML {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27449,7 +27449,7 @@ impl ::core::default::Default for KSM_BDA_GDDS_SERVICEFROMTUNEXML {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GDDS_TUNEXMLFROMIDX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27474,7 +27474,7 @@ impl ::core::default::Default for KSM_BDA_GDDS_TUNEXMLFROMIDX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_GETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27501,7 +27501,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_GETVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_NAMEINDEX {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27526,7 +27526,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_NAMEINDEX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_GPNV_SETVALUE {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27555,7 +27555,7 @@ impl ::core::default::Default for KSM_BDA_GPNV_SETVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_ISDBCAS_REQUEST {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27582,7 +27582,7 @@ impl ::core::default::Default for KSM_BDA_ISDBCAS_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_PIN {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27608,7 +27608,7 @@ impl ::core::default::Default for KSM_BDA_PIN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub union KSM_BDA_PIN_0 {
     pub PinId: u32,
@@ -27633,7 +27633,7 @@ impl ::core::default::Default for KSM_BDA_PIN_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_PIN_PAIR {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27659,7 +27659,7 @@ impl ::core::default::Default for KSM_BDA_PIN_PAIR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub union KSM_BDA_PIN_PAIR_0 {
     pub InputPinId: u32,
@@ -27684,7 +27684,7 @@ impl ::core::default::Default for KSM_BDA_PIN_PAIR_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub union KSM_BDA_PIN_PAIR_1 {
     pub OutputPinId: u32,
@@ -27709,7 +27709,7 @@ impl ::core::default::Default for KSM_BDA_PIN_PAIR_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_CAPABILTIES {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27734,7 +27734,7 @@ impl ::core::default::Default for KSM_BDA_SCAN_CAPABILTIES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_FILTER {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27761,7 +27761,7 @@ impl ::core::default::Default for KSM_BDA_SCAN_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_SCAN_START {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27787,7 +27787,7 @@ impl ::core::default::Default for KSM_BDA_SCAN_START {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_TS_SELECTOR_SETTSID {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27812,7 +27812,7 @@ impl ::core::default::Default for KSM_BDA_TS_SELECTOR_SETTSID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_TUNER_TUNEREQUEST {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27838,7 +27838,7 @@ impl ::core::default::Default for KSM_BDA_TUNER_TUNEREQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_USERACTIVITY_USEREASON {
     pub Method: super::super::KernelStreaming::KSIDENTIFIER,
@@ -27863,7 +27863,7 @@ impl ::core::default::Default for KSM_BDA_USERACTIVITY_USEREASON {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27888,7 +27888,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_GETPIDPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27916,7 +27916,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27942,7 +27942,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_SETPIDPROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRMTUNER_SYNCVALUE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27967,7 +27967,7 @@ impl ::core::default::Default for KSM_BDA_WMDRMTUNER_SYNCVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRM_LICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -27992,7 +27992,7 @@ impl ::core::default::Default for KSM_BDA_WMDRM_LICENSE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSM_BDA_WMDRM_RENEWLICENSE {
     pub NodeMethod: super::super::KernelStreaming::KSM_NODE,
@@ -28019,7 +28019,7 @@ impl ::core::default::Default for KSM_BDA_WMDRM_RENEWLICENSE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -28052,7 +28052,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_CAPS_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -28080,7 +28080,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_KernelStreaming"))]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -28105,7 +28105,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -28131,7 +28131,7 @@ impl ::core::default::Default for KSPROPERTY_BDA_RF_TUNER_STANDARD_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_BDA_NODE_PIN {
     pub Property: super::super::KernelStreaming::KSIDENTIFIER,
@@ -28158,7 +28158,7 @@ impl ::core::default::Default for KSP_BDA_NODE_PIN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KSP_NODE_ESPID {
     pub Property: super::super::KernelStreaming::KSP_NODE,
@@ -28183,7 +28183,7 @@ impl ::core::default::Default for KSP_NODE_ESPID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KS_DATARANGE_BDA_ANTENNA {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
@@ -28207,7 +28207,7 @@ impl ::core::default::Default for KS_DATARANGE_BDA_ANTENNA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub struct KS_DATARANGE_BDA_TRANSPORT {
     pub DataRange: super::super::KernelStreaming::KSDATAFORMAT,
@@ -28324,7 +28324,7 @@ impl ::core::default::Default for LanguageInfo {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER {
     pub bVersionNumber: u8,
@@ -28364,7 +28364,7 @@ impl ::core::default::Default for MPEG2_FILTER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER2 {
     pub Anonymous: MPEG2_FILTER2_0,
@@ -28390,7 +28390,7 @@ impl ::core::default::Default for MPEG2_FILTER2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MPEG2_FILTER2_0 {
     pub Anonymous: MPEG2_FILTER2_0_0,
@@ -28415,7 +28415,7 @@ impl ::core::default::Default for MPEG2_FILTER2_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG2_FILTER2_0_0 {
     pub bVersionNumber: u8,
@@ -28682,7 +28682,7 @@ impl ::core::default::Default for MPEG_RQST_PACKET {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG_SERVICE_REQUEST {
     pub Type: MPEG_REQUEST_TYPE,
@@ -28751,7 +28751,7 @@ impl ::core::default::Default for MPEG_STREAM_BUFFER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MPEG_STREAM_FILTER {
     pub wPidValue: u16,
@@ -29463,7 +29463,7 @@ impl ::core::default::Default for TRANSPORT_PROPERTIES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UDCR_TAG {
     pub bVersion: u8,

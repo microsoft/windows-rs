@@ -3,7 +3,7 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: &[i8], lps
     ::windows_targets::link!("kernel32.dll" "system" fn CompareStringA(locale : u32, dwcmpflags : u32, lpstring1 : *const i8, cchcount1 : i32, lpstring2 : *const i8, cchcount2 : i32) -> COMPARESTRING_RESULT);
     CompareStringA(locale, dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareStringEx<P0, P1>(lplocalename: P0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: &[u16], lpstring2: &[u16], lpversioninformation: ::core::option::Option<*const NLSVERSIONINFO>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>, lparam: P1) -> COMPARESTRING_RESULT
@@ -14,7 +14,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : ::windows_core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : ::windows_core::PCWSTR, cchcount1 : i32, lpstring2 : ::windows_core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
     CompareStringEx(lplocalename.into_param().abi(), dwcmpflags, ::core::mem::transmute(lpstring1.as_ptr()), lpstring1.len() as _, ::core::mem::transmute(lpstring2.as_ptr()), lpstring2.len() as _, ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), lparam.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareStringOrdinal<P0>(lpstring1: &[u16], lpstring2: &[u16], bignorecase: P0) -> COMPARESTRING_RESULT
@@ -34,21 +34,21 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn ConvertDefaultLocale(locale : u32) -> u32);
     ConvertDefaultLocale(locale)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoA(lpcalinfoenumproc : CALINFO_ENUMPROCA, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
     EnumCalendarInfoA(lpcalinfoenumproc, locale, calendar, caltype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExA(lpcalinfoenumprocex : CALINFO_ENUMPROCEXA, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
     EnumCalendarInfoExA(lpcalinfoenumprocex, locale, calendar, caltype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExEx<P0, P1, P2>(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: P0, calendar: u32, lpreserved: P1, caltype: u32, lparam: P2) -> ::windows_core::Result<()>
@@ -60,35 +60,35 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExEx(pcalinfoenumprocexex : CALINFO_ENUMPROCEXEX, lplocalename : ::windows_core::PCWSTR, calendar : u32, lpreserved : ::windows_core::PCWSTR, caltype : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
     EnumCalendarInfoExEx(pcalinfoenumprocexex, lplocalename.into_param().abi(), calendar, lpreserved.into_param().abi(), caltype, lparam.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoExW(lpcalinfoenumprocex : CALINFO_ENUMPROCEXW, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
     EnumCalendarInfoExW(lpcalinfoenumprocex, locale, calendar, caltype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumCalendarInfoW(lpcalinfoenumproc : CALINFO_ENUMPROCW, locale : u32, calendar : u32, caltype : u32) -> super::Foundation:: BOOL);
     EnumCalendarInfoW(lpcalinfoenumproc, locale, calendar, caltype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsA(lpdatefmtenumproc : DATEFMT_ENUMPROCA, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
     EnumDateFormatsA(lpdatefmtenumproc, locale, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExA(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXA, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
     EnumDateFormatsExA(lpdatefmtenumprocex, locale, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExEx<P0, P1>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: P0, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: P1) -> ::windows_core::Result<()>
@@ -99,56 +99,56 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExEx(lpdatefmtenumprocexex : DATEFMT_ENUMPROCEXEX, lplocalename : ::windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
     EnumDateFormatsExEx(lpdatefmtenumprocexex, lplocalename.into_param().abi(), dwflags, lparam.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsExW(lpdatefmtenumprocex : DATEFMT_ENUMPROCEXW, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
     EnumDateFormatsExW(lpdatefmtenumprocex, locale, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumDateFormatsW(lpdatefmtenumproc : DATEFMT_ENUMPROCW, locale : u32, dwflags : u32) -> super::Foundation:: BOOL);
     EnumDateFormatsW(lpdatefmtenumproc, locale, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCA, languagegroup : u32, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
     EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc : LANGGROUPLOCALE_ENUMPROCW, languagegroup : u32, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
     EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc, languagegroup, dwflags, lparam).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemCodePagesA(lpcodepageenumproc : CODEPAGE_ENUMPROCA, dwflags : ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation:: BOOL);
     EnumSystemCodePagesA(lpcodepageenumproc, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemCodePagesW(lpcodepageenumproc : CODEPAGE_ENUMPROCW, dwflags : ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation:: BOOL);
     EnumSystemCodePagesW(lpcodepageenumproc, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemGeoID(geoclass : u32, parentgeoid : i32, lpgeoenumproc : GEO_ENUMPROC) -> super::Foundation:: BOOL);
     EnumSystemGeoID(geoclass, parentgeoid, lpgeoenumproc).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemGeoNames<P0>(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: P0) -> ::windows_core::Result<()>
@@ -158,28 +158,28 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemGeoNames(geoclass : u32, geoenumproc : GEO_ENUMNAMEPROC, data : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
     EnumSystemGeoNames(geoclass, geoenumproc, data.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCA, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam : isize) -> super::Foundation:: BOOL);
     EnumSystemLanguageGroupsA(lplanguagegroupenumproc, dwflags, lparam).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc : LANGUAGEGROUP_ENUMPROCW, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam : isize) -> super::Foundation:: BOOL);
     EnumSystemLanguageGroupsW(lplanguagegroupenumproc, dwflags, lparam).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesA(lplocaleenumproc : LOCALE_ENUMPROCA, dwflags : u32) -> super::Foundation:: BOOL);
     EnumSystemLocalesA(lplocaleenumproc, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesEx<P0>(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: P0, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -189,21 +189,21 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation:: LPARAM, lpreserved : *const ::core::ffi::c_void) -> super::Foundation:: BOOL);
     EnumSystemLocalesEx(lplocaleenumprocex, dwflags, lparam.into_param().abi(), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesW(lplocaleenumproc : LOCALE_ENUMPROCW, dwflags : u32) -> super::Foundation:: BOOL);
     EnumSystemLocalesW(lplocaleenumproc, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsA(lptimefmtenumproc : TIMEFMT_ENUMPROCA, locale : u32, dwflags : TIME_FORMAT_FLAGS) -> super::Foundation:: BOOL);
     EnumTimeFormatsA(lptimefmtenumproc, locale, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsEx<P0, P1>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: P0, dwflags: u32, lparam: P1) -> ::windows_core::Result<()>
@@ -214,21 +214,21 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsEx(lptimefmtenumprocex : TIMEFMT_ENUMPROCEX, lplocalename : ::windows_core::PCWSTR, dwflags : u32, lparam : super::Foundation:: LPARAM) -> super::Foundation:: BOOL);
     EnumTimeFormatsEx(lptimefmtenumprocex, lplocalename.into_param().abi(), dwflags, lparam.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumTimeFormatsW(lptimefmtenumproc : TIMEFMT_ENUMPROCW, locale : u32, dwflags : TIME_FORMAT_FLAGS) -> super::Foundation:: BOOL);
     EnumTimeFormatsW(lptimefmtenumproc, locale, dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn EnumUILanguagesA(lpuilanguageenumproc : UILANGUAGE_ENUMPROCA, dwflags : u32, lparam : isize) -> super::Foundation:: BOOL);
     EnumUILanguagesA(lpuilanguageenumproc, dwflags, lparam).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> ::windows_core::Result<()> {
@@ -240,7 +240,7 @@ pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsour
     ::windows_targets::link!("kernel32.dll" "system" fn FindNLSString(locale : u32, dwfindnlsstringflags : u32, lpstringsource : ::windows_core::PCWSTR, cchsource : i32, lpstringvalue : ::windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32) -> i32);
     FindNLSString(locale, dwfindnlsstringflags, ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNLSStringEx<P0, P1>(lplocalename: P0, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: ::core::option::Option<*mut i32>, lpversioninformation: ::core::option::Option<*const NLSVERSIONINFO>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>, sorthandle: P1) -> i32
@@ -251,7 +251,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : ::windows_core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : ::windows_core::PCWSTR, cchsource : i32, lpstringvalue : ::windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const ::core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
     FindNLSStringEx(lplocalename.into_param().abi(), dwfindnlsstringflags, ::core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len() as _, ::core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len() as _, ::core::mem::transmute(pcchfound.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpversioninformation.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())), sorthandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindStringOrdinal<P0>(dwfindstringordinalflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: P0) -> i32
@@ -276,21 +276,21 @@ pub unsafe fn GetACP() -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetACP() -> u32);
     GetACP()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCPInfo(codepage : u32, lpcpinfo : *mut CPINFO) -> super::Foundation:: BOOL);
     GetCPInfo(codepage, lpcpinfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCPInfoExA(codepage : u32, dwflags : u32, lpcpinfoex : *mut CPINFOEXA) -> super::Foundation:: BOOL);
     GetCPInfoExA(codepage, dwflags, lpcpinfoex).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> ::windows_core::Result<()> {
@@ -341,7 +341,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : u32, dwflags : u32, lpvalue : ::windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : ::windows_core::PWSTR, cchcurrency : i32) -> i32);
     GetCurrencyFormatW(locale, dwflags, lpvalue.into_param().abi(), ::core::mem::transmute(lpformat.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcurrencystr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDateFormatA<P0>(locale: u32, dwflags: u32, lpdate: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lpdatestr: ::core::option::Option<&mut [u8]>) -> i32
@@ -351,7 +351,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_core::PCSTR, lpdatestr : ::windows_core::PSTR, cchdate : i32) -> i32);
     GetDateFormatA(locale, dwflags, ::core::mem::transmute(lpdate.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDateFormatEx<P0, P1, P2>(lplocalename: P0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, lpformat: P1, lpdatestr: ::core::option::Option<&mut [u16]>, lpcalendar: P2) -> i32
@@ -363,7 +363,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : ::windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_core::PCWSTR, lpdatestr : ::windows_core::PWSTR, cchdate : i32, lpcalendar : ::windows_core::PCWSTR) -> i32);
     GetDateFormatEx(lplocalename.into_param().abi(), dwflags, ::core::mem::transmute(lpdate.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lpdatestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len() as _), lpcalendar.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDateFormatW<P0>(locale: u32, dwflags: u32, lpdate: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lpdatestr: ::core::option::Option<&mut [u16]>) -> i32
@@ -383,7 +383,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     GetDistanceOfClosestLanguageInList(pszlanguage.into_param().abi(), pszlanguageslist.into_param().abi(), wchlistdelimiter, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDurationFormat<P0>(locale: u32, dwflags: u32, lpduration: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P0, lpdurationstr: ::core::option::Option<&mut [u16]>) -> i32
@@ -393,7 +393,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : ::windows_core::PCWSTR, lpdurationstr : ::windows_core::PWSTR, cchduration : i32) -> i32);
     GetDurationFormat(locale, dwflags, ::core::mem::transmute(lpduration.unwrap_or(::std::ptr::null())), ullduration, lpformat.into_param().abi(), ::core::mem::transmute(lpdurationstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDurationFormatEx<P0, P1>(lplocalename: P0, dwflags: u32, lpduration: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P1, lpdurationstr: ::core::option::Option<&mut [u16]>) -> i32
@@ -404,7 +404,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : ::windows_core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : ::windows_core::PCWSTR, lpdurationstr : ::windows_core::PWSTR, cchduration : i32) -> i32);
     GetDurationFormatEx(lplocalename.into_param().abi(), dwflags, ::core::mem::transmute(lpduration.unwrap_or(::std::ptr::null())), ullduration, lpformat.into_param().abi(), ::core::mem::transmute(lpdurationstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileMUIInfo<P0>(dwflags: u32, pcwszfilepath: P0, pfilemuiinfo: ::core::option::Option<*mut FILEMUIINFO>, pcbfilemuiinfo: *mut u32) -> ::windows_core::Result<()>
@@ -414,7 +414,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : ::windows_core::PCWSTR, pfilemuiinfo : *mut FILEMUIINFO, pcbfilemuiinfo : *mut u32) -> super::Foundation:: BOOL);
     GetFileMUIInfo(dwflags, pcwszfilepath.into_param().abi(), ::core::mem::transmute(pfilemuiinfo.unwrap_or(::std::ptr::null_mut())), pcbfilemuiinfo).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileMUIPath<P0>(dwflags: u32, pcwszfilepath: P0, pwszlanguage: ::windows_core::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: ::windows_core::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> ::windows_core::Result<()>
@@ -460,14 +460,14 @@ pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: ::core::option:
     ::windows_targets::link!("kernel32.dll" "system" fn GetLocaleInfoW(locale : u32, lctype : u32, lplcdata : ::windows_core::PWSTR, cchdata : i32) -> i32);
     GetLocaleInfoW(locale, lctype, ::core::mem::transmute(lplcdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lplcdata.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetNLSVersion(function : u32, locale : u32, lpversioninformation : *mut NLSVERSIONINFO) -> super::Foundation:: BOOL);
     GetNLSVersion(function, locale, lpversioninformation).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNLSVersionEx<P0>(function: u32, lplocalename: P0, lpversioninformation: *mut NLSVERSIONINFOEX) -> ::windows_core::Result<()>
@@ -507,7 +507,7 @@ pub unsafe fn GetOEMCP() -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetOEMCP() -> u32);
     GetOEMCP()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows_core::PWSTR, pcchlanguagesbuffer: *mut u32) -> ::windows_core::Result<()> {
@@ -522,14 +522,14 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetStringScripts(dwflags : u32, lpstring : ::windows_core::PCWSTR, cchstring : i32, lpscripts : ::windows_core::PWSTR, cchscripts : i32) -> i32);
     GetStringScripts(dwflags, lpstring.into_param().abi(), cchstring, ::core::mem::transmute(lpscripts.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpscripts.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeA(locale: u32, dwinfotype: u32, lpsrcstr: &[u8], lpchartype: *mut u16) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeA(locale : u32, dwinfotype : u32, lpsrcstr : ::windows_core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
     GetStringTypeA(locale, dwinfotype, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, lpchartype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeExA<P0>(locale: u32, dwinfotype: u32, lpsrcstr: P0, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL
@@ -539,7 +539,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExA(locale : u32, dwinfotype : u32, lpsrcstr : ::windows_core::PCSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
     GetStringTypeExA(locale, dwinfotype, lpsrcstr.into_param().abi(), cchsrc, lpchartype)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeExW<P0>(locale: u32, dwinfotype: u32, lpsrcstr: P0, cchsrc: i32, lpchartype: *mut u16) -> ::windows_core::Result<()>
@@ -549,7 +549,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetStringTypeExW(locale : u32, dwinfotype : u32, lpsrcstr : ::windows_core::PCWSTR, cchsrc : i32, lpchartype : *mut u16) -> super::Foundation:: BOOL);
     GetStringTypeExW(locale, dwinfotype, lpsrcstr.into_param().abi(), cchsrc, lpchartype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeW(dwinfotype: u32, lpsrcstr: &[u16], lpchartype: *mut u16) -> ::windows_core::Result<()> {
@@ -576,14 +576,14 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetSystemDefaultUILanguage() -> u16);
     GetSystemDefaultUILanguage()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows_core::PWSTR, pcchlanguagesbuffer: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetSystemPreferredUILanguages(dwflags : u32, pulnumlanguages : *mut u32, pwszlanguagesbuffer : ::windows_core::PWSTR, pcchlanguagesbuffer : *mut u32) -> super::Foundation:: BOOL);
     GetSystemPreferredUILanguages(dwflags, pulnumlanguages, ::core::mem::transmute(pwszlanguagesbuffer), pcchlanguagesbuffer).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharset<P0>(hdc: P0) -> i32
@@ -593,7 +593,7 @@ where
     ::windows_targets::link!("gdi32.dll" "system" fn GetTextCharset(hdc : super::Graphics::Gdi:: HDC) -> i32);
     GetTextCharset(hdc.into_param().abi())
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharsetInfo<P0>(hdc: P0, lpsig: ::core::option::Option<*mut FONTSIGNATURE>, dwflags: u32) -> i32
@@ -608,7 +608,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetThreadLocale() -> u32);
     GetThreadLocale()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows_core::PWSTR, pcchlanguagesbuffer: *mut u32) -> ::windows_core::Result<()> {
@@ -620,7 +620,7 @@ pub unsafe fn GetThreadUILanguage() -> u16 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetThreadUILanguage() -> u16);
     GetThreadUILanguage()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeFormatA<P0>(locale: u32, dwflags: u32, lptime: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lptimestr: ::core::option::Option<&mut [u8]>) -> i32
@@ -630,7 +630,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_core::PCSTR, lptimestr : ::windows_core::PSTR, cchtime : i32) -> i32);
     GetTimeFormatA(locale, dwflags, ::core::mem::transmute(lptime.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeFormatEx<P0, P1>(lplocalename: P0, dwflags: TIME_FORMAT_FLAGS, lptime: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, lpformat: P1, lptimestr: ::core::option::Option<&mut [u16]>) -> i32
@@ -641,7 +641,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : ::windows_core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_core::PCWSTR, lptimestr : ::windows_core::PWSTR, cchtime : i32) -> i32);
     GetTimeFormatEx(lplocalename.into_param().abi(), dwflags, ::core::mem::transmute(lptime.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeFormatW<P0>(locale: u32, dwflags: u32, lptime: ::core::option::Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lptimestr: ::core::option::Option<&mut [u16]>) -> i32
@@ -651,7 +651,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : ::windows_core::PCWSTR, lptimestr : ::windows_core::PWSTR, cchtime : i32) -> i32);
     GetTimeFormatW(locale, dwflags, ::core::mem::transmute(lptime.unwrap_or(::std::ptr::null())), lpformat.into_param().abi(), ::core::mem::transmute(lptimestr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUILanguageInfo<P0>(dwflags: u32, pwmszlanguage: P0, pwszfallbacklanguages: ::windows_core::PWSTR, pcchfallbacklanguages: ::core::option::Option<*mut u32>, pattributes: *mut u32) -> ::windows_core::Result<()>
@@ -691,7 +691,7 @@ pub unsafe fn GetUserGeoID(geoclass: SYSGEOCLASS) -> i32 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetUserGeoID(geoclass : SYSGEOCLASS) -> i32);
     GetUserGeoID(geoclass)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: ::windows_core::PWSTR, pcchlanguagesbuffer: *mut u32) -> ::windows_core::Result<()> {
@@ -713,63 +713,63 @@ pub unsafe fn IdnToUnicode(dwflags: u32, lpasciicharstr: &[u16], lpunicodecharst
     ::windows_targets::link!("normaliz.dll" "system" fn IdnToUnicode(dwflags : u32, lpasciicharstr : ::windows_core::PCWSTR, cchasciichar : i32, lpunicodecharstr : ::windows_core::PWSTR, cchunicodechar : i32) -> i32);
     IdnToUnicode(dwflags, ::core::mem::transmute(lpasciicharstr.as_ptr()), lpasciicharstr.len() as _, ::core::mem::transmute(lpunicodecharstr.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpunicodecharstr.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDBCSLeadByte(testchar: u8) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByte(testchar : u8) -> super::Foundation:: BOOL);
     IsDBCSLeadByte(testchar).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsDBCSLeadByteEx(codepage : u32, testchar : u8) -> super::Foundation:: BOOL);
     IsDBCSLeadByteEx(codepage, testchar).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNLSDefinedString(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: &[u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsNLSDefinedString(function : u32, dwflags : u32, lpversioninformation : *const NLSVERSIONINFO, lpstring : ::windows_core::PCWSTR, cchstr : i32) -> super::Foundation:: BOOL);
     IsNLSDefinedString(function, dwflags, lpversioninformation, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn IsNormalizedString(normform : NORM_FORM, lpstring : ::windows_core::PCWSTR, cwlength : i32) -> super::Foundation:: BOOL);
     IsNormalizedString(normform, ::core::mem::transmute(lpstring.as_ptr()), lpstring.len() as _).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: ::core::option::Option<*mut IS_TEXT_UNICODE_RESULT>) -> super::Foundation::BOOL {
     ::windows_targets::link!("advapi32.dll" "system" fn IsTextUnicode(lpv : *const ::core::ffi::c_void, isize : i32, lpiresult : *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation:: BOOL);
     IsTextUnicode(lpv, isize, ::core::mem::transmute(lpiresult.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn IsValidCodePage(codepage : u32) -> super::Foundation:: BOOL);
     IsValidCodePage(codepage)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn IsValidLanguageGroup(languagegroup : u32, dwflags : ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation:: BOOL);
     IsValidLanguageGroup(languagegroup, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn IsValidLocale(locale : u32, dwflags : IS_VALID_LOCALE_FLAGS) -> super::Foundation:: BOOL);
     IsValidLocale(locale, dwflags)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidLocaleName<P0>(lplocalename: P0) -> super::Foundation::BOOL
@@ -805,7 +805,7 @@ pub unsafe fn LCMapStringA(locale: u32, dwmapflags: u32, lpsrcstr: &[u8], lpdest
     ::windows_targets::link!("kernel32.dll" "system" fn LCMapStringA(locale : u32, dwmapflags : u32, lpsrcstr : ::windows_core::PCSTR, cchsrc : i32, lpdeststr : ::windows_core::PSTR, cchdest : i32) -> i32);
     LCMapStringA(locale, dwmapflags, ::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr), cchdest)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LCMapStringEx<P0, P1>(lplocalename: P0, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: ::core::option::Option<&mut [u16]>, lpversioninformation: ::core::option::Option<*const NLSVERSIONINFO>, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>, sorthandle: P1) -> i32
@@ -867,7 +867,7 @@ pub unsafe fn NormalizeString(normform: NORM_FORM, lpsrcstring: &[u16], lpdststr
     ::windows_targets::link!("kernel32.dll" "system" fn NormalizeString(normform : NORM_FORM, lpsrcstring : ::windows_core::PCWSTR, cwsrclength : i32, lpdststring : ::windows_core::PWSTR, cwdstlength : i32) -> i32);
     NormalizeString(normform, ::core::mem::transmute(lpsrcstring.as_ptr()), lpsrcstring.len() as _, ::core::mem::transmute(lpdststring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdststring.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NotifyUILanguageChange<P0, P1>(dwflags: u32, pcwstrnewlanguage: P0, pcwstrpreviouslanguage: P1, dwreserved: u32, pdwstatusrtrn: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
@@ -899,7 +899,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, 
     ::windows_targets::link!("usp10.dll" "system" fn ScriptApplyDigitSubstitution(psds : *const SCRIPT_DIGITSUBSTITUTE, psc : *mut SCRIPT_CONTROL, pss : *mut SCRIPT_STATE) -> ::windows_core::HRESULT);
     ScriptApplyDigitSubstitution(psds, psc, pss).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: ::core::option::Option<*mut super::Graphics::Gdi::ABC>, pijustify: *mut i32) -> ::windows_core::Result<()> {
@@ -914,7 +914,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptBreak(pwcchars : ::windows_core::PCWSTR, cchars : i32, psa : *const SCRIPT_ANALYSIS, psla : *mut SCRIPT_LOGATTR) -> ::windows_core::HRESULT);
     ScriptBreak(pwcchars.into_param().abi(), cchars, psa, psla).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptCPtoX<P0>(icp: i32, ftrailing: P0, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows_core::Result<()>
@@ -924,7 +924,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptCPtoX(icp : i32, ftrailing : super::Foundation:: BOOL, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pix : *mut i32) -> ::windows_core::HRESULT);
     ScriptCPtoX(icp, ftrailing.into_param().abi(), pwlogclust.len() as _, cglyphs, ::core::mem::transmute(pwlogclust.as_ptr()), psva, piadvance, psa, pix).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptCacheGetHeight<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows_core::Result<()>
@@ -939,7 +939,7 @@ pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows_c
     ::windows_targets::link!("usp10.dll" "system" fn ScriptFreeCache(psc : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ScriptFreeCache(psc).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetCMap<P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcinchars: P1, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows_core::Result<()>
@@ -950,7 +950,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptGetCMap(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, pwcinchars : ::windows_core::PCWSTR, cchars : i32, dwflags : u32, pwoutglyphs : *mut u16) -> ::windows_core::HRESULT);
     ScriptGetCMap(hdc.into_param().abi(), psc, pwcinchars.into_param().abi(), cchars, dwflags, pwoutglyphs).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontAlternateGlyphs<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, palternateglyphs: &mut [u16], pcalternates: *mut i32) -> ::windows_core::Result<()>
@@ -960,7 +960,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> ::windows_core::HRESULT);
     ScriptGetFontAlternateGlyphs(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len() as _, ::core::mem::transmute(palternateglyphs.as_ptr()), pcalternates).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontFeatureTags<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, pfeaturetags: &mut [u32], pctags: *mut i32) -> ::windows_core::Result<()>
@@ -970,7 +970,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> ::windows_core::HRESULT);
     ScriptGetFontFeatureTags(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, pfeaturetags.len() as _, ::core::mem::transmute(pfeaturetags.as_ptr()), pctags).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontLanguageTags<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<*const SCRIPT_ANALYSIS>, tagscript: u32, plangsystags: &mut [u32], pctags: *mut i32) -> ::windows_core::Result<()>
@@ -980,7 +980,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> ::windows_core::HRESULT);
     ScriptGetFontLanguageTags(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, plangsystags.len() as _, ::core::mem::transmute(plangsystags.as_ptr()), pctags).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontProperties<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows_core::Result<()>
@@ -990,7 +990,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontProperties(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, sfp : *mut SCRIPT_FONTPROPERTIES) -> ::windows_core::HRESULT);
     ScriptGetFontProperties(hdc.into_param().abi(), psc, sfp).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontScriptTags<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<*const SCRIPT_ANALYSIS>, pscripttags: &mut [u32], pctags: *mut i32) -> ::windows_core::Result<()>
@@ -1000,7 +1000,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut u32, pctags : *mut i32) -> ::windows_core::HRESULT);
     ScriptGetFontScriptTags(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), pscripttags.len() as _, ::core::mem::transmute(pscripttags.as_ptr()), pctags).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetGlyphABCWidth<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_core::Result<()>
@@ -1045,7 +1045,7 @@ pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: ::
     ::windows_targets::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> ::windows_core::HRESULT);
     ScriptLayout(cruns, pblevel, ::core::mem::transmute(pivisualtological.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pilogicaltovisual.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPlace<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: ::core::option::Option<*mut GOFFSET>, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows_core::Result<()>
@@ -1055,7 +1055,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> ::windows_core::HRESULT);
     ScriptPlace(hdc.into_param().abi(), psc, pwglyphs, cglyphs, psva, psa, piadvance, ::core::mem::transmute(pgoffset.unwrap_or(::std::ptr::null_mut())), pabc).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPlaceOpenType<P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: ::core::option::Option<*const i32>, rprangeproperties: ::core::option::Option<*const *const TEXTRANGE_PROPERTIES>, cranges: i32, pwcchars: P1, pwlogclust: *const u16, pcharprops: *const SCRIPT_CHARPROP, cchars: i32, pwglyphs: *const u16, pglyphprops: *const SCRIPT_GLYPHPROP, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: ::core::option::Option<*mut super::Graphics::Gdi::ABC>) -> ::windows_core::Result<()>
@@ -1066,7 +1066,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : ::windows_core::PCWSTR, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> ::windows_core::HRESULT);
     ScriptPlaceOpenType(hdc.into_param().abi(), psc, psa, tagscript, taglangsys, ::core::mem::transmute(rcrangechars.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rprangeproperties.unwrap_or(::std::ptr::null())), cranges, pwcchars.into_param().abi(), pwlogclust, pcharprops, cchars, pwglyphs, pglyphprops, cglyphs, piadvance, pgoffset, ::core::mem::transmute(pabc.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPositionSingleGlyph<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: GOFFSET, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows_core::Result<()>
@@ -1082,7 +1082,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows_core::Resu
     let mut result__ = ::std::mem::zeroed();
     ScriptRecordDigitSubstitution(locale, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptShape<P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcchars: P1, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows_core::Result<()>
@@ -1093,7 +1093,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptShape(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, pwcchars : ::windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, psa : *mut SCRIPT_ANALYSIS, pwoutglyphs : *mut u16, pwlogclust : *mut u16, psva : *mut SCRIPT_VISATTR, pcglyphs : *mut i32) -> ::windows_core::HRESULT);
     ScriptShape(hdc.into_param().abi(), psc, pwcchars.into_param().abi(), cchars, cmaxglyphs, psa, pwoutglyphs, pwlogclust, psva, pcglyphs).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptShapeOpenType<P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: ::core::option::Option<*const i32>, rprangeproperties: ::core::option::Option<*const *const TEXTRANGE_PROPERTIES>, cranges: i32, pwcchars: P1, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut SCRIPT_CHARPROP, pwoutglyphs: *mut u16, poutglyphprops: *mut SCRIPT_GLYPHPROP, pcglyphs: *mut i32) -> ::windows_core::Result<()>
@@ -1104,7 +1104,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : ::windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> ::windows_core::HRESULT);
     ScriptShapeOpenType(hdc.into_param().abi(), psc, psa, tagscript, taglangsys, ::core::mem::transmute(rcrangechars.unwrap_or(::std::ptr::null())), ::core::mem::transmute(rprangeproperties.unwrap_or(::std::ptr::null())), cranges, pwcchars.into_param().abi(), cchars, cmaxglyphs, pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptStringAnalyse<P0>(hdc: P0, pstring: *const ::core::ffi::c_void, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: ::core::option::Option<*const SCRIPT_CONTROL>, psstate: ::core::option::Option<*const SCRIPT_STATE>, pidx: ::core::option::Option<&[i32]>, ptabdef: ::core::option::Option<*const SCRIPT_TABDEF>, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -1114,7 +1114,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const ::core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     ScriptStringAnalyse(hdc.into_param().abi(), pstring, pidx.as_deref().map_or(0, |slice| slice.len() as _), cglyphs, icharset, dwflags, ireqwidth, ::core::mem::transmute(pscontrol.unwrap_or(::std::ptr::null())), ::core::mem::transmute(psstate.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pidx.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(ptabdef.unwrap_or(::std::ptr::null())), pbinclass, pssa).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptStringCPtoX<P0>(ssa: *const ::core::ffi::c_void, icp: i32, ftrailing: P0) -> ::windows_core::Result<i32>
@@ -1140,7 +1140,7 @@ pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mu
     ::windows_targets::link!("usp10.dll" "system" fn ScriptStringGetOrder(ssa : *const ::core::ffi::c_void, puorder : *mut u32) -> ::windows_core::HRESULT);
     ScriptStringGetOrder(ssa, puorder).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptStringOut<P0>(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: ::core::option::Option<*const super::Foundation::RECT>, iminsel: i32, imaxsel: i32, fdisabled: P0) -> ::windows_core::Result<()>
@@ -1165,7 +1165,7 @@ pub unsafe fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCR
     ::windows_targets::link!("usp10.dll" "system" fn ScriptString_pLogAttr(ssa : *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR);
     ScriptString_pLogAttr(ssa)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE {
@@ -1177,7 +1177,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i
     ::windows_targets::link!("usp10.dll" "system" fn ScriptString_pcOutChars(ssa : *const ::core::ffi::c_void) -> *mut i32);
     ScriptString_pcOutChars(ssa)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptSubstituteSingleGlyph<P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: ::core::option::Option<*const SCRIPT_ANALYSIS>, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows_core::Result<()>
@@ -1187,7 +1187,7 @@ where
     ::windows_targets::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut ::core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> ::windows_core::HRESULT);
     ScriptSubstituteSingleGlyph(hdc.into_param().abi(), psc, ::core::mem::transmute(psa.unwrap_or(::std::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptTextOut<P0, P1>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: ::core::option::Option<*const super::Foundation::RECT>, psa: *const SCRIPT_ANALYSIS, pwcreserved: P1, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: ::core::option::Option<*const i32>, pgoffset: *const GOFFSET) -> ::windows_core::Result<()>
@@ -1203,7 +1203,7 @@ pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *cons
     ::windows_targets::link!("usp10.dll" "system" fn ScriptXtoCP(ix : i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, picp : *mut i32, pitrailing : *mut i32) -> ::windows_core::HRESULT);
     ScriptXtoCP(ix, pwlogclust.len() as _, cglyphs, ::core::mem::transmute(pwlogclust.as_ptr()), psva, piadvance, psa, picp, pitrailing).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCalendarInfoA<P0>(locale: u32, calendar: u32, caltype: u32, lpcaldata: P0) -> ::windows_core::Result<()>
@@ -1213,7 +1213,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_core::PCSTR) -> super::Foundation:: BOOL);
     SetCalendarInfoA(locale, calendar, caltype, lpcaldata.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCalendarInfoW<P0>(locale: u32, calendar: u32, caltype: u32, lpcaldata: P0) -> ::windows_core::Result<()>
@@ -1223,7 +1223,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : ::windows_core::PCWSTR) -> super::Foundation:: BOOL);
     SetCalendarInfoW(locale, calendar, caltype, lpcaldata.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLocaleInfoA<P0>(locale: u32, lctype: u32, lplcdata: P0) -> ::windows_core::Result<()>
@@ -1233,7 +1233,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoA(locale : u32, lctype : u32, lplcdata : ::windows_core::PCSTR) -> super::Foundation:: BOOL);
     SetLocaleInfoA(locale, lctype, lplcdata.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLocaleInfoW<P0>(locale: u32, lctype: u32, lplcdata: P0) -> ::windows_core::Result<()>
@@ -1243,7 +1243,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetLocaleInfoW(locale : u32, lctype : u32, lplcdata : ::windows_core::PCWSTR) -> super::Foundation:: BOOL);
     SetLocaleInfoW(locale, lctype, lplcdata.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessPreferredUILanguages<P0>(dwflags: u32, pwszlanguagesbuffer: P0, pulnumlanguages: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -1253,14 +1253,14 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : ::windows_core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
     SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.into_param().abi(), ::core::mem::transmute(pulnumlanguages.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
     ::windows_targets::link!("kernel32.dll" "system" fn SetThreadLocale(locale : u32) -> super::Foundation:: BOOL);
     SetThreadLocale(locale)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages<P0>(dwflags: u32, pwszlanguagesbuffer: P0, pulnumlanguages: ::core::option::Option<*mut u32>) -> super::Foundation::BOOL
@@ -1270,7 +1270,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : ::windows_core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
     SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.into_param().abi(), ::core::mem::transmute(pulnumlanguages.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages2<P0>(flags: u32, languages: P0, numlanguagesset: ::core::option::Option<*mut u32>, snapshot: ::core::option::Option<*mut HSAVEDUILANGUAGES>) -> super::Foundation::BOOL
@@ -1285,14 +1285,14 @@ pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     ::windows_targets::link!("kernel32.dll" "system" fn SetThreadUILanguage(langid : u16) -> u16);
     SetThreadUILanguage(langid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserGeoID(geoid: i32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("kernel32.dll" "system" fn SetUserGeoID(geoid : i32) -> super::Foundation:: BOOL);
     SetUserGeoID(geoid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserGeoName<P0>(geoname: P0) -> ::windows_core::Result<()>
@@ -1302,7 +1302,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetUserGeoName(geoname : ::windows_core::PCWSTR) -> super::Foundation:: BOOL);
     SetUserGeoName(geoname.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> ::windows_core::Result<()> {
@@ -1361,7 +1361,7 @@ where
     ::windows_targets::link!("icu.dll" "cdecl" fn UCNV_TO_U_CALLBACK_SUBSTITUTE(context : *const ::core::ffi::c_void, touargs : *mut UConverterToUnicodeArgs, codeunits : ::windows_core::PCSTR, length : i32, reason : UConverterCallbackReason, err : *mut UErrorCode) -> ());
     UCNV_TO_U_CALLBACK_SUBSTITUTE(context, touargs, codeunits.into_param().abi(), length, reason, err)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyScripts<P0, P1>(dwflags: u32, lplocalescripts: P0, cchlocalescripts: i32, lptestscripts: P1, cchtestscripts: i32) -> ::windows_core::Result<()>
@@ -1372,7 +1372,7 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn VerifyScripts(dwflags : u32, lplocalescripts : ::windows_core::PCWSTR, cchlocalescripts : i32, lptestscripts : ::windows_core::PCWSTR, cchtestscripts : i32) -> super::Foundation:: BOOL);
     VerifyScripts(dwflags, lplocalescripts.into_param().abi(), cchlocalescripts, lptestscripts.into_param().abi(), cchtestscripts).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WideCharToMultiByte<P0>(codepage: u32, dwflags: u32, lpwidecharstr: &[u16], lpmultibytestr: ::core::option::Option<&mut [u8]>, lpdefaultchar: P0, lpuseddefaultchar: ::core::option::Option<*mut super::Foundation::BOOL>) -> i32
@@ -7451,7 +7451,7 @@ impl IMLangFontLink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CodePagesToCodePage)(::windows_core::Interface::as_raw(self), dwcodepages, udefaultcodepage, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontCodePages<P0, P1>(&self, hdc: P0, hfont: P1, pdwcodepages: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -7460,7 +7460,7 @@ impl IMLangFontLink {
     {
         (::windows_core::Interface::vtable(self).GetFontCodePages)(::windows_core::Interface::as_raw(self), hdc.into_param().abi(), hfont.into_param().abi(), ::core::mem::transmute(pdwcodepages.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn MapFont<P0, P1>(&self, hdc: P0, dwcodepages: u32, hsrcfont: P1, phdestfont: ::core::option::Option<*mut super::Graphics::Gdi::HFONT>) -> ::windows_core::Result<()>
     where
@@ -7469,7 +7469,7 @@ impl IMLangFontLink {
     {
         (::windows_core::Interface::vtable(self).MapFont)(::windows_core::Interface::as_raw(self), hdc.into_param().abi(), dwcodepages, hsrcfont.into_param().abi(), ::core::mem::transmute(phdestfont.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseFont<P0>(&self, hfont: P0) -> ::windows_core::Result<()>
     where
@@ -7525,7 +7525,7 @@ impl IMLangFontLink2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CodePagesToCodePage)(::windows_core::Interface::as_raw(self), dwcodepages, udefaultcodepage, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontCodePages<P0, P1>(&self, hdc: P0, hfont: P1, pdwcodepages: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
     where
@@ -7534,7 +7534,7 @@ impl IMLangFontLink2 {
     {
         (::windows_core::Interface::vtable(self).GetFontCodePages)(::windows_core::Interface::as_raw(self), hdc.into_param().abi(), hfont.into_param().abi(), ::core::mem::transmute(pdwcodepages.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseFont<P0>(&self, hfont: P0) -> ::windows_core::Result<()>
     where
@@ -7545,7 +7545,7 @@ impl IMLangFontLink2 {
     pub unsafe fn ResetFontMapping(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ResetFontMapping)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn MapFont<P0>(&self, hdc: P0, dwcodepages: u32, chsrc: u16, pfont: ::core::option::Option<*mut super::Graphics::Gdi::HFONT>) -> ::windows_core::Result<()>
     where
@@ -7553,7 +7553,7 @@ impl IMLangFontLink2 {
     {
         (::windows_core::Interface::vtable(self).MapFont)(::windows_core::Interface::as_raw(self), hdc.into_param().abi(), dwcodepages, chsrc, ::core::mem::transmute(pfont.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontUnicodeRanges<P0>(&self, hdc: P0, puiranges: *const u32, puranges: ::core::option::Option<*mut UNICODERANGE>) -> ::windows_core::Result<()>
     where
@@ -7636,7 +7636,7 @@ pub struct IMLangLineBreakConsole_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangString(::windows_core::IUnknown);
 impl IMLangString {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Sync<P0>(&self, fnoaccess: P0) -> ::windows_core::Result<()>
     where
@@ -7683,7 +7683,7 @@ pub struct IMLangString_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangStringAStr(::windows_core::IUnknown);
 impl IMLangStringAStr {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Sync<P0>(&self, fnoaccess: P0) -> ::windows_core::Result<()>
     where
@@ -7838,7 +7838,7 @@ pub struct IMLangStringBufW_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangStringWStr(::windows_core::IUnknown);
 impl IMLangStringWStr {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Sync<P0>(&self, fnoaccess: P0) -> ::windows_core::Result<()>
     where
@@ -8071,7 +8071,7 @@ impl IMultiLanguage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateConvertCharset)(::windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConvertStringInIStream<P0, P1, P2>(&self, pdwmode: ::core::option::Option<*mut u32>, dwflag: u32, lpfallback: P0, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P1, pstmout: P2) -> ::windows_core::Result<()>
     where
@@ -8095,7 +8095,7 @@ impl IMultiLanguage2 {
     {
         (::windows_core::Interface::vtable(self).ConvertStringFromUnicodeEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdwmode.unwrap_or(::std::ptr::null_mut())), dwencoding, psrcstr.into_param().abi(), ::core::mem::transmute(pcsrcsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize.unwrap_or(::std::ptr::null_mut())), dwflag, lpfallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectCodepageInIStream<P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows_core::Result<()>
     where
@@ -8109,7 +8109,7 @@ impl IMultiLanguage2 {
     {
         (::windows_core::Interface::vtable(self).DetectInputCodepage)(::windows_core::Interface::as_raw(self), dwflag, dwprefwincodepage, psrcstr.into_param().abi(), pcsrcsize, lpencoding, pnscores).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateCodePage<P0>(&self, uicodepage: u32, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -8134,7 +8134,7 @@ impl IMultiLanguage2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumScripts)(::windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateCodePageEx<P0>(&self, uicodepage: u32, hwnd: P0, dwfiodcontrol: u32) -> ::windows_core::Result<()>
     where
@@ -8261,7 +8261,7 @@ impl IMultiLanguage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateConvertCharset)(::windows_core::Interface::as_raw(self), uisrccodepage, uidstcodepage, dwproperty, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConvertStringInIStream<P0, P1, P2>(&self, pdwmode: ::core::option::Option<*mut u32>, dwflag: u32, lpfallback: P0, dwsrcencoding: u32, dwdstencoding: u32, pstmin: P1, pstmout: P2) -> ::windows_core::Result<()>
     where
@@ -8285,7 +8285,7 @@ impl IMultiLanguage3 {
     {
         (::windows_core::Interface::vtable(self).base__.ConvertStringFromUnicodeEx)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdwmode.unwrap_or(::std::ptr::null_mut())), dwencoding, psrcstr.into_param().abi(), ::core::mem::transmute(pcsrcsize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdststr), ::core::mem::transmute(pcdstsize.unwrap_or(::std::ptr::null_mut())), dwflag, lpfallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectCodepageInIStream<P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> ::windows_core::Result<()>
     where
@@ -8299,7 +8299,7 @@ impl IMultiLanguage3 {
     {
         (::windows_core::Interface::vtable(self).base__.DetectInputCodepage)(::windows_core::Interface::as_raw(self), dwflag, dwprefwincodepage, psrcstr.into_param().abi(), pcsrcsize, lpencoding, pnscores).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateCodePage<P0>(&self, uicodepage: u32, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -8324,7 +8324,7 @@ impl IMultiLanguage3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumScripts)(::windows_core::Interface::as_raw(self), dwflags, langid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateCodePageEx<P0>(&self, uicodepage: u32, hwnd: P0, dwfiodcontrol: u32) -> ::windows_core::Result<()>
     where
@@ -8338,7 +8338,7 @@ impl IMultiLanguage3 {
     {
         (::windows_core::Interface::vtable(self).DetectOutboundCodePage)(::windows_core::Interface::as_raw(self), dwflags, ::core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len() as _, ::core::mem::transmute(puipreferredcodepages.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.as_deref().map_or(0, |slice| slice.len() as _), puidetectedcodepages, pndetectedcodepages, lpspecialchar.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectOutboundCodePageInIStream<P0, P1>(&self, dwflags: u32, pstrin: P0, puipreferredcodepages: ::core::option::Option<&[u32]>, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: P1) -> ::windows_core::Result<()>
     where
@@ -8381,7 +8381,7 @@ impl IOptionDescription {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Description)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Labels(&self) -> ::windows_core::Result<super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
@@ -8422,7 +8422,7 @@ impl ISpellCheckProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Check)(::windows_core::Interface::as_raw(self), text.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Suggest<P0>(&self, word: P0) -> ::windows_core::Result<super::System::Com::IEnumString>
     where
@@ -8444,7 +8444,7 @@ impl ISpellCheckProvider {
     {
         (::windows_core::Interface::vtable(self).SetOptionValue)(::windows_core::Interface::as_raw(self), optionid.into_param().abi(), value).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OptionIds(&self) -> ::windows_core::Result<super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
@@ -8465,7 +8465,7 @@ impl ISpellCheckProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOptionDescription)(::windows_core::Interface::as_raw(self), optionid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeWordlist<P0>(&self, wordlisttype: WORDLIST_TYPE, words: P0) -> ::windows_core::Result<()>
     where
@@ -8509,13 +8509,13 @@ pub struct ISpellCheckProvider_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellCheckProviderFactory(::windows_core::IUnknown);
 impl ISpellCheckProviderFactory {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedLanguages(&self) -> ::windows_core::Result<super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedLanguages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupported<P0>(&self, languagetag: P0) -> ::windows_core::Result<super::Foundation::BOOL>
     where
@@ -8568,7 +8568,7 @@ impl ISpellChecker {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Check)(::windows_core::Interface::as_raw(self), text.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Suggest<P0>(&self, word: P0) -> ::windows_core::Result<super::System::Com::IEnumString>
     where
@@ -8603,7 +8603,7 @@ impl ISpellChecker {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOptionValue)(::windows_core::Interface::as_raw(self), optionid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OptionIds(&self) -> ::windows_core::Result<super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
@@ -8689,7 +8689,7 @@ impl ISpellChecker2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Check)(::windows_core::Interface::as_raw(self), text.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Suggest<P0>(&self, word: P0) -> ::windows_core::Result<super::System::Com::IEnumString>
     where
@@ -8724,7 +8724,7 @@ impl ISpellChecker2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetOptionValue)(::windows_core::Interface::as_raw(self), optionid.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OptionIds(&self) -> ::windows_core::Result<super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
@@ -8810,13 +8810,13 @@ pub struct ISpellCheckerChangedEventHandler_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellCheckerFactory(::windows_core::IUnknown);
 impl ISpellCheckerFactory {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedLanguages(&self) -> ::windows_core::Result<super::System::Com::IEnumString> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedLanguages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSupported<P0>(&self, languagetag: P0) -> ::windows_core::Result<super::Foundation::BOOL>
     where
@@ -15969,7 +15969,7 @@ impl ::core::default::Default for DetectEncodingInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
@@ -16008,7 +16008,7 @@ impl ::core::default::Default for ENUMTEXTMETRICA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
@@ -16644,7 +16644,7 @@ impl ::core::default::Default for MIMECSETINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
@@ -16683,7 +16683,7 @@ impl ::core::default::Default for NEWTEXTMETRICEXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
@@ -18841,77 +18841,77 @@ impl ::core::default::Default for UTransPosition {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: u32, param2: ::windows_core::PCWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: u32) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: u32) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: u32) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMNAMEPROC = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: ::windows_core::PCSTR, param3: isize) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: ::windows_core::PCWSTR, param3: isize) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGUAGEGROUP_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_core::PCSTR, param2: ::windows_core::PCSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGUAGEGROUP_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR) -> super::Foundation::BOOL>;
 pub type PFN_MAPPINGCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::core::ffi::c_void, dwdatasize: u32, result: ::windows_core::HRESULT) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR) -> super::Foundation::BOOL>;
 pub type UBiDiClassCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection>;
@@ -18930,10 +18930,10 @@ pub type UCharIteratorSetState = ::core::option::Option<unsafe extern "system" f
 pub type UConverterFromUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode) -> ()>;
 pub type UConverterToUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: ::windows_core::PCSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode) -> ()>;
 pub type UEnumCharNamesFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: ::windows_core::PCSTR, length: i32) -> i8>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCSTR, param1: isize) -> super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: isize) -> super::Foundation::BOOL>;
 pub type UMemAllocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;

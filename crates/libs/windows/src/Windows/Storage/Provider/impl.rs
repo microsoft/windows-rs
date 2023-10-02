@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IStorageProviderItemPropertySource_Impl: Sized {
     fn GetItemProperties(&self, itempath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>;
@@ -59,7 +59,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
         *iid == <IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderStatusUISource_Impl: Sized {
     fn GetStatusUI(&self) -> ::windows_core::Result<StorageProviderStatusUI>;
@@ -141,7 +141,7 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
         *iid == <IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IStorageProviderUICommand_Impl: Sized {
     fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

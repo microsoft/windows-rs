@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub trait ICorProfilerAssemblyReferenceProvider_Impl: Sized {
     fn AddAssemblyReference(&self, passemblyrefinfo: *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> ::windows_core::Result<()>;
@@ -19,7 +19,7 @@ impl ICorProfilerAssemblyReferenceProvider_Vtbl {
         *iid == <ICorProfilerAssemblyReferenceProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback_Impl: Sized {
     fn Initialize(&self, picorprofilerinfounk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -531,7 +531,7 @@ impl ICorProfilerCallback_Vtbl {
         *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback10_Impl: Sized + ICorProfilerCallback9_Impl {
     fn EventPipeEventDelivered(&self, provider: usize, eventid: u32, eventversion: u32, cbmetadatablob: u32, metadatablob: *const u8, cbeventdata: u32, eventdata: *const u8, pactivityid: *const ::windows_core::GUID, prelatedactivityid: *const ::windows_core::GUID, eventthread: usize, numstackframes: u32, stackframes: *const usize) -> ::windows_core::Result<()>;
@@ -576,7 +576,7 @@ impl ICorProfilerCallback10_Vtbl {
         *iid == <ICorProfilerCallback10 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback11_Impl: Sized + ICorProfilerCallback10_Impl {
     fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -597,7 +597,7 @@ impl ICorProfilerCallback11_Vtbl {
         *iid == <ICorProfilerCallback11 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback10 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback2_Impl: Sized + ICorProfilerCallback_Impl {
     fn ThreadNameChanged(&self, threadid: usize, cchname: u32, name: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -670,7 +670,7 @@ impl ICorProfilerCallback2_Vtbl {
         *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback3_Impl: Sized + ICorProfilerCallback2_Impl {
     fn InitializeForAttach(&self, pcorprofilerinfounk: ::core::option::Option<&::windows_core::IUnknown>, pvclientdata: *const ::core::ffi::c_void, cbclientdata: u32) -> ::windows_core::Result<()>;
@@ -708,7 +708,7 @@ impl ICorProfilerCallback3_Vtbl {
         *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback4_Impl: Sized + ICorProfilerCallback3_Impl {
     fn ReJITCompilationStarted(&self, functionid: usize, rejitid: usize, fissafetoblock: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -767,7 +767,7 @@ impl ICorProfilerCallback4_Vtbl {
         *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback5_Impl: Sized + ICorProfilerCallback4_Impl {
     fn ConditionalWeakTableElementReferences(&self, crootrefs: u32, keyrefids: *const usize, valuerefids: *const usize, rootids: *const usize) -> ::windows_core::Result<()>;
@@ -791,7 +791,7 @@ impl ICorProfilerCallback5_Vtbl {
         *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback6_Impl: Sized + ICorProfilerCallback5_Impl {
     fn GetAssemblyReferences(&self, wszassemblypath: &::windows_core::PCWSTR, pasmrefprovider: ::core::option::Option<&ICorProfilerAssemblyReferenceProvider>) -> ::windows_core::Result<()>;
@@ -812,7 +812,7 @@ impl ICorProfilerCallback6_Vtbl {
         *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback7_Impl: Sized + ICorProfilerCallback6_Impl {
     fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> ::windows_core::Result<()>;
@@ -836,7 +836,7 @@ impl ICorProfilerCallback7_Vtbl {
         *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback8_Impl: Sized + ICorProfilerCallback7_Impl {
     fn DynamicMethodJITCompilationStarted(&self, functionid: usize, fissafetoblock: super::super::super::Foundation::BOOL, pilheader: *const u8, cbilheader: u32) -> ::windows_core::Result<()>;
@@ -867,7 +867,7 @@ impl ICorProfilerCallback8_Vtbl {
         *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerCallback9_Impl: Sized + ICorProfilerCallback8_Impl {
     fn DynamicMethodUnloaded(&self, functionid: usize) -> ::windows_core::Result<()>;
@@ -888,7 +888,7 @@ impl ICorProfilerCallback9_Vtbl {
         *iid == <ICorProfilerCallback9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerCallback8 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICorProfilerFunctionControl_Impl: Sized {
     fn SetCodegenFlags(&self, flags: u32) -> ::windows_core::Result<()>;
@@ -986,7 +986,7 @@ impl ICorProfilerFunctionEnum_Vtbl {
         *iid == <ICorProfilerFunctionEnum as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo_Impl: Sized {
     fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize>;
@@ -1324,7 +1324,7 @@ impl ICorProfilerInfo_Vtbl {
         *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo10_Impl: Sized + ICorProfilerInfo9_Impl {
     fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1383,7 +1383,7 @@ impl ICorProfilerInfo10_Vtbl {
         *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo11_Impl: Sized + ICorProfilerInfo10_Impl {
     fn GetEnvironmentVariableA(&self, szname: &::windows_core::PCWSTR, cchvalue: u32, pcchvalue: *mut u32, szvalue: ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -1414,7 +1414,7 @@ impl ICorProfilerInfo11_Vtbl {
         *iid == <ICorProfilerInfo11 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo9 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo10 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo12_Impl: Sized + ICorProfilerInfo11_Impl {
     fn EventPipeStartSession(&self, cproviderconfigs: u32, pproviderconfigs: *const COR_PRF_EVENTPIPE_PROVIDER_CONFIG, requestrundown: super::super::super::Foundation::BOOL) -> ::windows_core::Result<u64>;
@@ -1509,7 +1509,7 @@ impl ICorProfilerInfo12_Vtbl {
             || *iid == <ICorProfilerInfo11 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo13_Impl: Sized + ICorProfilerInfo12_Impl {
     fn CreateHandle(&self, object: usize, r#type: COR_PRF_HANDLE_TYPE, phandle: *mut *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1565,7 +1565,7 @@ impl ICorProfilerInfo13_Vtbl {
             || *iid == <ICorProfilerInfo12 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo14_Impl: Sized + ICorProfilerInfo13_Impl {
     fn EnumerateNonGCObjects(&self) -> ::windows_core::Result<ICorProfilerObjectEnum>;
@@ -1628,7 +1628,7 @@ impl ICorProfilerInfo14_Vtbl {
             || *iid == <ICorProfilerInfo13 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo2_Impl: Sized + ICorProfilerInfo_Impl {
     fn DoStackSnapshot(&self, thread: usize, callback: *const StackSnapshotCallback, infoflags: u32, clientdata: *const ::core::ffi::c_void, context: *const u8, contextsize: u32) -> ::windows_core::Result<()>;
@@ -1840,7 +1840,7 @@ impl ICorProfilerInfo2_Vtbl {
         *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo3_Impl: Sized + ICorProfilerInfo2_Impl {
     fn EnumJITedFunctions(&self) -> ::windows_core::Result<ICorProfilerFunctionEnum>;
@@ -1973,7 +1973,7 @@ impl ICorProfilerInfo3_Vtbl {
         *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo4_Impl: Sized + ICorProfilerInfo3_Impl {
     fn EnumThreads(&self) -> ::windows_core::Result<ICorProfilerThreadEnum>;
@@ -2078,7 +2078,7 @@ impl ICorProfilerInfo4_Vtbl {
         *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo5_Impl: Sized + ICorProfilerInfo4_Impl {
     fn GetEventMask2(&self, pdweventslow: *mut u32, pdweventshigh: *mut u32) -> ::windows_core::Result<()>;
@@ -2109,7 +2109,7 @@ impl ICorProfilerInfo5_Vtbl {
         *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo6_Impl: Sized + ICorProfilerInfo5_Impl {
     fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()>;
@@ -2133,7 +2133,7 @@ impl ICorProfilerInfo6_Vtbl {
         *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo7_Impl: Sized + ICorProfilerInfo6_Impl {
     fn ApplyMetaData(&self, moduleid: usize) -> ::windows_core::Result<()>;
@@ -2177,7 +2177,7 @@ impl ICorProfilerInfo7_Vtbl {
         *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo8_Impl: Sized + ICorProfilerInfo7_Impl {
     fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
@@ -2221,7 +2221,7 @@ impl ICorProfilerInfo8_Vtbl {
         *iid == <ICorProfilerInfo8 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo2 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo3 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo4 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo5 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo6 as ::windows_core::ComInterface>::IID || *iid == <ICorProfilerInfo7 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WinRT_Metadata"))]
 pub trait ICorProfilerInfo9_Impl: Sized + ICorProfilerInfo8_Impl {
     fn GetNativeCodeStartAddresses(&self, functionid: usize, rejitid: usize, ccodestartaddresses: u32, pccodestartaddresses: *mut u32, codestartaddresses: *mut usize) -> ::windows_core::Result<()>;

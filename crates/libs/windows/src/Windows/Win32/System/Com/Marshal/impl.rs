@@ -75,7 +75,7 @@ impl IMarshal2_Vtbl {
         *iid == <IMarshal2 as ::windows_core::ComInterface>::IID || *iid == <IMarshal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMarshalingStream_Impl: Sized + super::IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows_core::Result<usize>;

@@ -80,7 +80,7 @@ impl IDXCoreAdapterFactory {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateAdapterList)(::windows_core::Interface::as_raw(self), filterattributes.len() as _, ::core::mem::transmute(filterattributes.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::super::Foundation::LUID) -> ::windows_core::Result<T>
     where

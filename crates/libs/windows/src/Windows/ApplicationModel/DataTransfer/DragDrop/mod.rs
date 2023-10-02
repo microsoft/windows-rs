@@ -1,5 +1,5 @@
 #[cfg(feature = "ApplicationModel_DataTransfer_DragDrop_Core")]
-#[doc = "Required features: `ApplicationModel_DataTransfer_DragDrop_Core`"]
+#[doc = "Required features: `\"ApplicationModel_DataTransfer_DragDrop_Core\"`"]
 pub mod Core;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

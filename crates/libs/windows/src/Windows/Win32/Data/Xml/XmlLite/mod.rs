@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlReader<P0>(riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: P0) -> ::windows_core::Result<()>
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void, pmalloc : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateXmlReader(riid, ppvobject, pmalloc.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<P0, P1, P2, P3>(pinputstream: P0, pmalloc: P1, nencodingcodepage: u32, fencodinghint: P2, pwszbaseuri: P3) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -22,7 +22,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateXmlReaderInputWithEncodingCodePage(pinputstream.into_param().abi(), pmalloc.into_param().abi(), nencodingcodepage, fencodinghint.into_param().abi(), pwszbaseuri.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingName<P0, P1, P2, P3, P4>(pinputstream: P0, pmalloc: P1, pwszencodingname: P2, fencodinghint: P3, pwszbaseuri: P4) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -37,7 +37,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateXmlReaderInputWithEncodingName(pinputstream.into_param().abi(), pmalloc.into_param().abi(), pwszencodingname.into_param().abi(), fencodinghint.into_param().abi(), pwszbaseuri.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriter<P0>(riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, pmalloc: P0) -> ::windows_core::Result<()>
@@ -47,7 +47,7 @@ where
     ::windows_targets::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const ::windows_core::GUID, ppvobject : *mut *mut ::core::ffi::c_void, pmalloc : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     CreateXmlWriter(riid, ppvobject, pmalloc.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<P0, P1>(poutputstream: P0, pmalloc: P1, nencodingcodepage: u32) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -59,7 +59,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreateXmlWriterOutputWithEncodingCodePage(poutputstream.into_param().abi(), pmalloc.into_param().abi(), nencodingcodepage, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingName<P0, P1, P2>(poutputstream: P0, pmalloc: P1, pwszencodingname: P2) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -133,12 +133,12 @@ impl IXmlReader {
     pub unsafe fn GetBaseUri(&self, ppwszbaseuri: *mut ::windows_core::PCWSTR, pcwchbaseuri: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBaseUri)(::windows_core::Interface::as_raw(self), ppwszbaseuri, ::core::mem::transmute(pcwchbaseuri.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDefault(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsDefault)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEmptyElement(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsEmptyElement)(::windows_core::Interface::as_raw(self))
@@ -159,7 +159,7 @@ impl IXmlReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDepth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEOF(&self) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsEOF)(::windows_core::Interface::as_raw(self))
@@ -253,7 +253,7 @@ impl IXmlWriter {
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), nproperty, pvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteAttributes<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> ::windows_core::Result<()>
     where
@@ -334,7 +334,7 @@ impl IXmlWriter {
     {
         (::windows_core::Interface::vtable(self).WriteNmToken)(::windows_core::Interface::as_raw(self), pwsznmtoken.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNode<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> ::windows_core::Result<()>
     where
@@ -343,7 +343,7 @@ impl IXmlWriter {
     {
         (::windows_core::Interface::vtable(self).WriteNode)(::windows_core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNodeShallow<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> ::windows_core::Result<()>
     where
@@ -472,7 +472,7 @@ impl IXmlWriterLite {
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), nproperty, pvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteAttributes<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> ::windows_core::Result<()>
     where
@@ -544,7 +544,7 @@ impl IXmlWriterLite {
     {
         (::windows_core::Interface::vtable(self).WriteNmToken)(::windows_core::Interface::as_raw(self), pwsznmtoken.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNode<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> ::windows_core::Result<()>
     where
@@ -553,7 +553,7 @@ impl IXmlWriterLite {
     {
         (::windows_core::Interface::vtable(self).WriteNode)(::windows_core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNodeShallow<P0, P1>(&self, preader: P0, fwritedefaultattributes: P1) -> ::windows_core::Result<()>
     where

@@ -90,7 +90,7 @@ pub struct ISignalNotifierStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PreallocatedWorkItem(::windows_core::IUnknown);
 impl PreallocatedWorkItem {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RunAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -99,7 +99,7 @@ impl PreallocatedWorkItem {
             (::windows_core::Interface::vtable(this).RunAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItem<P0>(handler: P0) -> ::windows_core::Result<PreallocatedWorkItem>
     where
@@ -110,7 +110,7 @@ impl PreallocatedWorkItem {
             (::windows_core::Interface::vtable(this).CreateWorkItem)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriority<P0>(handler: P0, priority: super::WorkItemPriority) -> ::windows_core::Result<PreallocatedWorkItem>
     where
@@ -121,7 +121,7 @@ impl PreallocatedWorkItem {
             (::windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWorkItemWithPriorityAndOptions<P0>(handler: P0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows_core::Result<PreallocatedWorkItem>
     where
@@ -174,7 +174,7 @@ impl SignalNotifier {
             (::windows_core::Interface::vtable(this).AttachToEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AttachToEventWithTimeout<P0>(name: &::windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier>
     where
@@ -194,7 +194,7 @@ impl SignalNotifier {
             (::windows_core::Interface::vtable(this).AttachToSemaphore)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AttachToSemaphoreWithTimeout<P0>(name: &::windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier>
     where

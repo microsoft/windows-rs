@@ -52,7 +52,7 @@ impl IAssemblyCache_Vtbl {
         *iid == <IAssemblyCache as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAssemblyCacheItem_Impl: Sized {
     fn CreateStream(&self, dwflags: u32, pszstreamname: &::windows_core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: *mut ::core::option::Option<super::Com::IStream>, pulimaxsize: *mut u64) -> ::windows_core::Result<()>;
@@ -172,7 +172,7 @@ impl IAssemblyName_Vtbl {
         *iid == <IAssemblyName as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmDependency_Impl: Sized {
     fn Next(&self, cfetch: u32, rgmsmdependencies: *mut ::core::option::Option<IMsmDependency>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -223,7 +223,7 @@ impl IEnumMsmDependency_Vtbl {
         *iid == <IEnumMsmDependency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmError_Impl: Sized {
     fn Next(&self, cfetch: u32, rgmsmerrors: *mut ::core::option::Option<IMsmError>, pcfetched: *mut u32) -> ::windows_core::Result<()>;
@@ -321,7 +321,7 @@ impl IEnumMsmString_Vtbl {
         *iid == <IEnumMsmString as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmDependencies_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32) -> ::windows_core::Result<IMsmDependency>;
@@ -371,7 +371,7 @@ impl IMsmDependencies_Vtbl {
         *iid == <IMsmDependencies as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmDependency_Impl: Sized + super::Com::IDispatch_Impl {
     fn Module(&self, module: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -409,7 +409,7 @@ impl IMsmDependency_Vtbl {
         *iid == <IMsmDependency as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmError_Impl: Sized + super::Com::IDispatch_Impl {
     fn Type(&self, errortype: *mut msmErrorType) -> ::windows_core::Result<()>;
@@ -487,7 +487,7 @@ impl IMsmError_Vtbl {
         *iid == <IMsmError as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmErrors_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32) -> ::windows_core::Result<IMsmError>;
@@ -537,7 +537,7 @@ impl IMsmErrors_Vtbl {
         *iid == <IMsmErrors as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmGetFiles_Impl: Sized + super::Com::IDispatch_Impl {
     fn ModuleFiles(&self) -> ::windows_core::Result<IMsmStrings>;
@@ -564,7 +564,7 @@ impl IMsmGetFiles_Vtbl {
         *iid == <IMsmGetFiles as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmMerge_Impl: Sized + super::Com::IDispatch_Impl {
     fn OpenDatabase(&self, path: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -684,7 +684,7 @@ impl IMsmMerge_Vtbl {
         *iid == <IMsmMerge as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmStrings_Impl: Sized + super::Com::IDispatch_Impl {
     fn get_Item(&self, item: i32, r#return: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -728,7 +728,7 @@ impl IMsmStrings_Vtbl {
         *iid == <IMsmStrings as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMApplicationInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1363,7 +1363,7 @@ impl IPMApplicationInfoEnumerator_Vtbl {
         *iid == <IPMApplicationInfoEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMBackgroundServiceAgentInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1537,7 +1537,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
         *iid == <IPMBackgroundServiceAgentInfoEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMBackgroundWorkerInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1643,7 +1643,7 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
         *iid == <IPMBackgroundWorkerInfoEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPMDeploymentManager_Impl: Sized {
     fn ReportDownloadBegin(&self, productid: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -1919,7 +1919,7 @@ impl IPMDeploymentManager_Vtbl {
         *iid == <IPMDeploymentManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMEnumerationManager_Impl: Sized {
     fn get_AllApplications(&self, ppappenum: *mut ::core::option::Option<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> ::windows_core::Result<()>;
@@ -2116,7 +2116,7 @@ impl IPMEnumerationManager_Vtbl {
         *iid == <IPMEnumerationManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionCachedFileUpdaterInfo_Impl: Sized {
     fn SupportsUpdates(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -2222,7 +2222,7 @@ impl IPMExtensionFileExtensionInfo_Vtbl {
         *iid == <IPMExtensionFileExtensionInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileOpenPickerInfo_Impl: Sized {
     fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -2259,7 +2259,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
         *iid == <IPMExtensionFileOpenPickerInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionFileSavePickerInfo_Impl: Sized {
     fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -2407,7 +2407,7 @@ impl IPMExtensionProtocolInfo_Vtbl {
         *iid == <IPMExtensionProtocolInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMExtensionShareTargetInfo_Impl: Sized {
     fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -2451,7 +2451,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
         *iid == <IPMExtensionShareTargetInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMLiveTileJobInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -2719,7 +2719,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
         *iid == <IPMLiveTileJobInfoEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTaskInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -2978,7 +2978,7 @@ impl IPMTaskInfoEnumerator_Vtbl {
         *iid == <IPMTaskInfoEnumerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPMTileInfo_Impl: Sized {
     fn ProductID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -3327,7 +3327,7 @@ impl IPMTilePropertyInfo_Vtbl {
         *iid == <IPMTilePropertyInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IValidate_Impl: Sized {
     fn OpenDatabase(&self, szdatabase: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;

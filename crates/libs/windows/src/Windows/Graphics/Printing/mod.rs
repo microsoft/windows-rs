@@ -1,14 +1,14 @@
 #[cfg(feature = "Graphics_Printing_OptionDetails")]
-#[doc = "Required features: `Graphics_Printing_OptionDetails`"]
+#[doc = "Required features: `\"Graphics_Printing_OptionDetails\"`"]
 pub mod OptionDetails;
 #[cfg(feature = "Graphics_Printing_PrintSupport")]
-#[doc = "Required features: `Graphics_Printing_PrintSupport`"]
+#[doc = "Required features: `\"Graphics_Printing_PrintSupport\"`"]
 pub mod PrintSupport;
 #[cfg(feature = "Graphics_Printing_PrintTicket")]
-#[doc = "Required features: `Graphics_Printing_PrintTicket`"]
+#[doc = "Required features: `\"Graphics_Printing_PrintTicket\"`"]
 pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
-#[doc = "Required features: `Graphics_Printing_Workflow`"]
+#[doc = "Required features: `\"Graphics_Printing_Workflow\"`"]
 pub mod Workflow;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -305,7 +305,7 @@ pub struct IPrintTaskOptions2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintTaskOptionsCore(::windows_core::IUnknown);
 impl IPrintTaskOptionsCore {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows_core::Result<PrintPageDescription> {
         let this = self;
@@ -517,7 +517,7 @@ pub struct IPrintTaskOptionsCoreProperties_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintTaskOptionsCoreUIConfiguration(::windows_core::IUnknown);
 impl IPrintTaskOptionsCoreUIConfiguration {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayedOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -735,7 +735,7 @@ pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintManager(::windows_core::IUnknown);
 impl PrintManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrintTaskRequested<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -747,7 +747,7 @@ impl PrintManager {
             (::windows_core::Interface::vtable(this).PrintTaskRequested)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePrintTaskRequested(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -759,7 +759,7 @@ impl PrintManager {
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ShowPrintUIAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPrintManagerStatic(|this| unsafe {
@@ -821,13 +821,13 @@ impl PrintPageInfo {
             (::windows_core::Interface::vtable(this).MediaSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPageSize(&self, value: super::super::Foundation::Size) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPageSize)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PageSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -993,7 +993,7 @@ unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTask(::windows_core::IUnknown);
 impl PrintTask {
-    #[doc = "Required features: `ApplicationModel_DataTransfer`"]
+    #[doc = "Required features: `\"ApplicationModel_DataTransfer\"`"]
     #[cfg(feature = "ApplicationModel_DataTransfer")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::ApplicationModel::DataTransfer::DataPackagePropertySet> {
         let this = self;
@@ -1016,7 +1016,7 @@ impl PrintTask {
             (::windows_core::Interface::vtable(this).Options)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Previewing<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1028,13 +1028,13 @@ impl PrintTask {
             (::windows_core::Interface::vtable(this).Previewing)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePreviewing(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemovePreviewing)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Submitting<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1046,13 +1046,13 @@ impl PrintTask {
             (::windows_core::Interface::vtable(this).Submitting)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubmitting(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSubmitting)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Progressing<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1064,13 +1064,13 @@ impl PrintTask {
             (::windows_core::Interface::vtable(this).Progressing)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProgressing(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveProgressing)(::windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1082,7 +1082,7 @@ impl PrintTask {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1179,7 +1179,7 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).Bordering)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPagePrintTicket<P0>(&self, printpageinfo: P0) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream>
     where
@@ -1198,7 +1198,7 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).PageRangeOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomPageRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<PrintPageRange>> {
         let this = &::windows_core::ComInterface::cast::<IPrintTaskOptions2>(self)?;
@@ -1207,7 +1207,7 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).CustomPageRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows_core::Result<PrintPageDescription> {
         let this = self;
@@ -1351,7 +1351,7 @@ impl PrintTaskOptions {
             (::windows_core::Interface::vtable(this).NumberOfCopies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayedOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<IPrintTaskOptionsCoreUIConfiguration>(self)?;
@@ -1410,7 +1410,7 @@ unsafe impl ::core::marker::Sync for PrintTaskProgressingEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTaskRequest(::windows_core::IUnknown);
 impl PrintTaskRequest {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1507,7 +1507,7 @@ unsafe impl ::core::marker::Sync for PrintTaskRequestedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintTaskSourceRequestedArgs(::windows_core::IUnknown);
 impl PrintTaskSourceRequestedArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2292,7 +2292,7 @@ impl ::windows_core::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub struct PrintPageDescription {
     pub PageSize: super::super::Foundation::Size,

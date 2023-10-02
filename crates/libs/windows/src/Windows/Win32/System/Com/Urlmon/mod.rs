@@ -146,7 +146,7 @@ where
     ::windows_targets::link!("urlmon.dll" "system" fn CoInternetQueryInfo(pwzurl : ::windows_core::PCWSTR, queryoptions : QUERYOPTION, dwqueryflags : u32, pvbuffer : *mut ::core::ffi::c_void, cbbuffer : u32, pcbbuffer : *mut u32, dwreserved : u32) -> ::windows_core::HRESULT);
     CoInternetQueryInfo(pwzurl.into_param().abi(), queryoptions, dwqueryflags, pvbuffer, cbbuffer, ::core::mem::transmute(pcbbuffer.unwrap_or(::std::ptr::null_mut())), dwreserved).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetSetFeatureEnabled<P0>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: P0) -> ::windows_core::Result<()>
@@ -166,14 +166,14 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows_core::GUID, pdwcompa
     ::windows_targets::link!("urlmon.dll" "system" fn CompatFlagsFromClsid(pclsid : *const ::windows_core::GUID, pdwcompatflags : *mut u32, pdwmiscstatusflags : *mut u32) -> ::windows_core::HRESULT);
     CompatFlagsFromClsid(pclsid, pdwcompatflags, pdwmiscstatusflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows_core::Result<()> {
     ::windows_targets::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const super:: BINDINFO, pbidest : *mut super:: BINDINFO) -> ::windows_core::HRESULT);
     CopyBindInfo(pcbisrc, pbidest).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows_core::Result<super::STGMEDIUM> {
@@ -235,7 +235,7 @@ where
     ::windows_targets::link!("urlmon.dll" "system" fn CreateURLMonikerEx2(pmkctx : * mut::core::ffi::c_void, puri : * mut::core::ffi::c_void, ppmk : *mut * mut::core::ffi::c_void, dwflags : u32) -> ::windows_core::HRESULT);
     CreateURLMonikerEx2(pmkctx.into_param().abi(), puri.into_param().abi(), ::core::mem::transmute(ppmk), dwflags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaultInIEFeature<P0>(hwnd: P0, pclassspec: *const super::uCLSSPEC, pquery: ::core::option::Option<*mut super::QUERYCONTEXT>, dwflags: u32) -> ::windows_core::Result<()>
@@ -386,7 +386,7 @@ where
     ::windows_targets::link!("urlmon.dll" "system" fn IsAsyncMoniker(pmk : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     IsAsyncMoniker(pmk.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledA<P0>(pszurl: P0) -> super::super::super::Foundation::BOOL
@@ -396,7 +396,7 @@ where
     ::windows_targets::link!("urlmon.dll" "system" fn IsLoggingEnabledA(pszurl : ::windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
     IsLoggingEnabledA(pszurl.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledW<P0>(pwszurl: P0) -> super::super::super::Foundation::BOOL
@@ -460,7 +460,7 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const ::windows_core::
     ::windows_targets::link!("urlmon.dll" "system" fn RegisterMediaTypes(ctypes : u32, rgsztypes : *const ::windows_core::PCSTR, rgcftypes : *mut u16) -> ::windows_core::HRESULT);
     RegisterMediaTypes(ctypes, rgsztypes, rgcftypes).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
@@ -485,7 +485,7 @@ where
     ::windows_targets::link!("urlmon.dll" "system" fn RevokeFormatEnumerator(pbc : * mut::core::ffi::c_void, pefetc : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     RevokeFormatEnumerator(pbc.into_param().abi(), pefetc.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetAccessForIEAppContainer<P0>(hobject: P0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows_core::Result<()>
@@ -615,7 +615,7 @@ pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: ::core::option::Opti
     ::windows_targets::link!("urlmon.dll" "system" fn UrlMkSetSessionOption(dwoption : u32, pbuffer : *const ::core::ffi::c_void, dwbufferlength : u32, dwreserved : u32) -> ::windows_core::HRESULT);
     UrlMkSetSessionOption(dwoption, ::core::mem::transmute(pbuffer.unwrap_or(::std::ptr::null())), dwbufferlength, dwreserved).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
@@ -626,7 +626,7 @@ pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBindCallbackRedirect(::windows_core::IUnknown);
 impl IBindCallbackRedirect {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Redirect<P0>(&self, lpcurl: P0) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
     where
@@ -730,7 +730,7 @@ pub struct ICatalogFileInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICodeInstall(::windows_core::IUnknown);
 impl ICodeInstall {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -825,7 +825,7 @@ pub struct IEncodingFilterFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetBindHandle(::windows_core::IUnknown);
 impl IGetBindHandle {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -964,7 +964,7 @@ pub struct IHttpNegotiate3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpSecurity(::windows_core::IUnknown);
 impl IHttpSecurity {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -1007,7 +1007,7 @@ pub struct IInternet_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetBindInfo(::windows_core::IUnknown);
 impl IInternetBindInfo {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBindInfo)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo).ok()
@@ -1037,7 +1037,7 @@ pub struct IInternetBindInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetBindInfoEx(::windows_core::IUnknown);
 impl IInternetBindInfoEx {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetBindInfo)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo).ok()
@@ -1045,7 +1045,7 @@ impl IInternetBindInfoEx {
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut ::windows_core::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetBindString)(::windows_core::Interface::as_raw(self), ulstringtype, ppwzstr, cel, pcelfetched).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBindInfoEx)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo, grfbindf2, pdwreserved).ok()
@@ -1126,7 +1126,7 @@ pub struct IInternetPriority_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocol(::windows_core::IUnknown);
 impl IInternetProtocol {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows_core::Result<()>
     where
@@ -1186,7 +1186,7 @@ pub struct IInternetProtocol_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolEx(::windows_core::IUnknown);
 impl IInternetProtocolEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows_core::Result<()>
     where
@@ -1225,7 +1225,7 @@ impl IInternetProtocolEx {
     pub unsafe fn UnlockRequest(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.UnlockRequest)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartEx<P0, P1, P2, P3>(&self, puri: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows_core::Result<()>
     where
@@ -1305,7 +1305,7 @@ pub struct IInternetProtocolInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolRoot(::windows_core::IUnknown);
 impl IInternetProtocolRoot {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<P0, P1, P2, P3>(&self, szurl: P0, poiprotsink: P1, poibindinfo: P2, grfpi: u32, dwreserved: P3) -> ::windows_core::Result<()>
     where
@@ -1657,13 +1657,13 @@ pub struct IInternetSecurityManagerEx2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetSecurityMgrSite(::windows_core::IUnknown);
 impl IInternetSecurityMgrSite {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWindow)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableModeless<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -1805,7 +1805,7 @@ impl IInternetZoneManager {
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetZoneActionPolicy)(::windows_core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptAction<P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows_core::Result<()>
     where
@@ -1885,7 +1885,7 @@ impl IInternetZoneManagerEx {
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetZoneActionPolicy)(::windows_core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptAction<P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows_core::Result<()>
     where
@@ -1958,7 +1958,7 @@ impl IInternetZoneManagerEx2 {
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetZoneActionPolicy)(::windows_core::Interface::as_raw(self), dwzone, dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, urlzonereg).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PromptAction<P0, P1, P2>(&self, dwaction: u32, hwndparent: P0, pwszurl: P1, pwsztext: P2, dwpromptflags: u32) -> ::windows_core::Result<()>
     where
@@ -1997,7 +1997,7 @@ impl IInternetZoneManagerEx2 {
     pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetZoneAttributesEx)(::windows_core::Interface::as_raw(self), dwzone, pzoneattributes, dwflags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetZoneSecurityState<P0>(&self, dwzoneindex: u32, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -2005,7 +2005,7 @@ impl IInternetZoneManagerEx2 {
     {
         (::windows_core::Interface::vtable(self).GetZoneSecurityState)(::windows_core::Interface::as_raw(self), dwzoneindex, frespectpolicy.into_param().abi(), pdwstate, pfpolicyencountered).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIESecurityState<P0, P1>(&self, frespectpolicy: P0, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: P1) -> ::windows_core::Result<()>
     where
@@ -2075,7 +2075,7 @@ impl IPersistMoniker {
     pub unsafe fn IsDirty(&self) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).IsDirty)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Load<P0, P1, P2>(&self, ffullyavailable: P0, pimkname: P1, pibc: P2, grfmode: u32) -> ::windows_core::Result<()>
     where
@@ -2085,7 +2085,7 @@ impl IPersistMoniker {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), ffullyavailable.into_param().abi(), pimkname.into_param().abi(), pibc.into_param().abi(), grfmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0, P1, P2>(&self, pimkname: P0, pbc: P1, fremember: P2) -> ::windows_core::Result<()>
     where
@@ -2135,7 +2135,7 @@ pub struct IPersistMoniker_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISoftDistExt(::windows_core::IUnknown);
 impl ISoftDistExt {
-    #[doc = "Required features: `Win32_Data_Xml_MsXml`"]
+    #[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`"]
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
     pub unsafe fn ProcessSoftDist<P0, P1>(&self, szcdfurl: P0, psoftdistelement: P1, lpsdi: *mut SOFTDISTINFO) -> ::windows_core::Result<()>
     where
@@ -2374,7 +2374,7 @@ pub struct IWinInetInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowForBindingUI(::windows_core::IUnknown);
 impl IWindowForBindingUI {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -3892,7 +3892,7 @@ impl ::core::default::Default for DATAINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
@@ -4028,7 +4028,7 @@ impl ::core::default::Default for PROTOCOL_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
@@ -4068,7 +4068,7 @@ impl ::core::default::Default for REMSECURITY_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RemBINDINFO {
     pub cbSize: u32,

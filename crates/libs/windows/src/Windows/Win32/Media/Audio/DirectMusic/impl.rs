@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio_DirectSound`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IDirectMusic_Impl: Sized {
     fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows_core::Result<()>;
@@ -78,7 +78,7 @@ impl IDirectMusic_Vtbl {
         *iid == <IDirectMusic as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio_DirectSound`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IDirectMusic8_Impl: Sized + IDirectMusic_Impl {
     fn SetExternalMasterClock(&self, pclock: ::core::option::Option<&super::super::IReferenceClock>) -> ::windows_core::Result<()>;
@@ -290,7 +290,7 @@ impl IDirectMusicInstrument_Vtbl {
         *iid == <IDirectMusicInstrument as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio_DirectSound`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
 pub trait IDirectMusicPort_Impl: Sized {
     fn PlayBuffer(&self, pbuffer: ::core::option::Option<&IDirectMusicBuffer>) -> ::windows_core::Result<()>;
@@ -499,7 +499,7 @@ impl IDirectMusicPortDownload_Vtbl {
         *iid == <IDirectMusicPortDownload as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectMusicSynth_Impl: Sized {
     fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows_core::Result<()>;
@@ -641,7 +641,7 @@ impl IDirectMusicSynth_Vtbl {
         *iid == <IDirectMusicSynth as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectMusicSynth8_Impl: Sized + IDirectMusicSynth_Impl {
     fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows_core::Result<()>;
@@ -693,7 +693,7 @@ impl IDirectMusicSynth8_Vtbl {
         *iid == <IDirectMusicSynth8 as ::windows_core::ComInterface>::IID || *iid == <IDirectMusicSynth as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio_DirectSound`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IDirectMusicSynthSink_Impl: Sized {
     fn Init(&self, psynth: ::core::option::Option<&IDirectMusicSynth>) -> ::windows_core::Result<()>;

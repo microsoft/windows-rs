@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreateNamedPropertyStore() -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
@@ -6,7 +6,7 @@ pub unsafe fn CreateNamedPropertyStore() -> ::windows_core::Result<super::super:
     let mut result__ = ::std::mem::zeroed();
     CreateNamedPropertyStore(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreatePropertyStore() -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
@@ -19,7 +19,7 @@ pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicem
     ::windows_targets::link!("dxva2.dll" "system" fn DXVA2CreateDirect3DDeviceManager9(presettoken : *mut u32, ppdevicemanager : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     DXVA2CreateDirect3DDeviceManager9(presettoken, ::core::mem::transmute(ppdevicemanager)).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVA2CreateVideoService<P0>(pdd: P0, riid: *const ::windows_core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -29,7 +29,7 @@ where
     ::windows_targets::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : * mut::core::ffi::c_void, riid : *const ::windows_core::GUID, ppservice : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     DXVA2CreateVideoService(pdd.into_param().abi(), riid, ppservice).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin) -> ::windows_core::Result<IDXVAHD_Device>
@@ -111,7 +111,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid : u32, pdonecallback : * mut::core::ffi::c_void, pdonestate : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid, pdonecallback.into_param().abi(), pdonestate.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
@@ -137,7 +137,7 @@ pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mfplat.dll" "system" fn MFCancelWorkItem(key : u64) -> ::windows_core::HRESULT);
     MFCancelWorkItem(key).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCombineSamples<P0, P1>(psample: P0, psampletoadd: P1, dwmaxmergeddurationinms: u32) -> ::windows_core::Result<super::super::Foundation::BOOL>
@@ -149,7 +149,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCombineSamples(psample.into_param().abi(), psampletoadd.into_param().abi(), dwmaxmergeddurationinms, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCompareFullToPartialMediaType<P0, P1>(pmftypefull: P0, pmftypepartial: P1) -> super::super::Foundation::BOOL
@@ -160,14 +160,14 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFCompareFullToPartialMediaType(pmftypefull : * mut::core::ffi::c_void, pmftypepartial : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     MFCompareFullToPartialMediaType(pmftypefull.into_param().abi(), pmftypepartial.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mfplat.dll" "system" fn MFConvertColorInfoFromDXVA(ptoformat : *mut MFVIDEOFORMAT, dwfromdxva : u32) -> ::windows_core::HRESULT);
     MFConvertColorInfoFromDXVA(ptoformat, dwfromdxva).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows_core::Result<()> {
@@ -189,7 +189,7 @@ pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsr
     ::windows_targets::link!("mfplat.dll" "system" fn MFCopyImage(pdest : *mut u8, ldeststride : i32, psrc : *const u8, lsrcstride : i32, dwwidthinbytes : u32, dwlines : u32) -> ::windows_core::HRESULT);
     MFCopyImage(pdest, ldeststride, psrc, lsrcstride, dwwidthinbytes, dwlines).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreate2DMediaBuffer<P0>(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: P0) -> ::windows_core::Result<IMFMediaBuffer>
@@ -231,7 +231,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateADTSMediaSink(ptargetbytestream.into_param().abi(), paudiomediatype.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<P0>(pmftype: P0, guidformatblocktype: ::windows_core::GUID, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows_core::Result<()>
@@ -378,7 +378,7 @@ pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMF
     ::windows_targets::link!("mfplat.dll" "system" fn MFCreateAttributes(ppmfattributes : *mut * mut::core::ffi::c_void, cinitialsize : u32) -> ::windows_core::HRESULT);
     MFCreateAttributes(::core::mem::transmute(ppmfattributes), cinitialsize).ok()
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> ::windows_core::Result<IMFAudioMediaType> {
@@ -449,7 +449,7 @@ pub unsafe fn MFCreateCredentialCache() -> ::windows_core::Result<IMFNetCredenti
     let mut result__ = ::std::mem::zeroed();
     MFCreateCredentialCache(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn MFCreateD3D12SynchronizationObject<P0>(pdevice: P0, riid: *const ::windows_core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -464,7 +464,7 @@ pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *
     ::windows_targets::link!("mfplat.dll" "system" fn MFCreateDXGIDeviceManager(resettoken : *mut u32, ppdevicemanager : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MFCreateDXGIDeviceManager(resettoken, ::core::mem::transmute(ppdevicemanager)).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXGISurfaceBuffer<P0, P1>(riid: *const ::windows_core::GUID, punksurface: P0, usubresourceindex: u32, fbottomupwhenlinear: P1) -> ::windows_core::Result<IMFMediaBuffer>
@@ -476,7 +476,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateDXGISurfaceBuffer(riid, punksurface.into_param().abi(), usubresourceindex, fbottomupwhenlinear.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXSurfaceBuffer<P0, P1>(riid: *const ::windows_core::GUID, punksurface: P0, fbottomupwhenlinear: P1) -> ::windows_core::Result<IMFMediaBuffer>
@@ -506,7 +506,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateDeviceSourceActivate(pattributes.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<P0, P1, P2>(pmphost: P0, objectstream: P1, classid: P2) -> ::windows_core::Result<IMFActivate>
@@ -557,7 +557,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateFile(accessmode, openmode, fflags, pwszfileurl.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Media_DxMediaObjects`"]
+#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 #[inline]
 pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<P0, P1>(psample: P0, pmfmediabuffer: P1, cboffset: u32) -> ::windows_core::Result<super::DxMediaObjects::IMediaBuffer>
@@ -569,7 +569,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.into_param().abi(), pmfmediabuffer.into_param().abi(), cboffset, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamOnStream<P0>(pstream: P0) -> ::windows_core::Result<IMFByteStream>
@@ -598,7 +598,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateMFByteStreamWrapper(pstream.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<P0>(pmftype: P0, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -646,7 +646,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateMediaBufferWrapper(pbuffer.into_param().abi(), cboffset, dwlength, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<IMFMediaEvent> {
@@ -790,7 +790,7 @@ pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows_core::Result<IMF
     let mut result__ = ::std::mem::zeroed();
     MFCreateProtectedEnvironmentAccess(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateProxyLocator<P0, P1>(pszprotocol: P0, pproxyconfig: P1) -> ::windows_core::Result<IMFNetProxyLocator>
@@ -883,7 +883,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateSensorStream(streamid, pattributes.into_param().abi(), pmediatypecollection.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -975,7 +975,7 @@ pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, apmediatypes: &[
     let mut result__ = ::std::mem::zeroed();
     MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len() as _, ::core::mem::transmute(apmediatypes.as_ptr()), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateStreamOnMFByteStream<P0>(pbytestream: P0) -> ::windows_core::Result<super::super::System::Com::IStream>
@@ -1070,7 +1070,7 @@ pub unsafe fn MFCreateTransformActivate() -> ::windows_core::Result<IMFActivate>
     let mut result__ = ::std::mem::zeroed();
     MFCreateTransformActivate(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows_core::Result<IMFVideoMediaType> {
@@ -1078,7 +1078,7 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::wi
     let mut result__ = ::std::mem::zeroed();
     MFCreateVideoMediaType(pvideoformat, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows_core::Result<IMFVideoMediaType> {
@@ -1086,7 +1086,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
     let mut result__ = ::std::mem::zeroed();
     MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows_core::Result<IMFVideoMediaType> {
@@ -1130,7 +1130,7 @@ pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows_core::GUID, p
     ::windows_targets::link!("mf.dll" "system" fn MFCreateVideoRenderer(riidrenderer : *const ::windows_core::GUID, ppvideorenderer : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     MFCreateVideoRenderer(riidrenderer, ppvideorenderer).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoRendererActivate<P0>(hwndvideo: P0) -> ::windows_core::Result<IMFActivate>
@@ -1189,7 +1189,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateWICBitmapBuffer(riid, punksurface.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMAEncoderActivate<P0, P1>(pmediatype: P0, pencodingconfigurationproperties: P1) -> ::windows_core::Result<IMFActivate>
@@ -1201,7 +1201,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateWMAEncoderActivate(pmediatype.into_param().abi(), pencodingconfigurationproperties.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMVEncoderActivate<P0, P1>(pmediatype: P0, pencodingconfigurationproperties: P1) -> ::windows_core::Result<IMFActivate>
@@ -1213,7 +1213,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFCreateWMVEncoderActivate(pmediatype.into_param().abi(), pencodingconfigurationproperties.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateWaveFormatExFromMFMediaType<P0>(pmftype: P0, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: ::core::option::Option<*mut u32>, flags: u32) -> ::windows_core::Result<()>
@@ -1223,7 +1223,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFCreateWaveFormatExFromMFMediaType(pmftype : * mut::core::ffi::c_void, ppwf : *mut *mut super::Audio:: WAVEFORMATEX, pcbsize : *mut u32, flags : u32) -> ::windows_core::HRESULT);
     MFCreateWaveFormatExFromMFMediaType(pmftype.into_param().abi(), ppwf, ::core::mem::transmute(pcbsize.unwrap_or(::std::ptr::null_mut())), flags).ok()
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFDeserializeAttributesFromStream<P0, P1>(pattr: P0, dwoptions: u32, pstm: P1) -> ::windows_core::Result<()>
@@ -1344,7 +1344,7 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::win
     let mut result__ = ::std::mem::zeroed();
     MFGetStrideForBitmapInfoHeader(format, dwwidth, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFGetSupportedMimeTypes() -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -1352,7 +1352,7 @@ pub unsafe fn MFGetSupportedMimeTypes() -> ::windows_core::Result<super::super::
     let mut result__ = ::std::mem::zeroed();
     MFGetSupportedMimeTypes(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFGetSupportedSchemes() -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -1377,7 +1377,7 @@ pub unsafe fn MFGetTimerPeriodicity() -> ::windows_core::Result<u32> {
     let mut result__ = ::std::mem::zeroed();
     MFGetTimerPeriodicity(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetTopoNodeCurrentType<P0, P1>(pnode: P0, dwstreamindex: u32, foutput: P1) -> ::windows_core::Result<IMFMediaType>
@@ -1389,7 +1389,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MFGetTopoNodeCurrentType(pnode.into_param().abi(), dwstreamindex, foutput.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
@@ -1426,7 +1426,7 @@ pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
     ::windows_targets::link!("mfplat.dll" "system" fn MFHeapFree(pv : *mut ::core::ffi::c_void) -> ());
     MFHeapFree(pv)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitAMMediaTypeFromMFMediaType<P0>(pmftype: P0, guidformatblocktype: ::windows_core::GUID, pamtype: *mut AM_MEDIA_TYPE) -> ::windows_core::Result<()>
@@ -1444,7 +1444,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitAttributesFromBlob(pattributes : * mut::core::ffi::c_void, pbuf : *const u8, cbbufsize : u32) -> ::windows_core::HRESULT);
     MFInitAttributesFromBlob(pattributes.into_param().abi(), ::core::mem::transmute(pbuf.as_ptr()), pbuf.len() as _).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromAMMediaType<P0>(pmftype: P0, pamtype: *const AM_MEDIA_TYPE) -> ::windows_core::Result<()>
@@ -1454,7 +1454,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromAMMediaType(pmftype : * mut::core::ffi::c_void, pamtype : *const AM_MEDIA_TYPE) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromAMMediaType(pmftype.into_param().abi(), pamtype).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMFVideoFormat<P0>(pmftype: P0, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows_core::Result<()>
@@ -1464,7 +1464,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMFVideoFormat(pmftype : * mut::core::ffi::c_void, pmfvf : *const MFVIDEOFORMAT, cbbufsize : u32) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromMFVideoFormat(pmftype.into_param().abi(), pmfvf, cbbufsize).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<P0>(pmftype: P0, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
@@ -1474,7 +1474,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype : * mut::core::ffi::c_void, pmp1vi : *const MPEG1VIDEOINFO, cbbufsize : u32, psubtype : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into_param().abi(), pmp1vi, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<P0>(pmftype: P0, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
@@ -1484,7 +1484,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype : * mut::core::ffi::c_void, pmp2vi : *const MPEG2VIDEOINFO, cbbufsize : u32, psubtype : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into_param().abi(), pmp2vi, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<P0>(pmftype: P0, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
@@ -1494,7 +1494,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader(pmftype : * mut::core::ffi::c_void, pvih : *const VIDEOINFOHEADER, cbbufsize : u32, psubtype : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromVideoInfoHeader(pmftype.into_param().abi(), pvih, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<P0>(pmftype: P0, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: ::core::option::Option<*const ::windows_core::GUID>) -> ::windows_core::Result<()>
@@ -1504,7 +1504,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader2(pmftype : * mut::core::ffi::c_void, pvih2 : *const VIDEOINFOHEADER2, cbbufsize : u32, psubtype : *const ::windows_core::GUID) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromVideoInfoHeader2(pmftype.into_param().abi(), pvih2, cbbufsize, ::core::mem::transmute(psubtype.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromWaveFormatEx<P0>(pmftype: P0, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows_core::Result<()>
@@ -1514,14 +1514,14 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitMediaTypeFromWaveFormatEx(pmftype : * mut::core::ffi::c_void, pwaveformat : *const super::Audio:: WAVEFORMATEX, cbbufsize : u32) -> ::windows_core::HRESULT);
     MFInitMediaTypeFromWaveFormatEx(pmftype.into_param().abi(), pwaveformat, cbbufsize).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mfplat.dll" "system" fn MFInitVideoFormat(pvideoformat : *const MFVIDEOFORMAT, r#type : MFStandardVideoFormat) -> ::windows_core::HRESULT);
     MFInitVideoFormat(pvideoformat, r#type).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows_core::Result<()> {
@@ -1536,7 +1536,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFInvokeCallback(pasyncresult : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MFInvokeCallback(pasyncresult.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::BOOL> {
@@ -1544,14 +1544,14 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::
     let mut result__ = ::std::mem::zeroed();
     MFIsContentProtectionDeviceSupported(protectionsystemid, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("evr.dll" "system" fn MFIsFormatYUV(format : u32) -> super::super::Foundation:: BOOL);
     MFIsFormatYUV(format)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> ::windows_core::Result<super::super::Foundation::BOOL> {
@@ -1591,21 +1591,21 @@ pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("mfplat.dll" "system" fn MFLockWorkQueue(dwworkqueue : u32) -> ::windows_core::HRESULT);
     MFLockWorkQueue(dwworkqueue).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
     ::windows_targets::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::super::Graphics::Dxgi::Common:: DXGI_FORMAT);
     MFMapDX9FormatToDXGIFormat(dx9)
 }
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32 {
     ::windows_targets::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::super::Graphics::Dxgi::Common:: DXGI_FORMAT) -> u32);
     MFMapDXGIFormatToDX9Format(dx11)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPCreateMediaPlayer<P0, P1, P2, P3>(pwszurl: P0, fstartplayback: P1, creationoptions: MFP_CREATION_OPTIONS, pcallback: P2, hwnd: P3, ppmediaplayer: ::core::option::Option<*mut ::core::option::Option<IMFPMediaPlayer>>) -> ::windows_core::Result<()>
@@ -1618,7 +1618,7 @@ where
     ::windows_targets::link!("mfplay.dll" "system" fn MFPCreateMediaPlayer(pwszurl : ::windows_core::PCWSTR, fstartplayback : super::super::Foundation:: BOOL, creationoptions : MFP_CREATION_OPTIONS, pcallback : * mut::core::ffi::c_void, hwnd : super::super::Foundation:: HWND, ppmediaplayer : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MFPCreateMediaPlayer(pwszurl.into_param().abi(), fstartplayback.into_param().abi(), creationoptions, pcallback.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(ppmediaplayer.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPutWaitingWorkItem<P0, P1>(hevent: P0, priority: i32, presult: P1, pkey: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -1720,7 +1720,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFScheduleWorkItemEx(presult : * mut::core::ffi::c_void, timeout : i64, pkey : *mut u64) -> ::windows_core::HRESULT);
     MFScheduleWorkItemEx(presult.into_param().abi(), timeout, ::core::mem::transmute(pkey.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFSerializeAttributesToStream<P0, P1>(pattr: P0, dwoptions: u32, pstm: P1) -> ::windows_core::Result<()>
@@ -1800,7 +1800,7 @@ where
     ::windows_targets::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : ::windows_core::GUID, guidcategory : ::windows_core::GUID, pszname : ::windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     MFTRegister(::core::mem::transmute(clsidmft), ::core::mem::transmute(guidcategory), pszname.into_param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(poutputtypes.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pattributes.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFTRegisterLocal<P0, P1>(pclassfactory: P0, guidcategory: *const ::windows_core::GUID, pszname: P1, flags: u32, pinputtypes: ::core::option::Option<&[MFT_REGISTER_TYPE_INFO]>, poutputtypes: ::core::option::Option<&[MFT_REGISTER_TYPE_INFO]>) -> ::windows_core::Result<()>
@@ -1824,7 +1824,7 @@ pub unsafe fn MFTUnregister(clsidmft: ::windows_core::GUID) -> ::windows_core::R
     ::windows_targets::link!("mfplat.dll" "system" fn MFTUnregister(clsidmft : ::windows_core::GUID) -> ::windows_core::HRESULT);
     MFTUnregister(::core::mem::transmute(clsidmft)).ok()
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFTUnregisterLocal<P0>(pclassfactory: P0) -> ::windows_core::Result<()>
@@ -1896,7 +1896,7 @@ pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
     ::windows_targets::link!("mfplat.dll" "system" fn MFllMulDiv(a : i64, b : i64, c : i64, d : i64) -> i64);
     MFllMulDiv(a, b, c, d)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows_core::Result<IOPMVideoOutput> {
@@ -1904,7 +1904,7 @@ pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foun
     let mut result__ = ::std::mem::zeroed();
     OPMGetVideoOutputForTarget(padapterluid, vidpntarget, vos, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromHMONITOR<P0>(hmonitor: P0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows_core::Result<()>
@@ -1914,7 +1914,7 @@ where
     ::windows_targets::link!("dxva2.dll" "system" fn OPMGetVideoOutputsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, vos : OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs : *mut u32, pppopmvideooutputarray : *mut *mut ::core::option::Option < IOPMVideoOutput >) -> ::windows_core::HRESULT);
     OPMGetVideoOutputsFromHMONITOR(hmonitor.into_param().abi(), vos, pulnumvideooutputs, pppopmvideooutputarray).ok()
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<P0>(pdirect3ddevice9: P0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows_core::Result<()>
@@ -2067,29 +2067,29 @@ impl ICodecAPI {
     pub unsafe fn IsModifiable(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsModifiable)(::windows_core::Interface::as_raw(self), api).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterRange(&self, api: *const ::windows_core::GUID, valuemin: *mut super::super::System::Variant::VARIANT, valuemax: *mut super::super::System::Variant::VARIANT, steppingdelta: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterRange)(::windows_core::Interface::as_raw(self), api, valuemin, valuemax, steppingdelta).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParameterValues(&self, api: *const ::windows_core::GUID, values: *mut *mut super::super::System::Variant::VARIANT, valuescount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetParameterValues)(::windows_core::Interface::as_raw(self), api, values, valuescount).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDefaultValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), api, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), api, value).ok()
@@ -2103,7 +2103,7 @@ impl ICodecAPI {
     pub unsafe fn SetAllDefaults(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAllDefaults)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValueWithNotify(&self, api: *const ::windows_core::GUID, value: *const super::super::System::Variant::VARIANT, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValueWithNotify)(::windows_core::Interface::as_raw(self), api, value, changedparam, changedparamcount).ok()
@@ -2111,7 +2111,7 @@ impl ICodecAPI {
     pub unsafe fn SetAllDefaultsWithNotify(&self, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAllDefaultsWithNotify)(::windows_core::Interface::as_raw(self), changedparam, changedparamcount).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAllSettings<P0>(&self, __midl__icodecapi0000: P0) -> ::windows_core::Result<()>
     where
@@ -2119,7 +2119,7 @@ impl ICodecAPI {
     {
         (::windows_core::Interface::vtable(self).GetAllSettings)(::windows_core::Interface::as_raw(self), __midl__icodecapi0000.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAllSettings<P0>(&self, __midl__icodecapi0001: P0) -> ::windows_core::Result<()>
     where
@@ -2127,7 +2127,7 @@ impl ICodecAPI {
     {
         (::windows_core::Interface::vtable(self).SetAllSettings)(::windows_core::Interface::as_raw(self), __midl__icodecapi0001.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAllSettingsWithNotify<P0>(&self, __midl__icodecapi0002: P0, changedparam: *mut *mut ::windows_core::GUID, changedparamcount: *mut u32) -> ::windows_core::Result<()>
     where
@@ -2190,24 +2190,24 @@ pub struct ICodecAPI_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetAllSettingsWithNotify: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecodeCommandList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -2215,7 +2215,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2223,7 +2223,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -2231,7 +2231,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -2239,7 +2239,7 @@ impl ID3D12VideoDecodeCommandList {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -2250,12 +2250,12 @@ impl ID3D12VideoDecodeCommandList {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -2263,7 +2263,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2271,7 +2271,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2279,7 +2279,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -2288,7 +2288,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -2305,7 +2305,7 @@ impl ID3D12VideoDecodeCommandList {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2313,7 +2313,7 @@ impl ID3D12VideoDecodeCommandList {
     {
         (::windows_core::Interface::vtable(self).DecodeFrame)(::windows_core::Interface::as_raw(self), pdecoder.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
@@ -2380,24 +2380,24 @@ pub struct ID3D12VideoDecodeCommandList_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     WriteBufferImmediate: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecodeCommandList1(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList1 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -2405,7 +2405,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2413,7 +2413,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -2421,7 +2421,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -2429,7 +2429,7 @@ impl ID3D12VideoDecodeCommandList1 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -2440,12 +2440,12 @@ impl ID3D12VideoDecodeCommandList1 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -2453,7 +2453,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2461,7 +2461,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2469,7 +2469,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -2478,7 +2478,7 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -2495,7 +2495,7 @@ impl ID3D12VideoDecodeCommandList1 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2503,12 +2503,12 @@ impl ID3D12VideoDecodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.DecodeFrame)(::windows_core::Interface::as_raw(self), pdecoder.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame1<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2541,24 +2541,24 @@ pub struct ID3D12VideoDecodeCommandList1_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
     DecodeFrame1: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecodeCommandList2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList2 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -2566,7 +2566,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2574,7 +2574,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -2582,7 +2582,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -2590,7 +2590,7 @@ impl ID3D12VideoDecodeCommandList2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -2601,12 +2601,12 @@ impl ID3D12VideoDecodeCommandList2 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -2614,7 +2614,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2622,7 +2622,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2630,7 +2630,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -2639,7 +2639,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -2656,7 +2656,7 @@ impl ID3D12VideoDecodeCommandList2 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2664,12 +2664,12 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.DecodeFrame)(::windows_core::Interface::as_raw(self), pdecoder.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame1<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2677,7 +2677,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.DecodeFrame1)(::windows_core::Interface::as_raw(self), pdecoder.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -2685,7 +2685,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -2693,7 +2693,7 @@ impl ID3D12VideoDecodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -2734,24 +2734,24 @@ pub struct ID3D12VideoDecodeCommandList2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     ExecuteExtensionCommand: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecodeCommandList3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecodeCommandList3 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -2759,7 +2759,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2767,7 +2767,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -2775,7 +2775,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -2783,7 +2783,7 @@ impl ID3D12VideoDecodeCommandList3 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -2794,12 +2794,12 @@ impl ID3D12VideoDecodeCommandList3 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -2807,7 +2807,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2815,7 +2815,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -2823,7 +2823,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -2832,7 +2832,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -2849,7 +2849,7 @@ impl ID3D12VideoDecodeCommandList3 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2857,12 +2857,12 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.DecodeFrame)(::windows_core::Interface::as_raw(self), pdecoder.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn DecodeFrame1<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
     where
@@ -2870,7 +2870,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.DecodeFrame1)(::windows_core::Interface::as_raw(self), pdecoder.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -2878,7 +2878,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -2886,7 +2886,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -2894,7 +2894,7 @@ impl ID3D12VideoDecodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
         (::windows_core::Interface::vtable(self).Barrier)(::windows_core::Interface::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
@@ -2924,24 +2924,24 @@ pub struct ID3D12VideoDecodeCommandList3_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Barrier: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecoder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -2949,7 +2949,7 @@ impl ID3D12VideoDecoder {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -2957,7 +2957,7 @@ impl ID3D12VideoDecoder {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -2992,24 +2992,24 @@ pub struct ID3D12VideoDecoder_Vtbl {
     pub base__: super::super::Graphics::Direct3D12::ID3D12Pageable_Vtbl,
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecoder1(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoder1 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -3017,7 +3017,7 @@ impl ID3D12VideoDecoder1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3025,7 +3025,7 @@ impl ID3D12VideoDecoder1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -3066,24 +3066,24 @@ pub struct ID3D12VideoDecoder1_Vtbl {
     pub base__: ID3D12VideoDecoder_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecoderHeap(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoderHeap {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -3091,7 +3091,7 @@ impl ID3D12VideoDecoderHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3099,7 +3099,7 @@ impl ID3D12VideoDecoderHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -3107,7 +3107,7 @@ impl ID3D12VideoDecoderHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC {
         let mut result__: D3D12_VIDEO_DECODER_HEAP_DESC = ::core::mem::zeroed();
@@ -3139,24 +3139,24 @@ pub struct ID3D12VideoDecoderHeap_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoDecoderHeap1(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoDecoderHeap1 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -3164,7 +3164,7 @@ impl ID3D12VideoDecoderHeap1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3172,7 +3172,7 @@ impl ID3D12VideoDecoderHeap1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -3180,7 +3180,7 @@ impl ID3D12VideoDecoderHeap1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC {
         let mut result__: D3D12_VIDEO_DECODER_HEAP_DESC = ::core::mem::zeroed();
@@ -3229,7 +3229,7 @@ impl ID3D12VideoDevice {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoDecoder)(::windows_core::Interface::as_raw(self), pdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoderHeap<T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC) -> ::windows_core::Result<T>
     where
@@ -3238,7 +3238,7 @@ impl ID3D12VideoDevice {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoDecoderHeap)(::windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> ::windows_core::Result<T>
     where
@@ -3286,7 +3286,7 @@ impl ID3D12VideoDevice1 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoDecoder)(::windows_core::Interface::as_raw(self), pdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoderHeap<T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC) -> ::windows_core::Result<T>
     where
@@ -3295,7 +3295,7 @@ impl ID3D12VideoDevice1 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoDecoderHeap)(::windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> ::windows_core::Result<T>
     where
@@ -3304,7 +3304,7 @@ impl ID3D12VideoDevice1 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoProcessor)(::windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoMotionEstimator<P0, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3314,7 +3314,7 @@ impl ID3D12VideoDevice1 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoMotionEstimator)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoMotionVectorHeap<P0, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3361,7 +3361,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.CreateVideoDecoder)(::windows_core::Interface::as_raw(self), pdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoderHeap<T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC) -> ::windows_core::Result<T>
     where
@@ -3370,7 +3370,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.CreateVideoDecoderHeap)(::windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> ::windows_core::Result<T>
     where
@@ -3379,7 +3379,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.CreateVideoProcessor)(::windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoMotionEstimator<P0, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3389,7 +3389,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoMotionEstimator)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoMotionVectorHeap<P0, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3399,7 +3399,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoMotionVectorHeap)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateVideoDecoder1<P0, T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3409,7 +3409,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoDecoder1)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoDecoderHeap1<P0, T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3419,7 +3419,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoDecoderHeap1)(::windows_core::Interface::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor1<P0, T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC], pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3429,7 +3429,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoProcessor1)(::windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateVideoExtensionCommand<P0, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3439,7 +3439,7 @@ impl ID3D12VideoDevice2 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateVideoExtensionCommand)(::windows_core::Interface::as_raw(self), pdesc, pcreationparameters, creationparametersdatasizeinbytes, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows_core::Result<()>
     where
@@ -3496,7 +3496,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateVideoDecoder)(::windows_core::Interface::as_raw(self), pdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoderHeap<T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC) -> ::windows_core::Result<T>
     where
@@ -3505,7 +3505,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateVideoDecoderHeap)(::windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> ::windows_core::Result<T>
     where
@@ -3514,7 +3514,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateVideoProcessor)(::windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoMotionEstimator<P0, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3524,7 +3524,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.CreateVideoMotionEstimator)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoMotionVectorHeap<P0, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3534,7 +3534,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.CreateVideoMotionVectorHeap)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateVideoDecoder1<P0, T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3544,7 +3544,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoDecoder1)(::windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoDecoderHeap1<P0, T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3554,7 +3554,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoDecoderHeap1)(::windows_core::Interface::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateVideoProcessor1<P0, T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC], pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3564,7 +3564,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoProcessor1)(::windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn CreateVideoExtensionCommand<P0, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: P0) -> ::windows_core::Result<T>
     where
@@ -3574,7 +3574,7 @@ impl ID3D12VideoDevice3 {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.CreateVideoExtensionCommand)(::windows_core::Interface::as_raw(self), pdesc, pcreationparameters, creationparametersdatasizeinbytes, pprotectedresourcesession.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows_core::Result<()>
     where
@@ -3582,7 +3582,7 @@ impl ID3D12VideoDevice3 {
     {
         (::windows_core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pexecutionparameters, executionparameterssizeinbytes, poutputdata, outputdatasizeinbytes).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoEncoder<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_DESC) -> ::windows_core::Result<T>
     where
@@ -3618,24 +3618,24 @@ pub struct ID3D12VideoDevice3_Vtbl {
     CreateVideoEncoder: usize,
     pub CreateVideoEncoderHeap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const ::windows_core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoEncodeCommandList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -3643,7 +3643,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3651,7 +3651,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -3659,7 +3659,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -3667,7 +3667,7 @@ impl ID3D12VideoEncodeCommandList {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -3678,12 +3678,12 @@ impl ID3D12VideoEncodeCommandList {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -3691,7 +3691,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -3699,7 +3699,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -3707,7 +3707,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -3716,7 +3716,7 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -3733,7 +3733,7 @@ impl ID3D12VideoEncodeCommandList {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
     where
@@ -3741,17 +3741,17 @@ impl ID3D12VideoEncodeCommandList {
     {
         (::windows_core::Interface::vtable(self).EstimateMotion)(::windows_core::Interface::as_raw(self), pmotionestimator.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
         (::windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(::windows_core::Interface::as_raw(self), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -3829,24 +3829,24 @@ pub struct ID3D12VideoEncodeCommandList_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     SetProtectedResourceSession: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoEncodeCommandList1(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList1 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -3854,7 +3854,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -3862,7 +3862,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -3870,7 +3870,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -3878,7 +3878,7 @@ impl ID3D12VideoEncodeCommandList1 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -3889,12 +3889,12 @@ impl ID3D12VideoEncodeCommandList1 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -3902,7 +3902,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -3910,7 +3910,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -3918,7 +3918,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -3927,7 +3927,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -3944,7 +3944,7 @@ impl ID3D12VideoEncodeCommandList1 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
     where
@@ -3952,17 +3952,17 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.EstimateMotion)(::windows_core::Interface::as_raw(self), pmotionestimator.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
         (::windows_core::Interface::vtable(self).base__.ResolveMotionVectorHeap)(::windows_core::Interface::as_raw(self), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -3970,7 +3970,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -3978,7 +3978,7 @@ impl ID3D12VideoEncodeCommandList1 {
     {
         (::windows_core::Interface::vtable(self).InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -4015,24 +4015,24 @@ pub struct ID3D12VideoEncodeCommandList1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     ExecuteExtensionCommand: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoEncodeCommandList2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList2 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4040,7 +4040,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4048,7 +4048,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4056,7 +4056,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -4064,7 +4064,7 @@ impl ID3D12VideoEncodeCommandList2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -4075,12 +4075,12 @@ impl ID3D12VideoEncodeCommandList2 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -4088,7 +4088,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -4096,7 +4096,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -4104,7 +4104,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -4113,7 +4113,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -4130,7 +4130,7 @@ impl ID3D12VideoEncodeCommandList2 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
     where
@@ -4138,17 +4138,17 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.EstimateMotion)(::windows_core::Interface::as_raw(self), pmotionestimator.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
         (::windows_core::Interface::vtable(self).base__.base__.ResolveMotionVectorHeap)(::windows_core::Interface::as_raw(self), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -4156,7 +4156,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -4164,7 +4164,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -4172,7 +4172,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn EncodeFrame<P0, P1>(&self, pencoder: P0, pheap: P1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS)
     where
@@ -4181,7 +4181,7 @@ impl ID3D12VideoEncodeCommandList2 {
     {
         (::windows_core::Interface::vtable(self).EncodeFrame)(::windows_core::Interface::as_raw(self), pencoder.into_param().abi(), pheap.into_param().abi(), pinputarguments, poutputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
         (::windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(::windows_core::Interface::as_raw(self), pinputarguments, poutputarguments)
@@ -4215,24 +4215,24 @@ pub struct ID3D12VideoEncodeCommandList2_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
     ResolveEncoderOutputMetadata: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoEncodeCommandList3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncodeCommandList3 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4240,7 +4240,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4248,7 +4248,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4256,7 +4256,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -4264,7 +4264,7 @@ impl ID3D12VideoEncodeCommandList3 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -4275,12 +4275,12 @@ impl ID3D12VideoEncodeCommandList3 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -4288,7 +4288,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -4296,7 +4296,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -4304,7 +4304,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -4313,7 +4313,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -4330,7 +4330,7 @@ impl ID3D12VideoEncodeCommandList3 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
     where
@@ -4338,17 +4338,17 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EstimateMotion)(::windows_core::Interface::as_raw(self), pmotionestimator.into_param().abi(), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResolveMotionVectorHeap)(::windows_core::Interface::as_raw(self), poutputarguments, pinputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -4356,7 +4356,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -4364,7 +4364,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -4372,7 +4372,7 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.ExecuteExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn EncodeFrame<P0, P1>(&self, pencoder: P0, pheap: P1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS)
     where
@@ -4381,12 +4381,12 @@ impl ID3D12VideoEncodeCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.EncodeFrame)(::windows_core::Interface::as_raw(self), pencoder.into_param().abi(), pheap.into_param().abi(), pinputarguments, poutputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
         (::windows_core::Interface::vtable(self).base__.ResolveEncoderOutputMetadata)(::windows_core::Interface::as_raw(self), pinputarguments, poutputarguments)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
         (::windows_core::Interface::vtable(self).Barrier)(::windows_core::Interface::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
@@ -4416,24 +4416,24 @@ pub struct ID3D12VideoEncodeCommandList3_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Barrier: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoEncoder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncoder {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4441,7 +4441,7 @@ impl ID3D12VideoEncoder {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4449,7 +4449,7 @@ impl ID3D12VideoEncoder {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4472,7 +4472,7 @@ impl ID3D12VideoEncoder {
     pub unsafe fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCodecConfiguration)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(dstcodecconfig)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetInputFormat(&self) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
         (::windows_core::Interface::vtable(self).GetInputFormat)(::windows_core::Interface::as_raw(self))
@@ -4511,24 +4511,24 @@ pub struct ID3D12VideoEncoder_Vtbl {
     GetInputFormat: usize,
     pub GetMaxMotionEstimationPrecision: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoEncoderHeap(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoEncoderHeap {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4536,7 +4536,7 @@ impl ID3D12VideoEncoderHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4544,7 +4544,7 @@ impl ID3D12VideoEncoderHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4601,24 +4601,24 @@ pub struct ID3D12VideoEncoderHeap_Vtbl {
     pub GetResolutionListCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub GetResolutionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoExtensionCommand(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoExtensionCommand {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4626,7 +4626,7 @@ impl ID3D12VideoExtensionCommand {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4634,7 +4634,7 @@ impl ID3D12VideoExtensionCommand {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4676,24 +4676,24 @@ pub struct ID3D12VideoExtensionCommand_Vtbl {
     pub GetDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoMotionEstimator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoMotionEstimator {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4701,7 +4701,7 @@ impl ID3D12VideoMotionEstimator {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4709,7 +4709,7 @@ impl ID3D12VideoMotionEstimator {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4717,7 +4717,7 @@ impl ID3D12VideoMotionEstimator {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
         let mut result__: D3D12_VIDEO_MOTION_ESTIMATOR_DESC = ::core::mem::zeroed();
@@ -4756,24 +4756,24 @@ pub struct ID3D12VideoMotionEstimator_Vtbl {
     GetDesc: usize,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoMotionVectorHeap(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoMotionVectorHeap {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4781,7 +4781,7 @@ impl ID3D12VideoMotionVectorHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4789,7 +4789,7 @@ impl ID3D12VideoMotionVectorHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4797,7 +4797,7 @@ impl ID3D12VideoMotionVectorHeap {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
         let mut result__: D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC = ::core::mem::zeroed();
@@ -4836,24 +4836,24 @@ pub struct ID3D12VideoMotionVectorHeap_Vtbl {
     GetDesc: usize,
     pub GetProtectedResourceSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows_core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoProcessCommandList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -4861,7 +4861,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -4869,7 +4869,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -4877,7 +4877,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -4885,7 +4885,7 @@ impl ID3D12VideoProcessCommandList {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -4896,12 +4896,12 @@ impl ID3D12VideoProcessCommandList {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -4909,7 +4909,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -4917,7 +4917,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -4925,7 +4925,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -4934,7 +4934,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -4951,7 +4951,7 @@ impl ID3D12VideoProcessCommandList {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
     where
@@ -4959,7 +4959,7 @@ impl ID3D12VideoProcessCommandList {
     {
         (::windows_core::Interface::vtable(self).ProcessFrames)(::windows_core::Interface::as_raw(self), pvideoprocessor.into_param().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
@@ -5026,24 +5026,24 @@ pub struct ID3D12VideoProcessCommandList_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     WriteBufferImmediate: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoProcessCommandList1(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList1 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -5051,7 +5051,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5059,7 +5059,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -5067,7 +5067,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -5075,7 +5075,7 @@ impl ID3D12VideoProcessCommandList1 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -5086,12 +5086,12 @@ impl ID3D12VideoProcessCommandList1 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -5099,7 +5099,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -5107,7 +5107,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -5115,7 +5115,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -5124,7 +5124,7 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -5141,7 +5141,7 @@ impl ID3D12VideoProcessCommandList1 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
     where
@@ -5149,12 +5149,12 @@ impl ID3D12VideoProcessCommandList1 {
     {
         (::windows_core::Interface::vtable(self).base__.ProcessFrames)(::windows_core::Interface::as_raw(self), pvideoprocessor.into_param().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1])
     where
@@ -5187,24 +5187,24 @@ pub struct ID3D12VideoProcessCommandList1_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))]
     ProcessFrames1: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoProcessCommandList2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList2 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -5212,7 +5212,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5220,7 +5220,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -5228,7 +5228,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -5236,7 +5236,7 @@ impl ID3D12VideoProcessCommandList2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -5247,12 +5247,12 @@ impl ID3D12VideoProcessCommandList2 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -5260,7 +5260,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -5268,7 +5268,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -5276,7 +5276,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -5285,7 +5285,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -5302,7 +5302,7 @@ impl ID3D12VideoProcessCommandList2 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
     where
@@ -5310,12 +5310,12 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.ProcessFrames)(::windows_core::Interface::as_raw(self), pvideoprocessor.into_param().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1])
     where
@@ -5323,7 +5323,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).base__.ProcessFrames1)(::windows_core::Interface::as_raw(self), pvideoprocessor.into_param().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -5331,7 +5331,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -5339,7 +5339,7 @@ impl ID3D12VideoProcessCommandList2 {
     {
         (::windows_core::Interface::vtable(self).InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -5380,24 +5380,24 @@ pub struct ID3D12VideoProcessCommandList2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     ExecuteExtensionCommand: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoProcessCommandList3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessCommandList3 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -5405,7 +5405,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5413,7 +5413,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -5421,7 +5421,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &<T as ::windows_core::ComInterface>::IID, result__ as *mut _ as *mut _).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetType(&self) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetType)(::windows_core::Interface::as_raw(self))
@@ -5429,7 +5429,7 @@ impl ID3D12VideoProcessCommandList3 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Reset<P0>(&self, pallocator: P0) -> ::windows_core::Result<()>
     where
@@ -5440,12 +5440,12 @@ impl ID3D12VideoProcessCommandList3 {
     pub unsafe fn ClearState(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ClearState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER]) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResourceBarrier)(::windows_core::Interface::as_raw(self), pbarriers.len() as _, ::core::mem::transmute(pbarriers.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION>)
     where
@@ -5453,7 +5453,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.DiscardResource)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(pregion.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -5461,7 +5461,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.BeginQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32)
     where
@@ -5469,7 +5469,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndQuery)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, index)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ResolveQueryData<P0, P1>(&self, pqueryheap: P0, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P1, aligneddestinationbufferoffset: u64)
     where
@@ -5478,7 +5478,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ResolveQueryData)(::windows_core::Interface::as_raw(self), pqueryheap.into_param().abi(), r#type, startindex, numqueries, pdestinationbuffer.into_param().abi(), aligneddestinationbufferoffset)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: super::super::Graphics::Direct3D12::D3D12_PREDICATION_OP)
     where
@@ -5495,7 +5495,7 @@ impl ID3D12VideoProcessCommandList3 {
     pub unsafe fn EndEvent(&self) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndEvent)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
     where
@@ -5503,12 +5503,12 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ProcessFrames)(::windows_core::Interface::as_raw(self), pvideoprocessor.into_param().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: ::core::option::Option<*const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.WriteBufferImmediate)(::windows_core::Interface::as_raw(self), count, pparams, ::core::mem::transmute(pmodes.unwrap_or(::std::ptr::null())))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
     pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1])
     where
@@ -5516,7 +5516,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.ProcessFrames1)(::windows_core::Interface::as_raw(self), pvideoprocessor.into_param().abi(), poutputarguments, pinputarguments.len() as _, ::core::mem::transmute(pinputarguments.as_ptr()))
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
     where
@@ -5524,7 +5524,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.SetProtectedResourceSession)(::windows_core::Interface::as_raw(self), pprotectedresourcesession.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize)
     where
@@ -5532,7 +5532,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.InitializeExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pinitializationparameters, initializationparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize)
     where
@@ -5540,7 +5540,7 @@ impl ID3D12VideoProcessCommandList3 {
     {
         (::windows_core::Interface::vtable(self).base__.ExecuteExtensionCommand)(::windows_core::Interface::as_raw(self), pextensioncommand.into_param().abi(), pexecutionparameters, executionparameterssizeinbytes)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn Barrier(&self, pbarriergroups: &[super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP]) {
         (::windows_core::Interface::vtable(self).Barrier)(::windows_core::Interface::as_raw(self), pbarriergroups.len() as _, ::core::mem::transmute(pbarriergroups.as_ptr()))
@@ -5570,24 +5570,24 @@ pub struct ID3D12VideoProcessCommandList3_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     Barrier: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoProcessor(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessor {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -5595,7 +5595,7 @@ impl ID3D12VideoProcessor {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5603,7 +5603,7 @@ impl ID3D12VideoProcessor {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -5617,12 +5617,12 @@ impl ID3D12VideoProcessor {
     pub unsafe fn GetNumInputStreamDescs(&self) -> u32 {
         (::windows_core::Interface::vtable(self).GetNumInputStreamDescs)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetInputStreamDescs(&self, pinputstreamdescs: &mut [D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInputStreamDescs)(::windows_core::Interface::as_raw(self), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
         let mut result__: D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC = ::core::mem::zeroed();
@@ -5660,24 +5660,24 @@ pub struct ID3D12VideoProcessor_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))]
     GetOutputStreamDesc: usize,
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3D12VideoProcessor1(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ID3D12VideoProcessor1 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, pdatasize: *mut u32, pdata: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetPrivateData)(::windows_core::Interface::as_raw(self), guid, pdatasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: u32, pdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateData)(::windows_core::Interface::as_raw(self), guid, datasize, ::core::mem::transmute(pdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetPrivateDataInterface<P0>(&self, guid: *const ::windows_core::GUID, pdata: P0) -> ::windows_core::Result<()>
     where
@@ -5685,7 +5685,7 @@ impl ID3D12VideoProcessor1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetPrivateDataInterface)(::windows_core::Interface::as_raw(self), guid, pdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn SetName<P0>(&self, name: P0) -> ::windows_core::Result<()>
     where
@@ -5693,7 +5693,7 @@ impl ID3D12VideoProcessor1 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetName)(::windows_core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetDevice<T>(&self, result__: *mut ::core::option::Option<T>) -> ::windows_core::Result<()>
     where
@@ -5707,12 +5707,12 @@ impl ID3D12VideoProcessor1 {
     pub unsafe fn GetNumInputStreamDescs(&self) -> u32 {
         (::windows_core::Interface::vtable(self).base__.GetNumInputStreamDescs)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetInputStreamDescs(&self, pinputstreamdescs: &mut [D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetInputStreamDescs)(::windows_core::Interface::as_raw(self), pinputstreamdescs.len() as _, ::core::mem::transmute(pinputstreamdescs.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
         let mut result__: D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC = ::core::mem::zeroed();
@@ -5751,22 +5751,22 @@ pub struct ID3D12VideoProcessor1_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXVAHD_Device(::windows_core::IUnknown);
 impl IDXVAHD_Device {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateVideoSurface(&self, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, ppsurfaces: &mut [::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>], psharedhandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateVideoSurface)(::windows_core::Interface::as_raw(self), width, height, format, pool, usage, r#type, ppsurfaces.len() as _, ::core::mem::transmute(ppsurfaces.as_ptr()), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorDeviceCaps(&self, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorDeviceCaps)(::windows_core::Interface::as_raw(self), pcaps).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorOutputFormats(&self, pformats: &mut [super::super::Graphics::Direct3D9::D3DFORMAT]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorOutputFormats)(::windows_core::Interface::as_raw(self), pformats.len() as _, ::core::mem::transmute(pformats.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorInputFormats(&self, pformats: &mut [super::super::Graphics::Direct3D9::D3DFORMAT]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorInputFormats)(::windows_core::Interface::as_raw(self), pformats.len() as _, ::core::mem::transmute(pformats.as_ptr())).ok()
@@ -5774,7 +5774,7 @@ impl IDXVAHD_Device {
     pub unsafe fn GetVideoProcessorCaps(&self, pcaps: &mut [DXVAHD_VPCAPS]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorCaps)(::windows_core::Interface::as_raw(self), pcaps.len() as _, ::core::mem::transmute(pcaps.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoProcessorCustomRates(&self, pvpguid: *const ::windows_core::GUID, prates: &mut [DXVAHD_CUSTOM_RATE_DATA]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorCustomRates)(::windows_core::Interface::as_raw(self), pvpguid, prates.len() as _, ::core::mem::transmute(prates.as_ptr())).ok()
@@ -5839,7 +5839,7 @@ impl IDXVAHD_VideoProcessor {
     pub unsafe fn GetVideoProcessStreamState(&self, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessStreamState)(::windows_core::Interface::as_raw(self), streamnumber, state, datasize, pdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn VideoProcessBltHD<P0>(&self, poutputsurface: P0, outputframe: u32, pstreams: &[DXVAHD_STREAM_DATA]) -> ::windows_core::Result<()>
     where
@@ -5872,7 +5872,7 @@ pub struct IDXVAHD_VideoProcessor_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D9ExOverlayExtension(::windows_core::IUnknown);
 impl IDirect3D9ExOverlayExtension {
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CheckDeviceOverlayType)(::windows_core::Interface::as_raw(self), adapter, devtype, overlaywidth, overlayheight, overlayformat, pdisplaymode, displayrotation, poverlaycaps).ok()
@@ -5910,7 +5910,7 @@ impl IDirect3DAuthenticatedChannel9 {
     pub unsafe fn Query(&self, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), inputsize, pinput, outputsize, poutput).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn Configure(&self, inputsize: u32, pinput: *const ::core::ffi::c_void, poutput: *mut super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Configure)(::windows_core::Interface::as_raw(self), inputsize, pinput, poutput).ok()
@@ -5949,7 +5949,7 @@ impl IDirect3DCryptoSession9 {
     pub unsafe fn NegotiateKeyExchange(&self, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).NegotiateKeyExchange)(::windows_core::Interface::as_raw(self), datasize, pdata).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn EncryptionBlt<P0, P1>(&self, psrcsurface: P0, pdstsurface: P1, dstsurfacesize: u32, piv: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -5958,7 +5958,7 @@ impl IDirect3DCryptoSession9 {
     {
         (::windows_core::Interface::vtable(self).EncryptionBlt)(::windows_core::Interface::as_raw(self), psrcsurface.into_param().abi(), pdstsurface.into_param().abi(), dstsurfacesize, piv).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn DecryptionBlt<P0, P1>(&self, psrcsurface: P0, pdstsurface: P1, srcsurfacesize: u32, pencryptedblockinfo: *mut super::super::Graphics::Direct3D9::D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut ::core::ffi::c_void, piv: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -5967,7 +5967,7 @@ impl IDirect3DCryptoSession9 {
     {
         (::windows_core::Interface::vtable(self).DecryptionBlt)(::windows_core::Interface::as_raw(self), psrcsurface.into_param().abi(), pdstsurface.into_param().abi(), srcsurfacesize, pencryptedblockinfo, pcontentkey, piv).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetSurfacePitch<P0>(&self, psrcsurface: P0, psurfacepitch: *mut u32) -> ::windows_core::Result<()>
     where
@@ -6022,12 +6022,12 @@ impl IDirect3DDevice9Video {
     pub unsafe fn GetContentProtectionCaps(&self, pcryptotype: *const ::windows_core::GUID, pdecodeprofile: *const ::windows_core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContentProtectionCaps)(::windows_core::Interface::as_raw(self), pcryptotype, pdecodeprofile, pcaps).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut ::core::option::Option<IDirect3DAuthenticatedChannel9>, pchannelhandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateAuthenticatedChannel)(::windows_core::Interface::as_raw(self), channeltype, ::core::mem::transmute(ppauthenticatedchannel), pchannelhandle).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateCryptoSession(&self, pcryptotype: *const ::windows_core::GUID, pdecodeprofile: *const ::windows_core::GUID, ppcryptosession: *mut ::core::option::Option<IDirect3DCryptoSession9>, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateCryptoSession)(::windows_core::Interface::as_raw(self), pcryptotype, pdecodeprofile, ::core::mem::transmute(ppcryptosession), pcryptohandle).ok()
@@ -6058,7 +6058,7 @@ pub struct IDirect3DDevice9Video_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3DDeviceManager9(::windows_core::IUnknown);
 impl IDirect3DDeviceManager9 {
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn ResetDevice<P0>(&self, pdevice: P0, resettoken: u32) -> ::windows_core::Result<()>
     where
@@ -6066,13 +6066,13 @@ impl IDirect3DDeviceManager9 {
     {
         (::windows_core::Interface::vtable(self).ResetDevice)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), resettoken).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenDeviceHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenDeviceHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseDeviceHandle<P0>(&self, hdevice: P0) -> ::windows_core::Result<()>
     where
@@ -6080,7 +6080,7 @@ impl IDirect3DDeviceManager9 {
     {
         (::windows_core::Interface::vtable(self).CloseDeviceHandle)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TestDevice<P0>(&self, hdevice: P0) -> ::windows_core::Result<()>
     where
@@ -6088,7 +6088,7 @@ impl IDirect3DDeviceManager9 {
     {
         (::windows_core::Interface::vtable(self).TestDevice)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn LockDevice<P0, P1>(&self, hdevice: P0, ppdevice: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9>, fblock: P1) -> ::windows_core::Result<()>
     where
@@ -6097,7 +6097,7 @@ impl IDirect3DDeviceManager9 {
     {
         (::windows_core::Interface::vtable(self).LockDevice)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi(), ::core::mem::transmute(ppdevice), fblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnlockDevice<P0, P1>(&self, hdevice: P0, fsavestate: P1) -> ::windows_core::Result<()>
     where
@@ -6106,7 +6106,7 @@ impl IDirect3DDeviceManager9 {
     {
         (::windows_core::Interface::vtable(self).UnlockDevice)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi(), fsavestate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoService<P0>(&self, hdevice: P0, riid: *const ::windows_core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -6159,7 +6159,7 @@ pub struct IDirect3DDeviceManager9_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectXVideoAccelerationService(::windows_core::IUnknown);
 impl IDirectXVideoAccelerationService {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CreateSurface)(::windows_core::Interface::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype.0 as _, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6189,7 +6189,7 @@ impl IDirectXVideoDecoder {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVideoDecoderService)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetCreationParameters(&self, pdeviceguid: ::core::option::Option<*mut ::windows_core::GUID>, pvideodesc: ::core::option::Option<*mut DXVA2_VideoDesc>, pconfig: ::core::option::Option<*mut DXVA2_ConfigPictureDecode>, pdecoderrendertargets: *mut *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, pnumsurfaces: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCreationParameters)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdeviceguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideodesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pconfig.unwrap_or(::std::ptr::null_mut())), pdecoderrendertargets, ::core::mem::transmute(pnumsurfaces.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6200,7 +6200,7 @@ impl IDirectXVideoDecoder {
     pub unsafe fn ReleaseBuffer(&self, buffertype: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReleaseBuffer)(::windows_core::Interface::as_raw(self), buffertype).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn BeginFrame<P0>(&self, prendertarget: P0, pvpvpdata: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
     where
@@ -6208,7 +6208,7 @@ impl IDirectXVideoDecoder {
     {
         (::windows_core::Interface::vtable(self).BeginFrame)(::windows_core::Interface::as_raw(self), prendertarget.into_param().abi(), ::core::mem::transmute(pvpvpdata.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndFrame(&self, phandlecomplete: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EndFrame)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(phandlecomplete.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6249,7 +6249,7 @@ pub struct IDirectXVideoDecoder_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectXVideoDecoderService(::windows_core::IUnknown);
 impl IDirectXVideoDecoderService {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateSurface)(::windows_core::Interface::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype.0 as _, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6257,17 +6257,17 @@ impl IDirectXVideoDecoderService {
     pub unsafe fn GetDecoderDeviceGuids(&self, pcount: *mut u32, pguids: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDecoderDeviceGuids)(::windows_core::Interface::as_raw(self), pcount, pguids).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetDecoderRenderTargets(&self, guid: *const ::windows_core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDecoderRenderTargets)(::windows_core::Interface::as_raw(self), guid, pcount, pformats).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetDecoderConfigurations(&self, guid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pcount: *mut u32, ppconfigs: *mut *mut DXVA2_ConfigPictureDecode) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDecoderConfigurations)(::windows_core::Interface::as_raw(self), guid, pvideodesc, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pcount, ppconfigs).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateVideoDecoder(&self, guid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: &[::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>]) -> ::windows_core::Result<IDirectXVideoDecoder> {
         let mut result__ = ::std::mem::zeroed();
@@ -6333,12 +6333,12 @@ impl IDirectXVideoProcessor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVideoProcessorService)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetCreationParameters(&self, pdeviceguid: ::core::option::Option<*mut ::windows_core::GUID>, pvideodesc: ::core::option::Option<*mut DXVA2_VideoDesc>, prendertargetformat: ::core::option::Option<*mut super::super::Graphics::Direct3D9::D3DFORMAT>, pmaxnumsubstreams: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCreationParameters)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdeviceguid.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvideodesc.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prendertargetformat.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pmaxnumsubstreams.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorCaps(&self, pcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorCaps)(::windows_core::Interface::as_raw(self), pcaps).ok()
@@ -6351,7 +6351,7 @@ impl IDirectXVideoProcessor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFilterPropertyRange)(::windows_core::Interface::as_raw(self), filtersetting, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn VideoProcessBlt<P0>(&self, prendertarget: P0, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: &[DXVA2_VideoSample], phandlecomplete: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()>
     where
@@ -6391,7 +6391,7 @@ pub struct IDirectXVideoProcessor_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectXVideoProcessorService(::windows_core::IUnknown);
 impl IDirectXVideoProcessorService {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
     pub unsafe fn CreateSurface(&self, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, psharedhandle: ::core::option::Option<*mut super::super::Foundation::HANDLE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.CreateSurface)(::windows_core::Interface::as_raw(self), width, height, backbuffers, format, pool, usage, dxvatype.0 as _, ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -6399,39 +6399,39 @@ impl IDirectXVideoProcessorService {
     pub unsafe fn RegisterVideoProcessorSoftwareDevice(&self, pcallbacks: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RegisterVideoProcessorSoftwareDevice)(::windows_core::Interface::as_raw(self), pcallbacks).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorDeviceGuids(&self, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pguids: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorDeviceGuids)(::windows_core::Interface::as_raw(self), pvideodesc, pcount, pguids).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorRenderTargets(&self, videoprocdeviceguid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorRenderTargets)(::windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, pcount, pformats).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorSubStreamFormats(&self, videoprocdeviceguid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorSubStreamFormats)(::windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, pcount, pformats).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorCaps(&self, videoprocdeviceguid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, pcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorCaps)(::windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, pcaps).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetProcAmpRange(&self, videoprocdeviceguid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, procampcap: u32) -> ::windows_core::Result<DXVA2_ValueRange> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcAmpRange)(::windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, procampcap, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetFilterPropertyRange(&self, videoprocdeviceguid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, filtersetting: u32) -> ::windows_core::Result<DXVA2_ValueRange> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFilterPropertyRange)(::windows_core::Interface::as_raw(self), videoprocdeviceguid, pvideodesc, rendertargetformat, filtersetting, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn CreateVideoProcessor(&self, videoprocdeviceguid: *const ::windows_core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32) -> ::windows_core::Result<IDirectXVideoProcessor> {
         let mut result__ = ::std::mem::zeroed();
@@ -6542,13 +6542,13 @@ pub struct IEVRFilterConfigEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEVRTrustedVideoPlugin(::windows_core::IUnknown);
 impl IEVRTrustedVideoPlugin {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInTrustedVideoMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsInTrustedVideoMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanConstrict(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6557,7 +6557,7 @@ impl IEVRTrustedVideoPlugin {
     pub unsafe fn SetConstriction(&self, dwkpix: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetConstriction)(::windows_core::Interface::as_raw(self), dwkpix).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisableImageExport<P0>(&self, bdisable: P0) -> ::windows_core::Result<()>
     where
@@ -6595,7 +6595,7 @@ pub struct IEVRTrustedVideoPlugin_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEVRVideoStreamControl(::windows_core::IUnknown);
 impl IEVRVideoStreamControl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamActiveState<P0>(&self, factive: P0) -> ::windows_core::Result<()>
     where
@@ -6603,7 +6603,7 @@ impl IEVRVideoStreamControl {
     {
         (::windows_core::Interface::vtable(self).SetStreamActiveState)(::windows_core::Interface::as_raw(self), factive.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamActiveState(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6687,7 +6687,7 @@ impl IFileIo {
     pub unsafe fn SetCurrentPosition(&self, qwposition: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentPosition)(::windows_core::Interface::as_raw(self), qwposition).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEndOfStream(&self, pbendofstream: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsEndOfStream)(::windows_core::Interface::as_raw(self), pbendofstream).ok()
@@ -6743,7 +6743,7 @@ impl IMF2DBuffer {
     pub unsafe fn GetScanline0AndPitch(&self, pbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetScanline0AndPitch)(::windows_core::Interface::as_raw(self), pbscanline0, plpitch).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsContiguousFormat(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6795,7 +6795,7 @@ impl IMF2DBuffer2 {
     pub unsafe fn GetScanline0AndPitch(&self, pbscanline0: *mut *mut u8, plpitch: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetScanline0AndPitch)(::windows_core::Interface::as_raw(self), pbscanline0, plpitch).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsContiguousFormat(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6873,7 +6873,7 @@ impl IMFASFContentInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GeneratePresentationDescriptor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetEncodingConfigurationPropertyStore(&self, wstreamnumber: u16) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::std::mem::zeroed();
@@ -6933,12 +6933,12 @@ impl IMFASFIndexer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndexByteStreamCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIndexStatus(&self, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pfisindexed: *mut super::super::Foundation::BOOL, pbindexdescriptor: *mut u8, pcbindexdescriptor: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIndexStatus)(::windows_core::Interface::as_raw(self), pindexidentifier, pfisindexed, pbindexdescriptor, pcbindexdescriptor).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIndexStatus<P0>(&self, pbindexdescriptor: *const u8, cbindexdescriptor: u32, fgenerateindex: P0) -> ::windows_core::Result<()>
     where
@@ -6946,7 +6946,7 @@ impl IMFASFIndexer {
     {
         (::windows_core::Interface::vtable(self).SetIndexStatus)(::windows_core::Interface::as_raw(self), pbindexdescriptor, cbindexdescriptor, fgenerateindex.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetSeekPositionForValue(&self, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetSeekPositionForValue)(::windows_core::Interface::as_raw(self), pvarvalue, pindexidentifier, pcboffsetwithindata, phnsapproxtime, pdwpayloadnumberofstreamwithinpacket).ok()
@@ -7133,7 +7133,7 @@ pub struct IMFASFMutualExclusion_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFASFProfile(::windows_core::IUnknown);
 impl IMFASFProfile {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7142,13 +7142,13 @@ impl IMFASFProfile {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -7200,7 +7200,7 @@ impl IMFASFProfile {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -7248,7 +7248,7 @@ impl IMFASFProfile {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7422,7 +7422,7 @@ pub struct IMFASFSplitter_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFASFStreamConfig(::windows_core::IUnknown);
 impl IMFASFStreamConfig {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7431,13 +7431,13 @@ impl IMFASFStreamConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -7489,7 +7489,7 @@ impl IMFASFStreamConfig {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -7537,7 +7537,7 @@ impl IMFASFStreamConfig {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7734,7 +7734,7 @@ pub struct IMFASFStreamSelector_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFActivate(::windows_core::IUnknown);
 impl IMFActivate {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7743,13 +7743,13 @@ impl IMFActivate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -7801,7 +7801,7 @@ impl IMFActivate {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -7849,7 +7849,7 @@ impl IMFActivate {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -7994,7 +7994,7 @@ pub struct IMFAsyncResult_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFAttributes(::windows_core::IUnknown);
 impl IMFAttributes {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8003,13 +8003,13 @@ impl IMFAttributes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -8061,7 +8061,7 @@ impl IMFAttributes {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -8109,7 +8109,7 @@ impl IMFAttributes {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8182,7 +8182,7 @@ pub struct IMFAttributes_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFAudioMediaType(::windows_core::IUnknown);
 impl IMFAudioMediaType {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8191,13 +8191,13 @@ impl IMFAudioMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -8249,7 +8249,7 @@ impl IMFAudioMediaType {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -8297,7 +8297,7 @@ impl IMFAudioMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8312,7 +8312,7 @@ impl IMFAudioMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMajorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCompressedFormat(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8331,7 +8331,7 @@ impl IMFAudioMediaType {
     pub unsafe fn FreeRepresentation(&self, guidrepresentation: ::windows_core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.FreeRepresentation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidrepresentation), pvrepresentation).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetAudioFormat(&self) -> *mut super::Audio::WAVEFORMATEX {
         (::windows_core::Interface::vtable(self).GetAudioFormat)(::windows_core::Interface::as_raw(self))
@@ -8489,7 +8489,7 @@ impl IMFByteStream {
     pub unsafe fn SetCurrentPosition(&self, qwposition: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentPosition)(::windows_core::Interface::as_raw(self), qwposition).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEndOfStream(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8578,7 +8578,7 @@ impl IMFByteStreamBuffering {
     pub unsafe fn SetBufferingParams(&self, pparams: *const MFBYTESTREAM_BUFFERING_PARAMS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBufferingParams)(::windows_core::Interface::as_raw(self), pparams).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableBuffering<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -8642,7 +8642,7 @@ impl IMFByteStreamCacheControl2 {
     pub unsafe fn SetCacheLimit(&self, qwbytes: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCacheLimit)(::windows_core::Interface::as_raw(self), qwbytes).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsBackgroundTransferActive(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8671,7 +8671,7 @@ pub struct IMFByteStreamCacheControl2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFByteStreamHandler(::windows_core::IUnknown);
 impl IMFByteStreamHandler {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn BeginCreateObject<P0, P1, P2, P3, P4>(&self, pbytestream: P0, pwszurl: P1, dwflags: u32, pprops: P2, ppiunknowncancelcookie: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>, pcallback: P3, punkstate: P4) -> ::windows_core::Result<()>
     where
@@ -8750,7 +8750,7 @@ pub struct IMFByteStreamProxyClassFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFByteStreamTimeSeek(::windows_core::IUnknown);
 impl IMFByteStreamTimeSeek {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTimeSeekSupported(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8855,7 +8855,7 @@ pub struct IMFCameraControlDefaults_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFCameraControlDefaultsCollection(::windows_core::IUnknown);
 impl IMFCameraControlDefaultsCollection {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -8864,13 +8864,13 @@ impl IMFCameraControlDefaultsCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -8922,7 +8922,7 @@ impl IMFCameraControlDefaultsCollection {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -8970,7 +8970,7 @@ impl IMFCameraControlDefaultsCollection {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -9205,7 +9205,7 @@ impl IMFCaptureEngine {
     pub unsafe fn StartRecord(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).StartRecord)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopRecord<P0, P1>(&self, bfinalize: P0, bflushunprocessedsamples: P1) -> ::windows_core::Result<()>
     where
@@ -9465,7 +9465,7 @@ impl IMFCapturePreviewSink {
     pub unsafe fn RemoveAllStreams(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemoveAllStreams)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRenderHandle<P0>(&self, handle: P0) -> ::windows_core::Result<()>
     where
@@ -9479,7 +9479,7 @@ impl IMFCapturePreviewSink {
     {
         (::windows_core::Interface::vtable(self).SetRenderSurface)(::windows_core::Interface::as_raw(self), psurface.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateVideo(&self, psrc: ::core::option::Option<*const MFVideoNormalizedRect>, pdst: ::core::option::Option<*const super::super::Foundation::RECT>, pborderclr: ::core::option::Option<*const super::super::Foundation::COLORREF>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateVideo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdst.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
@@ -9490,13 +9490,13 @@ impl IMFCapturePreviewSink {
     {
         (::windows_core::Interface::vtable(self).SetSampleCallback)(::windows_core::Interface::as_raw(self), dwstreamsinkindex, pcallback.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMirrorState(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMirrorState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMirrorState<P0>(&self, fmirrorstate: P0) -> ::windows_core::Result<()>
     where
@@ -9758,13 +9758,13 @@ impl IMFCaptureSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDeviceStreamCategory)(::windows_core::Interface::as_raw(self), dwsourcestreamindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMirrorState(&self, dwstreamindex: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMirrorState)(::windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMirrorState<P0>(&self, dwstreamindex: u32, fmirrorstate: P0) -> ::windows_core::Result<()>
     where
@@ -10052,7 +10052,7 @@ pub struct IMFContentDecryptionModule_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFContentDecryptionModuleAccess(::windows_core::IUnknown);
 impl IMFContentDecryptionModuleAccess {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateContentDecryptionModule<P0>(&self, contentdecryptionmoduleproperties: P0) -> ::windows_core::Result<IMFContentDecryptionModule>
     where
@@ -10061,7 +10061,7 @@ impl IMFContentDecryptionModuleAccess {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateContentDecryptionModule)(::windows_core::Interface::as_raw(self), contentdecryptionmoduleproperties.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetConfiguration(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::std::mem::zeroed();
@@ -10097,7 +10097,7 @@ pub struct IMFContentDecryptionModuleAccess_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFContentDecryptionModuleFactory(::windows_core::IUnknown);
 impl IMFContentDecryptionModuleFactory {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTypeSupported<P0, P1>(&self, keysystem: P0, contenttype: P1) -> super::super::Foundation::BOOL
     where
@@ -10106,7 +10106,7 @@ impl IMFContentDecryptionModuleFactory {
     {
         (::windows_core::Interface::vtable(self).IsTypeSupported)(::windows_core::Interface::as_raw(self), keysystem.into_param().abi(), contenttype.into_param().abi())
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateContentDecryptionModuleAccess<P0>(&self, keysystem: P0, configurations: &[::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>]) -> ::windows_core::Result<IMFContentDecryptionModuleAccess>
     where
@@ -10151,7 +10151,7 @@ impl IMFContentDecryptionModuleSession {
     pub unsafe fn GetKeyStatuses(&self, keystatuses: *mut *mut MFMediaKeyStatus, numkeystatuses: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetKeyStatuses)(::windows_core::Interface::as_raw(self), keystatuses, numkeystatuses).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Load<P0>(&self, sessionid: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -10263,7 +10263,7 @@ impl IMFContentEnabler {
     pub unsafe fn GetEnableData(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetEnableData)(::windows_core::Interface::as_raw(self), ppbdata, pcbdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAutomaticSupported(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -10364,7 +10364,7 @@ pub struct IMFContentProtectionManager_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFD3D12SynchronizationObject(::windows_core::IUnknown);
 impl IMFD3D12SynchronizationObject {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SignalEventOnFinalResourceRelease<P0>(&self, hevent: P0) -> ::windows_core::Result<()>
     where
@@ -10397,7 +10397,7 @@ pub struct IMFD3D12SynchronizationObject_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFD3D12SynchronizationObjectCommands(::windows_core::IUnknown);
 impl IMFD3D12SynchronizationObjectCommands {
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EnqueueResourceReady<P0>(&self, pproducercommandqueue: P0) -> ::windows_core::Result<()>
     where
@@ -10405,7 +10405,7 @@ impl IMFD3D12SynchronizationObjectCommands {
     {
         (::windows_core::Interface::vtable(self).EnqueueResourceReady)(::windows_core::Interface::as_raw(self), pproducercommandqueue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EnqueueResourceReadyWait<P0>(&self, pconsumercommandqueue: P0) -> ::windows_core::Result<()>
     where
@@ -10413,7 +10413,7 @@ impl IMFD3D12SynchronizationObjectCommands {
     {
         (::windows_core::Interface::vtable(self).EnqueueResourceReadyWait)(::windows_core::Interface::as_raw(self), pconsumercommandqueue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SignalEventOnResourceReady<P0>(&self, hevent: P0) -> ::windows_core::Result<()>
     where
@@ -10421,7 +10421,7 @@ impl IMFD3D12SynchronizationObjectCommands {
     {
         (::windows_core::Interface::vtable(self).SignalEventOnResourceReady)(::windows_core::Interface::as_raw(self), hevent.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn EnqueueResourceRelease<P0>(&self, pconsumercommandqueue: P0) -> ::windows_core::Result<()>
     where
@@ -10462,7 +10462,7 @@ pub struct IMFD3D12SynchronizationObjectCommands_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFDLNASinkInit(::windows_core::IUnknown);
 impl IMFDLNASinkInit {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<P0, P1>(&self, pbytestream: P0, fpal: P1) -> ::windows_core::Result<()>
     where
@@ -10554,7 +10554,7 @@ pub struct IMFDXGIBuffer_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFDXGIDeviceManager(::windows_core::IUnknown);
 impl IMFDXGIDeviceManager {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CloseDeviceHandle<P0>(&self, hdevice: P0) -> ::windows_core::Result<()>
     where
@@ -10562,7 +10562,7 @@ impl IMFDXGIDeviceManager {
     {
         (::windows_core::Interface::vtable(self).CloseDeviceHandle)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoService<P0>(&self, hdevice: P0, riid: *const ::windows_core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
     where
@@ -10570,7 +10570,7 @@ impl IMFDXGIDeviceManager {
     {
         (::windows_core::Interface::vtable(self).GetVideoService)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi(), riid, ppservice).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockDevice<P0, P1>(&self, hdevice: P0, riid: *const ::windows_core::GUID, ppunkdevice: *mut *mut ::core::ffi::c_void, fblock: P1) -> ::windows_core::Result<()>
     where
@@ -10579,7 +10579,7 @@ impl IMFDXGIDeviceManager {
     {
         (::windows_core::Interface::vtable(self).LockDevice)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi(), riid, ppunkdevice, fblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OpenDeviceHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -10591,7 +10591,7 @@ impl IMFDXGIDeviceManager {
     {
         (::windows_core::Interface::vtable(self).ResetDevice)(::windows_core::Interface::as_raw(self), punkdevice.into_param().abi(), resettoken).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TestDevice<P0>(&self, hdevice: P0) -> ::windows_core::Result<()>
     where
@@ -10599,7 +10599,7 @@ impl IMFDXGIDeviceManager {
     {
         (::windows_core::Interface::vtable(self).TestDevice)(::windows_core::Interface::as_raw(self), hdevice.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnlockDevice<P0, P1>(&self, hdevice: P0, fsavestate: P1) -> ::windows_core::Result<()>
     where
@@ -11181,7 +11181,7 @@ pub struct IMFGetService_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFHDCPStatus(::windows_core::IUnknown);
 impl IMFHDCPStatus {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Query(&self, pstatus: *mut MF_HDCP_STATUS, pfstatus: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Query)(::windows_core::Interface::as_raw(self), pstatus, pfstatus).ok()
@@ -11267,7 +11267,7 @@ impl IMFHttpDownloadRequest {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasNullSourceOrigin(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11280,7 +11280,7 @@ impl IMFHttpDownloadRequest {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHttpStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAtEndOfPayload(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -11342,7 +11342,7 @@ impl IMFHttpDownloadSession {
     {
         (::windows_core::Interface::vtable(self).SetServer)(::windows_core::Interface::as_raw(self), szservername.into_param().abi(), nport).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateRequest<P0, P1, P2, P3, P4>(&self, szobjectname: P0, fbypassproxycache: P1, fsecure: P2, szverb: P3, szreferrer: P4) -> ::windows_core::Result<IMFHttpDownloadRequest>
     where
@@ -11615,7 +11615,7 @@ impl IMFMediaEngine {
     pub unsafe fn GetReadyState(&self) -> u16 {
         (::windows_core::Interface::vtable(self).GetReadyState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSeeking(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsSeeking)(::windows_core::Interface::as_raw(self))
@@ -11632,7 +11632,7 @@ impl IMFMediaEngine {
     pub unsafe fn GetDuration(&self) -> f64 {
         (::windows_core::Interface::vtable(self).GetDuration)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPaused(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsPaused)(::windows_core::Interface::as_raw(self))
@@ -11657,17 +11657,17 @@ impl IMFMediaEngine {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSeekable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnded(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsEnded)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoPlay(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).GetAutoPlay)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoPlay<P0>(&self, autoplay: P0) -> ::windows_core::Result<()>
     where
@@ -11675,12 +11675,12 @@ impl IMFMediaEngine {
     {
         (::windows_core::Interface::vtable(self).SetAutoPlay)(::windows_core::Interface::as_raw(self), autoplay.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoop(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).GetLoop)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoop<P0>(&self, r#loop: P0) -> ::windows_core::Result<()>
     where
@@ -11694,12 +11694,12 @@ impl IMFMediaEngine {
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Pause)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuted(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).GetMuted)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuted<P0>(&self, muted: P0) -> ::windows_core::Result<()>
     where
@@ -11713,12 +11713,12 @@ impl IMFMediaEngine {
     pub unsafe fn SetVolume(&self, volume: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVolume)(::windows_core::Interface::as_raw(self), volume).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).HasVideo)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).HasAudio)(::windows_core::Interface::as_raw(self))
@@ -11732,7 +11732,7 @@ impl IMFMediaEngine {
     pub unsafe fn Shutdown(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Shutdown)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransferVideoFrame<P0>(&self, pdstsurf: P0, psrc: ::core::option::Option<*const MFVideoNormalizedRect>, pdst: *const super::super::Foundation::RECT, pborderclr: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()>
     where
@@ -11930,7 +11930,7 @@ pub struct IMFMediaEngineClassFactory2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaEngineClassFactory3(::windows_core::IUnknown);
 impl IMFMediaEngineClassFactory3 {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateMediaKeySystemAccess<P0>(&self, keysystem: P0, ppsupportedconfigurationsarray: &[::core::option::Option<super::super::UI::Shell::PropertiesSystem::IPropertyStore>]) -> ::windows_core::Result<IMFMediaKeySystemAccess>
     where
@@ -12014,7 +12014,7 @@ impl IMFMediaEngineClassFactoryEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateMediaKeys)(::windows_core::Interface::as_raw(self), keysystem.into_param().abi(), cdmstorepath.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTypeSupported<P0, P1>(&self, r#type: P0, keysystem: P1) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -12153,7 +12153,7 @@ impl IMFMediaEngineEx {
     pub unsafe fn GetReadyState(&self) -> u16 {
         (::windows_core::Interface::vtable(self).base__.GetReadyState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSeeking(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsSeeking)(::windows_core::Interface::as_raw(self))
@@ -12170,7 +12170,7 @@ impl IMFMediaEngineEx {
     pub unsafe fn GetDuration(&self) -> f64 {
         (::windows_core::Interface::vtable(self).base__.GetDuration)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPaused(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsPaused)(::windows_core::Interface::as_raw(self))
@@ -12195,17 +12195,17 @@ impl IMFMediaEngineEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSeekable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnded(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsEnded)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoPlay(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetAutoPlay)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoPlay<P0>(&self, autoplay: P0) -> ::windows_core::Result<()>
     where
@@ -12213,12 +12213,12 @@ impl IMFMediaEngineEx {
     {
         (::windows_core::Interface::vtable(self).base__.SetAutoPlay)(::windows_core::Interface::as_raw(self), autoplay.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoop(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetLoop)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoop<P0>(&self, r#loop: P0) -> ::windows_core::Result<()>
     where
@@ -12232,12 +12232,12 @@ impl IMFMediaEngineEx {
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Pause)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuted(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetMuted)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuted<P0>(&self, muted: P0) -> ::windows_core::Result<()>
     where
@@ -12251,12 +12251,12 @@ impl IMFMediaEngineEx {
     pub unsafe fn SetVolume(&self, volume: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetVolume)(::windows_core::Interface::as_raw(self), volume).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.HasVideo)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.HasAudio)(::windows_core::Interface::as_raw(self))
@@ -12270,7 +12270,7 @@ impl IMFMediaEngineEx {
     pub unsafe fn Shutdown(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Shutdown)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransferVideoFrame<P0>(&self, pdstsurf: P0, psrc: ::core::option::Option<*const MFVideoNormalizedRect>, pdst: *const super::super::Foundation::RECT, pborderclr: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()>
     where
@@ -12289,13 +12289,13 @@ impl IMFMediaEngineEx {
     {
         (::windows_core::Interface::vtable(self).SetSourceFromByteStream)(::windows_core::Interface::as_raw(self), pbytestream.into_param().abi(), purl.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStatistics(&self, statisticid: MF_MEDIA_ENGINE_STATISTIC) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStatistics)(::windows_core::Interface::as_raw(self), statisticid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateVideoStream(&self, psrc: ::core::option::Option<*const MFVideoNormalizedRect>, pdst: ::core::option::Option<*const super::super::Foundation::RECT>, pborderclr: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateVideoStream)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psrc.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdst.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pborderclr.unwrap_or(::std::ptr::null()))).ok()
@@ -12306,12 +12306,12 @@ impl IMFMediaEngineEx {
     pub unsafe fn SetBalance(&self, balance: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBalance)(::windows_core::Interface::as_raw(self), balance).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPlaybackRateSupported(&self, rate: f64) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsPlaybackRateSupported)(::windows_core::Interface::as_raw(self), rate)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FrameStep<P0>(&self, forward: P0) -> ::windows_core::Result<()>
     where
@@ -12323,7 +12323,7 @@ impl IMFMediaEngineEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetResourceCharacteristics)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -12333,19 +12333,19 @@ impl IMFMediaEngineEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOfStreams)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamAttribute)(::windows_core::Interface::as_raw(self), dwstreamindex, guidmfattribute, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamSelection(&self, dwstreamindex: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamSelection)(::windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamSelection<P0>(&self, dwstreamindex: u32, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -12356,13 +12356,13 @@ impl IMFMediaEngineEx {
     pub unsafe fn ApplyStreamSelections(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ApplyStreamSelections)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsProtected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsProtected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertVideoEffect<P0, P1>(&self, peffect: P0, foptional: P1) -> ::windows_core::Result<()>
     where
@@ -12371,7 +12371,7 @@ impl IMFMediaEngineEx {
     {
         (::windows_core::Interface::vtable(self).InsertVideoEffect)(::windows_core::Interface::as_raw(self), peffect.into_param().abi(), foptional.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertAudioEffect<P0, P1>(&self, peffect: P0, foptional: P1) -> ::windows_core::Result<()>
     where
@@ -12393,7 +12393,7 @@ impl IMFMediaEngineEx {
     pub unsafe fn CancelTimelineMarkerTimer(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CancelTimelineMarkerTimer)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStereo3D(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsStereo3D)(::windows_core::Interface::as_raw(self))
@@ -12412,7 +12412,7 @@ impl IMFMediaEngineEx {
     pub unsafe fn SetStereo3DRenderMode(&self, outputtype: MF3DVideoOutputType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStereo3DRenderMode)(::windows_core::Interface::as_raw(self), outputtype).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableWindowlessSwapchainMode<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -12420,13 +12420,13 @@ impl IMFMediaEngineEx {
     {
         (::windows_core::Interface::vtable(self).EnableWindowlessSwapchainMode)(::windows_core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoSwapchainHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVideoSwapchainHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableHorizontalMirrorMode<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -12448,13 +12448,13 @@ impl IMFMediaEngineEx {
     pub unsafe fn SetAudioEndpointRole(&self, role: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAudioEndpointRole)(::windows_core::Interface::as_raw(self), role).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRealTimeMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRealTimeMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRealTimeMode<P0>(&self, fenable: P0) -> ::windows_core::Result<()>
     where
@@ -12465,7 +12465,7 @@ impl IMFMediaEngineEx {
     pub unsafe fn SetCurrentTimeEx(&self, seektime: f64, seekmode: MF_MEDIA_ENGINE_SEEK_MODE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentTimeEx)(::windows_core::Interface::as_raw(self), seektime, seekmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableTimeUpdateTimer<P0>(&self, fenabletimer: P0) -> ::windows_core::Result<()>
     where
@@ -12581,7 +12581,7 @@ pub struct IMFMediaEngineEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaEngineExtension(::windows_core::IUnknown);
 impl IMFMediaEngineExtension {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanPlayType<P0, P1>(&self, audioonly: P0, mimetype: P1) -> ::windows_core::Result<MF_MEDIA_ENGINE_CANPLAY>
     where
@@ -12679,7 +12679,7 @@ pub struct IMFMediaEngineNotify_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaEngineOPMInfo(::windows_core::IUnknown);
 impl IMFMediaEngineOPMInfo {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOPMInfo(&self, pstatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pconstricted: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOPMInfo)(::windows_core::Interface::as_raw(self), pstatus, pconstricted).ok()
@@ -12715,7 +12715,7 @@ impl IMFMediaEngineProtectedContent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRequiredProtections)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOPMWindow<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -12723,7 +12723,7 @@ impl IMFMediaEngineProtectedContent {
     {
         (::windows_core::Interface::vtable(self).SetOPMWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransferVideoFrame<P0>(&self, pdstsurf: P0, psrc: ::core::option::Option<*const MFVideoNormalizedRect>, pdst: *const super::super::Foundation::RECT, pborderclr: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<u32>
     where
@@ -12877,7 +12877,7 @@ pub struct IMFMediaEngineSrcElementsEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaEngineSupportsSourceTransfer(::windows_core::IUnknown);
 impl IMFMediaEngineSupportsSourceTransfer {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShouldTransferSource(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -12941,7 +12941,7 @@ pub struct IMFMediaEngineTransferSource_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaEngineWebSupport(::windows_core::IUnknown);
 impl IMFMediaEngineWebSupport {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShouldDelayTheLoadEvent(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).ShouldDelayTheLoadEvent)(::windows_core::Interface::as_raw(self))
@@ -13009,7 +13009,7 @@ pub struct IMFMediaError_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaEvent(::windows_core::IUnknown);
 impl IMFMediaEvent {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13018,13 +13018,13 @@ impl IMFMediaEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -13076,7 +13076,7 @@ impl IMFMediaEvent {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -13124,7 +13124,7 @@ impl IMFMediaEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -13147,7 +13147,7 @@ impl IMFMediaEvent {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -13195,7 +13195,7 @@ impl IMFMediaEventGenerator {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -13248,7 +13248,7 @@ impl IMFMediaEventQueue {
     {
         (::windows_core::Interface::vtable(self).QueueEvent)(::windows_core::Interface::as_raw(self), pevent.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEventParamVar(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueueEventParamVar)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -13348,7 +13348,7 @@ impl IMFMediaKeySession2 {
     pub unsafe fn get_KeyStatuses(&self, pkeystatusesarray: *mut *mut MFMediaKeyStatus, pusize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).get_KeyStatuses)(::windows_core::Interface::as_raw(self), pkeystatusesarray, pusize).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Load<P0>(&self, bstrsessionid: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -13471,7 +13471,7 @@ pub struct IMFMediaKeySessionNotify2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaKeySystemAccess(::windows_core::IUnknown);
 impl IMFMediaKeySystemAccess {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateMediaKeys<P0>(&self, pcdmcustomconfig: P0) -> ::windows_core::Result<IMFMediaKeys2>
     where
@@ -13480,7 +13480,7 @@ impl IMFMediaKeySystemAccess {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateMediaKeys)(::windows_core::Interface::as_raw(self), pcdmcustomconfig.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn SupportedConfiguration(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::std::mem::zeroed();
@@ -13627,7 +13627,7 @@ impl IMFMediaSession {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -13641,7 +13641,7 @@ impl IMFMediaSession {
     pub unsafe fn ClearTopologies(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ClearTopologies)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Start(&self, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Start)(::windows_core::Interface::as_raw(self), pguidtimeformat, pvarstartposition).ok()
@@ -13749,7 +13749,7 @@ impl IMFMediaSharingEngine {
     pub unsafe fn GetReadyState(&self) -> u16 {
         (::windows_core::Interface::vtable(self).base__.GetReadyState)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSeeking(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsSeeking)(::windows_core::Interface::as_raw(self))
@@ -13766,7 +13766,7 @@ impl IMFMediaSharingEngine {
     pub unsafe fn GetDuration(&self) -> f64 {
         (::windows_core::Interface::vtable(self).base__.GetDuration)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPaused(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsPaused)(::windows_core::Interface::as_raw(self))
@@ -13791,17 +13791,17 @@ impl IMFMediaSharingEngine {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSeekable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnded(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsEnded)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoPlay(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetAutoPlay)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoPlay<P0>(&self, autoplay: P0) -> ::windows_core::Result<()>
     where
@@ -13809,12 +13809,12 @@ impl IMFMediaSharingEngine {
     {
         (::windows_core::Interface::vtable(self).base__.SetAutoPlay)(::windows_core::Interface::as_raw(self), autoplay.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoop(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetLoop)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoop<P0>(&self, r#loop: P0) -> ::windows_core::Result<()>
     where
@@ -13828,12 +13828,12 @@ impl IMFMediaSharingEngine {
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Pause)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMuted(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.GetMuted)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMuted<P0>(&self, muted: P0) -> ::windows_core::Result<()>
     where
@@ -13847,12 +13847,12 @@ impl IMFMediaSharingEngine {
     pub unsafe fn SetVolume(&self, volume: f64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetVolume)(::windows_core::Interface::as_raw(self), volume).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.HasVideo)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.HasAudio)(::windows_core::Interface::as_raw(self))
@@ -13866,7 +13866,7 @@ impl IMFMediaSharingEngine {
     pub unsafe fn Shutdown(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Shutdown)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransferVideoFrame<P0>(&self, pdstsurf: P0, psrc: ::core::option::Option<*const MFVideoNormalizedRect>, pdst: *const super::super::Foundation::RECT, pborderclr: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()>
     where
@@ -14028,7 +14028,7 @@ impl IMFMediaSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -14041,7 +14041,7 @@ impl IMFMediaSource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePresentationDescriptor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Start<P0>(&self, ppresentationdescriptor: P0, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
@@ -14102,7 +14102,7 @@ impl IMFMediaSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -14115,7 +14115,7 @@ impl IMFMediaSource2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreatePresentationDescriptor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Start<P0>(&self, ppresentationdescriptor: P0, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
@@ -14188,7 +14188,7 @@ impl IMFMediaSourceEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -14201,7 +14201,7 @@ impl IMFMediaSourceEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreatePresentationDescriptor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Start<P0>(&self, ppresentationdescriptor: P0, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
@@ -14284,7 +14284,7 @@ impl IMFMediaSourceExtension {
     pub unsafe fn SetEndOfStream(&self, error: MF_MSE_ERROR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEndOfStream)(::windows_core::Interface::as_raw(self), error).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTypeSupported<P0>(&self, r#type: P0) -> super::super::Foundation::BOOL
     where
@@ -14446,7 +14446,7 @@ impl IMFMediaStream {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -14503,7 +14503,7 @@ impl IMFMediaStream2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -14583,7 +14583,7 @@ impl IMFMediaTimeRange {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEnd)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContainsTime(&self, time: f64) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).ContainsTime)(::windows_core::Interface::as_raw(self), time)
@@ -14620,7 +14620,7 @@ pub struct IMFMediaTimeRange_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFMediaType(::windows_core::IUnknown);
 impl IMFMediaType {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -14629,13 +14629,13 @@ impl IMFMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -14687,7 +14687,7 @@ impl IMFMediaType {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -14735,7 +14735,7 @@ impl IMFMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -14750,7 +14750,7 @@ impl IMFMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMajorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCompressedFormat(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -14855,13 +14855,13 @@ impl IMFMetadata {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLanguage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllLanguages(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllLanguages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetProperty<P0>(&self, pwszname: P0, ppvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
@@ -14869,7 +14869,7 @@ impl IMFMetadata {
     {
         (::windows_core::Interface::vtable(self).SetProperty)(::windows_core::Interface::as_raw(self), pwszname.into_param().abi(), ppvvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty<P0>(&self, pwszname: P0) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
@@ -14884,7 +14884,7 @@ impl IMFMetadata {
     {
         (::windows_core::Interface::vtable(self).DeleteProperty)(::windows_core::Interface::as_raw(self), pwszname.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllPropertyNames(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -15054,7 +15054,7 @@ pub struct IMFMuxStreamSampleManager_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFNetCredential(::windows_core::IUnknown);
 impl IMFNetCredential {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUser<P0>(&self, pbdata: &[u8], fdataisencrypted: P0) -> ::windows_core::Result<()>
     where
@@ -15062,7 +15062,7 @@ impl IMFNetCredential {
     {
         (::windows_core::Interface::vtable(self).SetUser)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, fdataisencrypted.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPassword<P0>(&self, pbdata: &[u8], fdataisencrypted: P0) -> ::windows_core::Result<()>
     where
@@ -15070,7 +15070,7 @@ impl IMFNetCredential {
     {
         (::windows_core::Interface::vtable(self).SetPassword)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _, fdataisencrypted.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUser<P0>(&self, pbdata: ::core::option::Option<*mut u8>, pcbdata: *mut u32, fencryptdata: P0) -> ::windows_core::Result<()>
     where
@@ -15078,7 +15078,7 @@ impl IMFNetCredential {
     {
         (::windows_core::Interface::vtable(self).GetUser)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbdata.unwrap_or(::std::ptr::null_mut())), pcbdata, fencryptdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPassword<P0>(&self, pbdata: ::core::option::Option<*mut u8>, pcbdata: *mut u32, fencryptdata: P0) -> ::windows_core::Result<()>
     where
@@ -15086,7 +15086,7 @@ impl IMFNetCredential {
     {
         (::windows_core::Interface::vtable(self).GetPassword)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbdata.unwrap_or(::std::ptr::null_mut())), pcbdata, fencryptdata.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoggedOnUser(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -15136,7 +15136,7 @@ impl IMFNetCredentialCache {
     {
         (::windows_core::Interface::vtable(self).GetCredential)(::windows_core::Interface::as_raw(self), pszurl.into_param().abi(), pszrealm.into_param().abi(), dwauthenticationflags, ::core::mem::transmute(ppcred), pdwrequirementsflags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGood<P0, P1>(&self, pcred: P0, fgood: P1) -> ::windows_core::Result<()>
     where
@@ -15174,7 +15174,7 @@ pub struct IMFNetCredentialCache_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFNetCredentialManager(::windows_core::IUnknown);
 impl IMFNetCredentialManager {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginGetCredentials<P0, P1>(&self, pparam: *const MFNetCredentialManagerGetParam, pcallback: P0, pstate: P1) -> ::windows_core::Result<()>
     where
@@ -15190,7 +15190,7 @@ impl IMFNetCredentialManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EndGetCredentials)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGood<P0, P1>(&self, pcred: P0, fgood: P1) -> ::windows_core::Result<()>
     where
@@ -15233,7 +15233,7 @@ impl IMFNetCrossOriginSupport {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSourceOrigin)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSameOrigin<P0>(&self, wszurl: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -15265,7 +15265,7 @@ pub struct IMFNetCrossOriginSupport_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFNetProxyLocator(::windows_core::IUnknown);
 impl IMFNetProxyLocator {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindFirstProxy<P0, P1, P2>(&self, pszhost: P0, pszurl: P1, freserved: P2) -> ::windows_core::Result<()>
     where
@@ -15338,7 +15338,7 @@ pub struct IMFNetProxyLocatorFactory_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFNetResourceFilter(::windows_core::IUnknown);
 impl IMFNetResourceFilter {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnRedirect<P0>(&self, pszurl: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -15434,7 +15434,7 @@ pub struct IMFObjectReferenceStream_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFOutputPolicy(::windows_core::IUnknown);
 impl IMFOutputPolicy {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15443,13 +15443,13 @@ impl IMFOutputPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -15501,7 +15501,7 @@ impl IMFOutputPolicy {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -15549,7 +15549,7 @@ impl IMFOutputPolicy {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15592,7 +15592,7 @@ pub struct IMFOutputPolicy_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFOutputSchema(::windows_core::IUnknown);
 impl IMFOutputSchema {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15601,13 +15601,13 @@ impl IMFOutputSchema {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -15659,7 +15659,7 @@ impl IMFOutputSchema {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -15707,7 +15707,7 @@ impl IMFOutputSchema {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -15830,7 +15830,7 @@ impl IMFPMPHost {
     pub unsafe fn UnlockProcess(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockProcess)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateObjectByCLSID<P0, T>(&self, clsid: *const ::windows_core::GUID, pstream: P0) -> ::windows_core::Result<T>
     where
@@ -15869,7 +15869,7 @@ impl IMFPMPHostApp {
     pub unsafe fn UnlockProcess(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockProcess)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActivateClassById<P0, P1, T>(&self, id: P0, pstream: P1) -> ::windows_core::Result<T>
     where
@@ -15955,33 +15955,33 @@ impl IMFPMediaItem {
     pub unsafe fn SetUserData(&self, dwuserdata: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetUserData)(::windows_core::Interface::as_raw(self), dwuserdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStartStopPosition(&self, pguidstartpositiontype: ::core::option::Option<*mut ::windows_core::GUID>, pvstartvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: ::core::option::Option<*mut ::windows_core::GUID>, pvstopvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStartStopPosition)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pguidstartpositiontype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvstartvalue.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pguidstoppositiontype.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvstopvalue.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetStartStopPosition(&self, pguidstartpositiontype: ::core::option::Option<*const ::windows_core::GUID>, pvstartvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, pguidstoppositiontype: ::core::option::Option<*const ::windows_core::GUID>, pvstopvalue: ::core::option::Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStartStopPosition)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pguidstartpositiontype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvstartvalue.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pguidstoppositiontype.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pvstopvalue.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasVideo(&self, pfhasvideo: ::core::option::Option<*mut super::super::Foundation::BOOL>, pfselected: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).HasVideo)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pfhasvideo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfselected.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAudio(&self, pfhasaudio: ::core::option::Option<*mut super::super::Foundation::BOOL>, pfselected: ::core::option::Option<*mut super::super::Foundation::BOOL>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).HasAudio)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pfhasaudio.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pfselected.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsProtected(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsProtected)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDuration(&self, guidpositiontype: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -15991,13 +15991,13 @@ impl IMFPMediaItem {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOfStreams)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamSelection(&self, dwstreamindex: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamSelection)(::windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamSelection<P0>(&self, dwstreamindex: u32, fenabled: P0) -> ::windows_core::Result<()>
     where
@@ -16005,13 +16005,13 @@ impl IMFPMediaItem {
     {
         (::windows_core::Interface::vtable(self).SetStreamSelection)(::windows_core::Interface::as_raw(self), dwstreamindex, fenabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStreamAttribute(&self, dwstreamindex: u32, guidmfattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamAttribute)(::windows_core::Interface::as_raw(self), dwstreamindex, guidmfattribute, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPresentationAttribute(&self, guidmfattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -16027,7 +16027,7 @@ impl IMFPMediaItem {
     {
         (::windows_core::Interface::vtable(self).SetStreamSink)(::windows_core::Interface::as_raw(self), dwstreamindex, pmediasink.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::std::mem::zeroed();
@@ -16114,18 +16114,18 @@ impl IMFPMediaPlayer {
     pub unsafe fn FrameStep(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FrameStep)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetPosition(&self, guidpositiontype: *const ::windows_core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPosition)(::windows_core::Interface::as_raw(self), guidpositiontype, pvpositionvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPosition(&self, guidpositiontype: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), guidpositiontype, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetDuration(&self, guidpositiontype: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -16138,7 +16138,7 @@ impl IMFPMediaPlayer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSupportedRates<P0>(&self, fforwarddirection: P0, pflslowestrate: *mut f32, pflfastestrate: *mut f32) -> ::windows_core::Result<()>
     where
@@ -16150,7 +16150,7 @@ impl IMFPMediaPlayer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateMediaItemFromURL<P0, P1>(&self, pwszurl: P0, fsync: P1, dwuserdata: usize, ppmediaitem: ::core::option::Option<*mut ::core::option::Option<IMFPMediaItem>>) -> ::windows_core::Result<()>
     where
@@ -16159,7 +16159,7 @@ impl IMFPMediaPlayer {
     {
         (::windows_core::Interface::vtable(self).CreateMediaItemFromURL)(::windows_core::Interface::as_raw(self), pwszurl.into_param().abi(), fsync.into_param().abi(), dwuserdata, ::core::mem::transmute(ppmediaitem.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateMediaItemFromObject<P0, P1>(&self, piunknownobj: P0, fsync: P1, dwuserdata: usize, ppmediaitem: ::core::option::Option<*mut ::core::option::Option<IMFPMediaItem>>) -> ::windows_core::Result<()>
     where
@@ -16195,13 +16195,13 @@ impl IMFPMediaPlayer {
     pub unsafe fn SetBalance(&self, flbalance: f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBalance)(::windows_core::Interface::as_raw(self), flbalance).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMute(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMute)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMute<P0>(&self, fmute: P0) -> ::windows_core::Result<()>
     where
@@ -16209,12 +16209,12 @@ impl IMFPMediaPlayer {
     {
         (::windows_core::Interface::vtable(self).SetMute)(::windows_core::Interface::as_raw(self), fmute.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNativeVideoSize(&self, pszvideo: ::core::option::Option<*mut super::super::Foundation::SIZE>, pszarvideo: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNativeVideoSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszvideo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszarvideo.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdealVideoSize(&self, pszmin: ::core::option::Option<*mut super::super::Foundation::SIZE>, pszmax: ::core::option::Option<*mut super::super::Foundation::SIZE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIdealVideoSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pszmin.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pszmax.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -16233,7 +16233,7 @@ impl IMFPMediaPlayer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAspectRatioMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -16242,7 +16242,7 @@ impl IMFPMediaPlayer {
     pub unsafe fn UpdateVideo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateVideo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> ::windows_core::Result<()>
     where
@@ -16250,13 +16250,13 @@ impl IMFPMediaPlayer {
     {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), clr.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorderColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBorderColor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InsertEffect<P0, P1>(&self, peffect: P0, foptional: P1) -> ::windows_core::Result<()>
     where
@@ -16372,7 +16372,7 @@ pub struct IMFPMediaPlayer_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFPMediaPlayerCallback(::windows_core::IUnknown);
 impl IMFPMediaPlayerCallback {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER) {
         (::windows_core::Interface::vtable(self).OnMediaPlayerEvent)(::windows_core::Interface::as_raw(self), peventheader)
@@ -16421,7 +16421,7 @@ impl IMFPluginControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisabledByIndex)(::windows_core::Interface::as_raw(self), plugintype, index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisabled<P0>(&self, plugintype: u32, clsid: *const ::windows_core::GUID, disabled: P0) -> ::windows_core::Result<()>
     where
@@ -16478,7 +16478,7 @@ impl IMFPluginControl2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDisabledByIndex)(::windows_core::Interface::as_raw(self), plugintype, index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisabled<P0>(&self, plugintype: u32, clsid: *const ::windows_core::GUID, disabled: P0) -> ::windows_core::Result<()>
     where
@@ -16585,7 +16585,7 @@ pub struct IMFPresentationClock_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFPresentationDescriptor(::windows_core::IUnknown);
 impl IMFPresentationDescriptor {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -16594,13 +16594,13 @@ impl IMFPresentationDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -16652,7 +16652,7 @@ impl IMFPresentationDescriptor {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -16700,7 +16700,7 @@ impl IMFPresentationDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -16715,7 +16715,7 @@ impl IMFPresentationDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamDescriptorCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamDescriptorByIndex(&self, dwindex: u32, pfselected: *mut super::super::Foundation::BOOL, ppdescriptor: *mut ::core::option::Option<IMFStreamDescriptor>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStreamDescriptorByIndex)(::windows_core::Interface::as_raw(self), dwindex, pfselected, ::core::mem::transmute(ppdescriptor)).ok()
@@ -16987,7 +16987,7 @@ pub struct IMFQualityManager_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFRateControl(::windows_core::IUnknown);
 impl IMFRateControl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRate<P0>(&self, fthin: P0, flrate: f32) -> ::windows_core::Result<()>
     where
@@ -16995,7 +16995,7 @@ impl IMFRateControl {
     {
         (::windows_core::Interface::vtable(self).SetRate)(::windows_core::Interface::as_raw(self), fthin.into_param().abi(), flrate).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRate(&self, pfthin: *mut super::super::Foundation::BOOL, pflrate: *mut f32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetRate)(::windows_core::Interface::as_raw(self), pfthin, pflrate).ok()
@@ -17025,7 +17025,7 @@ pub struct IMFRateControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFRateSupport(::windows_core::IUnknown);
 impl IMFRateSupport {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSlowestRate<P0>(&self, edirection: MFRATE_DIRECTION, fthin: P0) -> ::windows_core::Result<f32>
     where
@@ -17034,7 +17034,7 @@ impl IMFRateSupport {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSlowestRate)(::windows_core::Interface::as_raw(self), edirection, fthin.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFastestRate<P0>(&self, edirection: MFRATE_DIRECTION, fthin: P0) -> ::windows_core::Result<f32>
     where
@@ -17043,7 +17043,7 @@ impl IMFRateSupport {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFastestRate)(::windows_core::Interface::as_raw(self), edirection, fthin.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRateSupported<P0>(&self, fthin: P0, flrate: f32, pflnearestsupportedrate: *mut f32) -> ::windows_core::Result<()>
     where
@@ -17325,7 +17325,7 @@ impl IMFSAMIStyle {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStyleCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetStyles(&self) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -17385,7 +17385,7 @@ impl IMFSSLCertificateManager {
     {
         (::windows_core::Interface::vtable(self).EndGetClientCertificate)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), ppbdata, pcbdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCertificatePolicy<P0>(&self, pszurl: P0, pfoverrideautomaticcheck: *mut super::super::Foundation::BOOL, pfclientcertificateavailable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -17393,7 +17393,7 @@ impl IMFSSLCertificateManager {
     {
         (::windows_core::Interface::vtable(self).GetCertificatePolicy)(::windows_core::Interface::as_raw(self), pszurl.into_param().abi(), pfoverrideautomaticcheck, pfclientcertificateavailable).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnServerCertificate<P0>(&self, pszurl: P0, pbdata: &[u8]) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -17430,7 +17430,7 @@ pub struct IMFSSLCertificateManager_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSample(::windows_core::IUnknown);
 impl IMFSample {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -17439,13 +17439,13 @@ impl IMFSample {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -17497,7 +17497,7 @@ impl IMFSample {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -17545,7 +17545,7 @@ impl IMFSample {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -17886,7 +17886,7 @@ pub struct IMFSaveJob_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSchemeHandler(::windows_core::IUnknown);
 impl IMFSchemeHandler {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn BeginCreateObject<P0, P1, P2, P3>(&self, pwszurl: P0, dwflags: u32, pprops: P1, ppiunknowncancelcookie: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>, pcallback: P2, punkstate: P3) -> ::windows_core::Result<()>
     where
@@ -17979,7 +17979,7 @@ pub struct IMFSecureChannel_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSeekInfo(::windows_core::IUnknown);
 impl IMFSeekInfo {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetNearestKeyFrames(&self, pguidtimeformat: *const ::windows_core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNearestKeyFrames)(::windows_core::Interface::as_raw(self), pguidtimeformat, pvarstartposition, pvarpreviouskeyframe, pvarnextkeyframe).ok()
@@ -18243,7 +18243,7 @@ impl IMFSensorProcessActivity {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamingState(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18253,7 +18253,7 @@ impl IMFSensorProcessActivity {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamingMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReportTime(&self) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::std::mem::zeroed();
@@ -18295,7 +18295,7 @@ impl IMFSensorProfile {
     {
         (::windows_core::Interface::vtable(self).AddProfileFilter)(::windows_core::Interface::as_raw(self), streamid, wzfiltersetstring.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMediaTypeSupported<P0>(&self, streamid: u32, pmediatype: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -18380,7 +18380,7 @@ pub struct IMFSensorProfileCollection_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSensorStream(::windows_core::IUnknown);
 impl IMFSensorStream {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -18389,13 +18389,13 @@ impl IMFSensorStream {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -18447,7 +18447,7 @@ impl IMFSensorStream {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -18495,7 +18495,7 @@ impl IMFSensorStream {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -18714,7 +18714,7 @@ impl IMFSimpleAudioVolume {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMasterVolume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMute<P0>(&self, bmute: P0) -> ::windows_core::Result<()>
     where
@@ -18722,7 +18722,7 @@ impl IMFSimpleAudioVolume {
     {
         (::windows_core::Interface::vtable(self).SetMute)(::windows_core::Interface::as_raw(self), bmute.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMute(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -18980,7 +18980,7 @@ pub struct IMFSinkWriterEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSourceBuffer(::windows_core::IUnknown);
 impl IMFSourceBuffer {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUpdating(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).GetUpdating)(::windows_core::Interface::as_raw(self))
@@ -19165,13 +19165,13 @@ pub struct IMFSourceOpenMonitor_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSourceReader(::windows_core::IUnknown);
 impl IMFSourceReader {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamSelection(&self, dwstreamindex: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStreamSelection)(::windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamSelection<P0>(&self, dwstreamindex: u32, fselected: P0) -> ::windows_core::Result<()>
     where
@@ -19193,7 +19193,7 @@ impl IMFSourceReader {
     {
         (::windows_core::Interface::vtable(self).SetCurrentMediaType)(::windows_core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null())), pmediatype.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const ::windows_core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentPosition)(::windows_core::Interface::as_raw(self), guidtimeformat, varposition).ok()
@@ -19207,7 +19207,7 @@ impl IMFSourceReader {
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetServiceForStream)(::windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -19327,13 +19327,13 @@ pub struct IMFSourceReaderCallback2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSourceReaderEx(::windows_core::IUnknown);
 impl IMFSourceReaderEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStreamSelection(&self, dwstreamindex: u32) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStreamSelection)(::windows_core::Interface::as_raw(self), dwstreamindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreamSelection<P0>(&self, dwstreamindex: u32, fselected: P0) -> ::windows_core::Result<()>
     where
@@ -19355,7 +19355,7 @@ impl IMFSourceReaderEx {
     {
         (::windows_core::Interface::vtable(self).base__.SetCurrentMediaType)(::windows_core::Interface::as_raw(self), dwstreamindex, ::core::mem::transmute(pdwreserved.unwrap_or(::std::ptr::null())), pmediatype.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const ::windows_core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetCurrentPosition)(::windows_core::Interface::as_raw(self), guidtimeformat, varposition).ok()
@@ -19369,7 +19369,7 @@ impl IMFSourceReaderEx {
     pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const ::windows_core::GUID, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetServiceForStream)(::windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -19415,7 +19415,7 @@ pub struct IMFSourceReaderEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSourceResolver(::windows_core::IUnknown);
 impl IMFSourceResolver {
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateObjectFromURL<P0, P1>(&self, pwszurl: P0, dwflags: u32, pprops: P1, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
@@ -19424,7 +19424,7 @@ impl IMFSourceResolver {
     {
         (::windows_core::Interface::vtable(self).CreateObjectFromURL)(::windows_core::Interface::as_raw(self), pwszurl.into_param().abi(), dwflags, pprops.into_param().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn CreateObjectFromByteStream<P0, P1, P2>(&self, pbytestream: P0, pwszurl: P1, dwflags: u32, pprops: P2, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
     where
@@ -19434,7 +19434,7 @@ impl IMFSourceResolver {
     {
         (::windows_core::Interface::vtable(self).CreateObjectFromByteStream)(::windows_core::Interface::as_raw(self), pbytestream.into_param().abi(), pwszurl.into_param().abi(), dwflags, pprops.into_param().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn BeginCreateObjectFromURL<P0, P1, P2, P3>(&self, pwszurl: P0, dwflags: u32, pprops: P1, ppiunknowncancelcookie: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>, pcallback: P2, punkstate: P3) -> ::windows_core::Result<()>
     where
@@ -19451,7 +19451,7 @@ impl IMFSourceResolver {
     {
         (::windows_core::Interface::vtable(self).EndCreateObjectFromURL)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), pobjecttype, ::core::mem::transmute(ppobject)).ok()
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn BeginCreateObjectFromByteStream<P0, P1, P2, P3, P4>(&self, pbytestream: P0, pwszurl: P1, dwflags: u32, pprops: P2, ppiunknowncancelcookie: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>, pcallback: P3, punkstate: P4) -> ::windows_core::Result<()>
     where
@@ -19535,18 +19535,18 @@ impl IMFSpatialAudioObjectBuffer {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn SetType(&self, r#type: super::Audio::AudioObjectType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetType(&self) -> ::windows_core::Result<super::Audio::AudioObjectType> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Media_Audio`"]
+    #[doc = "Required features: `\"Win32_Media_Audio\"`"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetMetadataItems(&self) -> ::windows_core::Result<super::Audio::ISpatialAudioMetadataItems> {
         let mut result__ = ::std::mem::zeroed();
@@ -19583,7 +19583,7 @@ pub struct IMFSpatialAudioObjectBuffer_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFSpatialAudioSample(::windows_core::IUnknown);
 impl IMFSpatialAudioSample {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -19592,13 +19592,13 @@ impl IMFSpatialAudioSample {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -19650,7 +19650,7 @@ impl IMFSpatialAudioSample {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -19698,7 +19698,7 @@ impl IMFSpatialAudioSample {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -19798,7 +19798,7 @@ pub struct IMFSpatialAudioSample_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFStreamDescriptor(::windows_core::IUnknown);
 impl IMFStreamDescriptor {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -19807,13 +19807,13 @@ impl IMFStreamDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -19865,7 +19865,7 @@ impl IMFStreamDescriptor {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -19913,7 +19913,7 @@ impl IMFStreamDescriptor {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -19969,7 +19969,7 @@ impl IMFStreamSink {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EndGetEvent)(::windows_core::Interface::as_raw(self), presult.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn QueueEvent(&self, met: u32, guidextendedtype: *const ::windows_core::GUID, hrstatus: ::windows_core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.QueueEvent)(::windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue).ok()
@@ -19992,7 +19992,7 @@ impl IMFStreamSink {
     {
         (::windows_core::Interface::vtable(self).ProcessSample)(::windows_core::Interface::as_raw(self), psample.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn PlaceMarker(&self, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PlaceMarker)(::windows_core::Interface::as_raw(self), emarkertype, pvarmarkervalue, pvarcontextvalue).ok()
@@ -20026,7 +20026,7 @@ pub struct IMFStreamSink_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFStreamingSinkConfig(::windows_core::IUnknown);
 impl IMFStreamingSinkConfig {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartStreaming<P0>(&self, fseekoffsetisbyteoffset: P0, qwseekoffset: u64) -> ::windows_core::Result<()>
     where
@@ -20080,7 +20080,7 @@ pub struct IMFSystemId_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFTimecodeTranslate(::windows_core::IUnknown);
 impl IMFTimecodeTranslate {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn BeginConvertTimecodeToHNS<P0, P1>(&self, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: P0, punkstate: P1) -> ::windows_core::Result<()>
     where
@@ -20103,7 +20103,7 @@ impl IMFTimecodeTranslate {
     {
         (::windows_core::Interface::vtable(self).BeginConvertHNSToTimecode)(::windows_core::Interface::as_raw(self), hnstime, pcallback.into_param().abi(), punkstate.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn EndConvertHNSToTimecode<P0>(&self, presult: P0) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
@@ -20145,7 +20145,7 @@ impl IMFTimedText {
     {
         (::windows_core::Interface::vtable(self).RegisterNotifications)(::windows_core::Interface::as_raw(self), notify.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectTrack<P0>(&self, trackid: u32, selected: P0) -> ::windows_core::Result<()>
     where
@@ -20153,7 +20153,7 @@ impl IMFTimedText {
     {
         (::windows_core::Interface::vtable(self).SelectTrack)(::windows_core::Interface::as_raw(self), trackid, selected.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDataSource<P0, P1, P2, P3>(&self, bytestream: P0, label: P1, language: P2, kind: MF_TIMED_TEXT_TRACK_KIND, isdefault: P3) -> ::windows_core::Result<u32>
     where
@@ -20165,7 +20165,7 @@ impl IMFTimedText {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddDataSource)(::windows_core::Interface::as_raw(self), bytestream.into_param().abi(), label.into_param().abi(), language.into_param().abi(), kind, isdefault.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDataSourceFromUrl<P0, P1, P2, P3>(&self, url: P0, label: P1, language: P2, kind: MF_TIMED_TEXT_TRACK_KIND, isdefault: P3) -> ::windows_core::Result<u32>
     where
@@ -20214,7 +20214,7 @@ impl IMFTimedText {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMetadataTracks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInBandEnabled<P0>(&self, enabled: P0) -> ::windows_core::Result<()>
     where
@@ -20222,7 +20222,7 @@ impl IMFTimedText {
     {
         (::windows_core::Interface::vtable(self).SetInBandEnabled)(::windows_core::Interface::as_raw(self), enabled.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInBandEnabled(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsInBandEnabled)(::windows_core::Interface::as_raw(self))
@@ -20485,7 +20485,7 @@ impl IMFTimedTextNotify {
     pub unsafe fn TrackRemoved(&self, trackid: u32) {
         (::windows_core::Interface::vtable(self).TrackRemoved)(::windows_core::Interface::as_raw(self), trackid)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TrackSelected<P0>(&self, trackid: u32, selected: P0)
     where
@@ -20560,7 +20560,7 @@ impl IMFTimedTextRegion {
     pub unsafe fn GetLineHeight(&self, plineheight: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLineHeight)(::windows_core::Interface::as_raw(self), plineheight, unittype).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetClipOverflow(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20569,7 +20569,7 @@ impl IMFTimedTextRegion {
     pub unsafe fn GetPadding(&self, before: *mut f64, start: *mut f64, after: *mut f64, end: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPadding)(::windows_core::Interface::as_raw(self), before, start, after, end, unittype).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWrap(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20659,7 +20659,7 @@ impl IMFTimedTextStyle {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsExternal(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsExternal)(::windows_core::Interface::as_raw(self))
@@ -20679,7 +20679,7 @@ impl IMFTimedTextStyle {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackgroundColor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetShowBackgroundAlways(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20689,13 +20689,13 @@ impl IMFTimedTextStyle {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFontStyle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBold(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBold)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRightToLeft(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20762,7 +20762,7 @@ impl IMFTimedTextStyle2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBouten)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTextCombined(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -20816,7 +20816,7 @@ impl IMFTimedTextTrack {
     pub unsafe fn GetTrackKind(&self) -> MF_TIMED_TEXT_TRACK_KIND {
         (::windows_core::Interface::vtable(self).GetTrackKind)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInBand(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsInBand)(::windows_core::Interface::as_raw(self))
@@ -20825,7 +20825,7 @@ impl IMFTimedTextTrack {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInBandMetadataTrackDispatchType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsActive(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsActive)(::windows_core::Interface::as_raw(self))
@@ -20972,7 +20972,7 @@ pub struct IMFTopoLoader_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFTopology(::windows_core::IUnknown);
 impl IMFTopology {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -20981,13 +20981,13 @@ impl IMFTopology {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -21039,7 +21039,7 @@ impl IMFTopology {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -21087,7 +21087,7 @@ impl IMFTopology {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -21170,7 +21170,7 @@ pub struct IMFTopology_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFTopologyNode(::windows_core::IUnknown);
 impl IMFTopologyNode {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -21179,13 +21179,13 @@ impl IMFTopologyNode {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -21237,7 +21237,7 @@ impl IMFTopologyNode {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -21285,7 +21285,7 @@ impl IMFTopologyNode {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -21751,7 +21751,7 @@ impl IMFTrustedOutput {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputTrustAuthorityByIndex)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFinal(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -21846,22 +21846,22 @@ pub struct IMFVideoDeviceID_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFVideoDisplayControl(::windows_core::IUnknown);
 impl IMFVideoDisplayControl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNativeVideoSize(&self, pszvideo: *mut super::super::Foundation::SIZE, pszarvideo: *mut super::super::Foundation::SIZE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNativeVideoSize)(::windows_core::Interface::as_raw(self), pszvideo, pszarvideo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdealVideoSize(&self, pszmin: *mut super::super::Foundation::SIZE, pszmax: *mut super::super::Foundation::SIZE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIdealVideoSize)(::windows_core::Interface::as_raw(self), pszmin, pszmax).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoPosition(&self, pnrcsource: *const MFVideoNormalizedRect, prcdest: *const super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVideoPosition)(::windows_core::Interface::as_raw(self), pnrcsource, prcdest).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoPosition(&self, pnrcsource: *mut MFVideoNormalizedRect, prcdest: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoPosition)(::windows_core::Interface::as_raw(self), pnrcsource, prcdest).ok()
@@ -21873,7 +21873,7 @@ impl IMFVideoDisplayControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAspectRatioMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVideoWindow<P0>(&self, hwndvideo: P0) -> ::windows_core::Result<()>
     where
@@ -21881,7 +21881,7 @@ impl IMFVideoDisplayControl {
     {
         (::windows_core::Interface::vtable(self).SetVideoWindow)(::windows_core::Interface::as_raw(self), hwndvideo.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -21890,12 +21890,12 @@ impl IMFVideoDisplayControl {
     pub unsafe fn RepaintVideo(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RepaintVideo)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetCurrentImage(&self, pbih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: *mut u32, ptimestamp: *mut i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentImage)(::windows_core::Interface::as_raw(self), pbih, pdib, pcbdib, ptimestamp).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBorderColor<P0>(&self, clr: P0) -> ::windows_core::Result<()>
     where
@@ -21903,7 +21903,7 @@ impl IMFVideoDisplayControl {
     {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), clr.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBorderColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::std::mem::zeroed();
@@ -21916,7 +21916,7 @@ impl IMFVideoDisplayControl {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRenderingPrefs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFullscreen<P0>(&self, ffullscreen: P0) -> ::windows_core::Result<()>
     where
@@ -21924,7 +21924,7 @@ impl IMFVideoDisplayControl {
     {
         (::windows_core::Interface::vtable(self).SetFullscreen)(::windows_core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFullscreen(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -21996,7 +21996,7 @@ pub struct IMFVideoDisplayControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFVideoMediaType(::windows_core::IUnknown);
 impl IMFVideoMediaType {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -22005,13 +22005,13 @@ impl IMFVideoMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -22063,7 +22063,7 @@ impl IMFVideoMediaType {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -22111,7 +22111,7 @@ impl IMFVideoMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -22126,7 +22126,7 @@ impl IMFVideoMediaType {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMajorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCompressedFormat(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -22145,7 +22145,7 @@ impl IMFVideoMediaType {
     pub unsafe fn FreeRepresentation(&self, guidrepresentation: ::windows_core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.FreeRepresentation)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(guidrepresentation), pvrepresentation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVideoFormat(&self) -> *mut MFVIDEOFORMAT {
         (::windows_core::Interface::vtable(self).GetVideoFormat)(::windows_core::Interface::as_raw(self))
@@ -22175,7 +22175,7 @@ pub struct IMFVideoMediaType_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFVideoMixerBitmap(::windows_core::IUnknown);
 impl IMFVideoMixerBitmap {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetAlphaBitmap(&self, pbmpparms: *const MFVideoAlphaBitmap) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlphaBitmap)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
@@ -22183,12 +22183,12 @@ impl IMFVideoMixerBitmap {
     pub unsafe fn ClearAlphaBitmap(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ClearAlphaBitmap)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateAlphaBitmapParameters(&self, pbmpparms: *const MFVideoAlphaBitmapParams) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateAlphaBitmapParameters)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAlphaBitmapParameters(&self, pbmpparms: *mut MFVideoAlphaBitmapParams) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAlphaBitmapParameters)(::windows_core::Interface::as_raw(self), pbmpparms).ok()
@@ -22363,7 +22363,7 @@ impl IMFVideoProcessor {
     pub unsafe fn GetAvailableVideoProcessorModes(&self, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAvailableVideoProcessorModes)(::windows_core::Interface::as_raw(self), lpdwnumprocessingmodes, ppvideoprocessingmodes).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+    #[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetVideoProcessorCaps(&self, lpvideoprocessormode: *const ::windows_core::GUID, lpvideoprocessorcaps: *mut DXVA2_VideoProcessorCaps) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetVideoProcessorCaps)(::windows_core::Interface::as_raw(self), lpvideoprocessormode, lpvideoprocessorcaps).ok()
@@ -22397,13 +22397,13 @@ impl IMFVideoProcessor {
     pub unsafe fn SetFilteringValue(&self, dwproperty: u32, pvalue: *const DXVA2_Fixed32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFilteringValue)(::windows_core::Interface::as_raw(self), dwproperty, pvalue).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBackgroundColor(&self) -> ::windows_core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackgroundColor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBackgroundColor<P0>(&self, clrbkg: P0) -> ::windows_core::Result<()>
     where
@@ -22452,12 +22452,12 @@ impl IMFVideoProcessorControl {
     pub unsafe fn SetBorderColor(&self, pbordercolor: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBorderColor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbordercolor.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRectangle(&self, psrcrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSourceRectangle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psrcrect.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDestinationRectangle(&self, pdstrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDestinationRectangle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdstrect.unwrap_or(::std::ptr::null()))).ok()
@@ -22468,7 +22468,7 @@ impl IMFVideoProcessorControl {
     pub unsafe fn SetRotation(&self, erotation: MF_VIDEO_PROCESSOR_ROTATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRotation)(::windows_core::Interface::as_raw(self), erotation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConstrictionSize(&self, pconstrictionsize: ::core::option::Option<*const super::super::Foundation::SIZE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetConstrictionSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pconstrictionsize.unwrap_or(::std::ptr::null()))).ok()
@@ -22508,12 +22508,12 @@ impl IMFVideoProcessorControl2 {
     pub unsafe fn SetBorderColor(&self, pbordercolor: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetBorderColor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbordercolor.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRectangle(&self, psrcrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetSourceRectangle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psrcrect.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDestinationRectangle(&self, pdstrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetDestinationRectangle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdstrect.unwrap_or(::std::ptr::null()))).ok()
@@ -22524,7 +22524,7 @@ impl IMFVideoProcessorControl2 {
     pub unsafe fn SetRotation(&self, erotation: MF_VIDEO_PROCESSOR_ROTATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRotation)(::windows_core::Interface::as_raw(self), erotation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConstrictionSize(&self, pconstrictionsize: ::core::option::Option<*const super::super::Foundation::SIZE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetConstrictionSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pconstrictionsize.unwrap_or(::std::ptr::null()))).ok()
@@ -22532,7 +22532,7 @@ impl IMFVideoProcessorControl2 {
     pub unsafe fn SetRotationOverride(&self, uirotation: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRotationOverride)(::windows_core::Interface::as_raw(self), uirotation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableHardwareEffects<P0>(&self, fenabled: P0) -> ::windows_core::Result<()>
     where
@@ -22570,12 +22570,12 @@ impl IMFVideoProcessorControl3 {
     pub unsafe fn SetBorderColor(&self, pbordercolor: ::core::option::Option<*const MFARGB>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetBorderColor)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbordercolor.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRectangle(&self, psrcrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetSourceRectangle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(psrcrect.unwrap_or(::std::ptr::null()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDestinationRectangle(&self, pdstrect: ::core::option::Option<*const super::super::Foundation::RECT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetDestinationRectangle)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdstrect.unwrap_or(::std::ptr::null()))).ok()
@@ -22586,7 +22586,7 @@ impl IMFVideoProcessorControl3 {
     pub unsafe fn SetRotation(&self, erotation: MF_VIDEO_PROCESSOR_ROTATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetRotation)(::windows_core::Interface::as_raw(self), erotation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetConstrictionSize(&self, pconstrictionsize: ::core::option::Option<*const super::super::Foundation::SIZE>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetConstrictionSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pconstrictionsize.unwrap_or(::std::ptr::null()))).ok()
@@ -22594,7 +22594,7 @@ impl IMFVideoProcessorControl3 {
     pub unsafe fn SetRotationOverride(&self, uirotation: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetRotationOverride)(::windows_core::Interface::as_raw(self), uirotation).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableHardwareEffects<P0>(&self, fenabled: P0) -> ::windows_core::Result<()>
     where
@@ -22610,7 +22610,7 @@ impl IMFVideoProcessorControl3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNaturalOutputType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableSphericalVideoProcessing<P0>(&self, fenable: P0, eformat: MFVideoSphericalFormat, eprojectionmode: MFVideoSphericalProjectionMode) -> ::windows_core::Result<()>
     where
@@ -22861,7 +22861,7 @@ pub struct IMFVideoSampleAllocatorNotifyEx_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMFVirtualCamera(::windows_core::IUnknown);
 impl IMFVirtualCamera {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItem(&self, guidkey: *const ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItem)(::windows_core::Interface::as_raw(self), guidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -22870,13 +22870,13 @@ impl IMFVirtualCamera {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetItemType)(::windows_core::Interface::as_raw(self), guidkey, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CompareItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareItem)(::windows_core::Interface::as_raw(self), guidkey, value, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -22928,7 +22928,7 @@ impl IMFVirtualCamera {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).base__.GetUnknown)(::windows_core::Interface::as_raw(self), guidkey, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetItem(&self, guidkey: *const ::windows_core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetItem)(::windows_core::Interface::as_raw(self), guidkey, value).ok()
@@ -22976,7 +22976,7 @@ impl IMFVirtualCamera {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut ::windows_core::GUID, pvalue: ::core::option::Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetItemByIndex)(::windows_core::Interface::as_raw(self), unindex, pguidkey, ::core::mem::transmute(pvalue.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -22993,7 +22993,7 @@ impl IMFVirtualCamera {
     {
         (::windows_core::Interface::vtable(self).AddDeviceSourceInfo)(::windows_core::Interface::as_raw(self), devicesourceinfo.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Devices_Properties`"]
+    #[doc = "Required features: `\"Win32_Devices_Properties\"`"]
     #[cfg(feature = "Win32_Devices_Properties")]
     pub unsafe fn AddProperty(&self, pkey: *const super::super::Devices::Properties::DEVPROPKEY, r#type: super::super::Devices::Properties::DEVPROPTYPE, pbdata: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddProperty)(::windows_core::Interface::as_raw(self), pkey, r#type, ::core::mem::transmute(pbdata.as_ptr()), pbdata.len() as _).ok()
@@ -23024,7 +23024,7 @@ impl IMFVirtualCamera {
     pub unsafe fn SendCameraProperty(&self, propertyset: *const ::windows_core::GUID, propertyid: u32, propertyflags: u32, propertypayload: ::core::option::Option<*mut ::core::ffi::c_void>, propertypayloadlength: u32, data: ::core::option::Option<*mut ::core::ffi::c_void>, datalength: u32, datawritten: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SendCameraProperty)(::windows_core::Interface::as_raw(self), propertyset, propertyid, propertyflags, ::core::mem::transmute(propertypayload.unwrap_or(::std::ptr::null_mut())), propertypayloadlength, ::core::mem::transmute(data.unwrap_or(::std::ptr::null_mut())), datalength, datawritten).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSyncEvent<P0>(&self, kseventset: *const ::windows_core::GUID, kseventid: u32, kseventflags: u32, eventhandle: P0) -> ::windows_core::Result<IMFCameraSyncObject>
     where
@@ -23033,7 +23033,7 @@ impl IMFVirtualCamera {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSyncEvent)(::windows_core::Interface::as_raw(self), kseventset, kseventid, kseventflags, eventhandle.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSyncSemaphore<P0>(&self, kseventset: *const ::windows_core::GUID, kseventid: u32, kseventflags: u32, semaphorehandle: P0, semaphoreadjustment: i32) -> ::windows_core::Result<IMFCameraSyncObject>
     where
@@ -23747,7 +23747,7 @@ pub struct IWMCodecOutputTimestamp_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMCodecPrivateData(::windows_core::IUnknown);
 impl IWMCodecPrivateData {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_DxMediaObjects`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub unsafe fn SetPartialOutputType(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPartialOutputType)(::windows_core::Interface::as_raw(self), pmt).ok()
@@ -23777,7 +23777,7 @@ pub struct IWMCodecPrivateData_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMCodecProps(::windows_core::IUnknown);
 impl IWMCodecProps {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_DxMediaObjects`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub unsafe fn GetFormatProp<P0>(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, pszname: P0, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows_core::Result<()>
     where
@@ -23813,12 +23813,12 @@ pub struct IWMCodecProps_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMCodecStrings(::windows_core::IUnknown);
 impl IWMCodecStrings {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_DxMediaObjects`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub unsafe fn GetName(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, szname: ::core::option::Option<&mut [u16]>, pcchlength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), pmt, szname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchlength).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_DxMediaObjects`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DxMediaObjects\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))]
     pub unsafe fn GetDescription(&self, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, szdescription: ::core::option::Option<&mut [u16]>, pcchlength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(szdescription.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcchlength).ok()
@@ -23900,7 +23900,7 @@ impl IWMFrameInterpProps {
     pub unsafe fn SetFrameRateOut(&self, lframerate: i32, lscale: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFrameRateOut)(::windows_core::Interface::as_raw(self), lframerate, lscale).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFrameInterpEnabled<P0>(&self, bfienabled: P0) -> ::windows_core::Result<()>
     where
@@ -24026,7 +24026,7 @@ pub struct IWMResizerProps_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMSampleExtensionSupport(::windows_core::IUnknown);
 impl IWMSampleExtensionSupport {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseSampleExtensions<P0>(&self, fuseextensions: P0) -> ::windows_core::Result<()>
     where
@@ -24104,7 +24104,7 @@ impl IWMVideoDecoderReconBuffer {
     pub unsafe fn GetReconstructedVideoFrameSize(&self, pdwsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetReconstructedVideoFrameSize)(::windows_core::Interface::as_raw(self), pdwsize).ok()
     }
-    #[doc = "Required features: `Win32_Media_DxMediaObjects`"]
+    #[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
     pub unsafe fn GetReconstructedVideoFrame<P0>(&self, pbuf: P0) -> ::windows_core::Result<()>
     where
@@ -24112,7 +24112,7 @@ impl IWMVideoDecoderReconBuffer {
     {
         (::windows_core::Interface::vtable(self).GetReconstructedVideoFrame)(::windows_core::Interface::as_raw(self), pbuf.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Media_DxMediaObjects`"]
+    #[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
     #[cfg(feature = "Win32_Media_DxMediaObjects")]
     pub unsafe fn SetReconstructedVideoFrame<P0>(&self, pbuf: P0) -> ::windows_core::Result<()>
     where
@@ -25221,13 +25221,13 @@ pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PRO
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(2i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(0i32);
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = D3D12_VIDEO_SCALE_SUPPORT_FLAGS(1i32);
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 4 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 5 };
 pub const DSATTRIB_CAPTURE_STREAMTIME: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c1a5614_30cd_4f40_bcbf_d03e52306207);
@@ -38849,7 +38849,7 @@ impl ::core::fmt::Debug for eVideoEncoderDisplayContentType {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AM_MEDIA_TYPE {
     pub majortype: ::windows_core::GUID,
@@ -39140,7 +39140,7 @@ impl ::core::default::Default for CodecAPIEventData {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     pub IOCoherent: super::super::Foundation::BOOL,
@@ -39178,7 +39178,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
@@ -39218,7 +39218,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
@@ -39259,7 +39259,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub NodeIndex: u32,
@@ -39304,7 +39304,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUP
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     pub NodeIndex: u32,
@@ -39376,7 +39376,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub NodeIndex: u32,
@@ -39513,7 +39513,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESO
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub NodeIndex: u32,
@@ -39560,7 +39560,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     pub NodeIndex: u32,
@@ -39600,7 +39600,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub NodeIndex: u32,
@@ -39628,7 +39628,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGU
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub NodeIndex: u32,
@@ -39656,7 +39656,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     pub NodeIndex: u32,
@@ -39685,7 +39685,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGI
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
@@ -39712,7 +39712,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     pub NodeIndex: u32,
@@ -39740,7 +39740,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     pub NodeIndex: u32,
@@ -39769,7 +39769,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     pub NodeIndex: u32,
@@ -39856,7 +39856,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLU
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     pub NodeIndex: u32,
@@ -39885,7 +39885,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
@@ -39958,7 +39958,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SU
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     pub NodeIndex: u32,
@@ -39990,7 +39990,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQU
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     pub NodeIndex: u32,
@@ -40029,7 +40029,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     pub NodeIndex: u32,
@@ -40231,7 +40231,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUP
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     pub NodeIndex: u32,
@@ -40272,7 +40272,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub NodeIndex: u32,
@@ -40344,7 +40344,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub NodeIndex: u32,
@@ -40402,7 +40402,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub NodeMask: u32,
@@ -40445,7 +40445,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub NodeMask: u32,
@@ -40549,7 +40549,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RES
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub NodeIndex: u32,
@@ -40595,7 +40595,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INF
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     pub NodeIndex: u32,
@@ -40663,7 +40663,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub Status: u64,
@@ -40704,7 +40704,7 @@ impl ::core::default::Default for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12VideoMotionVectorHeap>>,
@@ -40742,7 +40742,7 @@ impl ::core::default::Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     pub pMotionVectorTexture2D: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -40841,7 +40841,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODER_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub NodeMask: u32,
@@ -40886,7 +40886,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODER_HEAP_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     pub pBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -40955,7 +40955,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: super::super::Foundation::BOOL,
@@ -40995,7 +40995,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: super::super::Foundation::BOOL,
@@ -41068,7 +41068,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     pub NumFrameArguments: u32,
@@ -41108,7 +41108,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
@@ -41145,7 +41145,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     pub pOutputTexture2D: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -41183,7 +41183,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     pub pOutputTexture2D: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -41222,7 +41222,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
@@ -41590,7 +41590,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub pBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -41627,7 +41627,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_DESC {
     pub NodeMask: u32,
@@ -41657,7 +41657,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
@@ -41683,7 +41683,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
@@ -41721,7 +41721,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMEN
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     pub pBuffer: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -41977,7 +41977,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     pub DataSize: u32,
@@ -42002,7 +42002,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
@@ -42027,7 +42027,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
@@ -42194,7 +42194,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
@@ -42282,7 +42282,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     pub IntraRefreshFrameIndex: u32,
@@ -42484,7 +42484,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
     pub Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
@@ -42688,7 +42688,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     pub pReconstructedPicture: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -42725,7 +42725,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub ReconstructedPictureResourceIndex: u32,
@@ -42768,7 +42768,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub ReconstructedPictureResourceIndex: u32,
@@ -42810,7 +42810,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPT
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
@@ -42836,7 +42836,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARG
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
@@ -42872,7 +42872,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_AR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     pub Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
@@ -43004,7 +43004,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEV
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
@@ -43074,7 +43074,7 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     pub CommandId: ::windows_core::GUID,
@@ -43145,7 +43145,7 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_FORMAT {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -43184,7 +43184,7 @@ impl ::core::default::Default for D3D12_VIDEO_FORMAT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub NodeMask: u32,
@@ -43226,7 +43226,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pInputTexture2D: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -43266,7 +43266,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: ::std::mem::ManuallyDrop<::core::option::Option<ID3D12VideoMotionVectorHeap>>,
@@ -43302,7 +43302,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub NodeMask: u32,
@@ -43344,7 +43344,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     pub Enable: super::super::Foundation::BOOL,
@@ -43415,7 +43415,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
     pub pTexture2D: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -43453,7 +43453,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
@@ -43494,7 +43494,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
@@ -43536,7 +43536,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -43654,7 +43654,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
     pub Enable: super::super::Foundation::BOOL,
@@ -43694,7 +43694,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_LUMA_KEY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     pub pTexture2D: ::std::mem::ManuallyDrop<::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>>,
@@ -43731,7 +43731,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
@@ -43768,7 +43768,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -43812,7 +43812,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D12`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D12\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub NumPastFrames: u32,
@@ -43855,7 +43855,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
     pub SourceRectangle: super::super::Foundation::RECT,
@@ -43895,7 +43895,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_TRANSFORM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Dxgi_Common`"]
+#[doc = "Required features: `\"Win32_Graphics_Dxgi_Common\"`"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_SAMPLE {
     pub Width: u32,
@@ -44114,7 +44114,7 @@ impl ::core::default::Default for DEVICE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIRTYRECT_INFO {
     pub FrameNumber: u32,
@@ -44655,7 +44655,7 @@ impl ::core::default::Default for DXVA2_ValueRange {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA2_VideoDesc {
     pub SampleWidth: u32,
@@ -44686,7 +44686,7 @@ impl ::core::default::Default for DXVA2_VideoDesc {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: i64,
@@ -44722,7 +44722,7 @@ impl ::core::default::Default for DXVA2_VideoProcessBltParams {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
@@ -44780,7 +44780,7 @@ impl ::core::default::Default for DXVA2_VideoProcessorCaps {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVA2_VideoSample {
     pub Start: i64,
@@ -44841,7 +44841,7 @@ impl ::core::default::Default for DXVABufferInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVACompBufferInfo {
     pub NumCompBuffers: u32,
@@ -44945,7 +44945,7 @@ impl ::core::default::Default for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub pObject: u64,
@@ -44990,7 +44990,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTHD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub pObject: u64,
@@ -45052,7 +45052,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE {
     pub pObject: u64,
@@ -45093,7 +45093,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub pObject: u64,
@@ -45135,7 +45135,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDSW_CALLBACKS {
     pub CreateDevice: PDXVAHDSW_CreateDevice,
@@ -45210,7 +45210,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     pub YCbCr: super::super::Foundation::BOOL,
@@ -45235,7 +45235,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45371,7 +45371,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_PRIVATE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45528,7 +45528,7 @@ impl ::core::default::Default for DXVAHD_CONTENT_DESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_CUSTOM_RATE_DATA {
     pub CustomRate: DXVAHD_RATIONAL,
@@ -45631,7 +45631,7 @@ impl ::core::default::Default for DXVAHD_RATIONAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHD_STREAM_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45674,7 +45674,7 @@ impl ::core::default::Default for DXVAHD_STREAM_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45713,7 +45713,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_ALPHA_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45753,7 +45753,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
@@ -45791,7 +45791,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45830,7 +45830,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -45964,7 +45964,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -46004,7 +46004,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     pub RepeatFrame: super::super::Foundation::BOOL,
@@ -46105,7 +46105,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_PRIVATE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -46146,7 +46146,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -46219,7 +46219,7 @@ impl ::core::default::Default for DXVAHD_VPCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAHD_VPDEVCAPS {
     pub DeviceType: DXVAHD_DEVICE_TYPE,
@@ -46279,7 +46279,7 @@ impl ::core::default::Default for DXVAHD_VPDEVCAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAUncompDataInfo {
     pub UncompWidth: u32,
@@ -46538,7 +46538,7 @@ impl ::core::default::Default for DXVA_ConfigPictureDecode {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBlt {
     pub Size: u32,
@@ -46583,7 +46583,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBlt {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx {
     pub Size: u32,
@@ -46629,7 +46629,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx32 {
@@ -46683,7 +46683,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_DeinterlaceCaps {
     pub Size: u32,
@@ -46759,7 +46759,7 @@ impl ::core::default::Default for DXVA_DeinterlaceQueryAvailableModes {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_DeinterlaceQueryModeCaps {
     pub Size: u32,
@@ -46911,7 +46911,7 @@ impl ::core::default::Default for DXVA_PictureParameters {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_ProcAmpControlBlt {
     pub Size: u32,
@@ -46956,7 +46956,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlBlt {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_ProcAmpControlCaps {
     pub Size: u32,
@@ -46998,7 +46998,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlCaps {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_ProcAmpControlQueryRange {
     pub Size: u32,
@@ -47038,7 +47038,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlQueryRange {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_VideoDesc {
     pub Size: u32,
@@ -47146,7 +47146,7 @@ impl ::core::default::Default for DXVA_VideoSample {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2 {
@@ -47201,7 +47201,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2 {
@@ -47254,7 +47254,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample32 {
@@ -47998,7 +47998,7 @@ impl ::core::default::Default for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFMPEG2DLNASINKSTATS {
     pub cBytesWritten: u64,
@@ -48095,7 +48095,7 @@ impl ::core::default::Default for MFMediaKeyStatus {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: ::windows_core::HRESULT,
@@ -48170,7 +48170,7 @@ impl ::core::default::Default for MFOffset {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48228,7 +48228,7 @@ impl ::core::default::Default for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48264,7 +48264,7 @@ impl ::core::default::Default for MFP_ERROR_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
@@ -48304,7 +48304,7 @@ impl ::core::default::Default for MFP_EVENT_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48341,7 +48341,7 @@ impl ::core::default::Default for MFP_FRAME_STEP_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48378,7 +48378,7 @@ impl ::core::default::Default for MFP_MEDIAITEM_CLEARED_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48416,7 +48416,7 @@ impl ::core::default::Default for MFP_MEDIAITEM_CREATED_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48453,7 +48453,7 @@ impl ::core::default::Default for MFP_MEDIAITEM_SET_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48492,7 +48492,7 @@ impl ::core::default::Default for MFP_MF_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48529,7 +48529,7 @@ impl ::core::default::Default for MFP_PAUSE_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48566,7 +48566,7 @@ impl ::core::default::Default for MFP_PLAYBACK_ENDED_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48603,7 +48603,7 @@ impl ::core::default::Default for MFP_PLAY_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48640,7 +48640,7 @@ impl ::core::default::Default for MFP_POSITION_SET_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -48678,7 +48678,7 @@ impl ::core::default::Default for MFP_RATE_SET_EVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -49121,7 +49121,7 @@ impl ::core::default::Default for MFT_STREAM_STATE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVIDEOFORMAT {
     pub dwSize: u32,
@@ -49149,7 +49149,7 @@ impl ::core::default::Default for MFVIDEOFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub struct MFVideoAlphaBitmap {
     pub GetBitmapFromDC: super::super::Foundation::BOOL,
@@ -49173,7 +49173,7 @@ impl ::core::default::Default for MFVideoAlphaBitmap {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -49196,7 +49196,7 @@ impl ::core::default::Default for MFVideoAlphaBitmap_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoAlphaBitmapParams {
     pub dwFlags: u32,
@@ -49239,7 +49239,7 @@ impl ::core::default::Default for MFVideoAlphaBitmapParams {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
@@ -49310,7 +49310,7 @@ impl ::core::default::Default for MFVideoCompressedInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
@@ -49753,7 +49753,7 @@ impl ::core::default::Default for MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOVEREGION_INFO {
     pub FrameNumber: u32,
@@ -49793,7 +49793,7 @@ impl ::core::default::Default for MOVEREGION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
@@ -49832,7 +49832,7 @@ impl ::core::default::Default for MOVE_RECT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
@@ -49873,7 +49873,7 @@ impl ::core::default::Default for MPEG1VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MPEG2VIDEOINFO {
     pub hdr: VIDEOINFOHEADER2,
@@ -49903,7 +49903,7 @@ impl ::core::default::Default for MPEG2VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MT_ARBITRARY_HEADER {
     pub majortype: ::windows_core::GUID,
@@ -50012,7 +50012,7 @@ impl ::core::default::Default for OPM_ACP_AND_CGMSA_SIGNALING {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
@@ -50416,7 +50416,7 @@ impl ::core::default::Default for OPM_STANDARD_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ROI_AREA {
     pub rect: super::super::Foundation::RECT,
@@ -50581,7 +50581,7 @@ impl ::core::default::Default for TOC_ENTRY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -50624,7 +50624,7 @@ impl ::core::default::Default for VIDEOINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct VIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
@@ -50659,7 +50659,7 @@ impl ::core::default::Default for VIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
@@ -50684,56 +50684,56 @@ impl ::core::default::Default for VIDEOINFOHEADER2_0 {
     }
 }
 pub type MFPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: ::core::option::Option<::windows_core::IUnknown>) -> ()>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_CreateVideoProcessor = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows_core::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyDevice = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyVideoProcessor = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessBltStatePrivate = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, pdata: *mut DXVAHD_BLT_STATE_PRIVATE_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessStreamStatePrivate = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, pdata: *mut DXVAHD_STREAM_STATE_PRIVATE_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorCaps = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pcaps: *mut DXVAHD_VPCAPS) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorCustomRates = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows_core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorDeviceCaps = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorFilterRange = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, filter: DXVAHD_FILTER, prange: *mut DXVAHD_FILTER_RANGE_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorInputFormats = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorOutputFormats = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::HRESULT>;
 pub type PDXVAHDSW_Plugin = ::core::option::Option<unsafe extern "system" fn(size: u32, pcallbacks: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_ProposeVideoPrivateFormat = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pformat: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessBltState = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessStreamState = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_VideoProcessBltHD = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, poutputsurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows_core::HRESULT>;
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PDXVAHD_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut ::core::option::Option<IDXVAHD_Device>) -> ::windows_core::HRESULT>;
 #[cfg(feature = "implement")]

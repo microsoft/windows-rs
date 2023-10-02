@@ -1,5 +1,5 @@
 #[cfg(feature = "ApplicationModel_Payments_Provider")]
-#[doc = "Required features: `ApplicationModel_Payments_Provider`"]
+#[doc = "Required features: `\"ApplicationModel_Payments_Provider\"`"]
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -701,7 +701,7 @@ impl PaymentAddress {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetCountry)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddressLines(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -710,7 +710,7 @@ impl PaymentAddress {
             (::windows_core::Interface::vtable(this).AddressLines)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAddressLines<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -818,7 +818,7 @@ impl PaymentAddress {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetPhoneNumber)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -976,7 +976,7 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTotal)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>> {
         let this = self;
@@ -985,7 +985,7 @@ impl PaymentDetails {
             (::windows_core::Interface::vtable(this).DisplayItems)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDisplayItems<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -994,7 +994,7 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDisplayItems)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShippingOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>> {
         let this = self;
@@ -1003,7 +1003,7 @@ impl PaymentDetails {
             (::windows_core::Interface::vtable(this).ShippingOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetShippingOptions<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1012,7 +1012,7 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetShippingOptions)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Modifiers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>> {
         let this = self;
@@ -1021,7 +1021,7 @@ impl PaymentDetails {
             (::windows_core::Interface::vtable(this).Modifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetModifiers<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1039,7 +1039,7 @@ impl PaymentDetails {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), total.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithDisplayItems<P0, P1>(total: P0, displayitems: P1) -> ::windows_core::Result<PaymentDetails>
     where
@@ -1083,7 +1083,7 @@ impl PaymentDetailsModifier {
             (::windows_core::Interface::vtable(this).JsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedMethodIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1099,7 +1099,7 @@ impl PaymentDetailsModifier {
             (::windows_core::Interface::vtable(this).Total)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AdditionalDisplayItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>> {
         let this = self;
@@ -1108,7 +1108,7 @@ impl PaymentDetailsModifier {
             (::windows_core::Interface::vtable(this).AdditionalDisplayItems)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0, P1>(supportedmethodids: P0, total: P1) -> ::windows_core::Result<PaymentDetailsModifier>
     where
@@ -1120,7 +1120,7 @@ impl PaymentDetailsModifier {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), total.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAdditionalDisplayItems<P0, P1, P2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2) -> ::windows_core::Result<PaymentDetailsModifier>
     where
@@ -1133,7 +1133,7 @@ impl PaymentDetailsModifier {
             (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), total.into_param().abi(), additionaldisplayitems.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAdditionalDisplayItemsAndJsonData<P0, P1, P2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2, jsondata: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentDetailsModifier>
     where
@@ -1248,7 +1248,7 @@ impl PaymentMediator {
         static SHARED: ::windows_core::imp::FactoryCache<PaymentMediator, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedMethodIdsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
@@ -1257,7 +1257,7 @@ impl PaymentMediator {
             (::windows_core::Interface::vtable(this).GetSupportedMethodIdsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SubmitPaymentRequestAsync<P0>(&self, paymentrequest: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
     where
@@ -1269,7 +1269,7 @@ impl PaymentMediator {
             (::windows_core::Interface::vtable(this).SubmitPaymentRequestAsync)(::windows_core::Interface::as_raw(this), paymentrequest.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SubmitPaymentRequestWithChangeHandlerAsync<P0, P1>(&self, paymentrequest: P0, changehandler: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
     where
@@ -1282,7 +1282,7 @@ impl PaymentMediator {
             (::windows_core::Interface::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(::windows_core::Interface::as_raw(this), paymentrequest.into_param().abi(), changehandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CanMakePaymentAsync<P0>(&self, paymentrequest: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>
     where
@@ -1328,7 +1328,7 @@ impl PaymentMerchantInfo {
             (::windows_core::Interface::vtable(this).PackageFullName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1337,7 +1337,7 @@ impl PaymentMerchantInfo {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Create<P0>(uri: P0) -> ::windows_core::Result<PaymentMerchantInfo>
     where
@@ -1373,7 +1373,7 @@ unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PaymentMethodData(::windows_core::IUnknown);
 impl PaymentMethodData {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedMethodIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1389,7 +1389,7 @@ impl PaymentMethodData {
             (::windows_core::Interface::vtable(this).JsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0>(supportedmethodids: P0) -> ::windows_core::Result<PaymentMethodData>
     where
@@ -1400,7 +1400,7 @@ impl PaymentMethodData {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithJsonData<P0>(supportedmethodids: P0, jsondata: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentMethodData>
     where
@@ -1532,7 +1532,7 @@ impl PaymentRequest {
             (::windows_core::Interface::vtable(this).Details)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MethodData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>> {
         let this = self;
@@ -1555,7 +1555,7 @@ impl PaymentRequest {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<P0, P1>(details: P0, methoddata: P1) -> ::windows_core::Result<PaymentRequest>
     where
@@ -1567,7 +1567,7 @@ impl PaymentRequest {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithMerchantInfo<P0, P1, P2>(details: P0, methoddata: P1, merchantinfo: P2) -> ::windows_core::Result<PaymentRequest>
     where
@@ -1580,7 +1580,7 @@ impl PaymentRequest {
             (::windows_core::Interface::vtable(this).CreateWithMerchantInfo)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), merchantinfo.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithMerchantInfoAndOptions<P0, P1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3) -> ::windows_core::Result<PaymentRequest>
     where
@@ -1594,7 +1594,7 @@ impl PaymentRequest {
             (::windows_core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(::windows_core::Interface::as_raw(this), details.into_param().abi(), methoddata.try_into_param()?.abi(), merchantinfo.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithMerchantInfoOptionsAndId<P0, P1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3, id: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentRequest>
     where
@@ -1838,7 +1838,7 @@ impl PaymentResponse {
             (::windows_core::Interface::vtable(this).PayerPhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;

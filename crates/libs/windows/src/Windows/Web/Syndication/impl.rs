@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`, `Security_Credentials`"]
+#[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
 #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
 pub trait ISyndicationClient_Impl: Sized {
     fn ServerCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
@@ -140,7 +140,7 @@ impl ISyndicationClient_Vtbl {
         *iid == <ISyndicationClient as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Data_Xml_Dom`, `Foundation_Collections`"]
+#[doc = "Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`"]
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 pub trait ISyndicationNode_Impl: Sized {
     fn NodeName(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -306,7 +306,7 @@ impl ISyndicationNode_Vtbl {
         *iid == <ISyndicationNode as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Data_Xml_Dom`, `Foundation_Collections`"]
+#[doc = "Required features: `\"Data_Xml_Dom\"`, `\"Foundation_Collections\"`"]
 #[cfg(all(feature = "Data_Xml_Dom", feature = "Foundation_Collections"))]
 pub trait ISyndicationText_Impl: Sized + ISyndicationNode_Impl {
     fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

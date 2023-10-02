@@ -1,89 +1,89 @@
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_System_Ole`"] fn ADsBuildEnumerator(padscontainer : IADsContainer, ppenumvariant : *mut super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"] fn ADsBuildEnumerator(padscontainer : IADsContainer, ppenumvariant : *mut super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn ADsBuildVarArrayStr(lpppathnames : *const ::windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ADsBuildVarArrayStr(lpppathnames : *const ::windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsDecodeBinaryData(szsrcdata : ::windows_sys::core::PCWSTR, ppbdestdata : *mut *mut u8, pdwdestlen : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsEncodeBinaryData(pbsrcdata : *mut u8, dwsrclen : u32, ppszdestdata : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn ADsEnumerateNext(penumvariant : super::super::System::Ole:: IEnumVARIANT, celements : u32, pvar : *mut super::super::System::Variant:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ADsEnumerateNext(penumvariant : super::super::System::Ole:: IEnumVARIANT, celements : u32, pvar : *mut super::super::System::Variant:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Ole")]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_System_Ole`"] fn ADsFreeEnumerator(penumvariant : super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`"] fn ADsFreeEnumerator(penumvariant : super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : ::windows_sys::core::PWSTR, dwerrorbuflen : u32, lpnamebuf : ::windows_sys::core::PWSTR, dwnamebuflen : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsGetObject(lpszpathname : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ADsOpenObject(lpszpathname : ::windows_sys::core::PCWSTR, lpszusername : ::windows_sys::core::PCWSTR, lpszpassword : ::windows_sys::core::PCWSTR, dwreserved : ADS_AUTHENTICATION_ENUM, riid : *const ::windows_sys::core::GUID, ppobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ADsPropCheckIfWritable(pwzattr : ::windows_sys::core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ADsPropCheckIfWritable(pwzattr : ::windows_sys::core::PCWSTR, pwritableattrs : *const ADS_ATTR_INFO) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn ADsPropCreateNotifyObj(pappthddataobj : super::super::System::Com:: IDataObject, pwzadsobjname : ::windows_sys::core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ADsPropCreateNotifyObj(pappthddataobj : super::super::System::Com:: IDataObject, pwzadsobjname : ::windows_sys::core::PCWSTR, phnotifyobj : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ADsPropGetInitInfo(hnotifyobj : super::super::Foundation:: HWND, pinitparams : *mut ADSPROPINITPARAMS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ADsPropSendErrorMessage(hnotifyobj : super::super::Foundation:: HWND, perror : *mut ADSPROPERROR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ADsPropSetHwnd(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ADsPropSetHwndWithTitle(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND, ptztitle : *const i8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsprop.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ADsPropShowErrorDialog(hnotifyobj : super::super::Foundation:: HWND, hpage : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("activeds.dll" "system" fn ADsSetLastError(dwerr : u32, pszerror : ::windows_sys::core::PCWSTR, pszprovider : ::windows_sys::core::PCWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32) -> ());
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn AllocADsMem(cb : u32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("activeds.dll" "system" fn AllocADsStr(pstr : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant:: VARIANT, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant:: VARIANT, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsAddSidHistoryA(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCSTR, srcprincipal : ::windows_sys::core::PCSTR, srcdomaincontroller : ::windows_sys::core::PCSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCSTR, dstprincipal : ::windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsAddSidHistoryA(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCSTR, srcprincipal : ::windows_sys::core::PCSTR, srcdomaincontroller : ::windows_sys::core::PCSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCSTR, dstprincipal : ::windows_sys::core::PCSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsAddSidHistoryW(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCWSTR, srcprincipal : ::windows_sys::core::PCWSTR, srcdomaincontroller : ::windows_sys::core::PCWSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCWSTR, dstprincipal : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsAddSidHistoryW(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCWSTR, srcprincipal : ::windows_sys::core::PCWSTR, srcdomaincontroller : ::windows_sys::core::PCWSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCWSTR, dstprincipal : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Networking_WinSock`"] fn DsAddressToSiteNamesA(computername : ::windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn DsAddressToSiteNamesA(computername : ::windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Networking_WinSock`"] fn DsAddressToSiteNamesExA(computername : ::windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PSTR, subnetnames : *mut *mut ::windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn DsAddressToSiteNamesExA(computername : ::windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PSTR, subnetnames : *mut *mut ::windows_sys::core::PSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Networking_WinSock`"] fn DsAddressToSiteNamesExW(computername : ::windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PWSTR, subnetnames : *mut *mut ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn DsAddressToSiteNamesExW(computername : ::windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PWSTR, subnetnames : *mut *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Networking_WinSock")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Networking_WinSock`"] fn DsAddressToSiteNamesW(computername : ::windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Networking_WinSock\"`"] fn DsAddressToSiteNamesW(computername : ::windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::WinSock:: SOCKET_ADDRESS, sitenames : *mut *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindByInstanceA(servername : ::windows_sys::core::PCSTR, annotation : ::windows_sys::core::PCSTR, instanceguid : *const ::windows_sys::core::GUID, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindByInstanceA(servername : ::windows_sys::core::PCSTR, annotation : ::windows_sys::core::PCSTR, instanceguid : *const ::windows_sys::core::GUID, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindByInstanceW(servername : ::windows_sys::core::PCWSTR, annotation : ::windows_sys::core::PCWSTR, instanceguid : *const ::windows_sys::core::GUID, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindByInstanceW(servername : ::windows_sys::core::PCWSTR, annotation : ::windows_sys::core::PCWSTR, instanceguid : *const ::windows_sys::core::GUID, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindToISTGA(sitename : ::windows_sys::core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindToISTGA(sitename : ::windows_sys::core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindToISTGW(sitename : ::windows_sys::core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindToISTGW(sitename : ::windows_sys::core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindWithCredA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindWithCredA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindWithCredW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindWithCredW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindWithSpnA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindWithSpnA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindWithSpnExA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindWithSpnExA(domaincontrollername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindWithSpnExW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindWithSpnExW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindWithSpnW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindWithSpnW(domaincontrollername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, authidentity : *const ::core::ffi::c_void, serviceprincipalname : ::windows_sys::core::PCWSTR, phds : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsBindingSetTimeout(hds : super::super::Foundation:: HANDLE, ctimeoutsecs : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsBindingSetTimeout(hds : super::super::Foundation:: HANDLE, ctimeoutsecs : u32) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-::windows_targets::link!("dsuiext.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"] fn DsBrowseForContainerA(pinfo : *mut DSBROWSEINFOA) -> i32);
+::windows_targets::link!("dsuiext.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"] fn DsBrowseForContainerA(pinfo : *mut DSBROWSEINFOA) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-::windows_targets::link!("dsuiext.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"] fn DsBrowseForContainerW(pinfo : *mut DSBROWSEINFOW) -> i32);
+::windows_targets::link!("dsuiext.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"] fn DsBrowseForContainerW(pinfo : *mut DSBROWSEINFOW) -> i32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : ::windows_sys::core::PCSTR, servicename : ::windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : ::windows_sys::core::PCWSTR, servicename : ::windows_sys::core::PCWSTR, pcspnlength : *mut u32, pszspn : ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsCrackNamesA(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const ::windows_sys::core::PCSTR, ppresult : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsCrackNamesA(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const ::windows_sys::core::PCSTR, ppresult : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsCrackNamesW(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const ::windows_sys::core::PCWSTR, ppresult : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsCrackNamesW(hds : super::super::Foundation:: HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const ::windows_sys::core::PCWSTR, ppresult : *mut *mut DS_NAME_RESULTW) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsCrackSpn2A(pszspn : ::windows_sys::core::PCSTR, cspn : u32, pcserviceclass : *mut u32, serviceclass : ::windows_sys::core::PSTR, pcservicename : *mut u32, servicename : ::windows_sys::core::PSTR, pcinstancename : *mut u32, instancename : ::windows_sys::core::PSTR, pinstanceport : *mut u16) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsCrackSpn2W(pszspn : ::windows_sys::core::PCWSTR, cspn : u32, pcserviceclass : *mut u32, serviceclass : ::windows_sys::core::PWSTR, pcservicename : *mut u32, servicename : ::windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : ::windows_sys::core::PWSTR, pinstanceport : *mut u16) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsCrackSpn3W(pszspn : ::windows_sys::core::PCWSTR, cspn : u32, pchostname : *mut u32, hostname : ::windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : ::windows_sys::core::PWSTR, pportnumber : *mut u16, pcdomainname : *mut u32, domainname : ::windows_sys::core::PWSTR, pcrealmname : *mut u32, realmname : ::windows_sys::core::PWSTR) -> u32);
@@ -91,15 +91,15 @@
 ::windows_targets::link!("dsparse.dll" "system" fn DsCrackSpnA(pszspn : ::windows_sys::core::PCSTR, pcserviceclass : *mut u32, serviceclass : ::windows_sys::core::PSTR, pcservicename : *mut u32, servicename : ::windows_sys::core::PSTR, pcinstancename : *mut u32, instancename : ::windows_sys::core::PSTR, pinstanceport : *mut u16) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsCrackSpnW(pszspn : ::windows_sys::core::PCWSTR, pcserviceclass : *mut u32, serviceclass : ::windows_sys::core::PWSTR, pcservicename : *mut u32, servicename : ::windows_sys::core::PWSTR, pcinstancename : *mut u32, instancename : ::windows_sys::core::PWSTR, pinstanceport : *mut u16) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsCrackUnquotedMangledRdnA(pszrdn : ::windows_sys::core::PCSTR, cchrdn : u32, pguid : *mut ::windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsCrackUnquotedMangledRdnA(pszrdn : ::windows_sys::core::PCSTR, cchrdn : u32, pguid : *mut ::windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsCrackUnquotedMangledRdnW(pszrdn : ::windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut ::windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsCrackUnquotedMangledRdnW(pszrdn : ::windows_sys::core::PCWSTR, cchrdn : u32, pguid : *mut ::windows_sys::core::GUID, pedsmanglefor : *mut DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsA(servername : ::windows_sys::core::PCSTR, dnsdomainname : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, dsaguid : *const ::windows_sys::core::GUID, dnshostname : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : ::windows_sys::core::PCWSTR, dnsdomainname : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, dsaguid : *const ::windows_sys::core::GUID, dnshostname : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsEnumerateDomainTrustsA(servername : ::windows_sys::core::PCSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsEnumerateDomainTrustsA(servername : ::windows_sys::core::PCSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSA, domaincount : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsEnumerateDomainTrustsW(servername : ::windows_sys::core::PCWSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSW, domaincount : *mut u32) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsEnumerateDomainTrustsW(servername : ::windows_sys::core::PCWSTR, flags : u32, domains : *mut *mut DS_DOMAIN_TRUSTSW, domaincount : *mut u32) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infolevel : u32, cinfo : u32, pinfo : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA) -> ());
@@ -110,156 +110,156 @@
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut ::windows_sys::core::PSTR) -> ());
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut ::windows_sys::core::PWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsGetDcCloseW(getdccontexthandle : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsGetDcCloseW(getdccontexthandle : super::super::Foundation:: HANDLE) -> ());
 ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcNameA(computername : ::windows_sys::core::PCSTR, domainname : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, sitename : ::windows_sys::core::PCSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcNameW(computername : ::windows_sys::core::PCWSTR, domainname : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, sitename : ::windows_sys::core::PCWSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"] fn DsGetDcNextA(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn DsGetDcNextA(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_sys::core::PSTR) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Networking_WinSock`"] fn DsGetDcNextW(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`"] fn DsGetDcNextW(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsGetDcOpenA(dnsname : ::windows_sys::core::PCSTR, optionflags : u32, sitename : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsGetDcOpenA(dnsname : ::windows_sys::core::PCSTR, optionflags : u32, sitename : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsGetDcOpenW(dnsname : ::windows_sys::core::PCWSTR, optionflags : u32, sitename : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCWSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsGetDcOpenW(dnsname : ::windows_sys::core::PCWSTR, optionflags : u32, sitename : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCWSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcSiteCoverageA(servername : ::windows_sys::core::PCSTR, entrycount : *mut u32, sitenames : *mut *mut ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsGetDcSiteCoverageW(servername : ::windows_sys::core::PCWSTR, entrycount : *mut u32, sitenames : *mut *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsGetDomainControllerInfoA(hds : super::super::Foundation:: HANDLE, domainname : ::windows_sys::core::PCSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsGetDomainControllerInfoA(hds : super::super::Foundation:: HANDLE, domainname : ::windows_sys::core::PCSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsGetDomainControllerInfoW(hds : super::super::Foundation:: HANDLE, domainname : ::windows_sys::core::PCWSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsGetDomainControllerInfoW(hds : super::super::Foundation:: HANDLE, domainname : ::windows_sys::core::PCWSTR, infolevel : u32, pcout : *mut u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"] fn DsGetForestTrustInformationW(servername : ::windows_sys::core::PCWSTR, trusteddomainname : ::windows_sys::core::PCWSTR, flags : u32, foresttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`"] fn DsGetForestTrustInformationW(servername : ::windows_sys::core::PCWSTR, trusteddomainname : ::windows_sys::core::PCWSTR, flags : u32, foresttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION) -> u32);
 ::windows_targets::link!("dsuiext.dll" "system" fn DsGetFriendlyClassName(pszobjectclass : ::windows_sys::core::PCWSTR, pszbuffer : ::windows_sys::core::PWSTR, cchbuffer : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("dsuiext.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn DsGetIcon(dwflags : u32, pszobjectclass : ::windows_sys::core::PCWSTR, cximage : i32, cyimage : i32) -> super::super::UI::WindowsAndMessaging:: HICON);
+::windows_targets::link!("dsuiext.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn DsGetIcon(dwflags : u32, pszobjectclass : ::windows_sys::core::PCWSTR, cximage : i32, cyimage : i32) -> super::super::UI::WindowsAndMessaging:: HICON);
 ::windows_targets::link!("dsparse.dll" "system" fn DsGetRdnW(ppdn : *mut ::windows_sys::core::PWSTR, pcdn : *mut u32, ppkey : *mut ::windows_sys::core::PWSTR, pckey : *mut u32, ppval : *mut ::windows_sys::core::PWSTR, pcval : *mut u32) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsGetSiteNameA(computername : ::windows_sys::core::PCSTR, sitename : *mut ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsGetSiteNameW(computername : ::windows_sys::core::PCWSTR, sitename : *mut ::windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsGetSpnA(servicetype : DS_SPN_NAME_TYPE, serviceclass : ::windows_sys::core::PCSTR, servicename : ::windows_sys::core::PCSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const ::windows_sys::core::PCSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsGetSpnW(servicetype : DS_SPN_NAME_TYPE, serviceclass : ::windows_sys::core::PCWSTR, servicename : ::windows_sys::core::PCWSTR, instanceport : u16, cinstancenames : u16, pinstancenames : *const ::windows_sys::core::PCWSTR, pinstanceports : *const u16, pcspn : *mut u32, prpszspn : *mut *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsInheritSecurityIdentityA(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : ::windows_sys::core::PCSTR, dstprincipal : ::windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsInheritSecurityIdentityA(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : ::windows_sys::core::PCSTR, dstprincipal : ::windows_sys::core::PCSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsInheritSecurityIdentityW(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : ::windows_sys::core::PCWSTR, dstprincipal : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsInheritSecurityIdentityW(hds : super::super::Foundation:: HANDLE, flags : u32, srcprincipal : ::windows_sys::core::PCWSTR, dstprincipal : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsIsMangledDnA(pszdn : ::windows_sys::core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsIsMangledDnA(pszdn : ::windows_sys::core::PCSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsIsMangledDnW(pszdn : ::windows_sys::core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsIsMangledDnW(pszdn : ::windows_sys::core::PCWSTR, edsmanglefor : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsIsMangledRdnValueA(pszrdn : ::windows_sys::core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsIsMangledRdnValueA(pszrdn : ::windows_sys::core::PCSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsIsMangledRdnValueW(pszrdn : ::windows_sys::core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("dsparse.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsIsMangledRdnValueW(pszrdn : ::windows_sys::core::PCWSTR, crdn : u32, edsmanglefordesired : DS_MANGLE_FOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListDomainsInSiteA(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCSTR, ppdomains : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListDomainsInSiteA(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCSTR, ppdomains : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListDomainsInSiteW(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCWSTR, ppdomains : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListDomainsInSiteW(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCWSTR, ppdomains : *mut *mut DS_NAME_RESULTW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListInfoForServerA(hds : super::super::Foundation:: HANDLE, server : ::windows_sys::core::PCSTR, ppinfo : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListInfoForServerA(hds : super::super::Foundation:: HANDLE, server : ::windows_sys::core::PCSTR, ppinfo : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListInfoForServerW(hds : super::super::Foundation:: HANDLE, server : ::windows_sys::core::PCWSTR, ppinfo : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListInfoForServerW(hds : super::super::Foundation:: HANDLE, server : ::windows_sys::core::PCWSTR, ppinfo : *mut *mut DS_NAME_RESULTW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListRolesA(hds : super::super::Foundation:: HANDLE, pproles : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListRolesA(hds : super::super::Foundation:: HANDLE, pproles : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListRolesW(hds : super::super::Foundation:: HANDLE, pproles : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListRolesW(hds : super::super::Foundation:: HANDLE, pproles : *mut *mut DS_NAME_RESULTW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListServersForDomainInSiteA(hds : super::super::Foundation:: HANDLE, domain : ::windows_sys::core::PCSTR, site : ::windows_sys::core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListServersForDomainInSiteA(hds : super::super::Foundation:: HANDLE, domain : ::windows_sys::core::PCSTR, site : ::windows_sys::core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListServersForDomainInSiteW(hds : super::super::Foundation:: HANDLE, domain : ::windows_sys::core::PCWSTR, site : ::windows_sys::core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListServersForDomainInSiteW(hds : super::super::Foundation:: HANDLE, domain : ::windows_sys::core::PCWSTR, site : ::windows_sys::core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListServersInSiteA(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListServersInSiteA(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCSTR, ppservers : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListServersInSiteW(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListServersInSiteW(hds : super::super::Foundation:: HANDLE, site : ::windows_sys::core::PCWSTR, ppservers : *mut *mut DS_NAME_RESULTW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListSitesA(hds : super::super::Foundation:: HANDLE, ppsites : *mut *mut DS_NAME_RESULTA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListSitesA(hds : super::super::Foundation:: HANDLE, ppsites : *mut *mut DS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsListSitesW(hds : super::super::Foundation:: HANDLE, ppsites : *mut *mut DS_NAME_RESULTW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsListSitesW(hds : super::super::Foundation:: HANDLE, ppsites : *mut *mut DS_NAME_RESULTW) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : ::windows_sys::core::PCSTR, domain : ::windows_sys::core::PCSTR, password : ::windows_sys::core::PCSTR, pauthidentity : *mut *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : ::windows_sys::core::PCWSTR, domain : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, pauthidentity : *mut *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsMakeSpnA(serviceclass : ::windows_sys::core::PCSTR, servicename : ::windows_sys::core::PCSTR, instancename : ::windows_sys::core::PCSTR, instanceport : u16, referrer : ::windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsMakeSpnW(serviceclass : ::windows_sys::core::PCWSTR, servicename : ::windows_sys::core::PCWSTR, instancename : ::windows_sys::core::PCWSTR, instanceport : u16, referrer : ::windows_sys::core::PCWSTR, pcspnlength : *mut u32, pszspn : ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsMapSchemaGuidsA(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const ::windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsMapSchemaGuidsA(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const ::windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsMapSchemaGuidsW(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const ::windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsMapSchemaGuidsW(hds : super::super::Foundation:: HANDLE, cguids : u32, rguids : *const ::windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
-::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security_Authentication_Identity`"] fn DsMergeForestTrustInformationW(domainname : ::windows_sys::core::PCWSTR, newforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION) -> u32);
+::windows_targets::link!("netapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`"] fn DsMergeForestTrustInformationW(domainname : ::windows_sys::core::PCWSTR, newforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo : *const super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo : *mut *mut super::super::Security::Authentication::Identity:: LSA_FOREST_TRUST_INFORMATION) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsQuerySitesByCostA(hds : super::super::Foundation:: HANDLE, pszfromsite : ::windows_sys::core::PCSTR, rgsztosites : *const ::windows_sys::core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsQuerySitesByCostA(hds : super::super::Foundation:: HANDLE, pszfromsite : ::windows_sys::core::PCSTR, rgsztosites : *const ::windows_sys::core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsQuerySitesByCostW(hds : super::super::Foundation:: HANDLE, pwszfromsite : ::windows_sys::core::PCWSTR, rgwsztosites : *const ::windows_sys::core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsQuerySitesByCostW(hds : super::super::Foundation:: HANDLE, pwszfromsite : ::windows_sys::core::PCWSTR, rgwsztosites : *const ::windows_sys::core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut *mut DS_SITE_COST_INFO) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsQuerySitesFree(rgsiteinfo : *const DS_SITE_COST_INFO) -> ());
 ::windows_targets::link!("dsparse.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : ::windows_sys::core::PCSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : ::windows_sys::core::PCWSTR, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsRemoveDsDomainA(hds : super::super::Foundation:: HANDLE, domaindn : ::windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsRemoveDsDomainA(hds : super::super::Foundation:: HANDLE, domaindn : ::windows_sys::core::PCSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsRemoveDsDomainW(hds : super::super::Foundation:: HANDLE, domaindn : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsRemoveDsDomainW(hds : super::super::Foundation:: HANDLE, domaindn : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : ::windows_sys::core::PCSTR, domaindn : ::windows_sys::core::PCSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsRemoveDsServerA(hds : super::super::Foundation:: HANDLE, serverdn : ::windows_sys::core::PCSTR, domaindn : ::windows_sys::core::PCSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : ::windows_sys::core::PCWSTR, domaindn : ::windows_sys::core::PCWSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsRemoveDsServerW(hds : super::super::Foundation:: HANDLE, serverdn : ::windows_sys::core::PCWSTR, domaindn : ::windows_sys::core::PCWSTR, flastdcindomain : *mut super::super::Foundation:: BOOL, fcommit : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaAddA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, sourcedsadn : ::windows_sys::core::PCSTR, transportdn : ::windows_sys::core::PCSTR, sourcedsaaddress : ::windows_sys::core::PCSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaAddA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, sourcedsadn : ::windows_sys::core::PCSTR, transportdn : ::windows_sys::core::PCSTR, sourcedsaaddress : ::windows_sys::core::PCSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaAddW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, sourcedsadn : ::windows_sys::core::PCWSTR, transportdn : ::windows_sys::core::PCWSTR, sourcedsaaddress : ::windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaAddW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, sourcedsadn : ::windows_sys::core::PCWSTR, transportdn : ::windows_sys::core::PCWSTR, sourcedsaaddress : ::windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaConsistencyCheck(hds : super::super::Foundation:: HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaConsistencyCheck(hds : super::super::Foundation:: HANDLE, taskid : DS_KCC_TASKID, dwflags : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaDelA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, dsasrc : ::windows_sys::core::PCSTR, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaDelA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, dsasrc : ::windows_sys::core::PCSTR, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaDelW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, dsasrc : ::windows_sys::core::PCWSTR, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaDelW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, dsasrc : ::windows_sys::core::PCWSTR, options : u32) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsReplicaFreeInfo(infotype : DS_REPL_INFO_TYPE, pinfo : *const ::core::ffi::c_void) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaGetInfo2W(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : ::windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const ::windows_sys::core::GUID, pszattributename : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaGetInfo2W(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : ::windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const ::windows_sys::core::GUID, pszattributename : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, dwflags : u32, dwenumerationcontext : u32, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaGetInfoW(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : ::windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const ::windows_sys::core::GUID, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaGetInfoW(hds : super::super::Foundation:: HANDLE, infotype : DS_REPL_INFO_TYPE, pszobject : ::windows_sys::core::PCWSTR, puuidforsourcedsaobjguid : *const ::windows_sys::core::GUID, ppinfo : *mut *mut ::core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaModifyA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, puuidsourcedsa : *const ::windows_sys::core::GUID, transportdn : ::windows_sys::core::PCSTR, sourcedsaaddress : ::windows_sys::core::PCSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaModifyA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, puuidsourcedsa : *const ::windows_sys::core::GUID, transportdn : ::windows_sys::core::PCSTR, sourcedsaaddress : ::windows_sys::core::PCSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaModifyW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, puuidsourcedsa : *const ::windows_sys::core::GUID, transportdn : ::windows_sys::core::PCWSTR, sourcedsaaddress : ::windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaModifyW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, puuidsourcedsa : *const ::windows_sys::core::GUID, transportdn : ::windows_sys::core::PCWSTR, sourcedsaaddress : ::windows_sys::core::PCWSTR, pschedule : *const SCHEDULE, replicaflags : u32, modifyfields : u32, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaSyncA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, puuiddsasrc : *const ::windows_sys::core::GUID, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaSyncA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, puuiddsasrc : *const ::windows_sys::core::GUID, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaSyncAllA(hds : super::super::Foundation:: HANDLE, psznamecontext : ::windows_sys::core::PCSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const ::core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaSyncAllA(hds : super::super::Foundation:: HANDLE, psznamecontext : ::windows_sys::core::PCSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const ::core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaSyncAllW(hds : super::super::Foundation:: HANDLE, psznamecontext : ::windows_sys::core::PCWSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const ::core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaSyncAllW(hds : super::super::Foundation:: HANDLE, psznamecontext : ::windows_sys::core::PCWSTR, ulflags : u32, pfncallback : isize, pcallbackdata : *const ::core::ffi::c_void, perrors : *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaSyncW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, puuiddsasrc : *const ::windows_sys::core::GUID, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaSyncW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, puuiddsasrc : *const ::windows_sys::core::GUID, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaUpdateRefsA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, dsadest : ::windows_sys::core::PCSTR, puuiddsadest : *const ::windows_sys::core::GUID, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaUpdateRefsA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, dsadest : ::windows_sys::core::PCSTR, puuiddsadest : *const ::windows_sys::core::GUID, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaUpdateRefsW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, dsadest : ::windows_sys::core::PCWSTR, puuiddsadest : *const ::windows_sys::core::GUID, options : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaUpdateRefsW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, dsadest : ::windows_sys::core::PCWSTR, puuiddsadest : *const ::windows_sys::core::GUID, options : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaVerifyObjectsA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, puuiddsasrc : *const ::windows_sys::core::GUID, uloptions : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaVerifyObjectsA(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCSTR, puuiddsasrc : *const ::windows_sys::core::GUID, uloptions : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsReplicaVerifyObjectsW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, puuiddsasrc : *const ::windows_sys::core::GUID, uloptions : u32) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsReplicaVerifyObjectsW(hds : super::super::Foundation:: HANDLE, namecontext : ::windows_sys::core::PCWSTR, puuiddsasrc : *const ::windows_sys::core::GUID, uloptions : u32) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsRoleFreeMemory(buffer : *mut ::core::ffi::c_void) -> ());
 ::windows_targets::link!("netapi32.dll" "system" fn DsRoleGetPrimaryDomainInformation(lpserver : ::windows_sys::core::PCWSTR, infolevel : DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer : *mut *mut u8) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnA(operation : DS_SPN_WRITE_OP, serviceclass : ::windows_sys::core::PCSTR, userobjectdn : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("ntdsapi.dll" "system" fn DsServerRegisterSpnW(operation : DS_SPN_WRITE_OP, serviceclass : ::windows_sys::core::PCWSTR, userobjectdn : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsUnBindA(phds : *const super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsUnBindA(phds : *const super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsUnBindW(phds : *const super::super::Foundation:: HANDLE) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsUnBindW(phds : *const super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsUnquoteRdnValueA(cquotedrdnvaluelength : u32, psquotedrdnvalue : ::windows_sys::core::PCSTR, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("dsparse.dll" "system" fn DsUnquoteRdnValueW(cquotedrdnvaluelength : u32, psquotedrdnvalue : ::windows_sys::core::PCWSTR, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : ::windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsValidateSubnetNameA(subnetname : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" fn DsValidateSubnetNameW(subnetname : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsWriteAccountSpnA(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_sys::core::PCSTR, cspn : u32, rpszspn : *const ::windows_sys::core::PCSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsWriteAccountSpnA(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_sys::core::PCSTR, cspn : u32, rpszspn : *const ::windows_sys::core::PCSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DsWriteAccountSpnW(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("ntdsapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DsWriteAccountSpnW(hds : super::super::Foundation:: HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : ::windows_sys::core::PCWSTR, cspn : u32, rpszspn : *const ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FreeADsMem(pmem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FreeADsMem(pmem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FreeADsStr(pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FreeADsStr(pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" fn ReallocADsMem(poldmem : *mut ::core::ffi::c_void, cbold : u32, cbnew : u32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReallocADsStr(ppstr : *mut ::windows_sys::core::PWSTR, pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReallocADsStr(ppstr : *mut ::windows_sys::core::PWSTR, pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("activeds.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 pub type IADs = *mut ::core::ffi::c_void;
 pub type IADsADSystemInfo = *mut ::core::ffi::c_void;
 pub type IADsAccessControlEntry = *mut ::core::ffi::c_void;
@@ -1429,7 +1429,7 @@ pub type DS_REPSYNCALL_EVENT = i32;
 pub type DS_SPN_NAME_TYPE = i32;
 pub type DS_SPN_WRITE_OP = i32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPERROR {
     pub hwndPage: super::super::Foundation::HWND,
@@ -1448,7 +1448,7 @@ impl ::core::clone::Clone for ADSPROPERROR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSPROPINITPARAMS {
     pub dwSize: u32,
@@ -1467,7 +1467,7 @@ impl ::core::clone::Clone for ADSPROPINITPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADSVALUE {
     pub dwType: ADSTYPE,
@@ -1482,7 +1482,7 @@ impl ::core::clone::Clone for ADSVALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union ADSVALUE_0 {
     pub DNString: *mut u16,
@@ -1522,7 +1522,7 @@ impl ::core::clone::Clone for ADSVALUE_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_DEF {
     pub pszAttrName: ::windows_sys::core::PWSTR,
@@ -1540,7 +1540,7 @@ impl ::core::clone::Clone for ADS_ATTR_DEF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_ATTR_INFO {
     pub pszAttrName: ::windows_sys::core::PWSTR,
@@ -1580,7 +1580,7 @@ impl ::core::clone::Clone for ADS_CASEIGNORE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_CLASS_DEF {
     pub pszClassName: ::windows_sys::core::PWSTR,
@@ -1767,7 +1767,7 @@ impl ::core::clone::Clone for ADS_REPLICAPOINTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SEARCHPREF_INFO {
     pub dwSearchPref: ADS_SEARCHPREF_ENUM,
@@ -1783,7 +1783,7 @@ impl ::core::clone::Clone for ADS_SEARCHPREF_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SEARCH_COLUMN {
     pub pszAttrName: ::windows_sys::core::PWSTR,
@@ -1802,7 +1802,7 @@ impl ::core::clone::Clone for ADS_SEARCH_COLUMN {
 }
 pub type ADS_SEARCH_HANDLE = isize;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ADS_SORTKEY {
     pub pszAttrType: ::windows_sys::core::PWSTR,
@@ -1857,7 +1857,7 @@ impl ::core::clone::Clone for ADS_VLV {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct CQFORM {
     pub cbStruct: u32,
@@ -1875,7 +1875,7 @@ impl ::core::clone::Clone for CQFORM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CQPAGE {
     pub cbStruct: u32,
@@ -1896,7 +1896,7 @@ impl ::core::clone::Clone for CQPAGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOMAINDESC {
     pub pszName: ::windows_sys::core::PWSTR,
@@ -1954,7 +1954,7 @@ impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOMAIN_TREE {
     pub dsSize: u32,
@@ -1970,7 +1970,7 @@ impl ::core::clone::Clone for DOMAIN_TREE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct DSA_NEWOBJ_DISPINFO {
     pub dwSize: u32,
@@ -2023,7 +2023,7 @@ impl ::core::clone::Clone for DSBITEMW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOA {
     pub cbStruct: u32,
@@ -2051,7 +2051,7 @@ impl ::core::clone::Clone for DSBROWSEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct DSBROWSEINFOW {
     pub cbStruct: u32,
@@ -2242,7 +2242,7 @@ impl ::core::clone::Clone for DSQUERYINITPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSQUERYPARAMS {
     pub cbStruct: u32,
@@ -2298,7 +2298,7 @@ impl ::core::clone::Clone for DSROLE_UPGRADE_STATUS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub NetbiosName: ::windows_sys::core::PSTR,
@@ -2318,7 +2318,7 @@ impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub NetbiosName: ::windows_sys::core::PWSTR,
@@ -2338,7 +2338,7 @@ impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NetbiosName: ::windows_sys::core::PSTR,
@@ -2365,7 +2365,7 @@ impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NetbiosName: ::windows_sys::core::PWSTR,
@@ -2392,7 +2392,7 @@ impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NetbiosName: ::windows_sys::core::PSTR,
@@ -2420,7 +2420,7 @@ impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NetbiosName: ::windows_sys::core::PWSTR,
@@ -2448,7 +2448,7 @@ impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: ::windows_sys::core::PSTR,
@@ -2469,7 +2469,7 @@ impl ::core::clone::Clone for DS_DOMAIN_TRUSTSA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: ::windows_sys::core::PWSTR,
@@ -2536,7 +2536,7 @@ impl ::core::clone::Clone for DS_NAME_RESULT_ITEMW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: ::windows_sys::core::PWSTR,
@@ -2555,7 +2555,7 @@ impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: ::windows_sys::core::PWSTR,
@@ -2575,7 +2575,7 @@ impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
@@ -2595,7 +2595,7 @@ impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub cNumEntries: u32,
@@ -2611,7 +2611,7 @@ impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
@@ -2627,7 +2627,7 @@ impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub cNumEntries: u32,
@@ -2666,7 +2666,7 @@ impl ::core::clone::Clone for DS_REPL_CURSORS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
@@ -2682,7 +2682,7 @@ impl ::core::clone::Clone for DS_REPL_CURSORS_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSORS_3W {
     pub cNumCursors: u32,
@@ -2698,7 +2698,7 @@ impl ::core::clone::Clone for DS_REPL_CURSORS_3W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
@@ -2714,7 +2714,7 @@ impl ::core::clone::Clone for DS_REPL_CURSOR_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
@@ -2731,7 +2731,7 @@ impl ::core::clone::Clone for DS_REPL_CURSOR_3W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: ::windows_sys::core::GUID,
@@ -2748,7 +2748,7 @@ impl ::core::clone::Clone for DS_REPL_CURSOR_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub cNumEntries: u32,
@@ -2764,7 +2764,7 @@ impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILURESW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: ::windows_sys::core::PWSTR,
@@ -2782,7 +2782,7 @@ impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
@@ -2800,7 +2800,7 @@ impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORSW {
     pub cNumNeighbors: u32,
@@ -2816,7 +2816,7 @@ impl ::core::clone::Clone for DS_REPL_NEIGHBORSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: ::windows_sys::core::PWSTR,
@@ -2845,7 +2845,7 @@ impl ::core::clone::Clone for DS_REPL_NEIGHBORW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
@@ -2874,7 +2874,7 @@ impl ::core::clone::Clone for DS_REPL_NEIGHBORW_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OBJ_META_DATA {
     pub cNumEntries: u32,
@@ -2890,7 +2890,7 @@ impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
@@ -2906,7 +2906,7 @@ impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
@@ -2929,7 +2929,7 @@ impl ::core::clone::Clone for DS_REPL_OPW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::super::Foundation::FILETIME,
@@ -2952,7 +2952,7 @@ impl ::core::clone::Clone for DS_REPL_OPW_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
@@ -2968,7 +2968,7 @@ impl ::core::clone::Clone for DS_REPL_PENDING_OPSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
@@ -2988,7 +2988,7 @@ impl ::core::clone::Clone for DS_REPL_QUEUE_STATISTICSW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: ::windows_sys::core::PWSTR,
@@ -3012,7 +3012,7 @@ impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: ::windows_sys::core::PWSTR,
@@ -3037,7 +3037,7 @@ impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
@@ -3062,7 +3062,7 @@ impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
@@ -3090,7 +3090,7 @@ impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB_EXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: ::windows_sys::core::PWSTR,
@@ -3220,7 +3220,7 @@ impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION {
     pub pwzName: ::windows_sys::core::PWSTR,
@@ -3239,7 +3239,7 @@ impl ::core::clone::Clone for DS_SELECTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION_LIST {
     pub cItems: u32,
@@ -3266,7 +3266,7 @@ impl ::core::clone::Clone for DS_SITE_COST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub struct OPENQUERYWINDOW {
     pub cbStruct: u32,
@@ -3286,7 +3286,7 @@ impl ::core::clone::Clone for OPENQUERYWINDOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::core::ffi::c_void,
@@ -3324,15 +3324,15 @@ impl ::core::clone::Clone for SCHEDULE_HEADER {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDFORMSPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQADDPAGESPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows_sys::core::GUID, ppage: *mut CQPAGE) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: ::windows_sys::core::PCWSTR, pszdisplayname: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT>;

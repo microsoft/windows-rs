@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock_Impl: Sized {
     fn GetTime(&self) -> ::windows_core::Result<i64>;
@@ -61,7 +61,7 @@ impl IReferenceClock_Vtbl {
         *iid == <IReferenceClock as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
 #[cfg(feature = "Win32_Foundation")]

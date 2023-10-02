@@ -1,41 +1,41 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetFullscreenColorEffect(peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetFullscreenTransform(pmaglevel : *mut f32, pxoffset : *mut i32, pyoffset : *mut i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetFullscreenTransform(pmaglevel : *mut f32, pxoffset : *mut i32, pyoffset : *mut i32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn MagGetImageScalingCallback(hwnd : super::super::Foundation:: HWND) -> MagImageScalingCallback);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn MagGetImageScalingCallback(hwnd : super::super::Foundation:: HWND) -> MagImageScalingCallback);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetInputTransform(pfenabled : *mut super::super::Foundation:: BOOL, prectsource : *mut super::super::Foundation:: RECT, prectdest : *mut super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetInputTransform(pfenabled : *mut super::super::Foundation:: BOOL, prectsource : *mut super::super::Foundation:: RECT, prectdest : *mut super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetWindowFilterList(hwnd : super::super::Foundation:: HWND, pdwfiltermode : *mut MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> i32);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetWindowFilterList(hwnd : super::super::Foundation:: HWND, pdwfiltermode : *mut MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetWindowSource(hwnd : super::super::Foundation:: HWND, prect : *mut super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetWindowSource(hwnd : super::super::Foundation:: HWND, prect : *mut super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagGetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagGetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagInitialize() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagInitialize() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetColorEffect(hwnd : super::super::Foundation:: HWND, peffect : *mut MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetFullscreenColorEffect(peffect : *const MAGCOLOREFFECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetFullscreenTransform(maglevel : f32, xoffset : i32, yoffset : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetFullscreenTransform(maglevel : f32, xoffset : i32, yoffset : i32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn MagSetImageScalingCallback(hwnd : super::super::Foundation:: HWND, callback : MagImageScalingCallback) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn MagSetImageScalingCallback(hwnd : super::super::Foundation:: HWND, callback : MagImageScalingCallback) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetInputTransform(fenabled : super::super::Foundation:: BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetInputTransform(fenabled : super::super::Foundation:: BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetWindowFilterList(hwnd : super::super::Foundation:: HWND, dwfiltermode : MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetWindowFilterList(hwnd : super::super::Foundation:: HWND, dwfiltermode : MW_FILTERMODE, count : i32, phwnd : *mut super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetWindowSource(hwnd : super::super::Foundation:: HWND, rect : super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetWindowSource(hwnd : super::super::Foundation:: HWND, rect : super::super::Foundation:: RECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagSetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagSetWindowTransform(hwnd : super::super::Foundation:: HWND, ptransform : *mut MAGTRANSFORM) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagShowSystemCursor(fshowcursor : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagShowSystemCursor(fshowcursor : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MagUninitialize() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("magnification.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MagUninitialize() -> super::super::Foundation:: BOOL);
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
@@ -80,6 +80,6 @@ impl ::core::clone::Clone for MAGTRANSFORM {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type MagImageScalingCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, srcdata: *mut ::core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut ::core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::super::Foundation::RECT, clipped: super::super::Foundation::RECT, dirty: super::super::Graphics::Gdi::HRGN) -> super::super::Foundation::BOOL>;

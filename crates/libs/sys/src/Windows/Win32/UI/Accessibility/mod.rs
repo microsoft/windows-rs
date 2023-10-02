@@ -1,21 +1,21 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn AccessibleChildren(pacccontainer : IAccessible, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn AccessibleChildren(pacccontainer : IAccessible, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut IAccessible, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut IAccessible, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut IAccessible, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut IAccessible, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : ::windows_sys::core::PCSTR, idobject : i32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : ::windows_sys::core::PCSTR, idobject : i32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : ::windows_sys::core::PCWSTR, idobject : i32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : ::windows_sys::core::PCWSTR, idobject : i32, riid : *const ::windows_sys::core::GUID, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn DockPattern_SetDockPosition(hobj : HUIAPATTERNOBJECT, dockposition : DockPosition) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Collapse(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Expand(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
@@ -27,27 +27,27 @@
 ::windows_targets::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsWinEventHookInstalled(event : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsWinEventHookInstalled(event : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut IAccessible) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut IAccessible) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn LresultFromObject(riid : *const ::windows_sys::core::GUID, wparam : super::super::Foundation:: WPARAM, punk : ::windows_sys::core::IUnknown) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LresultFromObject(riid : *const ::windows_sys::core::GUID, wparam : super::super::Foundation:: WPARAM, punk : ::windows_sys::core::IUnknown) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_GetViewName(hobj : HUIAPATTERNOBJECT, viewid : i32, ppstr : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_SetCurrentView(hobj : HUIAPATTERNOBJECT, viewid : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32) -> ());
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const ::windows_sys::core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const ::windows_sys::core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn RangeValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, val : f64) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn ScrollItemPattern_ScrollIntoView(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn ScrollPattern_Scroll(hobj : HUIAPATTERNOBJECT, horizontalamount : ScrollAmount, verticalamount : ScrollAmount) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn ScrollPattern_SetScrollPercent(hobj : HUIAPATTERNOBJECT, horizontalpercent : f64, verticalpercent : f64) -> ::windows_sys::core::HRESULT);
@@ -55,13 +55,13 @@
 ::windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_RemoveFromSelection(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_Select(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::super::Foundation:: HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> HWINEVENTHOOK);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::super::Foundation:: HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> HWINEVENTHOOK);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_Cancel(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_StartListening(hobj : HUIAPATTERNOBJECT, inputtype : SynchronizedInputType) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromChild(hobj : HUIAPATTERNOBJECT, hnodechild : HUIANODE, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromPoint(hobj : HUIAPATTERNOBJECT, point : UiaPoint, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextPattern_get_DocumentRange(hobj : HUIAPATTERNOBJECT, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
@@ -69,19 +69,19 @@
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_AddToSelection(hobj : HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj : HUIATEXTRANGE, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn TextRange_FindText(hobj : HUIATEXTRANGE, text : ::windows_sys::core::BSTR, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TextRange_FindText(hobj : HUIATEXTRANGE, text : ::windows_sys::core::BSTR, backward : super::super::Foundation:: BOOL, ignorecase : super::super::Foundation:: BOOL, pretval : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetEnclosingElement(hobj : HUIATEXTRANGE, pretval : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_GetText(hobj : HUIATEXTRANGE, maxlength : i32, pretval : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Move(hobj : HUIATEXTRANGE, unit : TextUnit, count : i32, pretval : *mut i32) -> ::windows_sys::core::HRESULT);
@@ -89,99 +89,99 @@
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByUnit(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, unit : TextUnit, count : i32, pretval : *mut i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_RemoveFromSelection(hobj : HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TextRange_Select(hobj : HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TogglePattern_Toggle(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Move(hobj : HUIAPATTERNOBJECT, x : f64, y : f64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Resize(hobj : HUIAPATTERNOBJECT, width : f64, height : f64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn TransformPattern_Rotate(hobj : HUIAPATTERNOBJECT, degrees : f64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaClientsAreListening() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaClientsAreListening() -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaDisconnectAllProviders() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaDisconnectProvider(pprovider : IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaGetErrorDescription(pdescription : *mut ::windows_sys::core::BSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaGetErrorDescription(pdescription : *mut ::windows_sys::core::BSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetReservedNotSupportedValue(punknotsupportedvalue : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaGetRootNode(phnode : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaIAccessibleFromProvider(pprovider : IRawElementProviderSimple, dwflags : u32, ppaccessible : *mut IAccessible, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaIAccessibleFromProvider(pprovider : IRawElementProviderSimple, dwflags : u32, ppaccessible : *mut IAccessible, pvarchild : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaLookupId(r#type : AutomationIdentifierType, pguid : *const ::windows_sys::core::GUID) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaNodeFromFocus(prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaNodeFromFocus(prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaNodeFromPoint(x : f64, y : f64, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaNodeFromPoint(x : f64, y : f64, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pprovider : IRawElementProviderSimple, phnode : *mut HUIANODE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaNodeRelease(hnode : HUIANODE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaNodeRelease(hnode : HUIANODE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaProviderFromIAccessible(paccessible : IAccessible, idchild : i32, dwflags : u32, ppprovider : *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaProviderFromIAccessible(paccessible : IAccessible, idchild : i32, dwflags : u32, ppprovider : *mut IRawElementProviderSimple) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : IRawElementProviderSimple, textrange : ITextRangeProvider) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : IRawElementProviderSimple, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : IRawElementProviderSimple, id : UIA_EVENT_ID) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaRaiseAutomationPropertyChangedEvent(pprovider : IRawElementProviderSimple, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaRaiseAutomationPropertyChangedEvent(pprovider : IRawElementProviderSimple, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn UiaRaiseChangesEvent(pprovider : IRawElementProviderSimple, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn UiaRaiseChangesEvent(pprovider : IRawElementProviderSimple, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : IRawElementProviderSimple, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : ::windows_sys::core::BSTR, activityid : ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : IRawElementProviderSimple, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn UiaRaiseTextEditTextChangedEvent(pprovider : IRawElementProviderSimple, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn UiaRaiseTextEditTextChangedEvent(pprovider : IRawElementProviderSimple, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback) -> ());
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback) -> ());
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : HUIAEVENT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : IRawElementProviderSimple) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : IRawElementProviderSimple) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn UiaSetFocus(hnode : HUIANODE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn WindowFromAccessibleObject(param0 : IAccessible, phwnd : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("oleacc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn WindowFromAccessibleObject(param0 : IAccessible, phwnd : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("uiautomationcore.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 pub type IAccIdentity = *mut ::core::ffi::c_void;
 pub type IAccPropServer = *mut ::core::ffi::c_void;
 pub type IAccPropServices = *mut ::core::ffi::c_void;
@@ -1846,7 +1846,7 @@ impl ::core::clone::Clone for UIAutomationEventInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: ::windows_sys::core::PCWSTR,
@@ -1876,7 +1876,7 @@ impl ::core::clone::Clone for UIAutomationParameter {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UIAutomationPatternInfo {
     pub guid: ::windows_sys::core::GUID,
@@ -1953,7 +1953,7 @@ impl ::core::clone::Clone for UiaCacheRequest {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaChangeInfo {
     pub uiaId: i32,
@@ -1969,7 +1969,7 @@ impl ::core::clone::Clone for UiaChangeInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaChangesEventArgs {
     pub Type: EventArgsType,
@@ -2007,7 +2007,7 @@ impl ::core::clone::Clone for UiaEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UiaFindParams {
     pub MaxDepth: i32,
@@ -2046,7 +2046,7 @@ impl ::core::clone::Clone for UiaPoint {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyChangedEventArgs {
     pub Type: EventArgsType,
@@ -2064,7 +2064,7 @@ impl ::core::clone::Clone for UiaPropertyChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct UiaPropertyCondition {
     pub ConditionType: ConditionType,
@@ -2108,7 +2108,7 @@ impl ::core::clone::Clone for UiaStructureChangedEventArgs {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct UiaTextEditTextChangedEventArgs {
     pub Type: EventArgsType,
@@ -2137,30 +2137,30 @@ impl ::core::clone::Clone for UiaWindowClosedEventArgs {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: IAccessible, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut IAccessible, pvarchild: *mut super::super::System::Variant::VARIANT) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCREATESTDACCESSIBLEOBJECT = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows_sys::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::windows_sys::core::IUnknown) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows_sys::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: ::windows_sys::core::BSTR) -> ()>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32) -> ()>;

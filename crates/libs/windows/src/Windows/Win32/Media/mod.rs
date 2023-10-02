@@ -1,41 +1,41 @@
 #[cfg(feature = "Win32_Media_Audio")]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 pub mod Audio;
 #[cfg(feature = "Win32_Media_DeviceManager")]
-#[doc = "Required features: `Win32_Media_DeviceManager`"]
+#[doc = "Required features: `\"Win32_Media_DeviceManager\"`"]
 pub mod DeviceManager;
 #[cfg(feature = "Win32_Media_DirectShow")]
-#[doc = "Required features: `Win32_Media_DirectShow`"]
+#[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
 pub mod DirectShow;
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
-#[doc = "Required features: `Win32_Media_DxMediaObjects`"]
+#[doc = "Required features: `\"Win32_Media_DxMediaObjects\"`"]
 pub mod DxMediaObjects;
 #[cfg(feature = "Win32_Media_KernelStreaming")]
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 pub mod KernelStreaming;
 #[cfg(feature = "Win32_Media_LibrarySharingServices")]
-#[doc = "Required features: `Win32_Media_LibrarySharingServices`"]
+#[doc = "Required features: `\"Win32_Media_LibrarySharingServices\"`"]
 pub mod LibrarySharingServices;
 #[cfg(feature = "Win32_Media_MediaFoundation")]
-#[doc = "Required features: `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Media_MediaFoundation\"`"]
 pub mod MediaFoundation;
 #[cfg(feature = "Win32_Media_MediaPlayer")]
-#[doc = "Required features: `Win32_Media_MediaPlayer`"]
+#[doc = "Required features: `\"Win32_Media_MediaPlayer\"`"]
 pub mod MediaPlayer;
 #[cfg(feature = "Win32_Media_Multimedia")]
-#[doc = "Required features: `Win32_Media_Multimedia`"]
+#[doc = "Required features: `\"Win32_Media_Multimedia\"`"]
 pub mod Multimedia;
 #[cfg(feature = "Win32_Media_PictureAcquisition")]
-#[doc = "Required features: `Win32_Media_PictureAcquisition`"]
+#[doc = "Required features: `\"Win32_Media_PictureAcquisition\"`"]
 pub mod PictureAcquisition;
 #[cfg(feature = "Win32_Media_Speech")]
-#[doc = "Required features: `Win32_Media_Speech`"]
+#[doc = "Required features: `\"Win32_Media_Speech\"`"]
 pub mod Speech;
 #[cfg(feature = "Win32_Media_Streaming")]
-#[doc = "Required features: `Win32_Media_Streaming`"]
+#[doc = "Required features: `\"Win32_Media_Streaming\"`"]
 pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
-#[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
+#[doc = "Required features: `\"Win32_Media_WindowsMediaFormat\"`"]
 pub mod WindowsMediaFormat;
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
@@ -80,7 +80,7 @@ impl IReferenceClock {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows_core::Result<usize>
     where
@@ -89,7 +89,7 @@ impl IReferenceClock {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows_core::Result<usize>
     where
@@ -132,7 +132,7 @@ impl IReferenceClock2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<P0>(&self, basetime: i64, streamtime: i64, hevent: P0) -> ::windows_core::Result<usize>
     where
@@ -141,7 +141,7 @@ impl IReferenceClock2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<P0>(&self, starttime: i64, periodtime: i64, hsemaphore: P0) -> ::windows_core::Result<usize>
     where
@@ -574,7 +574,7 @@ impl ::core::default::Default for TIMECODE_SAMPLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Media_Multimedia`"]
+#[doc = "Required features: `\"Win32_Media_Multimedia\"`"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize) -> ()>;
 pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize) -> ()>;

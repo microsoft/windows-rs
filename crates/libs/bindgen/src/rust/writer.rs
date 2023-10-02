@@ -328,7 +328,7 @@ impl<'a> Writer<'a> {
             let mut tokens = String::new();
 
             for features in self.cfg_features_imp(cfg, self.namespace) {
-                write!(tokens, r#"`{}`, "#, to_feature(features)).unwrap();
+                write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
             }
 
             if tokens.is_empty() {
@@ -354,7 +354,7 @@ impl<'a> Writer<'a> {
                 let mut tokens = String::new();
 
                 for features in features {
-                    write!(tokens, r#"`{}`, "#, to_feature(features)).unwrap();
+                    write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
                 }
 
                 tokens.truncate(tokens.len() - 2);

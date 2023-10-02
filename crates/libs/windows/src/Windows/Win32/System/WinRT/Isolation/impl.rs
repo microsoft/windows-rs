@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IIsolatedEnvironmentInterop_Impl: Sized {
     fn GetHostHwndInterop(&self, containerhwnd: super::super::super::Foundation::HWND) -> ::windows_core::Result<super::super::super::Foundation::HWND>;

@@ -46,7 +46,7 @@ pub struct IScreenReaderService_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScreenReaderPositionChangedEventArgs(::windows_core::IUnknown);
 impl ScreenReaderPositionChangedEventArgs {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenPositionInRawPixels(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -96,7 +96,7 @@ impl ScreenReaderService {
             (::windows_core::Interface::vtable(this).CurrentScreenReaderPosition)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenReaderPositionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -108,7 +108,7 @@ impl ScreenReaderService {
             (::windows_core::Interface::vtable(this).ScreenReaderPositionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenReaderPositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;

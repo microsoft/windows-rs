@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreateAllocator(connectionhandle : super::super::Foundation:: HANDLE, allocatorframing : *const KSALLOCATOR_FRAMING, allocatorhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreateAllocator(connectionhandle.into_param().abi(), allocatorframing, allocatorhandle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator2<P0>(connectionhandle: P0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -19,7 +19,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsCreateAllocator2(connectionhandle.into_param().abi(), allocatorframing, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -29,7 +29,7 @@ where
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreateClock(connectionhandle : super::super::Foundation:: HANDLE, clockcreate : *const KSCLOCK_CREATE, clockhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreateClock(connectionhandle.into_param().abi(), clockcreate, clockhandle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock2<P0>(connectionhandle: P0, clockcreate: *const KSCLOCK_CREATE) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -40,7 +40,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsCreateClock2(connectionhandle.into_param().abi(), clockcreate, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -50,7 +50,7 @@ where
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreatePin(filterhandle : super::super::Foundation:: HANDLE, connect : *const KSPIN_CONNECT, desiredaccess : u32, connectionhandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreatePin(filterhandle.into_param().abi(), connect, desiredaccess, connectionhandle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin2<P0>(filterhandle: P0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -61,7 +61,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsCreatePin2(filterhandle.into_param().abi(), connect, desiredaccess, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -71,7 +71,7 @@ where
     ::windows_targets::link!("ksuser.dll" "system" fn KsCreateTopologyNode(parenthandle : super::super::Foundation:: HANDLE, nodecreate : *const KSNODE_CREATE, desiredaccess : u32, nodehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     KsCreateTopologyNode(parenthandle.into_param().abi(), nodecreate, desiredaccess, nodehandle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode2<P0>(parenthandle: P0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE>
@@ -82,7 +82,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsCreateTopologyNode2(parenthandle.into_param().abi(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 #[inline]
 pub unsafe fn KsGetMediaType<P0>(position: i32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE, filterhandle: P0, pinfactoryid: u32) -> ::windows_core::Result<()>
@@ -92,7 +92,7 @@ where
     ::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaType(position : i32, ammediatype : *mut super::MediaFoundation:: AM_MEDIA_TYPE, filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32) -> ::windows_core::HRESULT);
     KsGetMediaType(position, ammediatype, filterhandle.into_param().abi(), pinfactoryid).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsGetMediaTypeCount<P0>(filterhandle: P0, pinfactoryid: u32) -> ::windows_core::Result<u32>
@@ -103,7 +103,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsGetMediaTypeCount(filterhandle.into_param().abi(), pinfactoryid, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsGetMultiplePinFactoryItems<P0>(filterhandle: P0, pinfactoryid: u32, propertyid: u32, items: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -113,7 +113,7 @@ where
     ::windows_targets::link!("ksproxy.ax" "system" fn KsGetMultiplePinFactoryItems(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, propertyid : u32, items : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     KsGetMultiplePinFactoryItems(filterhandle.into_param().abi(), pinfactoryid, propertyid, items).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsOpenDefaultDevice(category: *const ::windows_core::GUID, access: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
@@ -126,7 +126,7 @@ pub unsafe fn KsResolveRequiredAttributes(datarange: *const KSDATAFORMAT, attrib
     ::windows_targets::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> ::windows_core::HRESULT);
     KsResolveRequiredAttributes(datarange, ::core::mem::transmute(attributes.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsSynchronousDeviceControl<P0>(handle: P0, iocontrol: u32, inbuffer: ::core::option::Option<*const ::core::ffi::c_void>, inlength: u32, outbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, outlength: u32, bytesreturned: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -165,7 +165,7 @@ pub struct IKsAggregateControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsAllocator(::windows_core::IUnknown);
 impl IKsAllocator {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).KsGetAllocatorHandle)(::windows_core::Interface::as_raw(self))
@@ -203,7 +203,7 @@ pub struct IKsAllocator_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsAllocatorEx(::windows_core::IUnknown);
 impl IKsAllocatorEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).base__.KsGetAllocatorHandle)(::windows_core::Interface::as_raw(self))
@@ -223,7 +223,7 @@ impl IKsAllocatorEx {
     pub unsafe fn KsSetProperties(&self, param0: *const ALLOCATOR_PROPERTIES_EX) {
         (::windows_core::Interface::vtable(self).KsSetProperties)(::windows_core::Interface::as_raw(self), param0)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsSetAllocatorHandle<P0>(&self, allocatorhandle: P0)
     where
@@ -231,7 +231,7 @@ impl IKsAllocatorEx {
     {
         (::windows_core::Interface::vtable(self).KsSetAllocatorHandle)(::windows_core::Interface::as_raw(self), allocatorhandle.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsCreateAllocatorAndGetHandle<P0>(&self, kspin: P0) -> super::super::Foundation::HANDLE
     where
@@ -358,7 +358,7 @@ pub struct IKsControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsDataTypeCompletion(::windows_core::IUnknown);
 impl IKsDataTypeCompletion {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn KsCompleteMediaType<P0>(&self, filterhandle: P0, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>
     where
@@ -387,7 +387,7 @@ pub struct IKsDataTypeCompletion_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsDataTypeHandler(::windows_core::IUnknown);
 impl IKsDataTypeHandler {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
     pub unsafe fn KsCompleteIoOperation<P0, P1>(&self, sample: P0, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: P1) -> ::windows_core::Result<()>
     where
@@ -399,7 +399,7 @@ impl IKsDataTypeHandler {
     pub unsafe fn KsIsMediaTypeInRanges(&self, dataranges: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsIsMediaTypeInRanges)(::windows_core::Interface::as_raw(self), dataranges).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsPrepareIoOperation<P0>(&self, sample: P0, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION) -> ::windows_core::Result<()>
     where
@@ -411,7 +411,7 @@ impl IKsDataTypeHandler {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).KsQueryExtendedSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn KsSetMediaType(&self, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsSetMediaType)(::windows_core::Interface::as_raw(self), ammediatype).ok()
@@ -447,7 +447,7 @@ pub struct IKsDataTypeHandler_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsFormatSupport(::windows_core::IUnknown);
 impl IKsFormatSupport {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsFormatSupported)(::windows_core::Interface::as_raw(self), pksformat, cbformat, pbsupported).ok()
@@ -484,7 +484,7 @@ impl IKsInterfaceHandler {
     {
         (::windows_core::Interface::vtable(self).KsSetPin)(::windows_core::Interface::as_raw(self), kspin.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
     pub unsafe fn KsProcessMediaSamples<P0>(&self, ksdatatypehandler: P0, samplelist: *const ::core::option::Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()>
     where
@@ -492,7 +492,7 @@ impl IKsInterfaceHandler {
     {
         (::windows_core::Interface::vtable(self).KsProcessMediaSamples)(::windows_core::Interface::as_raw(self), ksdatatypehandler.into_param().abi(), ::core::mem::transmute(samplelist), samplecount, iooperation, streamsegment).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsCompleteIo)(::windows_core::Interface::as_raw(self), streamsegment).ok()
@@ -549,7 +549,7 @@ impl IKsJackDescription {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetJackCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetJackDescription)(::windows_core::Interface::as_raw(self), njack, pdescription).ok()
@@ -630,7 +630,7 @@ pub struct IKsJackDescription3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsJackSinkInformation(::windows_core::IUnknown);
 impl IKsJackSinkInformation {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetJackSinkInformation)(::windows_core::Interface::as_raw(self), pjacksinkinformation).ok()
@@ -702,7 +702,7 @@ pub struct IKsNotifyEvent_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsObject(::windows_core::IUnknown);
 impl IKsObject {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).KsGetObjectHandle)(::windows_core::Interface::as_raw(self))
@@ -745,7 +745,7 @@ impl IKsPin {
     pub unsafe fn KsPropagateAcquire(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsPropagateAcquire)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsDeliver<P0>(&self, sample: P0, flags: u32) -> ::windows_core::Result<()>
     where
@@ -753,17 +753,17 @@ impl IKsPin {
     {
         (::windows_core::Interface::vtable(self).KsDeliver)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsMediaSamplesCompleted)(::windows_core::Interface::as_raw(self), streamsegment).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator> {
         (::windows_core::Interface::vtable(self).KsPeekAllocator)(::windows_core::Interface::as_raw(self), operation)
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsReceiveAllocator<P0>(&self, memallocator: P0) -> ::windows_core::Result<()>
     where
@@ -842,7 +842,7 @@ impl IKsPinEx {
     pub unsafe fn KsPropagateAcquire(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.KsPropagateAcquire)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsDeliver<P0>(&self, sample: P0, flags: u32) -> ::windows_core::Result<()>
     where
@@ -850,17 +850,17 @@ impl IKsPinEx {
     {
         (::windows_core::Interface::vtable(self).base__.KsDeliver)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), flags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.KsMediaSamplesCompleted)(::windows_core::Interface::as_raw(self), streamsegment).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator> {
         (::windows_core::Interface::vtable(self).base__.KsPeekAllocator)(::windows_core::Interface::as_raw(self), operation)
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsReceiveAllocator<P0>(&self, memallocator: P0) -> ::windows_core::Result<()>
     where
@@ -880,7 +880,7 @@ impl IKsPinEx {
     pub unsafe fn KsQualityNotify(&self, proportion: u32, timedelta: i64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.KsQualityNotify)(::windows_core::Interface::as_raw(self), proportion, timedelta).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsNotifyError<P0>(&self, sample: P0, hr: ::windows_core::HRESULT)
     where
@@ -937,7 +937,7 @@ impl IKsPinPipe {
     pub unsafe fn KsSetPinFramingCache(&self, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).KsSetPinFramingCache)(::windows_core::Interface::as_raw(self), framingex, framingprop, option).ok()
     }
-    #[doc = "Required features: `Win32_Media_DirectShow`"]
+    #[doc = "Required features: `\"Win32_Media_DirectShow\"`"]
     #[cfg(feature = "Win32_Media_DirectShow")]
     pub unsafe fn KsGetConnectedPin(&self) -> ::core::option::Option<super::DirectShow::IPin> {
         (::windows_core::Interface::vtable(self).KsGetConnectedPin)(::windows_core::Interface::as_raw(self))
@@ -1032,7 +1032,7 @@ pub struct IKsPropertySet_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsQualityForwarder(::windows_core::IUnknown);
 impl IKsQualityForwarder {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
         (::windows_core::Interface::vtable(self).base__.KsGetObjectHandle)(::windows_core::Interface::as_raw(self))
@@ -1194,13 +1194,13 @@ pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows_core::GUID = ::windows_
 pub const CLSID_Proxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(0i32);
 pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(1i32);
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2 };
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(0i32);
@@ -6775,7 +6775,7 @@ impl ::core::default::Default for ALLOCATOR_PROPERTIES_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     pub ResourceGroupAcquired: super::super::Foundation::BOOL,
@@ -7085,7 +7085,7 @@ impl ::core::default::Default for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_ALTERNATE_AUDIO {
     pub fStereo: super::super::Foundation::BOOL,
@@ -7182,7 +7182,7 @@ impl ::core::default::Default for KSAC3_DIALOGUE_LEVEL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_DOWNMIX {
     pub fDownMix: super::super::Foundation::BOOL,
@@ -7221,7 +7221,7 @@ impl ::core::default::Default for KSAC3_DOWNMIX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_ERROR_CONCEALMENT {
     pub fRepeatPreviousBlock: super::super::Foundation::BOOL,
@@ -7260,7 +7260,7 @@ impl ::core::default::Default for KSAC3_ERROR_CONCEALMENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAC3_ROOM_TYPE {
     pub fLargeRoom: super::super::Foundation::BOOL,
@@ -7716,7 +7716,7 @@ impl ::core::default::Default for KSAUDIO_CHANNEL_CONFIG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_COPY_PROTECTION {
     pub fCopyrighted: super::super::Foundation::BOOL,
@@ -7868,7 +7868,7 @@ impl ::core::default::Default for KSAUDIO_MIC_ARRAY_GEOMETRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_MIXCAP_TABLE {
     pub InputChannels: u32,
@@ -7894,7 +7894,7 @@ impl ::core::default::Default for KSAUDIO_MIXCAP_TABLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_MIXLEVEL {
     pub Mute: super::super::Foundation::BOOL,
@@ -7933,7 +7933,7 @@ impl ::core::default::Default for KSAUDIO_MIXLEVEL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSAUDIO_MIX_CAPS {
     pub Mute: super::super::Foundation::BOOL,
@@ -7960,7 +7960,7 @@ impl ::core::default::Default for KSAUDIO_MIX_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KSAUDIO_MIX_CAPS_0 {
     pub Reset: i32,
@@ -8174,7 +8174,7 @@ impl ::core::default::Default for KSAUDIO_PRESENTATION_POSITION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub Resolution: super::super::Foundation::SIZE,
@@ -8215,7 +8215,7 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_C
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     pub Numerator: i32,
@@ -8651,7 +8651,7 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
@@ -8690,7 +8690,7 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
@@ -8729,7 +8729,7 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
     pub Region: super::super::Foundation::RECT,
@@ -8833,7 +8833,7 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
@@ -8970,7 +8970,7 @@ impl ::core::default::Default for KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
@@ -10030,7 +10030,7 @@ impl ::core::default::Default for KSDS3D_HRTF_INIT_MSG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub Size: u32,
@@ -10212,7 +10212,7 @@ impl ::core::default::Default for KSERROR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENTDATA {
     pub NotificationType: u32,
@@ -10237,7 +10237,7 @@ impl ::core::default::Default for KSEVENTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KSEVENTDATA_0 {
     pub EventHandle: KSEVENTDATA_0_1,
@@ -10263,7 +10263,7 @@ impl ::core::default::Default for KSEVENTDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENTDATA_0_0 {
     pub Unused: *mut ::core::ffi::c_void,
@@ -10302,7 +10302,7 @@ impl ::core::default::Default for KSEVENTDATA_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENTDATA_0_1 {
     pub Event: super::super::Foundation::HANDLE,
@@ -10341,7 +10341,7 @@ impl ::core::default::Default for KSEVENTDATA_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENTDATA_0_2 {
     pub Semaphore: super::super::Foundation::HANDLE,
@@ -10381,7 +10381,7 @@ impl ::core::default::Default for KSEVENTDATA_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TIME_INTERVAL {
     pub EventData: KSEVENTDATA,
@@ -10407,7 +10407,7 @@ impl ::core::default::Default for KSEVENT_TIME_INTERVAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TIME_MARK {
     pub EventData: KSEVENTDATA,
@@ -10432,7 +10432,7 @@ impl ::core::default::Default for KSEVENT_TIME_MARK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENT_TUNER_INITIATE_SCAN_S {
     pub EventData: KSEVENTDATA,
@@ -10659,7 +10659,7 @@ impl ::core::default::Default for KSINTERVAL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSJACK_DESCRIPTION {
     pub ChannelMapping: u32,
@@ -10762,7 +10762,7 @@ impl ::core::default::Default for KSJACK_DESCRIPTION3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSJACK_SINK_INFORMATION {
     pub ConnType: KSJACK_SINK_CONNECTIONTYPE,
@@ -11160,7 +11160,7 @@ impl ::core::default::Default for KSPIN_CINSTANCES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPIN_CONNECT {
     pub Interface: KSIDENTIFIER,
@@ -11700,7 +11700,7 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_NODE_S2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     pub FocusRect: super::super::Foundation::RECT,
@@ -11728,7 +11728,7 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     pub Capabilities: u32,
@@ -11796,7 +11796,7 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_S2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_CAMERACONTROL_S_EX {
     pub Property: KSIDENTIFIER,
@@ -12022,7 +12022,7 @@ impl ::core::default::Default for KSPROPERTY_EXTDEVICE_S_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S {
     pub NodeProperty: KSP_NODE,
@@ -12047,7 +12047,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_NODE_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
     pub Capabilities: u32,
@@ -12079,7 +12079,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub PayloadSize: u32,
@@ -12118,7 +12118,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub frame: u8,
@@ -12159,7 +12159,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_S {
     pub Property: KSIDENTIFIER,
@@ -12184,7 +12184,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KSPROPERTY_EXTXPORT_S_0 {
     pub Capabilities: u32,
@@ -12216,7 +12216,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_S_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub PayloadSize: u32,
@@ -12255,7 +12255,7 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_S_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub frame: u8,
@@ -12388,7 +12388,7 @@ impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub MetadataItems: u32,
@@ -12868,7 +12868,7 @@ impl ::core::default::Default for KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_TUNER_SCAN_CAPS_S {
     pub Property: KSIDENTIFIER,
@@ -12916,7 +12916,7 @@ impl ::core::default::Default for KSPROPERTY_TUNER_SCAN_STATUS_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_TUNER_STANDARD_MODE_S {
     pub Property: KSIDENTIFIER,
@@ -13258,7 +13258,7 @@ impl ::core::default::Default for KSPROPERTY_VIDEOCOMPRESSION_S1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
     pub Property: KSIDENTIFIER,
@@ -13307,7 +13307,7 @@ impl ::core::default::Default for KSPROPERTY_VIDEOCONTROL_CAPS_S {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
     pub Property: KSIDENTIFIER,
@@ -13654,7 +13654,7 @@ impl ::core::default::Default for KSQUALITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::super::Foundation::HANDLE,
@@ -13693,7 +13693,7 @@ impl ::core::default::Default for KSQUALITY_MANAGER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSQUERYBUFFER {
     pub Event: KSIDENTIFIER,
@@ -13760,7 +13760,7 @@ impl ::core::default::Default for KSRATE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSRELATIVEEVENT {
     pub Size: u32,
@@ -13789,7 +13789,7 @@ impl ::core::default::Default for KSRELATIVEEVENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KSRELATIVEEVENT_0 {
     pub ObjectHandle: super::super::Foundation::HANDLE,
@@ -13844,7 +13844,7 @@ impl ::core::default::Default for KSRESOLUTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut ::core::ffi::c_void,
@@ -13884,7 +13884,7 @@ impl ::core::default::Default for KSRTAUDIO_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_BUFFER32 {
     pub BufferAddress: u32,
@@ -14006,7 +14006,7 @@ impl ::core::default::Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub PacketNumber: u32,
@@ -14182,7 +14182,7 @@ impl ::core::default::Default for KSRTAUDIO_HWREGISTER_PROPERTY32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
     pub Property: KSIDENTIFIER,
@@ -14489,7 +14489,7 @@ impl ::core::default::Default for KSSTREAM_METADATA_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSSTREAM_SEGMENT {
     pub KsInterfaceHandler: ::std::mem::ManuallyDrop<::core::option::Option<IKsInterfaceHandler>>,
@@ -14947,7 +14947,7 @@ impl ::core::default::Default for KSVPSURFACEPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KSWAVETABLE_WAVE_DESC {
     pub Identifier: KSIDENTIFIER,
@@ -15189,7 +15189,7 @@ impl ::core::default::Default for KSWAVE_VOLUME {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_AMVPDATAINFO {
     pub dwSize: u32,
@@ -15253,7 +15253,7 @@ impl ::core::default::Default for KS_AMVPDATAINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_AMVPDIMINFO {
     pub dwFieldWidth: u32,
@@ -15385,7 +15385,7 @@ impl ::core::default::Default for KS_AM_SimpleRateChange {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
@@ -15596,7 +15596,7 @@ impl ::core::default::Default for KS_DATAFORMAT_IMAGEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_MPEGVIDEOINFO2 {
     pub DataFormat: KSDATAFORMAT,
@@ -15640,7 +15640,7 @@ impl ::core::default::Default for KS_DATAFORMAT_VBIINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER {
     pub DataFormat: KSDATAFORMAT,
@@ -15665,7 +15665,7 @@ impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_VIDEOINFOHEADER2 {
     pub DataFormat: KSDATAFORMAT,
@@ -15690,7 +15690,7 @@ impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATAFORMAT_VIDEOINFO_PALETTE {
     pub DataFormat: KSDATAFORMAT,
@@ -15715,7 +15715,7 @@ impl ::core::default::Default for KS_DATAFORMAT_VIDEOINFO_PALETTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_ANALOGVIDEO {
     pub DataRange: KSDATAFORMAT,
@@ -15740,7 +15740,7 @@ impl ::core::default::Default for KS_DATARANGE_ANALOGVIDEO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_H264_VIDEO {
     pub DataRange: KSDATAFORMAT,
@@ -15770,7 +15770,7 @@ impl ::core::default::Default for KS_DATARANGE_H264_VIDEO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_IMAGE {
     pub DataRange: KSDATAFORMAT,
@@ -15796,7 +15796,7 @@ impl ::core::default::Default for KS_DATARANGE_IMAGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_MPEG1_VIDEO {
     pub DataRange: KSDATAFORMAT,
@@ -15826,7 +15826,7 @@ impl ::core::default::Default for KS_DATARANGE_MPEG1_VIDEO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_MPEG2_VIDEO {
     pub DataRange: KSDATAFORMAT,
@@ -15856,7 +15856,7 @@ impl ::core::default::Default for KS_DATARANGE_MPEG2_VIDEO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO {
     pub DataRange: KSDATAFORMAT,
@@ -15886,7 +15886,7 @@ impl ::core::default::Default for KS_DATARANGE_VIDEO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO2 {
     pub DataRange: KSDATAFORMAT,
@@ -15916,7 +15916,7 @@ impl ::core::default::Default for KS_DATARANGE_VIDEO2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO_PALETTE {
     pub DataRange: KSDATAFORMAT,
@@ -15946,7 +15946,7 @@ impl ::core::default::Default for KS_DATARANGE_VIDEO_PALETTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_DATARANGE_VIDEO_VBI {
     pub DataRange: KSDATAFORMAT,
@@ -16221,7 +16221,7 @@ impl ::core::default::Default for KS_DVD_YUV {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
@@ -16254,7 +16254,7 @@ impl ::core::default::Default for KS_FRAME_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KS_FRAME_INFO_0 {
     pub lSurfacePitch: i32,
@@ -16279,7 +16279,7 @@ impl ::core::default::Default for KS_FRAME_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KS_FRAME_INFO_1 {
     pub Anonymous: KS_FRAME_INFO_1_0,
@@ -16304,7 +16304,7 @@ impl ::core::default::Default for KS_FRAME_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_FRAME_INFO_1_0 {
     pub Reserved3: u32,
@@ -16593,7 +16593,7 @@ impl ::core::default::Default for KS_H264VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_MPEG1VIDEOINFO {
     pub hdr: KS_VIDEOINFOHEADER,
@@ -16666,7 +16666,7 @@ impl ::core::default::Default for KS_MPEGAUDIOINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_MPEGVIDEOINFO2 {
     pub hdr: KS_VIDEOINFOHEADER2,
@@ -16876,7 +16876,7 @@ impl ::core::default::Default for KS_VBI_FRAME_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFO {
     pub rcSource: super::super::Foundation::RECT,
@@ -16906,7 +16906,7 @@ impl ::core::default::Default for KS_VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
@@ -16932,7 +16932,7 @@ impl ::core::default::Default for KS_VIDEOINFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -16975,7 +16975,7 @@ impl ::core::default::Default for KS_VIDEOINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
@@ -17010,7 +17010,7 @@ impl ::core::default::Default for KS_VIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
@@ -17035,7 +17035,7 @@ impl ::core::default::Default for KS_VIDEOINFOHEADER2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub guid: ::windows_core::GUID,
@@ -17135,7 +17135,7 @@ impl ::core::default::Default for KS_VIDEO_STREAM_CONFIG_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOOPEDSTREAMING_POSITION_EVENT_DATA {
     pub KsEventData: KSEVENTDATA,
@@ -17160,7 +17160,7 @@ impl ::core::default::Default for LOOPEDSTREAMING_POSITION_EVENT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MEDIUM_INFO {
     pub MediaPresent: super::super::Foundation::BOOL,

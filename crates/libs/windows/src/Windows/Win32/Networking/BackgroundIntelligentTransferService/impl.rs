@@ -53,7 +53,7 @@ impl AsyncIBackgroundCopyCallback_Vtbl {
         *iid == <AsyncIBackgroundCopyCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBITSExtensionSetup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn EnableBITSUploads(&self) -> ::windows_core::Result<()>;
@@ -110,7 +110,7 @@ impl IBITSExtensionSetup_Vtbl {
         *iid == <IBITSExtensionSetup as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBITSExtensionSetupFactory_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetObject(&self, path: &::windows_core::BSTR) -> ::windows_core::Result<IBITSExtensionSetup>;
@@ -311,7 +311,7 @@ impl IBackgroundCopyError_Vtbl {
         *iid == <IBackgroundCopyError as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile_Impl: Sized {
     fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -361,7 +361,7 @@ impl IBackgroundCopyFile_Vtbl {
         *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile2_Impl: Sized + IBackgroundCopyFile_Impl {
     fn GetFileRanges(&self, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows_core::Result<()>;
@@ -392,7 +392,7 @@ impl IBackgroundCopyFile2_Vtbl {
         *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile3_Impl: Sized + IBackgroundCopyFile2_Impl {
     fn GetTemporaryName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -455,7 +455,7 @@ impl IBackgroundCopyFile3_Vtbl {
         *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile4_Impl: Sized + IBackgroundCopyFile3_Impl {
     fn GetPeerDownloadStats(&self, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows_core::Result<()>;
@@ -476,7 +476,7 @@ impl IBackgroundCopyFile4_Vtbl {
         *iid == <IBackgroundCopyFile4 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile5_Impl: Sized + IBackgroundCopyFile4_Impl {
     fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: &BITS_FILE_PROPERTY_VALUE) -> ::windows_core::Result<()>;
@@ -513,7 +513,7 @@ impl IBackgroundCopyFile5_Vtbl {
         *iid == <IBackgroundCopyFile5 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyFile6_Impl: Sized + IBackgroundCopyFile5_Impl {
     fn UpdateDownloadPosition(&self, offset: u64) -> ::windows_core::Result<()>;
@@ -551,7 +551,7 @@ impl IBackgroundCopyFile6_Vtbl {
         *iid == <IBackgroundCopyFile6 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile4 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyFile5 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBackgroundCopyGroup_Impl: Sized {
     fn GetProp(&self, propid: GROUPPROP) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -721,7 +721,7 @@ impl IBackgroundCopyGroup_Vtbl {
         *iid == <IBackgroundCopyGroup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob_Impl: Sized {
     fn AddFileSet(&self, cfilecount: u32, pfileset: *const BG_FILE_INFO) -> ::windows_core::Result<()>;
@@ -1139,7 +1139,7 @@ impl IBackgroundCopyJob1_Vtbl {
         *iid == <IBackgroundCopyJob1 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob2_Impl: Sized + IBackgroundCopyJob_Impl {
     fn SetNotifyCmdLine(&self, program: &::windows_core::PCWSTR, parameters: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1218,7 +1218,7 @@ impl IBackgroundCopyJob2_Vtbl {
         *iid == <IBackgroundCopyJob2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob3_Impl: Sized + IBackgroundCopyJob2_Impl {
     fn ReplaceRemotePrefix(&self, oldprefix: &::windows_core::PCWSTR, newprefix: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -1269,7 +1269,7 @@ impl IBackgroundCopyJob3_Vtbl {
         *iid == <IBackgroundCopyJob3 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob4_Impl: Sized + IBackgroundCopyJob3_Impl {
     fn SetPeerCachingFlags(&self, flags: u32) -> ::windows_core::Result<()>;
@@ -1352,7 +1352,7 @@ impl IBackgroundCopyJob4_Vtbl {
         *iid == <IBackgroundCopyJob4 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob2 as ::windows_core::ComInterface>::IID || *iid == <IBackgroundCopyJob3 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBackgroundCopyJob5_Impl: Sized + IBackgroundCopyJob4_Impl {
     fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: &BITS_JOB_PROPERTY_VALUE) -> ::windows_core::Result<()>;
@@ -1658,7 +1658,7 @@ impl IBackgroundCopyServerCertificateValidationCallback_Vtbl {
         *iid == <IBackgroundCopyServerCertificateValidationCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeer_Impl: Sized {
     fn GetPeerName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -1861,7 +1861,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
         *iid == <IBitsPeerCacheAdministration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBitsPeerCacheRecord_Impl: Sized {
     fn GetId(&self) -> ::windows_core::Result<::windows_core::GUID>;

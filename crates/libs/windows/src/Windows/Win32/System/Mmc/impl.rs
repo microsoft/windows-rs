@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait AppEvents_Impl: Sized + super::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12,7 +12,7 @@ impl AppEvents_Vtbl {
         *iid == <AppEvents as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Column_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -122,7 +122,7 @@ impl Column_Vtbl {
         *iid == <Column as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Columns_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows_core::Result<Column>;
@@ -178,7 +178,7 @@ impl Columns_Vtbl {
         *iid == <Columns as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ContextMenu_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -234,7 +234,7 @@ impl ContextMenu_Vtbl {
         *iid == <ContextMenu as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Document_Impl: Sized + super::Com::IDispatch_Impl {
     fn Save(&self) -> ::windows_core::Result<()>;
@@ -429,7 +429,7 @@ impl Document_Vtbl {
         *iid == <Document as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Extension_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -525,7 +525,7 @@ impl Extension_Vtbl {
         *iid == <Extension as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Extensions_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -581,7 +581,7 @@ impl Extensions_Vtbl {
         *iid == <Extensions as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Frame_Impl: Sized + super::Com::IDispatch_Impl {
     fn Maximize(&self) -> ::windows_core::Result<()>;
@@ -752,7 +752,7 @@ impl IColumnData_Vtbl {
         *iid == <IColumnData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponent_Impl: Sized {
     fn Initialize(&self, lpconsole: ::core::option::Option<&IConsole>) -> ::windows_core::Result<()>;
@@ -824,7 +824,7 @@ impl IComponent_Vtbl {
         *iid == <IComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponent2_Impl: Sized + IComponent_Impl {
     fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDispatch>;
@@ -868,7 +868,7 @@ impl IComponent2_Vtbl {
         *iid == <IComponent2 as ::windows_core::ComInterface>::IID || *iid == <IComponent as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponentData_Impl: Sized {
     fn Initialize(&self, punknown: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -946,7 +946,7 @@ impl IComponentData_Vtbl {
         *iid == <IComponentData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IComponentData2_Impl: Sized + IComponentData_Impl {
     fn QueryDispatch(&self, cookie: isize, r#type: DATA_OBJECT_TYPES) -> ::windows_core::Result<super::Com::IDispatch>;
@@ -973,7 +973,7 @@ impl IComponentData2_Vtbl {
         *iid == <IComponentData2 as ::windows_core::ComInterface>::IID || *iid == <IComponentData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConsole_Impl: Sized {
     fn SetHeader(&self, pheader: ::core::option::Option<&IHeaderCtrl>) -> ::windows_core::Result<()>;
@@ -1103,7 +1103,7 @@ impl IConsole_Vtbl {
         *iid == <IConsole as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConsole2_Impl: Sized + IConsole_Impl {
     fn Expand(&self, hitem: isize, bexpand: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1141,7 +1141,7 @@ impl IConsole2_Vtbl {
         *iid == <IConsole2 as ::windows_core::ComInterface>::IID || *iid == <IConsole as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IConsole3_Impl: Sized + IConsole2_Impl {
     fn RenameScopeItem(&self, hscopeitem: isize) -> ::windows_core::Result<()>;
@@ -1162,7 +1162,7 @@ impl IConsole3_Vtbl {
         *iid == <IConsole3 as ::windows_core::ComInterface>::IID || *iid == <IConsole as ::windows_core::ComInterface>::IID || *iid == <IConsole2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleNameSpace_Impl: Sized {
     fn InsertItem(&self, item: *mut SCOPEDATAITEM) -> ::windows_core::Result<()>;
@@ -1228,7 +1228,7 @@ impl IConsoleNameSpace_Vtbl {
         *iid == <IConsoleNameSpace as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleNameSpace2_Impl: Sized + IConsoleNameSpace_Impl {
     fn Expand(&self, hitem: isize) -> ::windows_core::Result<()>;
@@ -1286,7 +1286,7 @@ impl IConsolePower_Vtbl {
         *iid == <IConsolePower as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsolePowerSink_Impl: Sized {
     fn OnPowerBroadcast(&self, nevent: u32, lparam: super::super::Foundation::LPARAM) -> ::windows_core::Result<super::super::Foundation::LRESULT>;
@@ -1313,7 +1313,7 @@ impl IConsolePowerSink_Vtbl {
         *iid == <IConsolePowerSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConsoleVerb_Impl: Sized {
     fn GetVerbState(&self, ecmdid: MMC_CONSOLE_VERB, nstate: MMC_BUTTON_STATE) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -1404,7 +1404,7 @@ impl IContextMenuCallback2_Vtbl {
         *iid == <IContextMenuCallback2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IContextMenuProvider_Impl: Sized + IContextMenuCallback_Impl {
     fn EmptyMenuList(&self) -> ::windows_core::Result<()>;
@@ -1559,7 +1559,7 @@ impl IEnumTASK_Vtbl {
         *iid == <IEnumTASK as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendContextMenu_Impl: Sized {
     fn AddMenuItems(&self, pidataobject: ::core::option::Option<&super::Com::IDataObject>, picallback: ::core::option::Option<&IContextMenuCallback>, pinsertionallowed: *mut i32) -> ::windows_core::Result<()>;
@@ -1590,7 +1590,7 @@ impl IExtendContextMenu_Vtbl {
         *iid == <IExtendContextMenu as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IExtendControlbar_Impl: Sized {
     fn SetControlbar(&self, pcontrolbar: ::core::option::Option<&IControlbar>) -> ::windows_core::Result<()>;
@@ -1621,7 +1621,7 @@ impl IExtendControlbar_Vtbl {
         *iid == <IExtendControlbar as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendPropertySheet_Impl: Sized {
     fn CreatePropertyPages(&self, lpprovider: ::core::option::Option<&IPropertySheetCallback>, handle: isize, lpidataobject: ::core::option::Option<&super::Com::IDataObject>) -> ::windows_core::Result<()>;
@@ -1652,7 +1652,7 @@ impl IExtendPropertySheet_Vtbl {
         *iid == <IExtendPropertySheet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub trait IExtendPropertySheet2_Impl: Sized + IExtendPropertySheet_Impl {
     fn GetWatermarks(&self, lpidataobject: ::core::option::Option<&super::Com::IDataObject>, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -1673,7 +1673,7 @@ impl IExtendPropertySheet2_Vtbl {
         *iid == <IExtendPropertySheet2 as ::windows_core::ComInterface>::IID || *iid == <IExtendPropertySheet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IExtendTaskPad_Impl: Sized {
     fn TaskNotify(&self, pdo: ::core::option::Option<&super::Com::IDataObject>, arg: *const super::Variant::VARIANT, param2: *const super::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -1762,7 +1762,7 @@ impl IExtendTaskPad_Vtbl {
         *iid == <IExtendTaskPad as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IExtendView_Impl: Sized {
     fn GetViews(&self, pdataobject: ::core::option::Option<&super::Com::IDataObject>, pviewextensioncallback: ::core::option::Option<&IViewExtensionCallback>) -> ::windows_core::Result<()>;
@@ -1884,7 +1884,7 @@ impl IHeaderCtrl2_Vtbl {
         *iid == <IHeaderCtrl2 as ::windows_core::ComInterface>::IID || *iid == <IHeaderCtrl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IImageList_Impl: Sized {
     fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows_core::Result<()>;
@@ -1932,7 +1932,7 @@ impl IMMCVersionInfo_Vtbl {
         *iid == <IMMCVersionInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMenuButton_Impl: Sized {
     fn AddButton(&self, idcommand: i32, lpbuttontext: &::windows_core::PCWSTR, lptooltiptext: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -2011,7 +2011,7 @@ impl IMessageView_Vtbl {
         *iid == <IMessageView as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait INodeProperties_Impl: Sized {
     fn GetProperty(&self, pdataobject: ::core::option::Option<&super::Com::IDataObject>, szpropertyname: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2038,7 +2038,7 @@ impl INodeProperties_Vtbl {
         *iid == <INodeProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub trait IPropertySheetCallback_Impl: Sized {
     fn AddPage(&self, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows_core::Result<()>;
@@ -2069,7 +2069,7 @@ impl IPropertySheetCallback_Vtbl {
         *iid == <IPropertySheetCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IPropertySheetProvider_Impl: Sized {
     fn CreatePropertySheet(&self, title: &::windows_core::PCWSTR, r#type: u8, cookie: isize, pidataobjectm: ::core::option::Option<&super::Com::IDataObject>, dwoptions: u32) -> ::windows_core::Result<()>;
@@ -2167,7 +2167,7 @@ impl IRequiredExtensions_Vtbl {
         *iid == <IRequiredExtensions as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultData_Impl: Sized {
     fn InsertItem(&self, item: *mut RESULTDATAITEM) -> ::windows_core::Result<()>;
@@ -2301,7 +2301,7 @@ impl IResultData_Vtbl {
         *iid == <IResultData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultData2_Impl: Sized + IResultData_Impl {
     fn RenameResultItem(&self, itemid: isize) -> ::windows_core::Result<()>;
@@ -2322,7 +2322,7 @@ impl IResultData2_Vtbl {
         *iid == <IResultData2 as ::windows_core::ComInterface>::IID || *iid == <IResultData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultDataCompare_Impl: Sized {
     fn Compare(&self, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows_core::Result<()>;
@@ -2343,7 +2343,7 @@ impl IResultDataCompare_Vtbl {
         *iid == <IResultDataCompare as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultDataCompareEx_Impl: Sized {
     fn Compare(&self, prdc: *const RDCOMPARE) -> ::windows_core::Result<i32>;
@@ -2370,7 +2370,7 @@ impl IResultDataCompareEx_Vtbl {
         *iid == <IResultDataCompareEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResultOwnerData_Impl: Sized {
     fn FindItem(&self, pfindinfo: *const RESULTFINDINFO) -> ::windows_core::Result<i32>;
@@ -2414,7 +2414,7 @@ impl IResultOwnerData_Vtbl {
         *iid == <IResultOwnerData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISnapinAbout_Impl: Sized {
     fn GetSnapinDescription(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
@@ -2536,7 +2536,7 @@ impl ISnapinHelp2_Vtbl {
         *iid == <ISnapinHelp2 as ::windows_core::ComInterface>::IID || *iid == <ISnapinHelp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISnapinProperties_Impl: Sized {
     fn Initialize(&self, pproperties: ::core::option::Option<&Properties>) -> ::windows_core::Result<()>;
@@ -2591,7 +2591,7 @@ impl ISnapinPropertiesCallback_Vtbl {
         *iid == <ISnapinPropertiesCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStringTable_Impl: Sized {
     fn AddString(&self, pszadd: &::windows_core::PCWSTR) -> ::windows_core::Result<u32>;
@@ -2681,7 +2681,7 @@ impl IStringTable_Vtbl {
         *iid == <IStringTable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IToolbar_Impl: Sized {
     fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> ::windows_core::Result<()>;
@@ -2746,7 +2746,7 @@ impl IToolbar_Vtbl {
         *iid == <IToolbar as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IViewExtensionCallback_Impl: Sized {
     fn AddView(&self, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows_core::Result<()>;
@@ -2767,7 +2767,7 @@ impl IViewExtensionCallback_Vtbl {
         *iid == <IViewExtensionCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait MenuItem_Impl: Sized + super::Com::IDispatch_Impl {
     fn DisplayName(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2856,7 +2856,7 @@ impl MenuItem_Vtbl {
         *iid == <MenuItem as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Node_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -2938,7 +2938,7 @@ impl Node_Vtbl {
         *iid == <Node as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Nodes_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -2994,7 +2994,7 @@ impl Nodes_Vtbl {
         *iid == <Nodes as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Properties_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -3057,7 +3057,7 @@ impl Properties_Vtbl {
         *iid == <Properties as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Property_Impl: Sized + super::Com::IDispatch_Impl {
     fn Value(&self) -> ::windows_core::Result<super::Variant::VARIANT>;
@@ -3107,7 +3107,7 @@ impl Property_Vtbl {
         *iid == <Property as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ScopeNamespace_Impl: Sized + super::Com::IDispatch_Impl {
     fn GetParent(&self, node: ::core::option::Option<&Node>) -> ::windows_core::Result<Node>;
@@ -3183,7 +3183,7 @@ impl ScopeNamespace_Vtbl {
         *iid == <ScopeNamespace as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait SnapIn_Impl: Sized + super::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -3285,7 +3285,7 @@ impl SnapIn_Vtbl {
         *iid == <SnapIn as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait SnapIns_Impl: Sized + super::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -3361,7 +3361,7 @@ impl SnapIns_Vtbl {
         *iid == <SnapIns as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait View_Impl: Sized + super::Com::IDispatch_Impl {
     fn ActiveScopeNode(&self) -> ::windows_core::Result<Node>;
@@ -3774,7 +3774,7 @@ impl View_Vtbl {
         *iid == <View as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait Views_Impl: Sized + super::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows_core::Result<View>;
@@ -3837,7 +3837,7 @@ impl Views_Vtbl {
         *iid == <Views as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _AppEvents_Impl: Sized + super::Com::IDispatch_Impl {
     fn OnQuit(&self, application: ::core::option::Option<&_Application>) -> ::windows_core::Result<()>;
@@ -3938,7 +3938,7 @@ impl _AppEvents_Vtbl {
         *iid == <_AppEvents as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _Application_Impl: Sized + super::Com::IDispatch_Impl {
     fn Help(&self);
@@ -4075,7 +4075,7 @@ impl _Application_Vtbl {
         *iid == <_Application as ::windows_core::ComInterface>::IID || *iid == <super::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _EventConnector_Impl: Sized + super::Com::IDispatch_Impl {
     fn ConnectTo(&self, application: ::core::option::Option<&_Application>) -> ::windows_core::Result<()>;

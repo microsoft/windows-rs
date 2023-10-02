@@ -15,7 +15,7 @@ impl IAudioEndpointFormatControl_Vtbl {
         *iid == <IAudioEndpointFormatControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio_Apo`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_Apo\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_Apo"))]
 pub trait IAudioEndpointLastBufferControl_Impl: Sized {
     fn IsLastBufferControlSupported(&self) -> super::super::super::Foundation::BOOL;
@@ -118,7 +118,7 @@ impl IAudioEndpointOffloadStreamMute_Vtbl {
         *iid == <IAudioEndpointOffloadStreamMute as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_KernelStreaming`"]
+#[doc = "Required features: `\"Win32_Media_KernelStreaming\"`"]
 #[cfg(feature = "Win32_Media_KernelStreaming")]
 pub trait IAudioEndpointOffloadStreamVolume_Impl: Sized {
     fn GetVolumeChannelCount(&self) -> ::windows_core::Result<u32>;
@@ -168,7 +168,7 @@ impl IAudioEndpointOffloadStreamVolume_Vtbl {
         *iid == <IAudioEndpointOffloadStreamVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolume_Impl: Sized {
     fn RegisterControlChangeNotify(&self, pnotify: ::core::option::Option<&IAudioEndpointVolumeCallback>) -> ::windows_core::Result<()>;
@@ -353,7 +353,7 @@ impl IAudioEndpointVolume_Vtbl {
         *iid == <IAudioEndpointVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolumeCallback_Impl: Sized {
     fn OnNotify(&self, pnotify: *mut super::AUDIO_VOLUME_NOTIFICATION_DATA) -> ::windows_core::Result<()>;
@@ -374,7 +374,7 @@ impl IAudioEndpointVolumeCallback_Vtbl {
         *iid == <IAudioEndpointVolumeCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioEndpointVolumeEx_Impl: Sized + IAudioEndpointVolume_Impl {
     fn GetVolumeRangeChannel(&self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows_core::Result<()>;
@@ -395,7 +395,7 @@ impl IAudioEndpointVolumeEx_Vtbl {
         *iid == <IAudioEndpointVolumeEx as ::windows_core::ComInterface>::IID || *iid == <IAudioEndpointVolume as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioLfxControl_Impl: Sized {
     fn SetLocalEffectsState(&self, benabled: super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -491,7 +491,7 @@ impl IAudioMeterInformation_Vtbl {
         *iid == <IAudioMeterInformation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHardwareAudioEngineBase_Impl: Sized {
     fn GetAvailableOffloadConnectorCount(&self, _pwstrdeviceid: &::windows_core::PCWSTR, _uconnectorid: u32) -> ::windows_core::Result<u32>;

@@ -2,7 +2,7 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerAssemblyReferenceProvider(::windows_core::IUnknown);
 impl ICorProfilerAssemblyReferenceProvider {
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn AddAssemblyReference(&self, passemblyrefinfo: *const COR_PRF_ASSEMBLY_REFERENCE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AddAssemblyReference)(::windows_core::Interface::as_raw(self), passemblyrefinfo).ok()
@@ -91,7 +91,7 @@ impl ICorProfilerCallback {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -99,7 +99,7 @@ impl ICorProfilerCallback {
     {
         (::windows_core::Interface::vtable(self).JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -107,7 +107,7 @@ impl ICorProfilerCallback {
     {
         (::windows_core::Interface::vtable(self).JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -119,7 +119,7 @@ impl ICorProfilerCallback {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -137,7 +137,7 @@ impl ICorProfilerCallback {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -145,7 +145,7 @@ impl ICorProfilerCallback {
     {
         (::windows_core::Interface::vtable(self).RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -156,7 +156,7 @@ impl ICorProfilerCallback {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -170,7 +170,7 @@ impl ICorProfilerCallback {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -447,7 +447,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -455,7 +455,7 @@ impl ICorProfilerCallback10 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -463,7 +463,7 @@ impl ICorProfilerCallback10 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -475,7 +475,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -493,7 +493,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -501,7 +501,7 @@ impl ICorProfilerCallback10 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -512,7 +512,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -526,7 +526,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -633,7 +633,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -668,7 +668,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -682,7 +682,7 @@ impl ICorProfilerCallback10 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -712,7 +712,7 @@ impl ICorProfilerCallback10 {
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ModuleInMemorySymbolsUpdated)(::windows_core::Interface::as_raw(self), moduleid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> ::windows_core::Result<()>
     where
@@ -720,7 +720,7 @@ impl ICorProfilerCallback10 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.DynamicMethodJITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -819,7 +819,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -827,7 +827,7 @@ impl ICorProfilerCallback11 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -835,7 +835,7 @@ impl ICorProfilerCallback11 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -847,7 +847,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -865,7 +865,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -873,7 +873,7 @@ impl ICorProfilerCallback11 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -884,7 +884,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -898,7 +898,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1005,7 +1005,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -1040,7 +1040,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1054,7 +1054,7 @@ impl ICorProfilerCallback11 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1084,7 +1084,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ModuleInMemorySymbolsUpdated)(::windows_core::Interface::as_raw(self), moduleid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> ::windows_core::Result<()>
     where
@@ -1092,7 +1092,7 @@ impl ICorProfilerCallback11 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.DynamicMethodJITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1109,7 +1109,7 @@ impl ICorProfilerCallback11 {
     pub unsafe fn EventPipeProviderCreated(&self, provider: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EventPipeProviderCreated)(::windows_core::Interface::as_raw(self), provider).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadAsNotificationOnly(&self, pbnotificationonly: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).LoadAsNotificationOnly)(::windows_core::Interface::as_raw(self), pbnotificationonly).ok()
@@ -1198,7 +1198,7 @@ impl ICorProfilerCallback2 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1206,7 +1206,7 @@ impl ICorProfilerCallback2 {
     {
         (::windows_core::Interface::vtable(self).base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1214,7 +1214,7 @@ impl ICorProfilerCallback2 {
     {
         (::windows_core::Interface::vtable(self).base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1226,7 +1226,7 @@ impl ICorProfilerCallback2 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1244,7 +1244,7 @@ impl ICorProfilerCallback2 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1252,7 +1252,7 @@ impl ICorProfilerCallback2 {
     {
         (::windows_core::Interface::vtable(self).base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1263,7 +1263,7 @@ impl ICorProfilerCallback2 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1277,7 +1277,7 @@ impl ICorProfilerCallback2 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1384,7 +1384,7 @@ impl ICorProfilerCallback2 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -1498,7 +1498,7 @@ impl ICorProfilerCallback3 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1506,7 +1506,7 @@ impl ICorProfilerCallback3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1514,7 +1514,7 @@ impl ICorProfilerCallback3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1526,7 +1526,7 @@ impl ICorProfilerCallback3 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1544,7 +1544,7 @@ impl ICorProfilerCallback3 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1552,7 +1552,7 @@ impl ICorProfilerCallback3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1563,7 +1563,7 @@ impl ICorProfilerCallback3 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1577,7 +1577,7 @@ impl ICorProfilerCallback3 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1684,7 +1684,7 @@ impl ICorProfilerCallback3 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -1802,7 +1802,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1810,7 +1810,7 @@ impl ICorProfilerCallback4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -1818,7 +1818,7 @@ impl ICorProfilerCallback4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1830,7 +1830,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -1848,7 +1848,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1856,7 +1856,7 @@ impl ICorProfilerCallback4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1867,7 +1867,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1881,7 +1881,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -1988,7 +1988,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -2023,7 +2023,7 @@ impl ICorProfilerCallback4 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2037,7 +2037,7 @@ impl ICorProfilerCallback4 {
     {
         (::windows_core::Interface::vtable(self).GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2146,7 +2146,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2154,7 +2154,7 @@ impl ICorProfilerCallback5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2162,7 +2162,7 @@ impl ICorProfilerCallback5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2174,7 +2174,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2192,7 +2192,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2200,7 +2200,7 @@ impl ICorProfilerCallback5 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2211,7 +2211,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2225,7 +2225,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2332,7 +2332,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -2367,7 +2367,7 @@ impl ICorProfilerCallback5 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2381,7 +2381,7 @@ impl ICorProfilerCallback5 {
     {
         (::windows_core::Interface::vtable(self).base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2482,7 +2482,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2490,7 +2490,7 @@ impl ICorProfilerCallback6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2498,7 +2498,7 @@ impl ICorProfilerCallback6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2510,7 +2510,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2528,7 +2528,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2536,7 +2536,7 @@ impl ICorProfilerCallback6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2547,7 +2547,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2561,7 +2561,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2668,7 +2668,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -2703,7 +2703,7 @@ impl ICorProfilerCallback6 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2717,7 +2717,7 @@ impl ICorProfilerCallback6 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2825,7 +2825,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2833,7 +2833,7 @@ impl ICorProfilerCallback7 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -2841,7 +2841,7 @@ impl ICorProfilerCallback7 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2853,7 +2853,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -2871,7 +2871,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2879,7 +2879,7 @@ impl ICorProfilerCallback7 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2890,7 +2890,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -2904,7 +2904,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3011,7 +3011,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -3046,7 +3046,7 @@ impl ICorProfilerCallback7 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3060,7 +3060,7 @@ impl ICorProfilerCallback7 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3171,7 +3171,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3179,7 +3179,7 @@ impl ICorProfilerCallback8 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3187,7 +3187,7 @@ impl ICorProfilerCallback8 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3199,7 +3199,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3217,7 +3217,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3225,7 +3225,7 @@ impl ICorProfilerCallback8 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3236,7 +3236,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3250,7 +3250,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3357,7 +3357,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -3392,7 +3392,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3406,7 +3406,7 @@ impl ICorProfilerCallback8 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3436,7 +3436,7 @@ impl ICorProfilerCallback8 {
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ModuleInMemorySymbolsUpdated)(::windows_core::Interface::as_raw(self), moduleid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> ::windows_core::Result<()>
     where
@@ -3444,7 +3444,7 @@ impl ICorProfilerCallback8 {
     {
         (::windows_core::Interface::vtable(self).DynamicMethodJITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3540,7 +3540,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn FunctionUnloadStarted(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.FunctionUnloadStarted)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3548,7 +3548,7 @@ impl ICorProfilerCallback9 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3556,7 +3556,7 @@ impl ICorProfilerCallback9 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITCompilationFinished)(::windows_core::Interface::as_raw(self), functionid, hrstatus, fissafetoblock.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITCachedFunctionSearchStarted(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3568,7 +3568,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn JITFunctionPitched(&self, functionid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.JITFunctionPitched)(::windows_core::Interface::as_raw(self), functionid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn JITInlining(&self, callerid: usize, calleeid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -3586,7 +3586,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn RemotingClientInvocationStarted(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationStarted)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientSendingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3594,7 +3594,7 @@ impl ICorProfilerCallback9 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientSendingMessage)(::windows_core::Interface::as_raw(self), pcookie, fisasync.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingClientReceivingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3605,7 +3605,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn RemotingClientInvocationFinished(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingClientInvocationFinished)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerReceivingMessage<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3619,7 +3619,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn RemotingServerInvocationReturned(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RemotingServerInvocationReturned)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemotingServerSendingReply<P0>(&self, pcookie: *const ::windows_core::GUID, fisasync: P0) -> ::windows_core::Result<()>
     where
@@ -3726,7 +3726,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn ThreadNameChanged(&self, threadid: usize, name: ::core::option::Option<&[u16]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ThreadNameChanged)(::windows_core::Interface::as_raw(self), threadid, name.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(name.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GarbageCollectionStarted(&self, generationcollected: &[super::super::super::Foundation::BOOL], reason: COR_PRF_GC_REASON) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GarbageCollectionStarted)(::windows_core::Interface::as_raw(self), generationcollected.len() as _, ::core::mem::transmute(generationcollected.as_ptr()), reason).ok()
@@ -3761,7 +3761,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn ProfilerDetachSucceeded(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ProfilerDetachSucceeded)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationStarted<P0>(&self, functionid: usize, rejitid: usize, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3775,7 +3775,7 @@ impl ICorProfilerCallback9 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReJITParameters)(::windows_core::Interface::as_raw(self), moduleid, methodid, pfunctioncontrol.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReJITCompilationFinished<P0>(&self, functionid: usize, rejitid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3805,7 +3805,7 @@ impl ICorProfilerCallback9 {
     pub unsafe fn ModuleInMemorySymbolsUpdated(&self, moduleid: usize) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ModuleInMemorySymbolsUpdated)(::windows_core::Interface::as_raw(self), moduleid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationStarted<P0>(&self, functionid: usize, fissafetoblock: P0, pilheader: *const u8, cbilheader: u32) -> ::windows_core::Result<()>
     where
@@ -3813,7 +3813,7 @@ impl ICorProfilerCallback9 {
     {
         (::windows_core::Interface::vtable(self).base__.DynamicMethodJITCompilationStarted)(::windows_core::Interface::as_raw(self), functionid, fissafetoblock.into_param().abi(), pilheader, cbilheader).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DynamicMethodJITCompilationFinished<P0>(&self, functionid: usize, hrstatus: ::windows_core::HRESULT, fissafetoblock: P0) -> ::windows_core::Result<()>
     where
@@ -3848,7 +3848,7 @@ impl ICorProfilerFunctionControl {
     pub unsafe fn SetILFunctionBody(&self, pbnewilmethodheader: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetILFunctionBody)(::windows_core::Interface::as_raw(self), pbnewilmethodheader.len() as _, ::core::mem::transmute(pbnewilmethodheader.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap(&self, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetILInstrumentedCodeMap)(::windows_core::Interface::as_raw(self), rgilmapentries.len() as _, ::core::mem::transmute(rgilmapentries.as_ptr())).ok()
@@ -3938,7 +3938,7 @@ impl ICorProfilerInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -3948,7 +3948,7 @@ impl ICorProfilerInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -3973,7 +3973,7 @@ impl ICorProfilerInfo {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -4010,7 +4010,7 @@ impl ICorProfilerInfo {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -4030,7 +4030,7 @@ impl ICorProfilerInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -4133,7 +4133,7 @@ impl ICorProfilerInfo10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -4143,7 +4143,7 @@ impl ICorProfilerInfo10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -4168,7 +4168,7 @@ impl ICorProfilerInfo10 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -4205,7 +4205,7 @@ impl ICorProfilerInfo10 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -4225,7 +4225,7 @@ impl ICorProfilerInfo10 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -4252,7 +4252,7 @@ impl ICorProfilerInfo10 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -4320,7 +4320,7 @@ impl ICorProfilerInfo10 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -4399,7 +4399,7 @@ impl ICorProfilerInfo10 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -4414,7 +4414,7 @@ impl ICorProfilerInfo10 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4435,12 +4435,12 @@ impl ICorProfilerInfo10 {
     pub unsafe fn GetCodeInfo4(&self, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetCodeInfo4)(::windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, pccodeinfos, codeinfos).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumerateObjectReferences)(::windows_core::Interface::as_raw(self), objectid, callback, clientdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsFrozenObject)(::windows_core::Interface::as_raw(self), objectid, pbfrozen).ok()
@@ -4509,7 +4509,7 @@ impl ICorProfilerInfo11 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -4519,7 +4519,7 @@ impl ICorProfilerInfo11 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -4544,7 +4544,7 @@ impl ICorProfilerInfo11 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -4581,7 +4581,7 @@ impl ICorProfilerInfo11 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -4601,7 +4601,7 @@ impl ICorProfilerInfo11 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -4628,7 +4628,7 @@ impl ICorProfilerInfo11 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -4696,7 +4696,7 @@ impl ICorProfilerInfo11 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -4775,7 +4775,7 @@ impl ICorProfilerInfo11 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -4790,7 +4790,7 @@ impl ICorProfilerInfo11 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -4811,12 +4811,12 @@ impl ICorProfilerInfo11 {
     pub unsafe fn GetCodeInfo4(&self, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetCodeInfo4)(::windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, pccodeinfos, codeinfos).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EnumerateObjectReferences)(::windows_core::Interface::as_raw(self), objectid, callback, clientdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsFrozenObject)(::windows_core::Interface::as_raw(self), objectid, pbfrozen).ok()
@@ -4888,7 +4888,7 @@ impl ICorProfilerInfo12 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -4898,7 +4898,7 @@ impl ICorProfilerInfo12 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -4923,7 +4923,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -4960,7 +4960,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -4980,7 +4980,7 @@ impl ICorProfilerInfo12 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -5007,7 +5007,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -5075,7 +5075,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -5154,7 +5154,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -5169,7 +5169,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5190,12 +5190,12 @@ impl ICorProfilerInfo12 {
     pub unsafe fn GetCodeInfo4(&self, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetCodeInfo4)(::windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, pccodeinfos, codeinfos).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EnumerateObjectReferences)(::windows_core::Interface::as_raw(self), objectid, callback, clientdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IsFrozenObject)(::windows_core::Interface::as_raw(self), objectid, pbfrozen).ok()
@@ -5225,7 +5225,7 @@ impl ICorProfilerInfo12 {
     {
         (::windows_core::Interface::vtable(self).base__.SetEnvironmentVariable)(::windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventPipeStartSession<P0>(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: P0) -> ::windows_core::Result<u64>
     where
@@ -5250,7 +5250,7 @@ impl ICorProfilerInfo12 {
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EventPipeGetProviderInfo)(::windows_core::Interface::as_raw(self), provider, providername.len() as _, pcchname, ::core::mem::transmute(providername.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventPipeDefineEvent<P0, P1>(&self, provider: usize, eventname: P0, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: P1, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> ::windows_core::Result<usize>
     where
@@ -5316,7 +5316,7 @@ impl ICorProfilerInfo13 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -5326,7 +5326,7 @@ impl ICorProfilerInfo13 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -5351,7 +5351,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -5388,7 +5388,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -5408,7 +5408,7 @@ impl ICorProfilerInfo13 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -5435,7 +5435,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -5503,7 +5503,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -5582,7 +5582,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -5597,7 +5597,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5618,12 +5618,12 @@ impl ICorProfilerInfo13 {
     pub unsafe fn GetCodeInfo4(&self, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetCodeInfo4)(::windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, pccodeinfos, codeinfos).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumerateObjectReferences)(::windows_core::Interface::as_raw(self), objectid, callback, clientdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsFrozenObject)(::windows_core::Interface::as_raw(self), objectid, pbfrozen).ok()
@@ -5653,7 +5653,7 @@ impl ICorProfilerInfo13 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.SetEnvironmentVariable)(::windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventPipeStartSession<P0>(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: P0) -> ::windows_core::Result<u64>
     where
@@ -5678,7 +5678,7 @@ impl ICorProfilerInfo13 {
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EventPipeGetProviderInfo)(::windows_core::Interface::as_raw(self), provider, providername.len() as _, pcchname, ::core::mem::transmute(providername.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventPipeDefineEvent<P0, P1>(&self, provider: usize, eventname: P0, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: P1, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> ::windows_core::Result<usize>
     where
@@ -5744,7 +5744,7 @@ impl ICorProfilerInfo14 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -5754,7 +5754,7 @@ impl ICorProfilerInfo14 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -5779,7 +5779,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -5816,7 +5816,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -5836,7 +5836,7 @@ impl ICorProfilerInfo14 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -5863,7 +5863,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -5931,7 +5931,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -6010,7 +6010,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -6025,7 +6025,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -6046,12 +6046,12 @@ impl ICorProfilerInfo14 {
     pub unsafe fn GetCodeInfo4(&self, pnativecodestartaddress: usize, ccodeinfos: u32, pccodeinfos: *mut u32, codeinfos: *mut COR_PRF_CODE_INFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetCodeInfo4)(::windows_core::Interface::as_raw(self), pnativecodestartaddress, ccodeinfos, pccodeinfos, codeinfos).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumerateObjectReferences(&self, objectid: usize, callback: ObjectReferenceCallback, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.EnumerateObjectReferences)(::windows_core::Interface::as_raw(self), objectid, callback, clientdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFrozenObject(&self, objectid: usize, pbfrozen: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsFrozenObject)(::windows_core::Interface::as_raw(self), objectid, pbfrozen).ok()
@@ -6081,7 +6081,7 @@ impl ICorProfilerInfo14 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetEnvironmentVariable)(::windows_core::Interface::as_raw(self), szname.into_param().abi(), szvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventPipeStartSession<P0>(&self, pproviderconfigs: &[COR_PRF_EVENTPIPE_PROVIDER_CONFIG], requestrundown: P0) -> ::windows_core::Result<u64>
     where
@@ -6106,7 +6106,7 @@ impl ICorProfilerInfo14 {
     pub unsafe fn EventPipeGetProviderInfo(&self, provider: usize, pcchname: *mut u32, providername: &mut [u16]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EventPipeGetProviderInfo)(::windows_core::Interface::as_raw(self), provider, providername.len() as _, pcchname, ::core::mem::transmute(providername.as_ptr())).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventPipeDefineEvent<P0, P1>(&self, provider: usize, eventname: P0, eventid: u32, keywords: u64, eventversion: u32, level: u32, opcode: u8, needstack: P1, pparamdescs: &[COR_PRF_EVENTPIPE_PARAM_DESC]) -> ::windows_core::Result<usize>
     where
@@ -6186,7 +6186,7 @@ impl ICorProfilerInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -6196,7 +6196,7 @@ impl ICorProfilerInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -6221,7 +6221,7 @@ impl ICorProfilerInfo2 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -6258,7 +6258,7 @@ impl ICorProfilerInfo2 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -6278,7 +6278,7 @@ impl ICorProfilerInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -6305,7 +6305,7 @@ impl ICorProfilerInfo2 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6430,7 +6430,7 @@ impl ICorProfilerInfo3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -6440,7 +6440,7 @@ impl ICorProfilerInfo3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -6465,7 +6465,7 @@ impl ICorProfilerInfo3 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -6502,7 +6502,7 @@ impl ICorProfilerInfo3 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -6522,7 +6522,7 @@ impl ICorProfilerInfo3 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -6549,7 +6549,7 @@ impl ICorProfilerInfo3 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6617,7 +6617,7 @@ impl ICorProfilerInfo3 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -6714,7 +6714,7 @@ impl ICorProfilerInfo4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -6724,7 +6724,7 @@ impl ICorProfilerInfo4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -6749,7 +6749,7 @@ impl ICorProfilerInfo4 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -6786,7 +6786,7 @@ impl ICorProfilerInfo4 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -6806,7 +6806,7 @@ impl ICorProfilerInfo4 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -6833,7 +6833,7 @@ impl ICorProfilerInfo4 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -6901,7 +6901,7 @@ impl ICorProfilerInfo4 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -7024,7 +7024,7 @@ impl ICorProfilerInfo5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -7034,7 +7034,7 @@ impl ICorProfilerInfo5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -7059,7 +7059,7 @@ impl ICorProfilerInfo5 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -7096,7 +7096,7 @@ impl ICorProfilerInfo5 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -7116,7 +7116,7 @@ impl ICorProfilerInfo5 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -7143,7 +7143,7 @@ impl ICorProfilerInfo5 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -7211,7 +7211,7 @@ impl ICorProfilerInfo5 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -7332,7 +7332,7 @@ impl ICorProfilerInfo6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -7342,7 +7342,7 @@ impl ICorProfilerInfo6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -7367,7 +7367,7 @@ impl ICorProfilerInfo6 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -7404,7 +7404,7 @@ impl ICorProfilerInfo6 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -7424,7 +7424,7 @@ impl ICorProfilerInfo6 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -7451,7 +7451,7 @@ impl ICorProfilerInfo6 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -7519,7 +7519,7 @@ impl ICorProfilerInfo6 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -7598,7 +7598,7 @@ impl ICorProfilerInfo6 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -7647,7 +7647,7 @@ impl ICorProfilerInfo7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -7657,7 +7657,7 @@ impl ICorProfilerInfo7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -7682,7 +7682,7 @@ impl ICorProfilerInfo7 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -7719,7 +7719,7 @@ impl ICorProfilerInfo7 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -7739,7 +7739,7 @@ impl ICorProfilerInfo7 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -7766,7 +7766,7 @@ impl ICorProfilerInfo7 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -7834,7 +7834,7 @@ impl ICorProfilerInfo7 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -7913,7 +7913,7 @@ impl ICorProfilerInfo7 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -7971,7 +7971,7 @@ impl ICorProfilerInfo8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -7981,7 +7981,7 @@ impl ICorProfilerInfo8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -8006,7 +8006,7 @@ impl ICorProfilerInfo8 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -8043,7 +8043,7 @@ impl ICorProfilerInfo8 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -8063,7 +8063,7 @@ impl ICorProfilerInfo8 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -8090,7 +8090,7 @@ impl ICorProfilerInfo8 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -8158,7 +8158,7 @@ impl ICorProfilerInfo8 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -8237,7 +8237,7 @@ impl ICorProfilerInfo8 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -8252,7 +8252,7 @@ impl ICorProfilerInfo8 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8310,7 +8310,7 @@ impl ICorProfilerInfo9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetFunctionFromToken)(::windows_core::Interface::as_raw(self), moduleid, token, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandleFromThread(&self, threadid: usize) -> ::windows_core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -8320,7 +8320,7 @@ impl ICorProfilerInfo9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetObjectSize)(::windows_core::Interface::as_raw(self), objectid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn IsArrayClass(&self, classid: usize, pbaseelemtype: *mut super::super::WinRT::Metadata::CorElementType, pbaseclassid: *mut usize, pcrank: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.IsArrayClass)(::windows_core::Interface::as_raw(self), classid, pbaseelemtype, pbaseclassid, pcrank).ok()
@@ -8345,7 +8345,7 @@ impl ICorProfilerInfo9 {
     pub unsafe fn SetEnterLeaveFunctionHooks(&self, pfuncenter: *const FunctionEnter, pfuncleave: *const FunctionLeave, pfunctailcall: *const FunctionTailcall) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetEnterLeaveFunctionHooks)(::windows_core::Interface::as_raw(self), pfuncenter, pfuncleave, pfunctailcall).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper(&self, pfunc: *const FunctionIDMapper) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.SetFunctionIDMapper)(::windows_core::Interface::as_raw(self), pfunc).ok()
@@ -8382,7 +8382,7 @@ impl ICorProfilerInfo9 {
     pub unsafe fn ForceGC(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.ForceGC)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetILInstrumentedCodeMap<P0>(&self, functionid: usize, fstartjit: P0, rgilmapentries: &[COR_IL_MAP]) -> ::windows_core::Result<()>
     where
@@ -8402,7 +8402,7 @@ impl ICorProfilerInfo9 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.GetThreadContext)(::windows_core::Interface::as_raw(self), threadid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginInprocDebugging<P0>(&self, fthisthreadonly: P0) -> ::windows_core::Result<u32>
     where
@@ -8429,7 +8429,7 @@ impl ICorProfilerInfo9 {
     pub unsafe fn GetStringLayout(&self, pbufferlengthoffset: *mut u32, pstringlengthoffset: *mut u32, pbufferoffset: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetStringLayout)(::windows_core::Interface::as_raw(self), pbufferlengthoffset, pstringlengthoffset, pbufferoffset).ok()
     }
-    #[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+    #[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
     #[cfg(feature = "Win32_System_WinRT_Metadata")]
     pub unsafe fn GetClassLayout(&self, classid: usize, rfieldoffset: *mut super::super::WinRT::Metadata::COR_FIELD_OFFSET, cfieldoffset: u32, pcfieldoffset: *mut u32, pulclasssize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.GetClassLayout)(::windows_core::Interface::as_raw(self), classid, rfieldoffset, cfieldoffset, pcfieldoffset, pulclasssize).ok()
@@ -8497,7 +8497,7 @@ impl ICorProfilerInfo9 {
     pub unsafe fn RequestProfilerDetach(&self, dwexpectedcompletionmilliseconds: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.RequestProfilerDetach)(::windows_core::Interface::as_raw(self), dwexpectedcompletionmilliseconds).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFunctionIDMapper2(&self, pfunc: *const FunctionIDMapper2, clientdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.SetFunctionIDMapper2)(::windows_core::Interface::as_raw(self), pfunc, clientdata).ok()
@@ -8576,7 +8576,7 @@ impl ICorProfilerInfo9 {
     pub unsafe fn SetEventMask2(&self, dweventslow: u32, dweventshigh: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.SetEventMask2)(::windows_core::Interface::as_raw(self), dweventslow, dweventshigh).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumNgenModuleMethodsInliningThisMethod(&self, inlinersmoduleid: usize, inlineemoduleid: usize, inlineemethodid: u32, incompletedata: *mut super::super::super::Foundation::BOOL, ppenum: *mut ::core::option::Option<ICorProfilerMethodEnum>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.base__.EnumNgenModuleMethodsInliningThisMethod)(::windows_core::Interface::as_raw(self), inlinersmoduleid, inlineemoduleid, inlineemethodid, incompletedata, ::core::mem::transmute(ppenum)).ok()
@@ -8591,7 +8591,7 @@ impl ICorProfilerInfo9 {
     pub unsafe fn ReadInMemorySymbols(&self, moduleid: usize, symbolsreadoffset: u32, psymbolbytes: *mut u8, countsymbolbytes: u32, pcountsymbolbytesread: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.base__.ReadInMemorySymbols)(::windows_core::Interface::as_raw(self), moduleid, symbolsreadoffset, psymbolbytes, countsymbolbytes, pcountsymbolbytesread).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFunctionDynamic(&self, functionid: usize) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -9461,7 +9461,7 @@ impl ::core::default::Default for COR_DEBUG_IL_TO_NATIVE_MAP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COR_IL_MAP {
     pub oldOffset: u32,
@@ -9501,7 +9501,7 @@ impl ::core::default::Default for COR_IL_MAP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
 pub struct COR_PRF_ASSEMBLY_REFERENCE_INFO {
     pub pbPublicKeyOrToken: *mut ::core::ffi::c_void,
@@ -9939,10 +9939,10 @@ pub type FunctionEnter = ::core::option::Option<unsafe extern "system" fn(funcid
 pub type FunctionEnter2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize, argumentinfo: *mut COR_PRF_FUNCTION_ARGUMENT_INFO) -> ()>;
 pub type FunctionEnter3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID) -> ()>;
 pub type FunctionEnter3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FunctionIDMapper = ::core::option::Option<unsafe extern "system" fn(funcid: usize, pbhookfunction: *mut super::super::super::Foundation::BOOL) -> usize>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FunctionIDMapper2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: *mut ::core::ffi::c_void, pbhookfunction: *mut super::super::super::Foundation::BOOL) -> usize>;
 pub type FunctionLeave = ::core::option::Option<unsafe extern "system" fn(funcid: usize) -> ()>;
@@ -9953,7 +9953,7 @@ pub type FunctionTailcall = ::core::option::Option<unsafe extern "system" fn(fun
 pub type FunctionTailcall2 = ::core::option::Option<unsafe extern "system" fn(funcid: usize, clientdata: usize, func: usize) -> ()>;
 pub type FunctionTailcall3 = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID) -> ()>;
 pub type FunctionTailcall3WithInfo = ::core::option::Option<unsafe extern "system" fn(functionidorclientid: FunctionIDOrClientID, eltinfo: usize) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ObjectReferenceCallback = ::core::option::Option<unsafe extern "system" fn(root: usize, reference: *mut usize, clientdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type StackSnapshotCallback = ::core::option::Option<unsafe extern "system" fn(funcid: usize, ip: usize, frameinfo: usize, contextsize: u32, context: *mut u8, clientdata: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;

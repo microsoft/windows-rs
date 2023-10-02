@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInertiaProcessor_Impl: Sized {
     fn InitialOriginX(&self) -> ::windows_core::Result<f32>;

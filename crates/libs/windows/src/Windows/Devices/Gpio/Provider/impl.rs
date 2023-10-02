@@ -40,7 +40,7 @@ impl IGpioControllerProvider_Vtbl {
         *iid == <IGpioControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IGpioPinProvider_Impl: Sized {
     fn ValueChanged(&self, handler: ::core::option::Option<&super::super::super::Foundation::TypedEventHandler<IGpioPinProvider, GpioPinProviderValueChangedEventArgs>>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>;
@@ -178,7 +178,7 @@ impl IGpioPinProvider_Vtbl {
         *iid == <IGpioPinProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IGpioProvider_Impl: Sized {
     fn GetControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;

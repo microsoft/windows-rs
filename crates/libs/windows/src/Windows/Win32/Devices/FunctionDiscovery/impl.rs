@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFunctionDiscovery_Impl: Sized {
     fn GetInstanceCollection(&self, pszcategory: &::windows_core::PCWSTR, pszsubcategory: &::windows_core::PCWSTR, fincludeallsubcategories: super::super::Foundation::BOOL) -> ::windows_core::Result<IFunctionInstanceCollection>;
@@ -75,7 +75,7 @@ impl IFunctionDiscovery_Vtbl {
         *iid == <IFunctionDiscovery as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryNotification_Impl: Sized {
     fn OnUpdate(&self, enumqueryupdateaction: QueryUpdateAction, fdqcquerycontext: u64, pifunctioninstance: ::core::option::Option<&IFunctionInstance>) -> ::windows_core::Result<()>;
@@ -113,7 +113,7 @@ impl IFunctionDiscoveryNotification_Vtbl {
         *iid == <IFunctionDiscoveryNotification as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProvider_Impl: Sized {
     fn Initialize(&self, pifunctiondiscoveryproviderfactory: ::core::option::Option<&IFunctionDiscoveryProviderFactory>, pifunctiondiscoverynotification: ::core::option::Option<&IFunctionDiscoveryNotification>, lciduserdefault: u32) -> ::windows_core::Result<u32>;
@@ -210,7 +210,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
         *iid == <IFunctionDiscoveryProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionDiscoveryProviderFactory_Impl: Sized {
     fn CreatePropertyStore(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
@@ -266,7 +266,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
         *iid == <IFunctionDiscoveryProviderFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFunctionDiscoveryProviderQuery_Impl: Sized {
     fn IsInstanceQuery(&self, pisinstancequery: *mut super::super::Foundation::BOOL, ppszconstraintvalue: *mut *mut u16) -> ::windows_core::Result<()>;
@@ -323,7 +323,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
         *iid == <IFunctionDiscoveryProviderQuery as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionDiscoveryServiceProvider_Impl: Sized {
     fn Initialize(&self, pifunctioninstance: ::core::option::Option<&IFunctionInstance>, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -344,7 +344,7 @@ impl IFunctionDiscoveryServiceProvider_Vtbl {
         *iid == <IFunctionDiscoveryServiceProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionInstance_Impl: Sized + super::super::System::Com::IServiceProvider_Impl {
     fn GetID(&self) -> ::windows_core::Result<*mut u16>;
@@ -407,7 +407,7 @@ impl IFunctionInstance_Vtbl {
         *iid == <IFunctionInstance as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IServiceProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionInstanceCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -491,7 +491,7 @@ impl IFunctionInstanceCollection_Vtbl {
         *iid == <IFunctionInstanceCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IFunctionInstanceCollectionQuery_Impl: Sized {
     fn AddQueryConstraint(&self, pszconstraintname: &::windows_core::PCWSTR, pszconstraintvalue: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -535,7 +535,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
         *iid == <IFunctionInstanceCollectionQuery as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFunctionInstanceQuery_Impl: Sized {
     fn Execute(&self) -> ::windows_core::Result<IFunctionInstance>;
@@ -630,7 +630,7 @@ impl IPNPXDeviceAssociation_Vtbl {
         *iid == <IPNPXDeviceAssociation as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IPropertyStoreCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -714,7 +714,7 @@ impl IPropertyStoreCollection_Vtbl {
         *iid == <IPropertyStoreCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IProviderProperties_Impl: Sized {
     fn GetCount(&self, pifunctioninstance: ::core::option::Option<&IFunctionInstance>, iproviderinstancecontext: isize) -> ::windows_core::Result<u32>;
@@ -771,7 +771,7 @@ impl IProviderProperties_Vtbl {
         *iid == <IProviderProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IProviderPropertyConstraintCollection_Impl: Sized {
     fn GetCount(&self) -> ::windows_core::Result<u32>;
@@ -836,7 +836,7 @@ impl IProviderPropertyConstraintCollection_Vtbl {
         *iid == <IProviderPropertyConstraintCollection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IProviderPublishing_Impl: Sized {
     fn CreateInstance(&self, enumvisibilityflags: SystemVisibilityFlags, pszsubcategory: &::windows_core::PCWSTR, pszproviderinstanceidentity: &::windows_core::PCWSTR) -> ::windows_core::Result<IFunctionInstance>;

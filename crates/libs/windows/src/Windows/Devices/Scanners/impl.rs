@@ -59,7 +59,7 @@ impl IImageScannerFormatConfiguration_Vtbl {
         *iid == <IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IImageScannerSourceConfiguration_Impl: Sized + IImageScannerFormatConfiguration_Impl {
     fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size>;

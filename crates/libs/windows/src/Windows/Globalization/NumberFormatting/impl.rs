@@ -112,7 +112,7 @@ impl INumberFormatter2_Vtbl {
         *iid == <INumberFormatter2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait INumberFormatterOptions_Impl: Sized {
     fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>;
@@ -288,7 +288,7 @@ impl INumberFormatterOptions_Vtbl {
         *iid == <INumberFormatterOptions as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait INumberParser_Impl: Sized {
     fn ParseInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<i64>>;

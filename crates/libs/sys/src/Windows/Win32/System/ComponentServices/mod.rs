@@ -1,7 +1,7 @@
 ::windows_targets::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : ::windows_sys::core::IUnknown) -> ());
 ::windows_targets::link!("mtxdm.dll" "cdecl" fn GetDispenserManager(param0 : *mut IDispenserManager) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -551,7 +551,7 @@ impl ::core::clone::Clone for APPSTATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
@@ -595,7 +595,7 @@ impl ::core::clone::Clone for ApplicationProcessStatistics {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: ::windows_sys::core::GUID,
@@ -688,7 +688,7 @@ impl ::core::clone::Clone for COMSVCSEVENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
@@ -741,7 +741,7 @@ impl ::core::clone::Clone for ComponentSummary {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
@@ -757,7 +757,7 @@ impl ::core::clone::Clone for CrmLogRecordRead {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,

@@ -54,7 +54,7 @@ impl IWsbApplicationBackupSupport_Vtbl {
         *iid == <IWsbApplicationBackupSupport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWsbApplicationRestoreSupport_Impl: Sized {
     fn PreRestore(&self, wszwritermetadata: &::windows_core::PCWSTR, wszcomponentname: &::windows_core::PCWSTR, wszcomponentlogicalpath: &::windows_core::PCWSTR, bnorollforward: super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;

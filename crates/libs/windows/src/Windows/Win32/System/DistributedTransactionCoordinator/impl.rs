@@ -88,7 +88,7 @@ impl IDtcLuRecoveryInitiatedByDtcStatusWork_Vtbl {
         *iid == <IDtcLuRecoveryInitiatedByDtcStatusWork as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuRecoveryInitiatedByDtcTransWork_Impl: Sized {
     fn GetLogNameSizes(&self, pcbourlogname: *mut u32, pcbremotelogname: *mut u32) -> ::windows_core::Result<()>;
@@ -291,7 +291,7 @@ impl IDtcLuRecoveryInitiatedByLuWork_Vtbl {
         *iid == <IDtcLuRecoveryInitiatedByLuWork as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuRmEnlistment_Impl: Sized {
     fn Unplug(&self, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -443,7 +443,7 @@ impl IDtcLuRmEnlistmentSink_Vtbl {
         *iid == <IDtcLuRmEnlistmentSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcLuSubordinateDtc_Impl: Sized {
     fn Unplug(&self, fconversationlost: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -608,7 +608,7 @@ impl IDtcLuSubordinateDtcSink_Vtbl {
         *iid == <IDtcLuSubordinateDtcSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcNetworkAccessConfig_Impl: Sized {
     fn GetAnyNetworkAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -752,7 +752,7 @@ impl IDtcNetworkAccessConfig_Vtbl {
         *iid == <IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcNetworkAccessConfig2_Impl: Sized + IDtcNetworkAccessConfig_Impl {
     fn GetNetworkInboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -829,7 +829,7 @@ impl IDtcNetworkAccessConfig2_Vtbl {
         *iid == <IDtcNetworkAccessConfig2 as ::windows_core::ComInterface>::IID || *iid == <IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcNetworkAccessConfig3_Impl: Sized + IDtcNetworkAccessConfig2_Impl {
     fn GetLUAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -866,7 +866,7 @@ impl IDtcNetworkAccessConfig3_Vtbl {
         *iid == <IDtcNetworkAccessConfig3 as ::windows_core::ComInterface>::IID || *iid == <IDtcNetworkAccessConfig as ::windows_core::ComInterface>::IID || *iid == <IDtcNetworkAccessConfig2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelper_Impl: Sized {
     fn Close(&self, i_fdorecovery: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -914,7 +914,7 @@ impl IDtcToXaHelperFactory_Vtbl {
         *iid == <IDtcToXaHelperFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDtcToXaHelperSinglePipe_Impl: Sized {
     fn XARMCreate(&self, pszdsn: &::windows_core::PCSTR, pszclientdll: &::windows_core::PCSTR, pdwrmcookie: *mut u32) -> ::windows_core::Result<()>;
@@ -1023,7 +1023,7 @@ impl IGetDispenser_Vtbl {
         *iid == <IGetDispenser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IKernelTransaction_Impl: Sized {
     fn GetHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
@@ -1137,7 +1137,7 @@ impl IPrepareInfo2_Vtbl {
         *iid == <IPrepareInfo2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IRMHelper_Impl: Sized {
     fn RMCount(&self, dwctotalnumberofrms: u32) -> ::windows_core::Result<()>;
@@ -1469,7 +1469,7 @@ impl ITmNodeName_Vtbl {
         *iid == <ITmNodeName as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransaction_Impl: Sized {
     fn Commit(&self, fretaining: super::super::Foundation::BOOL, grftc: u32, grfrm: u32) -> ::windows_core::Result<()>;
@@ -1507,7 +1507,7 @@ impl ITransaction_Vtbl {
         *iid == <ITransaction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransaction2_Impl: Sized + ITransactionCloner_Impl {
     fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> ::windows_core::Result<()>;
@@ -1528,7 +1528,7 @@ impl ITransaction2_Vtbl {
         *iid == <ITransaction2 as ::windows_core::ComInterface>::IID || *iid == <ITransaction as ::windows_core::ComInterface>::IID || *iid == <ITransactionCloner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionCloner_Impl: Sized + ITransaction_Impl {
     fn CloneWithCommitDisabled(&self) -> ::windows_core::Result<ITransaction>;
@@ -1594,7 +1594,7 @@ impl ITransactionDispenser_Vtbl {
         *iid == <ITransactionDispenser as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITransactionEnlistmentAsync_Impl: Sized {
     fn PrepareRequestDone(&self, hr: ::windows_core::HRESULT, pmk: ::core::option::Option<&super::Com::IMoniker>, pboidreason: *const BOID) -> ::windows_core::Result<()>;
@@ -1825,7 +1825,7 @@ impl ITransactionOptions_Vtbl {
         *iid == <ITransactionOptions as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionOutcomeEvents_Impl: Sized {
     fn Committed(&self, fretaining: super::super::Foundation::BOOL, pnewuow: *const BOID, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
@@ -1947,7 +1947,7 @@ impl ITransactionPhase0Factory_Vtbl {
         *iid == <ITransactionPhase0Factory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionPhase0NotifyAsync_Impl: Sized {
     fn Phase0Request(&self, fabortinghint: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2054,7 +2054,7 @@ impl ITransactionReceiverFactory_Vtbl {
         *iid == <ITransactionReceiverFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionResource_Impl: Sized {
     fn PrepareRequest(&self, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2099,7 +2099,7 @@ impl ITransactionResource_Vtbl {
         *iid == <ITransactionResource as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionResourceAsync_Impl: Sized {
     fn PrepareRequest(&self, fretaining: super::super::Foundation::BOOL, grfrm: u32, fwantmoniker: super::super::Foundation::BOOL, fsinglephase: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2261,7 +2261,7 @@ impl ITransactionVoterFactory2_Vtbl {
         *iid == <ITransactionVoterFactory2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITransactionVoterNotifyAsync2_Impl: Sized + ITransactionOutcomeEvents_Impl {
     fn VoteRequest(&self) -> ::windows_core::Result<()>;

@@ -1,23 +1,23 @@
 #[cfg(feature = "Win32_System_Com_CallObj")]
-#[doc = "Required features: `Win32_System_Com_CallObj`"]
+#[doc = "Required features: `\"Win32_System_Com_CallObj\"`"]
 pub mod CallObj;
 #[cfg(feature = "Win32_System_Com_ChannelCredentials")]
-#[doc = "Required features: `Win32_System_Com_ChannelCredentials`"]
+#[doc = "Required features: `\"Win32_System_Com_ChannelCredentials\"`"]
 pub mod ChannelCredentials;
 #[cfg(feature = "Win32_System_Com_Events")]
-#[doc = "Required features: `Win32_System_Com_Events`"]
+#[doc = "Required features: `\"Win32_System_Com_Events\"`"]
 pub mod Events;
 #[cfg(feature = "Win32_System_Com_Marshal")]
-#[doc = "Required features: `Win32_System_Com_Marshal`"]
+#[doc = "Required features: `\"Win32_System_Com_Marshal\"`"]
 pub mod Marshal;
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 pub mod StructuredStorage;
 #[cfg(feature = "Win32_System_Com_UI")]
-#[doc = "Required features: `Win32_System_Com_UI`"]
+#[doc = "Required features: `\"Win32_System_Com_UI\"`"]
 pub mod UI;
 #[cfg(feature = "Win32_System_Com_Urlmon")]
-#[doc = "Required features: `Win32_System_Com_Urlmon`"]
+#[doc = "Required features: `\"Win32_System_Com_Urlmon\"`"]
 pub mod Urlmon;
 #[inline]
 pub unsafe fn BindMoniker<P0, T>(pmk: P0, grfopt: u32) -> ::windows_core::Result<T>
@@ -160,7 +160,7 @@ where
     ::windows_targets::link!("ole32.dll" "system" fn CoDisconnectObject(punk : * mut::core::ffi::c_void, dwreserved : u32) -> ::windows_core::HRESULT);
     CoDisconnectObject(punk.into_param().abi(), dwreserved).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoDosDateTimeToFileTime(ndosdate: u16, ndostime: u16, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -172,7 +172,7 @@ pub unsafe fn CoEnableCallCancellation(preserved: ::core::option::Option<*const 
     ::windows_targets::link!("ole32.dll" "system" fn CoEnableCallCancellation(preserved : *const ::core::ffi::c_void) -> ::windows_core::HRESULT);
     CoEnableCallCancellation(::core::mem::transmute(preserved.unwrap_or(::std::ptr::null()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoFileTimeNow() -> ::windows_core::Result<super::super::Foundation::FILETIME> {
@@ -180,7 +180,7 @@ pub unsafe fn CoFileTimeNow() -> ::windows_core::Result<super::super::Foundation
     let mut result__ = ::std::mem::zeroed();
     CoFileTimeNow(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoFileTimeToDosDateTime(lpfiletime: *const super::super::Foundation::FILETIME, lpdosdate: *mut u16, lpdostime: *mut u16) -> super::super::Foundation::BOOL {
@@ -192,7 +192,7 @@ pub unsafe fn CoFreeAllLibraries() {
     ::windows_targets::link!("ole32.dll" "system" fn CoFreeAllLibraries() -> ());
     CoFreeAllLibraries()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoFreeLibrary<P0>(hinst: P0)
@@ -298,7 +298,7 @@ pub unsafe fn CoGetPSClsid(riid: *const ::windows_core::GUID) -> ::windows_core:
     let mut result__ = ::std::mem::zeroed();
     CoGetPSClsid(riid, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: *mut super::super::Security::PSECURITY_DESCRIPTOR) -> ::windows_core::Result<()> {
@@ -332,7 +332,7 @@ pub unsafe fn CoInitializeEx(pvreserved: ::core::option::Option<*const ::core::f
     ::windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const ::core::ffi::c_void, dwcoinit : u32) -> ::windows_core::HRESULT);
     CoInitializeEx(::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())), dwcoinit.0 as _).ok()
 }
-#[doc = "Required features: `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn CoInitializeSecurity<P0>(psecdesc: P0, cauthsvc: i32, asauthsvc: ::core::option::Option<*const SOLE_AUTHENTICATION_SERVICE>, preserved1: ::core::option::Option<*const ::core::ffi::c_void>, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: ::core::option::Option<*const ::core::ffi::c_void>, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES, preserved3: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
@@ -359,7 +359,7 @@ where
     ::windows_targets::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     CoInvalidateRemoteMachineBindings(pszmachinename.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoIsHandlerConnected<P0>(punk: P0) -> super::super::Foundation::BOOL
@@ -369,14 +369,14 @@ where
     ::windows_targets::link!("ole32.dll" "system" fn CoIsHandlerConnected(punk : * mut::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CoIsHandlerConnected(punk.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoIsOle1Class(rclsid: *const ::windows_core::GUID) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("ole32.dll" "system" fn CoIsOle1Class(rclsid : *const ::windows_core::GUID) -> super::super::Foundation:: BOOL);
     CoIsOle1Class(rclsid)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoLoadLibrary<P0, P1>(lpszlibname: P0, bautofree: P1) -> super::super::Foundation::HINSTANCE
@@ -387,7 +387,7 @@ where
     ::windows_targets::link!("ole32.dll" "system" fn CoLoadLibrary(lpszlibname : ::windows_core::PCWSTR, bautofree : super::super::Foundation:: BOOL) -> super::super::Foundation:: HINSTANCE);
     CoLoadLibrary(lpszlibname.into_param().abi(), bautofree.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoLockObjectExternal<P0, P1, P2>(punk: P0, flock: P1, flastunlockreleases: P2) -> ::windows_core::Result<()>
@@ -599,7 +599,7 @@ pub unsafe fn CoUninitialize() {
     ::windows_targets::link!("ole32.dll" "system" fn CoUninitialize() -> ());
     CoUninitialize()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &[super::super::Foundation::HANDLE]) -> ::windows_core::Result<u32> {
@@ -607,7 +607,7 @@ pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &
     let mut result__ = ::std::mem::zeroed();
     CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &[super::super::Foundation::HANDLE]) -> ::windows_core::Result<u32> {
@@ -705,7 +705,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     CreatePointerMoniker(punk.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStdProgressIndicator<P0, P1, P2>(hwndparent: P0, psztitle: P1, pibsccaller: P2) -> ::windows_core::Result<IBindStatusCallback>
@@ -800,7 +800,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     MonikerCommonPrefixWith(pmkthis.into_param().abi(), pmkother.into_param().abi(), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonikerRelativePathTo<P0, P1, P2>(pmksrc: P0, pmkdest: P1, ppmkrelpath: *mut ::core::option::Option<IMoniker>, dwreserved: P2) -> ::windows_core::Result<()>
@@ -847,7 +847,7 @@ pub unsafe fn StringFromIID(rclsid: *const ::windows_core::GUID) -> ::windows_co
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIAdviseSink(::windows_core::IUnknown);
 impl AsyncIAdviseSink {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
         (::windows_core::Interface::vtable(self).Begin_OnDataChange)(::windows_core::Interface::as_raw(self), pformatetc, pstgmed)
@@ -912,7 +912,7 @@ pub struct AsyncIAdviseSink_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIAdviseSink2(::windows_core::IUnknown);
 impl AsyncIAdviseSink2 {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
         (::windows_core::Interface::vtable(self).base__.Begin_OnDataChange)(::windows_core::Interface::as_raw(self), pformatetc, pstgmed)
@@ -1215,7 +1215,7 @@ pub struct IAddrTrackingControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdviseSink(::windows_core::IUnknown);
 impl IAdviseSink {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
         (::windows_core::Interface::vtable(self).OnDataChange)(::windows_core::Interface::as_raw(self), pformatetc, pstgmed)
@@ -1260,7 +1260,7 @@ pub struct IAdviseSink_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdviseSink2(::windows_core::IUnknown);
 impl IAdviseSink2 {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
         (::windows_core::Interface::vtable(self).base__.OnDataChange)(::windows_core::Interface::as_raw(self), pformatetc, pstgmed)
@@ -1401,7 +1401,7 @@ pub struct IAsyncRpcChannelBuffer_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAuthenticate(::windows_core::IUnknown);
 impl IAuthenticate {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Authenticate(&self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut ::windows_core::PWSTR, pszpassword: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Authenticate)(::windows_core::Interface::as_raw(self), phwnd, pszusername, pszpassword).ok()
@@ -1427,12 +1427,12 @@ pub struct IAuthenticate_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAuthenticateEx(::windows_core::IUnknown);
 impl IAuthenticateEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Authenticate(&self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut ::windows_core::PWSTR, pszpassword: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Authenticate)(::windows_core::Interface::as_raw(self), phwnd, pszusername, pszpassword).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AuthenticateEx(&self, phwnd: *mut super::super::Foundation::HWND, pszusername: *mut ::windows_core::PWSTR, pszpassword: *mut ::windows_core::PWSTR, pauthinfo: *const AUTHENTICATEINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AuthenticateEx)(::windows_core::Interface::as_raw(self), phwnd, pszusername, pszpassword, pauthinfo).ok()
@@ -1602,12 +1602,12 @@ impl IBindStatusCallback {
     {
         (::windows_core::Interface::vtable(self).OnStopBinding)(::windows_core::Interface::as_raw(self), hresult, szerror.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBindInfo)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnDataAvailable)(::windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, pstgmed).ok()
@@ -1674,12 +1674,12 @@ impl IBindStatusCallbackEx {
     {
         (::windows_core::Interface::vtable(self).base__.OnStopBinding)(::windows_core::Interface::as_raw(self), hresult, szerror.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetBindInfo)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.OnDataAvailable)(::windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, pstgmed).ok()
@@ -1690,7 +1690,7 @@ impl IBindStatusCallbackEx {
     {
         (::windows_core::Interface::vtable(self).base__.OnObjectAvailable)(::windows_core::Interface::as_raw(self), riid, punk.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBindInfoEx)(::windows_core::Interface::as_raw(self), grfbindf, pbindinfo, grfbindf2, pdwreserved).ok()
@@ -1998,7 +1998,7 @@ impl IClassFactory {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockServer<P0>(&self, flock: P0) -> ::windows_core::Result<()>
     where
@@ -2278,13 +2278,13 @@ pub struct IDataAdviseHolder_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataObject(::windows_core::IUnknown);
 impl IDataObject {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetData(&self, pformatetcin: *const FORMATETC) -> ::windows_core::Result<STGMEDIUM> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), pformatetcin, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDataHere)(::windows_core::Interface::as_raw(self), pformatetc, pmedium).ok()
@@ -2295,7 +2295,7 @@ impl IDataObject {
     pub unsafe fn GetCanonicalFormatEtc(&self, pformatectin: *const FORMATETC, pformatetcout: *mut FORMATETC) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).GetCanonicalFormatEtc)(::windows_core::Interface::as_raw(self), pformatectin, pformatetcout)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetData<P0>(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: P0) -> ::windows_core::Result<()>
     where
@@ -2367,7 +2367,7 @@ impl IDispatch {
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows_core::GUID, rgsznames: *const ::windows_core::PCWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIDsOfNames)(::windows_core::Interface::as_raw(self), riid, rgsznames, cnames, lcid, rgdispid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: ::core::option::Option<*mut super::Variant::VARIANT>, pexcepinfo: ::core::option::Option<*mut EXCEPINFO>, puargerr: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Invoke)(::windows_core::Interface::as_raw(self), dispidmember, riid, lcid, wflags, pdispparams, ::core::mem::transmute(pvarresult.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pexcepinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(puargerr.unwrap_or(::std::ptr::null_mut()))).ok()
@@ -2810,7 +2810,7 @@ impl IExternalConnection {
     pub unsafe fn AddConnection(&self, extconn: u32, reserved: u32) -> u32 {
         (::windows_core::Interface::vtable(self).AddConnection)(::windows_core::Interface::as_raw(self), extconn, reserved)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseConnection<P0>(&self, extconn: u32, reserved: u32, flastreleasecloses: P0) -> u32
     where
@@ -3079,7 +3079,7 @@ impl IMallocSpy {
     pub unsafe fn PostAlloc(&self, pactual: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
         (::windows_core::Interface::vtable(self).PostAlloc)(::windows_core::Interface::as_raw(self), pactual)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreFree<P0>(&self, prequest: *const ::core::ffi::c_void, fspyed: P0) -> *mut ::core::ffi::c_void
     where
@@ -3087,7 +3087,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PreFree)(::windows_core::Interface::as_raw(self), prequest, fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostFree<P0>(&self, fspyed: P0)
     where
@@ -3095,7 +3095,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PostFree)(::windows_core::Interface::as_raw(self), fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRealloc<P0>(&self, prequest: *const ::core::ffi::c_void, cbrequest: usize, ppnewrequest: *mut *mut ::core::ffi::c_void, fspyed: P0) -> usize
     where
@@ -3103,7 +3103,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PreRealloc)(::windows_core::Interface::as_raw(self), prequest, cbrequest, ppnewrequest, fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostRealloc<P0>(&self, pactual: *const ::core::ffi::c_void, fspyed: P0) -> *mut ::core::ffi::c_void
     where
@@ -3111,7 +3111,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PostRealloc)(::windows_core::Interface::as_raw(self), pactual, fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreGetSize<P0>(&self, prequest: *const ::core::ffi::c_void, fspyed: P0) -> *mut ::core::ffi::c_void
     where
@@ -3119,7 +3119,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PreGetSize)(::windows_core::Interface::as_raw(self), prequest, fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostGetSize<P0>(&self, cbactual: usize, fspyed: P0) -> usize
     where
@@ -3127,7 +3127,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PostGetSize)(::windows_core::Interface::as_raw(self), cbactual, fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreDidAlloc<P0>(&self, prequest: *const ::core::ffi::c_void, fspyed: P0) -> *mut ::core::ffi::c_void
     where
@@ -3135,7 +3135,7 @@ impl IMallocSpy {
     {
         (::windows_core::Interface::vtable(self).PreDidAlloc)(::windows_core::Interface::as_raw(self), prequest, fspyed.into_param().abi())
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostDidAlloc<P0>(&self, prequest: *const ::core::ffi::c_void, fspyed: P0, factual: i32) -> i32
     where
@@ -3215,7 +3215,7 @@ impl IMoniker {
     {
         (::windows_core::Interface::vtable(self).base__.Load)(::windows_core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows_core::Result<()>
     where
@@ -3248,7 +3248,7 @@ impl IMoniker {
     {
         (::windows_core::Interface::vtable(self).Reduce)(::windows_core::Interface::as_raw(self), pbc.into_param().abi(), dwreducehowfar, ::core::mem::transmute(ppmktoleft), ::core::mem::transmute(ppmkreduced)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComposeWith<P0, P1>(&self, pmkright: P0, fonlyifnotgeneric: P1) -> ::windows_core::Result<IMoniker>
     where
@@ -3258,7 +3258,7 @@ impl IMoniker {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ComposeWith)(::windows_core::Interface::as_raw(self), pmkright.into_param().abi(), fonlyifnotgeneric.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enum<P0>(&self, fforward: P0) -> ::windows_core::Result<IEnumMoniker>
     where
@@ -3285,7 +3285,7 @@ impl IMoniker {
     {
         (::windows_core::Interface::vtable(self).IsRunning)(::windows_core::Interface::as_raw(self), pbc.into_param().abi(), pmktoleft.into_param().abi(), pmknewlyrunning.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimeOfLastChange<P0, P1>(&self, pbc: P0, pmktoleft: P1) -> ::windows_core::Result<super::super::Foundation::FILETIME>
     where
@@ -3513,7 +3513,7 @@ impl IPersistFile {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), pszfilename.into_param().abi(), dwmode).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0, P1>(&self, pszfilename: P0, fremember: P1) -> ::windows_core::Result<()>
     where
@@ -3567,7 +3567,7 @@ impl IPersistMemory {
     pub unsafe fn Load(&self, pmem: &[u8]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pmem.as_ptr()), pmem.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0>(&self, pmem: &mut [u8], fcleardirty: P0) -> ::windows_core::Result<()>
     where
@@ -3620,7 +3620,7 @@ impl IPersistStream {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows_core::Result<()>
     where
@@ -3670,7 +3670,7 @@ impl IPersistStreamInit {
     {
         (::windows_core::Interface::vtable(self).Load)(::windows_core::Interface::as_raw(self), pstm.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<P0, P1>(&self, pstm: P0, fcleardirty: P1) -> ::windows_core::Result<()>
     where
@@ -3832,7 +3832,7 @@ pub struct IProcessLock_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProgressNotify(::windows_core::IUnknown);
 impl IProgressNotify {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnProgress<P0, P1>(&self, dwprogresscurrent: u32, dwprogressmaximum: u32, faccurate: P0, fowner: P1) -> ::windows_core::Result<()>
     where
@@ -4218,12 +4218,12 @@ impl IRunnableObject {
     {
         (::windows_core::Interface::vtable(self).Run)(::windows_core::Interface::as_raw(self), pbc.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRunning(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsRunning)(::windows_core::Interface::as_raw(self))
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LockRunning<P0, P1>(&self, flock: P0, flastunlockcloses: P1) -> ::windows_core::Result<()>
     where
@@ -4232,7 +4232,7 @@ impl IRunnableObject {
     {
         (::windows_core::Interface::vtable(self).LockRunning)(::windows_core::Interface::as_raw(self), flock.into_param().abi(), flastunlockcloses.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContainedObject<P0>(&self, fcontained: P0) -> ::windows_core::Result<()>
     where
@@ -4295,12 +4295,12 @@ impl IRunningObjectTable {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), pmkobjectname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NoteChangeTime(&self, dwregister: u32, pfiletime: *const super::super::Foundation::FILETIME) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).NoteChangeTime)(::windows_core::Interface::as_raw(self), dwregister, pfiletime).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimeOfLastChange<P0>(&self, pmkobjectname: P0) -> ::windows_core::Result<super::super::Foundation::FILETIME>
     where
@@ -4377,7 +4377,7 @@ impl IServerSecurity {
     pub unsafe fn RevertToSelf(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RevertToSelf)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsImpersonating(&self) -> super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsImpersonating)(::windows_core::Interface::as_raw(self))
@@ -4483,7 +4483,7 @@ impl IStream {
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UnlockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stat)(::windows_core::Interface::as_raw(self), pstatstg, grfstatflag.0 as _).ok()
@@ -4583,7 +4583,7 @@ pub struct ISurrogate_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISurrogateService(::windows_core::IUnknown);
 impl ISurrogateService {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Init<P0>(&self, rguidprocessid: *const ::windows_core::GUID, pprocesslock: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -4687,13 +4687,13 @@ pub struct ISynchronizeContainer_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISynchronizeEvent(::windows_core::IUnknown);
 impl ISynchronizeEvent {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventHandle(&self, ph: *const super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEventHandle)(::windows_core::Interface::as_raw(self), ph).ok()
@@ -4719,7 +4719,7 @@ pub struct ISynchronizeEvent_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISynchronizeHandle(::windows_core::IUnknown);
 impl ISynchronizeHandle {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
         let mut result__ = ::std::mem::zeroed();
@@ -4797,7 +4797,7 @@ pub struct ITimeAndNoticeControl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeComp(::windows_core::IUnknown);
 impl ITypeComp {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Bind<P0>(&self, szname: P0, lhashval: u32, wflags: u16, pptinfo: *mut ::core::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows_core::Result<()>
     where
@@ -4833,7 +4833,7 @@ pub struct ITypeComp_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeInfo(::windows_core::IUnknown);
 impl ITypeInfo {
-    #[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTypeAttr(&self) -> ::windows_core::Result<*mut TYPEATTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4843,13 +4843,13 @@ impl ITypeInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeComp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> ::windows_core::Result<*mut FUNCDESC> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFuncDesc)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetVarDesc(&self, index: u32) -> ::windows_core::Result<*mut VARDESC> {
         let mut result__ = ::std::mem::zeroed();
@@ -4869,7 +4869,7 @@ impl ITypeInfo {
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const ::windows_core::PCWSTR, cnames: u32, pmemid: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIDsOfNames)(::windows_core::Interface::as_raw(self), rgsznames, cnames, pmemid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Invoke)(::windows_core::Interface::as_raw(self), pvinstance, memid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr).ok()
@@ -4902,17 +4902,17 @@ impl ITypeInfo {
     pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::core::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetContainingTypeLib)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pptlib), pindex).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
         (::windows_core::Interface::vtable(self).ReleaseTypeAttr)(::windows_core::Interface::as_raw(self), ptypeattr)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
         (::windows_core::Interface::vtable(self).ReleaseFuncDesc)(::windows_core::Interface::as_raw(self), pfuncdesc)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
         (::windows_core::Interface::vtable(self).ReleaseVarDesc)(::windows_core::Interface::as_raw(self), pvardesc)
@@ -4974,7 +4974,7 @@ pub struct ITypeInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeInfo2(::windows_core::IUnknown);
 impl ITypeInfo2 {
-    #[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetTypeAttr(&self) -> ::windows_core::Result<*mut TYPEATTR> {
         let mut result__ = ::std::mem::zeroed();
@@ -4984,13 +4984,13 @@ impl ITypeInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTypeComp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFuncDesc(&self, index: u32) -> ::windows_core::Result<*mut FUNCDESC> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFuncDesc)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetVarDesc(&self, index: u32) -> ::windows_core::Result<*mut VARDESC> {
         let mut result__ = ::std::mem::zeroed();
@@ -5010,7 +5010,7 @@ impl ITypeInfo2 {
     pub unsafe fn GetIDsOfNames(&self, rgsznames: *const ::windows_core::PCWSTR, cnames: u32, pmemid: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetIDsOfNames)(::windows_core::Interface::as_raw(self), rgsznames, cnames, pmemid).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Invoke)(::windows_core::Interface::as_raw(self), pvinstance, memid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr).ok()
@@ -5043,17 +5043,17 @@ impl ITypeInfo2 {
     pub unsafe fn GetContainingTypeLib(&self, pptlib: *mut ::core::option::Option<ITypeLib>, pindex: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetContainingTypeLib)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pptlib), pindex).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseTypeAttr(&self, ptypeattr: *const TYPEATTR) {
         (::windows_core::Interface::vtable(self).base__.ReleaseTypeAttr)(::windows_core::Interface::as_raw(self), ptypeattr)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC) {
         (::windows_core::Interface::vtable(self).base__.ReleaseFuncDesc)(::windows_core::Interface::as_raw(self), pfuncdesc)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReleaseVarDesc(&self, pvardesc: *const VARDESC) {
         (::windows_core::Interface::vtable(self).base__.ReleaseVarDesc)(::windows_core::Interface::as_raw(self), pvardesc)
@@ -5074,31 +5074,31 @@ impl ITypeInfo2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVarIndexOfMemId)(::windows_core::Interface::as_raw(self), memid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCustData(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCustData)(::windows_core::Interface::as_raw(self), guid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetFuncCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFuncCustData)(::windows_core::Interface::as_raw(self), index, guid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParamCustData)(::windows_core::Interface::as_raw(self), indexfunc, indexparam, guid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetVarCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVarCustData)(::windows_core::Interface::as_raw(self), index, guid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetImplTypeCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -5107,31 +5107,31 @@ impl ITypeInfo2 {
     pub unsafe fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: ::core::option::Option<*mut ::windows_core::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDocumentation2)(::windows_core::Interface::as_raw(self), memid, lcid, ::core::mem::transmute(pbstrhelpstring.unwrap_or(::std::ptr::null_mut())), pdwhelpstringcontext, ::core::mem::transmute(pbstrhelpstringdll.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllCustData(&self) -> ::windows_core::Result<CUSTDATA> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllCustData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllFuncCustData(&self, index: u32) -> ::windows_core::Result<CUSTDATA> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllFuncCustData)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllParamCustData(&self, indexfunc: u32, indexparam: u32) -> ::windows_core::Result<CUSTDATA> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllParamCustData)(::windows_core::Interface::as_raw(self), indexfunc, indexparam, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllVarCustData(&self, index: u32) -> ::windows_core::Result<CUSTDATA> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllVarCustData)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllImplTypeCustData(&self, index: u32) -> ::windows_core::Result<CUSTDATA> {
         let mut result__ = ::std::mem::zeroed();
@@ -5225,7 +5225,7 @@ impl ITypeLib {
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: ::core::option::Option<*mut ::windows_core::BSTR>, pbstrdocstring: ::core::option::Option<*mut ::windows_core::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDocumentation)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(pbstrname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrdocstring.unwrap_or(::std::ptr::null_mut())), pdwhelpcontext, ::core::mem::transmute(pbstrhelpfile.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsName(&self, sznamebuf: ::windows_core::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(sznamebuf), lhashval, pfname).ok()
@@ -5292,7 +5292,7 @@ impl ITypeLib2 {
     pub unsafe fn GetDocumentation(&self, index: i32, pbstrname: ::core::option::Option<*mut ::windows_core::BSTR>, pbstrdocstring: ::core::option::Option<*mut ::windows_core::BSTR>, pdwhelpcontext: *mut u32, pbstrhelpfile: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetDocumentation)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(pbstrname.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pbstrdocstring.unwrap_or(::std::ptr::null_mut())), pdwhelpcontext, ::core::mem::transmute(pbstrhelpfile.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsName(&self, sznamebuf: ::windows_core::PWSTR, lhashval: u32, pfname: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.IsName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(sznamebuf), lhashval, pfname).ok()
@@ -5303,7 +5303,7 @@ impl ITypeLib2 {
     pub unsafe fn ReleaseTLibAttr(&self, ptlibattr: *const TLIBATTR) {
         (::windows_core::Interface::vtable(self).base__.ReleaseTLibAttr)(::windows_core::Interface::as_raw(self), ptlibattr)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetCustData(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
@@ -5315,7 +5315,7 @@ impl ITypeLib2 {
     pub unsafe fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: ::core::option::Option<*mut ::windows_core::BSTR>, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDocumentation2)(::windows_core::Interface::as_raw(self), index, lcid, ::core::mem::transmute(pbstrhelpstring.unwrap_or(::std::ptr::null_mut())), pdwhelpstringcontext, ::core::mem::transmute(pbstrhelpstringdll.unwrap_or(::std::ptr::null_mut()))).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAllCustData(&self) -> ::windows_core::Result<CUSTDATA> {
         let mut result__ = ::std::mem::zeroed();
@@ -5436,7 +5436,7 @@ impl IUri {
     pub unsafe fn GetPropertyDWORD(&self, uriprop: Uri_PROPERTY, pdwproperty: *mut u32, dwflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyDWORD)(::windows_core::Interface::as_raw(self), uriprop, pdwproperty, dwflags).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasProperty(&self, uriprop: Uri_PROPERTY) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -5522,7 +5522,7 @@ impl IUri {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqual<P0>(&self, puri: P0) -> ::windows_core::Result<super::super::Foundation::BOOL>
     where
@@ -5613,7 +5613,7 @@ impl IUriBuilder {
     pub unsafe fn GetPath(&self, pcchpath: *mut u32, ppwzpath: *mut ::windows_core::PCWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPath)(::windows_core::Interface::as_raw(self), pcchpath, ppwzpath).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPort(&self, pfhasport: *mut super::super::Foundation::BOOL, pdwport: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPort)(::windows_core::Interface::as_raw(self), pfhasport, pdwport).ok()
@@ -5651,7 +5651,7 @@ impl IUriBuilder {
     {
         (::windows_core::Interface::vtable(self).SetPath)(::windows_core::Interface::as_raw(self), pwznewvalue.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPort<P0>(&self, fhasport: P0, dwnewvalue: u32) -> ::windows_core::Result<()>
     where
@@ -5680,7 +5680,7 @@ impl IUriBuilder {
     pub unsafe fn RemoveProperties(&self, dwpropertymask: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveProperties)(::windows_core::Interface::as_raw(self), dwpropertymask).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasBeenModified(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -8090,7 +8090,7 @@ impl ::core::default::Default for AUTHENTICATEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct BINDINFO {
     pub cbSize: u32,
@@ -8125,7 +8125,7 @@ impl ::core::default::Default for BINDINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
@@ -8214,7 +8214,7 @@ impl ::core::default::Default for BIND_OPTS2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
@@ -8591,7 +8591,7 @@ impl ::core::default::Default for CSPLATFORM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATA {
     pub cCustData: u32,
@@ -8630,7 +8630,7 @@ impl ::core::default::Default for CUSTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATAITEM {
     pub guid: ::windows_core::GUID,
@@ -8763,7 +8763,7 @@ impl ::core::default::Default for ContextProperty {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
@@ -8898,7 +8898,7 @@ impl ::core::default::Default for DWORD_SIZEDARR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
@@ -8923,7 +8923,7 @@ impl ::core::default::Default for ELEMDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
@@ -9040,7 +9040,7 @@ impl ::core::default::Default for FLAGGED_WORD_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
@@ -9097,7 +9097,7 @@ impl ::core::default::Default for FORMATETC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct FUNCDESC {
     pub memid: i32,
@@ -9132,7 +9132,7 @@ impl ::core::default::Default for FUNCDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
@@ -9157,7 +9157,7 @@ impl ::core::default::Default for GDI_OBJECT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub union GDI_OBJECT_0 {
     pub hBitmap: *mut super::SystemServices::userHBITMAP,
@@ -9649,7 +9649,7 @@ impl ::core::default::Default for STATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATSTG {
     pub pwcsName: ::windows_core::PWSTR,
@@ -9697,7 +9697,7 @@ impl ::core::default::Default for STATSTG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM {
     pub tymed: u32,
@@ -9721,7 +9721,7 @@ impl ::core::default::Default for STGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
@@ -9815,7 +9815,7 @@ impl ::core::default::Default for TLIBATTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct TYPEATTR {
     pub guid: ::windows_core::GUID,
@@ -9856,7 +9856,7 @@ impl ::core::default::Default for TYPEATTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
@@ -9881,7 +9881,7 @@ impl ::core::default::Default for TYPEDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
@@ -9907,7 +9907,7 @@ impl ::core::default::Default for TYPEDESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct VARDESC {
     pub memid: i32,
@@ -9936,7 +9936,7 @@ impl ::core::default::Default for VARDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union VARDESC_0 {
     pub oInst: u32,
@@ -10124,7 +10124,7 @@ impl ::core::default::Default for uCLSSPEC_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
@@ -10148,7 +10148,7 @@ impl ::core::default::Default for userFLAG_STGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
@@ -10171,7 +10171,7 @@ impl ::core::default::Default for userSTGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
@@ -10196,7 +10196,7 @@ impl ::core::default::Default for userSTGMEDIUM_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,

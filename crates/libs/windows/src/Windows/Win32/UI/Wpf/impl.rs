@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Imaging`"]
+#[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
 #[cfg(feature = "Win32_Graphics_Imaging")]
 pub trait IMILBitmapEffect_Impl: Sized {
     fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>;
@@ -152,7 +152,7 @@ impl IMILBitmapEffectConnectionsInfo_Vtbl {
         *iid == <IMILBitmapEffectConnectionsInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectConnector_Impl: Sized + IMILBitmapEffectConnectorInfo_Impl {
     fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -431,7 +431,7 @@ impl IMILBitmapEffectGroupImpl_Vtbl {
         *iid == <IMILBitmapEffectGroupImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Imaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectImpl_Impl: Sized {
     fn IsInPlaceModificationAllowed(&self, poutputconnector: ::core::option::Option<&IMILBitmapEffectOutputConnector>) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -509,7 +509,7 @@ impl IMILBitmapEffectImpl_Vtbl {
         *iid == <IMILBitmapEffectImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectInputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
     fn ConnectTo(&self, pconnector: ::core::option::Option<&IMILBitmapEffectOutputConnector>) -> ::windows_core::Result<()>;
@@ -592,7 +592,7 @@ impl IMILBitmapEffectInteriorOutputConnector_Vtbl {
         *iid == <IMILBitmapEffectInteriorOutputConnector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectOutputConnector_Impl: Sized + IMILBitmapEffectConnector_Impl {
     fn GetNumberConnections(&self) -> ::windows_core::Result<u32>;
@@ -662,7 +662,7 @@ impl IMILBitmapEffectOutputConnectorImpl_Vtbl {
         *iid == <IMILBitmapEffectOutputConnectorImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Dwm`, `Win32_Graphics_Imaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dwm\"`, `\"Win32_Graphics_Imaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dwm", feature = "Win32_Graphics_Imaging"))]
 pub trait IMILBitmapEffectPrimitive_Impl: Sized {
     fn GetOutput(&self, uiindex: u32, pcontext: ::core::option::Option<&IMILBitmapEffectRenderContext>, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>;
@@ -733,7 +733,7 @@ impl IMILBitmapEffectPrimitive_Vtbl {
         *iid == <IMILBitmapEffectPrimitive as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectPrimitiveImpl_Impl: Sized {
     fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT;
@@ -770,7 +770,7 @@ impl IMILBitmapEffectPrimitiveImpl_Vtbl {
         *iid == <IMILBitmapEffectPrimitiveImpl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectRenderContext_Impl: Sized {
     fn SetOutputPixelFormat(&self, format: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -849,7 +849,7 @@ impl IMILBitmapEffectRenderContext_Vtbl {
         *iid == <IMILBitmapEffectRenderContext as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMILBitmapEffectRenderContextImpl_Impl: Sized {
     fn GetUseSoftwareRenderer(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;

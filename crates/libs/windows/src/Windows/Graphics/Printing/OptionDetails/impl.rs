@@ -34,7 +34,7 @@ impl IPrintCustomOptionDetails_Vtbl {
         *iid == <IPrintCustomOptionDetails as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 pub trait IPrintItemListOptionDetails_Impl: Sized + IPrintOptionDetails_Impl {
     fn Items(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::IInspectable>>;

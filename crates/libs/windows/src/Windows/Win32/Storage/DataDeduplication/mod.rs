@@ -32,7 +32,7 @@ impl IDedupChunkLibrary {
     pub unsafe fn Uninitialize(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Uninitialize)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetParameter(&self, dwparamtype: u32, vparamvalue: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetParameter)(::windows_core::Interface::as_raw(self), dwparamtype, ::core::mem::transmute(vparamvalue)).ok()
@@ -76,7 +76,7 @@ impl IDedupDataPort {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InsertChunks)(::windows_core::Interface::as_raw(self), pchunkmetadata.len() as _, ::core::mem::transmute(pchunkmetadata.as_ptr()), pchunkdata.len() as _, ::core::mem::transmute(pchunkdata.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertChunksWithStream<P0>(&self, pchunkmetadata: &[DedupChunk], databytecount: u32, pchunkdatastream: P0) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -89,7 +89,7 @@ impl IDedupDataPort {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommitStreams)(::windows_core::Interface::as_raw(self), pstreams.len() as _, ::core::mem::transmute(pstreams.as_ptr()), pentries.len() as _, ::core::mem::transmute(pentries.as_ptr()), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitStreamsWithStream<P0>(&self, pstreams: &[DedupStream], entrycount: u32, pentriesstream: P0) -> ::windows_core::Result<::windows_core::GUID>
     where

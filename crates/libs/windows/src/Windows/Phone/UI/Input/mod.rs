@@ -144,7 +144,7 @@ unsafe impl ::core::marker::Send for CameraEventArgs {}
 unsafe impl ::core::marker::Sync for CameraEventArgs {}
 pub struct HardwareButtons;
 impl HardwareButtons {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BackPressed<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -155,12 +155,12 @@ impl HardwareButtons {
             (::windows_core::Interface::vtable(this).BackPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBackPressed(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IHardwareButtonsStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveBackPressed)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CameraHalfPressed<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -171,12 +171,12 @@ impl HardwareButtons {
             (::windows_core::Interface::vtable(this).CameraHalfPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraHalfPressed(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveCameraHalfPressed)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CameraPressed<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -187,12 +187,12 @@ impl HardwareButtons {
             (::windows_core::Interface::vtable(this).CameraPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraPressed(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveCameraPressed)(::windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CameraReleased<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -203,7 +203,7 @@ impl HardwareButtons {
             (::windows_core::Interface::vtable(this).CameraReleased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCameraReleased(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IHardwareButtonsStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveCameraReleased)(::windows_core::Interface::as_raw(this), token).ok() })

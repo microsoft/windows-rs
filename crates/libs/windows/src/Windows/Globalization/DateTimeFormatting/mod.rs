@@ -116,7 +116,7 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DateTimeFormatter(::windows_core::IUnknown);
 impl DateTimeFormatter {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -157,7 +157,7 @@ impl DateTimeFormatter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetNumeralSystem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Patterns(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -173,7 +173,7 @@ impl DateTimeFormatter {
             (::windows_core::Interface::vtable(this).Template)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Format(&self, value: super::super::Foundation::DateTime) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -245,7 +245,7 @@ impl DateTimeFormatter {
             (::windows_core::Interface::vtable(this).ResolvedGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FormatUsingTimeZone(&self, datetime: super::super::Foundation::DateTime, timezoneid: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IDateTimeFormatter2>(self)?;
@@ -260,7 +260,7 @@ impl DateTimeFormatter {
             (::windows_core::Interface::vtable(this).CreateDateTimeFormatter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterLanguages<P0>(formattemplate: &::windows_core::HSTRING, languages: P0) -> ::windows_core::Result<DateTimeFormatter>
     where
@@ -271,7 +271,7 @@ impl DateTimeFormatter {
             (::windows_core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), languages.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterContext<P0>(formattemplate: &::windows_core::HSTRING, languages: P0, geographicregion: &::windows_core::HSTRING, calendar: &::windows_core::HSTRING, clock: &::windows_core::HSTRING) -> ::windows_core::Result<DateTimeFormatter>
     where
@@ -294,7 +294,7 @@ impl DateTimeFormatter {
             (::windows_core::Interface::vtable(this).CreateDateTimeFormatterTime)(::windows_core::Interface::as_raw(this), hourformat, minuteformat, secondformat, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeLanguages<P0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0) -> ::windows_core::Result<DateTimeFormatter>
     where
@@ -305,7 +305,7 @@ impl DateTimeFormatter {
             (::windows_core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows_core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeContext<P0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0, geographicregion: &::windows_core::HSTRING, calendar: &::windows_core::HSTRING, clock: &::windows_core::HSTRING) -> ::windows_core::Result<DateTimeFormatter>
     where

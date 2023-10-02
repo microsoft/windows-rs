@@ -217,7 +217,7 @@ impl INetCfgBindingInterface_Vtbl {
         *iid == <INetCfgBindingInterface as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgBindingPath_Impl: Sized {
     fn IsSamePathAs(&self, ppath: ::core::option::Option<&INetCfgBindingPath>) -> ::windows_core::Result<()>;
@@ -323,7 +323,7 @@ impl INetCfgClass_Vtbl {
         *iid == <INetCfgClass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup_Impl: Sized {
     fn SelectAndInstall(&self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: *mut ::core::option::Option<INetCfgComponent>) -> ::windows_core::Result<()>;
@@ -361,7 +361,7 @@ impl INetCfgClassSetup_Vtbl {
         *iid == <INetCfgClassSetup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgClassSetup2_Impl: Sized + INetCfgClassSetup_Impl {
     fn UpdateNonEnumeratedComponent(&self, picomp: ::core::option::Option<&INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows_core::Result<()>;
@@ -385,7 +385,7 @@ impl INetCfgClassSetup2_Vtbl {
         *iid == <INetCfgClassSetup2 as ::windows_core::ComInterface>::IID || *iid == <INetCfgClassSetup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub trait INetCfgComponent_Impl: Sized {
     fn GetDisplayName(&self, ppszwdisplayname: *mut ::windows_core::PWSTR) -> ::windows_core::Result<()>;
@@ -567,7 +567,7 @@ impl INetCfgComponentBindings_Vtbl {
         *iid == <INetCfgComponentBindings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentControl_Impl: Sized {
     fn Initialize(&self, picomp: ::core::option::Option<&INetCfgComponent>, pinetcfg: ::core::option::Option<&INetCfg>, finstalling: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -686,7 +686,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
         *iid == <INetCfgComponentNotifyGlobal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgComponentPropertyUi_Impl: Sized {
     fn QueryPropertyUi(&self, punkreserved: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -898,7 +898,7 @@ impl INetCfgPnpReconfigCallback_Vtbl {
         *iid == <INetCfgPnpReconfigCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetCfgSysPrep_Impl: Sized {
     fn HrSetupSetFirstDword(&self, pwszsection: &::windows_core::PCWSTR, pwszkey: &::windows_core::PCWSTR, dwvalue: u32) -> ::windows_core::Result<()>;
@@ -966,7 +966,7 @@ impl INetLanConnectionUiInfo_Vtbl {
         *iid == <INetLanConnectionUiInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait INetRasConnectionIpUiInfo_Impl: Sized {
     fn GetUiInfo(&self, pinfo: *mut RASCON_IPUI) -> ::windows_core::Result<()>;
@@ -987,7 +987,7 @@ impl INetRasConnectionIpUiInfo_Vtbl {
         *iid == <INetRasConnectionIpUiInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Data_Xml_MsXml`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 pub trait IProvisioningDomain_Impl: Sized {
     fn Add(&self, pszwpathtofolder: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;

@@ -196,7 +196,7 @@ impl IAMAnalogVideoEncoder_Vtbl {
         *iid == <IAMAnalogVideoEncoder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMAsyncReaderTimestampScaling_Impl: Sized {
     fn GetTimestampMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -233,7 +233,7 @@ impl IAMAsyncReaderTimestampScaling_Vtbl {
         *iid == <IAMAsyncReaderTimestampScaling as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMAudioInputMixer_Impl: Sized {
     fn SetEnable(&self, fenable: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -541,7 +541,7 @@ impl IAMCertifiedOutputProtection_Vtbl {
         *iid == <IAMCertifiedOutputProtection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMChannelInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ChannelName(&self, pbstrchannelname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -650,7 +650,7 @@ impl IAMClockSlave_Vtbl {
         *iid == <IAMClockSlave as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
@@ -723,7 +723,7 @@ impl IAMCopyCaptureFileProgress_Vtbl {
         *iid == <IAMCopyCaptureFileProgress as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMCrossbar_Impl: Sized {
     fn get_PinCounts(&self, outputpincount: *mut i32, inputpincount: *mut i32) -> ::windows_core::Result<()>;
@@ -926,7 +926,7 @@ impl IAMDeviceRemoval_Vtbl {
         *iid == <IAMDeviceRemoval as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio_DirectSound`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio_DirectSound\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
 pub trait IAMDirectSound_Impl: Sized {
     fn GetDirectSoundInterface(&self) -> ::windows_core::Result<super::Audio::DirectSound::IDirectSound>;
@@ -1450,7 +1450,7 @@ impl IAMExtTransport_Vtbl {
         *iid == <IAMExtTransport as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMExtendedErrorInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn HasError(&self, phaserror: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -1488,7 +1488,7 @@ impl IAMExtendedErrorInfo_Vtbl {
         *iid == <IAMExtendedErrorInfo as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMExtendedSeeking_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ExSeekCapabilities(&self, pexcapabilities: *mut i32) -> ::windows_core::Result<()>;
@@ -1588,7 +1588,7 @@ impl IAMFilterMiscFlags_Vtbl {
         *iid == <IAMFilterMiscFlags as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAMGraphBuilderCallback_Impl: Sized {
     fn SelectedFilter(&self, pmon: ::core::option::Option<&super::super::System::Com::IMoniker>) -> ::windows_core::Result<()>;
@@ -1619,7 +1619,7 @@ impl IAMGraphBuilderCallback_Vtbl {
         *iid == <IAMGraphBuilderCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMGraphStreams_Impl: Sized {
     fn FindUpstreamInterface(&self, ppin: ::core::option::Option<&IPin>, riid: *const ::windows_core::GUID, ppvinterface: *mut *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::Result<()>;
@@ -1680,7 +1680,7 @@ impl IAMLatency_Vtbl {
         *iid == <IAMLatency as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IAMLine21Decoder_Impl: Sized {
     fn GetDecoderLevel(&self, lplevel: *mut AM_LINE21_CCLEVEL) -> ::windows_core::Result<()>;
@@ -1788,7 +1788,7 @@ impl IAMLine21Decoder_Vtbl {
         *iid == <IAMLine21Decoder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMMediaContent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AuthorName(&self, pbstrauthorname: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1896,7 +1896,7 @@ impl IAMMediaContent_Vtbl {
         *iid == <IAMMediaContent as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMMediaContent2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn get_MediaParameter(&self, entrynum: i32, bstrname: &::windows_core::BSTR, pbstrvalue: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -1934,7 +1934,7 @@ impl IAMMediaContent2_Vtbl {
         *iid == <IAMMediaContent2 as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAMMediaStream_Impl: Sized + IMediaStream_Impl {
     fn Initialize(&self, psourceobject: ::core::option::Option<&::windows_core::IUnknown>, dwflags: u32, purposeid: *const ::windows_core::GUID, streamtype: STREAM_TYPE) -> ::windows_core::Result<()>;
@@ -1986,7 +1986,7 @@ impl IAMMediaStream_Vtbl {
         *iid == <IAMMediaStream as ::windows_core::ComInterface>::IID || *iid == <IMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IAMMediaTypeSample_Impl: Sized + IStreamSample_Impl {
     fn SetPointer(&self, pbuffer: *const u8, lsize: i32) -> ::windows_core::Result<()>;
@@ -2134,7 +2134,7 @@ impl IAMMediaTypeSample_Vtbl {
         *iid == <IAMMediaTypeSample as ::windows_core::ComInterface>::IID || *iid == <IStreamSample as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IAMMediaTypeStream_Impl: Sized + IMediaStream_Impl {
     fn GetFormat(&self, pmediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE, dwflags: u32) -> ::windows_core::Result<()>;
@@ -2198,7 +2198,7 @@ impl IAMMediaTypeStream_Vtbl {
         *iid == <IAMMediaTypeStream as ::windows_core::ComInterface>::IID || *iid == <IMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAMMultiMediaStream_Impl: Sized + IMultiMediaStream_Impl {
     fn Initialize(&self, streamtype: STREAM_TYPE, dwflags: &AMMSF_MMS_INIT_FLAGS, pfiltergraph: ::core::option::Option<&IGraphBuilder>) -> ::windows_core::Result<()>;
@@ -2282,7 +2282,7 @@ impl IAMMultiMediaStream_Vtbl {
         *iid == <IAMMultiMediaStream as ::windows_core::ComInterface>::IID || *iid == <IMultiMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetShowConfig_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn BufferingTime(&self, pbufferingtime: *mut f64) -> ::windows_core::Result<()>;
@@ -2453,7 +2453,7 @@ impl IAMNetShowConfig_Vtbl {
         *iid == <IAMNetShowConfig as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetShowExProps_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SourceProtocol(&self, psourceprotocol: *mut i32) -> ::windows_core::Result<()>;
@@ -2533,7 +2533,7 @@ impl IAMNetShowExProps_Vtbl {
         *iid == <IAMNetShowExProps as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetShowPreroll_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetPreroll(&self, fpreroll: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -2564,7 +2564,7 @@ impl IAMNetShowPreroll_Vtbl {
         *iid == <IAMNetShowPreroll as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMNetworkStatus_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ReceivedPackets(&self, preceivedpackets: *mut i32) -> ::windows_core::Result<()>;
@@ -2982,7 +2982,7 @@ impl IAMPlayListItem_Vtbl {
         *iid == <IAMPlayListItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMPluginControl_Impl: Sized {
     fn GetPreferredClsid(&self, subtype: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::GUID>;
@@ -3167,7 +3167,7 @@ impl IAMResourceControl_Vtbl {
         *iid == <IAMResourceControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAMStats_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows_core::Result<()>;
@@ -3238,7 +3238,7 @@ impl IAMStats_Vtbl {
         *iid == <IAMStats as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IAMStreamConfig_Impl: Sized {
     fn SetFormat(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -3289,7 +3289,7 @@ impl IAMStreamConfig_Vtbl {
         *iid == <IAMStreamConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMStreamControl_Impl: Sized {
     fn StartAt(&self, ptstart: *const i64, dwcookie: u32) -> ::windows_core::Result<()>;
@@ -3327,7 +3327,7 @@ impl IAMStreamControl_Vtbl {
         *iid == <IAMStreamControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IAMStreamSelect_Impl: Sized {
     fn Count(&self) -> ::windows_core::Result<u32>;
@@ -3461,7 +3461,7 @@ impl IAMTVAudioNotification_Vtbl {
         *iid == <IAMTVAudioNotification as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMTVTuner_Impl: Sized + IAMTuner_Impl {
     fn AvailableTVFormats(&self) -> ::windows_core::Result<i32>;
@@ -3783,7 +3783,7 @@ impl IAMTimecodeReader_Vtbl {
         *iid == <IAMTimecodeReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMTuner_Impl: Sized {
     fn put_Channel(&self, lchannel: i32, lvideosubchannel: i32, laudiosubchannel: i32) -> ::windows_core::Result<()>;
@@ -3952,7 +3952,7 @@ impl IAMTunerNotification_Vtbl {
         *iid == <IAMTunerNotification as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMVfwCaptureDialogs_Impl: Sized {
     fn HasDialog(&self, idialog: i32) -> ::windows_core::Result<()>;
@@ -3990,7 +3990,7 @@ impl IAMVfwCaptureDialogs_Vtbl {
         *iid == <IAMVfwCaptureDialogs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMVfwCompressDialogs_Impl: Sized {
     fn ShowDialog(&self, idialog: i32, hwnd: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -4035,7 +4035,7 @@ impl IAMVfwCompressDialogs_Vtbl {
         *iid == <IAMVfwCompressDialogs as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IAMVideoAccelerator_Impl: Sized {
     fn GetVideoAcceleratorGUIDs(&self, pdwnumguidssupported: *mut u32, pguidssupported: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -4136,7 +4136,7 @@ impl IAMVideoAccelerator_Vtbl {
         *iid == <IAMVideoAccelerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub trait IAMVideoAcceleratorNotify_Impl: Sized {
     fn GetUncompSurfacesInfo(&self, pguid: *const ::windows_core::GUID, puncompbufferinfo: *mut AMVAUncompBufferInfo) -> ::windows_core::Result<()>;
@@ -4288,7 +4288,7 @@ impl IAMVideoCompression_Vtbl {
         *iid == <IAMVideoCompression as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAMVideoControl_Impl: Sized {
     fn GetCaps(&self, ppin: ::core::option::Option<&IPin>) -> ::windows_core::Result<i32>;
@@ -4455,7 +4455,7 @@ impl IAMWMBufferPass_Vtbl {
         *iid == <IAMWMBufferPass as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_WindowsMediaFormat`"]
+#[doc = "Required features: `\"Win32_Media_WindowsMediaFormat\"`"]
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub trait IAMWMBufferPassCallback_Impl: Sized {
     fn Notify(&self, pnssbuffer3: ::core::option::Option<&super::WindowsMediaFormat::INSSBuffer3>, ppin: ::core::option::Option<&IPin>, prtstart: *const i64, prtend: *const i64) -> ::windows_core::Result<()>;
@@ -4476,7 +4476,7 @@ impl IAMWMBufferPassCallback_Vtbl {
         *iid == <IAMWMBufferPassCallback as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IAMWstDecoder_Impl: Sized {
     fn GetDecoderLevel(&self, lplevel: *mut AM_WST_LEVEL) -> ::windows_core::Result<()>;
@@ -4721,7 +4721,7 @@ impl IAsyncReader_Vtbl {
         *iid == <IAsyncReader as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IAudioData_Impl: Sized + IMemoryData_Impl {
     fn GetFormat(&self, pwaveformatcurrent: *mut super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -4752,7 +4752,7 @@ impl IAudioData_Vtbl {
         *iid == <IAudioData as ::windows_core::ComInterface>::IID || *iid == <IMemoryData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IAudioMediaStream_Impl: Sized + IMediaStream_Impl {
     fn GetFormat(&self, pwaveformatcurrent: *mut super::Audio::WAVEFORMATEX) -> ::windows_core::Result<()>;
@@ -4796,7 +4796,7 @@ impl IAudioMediaStream_Vtbl {
         *iid == <IAudioMediaStream as ::windows_core::ComInterface>::IID || *iid == <IMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAudioStreamSample_Impl: Sized + IStreamSample_Impl {
     fn GetAudioData(&self) -> ::windows_core::Result<IAudioData>;
@@ -4907,7 +4907,7 @@ impl IBDA_AutoDemodulateEx_Vtbl {
         *iid == <IBDA_AutoDemodulateEx as ::windows_core::ComInterface>::IID || *iid == <IBDA_AutoDemodulate as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_ConditionalAccess_Impl: Sized {
     fn get_SmartCardStatus(&self, pcardstatus: *mut SmartCardStatusType, pcardassociation: *mut SmartCardAssociationType, pbstrcarderror: *mut ::windows_core::BSTR, pfooblocked: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
@@ -5168,7 +5168,7 @@ impl IBDA_DRIWMDRMSession_Vtbl {
         *iid == <IBDA_DRIWMDRMSession as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_DRM_Impl: Sized {
     fn GetDRMPairingStatus(&self, pdwstatus: *mut u32, pherror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>;
@@ -5267,7 +5267,7 @@ impl IBDA_DeviceControl_Vtbl {
         *iid == <IBDA_DeviceControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBDA_DiagnosticProperties_Impl: Sized + super::super::System::Com::StructuredStorage::IPropertyBag_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -5502,7 +5502,7 @@ impl IBDA_DigitalDemodulator3_Vtbl {
         *iid == <IBDA_DigitalDemodulator3 as ::windows_core::ComInterface>::IID || *iid == <IBDA_DigitalDemodulator as ::windows_core::ComInterface>::IID || *iid == <IBDA_DigitalDemodulator2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_DiseqCommand_Impl: Sized {
     fn SetEnableDiseqCommands(&self, benable: super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
@@ -5578,7 +5578,7 @@ impl IBDA_EasMessage_Vtbl {
         *iid == <IBDA_EasMessage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_Encoder_Impl: Sized {
     fn QueryCapabilities(&self, numaudiofmts: *mut u32, numvideofmts: *mut u32) -> ::windows_core::Result<()>;
@@ -5722,7 +5722,7 @@ impl IBDA_EventingService_Vtbl {
         *iid == <IBDA_EventingService as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_FDC_Impl: Sized {
     fn GetStatus(&self, currentbitrate: *mut u32, carrierlock: *mut super::super::Foundation::BOOL, currentfrequency: *mut u32, currentspectruminversion: *mut super::super::Foundation::BOOL, currentpidlist: *mut ::windows_core::BSTR, currenttidlist: *mut ::windows_core::BSTR, overflow: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6470,7 +6470,7 @@ impl IBDA_SignalProperties_Vtbl {
         *iid == <IBDA_SignalProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBDA_SignalStatistics_Impl: Sized {
     fn SetSignalStrength(&self, ldbstrength: i32) -> ::windows_core::Result<()>;
@@ -6557,7 +6557,7 @@ impl IBDA_SignalStatistics_Vtbl {
         *iid == <IBDA_SignalStatistics as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IBDA_Topology_Impl: Sized {
     fn GetNodeTypes(&self, pulcnodetypes: *mut u32, ulcnodetypesmax: u32, rgulnodetypes: *mut u32) -> ::windows_core::Result<()>;
@@ -6894,7 +6894,7 @@ impl IBDA_WMDRMTuner_Vtbl {
         *iid == <IBDA_WMDRMTuner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBPCSatelliteTuner_Impl: Sized + IAMTuner_Impl {
     fn get_DefaultSubChannelTypes(&self, pldefaultvideotype: *mut i32, pldefaultaudiotype: *mut i32) -> ::windows_core::Result<()>;
@@ -6932,7 +6932,7 @@ impl IBPCSatelliteTuner_Vtbl {
         *iid == <IBPCSatelliteTuner as ::windows_core::ComInterface>::IID || *iid == <IAMTuner as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBaseFilter_Impl: Sized + IMediaFilter_Impl {
     fn EnumPins(&self) -> ::windows_core::Result<IEnumPins>;
@@ -7088,7 +7088,7 @@ impl IBaseVideoMixer_Vtbl {
         *iid == <IBaseVideoMixer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBasicAudio_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetVolume(&self, lvolume: i32) -> ::windows_core::Result<()>;
@@ -7145,7 +7145,7 @@ impl IBasicAudio_Vtbl {
         *iid == <IBasicAudio as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBasicVideo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AvgTimePerFrame(&self) -> ::windows_core::Result<f64>;
@@ -7464,7 +7464,7 @@ impl IBasicVideo_Vtbl {
         *iid == <IBasicVideo as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IBasicVideo2_Impl: Sized + IBasicVideo_Impl {
     fn GetPreferredAspectRatio(&self, plaspectx: *mut i32, plaspecty: *mut i32) -> ::windows_core::Result<()>;
@@ -7949,7 +7949,7 @@ impl ICameraControl_Vtbl {
         *iid == <ICameraControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICaptureGraphBuilder_Impl: Sized {
     fn SetFiltergraph(&self, pfg: ::core::option::Option<&IGraphBuilder>) -> ::windows_core::Result<()>;
@@ -8028,7 +8028,7 @@ impl ICaptureGraphBuilder_Vtbl {
         *iid == <ICaptureGraphBuilder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ICaptureGraphBuilder2_Impl: Sized {
     fn SetFiltergraph(&self, pfg: ::core::option::Option<&IGraphBuilder>) -> ::windows_core::Result<()>;
@@ -8120,7 +8120,7 @@ impl ICaptureGraphBuilder2_Vtbl {
         *iid == <ICaptureGraphBuilder2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_WindowsMediaFormat`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_WindowsMediaFormat\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_WindowsMediaFormat"))]
 pub trait IConfigAsfWriter_Impl: Sized {
     fn ConfigureFilterUsingProfileId(&self, dwprofileid: u32) -> ::windows_core::Result<()>;
@@ -8217,7 +8217,7 @@ impl IConfigAsfWriter_Vtbl {
         *iid == <IConfigAsfWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_WindowsMediaFormat`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_WindowsMediaFormat\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_WindowsMediaFormat"))]
 pub trait IConfigAsfWriter2_Impl: Sized + IConfigAsfWriter_Impl {
     fn StreamNumFromPin(&self, ppin: ::core::option::Option<&IPin>) -> ::windows_core::Result<u16>;
@@ -8268,7 +8268,7 @@ impl IConfigAsfWriter2_Vtbl {
         *iid == <IConfigAsfWriter2 as ::windows_core::ComInterface>::IID || *iid == <IConfigAsfWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IConfigAviMux_Impl: Sized {
     fn SetMasterStream(&self, istream: i32) -> ::windows_core::Result<()>;
@@ -8372,7 +8372,7 @@ impl IConfigInterleaving_Vtbl {
         *iid == <IConfigInterleaving as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICreateDevEnum_Impl: Sized {
     fn CreateClassEnumerator(&self, clsiddeviceclass: *const ::windows_core::GUID, ppenummoniker: *mut ::core::option::Option<super::super::System::Com::IEnumMoniker>, dwflags: u32) -> ::windows_core::Result<()>;
@@ -8393,7 +8393,7 @@ impl ICreateDevEnum_Vtbl {
         *iid == <ICreateDevEnum as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IDDrawExclModeVideo_Impl: Sized {
     fn SetDDrawObject(&self, pddrawobject: ::core::option::Option<&super::super::Graphics::DirectDraw::IDirectDraw>) -> ::windows_core::Result<()>;
@@ -8459,7 +8459,7 @@ impl IDDrawExclModeVideo_Vtbl {
         *iid == <IDDrawExclModeVideo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDDrawExclModeVideoCallback_Impl: Sized {
     fn OnUpdateOverlay(&self, bbefore: super::super::Foundation::BOOL, dwflags: u32, boldvisible: super::super::Foundation::BOOL, prcoldsrc: *const super::super::Foundation::RECT, prcolddest: *const super::super::Foundation::RECT, bnewvisible: super::super::Foundation::BOOL, prcnewsrc: *const super::super::Foundation::RECT, prcnewdest: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -8568,7 +8568,7 @@ impl IDVEnc_Vtbl {
         *iid == <IDVEnc as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDVRGB219_Impl: Sized {
     fn SetRGB219(&self, bstate: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -8689,7 +8689,7 @@ impl IDeferredCommand_Vtbl {
         *iid == <IDeferredCommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IDirectDrawMediaSample_Impl: Sized {
     fn GetSurfaceAndReleaseLock(&self, ppdirectdrawsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -8720,7 +8720,7 @@ impl IDirectDrawMediaSample_Vtbl {
         *iid == <IDirectDrawMediaSample as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub trait IDirectDrawMediaSampleAllocator_Impl: Sized {
     fn GetDirectDraw(&self) -> ::windows_core::Result<super::super::Graphics::DirectDraw::IDirectDraw>;
@@ -8747,7 +8747,7 @@ impl IDirectDrawMediaSampleAllocator_Vtbl {
         *iid == <IDirectDrawMediaSampleAllocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IDirectDrawMediaStream_Impl: Sized + IMediaStream_Impl {
     fn GetFormat(&self, pddsdcurrent: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, ppdirectdrawpalette: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawPalette>, pddsddesired: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, pdwflags: *mut u32) -> ::windows_core::Result<()>;
@@ -8824,7 +8824,7 @@ impl IDirectDrawMediaStream_Vtbl {
         *iid == <IDirectDrawMediaStream as ::windows_core::ComInterface>::IID || *iid == <IMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IDirectDrawStreamSample_Impl: Sized + IStreamSample_Impl {
     fn GetSurface(&self, ppdirectdrawsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface>, prect: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -8855,7 +8855,7 @@ impl IDirectDrawStreamSample_Vtbl {
         *iid == <IDirectDrawStreamSample as ::windows_core::ComInterface>::IID || *iid == <IStreamSample as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub trait IDirectDrawVideo_Impl: Sized {
     fn GetSwitches(&self) -> ::windows_core::Result<u32>;
@@ -9068,7 +9068,7 @@ impl IDistributorNotify_Vtbl {
         *iid == <IDistributorNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDrawVideoImage_Impl: Sized {
     fn DrawVideoImageBegin(&self) -> ::windows_core::Result<()>;
@@ -9133,7 +9133,7 @@ impl IDvdCmd_Vtbl {
         *iid == <IDvdCmd as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDvdControl_Impl: Sized {
     fn TitlePlay(&self, ultitle: u32) -> ::windows_core::Result<()>;
@@ -9395,7 +9395,7 @@ impl IDvdControl_Vtbl {
         *iid == <IDvdControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDvdControl2_Impl: Sized {
     fn PlayTitle(&self, ultitle: u32, dwflags: u32) -> ::windows_core::Result<IDvdCmd>;
@@ -9818,7 +9818,7 @@ impl IDvdControl2_Vtbl {
         *iid == <IDvdControl2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDvdGraphBuilder_Impl: Sized {
     fn GetFiltergraph(&self) -> ::windows_core::Result<IGraphBuilder>;
@@ -9862,7 +9862,7 @@ impl IDvdGraphBuilder_Vtbl {
         *iid == <IDvdGraphBuilder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDvdInfo_Impl: Sized {
     fn GetCurrentDomain(&self) -> ::windows_core::Result<DVD_DOMAIN>;
@@ -10118,7 +10118,7 @@ impl IDvdInfo_Vtbl {
         *iid == <IDvdInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDvdInfo2_Impl: Sized {
     fn GetCurrentDomain(&self) -> ::windows_core::Result<DVD_DOMAIN>;
@@ -10561,7 +10561,7 @@ impl IDvdState_Vtbl {
         *iid == <IDvdState as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IESEvent_Impl: Sized {
     fn GetEventId(&self) -> ::windows_core::Result<u32>;
@@ -10654,7 +10654,7 @@ impl IESEvents_Vtbl {
         *iid == <IESEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEncoderAPI_Impl: Sized {
     fn IsSupported(&self, api: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -10732,7 +10732,7 @@ impl IEncoderAPI_Vtbl {
         *iid == <IEncoderAPI as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumFilters_Impl: Sized {
     fn Next(&self, cfilters: u32, ppfilter: *mut ::core::option::Option<IBaseFilter>, pcfetched: *mut u32) -> ::windows_core::HRESULT;
@@ -10783,7 +10783,7 @@ impl IEnumFilters_Vtbl {
         *iid == <IEnumFilters as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IEnumMediaTypes_Impl: Sized {
     fn Next(&self, cmediatypes: u32, ppmediatypes: *mut *mut super::MediaFoundation::AM_MEDIA_TYPE, pcfetched: *mut u32) -> ::windows_core::HRESULT;
@@ -11022,7 +11022,7 @@ impl IEnumStreamIdMap_Vtbl {
         *iid == <IEnumStreamIdMap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IFileSinkFilter_Impl: Sized {
     fn SetFileName(&self, pszfilename: &::windows_core::PCWSTR, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -11053,7 +11053,7 @@ impl IFileSinkFilter_Vtbl {
         *iid == <IFileSinkFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IFileSinkFilter2_Impl: Sized + IFileSinkFilter_Impl {
     fn SetMode(&self, dwflags: u32) -> ::windows_core::Result<()>;
@@ -11090,7 +11090,7 @@ impl IFileSinkFilter2_Vtbl {
         *iid == <IFileSinkFilter2 as ::windows_core::ComInterface>::IID || *iid == <IFileSinkFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IFileSourceFilter_Impl: Sized {
     fn Load(&self, pszfilename: &::windows_core::PCWSTR, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -11121,7 +11121,7 @@ impl IFileSourceFilter_Vtbl {
         *iid == <IFileSourceFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IFilterChain_Impl: Sized {
     fn StartChain(&self, pstartfilter: ::core::option::Option<&IBaseFilter>, pendfilter: ::core::option::Option<&IBaseFilter>) -> ::windows_core::Result<()>;
@@ -11166,7 +11166,7 @@ impl IFilterChain_Vtbl {
         *iid == <IFilterChain as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IFilterGraph_Impl: Sized {
     fn AddFilter(&self, pfilter: ::core::option::Option<&IBaseFilter>, pname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -11251,7 +11251,7 @@ impl IFilterGraph_Vtbl {
         *iid == <IFilterGraph as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IFilterGraph2_Impl: Sized + IGraphBuilder_Impl {
     fn AddSourceFilterForMoniker(&self, pmoniker: ::core::option::Option<&super::super::System::Com::IMoniker>, pctx: ::core::option::Option<&super::super::System::Com::IBindCtx>, lpcwstrfiltername: &::windows_core::PCWSTR) -> ::windows_core::Result<IBaseFilter>;
@@ -11295,7 +11295,7 @@ impl IFilterGraph2_Vtbl {
         *iid == <IFilterGraph2 as ::windows_core::ComInterface>::IID || *iid == <IFilterGraph as ::windows_core::ComInterface>::IID || *iid == <IGraphBuilder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IFilterGraph3_Impl: Sized + IFilterGraph2_Impl {
     fn SetSyncSourceEx(&self, pclockformostoffiltergraph: ::core::option::Option<&super::IReferenceClock>, pclockforfilter: ::core::option::Option<&super::IReferenceClock>, pfilter: ::core::option::Option<&IBaseFilter>) -> ::windows_core::Result<()>;
@@ -11316,7 +11316,7 @@ impl IFilterGraph3_Vtbl {
         *iid == <IFilterGraph3 as ::windows_core::ComInterface>::IID || *iid == <IFilterGraph as ::windows_core::ComInterface>::IID || *iid == <IGraphBuilder as ::windows_core::ComInterface>::IID || *iid == <IFilterGraph2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFilterInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn FindPin(&self, strpinid: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Com::IDispatch>;
@@ -11431,7 +11431,7 @@ impl IFilterInfo_Vtbl {
         *iid == <IFilterInfo as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFilterMapper_Impl: Sized {
     fn RegisterFilter(&self, clsid: &::windows_core::GUID, name: &::windows_core::PCWSTR, dwmerit: u32) -> ::windows_core::Result<()>;
@@ -11510,7 +11510,7 @@ impl IFilterMapper_Vtbl {
         *iid == <IFilterMapper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFilterMapper2_Impl: Sized {
     fn CreateCategory(&self, clsidcategory: *const ::windows_core::GUID, dwcategorymerit: u32, description: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -11572,7 +11572,7 @@ impl IFilterMapper2_Vtbl {
         *iid == <IFilterMapper2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IFilterMapper3_Impl: Sized + IFilterMapper2_Impl {
     fn GetICreateDevEnum(&self) -> ::windows_core::Result<ICreateDevEnum>;
@@ -11660,7 +11660,7 @@ impl IFrequencyMap_Vtbl {
         *iid == <IFrequencyMap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFullScreenVideo_Impl: Sized {
     fn CountModes(&self) -> ::windows_core::Result<i32>;
@@ -11832,7 +11832,7 @@ impl IFullScreenVideo_Vtbl {
         *iid == <IFullScreenVideo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IFullScreenVideoEx_Impl: Sized + IFullScreenVideo_Impl {
     fn SetAcceleratorTable(&self, hwnd: super::super::Foundation::HWND, haccel: super::super::UI::WindowsAndMessaging::HACCEL) -> ::windows_core::Result<()>;
@@ -11883,7 +11883,7 @@ impl IFullScreenVideoEx_Vtbl {
         *iid == <IFullScreenVideoEx as ::windows_core::ComInterface>::IID || *iid == <IFullScreenVideo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(feature = "Win32_System_Registry")]
 pub trait IGetCapabilitiesKey_Impl: Sized {
     fn GetCapabilitiesKey(&self) -> ::windows_core::Result<super::super::System::Registry::HKEY>;
@@ -11910,7 +11910,7 @@ impl IGetCapabilitiesKey_Vtbl {
         *iid == <IGetCapabilitiesKey as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IGraphBuilder_Impl: Sized + IFilterGraph_Impl {
     fn Connect(&self, ppinout: ::core::option::Option<&IPin>, ppinin: ::core::option::Option<&IPin>) -> ::windows_core::Result<()>;
@@ -11982,7 +11982,7 @@ impl IGraphBuilder_Vtbl {
         *iid == <IGraphBuilder as ::windows_core::ComInterface>::IID || *iid == <IFilterGraph as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IGraphConfig_Impl: Sized {
     fn Reconnect(&self, poutputpin: ::core::option::Option<&IPin>, pinputpin: ::core::option::Option<&IPin>, pmtfirstconnection: *const super::MediaFoundation::AM_MEDIA_TYPE, pusingfilter: ::core::option::Option<&IBaseFilter>, habortevent: super::super::Foundation::HANDLE, dwflags: u32) -> ::windows_core::Result<()>;
@@ -12240,7 +12240,7 @@ impl IMPEG2StreamIdMap_Vtbl {
         *iid == <IMPEG2StreamIdMap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Run(&self) -> ::windows_core::Result<()>;
@@ -12344,7 +12344,7 @@ impl IMediaControl_Vtbl {
         *iid == <IMediaControl as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaEvent_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetEventHandle(&self) -> ::windows_core::Result<isize>;
@@ -12415,7 +12415,7 @@ impl IMediaEvent_Vtbl {
         *iid == <IMediaEvent as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaEventEx_Impl: Sized + IMediaEvent_Impl {
     fn SetNotifyWindow(&self, hwnd: isize, lmsg: i32, linstancedata: isize) -> ::windows_core::Result<()>;
@@ -12476,7 +12476,7 @@ impl IMediaEventSink_Vtbl {
         *iid == <IMediaEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMediaFilter_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn Stop(&self) -> ::windows_core::Result<()>;
@@ -12680,7 +12680,7 @@ impl IMediaParams_Vtbl {
         *iid == <IMediaParams as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaPosition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Duration(&self) -> ::windows_core::Result<f64>;
@@ -12816,7 +12816,7 @@ impl IMediaPosition_Vtbl {
         *iid == <IMediaPosition as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaPropertyBag_Impl: Sized + super::super::System::Com::StructuredStorage::IPropertyBag_Impl {
     fn EnumProperty(&self, iproperty: u32, pvarpropertyname: *mut super::super::System::Variant::VARIANT, pvarpropertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -12840,7 +12840,7 @@ impl IMediaPropertyBag_Vtbl {
         *iid == <IMediaPropertyBag as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::StructuredStorage::IPropertyBag as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMediaSample_Impl: Sized {
     fn GetPointer(&self) -> ::windows_core::Result<*mut u8>;
@@ -12981,7 +12981,7 @@ impl IMediaSample_Vtbl {
         *iid == <IMediaSample as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMediaSample2_Impl: Sized + IMediaSample_Impl {
     fn GetProperties(&self, cbproperties: u32, pbproperties: *mut u8) -> ::windows_core::Result<()>;
@@ -13288,7 +13288,7 @@ impl IMediaStream_Vtbl {
         *iid == <IMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IMediaStreamFilter_Impl: Sized + IBaseFilter_Impl {
     fn AddMediaStream(&self, pammediastream: ::core::option::Option<&IAMMediaStream>) -> ::windows_core::Result<()>;
@@ -13386,7 +13386,7 @@ impl IMediaStreamFilter_Vtbl {
         *iid == <IMediaStreamFilter as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <IMediaFilter as ::windows_core::ComInterface>::IID || *iid == <IBaseFilter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMediaTypeInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -13546,7 +13546,7 @@ impl IMemAllocatorNotifyCallbackTemp_Vtbl {
         *iid == <IMemAllocatorNotifyCallbackTemp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMemInputPin_Impl: Sized {
     fn GetAllocator(&self) -> ::windows_core::Result<IMemAllocator>;
@@ -13657,7 +13657,7 @@ impl IMemoryData_Vtbl {
         *iid == <IMemoryData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IMixerOCX_Impl: Sized {
     fn OnDisplayChange(&self, ulbitsperpixel: u32, ulscreenwidth: u32, ulscreenheight: u32) -> ::windows_core::Result<()>;
@@ -13736,7 +13736,7 @@ impl IMixerOCX_Vtbl {
         *iid == <IMixerOCX as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMixerOCXNotify_Impl: Sized {
     fn OnInvalidateRect(&self, lpcrect: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -13774,7 +13774,7 @@ impl IMixerOCXNotify_Vtbl {
         *iid == <IMixerOCXNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMixerPinConfig_Impl: Sized {
     fn SetRelativePosition(&self, dwleft: u32, dwtop: u32, dwright: u32, dwbottom: u32) -> ::windows_core::Result<()>;
@@ -13875,7 +13875,7 @@ impl IMixerPinConfig_Vtbl {
         *iid == <IMixerPinConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IMixerPinConfig2_Impl: Sized + IMixerPinConfig_Impl {
     fn SetOverlaySurfaceColorControls(&self, pcolorcontrol: *mut super::super::Graphics::DirectDraw::DDCOLORCONTROL) -> ::windows_core::Result<()>;
@@ -13906,7 +13906,7 @@ impl IMixerPinConfig2_Vtbl {
         *iid == <IMixerPinConfig2 as ::windows_core::ComInterface>::IID || *iid == <IMixerPinConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMpeg2Demultiplexer_Impl: Sized {
     fn CreateOutputPin(&self, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE, pszpinname: &::windows_core::PCWSTR) -> ::windows_core::Result<IPin>;
@@ -13950,7 +13950,7 @@ impl IMpeg2Demultiplexer_Vtbl {
         *iid == <IMpeg2Demultiplexer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMpegAudioDecoder_Impl: Sized {
     fn FrequencyDivider(&self) -> ::windows_core::Result<u32>;
@@ -14088,7 +14088,7 @@ impl IMpegAudioDecoder_Vtbl {
         *iid == <IMpegAudioDecoder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IMultiMediaStream_Impl: Sized {
     fn GetInformation(&self, pdwflags: *mut MMSSF_GET_INFORMATION_FLAGS, pstreamtype: *mut STREAM_TYPE) -> ::windows_core::Result<()>;
@@ -14204,7 +14204,7 @@ impl IMultiMediaStream_Vtbl {
         *iid == <IMultiMediaStream as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IOverlay_Impl: Sized {
     fn GetPalette(&self, pdwcolors: *mut u32, pppalette: *mut *mut super::super::Graphics::Gdi::PALETTEENTRY) -> ::windows_core::Result<()>;
@@ -14309,7 +14309,7 @@ impl IOverlay_Vtbl {
         *iid == <IOverlay as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IOverlayNotify_Impl: Sized {
     fn OnPaletteChange(&self, dwcolors: u32, ppalette: *const super::super::Graphics::Gdi::PALETTEENTRY) -> ::windows_core::Result<()>;
@@ -14354,7 +14354,7 @@ impl IOverlayNotify_Vtbl {
         *iid == <IOverlayNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IOverlayNotify2_Impl: Sized + IOverlayNotify_Impl {
     fn OnDisplayChange(&self, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows_core::Result<()>;
@@ -14375,7 +14375,7 @@ impl IOverlayNotify2_Vtbl {
         *iid == <IOverlayNotify2 as ::windows_core::ComInterface>::IID || *iid == <IOverlayNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IPersistMediaPropertyBag_Impl: Sized + super::super::System::Com::IPersist_Impl {
     fn InitNew(&self) -> ::windows_core::Result<()>;
@@ -14413,7 +14413,7 @@ impl IPersistMediaPropertyBag_Vtbl {
         *iid == <IPersistMediaPropertyBag as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com"))]
 pub trait IPin_Impl: Sized {
     fn Connect(&self, preceivepin: ::core::option::Option<&IPin>, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -14559,7 +14559,7 @@ impl IPin_Vtbl {
         *iid == <IPin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub trait IPinConnection_Impl: Sized {
     fn DynamicQueryAccept(&self, pmt: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;
@@ -14604,7 +14604,7 @@ impl IPinConnection_Vtbl {
         *iid == <IPinConnection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPinFlowControl_Impl: Sized {
     fn Block(&self, dwblockflags: u32, hevent: super::super::Foundation::HANDLE) -> ::windows_core::Result<()>;
@@ -14625,7 +14625,7 @@ impl IPinFlowControl_Vtbl {
         *iid == <IPinFlowControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPinInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Pin(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -14872,7 +14872,7 @@ impl IQualProp_Vtbl {
         *iid == <IQualProp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IQualityControl_Impl: Sized {
     fn Notify(&self, pself: ::core::option::Option<&IBaseFilter>, q: &Quality) -> ::windows_core::Result<()>;
@@ -14903,7 +14903,7 @@ impl IQualityControl_Vtbl {
         *iid == <IQualityControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IQueueCommand_Impl: Sized {
     fn InvokeAtStreamTime(&self, pcmd: *mut ::core::option::Option<IDeferredCommand>, time: f64, iid: *const ::windows_core::GUID, dispidmethod: i32, wflags: i16, cargs: i32, pdispparams: *const super::super::System::Variant::VARIANT, pvarresult: *mut super::super::System::Variant::VARIANT, puargerr: *mut i16) -> ::windows_core::Result<()>;
@@ -14934,7 +14934,7 @@ impl IQueueCommand_Vtbl {
         *iid == <IQueueCommand as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRegFilterInfo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -15021,7 +15021,7 @@ impl IResourceConsumer_Vtbl {
         *iid == <IResourceConsumer as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IResourceManager_Impl: Sized {
     fn Register(&self, pname: &::windows_core::PCWSTR, cresource: i32) -> ::windows_core::Result<i32>;
@@ -15106,7 +15106,7 @@ impl IResourceManager_Vtbl {
         *iid == <IResourceManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISeekingPassThru_Impl: Sized {
     fn Init(&self, bsupportrendering: super::super::Foundation::BOOL, ppin: ::core::option::Option<&IPin>) -> ::windows_core::Result<()>;
@@ -15173,7 +15173,7 @@ impl ISelector_Vtbl {
         *iid == <ISelector as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub trait ISpecifyParticularPages_Impl: Sized {
     fn GetPages(&self, guidwhatpages: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Ole::CAUUID>;
@@ -15227,7 +15227,7 @@ impl IStreamBuilder_Vtbl {
         *iid == <IStreamBuilder as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IStreamSample_Impl: Sized {
     fn GetMediaStream(&self, ppmediastream: *const ::core::option::Option<IMediaStream>) -> ::windows_core::Result<()>;
@@ -15345,7 +15345,7 @@ impl IVMRAspectRatioControl9_Vtbl {
         *iid == <IVMRAspectRatioControl9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVMRDeinterlaceControl_Impl: Sized {
     fn GetNumberOfDeinterlaceModes(&self, lpvideodescription: *const VMRVideoDesc, lpdwnumdeinterlacemodes: *mut u32, lpdeinterlacemodes: *mut ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -15669,7 +15669,7 @@ impl IVMRFilterConfig9_Vtbl {
         *iid == <IVMRFilterConfig9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Media_MediaFoundation"))]
 pub trait IVMRImageCompositor_Impl: Sized {
     fn InitCompositionTarget(&self, pd3ddevice: ::core::option::Option<&::windows_core::IUnknown>, pddsrendertarget: ::core::option::Option<&super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows_core::Result<()>;
@@ -15714,7 +15714,7 @@ impl IVMRImageCompositor_Vtbl {
         *iid == <IVMRImageCompositor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Media_MediaFoundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Media_MediaFoundation\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Media_MediaFoundation"))]
 pub trait IVMRImageCompositor9_Impl: Sized {
     fn InitCompositionDevice(&self, pd3ddevice: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -15759,7 +15759,7 @@ impl IVMRImageCompositor9_Vtbl {
         *iid == <IVMRImageCompositor9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVMRImagePresenter_Impl: Sized {
     fn StartPresenting(&self, dwuserid: usize) -> ::windows_core::Result<()>;
@@ -15797,7 +15797,7 @@ impl IVMRImagePresenter_Vtbl {
         *iid == <IVMRImagePresenter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IVMRImagePresenter9_Impl: Sized {
     fn StartPresenting(&self, dwuserid: usize) -> ::windows_core::Result<()>;
@@ -15901,7 +15901,7 @@ impl IVMRImagePresenterConfig9_Vtbl {
         *iid == <IVMRImagePresenterConfig9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub trait IVMRImagePresenterExclModeConfig_Impl: Sized + IVMRImagePresenterConfig_Impl {
     fn SetXlcModeDDObjAndPrimarySurface(&self, lpddobj: ::core::option::Option<&super::super::Graphics::DirectDraw::IDirectDraw7>, lpprimarysurf: ::core::option::Option<&super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows_core::Result<()>;
@@ -15932,7 +15932,7 @@ impl IVMRImagePresenterExclModeConfig_Vtbl {
         *iid == <IVMRImagePresenterExclModeConfig as ::windows_core::ComInterface>::IID || *iid == <IVMRImagePresenterConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRMixerBitmap_Impl: Sized {
     fn SetAlphaBitmap(&self, pbmpparms: *const VMRALPHABITMAP) -> ::windows_core::Result<()>;
@@ -15970,7 +15970,7 @@ impl IVMRMixerBitmap_Vtbl {
         *iid == <IVMRMixerBitmap as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRMixerBitmap9_Impl: Sized {
     fn SetAlphaBitmap(&self, pbmpparms: *const VMR9AlphaBitmap) -> ::windows_core::Result<()>;
@@ -16008,7 +16008,7 @@ impl IVMRMixerBitmap9_Vtbl {
         *iid == <IVMRMixerBitmap9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVMRMixerControl_Impl: Sized {
     fn SetAlpha(&self, dwstreamid: u32, alpha: f32) -> ::windows_core::Result<()>;
@@ -16119,7 +16119,7 @@ impl IVMRMixerControl_Vtbl {
         *iid == <IVMRMixerControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVMRMixerControl9_Impl: Sized {
     fn SetAlpha(&self, dwstreamid: u32, alpha: f32) -> ::windows_core::Result<()>;
@@ -16251,7 +16251,7 @@ impl IVMRMixerControl9_Vtbl {
         *iid == <IVMRMixerControl9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRMonitorConfig_Impl: Sized {
     fn SetMonitor(&self, pguid: *const VMRGUID) -> ::windows_core::Result<()>;
@@ -16303,7 +16303,7 @@ impl IVMRMonitorConfig_Vtbl {
         *iid == <IVMRMonitorConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRMonitorConfig9_Impl: Sized {
     fn SetMonitor(&self, udev: u32) -> ::windows_core::Result<()>;
@@ -16367,7 +16367,7 @@ impl IVMRMonitorConfig9_Vtbl {
         *iid == <IVMRMonitorConfig9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub trait IVMRSurface_Impl: Sized {
     fn IsSurfaceLocked(&self) -> ::windows_core::Result<()>;
@@ -16424,7 +16424,7 @@ impl IVMRSurface_Vtbl {
         *iid == <IVMRSurface as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub trait IVMRSurface9_Impl: Sized {
     fn IsSurfaceLocked(&self) -> ::windows_core::Result<()>;
@@ -16481,7 +16481,7 @@ impl IVMRSurface9_Vtbl {
         *iid == <IVMRSurface9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRSurfaceAllocator_Impl: Sized {
     fn AllocateSurface(&self, dwuserid: usize, lpallocinfo: *const VMRALLOCATIONINFO, lpdwactualbuffers: *mut u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::DirectDraw::IDirectDrawSurface7>) -> ::windows_core::Result<()>;
@@ -16526,7 +16526,7 @@ impl IVMRSurfaceAllocator_Vtbl {
         *iid == <IVMRSurfaceAllocator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IVMRSurfaceAllocator9_Impl: Sized {
     fn InitializeDevice(&self, dwuserid: usize, lpallocinfo: *const VMR9AllocationInfo, lpnumbuffers: *mut u32) -> ::windows_core::Result<()>;
@@ -16577,7 +16577,7 @@ impl IVMRSurfaceAllocator9_Vtbl {
         *iid == <IVMRSurfaceAllocator9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IVMRSurfaceAllocatorEx9_Impl: Sized + IVMRSurfaceAllocator9_Impl {
     fn GetSurfaceEx(&self, dwuserid: usize, surfaceindex: u32, surfaceflags: u32, lplpsurface: *mut ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, lprcdst: *mut super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -16598,7 +16598,7 @@ impl IVMRSurfaceAllocatorEx9_Vtbl {
         *iid == <IVMRSurfaceAllocatorEx9 as ::windows_core::ComInterface>::IID || *iid == <IVMRSurfaceAllocator9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRSurfaceAllocatorNotify_Impl: Sized {
     fn AdviseSurfaceAllocator(&self, dwuserid: usize, lpivrmsurfaceallocator: ::core::option::Option<&IVMRSurfaceAllocator>) -> ::windows_core::Result<()>;
@@ -16657,7 +16657,7 @@ impl IVMRSurfaceAllocatorNotify_Vtbl {
         *iid == <IVMRSurfaceAllocatorNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRSurfaceAllocatorNotify9_Impl: Sized {
     fn AdviseSurfaceAllocator(&self, dwuserid: usize, lpivrmsurfaceallocator: ::core::option::Option<&IVMRSurfaceAllocator9>) -> ::windows_core::Result<()>;
@@ -16709,7 +16709,7 @@ impl IVMRSurfaceAllocatorNotify9_Vtbl {
         *iid == <IVMRSurfaceAllocatorNotify9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVMRVideoStreamControl_Impl: Sized {
     fn SetColorKey(&self, lpclrkey: *const super::super::Graphics::DirectDraw::DDCOLORKEY) -> ::windows_core::Result<()>;
@@ -16766,7 +16766,7 @@ impl IVMRVideoStreamControl_Vtbl {
         *iid == <IVMRVideoStreamControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVMRVideoStreamControl9_Impl: Sized {
     fn SetStreamActiveState(&self, factive: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -16803,7 +16803,7 @@ impl IVMRVideoStreamControl9_Vtbl {
         *iid == <IVMRVideoStreamControl9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRWindowlessControl_Impl: Sized {
     fn GetNativeVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32, lparwidth: *mut i32, lparheight: *mut i32) -> ::windows_core::Result<()>;
@@ -16949,7 +16949,7 @@ impl IVMRWindowlessControl_Vtbl {
         *iid == <IVMRWindowlessControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRWindowlessControl9_Impl: Sized {
     fn GetNativeVideoSize(&self, lpwidth: *mut i32, lpheight: *mut i32, lparwidth: *mut i32, lparheight: *mut i32) -> ::windows_core::Result<()>;
@@ -17075,7 +17075,7 @@ impl IVMRWindowlessControl9_Vtbl {
         *iid == <IVMRWindowlessControl9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVPBaseConfig_Impl: Sized {
     fn GetConnectInfo(&self, pdwnumconnectinfo: *mut u32, pddvpconnectinfo: *mut super::super::Graphics::DirectDraw::DDVIDEOPORTCONNECT) -> ::windows_core::Result<()>;
@@ -17206,7 +17206,7 @@ impl IVPBaseNotify_Vtbl {
         *iid == <IVPBaseNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVPConfig_Impl: Sized + IVPBaseConfig_Impl {
     fn IsVPDecimationAllowed(&self, pbisdecimationallowed: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -17297,7 +17297,7 @@ impl IVPNotify_Vtbl {
         *iid == <IVPNotify as ::windows_core::ComInterface>::IID || *iid == <IVPBaseNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVPNotify2_Impl: Sized + IVPNotify_Impl {
     fn SetVPSyncMaster(&self, bvpsyncmaster: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -17328,7 +17328,7 @@ impl IVPNotify2_Vtbl {
         *iid == <IVPNotify2 as ::windows_core::ComInterface>::IID || *iid == <IVPBaseNotify as ::windows_core::ComInterface>::IID || *iid == <IVPNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_DirectDraw`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
 pub trait IVPVBIConfig_Impl: Sized + IVPBaseConfig_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
@@ -17352,7 +17352,7 @@ impl IVPVBINotify_Vtbl {
         *iid == <IVPVBINotify as ::windows_core::ComInterface>::IID || *iid == <IVPBaseNotify as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVideoEncoder_Impl: Sized + IEncoderAPI_Impl {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -17686,7 +17686,7 @@ impl IVideoProcAmp_Vtbl {
         *iid == <IVideoProcAmp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IVideoWindow_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetCaption(&self, strcaption: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -18072,7 +18072,7 @@ impl IVideoWindow_Vtbl {
         *iid == <IVideoWindow as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_Media_WindowsMediaFormat`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_WindowsMediaFormat\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_Media_WindowsMediaFormat"))]
 pub trait IWMCodecAMVideoAccelerator_Impl: Sized {
     fn SetAcceleratorInterface(&self, piamva: ::core::option::Option<&IAMVideoAccelerator>) -> ::windows_core::Result<()>;
@@ -18110,7 +18110,7 @@ impl IWMCodecAMVideoAccelerator_Vtbl {
         *iid == <IWMCodecAMVideoAccelerator as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_MediaFoundation`, `Win32_Media_WindowsMediaFormat`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_WindowsMediaFormat\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation", feature = "Win32_Media_WindowsMediaFormat"))]
 pub trait IWMCodecVideoAccelerator_Impl: Sized {
     fn NegotiateConnection(&self, piamva: ::core::option::Option<&IAMVideoAccelerator>, pmediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>;

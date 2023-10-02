@@ -8,7 +8,7 @@ pub unsafe fn McastApiStartup(version: *mut u32) -> u32 {
     ::windows_targets::link!("dhcpcsvc.dll" "system" fn McastApiStartup(version : *mut u32) -> u32);
     McastApiStartup(version)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn McastEnumerateScopes<P0>(addrfamily: u16, requery: P0, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32
@@ -159,7 +159,7 @@ impl ::core::default::Default for MCAST_SCOPE_CTX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,

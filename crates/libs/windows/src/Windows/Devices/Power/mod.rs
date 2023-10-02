@@ -97,7 +97,7 @@ impl Battery {
             (::windows_core::Interface::vtable(this).GetReport)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReportUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -109,7 +109,7 @@ impl Battery {
             (::windows_core::Interface::vtable(this).ReportUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReportUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -121,7 +121,7 @@ impl Battery {
             (::windows_core::Interface::vtable(this).AggregateBattery)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Battery>> {
         Self::IBatteryStatics(|this| unsafe {
@@ -160,7 +160,7 @@ unsafe impl ::core::marker::Sync for Battery {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BatteryReport(::windows_core::IUnknown);
 impl BatteryReport {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChargeRateInMilliwatts(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -169,7 +169,7 @@ impl BatteryReport {
             (::windows_core::Interface::vtable(this).ChargeRateInMilliwatts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DesignCapacityInMilliwattHours(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -178,7 +178,7 @@ impl BatteryReport {
             (::windows_core::Interface::vtable(this).DesignCapacityInMilliwattHours)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FullChargeCapacityInMilliwattHours(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -187,7 +187,7 @@ impl BatteryReport {
             (::windows_core::Interface::vtable(this).FullChargeCapacityInMilliwattHours)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingCapacityInMilliwattHours(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -196,7 +196,7 @@ impl BatteryReport {
             (::windows_core::Interface::vtable(this).RemainingCapacityInMilliwattHours)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `System_Power`"]
+    #[doc = "Required features: `\"System_Power\"`"]
     #[cfg(feature = "System_Power")]
     pub fn Status(&self) -> ::windows_core::Result<super::super::System::Power::BatteryStatus> {
         let this = self;

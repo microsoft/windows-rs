@@ -719,7 +719,7 @@ impl UsbBulkInPipe {
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -743,7 +743,7 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).FlushBuffer)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -820,7 +820,7 @@ impl UsbBulkOutPipe {
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -840,7 +840,7 @@ impl UsbBulkOutPipe {
             (::windows_core::Interface::vtable(this).WriteOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -869,7 +869,7 @@ unsafe impl ::core::marker::Sync for UsbBulkOutPipe {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbConfiguration(::windows_core::IUnknown);
 impl UsbConfiguration {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UsbInterfaces(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterface>> {
         let this = self;
@@ -885,7 +885,7 @@ impl UsbConfiguration {
             (::windows_core::Interface::vtable(this).ConfigurationDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
         let this = self;
@@ -1070,7 +1070,7 @@ impl UsbDescriptor {
             (::windows_core::Interface::vtable(this).DescriptorType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadDescriptorBuffer<P0>(&self, buffer: P0) -> ::windows_core::Result<()>
     where
@@ -1099,13 +1099,13 @@ unsafe impl ::core::marker::Sync for UsbDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbDevice(::windows_core::IUnknown);
 impl UsbDevice {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendControlOutTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -1118,7 +1118,7 @@ impl UsbDevice {
             (::windows_core::Interface::vtable(this).SendControlOutTransferAsync)(::windows_core::Interface::as_raw(this), setuppacket.into_param().abi(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SendControlOutTransferAsyncNoBuffer<P0>(&self, setuppacket: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -1130,7 +1130,7 @@ impl UsbDevice {
             (::windows_core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows_core::Interface::as_raw(this), setuppacket.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendControlInTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
@@ -1143,7 +1143,7 @@ impl UsbDevice {
             (::windows_core::Interface::vtable(this).SendControlInTransferAsync)(::windows_core::Interface::as_raw(this), setuppacket.into_param().abi(), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendControlInTransferAsyncNoBuffer<P0>(&self, setuppacket: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
@@ -1203,7 +1203,7 @@ impl UsbDevice {
             (::windows_core::Interface::vtable(this).GetDeviceClassSelector)(::windows_core::Interface::as_raw(this), usbclass.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
         Self::IUsbDeviceStatics(|this| unsafe {
@@ -1256,7 +1256,7 @@ impl UsbDeviceClass {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetClassCode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SubclassCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -1265,7 +1265,7 @@ impl UsbDeviceClass {
             (::windows_core::Interface::vtable(this).SubclassCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetSubclassCode<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1274,7 +1274,7 @@ impl UsbDeviceClass {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSubclassCode)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -1283,7 +1283,7 @@ impl UsbDeviceClass {
             (::windows_core::Interface::vtable(this).ProtocolCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetProtocolCode<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1545,7 +1545,7 @@ unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterface(::windows_core::IUnknown);
 impl UsbInterface {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BulkInPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>> {
         let this = self;
@@ -1554,7 +1554,7 @@ impl UsbInterface {
             (::windows_core::Interface::vtable(this).BulkInPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InterruptInPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>> {
         let this = self;
@@ -1563,7 +1563,7 @@ impl UsbInterface {
             (::windows_core::Interface::vtable(this).InterruptInPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BulkOutPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>> {
         let this = self;
@@ -1572,7 +1572,7 @@ impl UsbInterface {
             (::windows_core::Interface::vtable(this).BulkOutPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InterruptOutPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>> {
         let this = self;
@@ -1581,7 +1581,7 @@ impl UsbInterface {
             (::windows_core::Interface::vtable(this).InterruptOutPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InterfaceSettings(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>> {
         let this = self;
@@ -1597,7 +1597,7 @@ impl UsbInterface {
             (::windows_core::Interface::vtable(this).InterfaceNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
         let this = self;
@@ -1704,7 +1704,7 @@ unsafe impl ::core::marker::Sync for UsbInterfaceDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterfaceSetting(::windows_core::IUnknown);
 impl UsbInterfaceSetting {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BulkInEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>> {
         let this = self;
@@ -1713,7 +1713,7 @@ impl UsbInterfaceSetting {
             (::windows_core::Interface::vtable(this).BulkInEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InterruptInEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>> {
         let this = self;
@@ -1722,7 +1722,7 @@ impl UsbInterfaceSetting {
             (::windows_core::Interface::vtable(this).InterruptInEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BulkOutEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>> {
         let this = self;
@@ -1731,7 +1731,7 @@ impl UsbInterfaceSetting {
             (::windows_core::Interface::vtable(this).BulkOutEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InterruptOutEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>> {
         let this = self;
@@ -1747,7 +1747,7 @@ impl UsbInterfaceSetting {
             (::windows_core::Interface::vtable(this).Selected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SelectSettingAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1763,7 +1763,7 @@ impl UsbInterfaceSetting {
             (::windows_core::Interface::vtable(this).InterfaceDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
         let this = self;
@@ -1806,7 +1806,7 @@ impl UsbInterruptInEndpointDescriptor {
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Interval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1842,7 +1842,7 @@ unsafe impl ::core::marker::Sync for UsbInterruptInEndpointDescriptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterruptInEventArgs(::windows_core::IUnknown);
 impl UsbInterruptInEventArgs {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InterruptData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1878,7 +1878,7 @@ impl UsbInterruptInPipe {
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1887,7 +1887,7 @@ impl UsbInterruptInPipe {
             (::windows_core::Interface::vtable(this).ClearStallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DataReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1899,7 +1899,7 @@ impl UsbInterruptInPipe {
             (::windows_core::Interface::vtable(this).DataReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1939,7 +1939,7 @@ impl UsbInterruptOutEndpointDescriptor {
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Interval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1982,7 +1982,7 @@ impl UsbInterruptOutPipe {
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2002,7 +2002,7 @@ impl UsbInterruptOutPipe {
             (::windows_core::Interface::vtable(this).WriteOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -2096,7 +2096,7 @@ impl UsbSetupPacket {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetLength)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateWithEightByteBuffer<P0>(eightbytebuffer: P0) -> ::windows_core::Result<UsbSetupPacket>
     where

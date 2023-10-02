@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3D9_Impl: Sized {
     fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -113,7 +113,7 @@ impl IDirect3D9_Vtbl {
         *iid == <IDirect3D9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3D9Ex_Impl: Sized + IDirect3D9_Impl {
     fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32;
@@ -220,7 +220,7 @@ impl IDirect3DBaseTexture9_Vtbl {
         *iid == <IDirect3DBaseTexture9 as ::windows_core::ComInterface>::IID || *iid == <IDirect3DResource9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirect3DCubeTexture9_Impl: Sized + IDirect3DBaseTexture9_Impl {
     fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows_core::Result<()>;
@@ -278,7 +278,7 @@ impl IDirect3DCubeTexture9_Vtbl {
         *iid == <IDirect3DCubeTexture9 as ::windows_core::ComInterface>::IID || *iid == <IDirect3DResource9 as ::windows_core::ComInterface>::IID || *iid == <IDirect3DBaseTexture9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DDevice9_Impl: Sized {
     fn TestCooperativeLevel(&self) -> ::windows_core::Result<()>;
@@ -1203,7 +1203,7 @@ impl IDirect3DDevice9_Vtbl {
         *iid == <IDirect3DDevice9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation_Numerics`, `Win32_Foundation`, `Win32_Graphics_Direct3D`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Foundation_Numerics\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DDevice9Ex_Impl: Sized + IDirect3DDevice9_Impl {
     fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows_core::Result<()>;
@@ -1561,7 +1561,7 @@ impl IDirect3DStateBlock9_Vtbl {
         *iid == <IDirect3DStateBlock9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DSurface9_Impl: Sized + IDirect3DResource9_Impl {
     fn GetContainer(&self, riid: *const ::windows_core::GUID, ppcontainer: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
@@ -1620,7 +1620,7 @@ impl IDirect3DSurface9_Vtbl {
         *iid == <IDirect3DSurface9 as ::windows_core::ComInterface>::IID || *iid == <IDirect3DResource9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DSwapChain9_Impl: Sized {
     fn Present(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: super::super::Foundation::HWND, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows_core::Result<()>;
@@ -1698,7 +1698,7 @@ impl IDirect3DSwapChain9_Vtbl {
         *iid == <IDirect3DSwapChain9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IDirect3DSwapChain9Ex_Impl: Sized + IDirect3DSwapChain9_Impl {
     fn GetLastPresentCount(&self, plastpresentcount: *mut u32) -> ::windows_core::Result<()>;
@@ -1736,7 +1736,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         *iid == <IDirect3DSwapChain9Ex as ::windows_core::ComInterface>::IID || *iid == <IDirect3DSwapChain9 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirect3DTexture9_Impl: Sized + IDirect3DBaseTexture9_Impl {
     fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows_core::Result<()>;

@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITDatabase_Impl: Sized {
     fn Open(&self, lpszhost: &::windows_core::PCWSTR, lpszmoniker: &::windows_core::PCWSTR, dwflags: u32) -> ::windows_core::Result<()>;
@@ -50,7 +50,7 @@ impl IITDatabase_Vtbl {
         *iid == <IITDatabase as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IITPropList_Impl: Sized + super::super::System::Com::IPersistStreamInit_Impl {
     fn Set(&self, propid: u32, lpszwstring: &::windows_core::PCWSTR, dwoperation: u32) -> ::windows_core::Result<()>;
@@ -193,7 +193,7 @@ impl IITPropList_Vtbl {
         *iid == <IITPropList as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersist as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IPersistStreamInit as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IITResultSet_Impl: Sized {
     fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows_core::Result<()>;
@@ -447,7 +447,7 @@ impl IStemSink_Vtbl {
         *iid == <IStemSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStemmerConfig_Impl: Sized {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows_core::Result<()>;
@@ -499,7 +499,7 @@ impl IStemmerConfig_Vtbl {
         *iid == <IStemmerConfig as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`, `Win32_System_Search`"]
+#[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Search\"`"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
 pub trait IWordBreakerConfig_Impl: Sized {
     fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows_core::Result<()>;

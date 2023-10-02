@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhConfigMgr_Impl: Sized {
     fn LoadConfiguration(&self) -> ::windows_core::Result<()>;
@@ -143,7 +143,7 @@ impl IFhConfigMgr_Vtbl {
         *iid == <IFhConfigMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IFhReassociation_Impl: Sized {
     fn ValidateTarget(&self, targeturl: &::windows_core::BSTR) -> ::windows_core::Result<FH_DEVICE_VALIDATION_RESULT>;

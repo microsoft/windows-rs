@@ -1,29 +1,29 @@
 #[cfg(feature = "Networking_BackgroundTransfer")]
-#[doc = "Required features: `Networking_BackgroundTransfer`"]
+#[doc = "Required features: `\"Networking_BackgroundTransfer\"`"]
 pub mod BackgroundTransfer;
 #[cfg(feature = "Networking_Connectivity")]
-#[doc = "Required features: `Networking_Connectivity`"]
+#[doc = "Required features: `\"Networking_Connectivity\"`"]
 pub mod Connectivity;
 #[cfg(feature = "Networking_NetworkOperators")]
-#[doc = "Required features: `Networking_NetworkOperators`"]
+#[doc = "Required features: `\"Networking_NetworkOperators\"`"]
 pub mod NetworkOperators;
 #[cfg(feature = "Networking_Proximity")]
-#[doc = "Required features: `Networking_Proximity`"]
+#[doc = "Required features: `\"Networking_Proximity\"`"]
 pub mod Proximity;
 #[cfg(feature = "Networking_PushNotifications")]
-#[doc = "Required features: `Networking_PushNotifications`"]
+#[doc = "Required features: `\"Networking_PushNotifications\"`"]
 pub mod PushNotifications;
 #[cfg(feature = "Networking_ServiceDiscovery")]
-#[doc = "Required features: `Networking_ServiceDiscovery`"]
+#[doc = "Required features: `\"Networking_ServiceDiscovery\"`"]
 pub mod ServiceDiscovery;
 #[cfg(feature = "Networking_Sockets")]
-#[doc = "Required features: `Networking_Sockets`"]
+#[doc = "Required features: `\"Networking_Sockets\"`"]
 pub mod Sockets;
 #[cfg(feature = "Networking_Vpn")]
-#[doc = "Required features: `Networking_Vpn`"]
+#[doc = "Required features: `\"Networking_Vpn\"`"]
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
-#[doc = "Required features: `Networking_XboxLive`"]
+#[doc = "Required features: `\"Networking_XboxLive\"`"]
 pub mod XboxLive;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -209,7 +209,7 @@ unsafe impl ::core::marker::Sync for EndpointPair {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HostName(::windows_core::IUnknown);
 impl HostName {
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn IPInformation(&self) -> ::windows_core::Result<Connectivity::IPInformation> {
         let this = self;
@@ -268,7 +268,7 @@ impl HostName {
             (::windows_core::Interface::vtable(this).Compare)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), ::core::mem::transmute_copy(value2), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::Foundation::IStringable>(self)?;

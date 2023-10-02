@@ -1,47 +1,47 @@
 #[cfg(feature = "Win32_System_WinRT_AllJoyn")]
-#[doc = "Required features: `Win32_System_WinRT_AllJoyn`"]
+#[doc = "Required features: `\"Win32_System_WinRT_AllJoyn\"`"]
 pub mod AllJoyn;
 #[cfg(feature = "Win32_System_WinRT_Composition")]
-#[doc = "Required features: `Win32_System_WinRT_Composition`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Composition\"`"]
 pub mod Composition;
 #[cfg(feature = "Win32_System_WinRT_CoreInputView")]
-#[doc = "Required features: `Win32_System_WinRT_CoreInputView`"]
+#[doc = "Required features: `\"Win32_System_WinRT_CoreInputView\"`"]
 pub mod CoreInputView;
 #[cfg(feature = "Win32_System_WinRT_Direct3D11")]
-#[doc = "Required features: `Win32_System_WinRT_Direct3D11`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Direct3D11\"`"]
 pub mod Direct3D11;
 #[cfg(feature = "Win32_System_WinRT_Display")]
-#[doc = "Required features: `Win32_System_WinRT_Display`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Display\"`"]
 pub mod Display;
 #[cfg(feature = "Win32_System_WinRT_Graphics")]
-#[doc = "Required features: `Win32_System_WinRT_Graphics`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Graphics\"`"]
 pub mod Graphics;
 #[cfg(feature = "Win32_System_WinRT_Holographic")]
-#[doc = "Required features: `Win32_System_WinRT_Holographic`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Holographic\"`"]
 pub mod Holographic;
 #[cfg(feature = "Win32_System_WinRT_Isolation")]
-#[doc = "Required features: `Win32_System_WinRT_Isolation`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Isolation\"`"]
 pub mod Isolation;
 #[cfg(feature = "Win32_System_WinRT_ML")]
-#[doc = "Required features: `Win32_System_WinRT_ML`"]
+#[doc = "Required features: `\"Win32_System_WinRT_ML\"`"]
 pub mod ML;
 #[cfg(feature = "Win32_System_WinRT_Media")]
-#[doc = "Required features: `Win32_System_WinRT_Media`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Media\"`"]
 pub mod Media;
 #[cfg(feature = "Win32_System_WinRT_Metadata")]
-#[doc = "Required features: `Win32_System_WinRT_Metadata`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Metadata\"`"]
 pub mod Metadata;
 #[cfg(feature = "Win32_System_WinRT_Pdf")]
-#[doc = "Required features: `Win32_System_WinRT_Pdf`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Pdf\"`"]
 pub mod Pdf;
 #[cfg(feature = "Win32_System_WinRT_Printing")]
-#[doc = "Required features: `Win32_System_WinRT_Printing`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Printing\"`"]
 pub mod Printing;
 #[cfg(feature = "Win32_System_WinRT_Shell")]
-#[doc = "Required features: `Win32_System_WinRT_Shell`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Shell\"`"]
 pub mod Shell;
 #[cfg(feature = "Win32_System_WinRT_Storage")]
-#[doc = "Required features: `Win32_System_WinRT_Storage`"]
+#[doc = "Required features: `\"Win32_System_WinRT_Storage\"`"]
 pub mod Storage;
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows_core::Result<ServerInformation> {
@@ -68,7 +68,7 @@ where
     let mut result__ = ::std::ptr::null_mut();
     CreateControlInputEx(pcorewindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `System`"]
+#[doc = "Required features: `\"System\"`"]
 #[cfg(feature = "System")]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> ::windows_core::Result<super::super::super::System::DispatcherQueueController> {
@@ -86,7 +86,7 @@ where
     let mut result__ = ::std::ptr::null_mut();
     CreateRandomAccessStreamOnFile(filepath.into_param().abi(), accessmode, &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<P0, T>(stream: P0, options: BSOS_OPTIONS) -> ::windows_core::Result<T>
@@ -154,7 +154,7 @@ pub unsafe fn HSTRING_UserUnmarshal64(param0: *const u32, param1: *const u8, par
     ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn HSTRING_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut ::std::mem::MaybeUninit <::windows_core::HSTRING >) -> *mut u8);
     HSTRING_UserUnmarshal64(param0, param1, ::core::mem::transmute(param2))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
@@ -206,7 +206,7 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows_core::Result<u64> {
     let mut result__ = ::std::mem::zeroed();
     RoGetApartmentIdentifier(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_System_Com_Marshal`"]
+#[doc = "Required features: `\"Win32_System_Com_Marshal\"`"]
 #[cfg(feature = "Win32_System_Com_Marshal")]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> ::windows_core::Result<super::Com::Marshal::IMarshal> {
@@ -247,21 +247,21 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
     let mut result__ = ::std::mem::zeroed();
     RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateError(error: ::windows_core::HRESULT, message: &::windows_core::HSTRING) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateError(error : ::windows_core::HRESULT, message : ::std::mem::MaybeUninit <::windows_core::HSTRING >) -> super::super::Foundation:: BOOL);
     RoOriginateError(error, ::core::mem::transmute_copy(message))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateErrorW(error: ::windows_core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoOriginateErrorW(error : ::windows_core::HRESULT, cchmax : u32, message : ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     RoOriginateErrorW(error, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateLanguageException<P0>(error: ::windows_core::HRESULT, message: &::windows_core::HSTRING, languageexception: P0) -> super::super::Foundation::BOOL
@@ -324,14 +324,14 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows_core::Result<()>
     ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoSetErrorReportingFlags(flags : u32) -> ::windows_core::HRESULT);
     RoSetErrorReportingFlags(flags).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformError(olderror: ::windows_core::HRESULT, newerror: ::windows_core::HRESULT, message: &::windows_core::HSTRING) -> super::super::Foundation::BOOL {
     ::windows_targets::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoTransformError(olderror : ::windows_core::HRESULT, newerror : ::windows_core::HRESULT, message : ::std::mem::MaybeUninit <::windows_core::HSTRING >) -> super::super::Foundation:: BOOL);
     RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformErrorW(olderror: ::windows_core::HRESULT, newerror: ::windows_core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
@@ -424,7 +424,7 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
     ::windows_targets::link!("api-ms-win-core-winrt-string-l1-1-1.dll" "system" fn WindowsInspectString2(targethstring : u64, machine : u16, callback : PINSPECT_HSTRING_CALLBACK2, context : *const ::core::ffi::c_void, length : *mut u32, targetstringaddress : *mut u64) -> ::windows_core::HRESULT);
     WindowsInspectString2(targethstring, machine, callback, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), length, targetstringaddress).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &::windows_core::HSTRING) -> super::super::Foundation::BOOL {
@@ -451,7 +451,7 @@ pub unsafe fn WindowsReplaceString(string: &::windows_core::HSTRING, stringrepla
     let mut result__ = ::std::mem::zeroed();
     WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::BOOL> {
@@ -487,7 +487,7 @@ pub unsafe fn WindowsTrimStringStart(string: &::windows_core::HSTRING, trimstrin
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccountsSettingsPaneInterop(::windows_core::IUnknown);
 impl IAccountsSettingsPaneInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -497,7 +497,7 @@ impl IAccountsSettingsPaneInterop {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowManageAccountsForWindowAsync<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -507,7 +507,7 @@ impl IAccountsSettingsPaneInterop {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowAddAccountForWindowAsync<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -738,7 +738,7 @@ impl ICastingSourceInfo {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetController)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+    #[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetProperties(&self) -> ::windows_core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
         let mut result__ = ::std::mem::zeroed();
@@ -853,7 +853,7 @@ pub struct ICoreWindowAdapterInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreWindowComponentInterop(::windows_core::IUnknown);
 impl ICoreWindowComponentInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureComponentInput<P0, P1>(&self, hostviewinstanceid: u32, hwndhost: P0, inputsourcevisual: P1) -> ::windows_core::Result<()>
     where
@@ -888,7 +888,7 @@ pub struct ICoreWindowComponentInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICoreWindowInterop(::windows_core::IUnknown);
 impl ICoreWindowInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -972,7 +972,7 @@ pub struct ICorrelationVectorSource_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDragDropManagerInterop(::windows_core::IUnknown);
 impl IDragDropManagerInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, hwnd: P0) -> ::windows_core::Result<T>
     where
@@ -1003,7 +1003,7 @@ pub struct IDragDropManagerInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpaceInterop(::windows_core::IUnknown);
 impl IHolographicSpaceInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<P0, T>(&self, window: P0) -> ::windows_core::Result<T>
     where
@@ -1034,7 +1034,7 @@ pub struct IHolographicSpaceInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInputPaneInterop(::windows_core::IUnknown);
 impl IInputPaneInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -1210,7 +1210,7 @@ pub struct IMessageDispatcher_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlayToManagerInterop(::windows_core::IUnknown);
 impl IPlayToManagerInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -1220,7 +1220,7 @@ impl IPlayToManagerInterop {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowPlayToUIForWindow<P0>(&self, appwindow: P0) -> ::windows_core::Result<()>
     where
@@ -1281,7 +1281,7 @@ pub struct IRestrictedErrorInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShareWindowCommandEventArgsInterop(::windows_core::IUnknown);
 impl IShareWindowCommandEventArgsInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows_core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::std::mem::zeroed();
@@ -1308,7 +1308,7 @@ pub struct IShareWindowCommandEventArgsInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShareWindowCommandSourceInterop(::windows_core::IUnknown);
 impl IShareWindowCommandSourceInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -1339,7 +1339,7 @@ pub struct IShareWindowCommandSourceInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialInteractionManagerInterop(::windows_core::IUnknown);
 impl ISpatialInteractionManagerInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, window: P0) -> ::windows_core::Result<T>
     where
@@ -1370,7 +1370,7 @@ pub struct ISpatialInteractionManagerInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemMediaTransportControlsInterop(::windows_core::IUnknown);
 impl ISystemMediaTransportControlsInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, appwindow: P0) -> ::windows_core::Result<T>
     where
@@ -1401,7 +1401,7 @@ pub struct ISystemMediaTransportControlsInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUIViewSettingsInterop(::windows_core::IUnknown);
 impl IUIViewSettingsInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, hwnd: P0) -> ::windows_core::Result<T>
     where
@@ -1432,7 +1432,7 @@ pub struct IUIViewSettingsInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityInterop(::windows_core::IUnknown);
 impl IUserActivityInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSessionForWindow<P0, T>(&self, window: P0) -> ::windows_core::Result<T>
     where
@@ -1463,7 +1463,7 @@ pub struct IUserActivityInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityRequestManagerInterop(::windows_core::IUnknown);
 impl IUserActivityRequestManagerInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<P0, T>(&self, window: P0) -> ::windows_core::Result<T>
     where
@@ -1515,7 +1515,7 @@ pub struct IUserActivitySourceHostInterop_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserConsentVerifierInterop(::windows_core::IUnknown);
 impl IUserConsentVerifierInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestVerificationForWindowAsync<P0, T>(&self, appwindow: P0, message: &::windows_core::HSTRING) -> ::windows_core::Result<T>
     where
@@ -1593,7 +1593,7 @@ pub struct IWeakReferenceSource_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebAuthenticationCoreManagerInterop(::windows_core::IUnknown);
 impl IWebAuthenticationCoreManagerInterop {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestTokenForWindowAsync<P0, P1, T>(&self, appwindow: P0, request: P1) -> ::windows_core::Result<T>
     where
@@ -1604,7 +1604,7 @@ impl IWebAuthenticationCoreManagerInterop {
         let mut result__ = ::std::ptr::null_mut();
         (::windows_core::Interface::vtable(self).RequestTokenForWindowAsync)(::windows_core::Interface::as_raw(self), appwindow.into_param().abi(), request.into_param().abi(), &<T as ::windows_core::ComInterface>::IID, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestTokenWithWebAccountForWindowAsync<P0, P1, P2, T>(&self, appwindow: P0, request: P1, webaccount: P2) -> ::windows_core::Result<T>
     where

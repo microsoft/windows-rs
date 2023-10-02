@@ -3,7 +3,7 @@ pub unsafe fn MetaDataGetDispenser(rclsid: *const ::windows_core::GUID, riid: *c
     ::windows_targets::link!("rometadata.dll" "system" fn MetaDataGetDispenser(rclsid : *const ::windows_core::GUID, riid : *const ::windows_core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     MetaDataGetDispenser(rclsid, riid, ppv).ok()
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[inline]
 pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows_core::Result<super::super::super::super::Foundation::Collections::IPropertySet> {
@@ -11,7 +11,7 @@ pub unsafe fn RoCreateNonAgilePropertySet() -> ::windows_core::Result<super::sup
     let mut result__ = ::std::mem::zeroed();
     RoCreateNonAgilePropertySet(&mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Storage_Streams`"]
+#[doc = "Required features: `\"Storage_Streams\"`"]
 #[cfg(feature = "Storage_Streams")]
 #[inline]
 pub unsafe fn RoCreatePropertySetSerializer() -> ::windows_core::Result<super::super::super::super::Storage::Streams::IPropertySetSerializer> {
@@ -43,7 +43,7 @@ where
     ::windows_targets::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const ::windows_core::PCWSTR, metadatalocator : * mut::core::ffi::c_void, iid : *mut ::windows_core::GUID, pextra : *mut super:: ROPARAMIIDHANDLE) -> ::windows_core::HRESULT);
     RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into_param().abi(), iid, ::core::mem::transmute(pextra.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoIsApiContractMajorVersionPresent<P0>(name: P0, majorversion: u16) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
@@ -54,7 +54,7 @@ where
     let mut result__ = ::std::mem::zeroed();
     RoIsApiContractMajorVersionPresent(name.into_param().abi(), majorversion, &mut result__).from_abi(result__)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoIsApiContractPresent<P0>(name: P0, majorversion: u16, minorversion: u16) -> ::windows_core::Result<super::super::super::Foundation::BOOL>
@@ -435,17 +435,17 @@ impl IMetaDataDispenserEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenScopeOnMemory)(::windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), optionid, value).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), optionid, pvalue).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenScopeOnITypeInfo<P0>(&self, piti: P0, dwopenflags: u32, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
     where
@@ -521,7 +521,7 @@ impl IMetaDataEmit {
     {
         (::windows_core::Interface::vtable(self).Save)(::windows_core::Interface::as_raw(self), szfile.into_param().abi(), dwsaveflags).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> ::windows_core::Result<()>
     where
@@ -817,7 +817,7 @@ impl IMetaDataEmit2 {
     {
         (::windows_core::Interface::vtable(self).base__.Save)(::windows_core::Interface::as_raw(self), szfile.into_param().abi(), dwsaveflags).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> ::windows_core::Result<()>
     where
@@ -1044,7 +1044,7 @@ impl IMetaDataEmit2 {
     {
         (::windows_core::Interface::vtable(self).SaveDelta)(::windows_core::Interface::as_raw(self), szfile.into_param().abi(), dwsaveflags).ok()
     }
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveDeltaToStream<P0>(&self, pistream: P0, dwsaveflags: u32) -> ::windows_core::Result<()>
     where
@@ -1125,7 +1125,7 @@ impl IMetaDataFilter {
     pub unsafe fn MarkToken(&self, tk: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).MarkToken)(::windows_core::Interface::as_raw(self), tk).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTokenMarked(&self, tk: u32, pismarked: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).IsTokenMarked)(::windows_core::Interface::as_raw(self), tk, pismarked).ok()
@@ -1363,7 +1363,7 @@ impl IMetaDataImport {
     {
         (::windows_core::Interface::vtable(self).GetCustomAttributeByName)(::windows_core::Interface::as_raw(self), tkobj, szname.into_param().abi(), ppdata, pcbdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).IsValidToken)(::windows_core::Interface::as_raw(self), tk)
@@ -1669,7 +1669,7 @@ impl IMetaDataImport2 {
     {
         (::windows_core::Interface::vtable(self).base__.GetCustomAttributeByName)(::windows_core::Interface::as_raw(self), tkobj, szname.into_param().abi(), ppdata, pcbdata).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValidToken(&self, tk: u32) -> super::super::super::Foundation::BOOL {
         (::windows_core::Interface::vtable(self).base__.IsValidToken)(::windows_core::Interface::as_raw(self), tk)

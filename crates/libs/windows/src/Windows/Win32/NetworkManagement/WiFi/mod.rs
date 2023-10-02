@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WFDCancelOpenSession<P0>(hsessionhandle: P0) -> u32
@@ -8,7 +8,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WFDCancelOpenSession(hsessionhandle : super::super::Foundation:: HANDLE) -> u32);
     WFDCancelOpenSession(hsessionhandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WFDCloseHandle<P0>(hclienthandle: P0) -> u32
@@ -18,7 +18,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WFDCloseHandle(hclienthandle : super::super::Foundation:: HANDLE) -> u32);
     WFDCloseHandle(hclienthandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WFDCloseSession<P0>(hsessionhandle: P0) -> u32
@@ -28,14 +28,14 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WFDCloseSession(hsessionhandle : super::super::Foundation:: HANDLE) -> u32);
     WFDCloseSession(hsessionhandle.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WFDOpenHandle(dwclientversion : u32, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
     WFDOpenHandle(dwclientversion, pdwnegotiatedversion, phclienthandle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WFDOpenLegacySession<P0>(hclienthandle: P0, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows_core::GUID) -> u32
@@ -45,7 +45,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WFDOpenLegacySession(hclienthandle : super::super::Foundation:: HANDLE, plegacymacaddress : *const *const u8, phsessionhandle : *mut super::super::Foundation:: HANDLE, pguidsessioninterface : *mut ::windows_core::GUID) -> u32);
     WFDOpenLegacySession(hclienthandle.into_param().abi(), plegacymacaddress, phsessionhandle, pguidsessioninterface)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WFDStartOpenSession<P0>(hclienthandle: P0, pdeviceaddress: *const *const u8, pvcontext: ::core::option::Option<*const ::core::ffi::c_void>, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32
@@ -65,7 +65,7 @@ pub unsafe fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void 
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanAllocateMemory(dwmemorysize : u32) -> *mut ::core::ffi::c_void);
     WlanAllocateMemory(dwmemorysize)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanCloseHandle<P0>(hclienthandle: P0, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -75,7 +75,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanCloseHandle(hclienthandle : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void) -> u32);
     WlanCloseHandle(hclienthandle.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn WlanConnect<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -85,7 +85,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanConnect(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS, preserved : *const ::core::ffi::c_void) -> u32);
     WlanConnect(hclienthandle.into_param().abi(), pinterfaceguid, pconnectionparameters, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn WlanConnect2<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -95,7 +95,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanConnect2(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, pconnectionparameters : *const WLAN_CONNECTION_PARAMETERS_V2, preserved : *const ::core::ffi::c_void) -> u32);
     WlanConnect2(hclienthandle.into_param().abi(), pinterfaceguid, pconnectionparameters, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanDeleteProfile<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -106,7 +106,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanDeleteProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
     WlanDeleteProfile(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanDeviceServiceCommand<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, pdeviceserviceguid: *const ::windows_core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: ::core::option::Option<*const ::core::ffi::c_void>, dwoutbuffersize: u32, poutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, pdwbytesreturned: *mut u32) -> u32
@@ -116,7 +116,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanDeviceServiceCommand(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, pdeviceserviceguid : *const ::windows_core::GUID, dwopcode : u32, dwinbuffersize : u32, pinbuffer : *const ::core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut ::core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
     WlanDeviceServiceCommand(hclienthandle.into_param().abi(), pinterfaceguid, pdeviceserviceguid, dwopcode, dwinbuffersize, ::core::mem::transmute(pinbuffer.unwrap_or(::std::ptr::null())), dwoutbuffersize, ::core::mem::transmute(poutbuffer.unwrap_or(::std::ptr::null_mut())), pdwbytesreturned)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanDisconnect<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -126,7 +126,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanDisconnect(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, preserved : *const ::core::ffi::c_void) -> u32);
     WlanDisconnect(hclienthandle.into_param().abi(), pinterfaceguid, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanEnumInterfaces<P0>(hclienthandle: P0, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppinterfacelist: *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32
@@ -136,7 +136,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanEnumInterfaces(hclienthandle : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, ppinterfacelist : *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32);
     WlanEnumInterfaces(hclienthandle.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppinterfacelist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanExtractPsdIEDataList<P0, P1>(hclienthandle: P0, prawiedata: &[u8], strformat: P1, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32
@@ -152,7 +152,7 @@ pub unsafe fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void) {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanFreeMemory(pmemory : *const ::core::ffi::c_void) -> ());
     WlanFreeMemory(pmemory)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetAvailableNetworkList<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, dwflags: u32, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32
@@ -162,7 +162,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, dwflags : u32, preserved : *const ::core::ffi::c_void, ppavailablenetworklist : *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32);
     WlanGetAvailableNetworkList(hclienthandle.into_param().abi(), pinterfaceguid, dwflags, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppavailablenetworklist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetAvailableNetworkList2<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, dwflags: u32, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32
@@ -172,7 +172,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetAvailableNetworkList2(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, dwflags : u32, preserved : *const ::core::ffi::c_void, ppavailablenetworklist : *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32);
     WlanGetAvailableNetworkList2(hclienthandle.into_param().abi(), pinterfaceguid, dwflags, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppavailablenetworklist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetFilterList<P0>(hclienthandle: P0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppnetworklist: *mut *mut DOT11_NETWORK_LIST) -> u32
@@ -182,7 +182,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetFilterList(hclienthandle : super::super::Foundation:: HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, preserved : *const ::core::ffi::c_void, ppnetworklist : *mut *mut DOT11_NETWORK_LIST) -> u32);
     WlanGetFilterList(hclienthandle.into_param().abi(), wlanfilterlisttype, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppnetworklist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetInterfaceCapability<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32
@@ -192,7 +192,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetInterfaceCapability(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, preserved : *const ::core::ffi::c_void, ppcapability : *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32);
     WlanGetInterfaceCapability(hclienthandle.into_param().abi(), pinterfaceguid, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppcapability)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetNetworkBssList<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, pdot11ssid: ::core::option::Option<*const DOT11_SSID>, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: P1, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32
@@ -203,7 +203,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetNetworkBssList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, pdot11ssid : *const DOT11_SSID, dot11bsstype : DOT11_BSS_TYPE, bsecurityenabled : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void, ppwlanbsslist : *mut *mut WLAN_BSS_LIST) -> u32);
     WlanGetNetworkBssList(hclienthandle.into_param().abi(), pinterfaceguid, ::core::mem::transmute(pdot11ssid.unwrap_or(::std::ptr::null())), dot11bsstype, bsecurityenabled.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppwlanbsslist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetProfile<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pstrprofilexml: *mut ::windows_core::PWSTR, pdwflags: ::core::option::Option<*mut u32>, pdwgrantedaccess: ::core::option::Option<*mut u32>) -> u32
@@ -214,7 +214,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void, pstrprofilexml : *mut ::windows_core::PWSTR, pdwflags : *mut u32, pdwgrantedaccess : *mut u32) -> u32);
     WlanGetProfile(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pstrprofilexml, ::core::mem::transmute(pdwflags.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pdwgrantedaccess.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetProfileCustomUserData<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
@@ -225,7 +225,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
     WlanGetProfileCustomUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwdatasize, ppdata)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetProfileList<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, preserved: ::core::option::Option<*const ::core::ffi::c_void>, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32
@@ -235,7 +235,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, preserved : *const ::core::ffi::c_void, ppprofilelist : *mut *mut WLAN_PROFILE_INFO_LIST) -> u32);
     WlanGetProfileList(hclienthandle.into_param().abi(), pinterfaceguid, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ppprofilelist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetSecuritySettings<P0>(hclienthandle: P0, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: ::core::option::Option<*mut WLAN_OPCODE_VALUE_TYPE>, pstrcurrentsddl: *mut ::windows_core::PWSTR, pdwgrantedaccess: *mut u32) -> u32
@@ -245,7 +245,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, pvaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl : *mut ::windows_core::PWSTR, pdwgrantedaccess : *mut u32) -> u32);
     WlanGetSecuritySettings(hclienthandle.into_param().abi(), securableobject, ::core::mem::transmute(pvaluetype.unwrap_or(::std::ptr::null_mut())), pstrcurrentsddl, pdwgrantedaccess)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanGetSupportedDeviceServices<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32
@@ -255,7 +255,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanGetSupportedDeviceServices(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, ppdevsvcguidlist : *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
     WlanGetSupportedDeviceServices(hclienthandle.into_param().abi(), pinterfaceguid, ppdevsvcguidlist)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkForceStart<P0>(hclienthandle: P0, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -265,7 +265,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStart(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkForceStart(hclienthandle.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkForceStop<P0>(hclienthandle: P0, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -275,7 +275,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkForceStop(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkForceStop(hclienthandle.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkInitSettings<P0>(hclienthandle: P0, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -285,7 +285,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkInitSettings(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkInitSettings(hclienthandle.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkQueryProperty<P0>(hclienthandle: P0, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -295,7 +295,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryProperty(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize : *mut u32, ppvdata : *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkQueryProperty(hclienthandle.into_param().abi(), opcode, pdwdatasize, ppvdata, pwlanopcodevaluetype, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkQuerySecondaryKey<P0>(hclienthandle: P0, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -305,7 +305,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQuerySecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, pdwkeylength : *mut u32, ppuckeydata : *mut *mut u8, pbispassphrase : *mut super::super::Foundation:: BOOL, pbpersistent : *mut super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkQuerySecondaryKey(hclienthandle.into_param().abi(), pdwkeylength, ppuckeydata, pbispassphrase, pbpersistent, ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkQueryStatus<P0>(hclienthandle: P0, ppwlanhostednetworkstatus: *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -315,7 +315,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkQueryStatus(hclienthandle : super::super::Foundation:: HANDLE, ppwlanhostednetworkstatus : *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkQueryStatus(hclienthandle.into_param().abi(), ppwlanhostednetworkstatus, ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkRefreshSecuritySettings<P0>(hclienthandle: P0, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -325,7 +325,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkRefreshSecuritySettings(hclienthandle.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkSetProperty<P0>(hclienthandle: P0, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -335,7 +335,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetProperty(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_HOSTED_NETWORK_OPCODE, dwdatasize : u32, pvdata : *const ::core::ffi::c_void, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkSetProperty(hclienthandle.into_param().abi(), opcode, dwdatasize, pvdata, ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkSetSecondaryKey<P0, P1, P2>(hclienthandle: P0, puckeydata: &[u8], bispassphrase: P1, bpersistent: P2, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -347,7 +347,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::super::Foundation:: HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : super::super::Foundation:: BOOL, bpersistent : super::super::Foundation:: BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkSetSecondaryKey(hclienthandle.into_param().abi(), puckeydata.len() as _, ::core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into_param().abi(), bpersistent.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkStartUsing<P0>(hclienthandle: P0, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -357,7 +357,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkStartUsing(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkStartUsing(hclienthandle.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanHostedNetworkStopUsing<P0>(hclienthandle: P0, pfailreason: ::core::option::Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -367,7 +367,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanHostedNetworkStopUsing(hclienthandle : super::super::Foundation:: HANDLE, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const ::core::ffi::c_void) -> u32);
     WlanHostedNetworkStopUsing(hclienthandle.into_param().abi(), ::core::mem::transmute(pfailreason.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pvreserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanIhvControl<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, pdwbytesreturned: *mut u32) -> u32
@@ -377,14 +377,14 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanIhvControl(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, r#type : WLAN_IHV_CONTROL_TYPE, dwinbuffersize : u32, pinbuffer : *const ::core::ffi::c_void, dwoutbuffersize : u32, poutbuffer : *mut ::core::ffi::c_void, pdwbytesreturned : *mut u32) -> u32);
     WlanIhvControl(hclienthandle.into_param().abi(), pinterfaceguid, r#type, dwinbuffersize, pinbuffer, dwoutbuffersize, ::core::mem::transmute(poutbuffer.unwrap_or(::std::ptr::null_mut())), pdwbytesreturned)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanOpenHandle(dwclientversion: u32, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanOpenHandle(dwclientversion : u32, preserved : *const ::core::ffi::c_void, pdwnegotiatedversion : *mut u32, phclienthandle : *mut super::super::Foundation:: HANDLE) -> u32);
     WlanOpenHandle(dwclientversion, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwnegotiatedversion, phclienthandle)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanQueryAutoConfigParameter<P0>(hclienthandle: P0, opcode: WLAN_AUTOCONF_OPCODE, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: ::core::option::Option<*mut WLAN_OPCODE_VALUE_TYPE>) -> u32
@@ -394,7 +394,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanQueryAutoConfigParameter(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_AUTOCONF_OPCODE, preserved : *const ::core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype : *mut WLAN_OPCODE_VALUE_TYPE) -> u32);
     WlanQueryAutoConfigParameter(hclienthandle.into_param().abi(), opcode, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwdatasize, ppdata, ::core::mem::transmute(pwlanopcodevaluetype.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanQueryInterface<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, opcode: WLAN_INTF_OPCODE, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: ::core::option::Option<*mut WLAN_OPCODE_VALUE_TYPE>) -> u32
@@ -409,7 +409,7 @@ pub unsafe fn WlanReasonCodeToString(dwreasoncode: u32, pstringbuffer: &[u16], p
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
     WlanReasonCodeToString(dwreasoncode, pstringbuffer.len() as _, ::core::mem::transmute(pstringbuffer.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanRegisterDeviceServiceNotification<P0>(hclienthandle: P0, pdevsvcguidlist: ::core::option::Option<*const WLAN_DEVICE_SERVICE_GUID_LIST>) -> u32
@@ -419,7 +419,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterDeviceServiceNotification(hclienthandle : super::super::Foundation:: HANDLE, pdevsvcguidlist : *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32);
     WlanRegisterDeviceServiceNotification(hclienthandle.into_param().abi(), ::core::mem::transmute(pdevsvcguidlist.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanRegisterNotification<P0, P1>(hclienthandle: P0, dwnotifsource: WLAN_NOTIFICATION_SOURCES, bignoreduplicate: P1, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwprevnotifsource: ::core::option::Option<*mut u32>) -> u32
@@ -430,7 +430,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterNotification(hclienthandle : super::super::Foundation:: HANDLE, dwnotifsource : WLAN_NOTIFICATION_SOURCES, bignoreduplicate : super::super::Foundation:: BOOL, funccallback : WLAN_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void, pdwprevnotifsource : *mut u32) -> u32);
     WlanRegisterNotification(hclienthandle.into_param().abi(), dwnotifsource, bignoreduplicate.into_param().abi(), funccallback, ::core::mem::transmute(pcallbackcontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), ::core::mem::transmute(pdwprevnotifsource.unwrap_or(::std::ptr::null_mut())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanRegisterVirtualStationNotification<P0, P1>(hclienthandle: P0, bregister: P1, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -441,7 +441,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanRegisterVirtualStationNotification(hclienthandle : super::super::Foundation:: HANDLE, bregister : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void) -> u32);
     WlanRegisterVirtualStationNotification(hclienthandle.into_param().abi(), bregister.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanRenameProfile<P0, P1, P2>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, stroldprofilename: P1, strnewprofilename: P2, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -453,7 +453,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanRenameProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, stroldprofilename : ::windows_core::PCWSTR, strnewprofilename : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
     WlanRenameProfile(hclienthandle.into_param().abi(), pinterfaceguid, stroldprofilename.into_param().abi(), strnewprofilename.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSaveTemporaryProfile<P0, P1, P2, P3>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, stralluserprofilesecurity: P2, dwflags: u32, boverwrite: P3, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -466,7 +466,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSaveTemporaryProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, stralluserprofilesecurity : ::windows_core::PCWSTR, dwflags : u32, boverwrite : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSaveTemporaryProfile(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), stralluserprofilesecurity.into_param().abi(), dwflags, boverwrite.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanScan<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, pdot11ssid: ::core::option::Option<*const DOT11_SSID>, piedata: ::core::option::Option<*const WLAN_RAW_DATA>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -476,7 +476,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanScan(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, pdot11ssid : *const DOT11_SSID, piedata : *const WLAN_RAW_DATA, preserved : *const ::core::ffi::c_void) -> u32);
     WlanScan(hclienthandle.into_param().abi(), pinterfaceguid, ::core::mem::transmute(pdot11ssid.unwrap_or(::std::ptr::null())), ::core::mem::transmute(piedata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetAutoConfigParameter<P0>(hclienthandle: P0, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -486,7 +486,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetAutoConfigParameter(hclienthandle : super::super::Foundation:: HANDLE, opcode : WLAN_AUTOCONF_OPCODE, dwdatasize : u32, pdata : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetAutoConfigParameter(hclienthandle.into_param().abi(), opcode, dwdatasize, pdata, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetFilterList<P0>(hclienthandle: P0, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: ::core::option::Option<*const DOT11_NETWORK_LIST>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -496,7 +496,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetFilterList(hclienthandle : super::super::Foundation:: HANDLE, wlanfilterlisttype : WLAN_FILTER_LIST_TYPE, pnetworklist : *const DOT11_NETWORK_LIST, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetFilterList(hclienthandle.into_param().abi(), wlanfilterlisttype, ::core::mem::transmute(pnetworklist.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetInterface<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -506,7 +506,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetInterface(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, opcode : WLAN_INTF_OPCODE, dwdatasize : u32, pdata : *const ::core::ffi::c_void, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetInterface(hclienthandle.into_param().abi(), pinterfaceguid, opcode, dwdatasize, pdata, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetProfile<P0, P1, P2, P3>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, dwflags: u32, strprofilexml: P1, stralluserprofilesecurity: P2, boverwrite: P3, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pdwreasoncode: *mut u32) -> u32
@@ -519,7 +519,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfile(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, dwflags : u32, strprofilexml : ::windows_core::PCWSTR, stralluserprofilesecurity : ::windows_core::PCWSTR, boverwrite : super::super::Foundation:: BOOL, preserved : *const ::core::ffi::c_void, pdwreasoncode : *mut u32) -> u32);
     WlanSetProfile(hclienthandle.into_param().abi(), pinterfaceguid, dwflags, strprofilexml.into_param().abi(), stralluserprofilesecurity.into_param().abi(), boverwrite.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())), pdwreasoncode)
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetProfileCustomUserData<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, pdata: &[u8], preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -530,7 +530,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetProfileCustomUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 #[inline]
 pub unsafe fn WlanSetProfileEapUserData<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, pbeapuserdata: ::core::option::Option<&[u8]>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -541,7 +541,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, eaptype : super::super::Security::ExtensibleAuthenticationProtocol:: EAP_METHOD_TYPE, dwflags : WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetProfileEapUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), ::core::mem::transmute(eaptype), dwflags, pbeapuserdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbeapuserdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetProfileEapXmlUserData<P0, P1, P2>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: P2, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -553,7 +553,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileEapXmlUserData(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, dwflags : WLAN_SET_EAPHOST_FLAGS, streapxmluserdata : ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetProfileEapXmlUserData(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), dwflags, streapxmluserdata.into_param().abi(), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetProfileList<P0>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilenames: &[::windows_core::PCWSTR], preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -563,7 +563,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, dwitems : u32, strprofilenames : *const ::windows_core::PCWSTR, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetProfileList(hclienthandle.into_param().abi(), pinterfaceguid, strprofilenames.len() as _, ::core::mem::transmute(strprofilenames.as_ptr()), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetProfilePosition<P0, P1>(hclienthandle: P0, pinterfaceguid: *const ::windows_core::GUID, strprofilename: P1, dwposition: u32, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -574,7 +574,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetProfilePosition(hclienthandle : super::super::Foundation:: HANDLE, pinterfaceguid : *const ::windows_core::GUID, strprofilename : ::windows_core::PCWSTR, dwposition : u32, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetProfilePosition(hclienthandle.into_param().abi(), pinterfaceguid, strprofilename.into_param().abi(), dwposition, ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetPsdIEDataList<P0, P1>(hclienthandle: P0, strformat: P1, ppsdiedatalist: ::core::option::Option<*const WLAN_RAW_DATA_LIST>, preserved: ::core::option::Option<*const ::core::ffi::c_void>) -> u32
@@ -585,7 +585,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetPsdIEDataList(hclienthandle : super::super::Foundation:: HANDLE, strformat : ::windows_core::PCWSTR, ppsdiedatalist : *const WLAN_RAW_DATA_LIST, preserved : *const ::core::ffi::c_void) -> u32);
     WlanSetPsdIEDataList(hclienthandle.into_param().abi(), strformat.into_param().abi(), ::core::mem::transmute(ppsdiedatalist.unwrap_or(::std::ptr::null())), ::core::mem::transmute(preserved.unwrap_or(::std::ptr::null())))
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanSetSecuritySettings<P0, P1>(hclienthandle: P0, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: P1) -> u32
@@ -596,7 +596,7 @@ where
     ::windows_targets::link!("wlanapi.dll" "system" fn WlanSetSecuritySettings(hclienthandle : super::super::Foundation:: HANDLE, securableobject : WLAN_SECURABLE_OBJECT, strmodifiedsddl : ::windows_core::PCWSTR) -> u32);
     WlanSetSecuritySettings(hclienthandle.into_param().abi(), securableobject, strmodifiedsddl.into_param().abi())
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WlanUIEditProfile<P0, P1>(dwclientversion: u32, wstrprofilename: P0, pinterfaceguid: *const ::windows_core::GUID, hwnd: P1, wlstartpage: WL_DISPLAY_PAGES, preserved: ::core::option::Option<*const ::core::ffi::c_void>, pwlanreasoncode: ::core::option::Option<*mut u32>) -> u32
@@ -699,7 +699,7 @@ impl IDot11AdHocManager {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateNetwork)(::windows_core::Interface::as_raw(self), name.into_param().abi(), password.into_param().abi(), geographicalid, pinterface.into_param().abi(), psecurity.into_param().abi(), pcontextguid, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CommitCreatedNetwork<P0, P1, P2>(&self, piadhoc: P0, fsaveprofile: P1, fmakesavedprofileuserspecific: P2) -> ::windows_core::Result<()>
     where
@@ -819,7 +819,7 @@ impl IDot11AdHocNetwork {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<P0, P1, P2>(&self, passphrase: P0, geographicalid: i32, fsaveprofile: P1, fmakesavedprofileuserspecific: P2) -> ::windows_core::Result<()>
     where
@@ -1012,175 +1012,175 @@ pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 19 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_ChallengeAep: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 21 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_DevnodeAep: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 23 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 25 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_PinSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 29 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 30 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_SinkHostName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 20 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 26 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 18 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_InfraCast_Supported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 17 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_ASPMSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 8 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_ClockPowerManagementSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 9 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_CurrentSpeedAndMode: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 2 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_DeviceIDMessagingCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 4 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_ExtendedConfigAvailable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 6 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_ExtendedPCIConfigOpRegionSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 7 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_MSISupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 11 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_NativePciExpressControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 17 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_PCIExpressAERControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 15 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_PCIExpressCapabilityControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 16 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_PCIExpressNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 12 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_PCIExpressNativePMEControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 14 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_PCISegmentGroupsSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 10 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_SHPCNativeHotPlugControl: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 13 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_SecondaryBusWidth: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 5 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_SecondaryInterface: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 1 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_SupportedSpeedsAndModes: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_PciRootBus_SystemMsiSupport: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xd817fc28_793e_4b9e_9970_469d8be63073), pid: 18 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 5 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 7 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 2 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 6 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 4 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x31b37743_7c5e_4005_93e6_e953f92b82e9), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 1 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 13 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 24 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_GroupId: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 4 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_InformationElements: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 12 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 2 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_IsConnected: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 5 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 22 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 7 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 9 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 14 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_IsVisible: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 6 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 28 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 8 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 31 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 16 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 32 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 15 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_Services: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 10 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 11 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x1506935d_e3e7_450f_8637_82233ebe5f6e), pid: 27 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_WiFi_InterfaceGuid: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c), pid: 2 };
 pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
@@ -4195,7 +4195,7 @@ impl ::core::fmt::Debug for WL_DISPLAY_PAGES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_APIS {
     pub Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER,
@@ -4275,7 +4275,7 @@ impl ::core::default::Default for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
     pub IhvConnectivityProfile: DOT11EXT_IHV_CONNECTIVITY_PROFILE,
@@ -4314,7 +4314,7 @@ impl ::core::default::Default for DOT11EXT_IHV_DISCOVERY_PROFILE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     pub dwCount: u32,
@@ -4353,7 +4353,7 @@ impl ::core::default::Default for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`, `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_System_RemoteDesktop`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_System_RemoteDesktop\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub struct DOT11EXT_IHV_HANDLERS {
     pub Dot11ExtIhvDeinitService: DOT11EXTIHV_DEINIT_SERVICE,
@@ -4401,7 +4401,7 @@ impl ::core::default::Default for DOT11EXT_IHV_HANDLERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PARAMS {
     pub dot11ExtIhvProfileParams: DOT11EXT_IHV_PROFILE_PARAMS,
@@ -4442,7 +4442,7 @@ impl ::core::default::Default for DOT11EXT_IHV_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11EXT_IHV_PROFILE_PARAMS {
     pub pSsidList: *mut DOT11EXT_IHV_SSID_LIST,
@@ -4482,7 +4482,7 @@ impl ::core::default::Default for DOT11EXT_IHV_PROFILE_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_IHV_SECURITY_PROFILE {
     pub pszXmlFragmentIhvSecurity: ::windows_core::PWSTR,
@@ -4584,7 +4584,7 @@ impl ::core::default::Default for DOT11EXT_IHV_UI_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_VIRTUAL_STATION_APIS {
     pub Dot11ExtRequestVirtualStation: DOT11EXT_REQUEST_VIRTUAL_STATION,
@@ -4617,7 +4617,7 @@ impl ::core::default::Default for DOT11EXT_VIRTUAL_STATION_APIS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
     pub dot11SSID: DOT11_SSID,
@@ -4724,7 +4724,7 @@ impl ::core::default::Default for DOT11_ADAPTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -4766,7 +4766,7 @@ impl ::core::default::Default for DOT11_ADDITIONAL_IE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -4839,7 +4839,7 @@ impl ::core::default::Default for DOT11_AP_JOIN_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5009,7 +5009,7 @@ impl ::core::default::Default for DOT11_ASSOCIATION_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5050,7 +5050,7 @@ impl ::core::default::Default for DOT11_ASSOCIATION_INFO_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ASSOCIATION_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5091,7 +5091,7 @@ impl ::core::default::Default for DOT11_ASSOCIATION_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5133,7 +5133,7 @@ impl ::core::default::Default for DOT11_ASSOCIATION_START_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5204,7 +5204,7 @@ impl ::core::default::Default for DOT11_AUTH_CIPHER_PAIR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5245,7 +5245,7 @@ impl ::core::default::Default for DOT11_AUTH_CIPHER_PAIR_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5286,7 +5286,7 @@ impl ::core::default::Default for DOT11_AVAILABLE_CHANNEL_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5357,7 +5357,7 @@ impl ::core::default::Default for DOT11_BSSID_CANDIDATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_BSSID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5434,7 +5434,7 @@ impl ::core::default::Default for DOT11_BSS_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_BSS_ENTRY {
     pub uPhyId: u32,
@@ -5550,7 +5550,7 @@ impl ::core::default::Default for DOT11_BSS_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_BYTE_ARRAY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5591,7 +5591,7 @@ impl ::core::default::Default for DOT11_BYTE_ARRAY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5660,7 +5660,7 @@ impl ::core::default::Default for DOT11_CHANNEL_HINT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5701,7 +5701,7 @@ impl ::core::default::Default for DOT11_CIPHER_ALGORITHM_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5746,7 +5746,7 @@ impl ::core::default::Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: [u8; 6],
@@ -5790,7 +5790,7 @@ impl ::core::default::Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5829,7 +5829,7 @@ impl ::core::default::Default for DOT11_CONNECTION_COMPLETION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -5925,7 +5925,7 @@ impl ::core::default::Default for DOT11_COUNTERS_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6026,7 +6026,7 @@ impl ::core::default::Default for DOT11_CURRENT_OPERATION_MODE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
@@ -6099,7 +6099,7 @@ impl ::core::default::Default for DOT11_DATA_RATE_MAPPING_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6139,7 +6139,7 @@ impl ::core::default::Default for DOT11_DATA_RATE_MAPPING_TABLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub uReserved: u32,
@@ -6205,7 +6205,7 @@ impl ::core::default::Default for DOT11_DEFAULT_WEP_OFFLOAD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub uReserved: u32,
@@ -6248,7 +6248,7 @@ impl ::core::default::Default for DOT11_DEFAULT_WEP_UPLOAD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6288,7 +6288,7 @@ impl ::core::default::Default for DOT11_DISASSOCIATE_PEER_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6330,7 +6330,7 @@ impl ::core::default::Default for DOT11_DISASSOCIATION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
@@ -6369,7 +6369,7 @@ impl ::core::default::Default for DOT11_DIVERSITY_SELECTION_RX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
     pub uNumOfEntries: u32,
@@ -6409,7 +6409,7 @@ impl ::core::default::Default for DOT11_DIVERSITY_SELECTION_RX_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct DOT11_EAP_RESULT {
     pub dwFailureReasonCode: u32,
@@ -6478,7 +6478,7 @@ impl ::core::default::Default for DOT11_ENCAP_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
@@ -6519,7 +6519,7 @@ impl ::core::default::Default for DOT11_ERP_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6598,7 +6598,7 @@ impl ::core::default::Default for DOT11_EXTAP_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6737,7 +6737,7 @@ impl ::core::default::Default for DOT11_EXTSTA_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6797,7 +6797,7 @@ impl ::core::default::Default for DOT11_EXTSTA_CAPABILITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6855,7 +6855,7 @@ impl ::core::default::Default for DOT11_EXTSTA_RECV_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6928,7 +6928,7 @@ impl ::core::default::Default for DOT11_FRAGMENT_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -6971,7 +6971,7 @@ impl ::core::default::Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLET
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7014,7 +7014,7 @@ impl ::core::default::Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PAR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7118,7 +7118,7 @@ impl ::core::default::Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bShortPreambleOptionImplemented: super::super::Foundation::BOOLEAN,
@@ -7159,7 +7159,7 @@ impl ::core::default::Default for DOT11_HRDSSS_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7230,7 +7230,7 @@ impl ::core::default::Default for DOT11_IHV_VERSION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7302,7 +7302,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7345,7 +7345,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_DECISION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7389,7 +7389,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7431,7 +7431,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7470,7 +7470,7 @@ impl ::core::default::Default for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7514,7 +7514,7 @@ impl ::core::default::Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMET
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7836,7 +7836,7 @@ impl ::core::default::Default for DOT11_LINK_QUALITY_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -7876,7 +7876,7 @@ impl ::core::default::Default for DOT11_LINK_QUALITY_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MAC_ADDRESS_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -8018,7 +8018,7 @@ impl ::core::default::Default for DOT11_MAC_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -8057,7 +8057,7 @@ impl ::core::default::Default for DOT11_MAC_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -8129,7 +8129,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub bEnabled: super::super::Foundation::BOOLEAN,
@@ -8170,7 +8170,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub bEnable: super::super::Foundation::BOOLEAN,
@@ -8213,7 +8213,7 @@ impl ::core::default::Default for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
@@ -8448,7 +8448,7 @@ impl ::core::default::Default for DOT11_MD_CAPABILITY_ENTRY_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -8488,7 +8488,7 @@ impl ::core::default::Default for DOT11_MPDU_MAX_LENGTH_INDICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct DOT11_MSONEX_RESULT_PARAMS {
     pub Dot11OnexAuthStatus: ONEX_AUTH_STATUS,
@@ -8532,7 +8532,7 @@ impl ::core::default::Default for DOT11_MSONEX_RESULT_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub struct DOT11_MSSECURITY_SETTINGS {
     pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
@@ -8795,7 +8795,7 @@ impl ::core::default::Default for DOT11_OFFLOAD_NETWORK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -8839,7 +8839,7 @@ impl ::core::default::Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -8942,7 +8942,7 @@ impl ::core::default::Default for DOT11_OPERATION_MODE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
@@ -8983,7 +8983,7 @@ impl ::core::default::Default for DOT11_OPTIONAL_CAPABILITY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: [u8; 6],
@@ -9047,7 +9047,7 @@ impl ::core::default::Default for DOT11_PEER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9155,7 +9155,7 @@ impl ::core::default::Default for DOT11_PER_MSDU_COUNTERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9192,7 +9192,7 @@ impl ::core::default::Default for DOT11_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
@@ -9300,7 +9300,7 @@ impl ::core::default::Default for DOT11_PHY_FRAME_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9326,7 +9326,7 @@ impl ::core::default::Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
@@ -9351,7 +9351,7 @@ impl ::core::default::Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PHY_ID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9392,7 +9392,7 @@ impl ::core::default::Default for DOT11_PHY_ID_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9433,7 +9433,7 @@ impl ::core::default::Default for DOT11_PHY_STATE_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
@@ -9478,7 +9478,7 @@ impl ::core::default::Default for DOT11_PHY_TYPE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PHY_TYPE_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9519,7 +9519,7 @@ impl ::core::default::Default for DOT11_PHY_TYPE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9590,7 +9590,7 @@ impl ::core::default::Default for DOT11_PMKID_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PMKID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9631,7 +9631,7 @@ impl ::core::default::Default for DOT11_PMKID_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PORT_STATE {
     pub PeerMacAddress: [u8; 6],
@@ -9672,7 +9672,7 @@ impl ::core::default::Default for DOT11_PORT_STATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9712,7 +9712,7 @@ impl ::core::default::Default for DOT11_PORT_STATE_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9751,7 +9751,7 @@ impl ::core::default::Default for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
@@ -9793,7 +9793,7 @@ impl ::core::default::Default for DOT11_POWER_MGMT_MODE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9865,7 +9865,7 @@ impl ::core::default::Default for DOT11_PRIVACY_EXEMPTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9906,7 +9906,7 @@ impl ::core::default::Default for DOT11_PRIVACY_EXEMPTION_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9950,7 +9950,7 @@ impl ::core::default::Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLET
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -9993,7 +9993,7 @@ impl ::core::default::Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10124,7 +10124,7 @@ impl ::core::default::Default for DOT11_RATE_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10166,7 +10166,7 @@ impl ::core::default::Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PAR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10209,7 +10209,7 @@ impl ::core::default::Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETE
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10252,7 +10252,7 @@ impl ::core::default::Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMET
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10296,7 +10296,7 @@ impl ::core::default::Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10339,7 +10339,7 @@ impl ::core::default::Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10383,7 +10383,7 @@ impl ::core::default::Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PAR
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10426,7 +10426,7 @@ impl ::core::default::Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PA
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_RECV_EXTENSION_INFO {
     pub uVersion: u32,
@@ -10532,7 +10532,7 @@ impl ::core::default::Default for DOT11_RECV_EXTENSION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub uVersion: u32,
@@ -10764,7 +10764,7 @@ impl ::core::default::Default for DOT11_REG_DOMAIN_VALUE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
@@ -10804,7 +10804,7 @@ impl ::core::default::Default for DOT11_RESET_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10843,7 +10843,7 @@ impl ::core::default::Default for DOT11_ROAMING_COMPLETION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -10915,7 +10915,7 @@ impl ::core::default::Default for DOT11_RSSI_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: DOT11_BSS_TYPE,
@@ -10979,7 +10979,7 @@ impl ::core::default::Default for DOT11_SCAN_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: DOT11_BSS_TYPE,
@@ -11065,7 +11065,7 @@ impl ::core::default::Default for DOT11_SECURITY_PACKET_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11125,7 +11125,7 @@ impl ::core::default::Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMET
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11183,7 +11183,7 @@ impl ::core::default::Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11249,7 +11249,7 @@ impl ::core::default::Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS 
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11315,7 +11315,7 @@ impl ::core::default::Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11379,7 +11379,7 @@ impl ::core::default::Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11425,7 +11425,7 @@ impl ::core::default::Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMET
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11499,7 +11499,7 @@ impl ::core::default::Default for DOT11_SSID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_SSID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11572,7 +11572,7 @@ impl ::core::default::Default for DOT11_START_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_STATISTICS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11646,7 +11646,7 @@ impl ::core::default::Default for DOT11_STATUS_INDICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -11685,7 +11685,7 @@ impl ::core::default::Default for DOT11_STOP_AP_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
@@ -11724,7 +11724,7 @@ impl ::core::default::Default for DOT11_SUPPORTED_ANTENNA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
     pub uNumOfEntries: u32,
@@ -12005,7 +12005,7 @@ impl ::core::default::Default for DOT11_SUPPORTED_POWER_LEVELS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12107,7 +12107,7 @@ impl ::core::default::Default for DOT11_VENUEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12147,7 +12147,7 @@ impl ::core::default::Default for DOT11_VWIFI_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12188,7 +12188,7 @@ impl ::core::default::Default for DOT11_VWIFI_COMBINATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12230,7 +12230,7 @@ impl ::core::default::Default for DOT11_VWIFI_COMBINATION_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12273,7 +12273,7 @@ impl ::core::default::Default for DOT11_VWIFI_COMBINATION_V3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_WEP_OFFLOAD {
     pub uReserved: u32,
@@ -12341,7 +12341,7 @@ impl ::core::default::Default for DOT11_WEP_OFFLOAD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_WEP_UPLOAD {
     pub uReserved: u32,
@@ -12384,7 +12384,7 @@ impl ::core::default::Default for DOT11_WEP_UPLOAD {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12520,7 +12520,7 @@ impl ::core::default::Default for DOT11_WFD_ADVERTISEMENT_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12663,7 +12663,7 @@ impl ::core::default::Default for DOT11_WFD_CONFIGURATION_TIMEOUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12750,7 +12750,7 @@ impl ::core::default::Default for DOT11_WFD_DEVICE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_DEVICE_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12792,7 +12792,7 @@ impl ::core::default::Default for DOT11_WFD_DEVICE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12862,7 +12862,7 @@ impl ::core::default::Default for DOT11_WFD_DEVICE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -12936,7 +12936,7 @@ impl ::core::default::Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -13041,7 +13041,7 @@ impl ::core::default::Default for DOT11_WFD_GROUP_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -13083,7 +13083,7 @@ impl ::core::default::Default for DOT11_WFD_GROUP_JOIN_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -13135,7 +13135,7 @@ impl ::core::default::Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -13189,7 +13189,7 @@ impl ::core::default::Default for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -13257,7 +13257,7 @@ impl ::core::default::Default for DOT11_WFD_INVITATION_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -13486,7 +13486,7 @@ impl ::core::default::Default for DOT11_WME_UPDATE_IE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
@@ -13590,7 +13590,7 @@ impl ::core::default::Default for L2_NOTIFICATION_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_AUTH_PARAMS {
     pub fUpdatePending: super::super::Foundation::BOOL,
@@ -13650,7 +13650,7 @@ impl ::core::default::Default for ONEX_AUTH_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct ONEX_EAP_ERROR {
     pub dwWinError: u32,
@@ -13696,7 +13696,7 @@ impl ::core::default::Default for ONEX_EAP_ERROR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_RESULT_UPDATE_DATA {
     pub oneXStatus: ONEX_STATUS,
@@ -13865,7 +13865,7 @@ impl ::core::default::Default for WDIAG_IHV_WLAN_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bNew: super::super::Foundation::BOOLEAN,
@@ -14001,7 +14001,7 @@ impl ::core::default::Default for WLAN_AUTH_CIPHER_PAIR_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK {
     pub strProfileName: [u16; 256],
@@ -14069,7 +14069,7 @@ impl ::core::default::Default for WLAN_AVAILABLE_NETWORK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK_LIST {
     pub dwNumberOfItems: u32,
@@ -14109,7 +14109,7 @@ impl ::core::default::Default for WLAN_AVAILABLE_NETWORK_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub dwNumberOfItems: u32,
@@ -14149,7 +14149,7 @@ impl ::core::default::Default for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub strProfileName: [u16; 256],
@@ -14240,7 +14240,7 @@ impl ::core::default::Default for WLAN_AVAILABLE_NETWORK_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_BSS_ENTRY {
     pub dot11Ssid: DOT11_SSID,
@@ -14310,7 +14310,7 @@ impl ::core::default::Default for WLAN_BSS_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_BSS_LIST {
     pub dwTotalSize: u32,
@@ -14350,7 +14350,7 @@ impl ::core::default::Default for WLAN_BSS_LIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub isState: WLAN_INTERFACE_STATE,
@@ -14392,7 +14392,7 @@ impl ::core::default::Default for WLAN_CONNECTION_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -14437,7 +14437,7 @@ impl ::core::default::Default for WLAN_CONNECTION_NOTIFICATION_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -14480,7 +14480,7 @@ impl ::core::default::Default for WLAN_CONNECTION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -14835,7 +14835,7 @@ impl ::core::default::Default for WLAN_HOSTED_NETWORK_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_INTERFACE_CAPABILITY {
     pub interfaceType: WLAN_INTERFACE_TYPE,
@@ -14993,7 +14993,7 @@ impl ::core::default::Default for WLAN_MAC_FRAME_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -15364,7 +15364,7 @@ impl ::core::default::Default for WLAN_RAW_DATA_LIST_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_SECURITY_ATTRIBUTES {
     pub bSecurityEnabled: super::super::Foundation::BOOL,
@@ -15439,141 +15439,141 @@ impl ::core::default::Default for WLAN_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_ADAPTER_RESET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_CONTROL = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_DEINIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> ()>;
 pub type DOT11EXTIHV_DEINIT_SERVICE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
 pub type DOT11EXTIHV_GET_VERSION_INFO = ::core::option::Option<unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_INIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`, `Win32_Security_ExtensibleAuthenticationProtocol`, `Win32_System_RemoteDesktop`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_System_RemoteDesktop\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
 pub type DOT11EXTIHV_INIT_SERVICE = ::core::option::Option<unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *const ::core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "Required features: `Win32_System_RemoteDesktop`"]
+#[doc = "Required features: `\"Win32_System_RemoteDesktop\"`"]
 #[cfg(feature = "Win32_System_RemoteDesktop")]
 pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = ::core::option::Option<unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32>;
 pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_core::GUID, dwbytecount: u32, pvresponsebuffer: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_QUERY_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_RECEIVE_INDICATION = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_RECEIVE_PACKET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXTIHV_VALIDATE_PROFILE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32>;
 pub type DOT11EXT_ALLOCATE_BUFFER = ::core::option::Option<unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::core::ffi::c_void) -> u32>;
 pub type DOT11EXT_FREE_BUFFER = ::core::option::Option<unsafe extern "system" fn(pvmemory: *const ::core::ffi::c_void) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security_ExtensibleAuthenticationProtocol`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
 pub type DOT11EXT_ONEX_START = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_ONEX_STOP = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_PROCESS_ONEX_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut ::windows_core::GUID, pvreserved: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_RELEASE_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_REQUEST_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SEND_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const L2_NOTIFICATION_DATA) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SEND_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const ::core::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SEND_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_AUTH_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_CURRENT_PROFILE = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_NetworkManagement_Ndis`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub type DOT11EXT_SET_DEFAULT_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: DOT11_DIRECTION) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_DEFAULT_KEY_ID = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_ETHERTYPE_HANDLING = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_KEY_MAPPING_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *const ::core::ffi::c_void) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows_core::GUID, dwerror: u32, dwreasoncode: u32) -> ()>;
 pub type WLAN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void) -> ()>;

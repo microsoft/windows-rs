@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Graphics_Direct2D`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct2D\"`"]
 #[cfg(feature = "Win32_Graphics_Direct2D")]
 pub trait IGeometrySource2DInterop_Impl: Sized {
     fn GetGeometry(&self) -> ::windows_core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>;
@@ -41,7 +41,7 @@ impl IGeometrySource2DInterop_Vtbl {
         *iid == <IGeometrySource2DInterop as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`, `Graphics_Effects`"]
+#[doc = "Required features: `\"Foundation\"`, `\"Graphics_Effects\"`"]
 #[cfg(all(feature = "Foundation", feature = "Graphics_Effects"))]
 pub trait IGraphicsEffectD2D1Interop_Impl: Sized {
     fn GetEffectId(&self) -> ::windows_core::Result<::windows_core::GUID>;

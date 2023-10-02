@@ -2732,7 +2732,7 @@ pub struct IUssdSessionStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ESim(::windows_core::IUnknown);
 impl ESim {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AvailableMemoryInBytes(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2776,7 +2776,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetProfiles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ESimProfile>> {
         let this = self;
@@ -2785,7 +2785,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).GetProfiles)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteProfileAsync(&self, profileid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -2794,7 +2794,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).DeleteProfileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(profileid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadProfileMetadataAsync(&self, activationcode: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>> {
         let this = self;
@@ -2803,7 +2803,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).DownloadProfileMetadataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activationcode), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResetAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -2812,7 +2812,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).ResetAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProfileChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2824,7 +2824,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).ProfileChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2844,7 +2844,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DiscoverAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
         let this = &::windows_core::ComInterface::cast::<IESim2>(self)?;
@@ -2853,7 +2853,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).DiscoverAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serveraddress: &::windows_core::HSTRING, matchingid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
         let this = &::windows_core::ComInterface::cast::<IESim2>(self)?;
@@ -2862,7 +2862,7 @@ impl ESim {
             (::windows_core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SlotIndex(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = &::windows_core::ComInterface::cast::<IESim3>(self)?;
@@ -2952,7 +2952,7 @@ unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ESimDiscoverResult(::windows_core::IUnknown);
 impl ESimDiscoverResult {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Events(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>> {
         let this = self;
@@ -3046,7 +3046,7 @@ impl ESimManager {
             (::windows_core::Interface::vtable(this).TryCreateESimWatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ServiceInfoChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3057,7 +3057,7 @@ impl ESimManager {
             (::windows_core::Interface::vtable(this).ServiceInfoChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServiceInfoChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::IESimManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveServiceInfoChanged)(::windows_core::Interface::as_raw(this), token).ok() })
@@ -3157,7 +3157,7 @@ impl ESimProfile {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProviderIcon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -3187,7 +3187,7 @@ impl ESimProfile {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -3196,7 +3196,7 @@ impl ESimProfile {
             (::windows_core::Interface::vtable(this).DisableAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -3205,7 +3205,7 @@ impl ESimProfile {
             (::windows_core::Interface::vtable(this).EnableAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetNicknameAsync(&self, newnickname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -3255,7 +3255,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ProviderIcon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -3285,7 +3285,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DenyInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -3294,7 +3294,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).DenyInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConfirmInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
         let this = self;
@@ -3303,7 +3303,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).ConfirmInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationcode: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
         let this = self;
@@ -3312,7 +3312,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(confirmationcode), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PostponeInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
         let this = self;
@@ -3321,7 +3321,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).PostponeInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3333,7 +3333,7 @@ impl ESimProfileMetadata {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3503,7 +3503,7 @@ impl ESimWatcher {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3515,13 +3515,13 @@ impl ESimWatcher {
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAdded)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3533,13 +3533,13 @@ impl ESimWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3551,13 +3551,13 @@ impl ESimWatcher {
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3569,13 +3569,13 @@ impl ESimWatcher {
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStopped)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3587,7 +3587,7 @@ impl ESimWatcher {
             (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3611,7 +3611,7 @@ unsafe impl ::core::marker::Send for ESimWatcher {}
 unsafe impl ::core::marker::Sync for ESimWatcher {}
 pub struct FdnAccessManager;
 impl FdnAccessManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestUnlockAsync(contactlistid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IFdnAccessManagerStatics(|this| unsafe {
@@ -3639,7 +3639,7 @@ impl HotspotAuthenticationContext {
             (::windows_core::Interface::vtable(this).WirelessNetworkId)(::windows_core::Interface::as_raw(this), ::windows_core::Array::<u8>::set_abi_len(::std::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn NetworkAdapter(&self) -> ::windows_core::Result<super::Connectivity::NetworkAdapter> {
         let this = self;
@@ -3648,7 +3648,7 @@ impl HotspotAuthenticationContext {
             (::windows_core::Interface::vtable(this).NetworkAdapter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RedirectMessageUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3657,7 +3657,7 @@ impl HotspotAuthenticationContext {
             (::windows_core::Interface::vtable(this).RedirectMessageUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn RedirectMessageXml(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -3666,7 +3666,7 @@ impl HotspotAuthenticationContext {
             (::windows_core::Interface::vtable(this).RedirectMessageXml)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticationUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3691,7 +3691,7 @@ impl HotspotAuthenticationContext {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).TriggerAttentionRequired)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagerelativeapplicationid), ::core::mem::transmute_copy(applicationparameters)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IssueCredentialsAsync(&self, username: &::windows_core::HSTRING, password: &::windows_core::HSTRING, extraparameters: &::windows_core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>> {
         let this = &::windows_core::ComInterface::cast::<IHotspotAuthenticationContext2>(self)?;
@@ -3768,7 +3768,7 @@ impl HotspotCredentialsAuthenticationResult {
             (::windows_core::Interface::vtable(this).ResponseCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LogoffUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3777,7 +3777,7 @@ impl HotspotCredentialsAuthenticationResult {
             (::windows_core::Interface::vtable(this).LogoffUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn AuthenticationReplyXml(&self) -> ::windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
@@ -3802,7 +3802,7 @@ impl ::windows_core::RuntimeName for HotspotCredentialsAuthenticationResult {
 ::windows_core::imp::interface_hierarchy!(HotspotCredentialsAuthenticationResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 pub struct KnownCSimFilePaths;
 impl KnownCSimFilePaths {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFSpn() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
@@ -3810,7 +3810,7 @@ impl KnownCSimFilePaths {
             (::windows_core::Interface::vtable(this).EFSpn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid1() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
@@ -3818,7 +3818,7 @@ impl KnownCSimFilePaths {
             (::windows_core::Interface::vtable(this).Gid1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid2() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownCSimFilePathsStatics(|this| unsafe {
@@ -3837,7 +3837,7 @@ impl ::windows_core::RuntimeName for KnownCSimFilePaths {
 }
 pub struct KnownRuimFilePaths;
 impl KnownRuimFilePaths {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFSpn() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
@@ -3845,7 +3845,7 @@ impl KnownRuimFilePaths {
             (::windows_core::Interface::vtable(this).EFSpn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid1() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
@@ -3853,7 +3853,7 @@ impl KnownRuimFilePaths {
             (::windows_core::Interface::vtable(this).Gid1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid2() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownRuimFilePathsStatics(|this| unsafe {
@@ -3872,7 +3872,7 @@ impl ::windows_core::RuntimeName for KnownRuimFilePaths {
 }
 pub struct KnownSimFilePaths;
 impl KnownSimFilePaths {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFOns() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
@@ -3880,7 +3880,7 @@ impl KnownSimFilePaths {
             (::windows_core::Interface::vtable(this).EFOns)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFSpn() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
@@ -3888,7 +3888,7 @@ impl KnownSimFilePaths {
             (::windows_core::Interface::vtable(this).EFSpn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid1() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
@@ -3896,7 +3896,7 @@ impl KnownSimFilePaths {
             (::windows_core::Interface::vtable(this).Gid1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid2() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownSimFilePathsStatics(|this| unsafe {
@@ -3915,7 +3915,7 @@ impl ::windows_core::RuntimeName for KnownSimFilePaths {
 }
 pub struct KnownUSimFilePaths;
 impl KnownUSimFilePaths {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFSpn() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
@@ -3923,7 +3923,7 @@ impl KnownUSimFilePaths {
             (::windows_core::Interface::vtable(this).EFSpn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFOpl() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
@@ -3931,7 +3931,7 @@ impl KnownUSimFilePaths {
             (::windows_core::Interface::vtable(this).EFOpl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EFPnn() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
@@ -3939,7 +3939,7 @@ impl KnownUSimFilePaths {
             (::windows_core::Interface::vtable(this).EFPnn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid1() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
@@ -3947,7 +3947,7 @@ impl KnownUSimFilePaths {
             (::windows_core::Interface::vtable(this).Gid1)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Gid2() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         Self::IKnownUSimFilePathsStatics(|this| unsafe {
@@ -4003,7 +4003,7 @@ impl MobileBroadbandAccount {
             (::windows_core::Interface::vtable(this).CurrentDeviceInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Networking_Connectivity\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking_Connectivity"))]
     pub fn GetConnectionProfiles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandAccount2>(self)?;
@@ -4012,7 +4012,7 @@ impl MobileBroadbandAccount {
             (::windows_core::Interface::vtable(this).GetConnectionProfiles)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AccountExperienceUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandAccount3>(self)?;
@@ -4021,7 +4021,7 @@ impl MobileBroadbandAccount {
             (::windows_core::Interface::vtable(this).AccountExperienceUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AvailableNetworkAccountIds() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IMobileBroadbandAccountStatics(|this| unsafe {
@@ -4129,7 +4129,7 @@ impl MobileBroadbandAccountWatcher {
         static SHARED: ::windows_core::imp::FactoryCache<MobileBroadbandAccountWatcher, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AccountAdded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4141,13 +4141,13 @@ impl MobileBroadbandAccountWatcher {
             (::windows_core::Interface::vtable(this).AccountAdded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountAdded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAccountAdded)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AccountUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4159,13 +4159,13 @@ impl MobileBroadbandAccountWatcher {
             (::windows_core::Interface::vtable(this).AccountUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountUpdated(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAccountUpdated)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AccountRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4177,13 +4177,13 @@ impl MobileBroadbandAccountWatcher {
             (::windows_core::Interface::vtable(this).AccountRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountRemoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAccountRemoved)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4195,13 +4195,13 @@ impl MobileBroadbandAccountWatcher {
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4213,7 +4213,7 @@ impl MobileBroadbandAccountWatcher {
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4297,7 +4297,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandAntennaSar {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellCdma(::windows_core::IUnknown);
 impl MobileBroadbandCellCdma {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseStationId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4306,7 +4306,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).BaseStationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseStationPNCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4315,7 +4315,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).BaseStationPNCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseStationLatitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4324,7 +4324,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).BaseStationLatitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseStationLongitude(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4333,7 +4333,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).BaseStationLongitude)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseStationLastBroadcastGpsTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
@@ -4342,7 +4342,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).BaseStationLastBroadcastGpsTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NetworkId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4351,7 +4351,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).NetworkId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PilotSignalStrengthInDB(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4360,7 +4360,7 @@ impl MobileBroadbandCellCdma {
             (::windows_core::Interface::vtable(this).PilotSignalStrengthInDB)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4389,7 +4389,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandCellCdma {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellGsm(::windows_core::IUnknown);
 impl MobileBroadbandCellGsm {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn BaseStationId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4398,7 +4398,7 @@ impl MobileBroadbandCellGsm {
             (::windows_core::Interface::vtable(this).BaseStationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4407,7 +4407,7 @@ impl MobileBroadbandCellGsm {
             (::windows_core::Interface::vtable(this).CellId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChannelNumber(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4416,7 +4416,7 @@ impl MobileBroadbandCellGsm {
             (::windows_core::Interface::vtable(this).ChannelNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LocationAreaCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4432,7 +4432,7 @@ impl MobileBroadbandCellGsm {
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReceivedSignalStrengthInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4441,7 +4441,7 @@ impl MobileBroadbandCellGsm {
             (::windows_core::Interface::vtable(this).ReceivedSignalStrengthInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimingAdvanceInBitPeriods(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4470,7 +4470,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandCellGsm {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellLte(::windows_core::IUnknown);
 impl MobileBroadbandCellLte {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4479,7 +4479,7 @@ impl MobileBroadbandCellLte {
             (::windows_core::Interface::vtable(this).CellId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChannelNumber(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4488,7 +4488,7 @@ impl MobileBroadbandCellLte {
             (::windows_core::Interface::vtable(this).ChannelNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PhysicalCellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4504,7 +4504,7 @@ impl MobileBroadbandCellLte {
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReferenceSignalReceivedPowerInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4513,7 +4513,7 @@ impl MobileBroadbandCellLte {
             (::windows_core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReferenceSignalReceivedQualityInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4522,7 +4522,7 @@ impl MobileBroadbandCellLte {
             (::windows_core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimingAdvanceInBitPeriods(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4531,7 +4531,7 @@ impl MobileBroadbandCellLte {
             (::windows_core::Interface::vtable(this).TimingAdvanceInBitPeriods)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrackingAreaCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4560,7 +4560,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandCellLte {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellNR(::windows_core::IUnknown);
 impl MobileBroadbandCellNR {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i64>> {
         let this = self;
@@ -4569,7 +4569,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).CellId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChannelNumber(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4578,7 +4578,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).ChannelNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PhysicalCellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4594,7 +4594,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReferenceSignalReceivedPowerInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4603,7 +4603,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).ReferenceSignalReceivedPowerInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReferenceSignalReceivedQualityInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4612,7 +4612,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).ReferenceSignalReceivedQualityInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimingAdvanceInNanoseconds(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4621,7 +4621,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).TimingAdvanceInNanoseconds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TrackingAreaCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4630,7 +4630,7 @@ impl MobileBroadbandCellNR {
             (::windows_core::Interface::vtable(this).TrackingAreaCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SignalToNoiseRatioInDB(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4659,7 +4659,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandCellNR {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellTdscdma(::windows_core::IUnknown);
 impl MobileBroadbandCellTdscdma {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4668,7 +4668,7 @@ impl MobileBroadbandCellTdscdma {
             (::windows_core::Interface::vtable(this).CellId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CellParameterId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4677,7 +4677,7 @@ impl MobileBroadbandCellTdscdma {
             (::windows_core::Interface::vtable(this).CellParameterId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChannelNumber(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4686,7 +4686,7 @@ impl MobileBroadbandCellTdscdma {
             (::windows_core::Interface::vtable(this).ChannelNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LocationAreaCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4695,7 +4695,7 @@ impl MobileBroadbandCellTdscdma {
             (::windows_core::Interface::vtable(this).LocationAreaCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PathLossInDB(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4711,7 +4711,7 @@ impl MobileBroadbandCellTdscdma {
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReceivedSignalCodePowerInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4720,7 +4720,7 @@ impl MobileBroadbandCellTdscdma {
             (::windows_core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TimingAdvanceInBitPeriods(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4749,7 +4749,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandCellTdscdma {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellUmts(::windows_core::IUnknown);
 impl MobileBroadbandCellUmts {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CellId(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4758,7 +4758,7 @@ impl MobileBroadbandCellUmts {
             (::windows_core::Interface::vtable(this).CellId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChannelNumber(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4767,7 +4767,7 @@ impl MobileBroadbandCellUmts {
             (::windows_core::Interface::vtable(this).ChannelNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LocationAreaCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4776,7 +4776,7 @@ impl MobileBroadbandCellUmts {
             (::windows_core::Interface::vtable(this).LocationAreaCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PathLossInDB(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4785,7 +4785,7 @@ impl MobileBroadbandCellUmts {
             (::windows_core::Interface::vtable(this).PathLossInDB)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrimaryScramblingCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4801,7 +4801,7 @@ impl MobileBroadbandCellUmts {
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReceivedSignalCodePowerInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4810,7 +4810,7 @@ impl MobileBroadbandCellUmts {
             (::windows_core::Interface::vtable(this).ReceivedSignalCodePowerInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SignalToNoiseRatioInDB(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -4839,7 +4839,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandCellUmts {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandCellsInfo(::windows_core::IUnknown);
 impl MobileBroadbandCellsInfo {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NeighboringCellsCdma(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>> {
         let this = self;
@@ -4848,7 +4848,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).NeighboringCellsCdma)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NeighboringCellsGsm(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>> {
         let this = self;
@@ -4857,7 +4857,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).NeighboringCellsGsm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NeighboringCellsLte(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>> {
         let this = self;
@@ -4866,7 +4866,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).NeighboringCellsLte)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NeighboringCellsTdscdma(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>> {
         let this = self;
@@ -4875,7 +4875,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).NeighboringCellsTdscdma)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NeighboringCellsUmts(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>> {
         let this = self;
@@ -4884,7 +4884,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).NeighboringCellsUmts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServingCellsCdma(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>> {
         let this = self;
@@ -4893,7 +4893,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).ServingCellsCdma)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServingCellsGsm(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>> {
         let this = self;
@@ -4902,7 +4902,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).ServingCellsGsm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServingCellsLte(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>> {
         let this = self;
@@ -4911,7 +4911,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).ServingCellsLte)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServingCellsTdscdma(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>> {
         let this = self;
@@ -4920,7 +4920,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).ServingCellsTdscdma)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServingCellsUmts(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>> {
         let this = self;
@@ -4929,7 +4929,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).ServingCellsUmts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NeighboringCellsNR(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandCellsInfo2>(self)?;
@@ -4938,7 +4938,7 @@ impl MobileBroadbandCellsInfo {
             (::windows_core::Interface::vtable(this).NeighboringCellsNR)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServingCellsNR(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandCellsInfo2>(self)?;
@@ -5022,7 +5022,7 @@ impl MobileBroadbandDeviceInformation {
             (::windows_core::Interface::vtable(this).FirmwareInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Sms`"]
+    #[doc = "Required features: `\"Devices_Sms\"`"]
     #[cfg(feature = "Devices_Sms")]
     pub fn CellularClass(&self) -> ::windows_core::Result<super::super::Devices::Sms::CellularClass> {
         let this = self;
@@ -5052,7 +5052,7 @@ impl MobileBroadbandDeviceInformation {
             (::windows_core::Interface::vtable(this).MobileEquipmentId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TelephoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -5170,7 +5170,7 @@ impl MobileBroadbandDeviceService {
             (::windows_core::Interface::vtable(this).DeviceServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCommands(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -5220,7 +5220,7 @@ impl MobileBroadbandDeviceServiceCommandResult {
             (::windows_core::Interface::vtable(this).StatusCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ResponseData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -5249,7 +5249,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandResult {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandDeviceServiceCommandSession(::windows_core::IUnknown);
 impl MobileBroadbandDeviceServiceCommandSession {
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendQueryCommandAsync<P0>(&self, commandid: u32, data: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
     where
@@ -5261,7 +5261,7 @@ impl MobileBroadbandDeviceServiceCommandSession {
             (::windows_core::Interface::vtable(this).SendQueryCommandAsync)(::windows_core::Interface::as_raw(this), commandid, data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SendSetCommandAsync<P0>(&self, commandid: u32, data: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>>
     where
@@ -5297,7 +5297,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandSession 
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(::windows_core::IUnknown);
 impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ReceivedData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -5326,7 +5326,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataReceivedEve
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandDeviceServiceDataSession(::windows_core::IUnknown);
 impl MobileBroadbandDeviceServiceDataSession {
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteDataAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -5342,7 +5342,7 @@ impl MobileBroadbandDeviceServiceDataSession {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CloseSession)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DataReceived<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5354,7 +5354,7 @@ impl MobileBroadbandDeviceServiceDataSession {
             (::windows_core::Interface::vtable(this).DataReceived)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -5435,7 +5435,7 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
             (::windows_core::Interface::vtable(this).DeviceServiceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ReceivedData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -5499,7 +5499,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).MaxDeviceServiceDataSizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DeviceServices(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>> {
         let this = self;
@@ -5522,7 +5522,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).IsResetSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ResetAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -5531,7 +5531,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).ResetAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentConfigurationAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>> {
         let this = self;
@@ -5547,7 +5547,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).CurrentNetwork)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsPassthroughEnabledAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandModem2>(self)?;
@@ -5556,7 +5556,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).GetIsPassthroughEnabledAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsPassthroughEnabledAsync(&self, value: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandModem2>(self)?;
@@ -5565,7 +5565,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).SetIsPassthroughEnabledAsync)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryGetPcoAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPco>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandModem3>(self)?;
@@ -5581,7 +5581,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).IsInEmergencyCallMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsInEmergencyCallModeChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5593,13 +5593,13 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).IsInEmergencyCallModeChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsInEmergencyCallModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandModem3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandModem4>(self)?;
@@ -5608,7 +5608,7 @@ impl MobileBroadbandModem {
             (::windows_core::Interface::vtable(this).SetIsPassthroughEnabledWithSlotIndexAsync)(::windows_core::Interface::as_raw(this), value, slotindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsPassthroughEnabledWithSlotIndexAsync(&self, slotindex: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandModem4>(self)?;
@@ -5735,7 +5735,7 @@ impl MobileBroadbandModemIsolation {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AddAllowedHostRange)(::windows_core::Interface::as_raw(this), first.into_param().abi(), last.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ApplyConfigurationAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -5744,7 +5744,7 @@ impl MobileBroadbandModemIsolation {
             (::windows_core::Interface::vtable(this).ApplyConfigurationAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ClearConfigurationAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -5784,7 +5784,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandNetwork(::windows_core::IUnknown);
 impl MobileBroadbandNetwork {
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn NetworkAdapter(&self) -> ::windows_core::Result<super::Connectivity::NetworkAdapter> {
         let this = self;
@@ -5853,7 +5853,7 @@ impl MobileBroadbandNetwork {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ShowConnectionUI)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetVoiceCallSupportAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandNetwork2>(self)?;
@@ -5862,7 +5862,7 @@ impl MobileBroadbandNetwork {
             (::windows_core::Interface::vtable(this).GetVoiceCallSupportAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RegistrationUiccApps(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandNetwork2>(self)?;
@@ -5871,7 +5871,7 @@ impl MobileBroadbandNetwork {
             (::windows_core::Interface::vtable(this).RegistrationUiccApps)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCellsInfoAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>> {
         let this = &::windows_core::ComInterface::cast::<IMobileBroadbandNetwork3>(self)?;
@@ -5932,7 +5932,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChan
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows_core::IUnknown);
 impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NetworkRegistrationStateChanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>> {
         let this = self;
@@ -5961,7 +5961,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChan
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandPco(::windows_core::IUnknown);
 impl MobileBroadbandPco {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -6080,7 +6080,7 @@ impl MobileBroadbandPin {
             (::windows_core::Interface::vtable(this).AttemptsRemaining)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self, currentpin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
@@ -6089,7 +6089,7 @@ impl MobileBroadbandPin {
             (::windows_core::Interface::vtable(this).EnableAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self, currentpin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
@@ -6098,7 +6098,7 @@ impl MobileBroadbandPin {
             (::windows_core::Interface::vtable(this).DisableAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnterAsync(&self, currentpin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
@@ -6107,7 +6107,7 @@ impl MobileBroadbandPin {
             (::windows_core::Interface::vtable(this).EnterAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ChangeAsync(&self, currentpin: &::windows_core::HSTRING, newpin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
@@ -6116,7 +6116,7 @@ impl MobileBroadbandPin {
             (::windows_core::Interface::vtable(this).ChangeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currentpin), ::core::mem::transmute_copy(newpin), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UnblockAsync(&self, pinunblockkey: &::windows_core::HSTRING, newpin: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>> {
         let this = self;
@@ -6186,7 +6186,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChange {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandPinLockStateChangeTriggerDetails(::windows_core::IUnknown);
 impl MobileBroadbandPinLockStateChangeTriggerDetails {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PinLockStateChanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>> {
         let this = self;
@@ -6215,7 +6215,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTriggerDet
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandPinManager(::windows_core::IUnknown);
 impl MobileBroadbandPinManager {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedPins(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>> {
         let this = self;
@@ -6319,7 +6319,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChange {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandRadioStateChangeTriggerDetails(::windows_core::IUnknown);
 impl MobileBroadbandRadioStateChangeTriggerDetails {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RadioStateChanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>> {
         let this = self;
@@ -6369,7 +6369,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).IsSarControlledByHardware)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Antennas(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>> {
         let this = self;
@@ -6378,7 +6378,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).Antennas)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HysteresisTimerPeriod(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -6387,7 +6387,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).HysteresisTimerPeriod)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TransmissionStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6399,13 +6399,13 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).TransmissionStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransmissionStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTransmissionStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnableBackoffAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -6414,7 +6414,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).EnableBackoffAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DisableBackoffAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -6423,7 +6423,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).DisableBackoffAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetConfigurationAsync<P0>(&self, antennas: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -6435,7 +6435,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).SetConfigurationAsync)(::windows_core::Interface::as_raw(this), antennas.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RevertSarToHardwareControlAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -6444,7 +6444,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).RevertSarToHardwareControlAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetTransmissionStateChangedHysteresisAsync(&self, timerperiod: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -6453,7 +6453,7 @@ impl MobileBroadbandSarManager {
             (::windows_core::Interface::vtable(this).SetTransmissionStateChangedHysteresisAsync)(::windows_core::Interface::as_raw(this), timerperiod, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIsTransmittingAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -6558,7 +6558,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfoChangedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandSlotManager(::windows_core::IUnknown);
 impl MobileBroadbandSlotManager {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SlotInfos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>> {
         let this = self;
@@ -6581,7 +6581,7 @@ impl MobileBroadbandSlotManager {
             (::windows_core::Interface::vtable(this).SetCurrentSlot)(::windows_core::Interface::as_raw(this), slotindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCurrentSlotAsync(&self, slotindex: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = self;
@@ -6590,7 +6590,7 @@ impl MobileBroadbandSlotManager {
             (::windows_core::Interface::vtable(this).SetCurrentSlotAsync)(::windows_core::Interface::as_raw(this), slotindex, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SlotInfoChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6602,13 +6602,13 @@ impl MobileBroadbandSlotManager {
             (::windows_core::Interface::vtable(this).SlotInfoChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSlotInfoChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSlotInfoChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CurrentSlotIndexChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6620,7 +6620,7 @@ impl MobileBroadbandSlotManager {
             (::windows_core::Interface::vtable(this).CurrentSlotIndexChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCurrentSlotIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -6680,7 +6680,7 @@ impl MobileBroadbandUicc {
             (::windows_core::Interface::vtable(this).SimIccId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetUiccAppsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>> {
         let this = self;
@@ -6709,7 +6709,7 @@ unsafe impl ::core::marker::Sync for MobileBroadbandUicc {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MobileBroadbandUiccApp(::windows_core::IUnknown);
 impl MobileBroadbandUiccApp {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -6725,7 +6725,7 @@ impl MobileBroadbandUiccApp {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecordDetailsAsync<P0>(&self, uiccfilepath: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>>
     where
@@ -6737,7 +6737,7 @@ impl MobileBroadbandUiccApp {
             (::windows_core::Interface::vtable(this).GetRecordDetailsAsync)(::windows_core::Interface::as_raw(this), uiccfilepath.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadRecordAsync<P0>(&self, uiccfilepath: P0, recordindex: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>>
     where
@@ -6776,7 +6776,7 @@ impl MobileBroadbandUiccAppReadRecordResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -6874,7 +6874,7 @@ impl MobileBroadbandUiccAppsResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UiccApps(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>> {
         let this = self;
@@ -6965,7 +6965,7 @@ impl NetworkOperatorNotificationEventDetails {
             (::windows_core::Interface::vtable(this).RuleId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Sms`"]
+    #[doc = "Required features: `\"Devices_Sms\"`"]
     #[cfg(feature = "Devices_Sms")]
     pub fn SmsMessage(&self) -> ::windows_core::Result<super::super::Devices::Sms::ISmsMessage> {
         let this = self;
@@ -7034,7 +7034,7 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
             (::windows_core::Interface::vtable(this).IsBandSupported)(::windows_core::Interface::as_raw(this), band, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<INetworkOperatorTetheringAccessPointConfiguration2>(self)?;
@@ -7081,7 +7081,7 @@ impl NetworkOperatorTetheringClient {
             (::windows_core::Interface::vtable(this).MacAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HostNames(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
         let this = self;
@@ -7110,7 +7110,7 @@ unsafe impl ::core::marker::Sync for NetworkOperatorTetheringClient {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NetworkOperatorTetheringManager(::windows_core::IUnknown);
 impl NetworkOperatorTetheringManager {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTetheringClients(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>> {
         let this = &::windows_core::ComInterface::cast::<INetworkOperatorTetheringClientManager>(self)?;
@@ -7147,7 +7147,7 @@ impl NetworkOperatorTetheringManager {
             (::windows_core::Interface::vtable(this).GetCurrentAccessPointConfiguration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConfigureAccessPointAsync<P0>(&self, configuration: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -7159,7 +7159,7 @@ impl NetworkOperatorTetheringManager {
             (::windows_core::Interface::vtable(this).ConfigureAccessPointAsync)(::windows_core::Interface::as_raw(this), configuration.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTetheringAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
         let this = self;
@@ -7168,7 +7168,7 @@ impl NetworkOperatorTetheringManager {
             (::windows_core::Interface::vtable(this).StartTetheringAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StopTetheringAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>> {
         let this = self;
@@ -7189,7 +7189,7 @@ impl NetworkOperatorTetheringManager {
             (::windows_core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn GetTetheringCapabilityFromConnectionProfile<P0>(profile: P0) -> ::windows_core::Result<TetheringCapability>
     where
@@ -7200,7 +7200,7 @@ impl NetworkOperatorTetheringManager {
             (::windows_core::Interface::vtable(this).GetTetheringCapabilityFromConnectionProfile)(::windows_core::Interface::as_raw(this), profile.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn CreateFromConnectionProfile<P0>(profile: P0) -> ::windows_core::Result<NetworkOperatorTetheringManager>
     where
@@ -7211,7 +7211,7 @@ impl NetworkOperatorTetheringManager {
             (::windows_core::Interface::vtable(this).CreateFromConnectionProfile)(::windows_core::Interface::as_raw(this), profile.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn CreateFromConnectionProfileWithTargetAdapter<P0, P1>(profile: P0, adapter: P1) -> ::windows_core::Result<NetworkOperatorTetheringManager>
     where
@@ -7232,7 +7232,7 @@ impl NetworkOperatorTetheringManager {
     pub fn EnableNoConnectionsTimeout() -> ::windows_core::Result<()> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).EnableNoConnectionsTimeout)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn EnableNoConnectionsTimeoutAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
@@ -7243,7 +7243,7 @@ impl NetworkOperatorTetheringManager {
     pub fn DisableNoConnectionsTimeout() -> ::windows_core::Result<()> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).DisableNoConnectionsTimeout)(::windows_core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DisableNoConnectionsTimeoutAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::INetworkOperatorTetheringManagerStatics4(|this| unsafe {
@@ -7353,13 +7353,13 @@ impl ::windows_core::RuntimeName for ProvisionFromXmlDocumentResults {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProvisionedProfile(::windows_core::IUnknown);
 impl ProvisionedProfile {
-    #[doc = "Required features: `Networking_Connectivity`"]
+    #[doc = "Required features: `\"Networking_Connectivity\"`"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn UpdateCost(&self, value: super::Connectivity::NetworkCostType) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).UpdateCost)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateUsage(&self, value: ProfileUsage) -> ::windows_core::Result<()> {
         let this = self;
@@ -7390,7 +7390,7 @@ impl ProvisioningAgent {
         static SHARED: ::windows_core::imp::FactoryCache<ProvisioningAgent, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProvisionFromXmlDocumentAsync(&self, provisioningxmldocument: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>> {
         let this = self;
@@ -7566,7 +7566,7 @@ impl ::windows_core::RuntimeName for UssdReply {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UssdSession(::windows_core::IUnknown);
 impl UssdSession {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SendMessageAndGetReplyAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
     where
@@ -8753,7 +8753,7 @@ impl ::core::default::Default for ESimProfileInstallProgress {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,

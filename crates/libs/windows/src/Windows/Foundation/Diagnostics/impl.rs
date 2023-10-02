@@ -33,7 +33,7 @@ impl IErrorReportingSettings_Vtbl {
         *iid == <IErrorReportingSettings as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Storage`"]
+#[doc = "Required features: `\"Storage\"`"]
 #[cfg(feature = "Storage")]
 pub trait IFileLoggingSession_Impl: Sized + super::IClosable_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING>;
@@ -224,7 +224,7 @@ impl ILoggingChannel_Vtbl {
         *iid == <ILoggingChannel as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Storage`"]
+#[doc = "Required features: `\"Storage\"`"]
 #[cfg(feature = "Storage")]
 pub trait ILoggingSession_Impl: Sized + super::IClosable_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING>;

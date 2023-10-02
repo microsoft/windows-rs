@@ -880,7 +880,7 @@ impl AttributedNetworkUsage {
             (::windows_core::Interface::vtable(this).AttributionName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AttributionThumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -1082,7 +1082,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).GetNetworkConnectivityLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNetworkNames(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -1112,7 +1112,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).NetworkAdapter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetLocalUsage(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime) -> ::windows_core::Result<DataUsage> {
         let this = self;
@@ -1121,7 +1121,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).GetLocalUsage)(::windows_core::Interface::as_raw(this), starttime, endtime, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetLocalUsagePerRoamingStates(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates) -> ::windows_core::Result<DataUsage> {
         let this = self;
@@ -1165,7 +1165,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).WlanConnectionProfileDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ServiceProviderGuid(&self) -> ::windows_core::Result<super::super::Foundation::IReference<::windows_core::GUID>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile2>(self)?;
@@ -1174,7 +1174,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).ServiceProviderGuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetSignalBars(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u8>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile2>(self)?;
@@ -1190,7 +1190,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).GetDomainConnectivityLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile2>(self)?;
@@ -1199,7 +1199,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).GetNetworkUsageAsync)(::windows_core::Interface::as_raw(this), starttime, endtime, granularity, states, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile2>(self)?;
@@ -1208,7 +1208,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).GetConnectivityIntervalsAsync)(::windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile3>(self)?;
@@ -1217,7 +1217,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).GetAttributedNetworkUsageAsync)(::windows_core::Interface::as_raw(this), starttime, endtime, states, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile4>(self)?;
@@ -1233,7 +1233,7 @@ impl ConnectionProfile {
             (::windows_core::Interface::vtable(this).CanDelete)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryDeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfile5>(self)?;
@@ -1320,7 +1320,7 @@ impl ConnectionProfileFilter {
             (::windows_core::Interface::vtable(this).NetworkCostType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetServiceProviderGuid<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1329,7 +1329,7 @@ impl ConnectionProfileFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetServiceProviderGuid)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ServiceProviderGuid(&self) -> ::windows_core::Result<super::super::Foundation::IReference<::windows_core::GUID>> {
         let this = self;
@@ -1338,7 +1338,7 @@ impl ConnectionProfileFilter {
             (::windows_core::Interface::vtable(this).ServiceProviderGuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsRoaming<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1347,7 +1347,7 @@ impl ConnectionProfileFilter {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIsRoaming)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsRoaming(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
@@ -1356,7 +1356,7 @@ impl ConnectionProfileFilter {
             (::windows_core::Interface::vtable(this).IsRoaming)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsOverDataLimit<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1365,7 +1365,7 @@ impl ConnectionProfileFilter {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIsOverDataLimit)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsOverDataLimit(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
@@ -1374,7 +1374,7 @@ impl ConnectionProfileFilter {
             (::windows_core::Interface::vtable(this).IsOverDataLimit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsBackgroundDataUsageRestricted<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1383,7 +1383,7 @@ impl ConnectionProfileFilter {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn IsBackgroundDataUsageRestricted(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
@@ -1392,7 +1392,7 @@ impl ConnectionProfileFilter {
             (::windows_core::Interface::vtable(this).IsBackgroundDataUsageRestricted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RawData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter2>(self)?;
@@ -1401,7 +1401,7 @@ impl ConnectionProfileFilter {
             (::windows_core::Interface::vtable(this).RawData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPurposeGuid<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1410,7 +1410,7 @@ impl ConnectionProfileFilter {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetPurposeGuid)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PurposeGuid(&self) -> ::windows_core::Result<super::super::Foundation::IReference<::windows_core::GUID>> {
         let this = &::windows_core::ComInterface::cast::<IConnectionProfileFilter3>(self)?;
@@ -1439,7 +1439,7 @@ unsafe impl ::core::marker::Sync for ConnectionProfileFilter {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConnectionSession(::windows_core::IUnknown);
 impl ConnectionSession {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1474,7 +1474,7 @@ unsafe impl ::core::marker::Sync for ConnectionSession {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConnectivityInterval(::windows_core::IUnknown);
 impl ConnectivityInterval {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1483,7 +1483,7 @@ impl ConnectivityInterval {
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1510,7 +1510,7 @@ unsafe impl ::core::marker::Send for ConnectivityInterval {}
 unsafe impl ::core::marker::Sync for ConnectivityInterval {}
 pub struct ConnectivityManager;
 impl ConnectivityManager {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AcquireConnectionAsync<P0>(cellularapncontext: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>>
     where
@@ -1553,7 +1553,7 @@ impl DataPlanStatus {
             (::windows_core::Interface::vtable(this).DataPlanUsage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DataLimitInMegabytes(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -1562,7 +1562,7 @@ impl DataPlanStatus {
             (::windows_core::Interface::vtable(this).DataLimitInMegabytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InboundBitsPerSecond(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1571,7 +1571,7 @@ impl DataPlanStatus {
             (::windows_core::Interface::vtable(this).InboundBitsPerSecond)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OutboundBitsPerSecond(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1580,7 +1580,7 @@ impl DataPlanStatus {
             (::windows_core::Interface::vtable(this).OutboundBitsPerSecond)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NextBillingCycle(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1589,7 +1589,7 @@ impl DataPlanStatus {
             (::windows_core::Interface::vtable(this).NextBillingCycle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxTransferSizeInMegabytes(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -1625,7 +1625,7 @@ impl DataPlanUsage {
             (::windows_core::Interface::vtable(this).MegabytesUsed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn LastSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1650,14 +1650,14 @@ impl ::windows_core::RuntimeName for DataPlanUsage {
 ::windows_core::imp::interface_hierarchy!(DataPlanUsage, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DataPlanUsage {}
 unsafe impl ::core::marker::Sync for DataPlanUsage {}
-#[doc = "Required features: `deprecated`"]
+#[doc = "Required features: `\"deprecated\"`"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataUsage(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl DataUsage {
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn BytesSent(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -1666,7 +1666,7 @@ impl DataUsage {
             (::windows_core::Interface::vtable(this).BytesSent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn BytesReceived(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -1709,7 +1709,7 @@ impl IPInformation {
             (::windows_core::Interface::vtable(this).NetworkAdapter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PrefixLength(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -1786,7 +1786,7 @@ impl LanIdentifierData {
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u8>> {
         let this = self;
@@ -1850,7 +1850,7 @@ impl NetworkAdapter {
             (::windows_core::Interface::vtable(this).NetworkAdapterId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetConnectedProfileAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConnectionProfile>> {
         let this = self;
@@ -1877,7 +1877,7 @@ unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
 pub struct NetworkInformation;
 impl NetworkInformation {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetConnectionProfiles() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ConnectionProfile>> {
         Self::INetworkInformationStatics(|this| unsafe {
@@ -1891,7 +1891,7 @@ impl NetworkInformation {
             (::windows_core::Interface::vtable(this).GetInternetConnectionProfile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetLanIdentifiers() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<LanIdentifier>> {
         Self::INetworkInformationStatics(|this| unsafe {
@@ -1899,7 +1899,7 @@ impl NetworkInformation {
             (::windows_core::Interface::vtable(this).GetLanIdentifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetHostNames() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
         Self::INetworkInformationStatics(|this| unsafe {
@@ -1907,7 +1907,7 @@ impl NetworkInformation {
             (::windows_core::Interface::vtable(this).GetHostNames)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetProxyConfigurationAsync<P0>(uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>
     where
@@ -1918,7 +1918,7 @@ impl NetworkInformation {
             (::windows_core::Interface::vtable(this).GetProxyConfigurationAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSortedEndpointPairs<P0>(destinationlist: P0, sortoptions: super::HostNameSortOptions) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>
     where
@@ -1929,7 +1929,7 @@ impl NetworkInformation {
             (::windows_core::Interface::vtable(this).GetSortedEndpointPairs)(::windows_core::Interface::as_raw(this), destinationlist.try_into_param()?.abi(), sortoptions, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NetworkStatusChanged<P0>(networkstatushandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1940,12 +1940,12 @@ impl NetworkInformation {
             (::windows_core::Interface::vtable(this).NetworkStatusChanged)(::windows_core::Interface::as_raw(this), networkstatushandler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNetworkStatusChanged(eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         Self::INetworkInformationStatics(|this| unsafe { (::windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(::windows_core::Interface::as_raw(this), eventcookie).ok() })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>
     where
@@ -2132,7 +2132,7 @@ impl NetworkUsage {
             (::windows_core::Interface::vtable(this).BytesReceived)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionDuration(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2202,7 +2202,7 @@ unsafe impl ::core::marker::Sync for ProviderNetworkUsage {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ProxyConfiguration(::windows_core::IUnknown);
 impl ProxyConfiguration {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProxyUris(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
         let this = self;
@@ -2356,7 +2356,7 @@ impl WwanConnectionProfileDetails {
             (::windows_core::Interface::vtable(this).IPKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PurposeGuids(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::GUID>> {
         let this = &::windows_core::ComInterface::cast::<IWwanConnectionProfileDetails2>(self)?;

@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IDiskQuotaControl_Impl: Sized + super::super::System::Com::IConnectionPointContainer_Impl {
     fn Initialize(&self, pszpath: &::windows_core::PCWSTR, breadwrite: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -209,7 +209,7 @@ impl IDiskQuotaEvents_Vtbl {
         *iid == <IDiskQuotaEvents as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDiskQuotaUser_Impl: Sized {
     fn GetID(&self, pulid: *mut u32) -> ::windows_core::Result<()>;

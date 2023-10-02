@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IBindCallbackRedirect_Impl: Sized {
     fn Redirect(&self, lpcurl: &::windows_core::PCWSTR) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -104,7 +104,7 @@ impl ICatalogFileInfo_Vtbl {
         *iid == <ICatalogFileInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ICodeInstall_Impl: Sized + IWindowForBindingUI_Impl {
     fn OnCodeInstallProblem(&self, ulstatuscode: u32, szdestination: &::windows_core::PCWSTR, szsource: &::windows_core::PCWSTR, dwreserved: u32) -> ::windows_core::Result<()>;
@@ -198,7 +198,7 @@ impl IEncodingFilterFactory_Vtbl {
         *iid == <IEncodingFilterFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IGetBindHandle_Impl: Sized {
     fn GetBindHandle(&self, enumrequestedhandle: BINDHANDLETYPES) -> ::windows_core::Result<super::super::super::Foundation::HANDLE>;
@@ -301,7 +301,7 @@ impl IHttpNegotiate3_Vtbl {
         *iid == <IHttpNegotiate3 as ::windows_core::ComInterface>::IID || *iid == <IHttpNegotiate as ::windows_core::ComInterface>::IID || *iid == <IHttpNegotiate2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IHttpSecurity_Impl: Sized + IWindowForBindingUI_Impl {
     fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows_core::Result<()>;
@@ -332,7 +332,7 @@ impl IInternet_Vtbl {
         *iid == <IInternet as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfo_Impl: Sized {
     fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows_core::Result<()>;
@@ -363,7 +363,7 @@ impl IInternetBindInfo_Vtbl {
         *iid == <IInternetBindInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IInternetBindInfoEx_Impl: Sized + IInternetBindInfo_Impl {
     fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()>;
@@ -451,7 +451,7 @@ impl IInternetPriority_Vtbl {
         *iid == <IInternetPriority as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocol_Impl: Sized + IInternetProtocolRoot_Impl {
     fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows_core::Result<()>;
@@ -502,7 +502,7 @@ impl IInternetProtocol_Vtbl {
         *iid == <IInternetProtocol as ::windows_core::ComInterface>::IID || *iid == <IInternetProtocolRoot as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolEx_Impl: Sized + IInternetProtocol_Impl {
     fn StartEx(&self, puri: ::core::option::Option<&super::IUri>, poiprotsink: ::core::option::Option<&IInternetProtocolSink>, poibindinfo: ::core::option::Option<&IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows_core::Result<()>;
@@ -564,7 +564,7 @@ impl IInternetProtocolInfo_Vtbl {
         *iid == <IInternetProtocolInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetProtocolRoot_Impl: Sized {
     fn Start(&self, szurl: &::windows_core::PCWSTR, poiprotsink: ::core::option::Option<&IInternetProtocolSink>, poibindinfo: ::core::option::Option<&IInternetBindInfo>, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows_core::Result<()>;
@@ -831,7 +831,7 @@ impl IInternetSecurityManagerEx2_Vtbl {
         *iid == <IInternetSecurityManagerEx2 as ::windows_core::ComInterface>::IID || *iid == <IInternetSecurityManager as ::windows_core::ComInterface>::IID || *iid == <IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetSecurityMgrSite_Impl: Sized {
     fn GetWindow(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND>;
@@ -957,7 +957,7 @@ impl IInternetThreadSwitch_Vtbl {
         *iid == <IInternetThreadSwitch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManager_Impl: Sized {
     fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows_core::Result<()>;
@@ -1064,7 +1064,7 @@ impl IInternetZoneManager_Vtbl {
         *iid == <IInternetZoneManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManagerEx_Impl: Sized + IInternetZoneManager_Impl {
     fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows_core::Result<()>;
@@ -1095,7 +1095,7 @@ impl IInternetZoneManagerEx_Vtbl {
         *iid == <IInternetZoneManagerEx as ::windows_core::ComInterface>::IID || *iid == <IInternetZoneManager as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IInternetZoneManagerEx2_Impl: Sized + IInternetZoneManagerEx_Impl {
     fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows_core::Result<()>;
@@ -1157,7 +1157,7 @@ impl IMonikerProp_Vtbl {
         *iid == <IMonikerProp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IPersistMoniker_Impl: Sized {
     fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -1228,7 +1228,7 @@ impl IPersistMoniker_Vtbl {
         *iid == <IPersistMoniker as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Data_Xml_MsXml`"]
+#[doc = "Required features: `\"Win32_Data_Xml_MsXml\"`"]
 #[cfg(feature = "Win32_Data_Xml_MsXml")]
 pub trait ISoftDistExt_Impl: Sized {
     fn ProcessSoftDist(&self, szcdfurl: &::windows_core::PCWSTR, psoftdistelement: ::core::option::Option<&super::super::super::Data::Xml::MsXml::IXMLElement>, lpsdi: *mut SOFTDISTINFO) -> ::windows_core::Result<()>;
@@ -1447,7 +1447,7 @@ impl IWinInetInfo_Vtbl {
         *iid == <IWinInetInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IWindowForBindingUI_Impl: Sized {
     fn GetWindow(&self, rguidreason: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::HWND>;

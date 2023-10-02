@@ -1,11 +1,11 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     ::windows_targets::link!("wnvapi.dll" "system" fn WnvOpen() -> super::super::Foundation:: HANDLE);
     WnvOpen()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WnvRequestNotification<P0>(wnvhandle: P0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32
@@ -95,7 +95,7 @@ impl ::core::fmt::Debug for WNV_OBJECT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub MACAddress: super::super::Networking::WinSock::DL_EUI48,
@@ -125,7 +125,7 @@ impl ::core::default::Default for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
@@ -149,7 +149,7 @@ impl ::core::default::Default for WNV_IP_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union WNV_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
@@ -207,7 +207,7 @@ impl ::core::default::Default for WNV_NOTIFICATION_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectType: WNV_OBJECT_TYPE,
@@ -232,7 +232,7 @@ impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
@@ -288,7 +288,7 @@ impl ::core::default::Default for WNV_OBJECT_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_POLICY_MISMATCH_PARAM {
     pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
@@ -316,7 +316,7 @@ impl ::core::default::Default for WNV_POLICY_MISMATCH_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub PAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,
@@ -342,7 +342,7 @@ impl ::core::default::Default for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_Networking_WinSock\"`"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_REDIRECT_PARAM {
     pub CAFamily: super::super::Networking::WinSock::ADDRESS_FAMILY,

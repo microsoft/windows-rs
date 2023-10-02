@@ -391,7 +391,7 @@ pub struct IMediaEncodingProfileStatics3_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaEncodingProperties(::windows_core::IUnknown);
 impl IMediaEncodingProperties {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<MediaPropertySet> {
         let this = self;
@@ -902,7 +902,7 @@ impl AudioEncodingProperties {
         let this = &::windows_core::ComInterface::cast::<IAudioEncodingPropertiesWithFormatUserData>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetFormatUserData)(::windows_core::Interface::as_raw(this), value.set_abi_len(), value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<MediaPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProperties>(self)?;
@@ -974,7 +974,7 @@ impl ContainerEncodingProperties {
             (::windows_core::Interface::vtable(this).Copy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<MediaPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProperties>(self)?;
@@ -1165,7 +1165,7 @@ impl ImageEncodingProperties {
             (::windows_core::Interface::vtable(this).CreateHeif)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<MediaPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProperties>(self)?;
@@ -1277,7 +1277,7 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).Container)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn SetAudioTracks<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1286,7 +1286,7 @@ impl MediaEncodingProfile {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetAudioTracks)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetAudioTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Core::AudioStreamDescriptor>> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProfile2>(self)?;
@@ -1295,7 +1295,7 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).GetAudioTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn SetVideoTracks<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1304,7 +1304,7 @@ impl MediaEncodingProfile {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProfile2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetVideoTracks)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetVideoTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Core::VideoStreamDescriptor>> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProfile2>(self)?;
@@ -1313,7 +1313,7 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).GetVideoTracks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn SetTimedMetadataTracks<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -1322,7 +1322,7 @@ impl MediaEncodingProfile {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProfile3>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetTimedMetadataTracks)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Media_Core`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Media_Core\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
     pub fn GetTimedMetadataTracks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::Core::TimedMetadataStreamDescriptor>> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProfile3>(self)?;
@@ -1361,7 +1361,7 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).CreateWmv)(::windows_core::Interface::as_raw(this), quality, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateFromFileAsync<P0>(file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
     where
@@ -1372,7 +1372,7 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).CreateFromFileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateFromStreamAsync<P0>(stream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>
     where
@@ -1792,7 +1792,7 @@ impl MediaEncodingSubtypes {
 impl ::windows_core::RuntimeName for MediaEncodingSubtypes {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingSubtypes";
 }
-#[doc = "Required features: `Foundation_Collections`"]
+#[doc = "Required features: `\"Foundation_Collections\"`"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
@@ -1806,7 +1806,7 @@ impl MediaPropertySet {
         static SHARED: ::windows_core::imp::FactoryCache<MediaPropertySet, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::GUID, ::windows_core::IInspectable>>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::GUID, ::windows_core::IInspectable>>>(self)?;
@@ -1815,7 +1815,7 @@ impl MediaPropertySet {
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
@@ -1824,7 +1824,7 @@ impl MediaPropertySet {
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), key, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
@@ -1833,7 +1833,7 @@ impl MediaPropertySet {
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: ::windows_core::GUID) -> ::windows_core::Result<bool> {
         let this = self;
@@ -1842,7 +1842,7 @@ impl MediaPropertySet {
             (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), key, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, ::windows_core::IInspectable>> {
         let this = self;
@@ -1851,7 +1851,7 @@ impl MediaPropertySet {
             (::windows_core::Interface::vtable(this).GetView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<P0>(&self, key: ::windows_core::GUID, value: P0) -> ::windows_core::Result<bool>
     where
@@ -1863,13 +1863,13 @@ impl MediaPropertySet {
             (::windows_core::Interface::vtable(this).Insert)(::windows_core::Interface::as_raw(this), key, value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: ::windows_core::GUID) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Remove)(::windows_core::Interface::as_raw(this), key).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -2012,7 +2012,7 @@ impl TimedMetadataEncodingProperties {
         static SHARED: ::windows_core::imp::FactoryCache<TimedMetadataEncodingProperties, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<MediaPropertySet> {
         let this = self;
@@ -2111,7 +2111,7 @@ impl VideoEncodingProperties {
         static SHARED: ::windows_core::imp::FactoryCache<VideoEncodingProperties, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows_core::Result<MediaPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IMediaEncodingProperties>(self)?;

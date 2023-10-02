@@ -1,14 +1,14 @@
 #[cfg(feature = "UI_Input_Core")]
-#[doc = "Required features: `UI_Input_Core`"]
+#[doc = "Required features: `\"UI_Input_Core\"`"]
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking")]
-#[doc = "Required features: `UI_Input_Inking`"]
+#[doc = "Required features: `\"UI_Input_Inking\"`"]
 pub mod Inking;
 #[cfg(feature = "UI_Input_Preview")]
-#[doc = "Required features: `UI_Input_Preview`"]
+#[doc = "Required features: `\"UI_Input_Preview\"`"]
 pub mod Preview;
 #[cfg(feature = "UI_Input_Spatial")]
-#[doc = "Required features: `UI_Input_Spatial`"]
+#[doc = "Required features: `\"UI_Input_Spatial\"`"]
 pub mod Spatial;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -855,7 +855,7 @@ impl IPointerPointTransform {
             (::windows_core::Interface::vtable(this).Inverse)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TryTransform(&self, inpoint: super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> ::windows_core::Result<bool> {
         let this = self;
@@ -864,7 +864,7 @@ impl IPointerPointTransform {
             (::windows_core::Interface::vtable(this).TryTransform)(::windows_core::Interface::as_raw(this), inpoint, outpoint, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn TransformBounds(&self, rect: super::super::Foundation::Rect) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1718,7 +1718,7 @@ pub struct ITappedEventArgs2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AttachableInputObject(::windows_core::IUnknown);
 impl AttachableInputObject {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1746,7 +1746,7 @@ unsafe impl ::core::marker::Sync for AttachableInputObject {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CrossSlidingEventArgs(::windows_core::IUnknown);
 impl CrossSlidingEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1755,7 +1755,7 @@ impl CrossSlidingEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -1796,7 +1796,7 @@ impl ::windows_core::RuntimeName for CrossSlidingEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DraggingEventArgs(::windows_core::IUnknown);
 impl DraggingEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -1805,7 +1805,7 @@ impl DraggingEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -1846,7 +1846,7 @@ impl ::windows_core::RuntimeName for DraggingEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EdgeGesture(::windows_core::IUnknown);
 impl EdgeGesture {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Starting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1858,13 +1858,13 @@ impl EdgeGesture {
             (::windows_core::Interface::vtable(this).Starting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1876,13 +1876,13 @@ impl EdgeGesture {
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Canceled<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1894,7 +1894,7 @@ impl EdgeGesture {
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCanceled(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1997,7 +1997,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetShowGestureFeedback)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PivotCenter(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2006,7 +2006,7 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).PivotCenter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPivotCenter(&self, value: super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
@@ -2168,7 +2168,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).ProcessDownEvent)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProcessMoveEvents<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2199,7 +2199,7 @@ impl GestureRecognizer {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).CompleteGesture)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Tapped<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2211,13 +2211,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).Tapped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveTapped)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RightTapped<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2229,13 +2229,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).RightTapped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRightTapped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRightTapped)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Holding<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2247,13 +2247,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).Holding)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveHolding)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Dragging<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2265,13 +2265,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).Dragging)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDragging(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveDragging)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ManipulationStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2283,13 +2283,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).ManipulationStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveManipulationStarted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ManipulationUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2301,13 +2301,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).ManipulationUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveManipulationUpdated)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ManipulationInertiaStarting<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2319,13 +2319,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).ManipulationInertiaStarting)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationInertiaStarting(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveManipulationInertiaStarting)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ManipulationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2337,13 +2337,13 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).ManipulationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveManipulationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CrossSliding<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2355,7 +2355,7 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).CrossSliding)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCrossSliding(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2416,7 +2416,7 @@ impl GestureRecognizer {
         let this = &::windows_core::ComInterface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetHoldRadius)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn HoldStartDelay(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IGestureRecognizer2>(self)?;
@@ -2425,7 +2425,7 @@ impl GestureRecognizer {
             (::windows_core::Interface::vtable(this).HoldStartDelay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IGestureRecognizer2>(self)?;
@@ -2471,7 +2471,7 @@ impl ::windows_core::RuntimeName for GestureRecognizer {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HoldingEventArgs(::windows_core::IUnknown);
 impl HoldingEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -2480,7 +2480,7 @@ impl HoldingEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2528,7 +2528,7 @@ impl ::windows_core::RuntimeName for HoldingEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct InputActivationListener(::windows_core::IUnknown);
 impl InputActivationListener {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2541,7 +2541,7 @@ impl InputActivationListener {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn InputActivationChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2553,7 +2553,7 @@ impl InputActivationListener {
             (::windows_core::Interface::vtable(this).InputActivationChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInputActivationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2620,7 +2620,7 @@ impl KeyboardDeliveryInterceptor {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIsInterceptionEnabledWhenInForeground)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn KeyDown<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2632,13 +2632,13 @@ impl KeyboardDeliveryInterceptor {
             (::windows_core::Interface::vtable(this).KeyDown)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyDown(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveKeyDown)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`, `UI_Core`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"UI_Core\"`"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
     pub fn KeyUp<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2650,7 +2650,7 @@ impl KeyboardDeliveryInterceptor {
             (::windows_core::Interface::vtable(this).KeyUp)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveKeyUp(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -2687,7 +2687,7 @@ unsafe impl ::core::marker::Sync for KeyboardDeliveryInterceptor {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ManipulationCompletedEventArgs(::windows_core::IUnknown);
 impl ManipulationCompletedEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -2696,7 +2696,7 @@ impl ManipulationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2705,7 +2705,7 @@ impl ManipulationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Cumulative(&self) -> ::windows_core::Result<ManipulationDelta> {
         let this = self;
@@ -2714,7 +2714,7 @@ impl ManipulationCompletedEventArgs {
             (::windows_core::Interface::vtable(this).Cumulative)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Velocities(&self) -> ::windows_core::Result<ManipulationVelocities> {
         let this = self;
@@ -2755,7 +2755,7 @@ impl ::windows_core::RuntimeName for ManipulationCompletedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ManipulationInertiaStartingEventArgs(::windows_core::IUnknown);
 impl ManipulationInertiaStartingEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -2764,7 +2764,7 @@ impl ManipulationInertiaStartingEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2773,7 +2773,7 @@ impl ManipulationInertiaStartingEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delta(&self) -> ::windows_core::Result<ManipulationDelta> {
         let this = self;
@@ -2782,7 +2782,7 @@ impl ManipulationInertiaStartingEventArgs {
             (::windows_core::Interface::vtable(this).Delta)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Cumulative(&self) -> ::windows_core::Result<ManipulationDelta> {
         let this = self;
@@ -2791,7 +2791,7 @@ impl ManipulationInertiaStartingEventArgs {
             (::windows_core::Interface::vtable(this).Cumulative)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Velocities(&self) -> ::windows_core::Result<ManipulationVelocities> {
         let this = self;
@@ -2825,7 +2825,7 @@ impl ::windows_core::RuntimeName for ManipulationInertiaStartingEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ManipulationStartedEventArgs(::windows_core::IUnknown);
 impl ManipulationStartedEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -2834,7 +2834,7 @@ impl ManipulationStartedEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2843,7 +2843,7 @@ impl ManipulationStartedEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Cumulative(&self) -> ::windows_core::Result<ManipulationDelta> {
         let this = self;
@@ -2877,7 +2877,7 @@ impl ::windows_core::RuntimeName for ManipulationStartedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ManipulationUpdatedEventArgs(::windows_core::IUnknown);
 impl ManipulationUpdatedEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -2886,7 +2886,7 @@ impl ManipulationUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2895,7 +2895,7 @@ impl ManipulationUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Delta(&self) -> ::windows_core::Result<ManipulationDelta> {
         let this = self;
@@ -2904,7 +2904,7 @@ impl ManipulationUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).Delta)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Cumulative(&self) -> ::windows_core::Result<ManipulationDelta> {
         let this = self;
@@ -2913,7 +2913,7 @@ impl ManipulationUpdatedEventArgs {
             (::windows_core::Interface::vtable(this).Cumulative)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Velocities(&self) -> ::windows_core::Result<ManipulationVelocities> {
         let this = self;
@@ -2954,7 +2954,7 @@ impl ::windows_core::RuntimeName for ManipulationUpdatedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MouseWheelParameters(::windows_core::IUnknown);
 impl MouseWheelParameters {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CharTranslation(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -2963,7 +2963,7 @@ impl MouseWheelParameters {
             (::windows_core::Interface::vtable(this).CharTranslation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCharTranslation(&self, value: super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
@@ -2991,7 +2991,7 @@ impl MouseWheelParameters {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDeltaRotationAngle)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn PageTranslation(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -3000,7 +3000,7 @@ impl MouseWheelParameters {
             (::windows_core::Interface::vtable(this).PageTranslation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPageTranslation(&self, value: super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
@@ -3024,7 +3024,7 @@ impl ::windows_core::RuntimeName for MouseWheelParameters {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PointerPoint(::windows_core::IUnknown);
 impl PointerPoint {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDevice(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDevice> {
         let this = self;
@@ -3033,7 +3033,7 @@ impl PointerPoint {
             (::windows_core::Interface::vtable(this).PointerDevice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -3042,7 +3042,7 @@ impl PointerPoint {
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RawPosition(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -3092,7 +3092,7 @@ impl PointerPoint {
             (::windows_core::Interface::vtable(this).GetCurrentPoint)(::windows_core::Interface::as_raw(this), pointerid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePoints(pointerid: u32) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>> {
         Self::IPointerPointStatics(|this| unsafe {
@@ -3109,7 +3109,7 @@ impl PointerPoint {
             (::windows_core::Interface::vtable(this).GetCurrentPointTransformed)(::windows_core::Interface::as_raw(this), pointerid, transform.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePointsTransformed<P0>(pointerid: u32, transform: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<PointerPoint>>
     where
@@ -3192,7 +3192,7 @@ impl PointerPointProperties {
             (::windows_core::Interface::vtable(this).Twist)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ContactRect(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -3201,7 +3201,7 @@ impl PointerPointProperties {
             (::windows_core::Interface::vtable(this).ContactRect)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ContactRectRaw(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -3315,7 +3315,7 @@ impl PointerPointProperties {
             (::windows_core::Interface::vtable(this).GetUsageValue)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ZDistance(&self) -> ::windows_core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows_core::ComInterface::cast::<IPointerPointProperties2>(self)?;
@@ -3424,7 +3424,7 @@ impl RadialController {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetUseAutomaticHapticFeedback)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenContactStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3436,13 +3436,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ScreenContactStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenContactStarted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveScreenContactStarted)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenContactEnded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3454,13 +3454,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ScreenContactEnded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenContactEnded(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveScreenContactEnded)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenContactContinued<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3472,13 +3472,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ScreenContactContinued)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenContactContinued(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveScreenContactContinued)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ControlLost<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3490,13 +3490,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ControlLost)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveControlLost(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveControlLost)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RotationChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3508,13 +3508,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).RotationChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRotationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveRotationChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonClicked<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3526,13 +3526,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ButtonClicked)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveButtonClicked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ControlAcquired<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3544,13 +3544,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ControlAcquired)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveControlAcquired(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveControlAcquired)(::windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3562,13 +3562,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ButtonPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveButtonPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IRadialController2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveButtonPressed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHolding<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3580,13 +3580,13 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ButtonHolding)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveButtonHolding(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IRadialController2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).RemoveButtonHolding)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonReleased<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3598,7 +3598,7 @@ impl RadialController {
             (::windows_core::Interface::vtable(this).ButtonReleased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveButtonReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IRadialController2>(self)?;
@@ -3648,7 +3648,7 @@ impl RadialControllerButtonClickedEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerButtonClickedEventArgs2>(self)?;
@@ -3684,7 +3684,7 @@ impl RadialControllerButtonHoldingEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -3720,7 +3720,7 @@ impl RadialControllerButtonPressedEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -3756,7 +3756,7 @@ impl RadialControllerButtonReleasedEventArgs {
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -3785,7 +3785,7 @@ unsafe impl ::core::marker::Sync for RadialControllerButtonReleasedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RadialControllerConfiguration(::windows_core::IUnknown);
 impl RadialControllerConfiguration {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDefaultMenuItems<P0>(&self, buttons: P0) -> ::windows_core::Result<()>
     where
@@ -3901,7 +3901,7 @@ impl RadialControllerControlAcquiredEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
@@ -3930,7 +3930,7 @@ unsafe impl ::core::marker::Sync for RadialControllerControlAcquiredEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RadialControllerMenu(::windows_core::IUnknown);
 impl RadialControllerMenu {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<RadialControllerMenuItem>> {
         let this = self;
@@ -4012,7 +4012,7 @@ impl RadialControllerMenuItem {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTag)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Invoked<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4024,13 +4024,13 @@ impl RadialControllerMenuItem {
             (::windows_core::Interface::vtable(this).Invoked)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveInvoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromIcon<P0>(displaytext: &::windows_core::HSTRING, icon: P0) -> ::windows_core::Result<RadialControllerMenuItem>
     where
@@ -4053,7 +4053,7 @@ impl RadialControllerMenuItem {
             (::windows_core::Interface::vtable(this).CreateFromFontGlyph)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(glyph), ::core::mem::transmute_copy(fontfamily), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromFontGlyphWithUri<P0>(displaytext: &::windows_core::HSTRING, glyph: &::windows_core::HSTRING, fontfamily: &::windows_core::HSTRING, fonturi: P0) -> ::windows_core::Result<RadialControllerMenuItem>
     where
@@ -4115,7 +4115,7 @@ impl RadialControllerRotationChangedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
@@ -4144,7 +4144,7 @@ unsafe impl ::core::marker::Sync for RadialControllerRotationChangedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RadialControllerScreenContact(::windows_core::IUnknown);
 impl RadialControllerScreenContact {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Bounds(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -4153,7 +4153,7 @@ impl RadialControllerScreenContact {
             (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -4196,7 +4196,7 @@ impl RadialControllerScreenContactContinuedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
@@ -4232,7 +4232,7 @@ impl RadialControllerScreenContactEndedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = self;
@@ -4275,7 +4275,7 @@ impl RadialControllerScreenContactStartedEventArgs {
             (::windows_core::Interface::vtable(this).IsButtonPressed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Haptics`"]
+    #[doc = "Required features: `\"Devices_Haptics\"`"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
         let this = &::windows_core::ComInterface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
@@ -4304,7 +4304,7 @@ unsafe impl ::core::marker::Sync for RadialControllerScreenContactStartedEventAr
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RightTappedEventArgs(::windows_core::IUnknown);
 impl RightTappedEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -4313,7 +4313,7 @@ impl RightTappedEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -4347,13 +4347,13 @@ impl ::windows_core::RuntimeName for RightTappedEventArgs {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SystemButtonEventController(::windows_core::IUnknown);
 impl SystemButtonEventController {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemFunctionButtonPressed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4365,13 +4365,13 @@ impl SystemButtonEventController {
             (::windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemFunctionButtonPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSystemFunctionButtonPressed)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemFunctionButtonReleased<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4383,13 +4383,13 @@ impl SystemButtonEventController {
             (::windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemFunctionButtonReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSystemFunctionButtonReleased)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemFunctionLockChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4401,13 +4401,13 @@ impl SystemButtonEventController {
             (::windows_core::Interface::vtable(this).SystemFunctionLockChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemFunctionLockChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSystemFunctionLockChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SystemFunctionLockIndicatorChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4419,13 +4419,13 @@ impl SystemButtonEventController {
             (::windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSystemFunctionLockIndicatorChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `System`"]
+    #[doc = "Required features: `\"System\"`"]
     #[cfg(feature = "System")]
     pub fn CreateForDispatcherQueue<P0>(queue: P0) -> ::windows_core::Result<SystemButtonEventController>
     where
@@ -4592,7 +4592,7 @@ unsafe impl ::core::marker::Sync for SystemFunctionLockIndicatorChangedEventArgs
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TappedEventArgs(::windows_core::IUnknown);
 impl TappedEventArgs {
-    #[doc = "Required features: `Devices_Input`"]
+    #[doc = "Required features: `\"Devices_Input\"`"]
     #[cfg(feature = "Devices_Input")]
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
         let this = self;
@@ -4601,7 +4601,7 @@ impl TappedEventArgs {
             (::windows_core::Interface::vtable(this).PointerDeviceType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -5044,7 +5044,7 @@ impl ::core::default::Default for CrossSlideThresholds {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationDelta {
     pub Translation: super::super::Foundation::Point,
@@ -5089,7 +5089,7 @@ impl ::core::default::Default for ManipulationDelta {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationVelocities {
     pub Linear: super::super::Foundation::Point,

@@ -1,5 +1,5 @@
 #[cfg(feature = "UI_Text_Core")]
-#[doc = "Required features: `UI_Text_Core`"]
+#[doc = "Required features: `\"UI_Text_Core\"`"]
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
@@ -582,7 +582,7 @@ impl ITextDocument {
             (::windows_core::Interface::vtable(this).GetRange)(::windows_core::Interface::as_raw(this), startposition, endposition, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ::windows_core::Result<ITextRange> {
         let this = self;
@@ -595,7 +595,7 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -608,7 +608,7 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Redo)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1277,13 +1277,13 @@ impl ITextRange {
             (::windows_core::Interface::vtable(this).GetIndex)(::windows_core::Interface::as_raw(this), unit, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetPoint)(::windows_core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows_core::Result<()> {
         let this = self;
@@ -1293,7 +1293,7 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1312,7 +1312,7 @@ impl ITextRange {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -1378,7 +1378,7 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIndex)(::windows_core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -1392,7 +1392,7 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1753,13 +1753,13 @@ impl ITextSelection {
             (::windows_core::Interface::vtable(this).GetIndex)(::windows_core::Interface::as_raw(this), unit, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetPoint)(::windows_core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
@@ -1769,7 +1769,7 @@ impl ITextSelection {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1788,7 +1788,7 @@ impl ITextSelection {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -1854,7 +1854,7 @@ impl ITextSelection {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIndex)(::windows_core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
@@ -1868,7 +1868,7 @@ impl ITextSelection {
         let this = &::windows_core::ComInterface::cast::<ITextRange>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -1955,7 +1955,7 @@ impl ContentLinkInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSecondaryText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1964,7 +1964,7 @@ impl ContentLinkInfo {
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2206,7 +2206,7 @@ impl RichEditTextDocument {
             (::windows_core::Interface::vtable(this).GetRange)(::windows_core::Interface::as_raw(this), startposition, endposition, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ::windows_core::Result<ITextRange> {
         let this = self;
@@ -2219,7 +2219,7 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2232,7 +2232,7 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Redo)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2527,13 +2527,13 @@ impl RichEditTextRange {
             (::windows_core::Interface::vtable(this).GetIndex)(::windows_core::Interface::as_raw(this), unit, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetPoint)(::windows_core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows_core::Result<()> {
         let this = self;
@@ -2543,7 +2543,7 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetText)(::windows_core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<P0>(&self, options: TextGetOptions, value: P0) -> ::windows_core::Result<()>
     where
@@ -2562,7 +2562,7 @@ impl RichEditTextRange {
             (::windows_core::Interface::vtable(this).InRange)(::windows_core::Interface::as_raw(this), range.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<P0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows_core::HSTRING, value: P0) -> ::windows_core::Result<()>
     where
@@ -2628,7 +2628,7 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIndex)(::windows_core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows_core::Result<()> {
         let this = self;
@@ -2642,7 +2642,7 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetText2)(::windows_core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<P0>(&self, options: TextSetOptions, value: P0) -> ::windows_core::Result<()>
     where

@@ -1,8 +1,8 @@
 #[cfg(feature = "Win32_Graphics_Direct3D_Dxc")]
-#[doc = "Required features: `Win32_Graphics_Direct3D_Dxc`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D_Dxc\"`"]
 pub mod Dxc;
 #[cfg(feature = "Win32_Graphics_Direct3D_Fxc")]
-#[doc = "Required features: `Win32_Graphics_Direct3D_Fxc`"]
+#[doc = "Required features: `\"Win32_Graphics_Direct3D_Fxc\"`"]
 pub mod Fxc;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]

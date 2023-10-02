@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAccClientDocMgr_Impl: Sized {
     fn GetDocuments(&self) -> ::windows_core::Result<super::super::System::Com::IEnumUnknown>;
@@ -67,7 +67,7 @@ impl IAccClientDocMgr_Vtbl {
         *iid == <IAccClientDocMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAccDictionary_Impl: Sized {
     fn GetLocalizedString(&self, term: *const ::windows_core::GUID, lcid: u32, presult: *mut ::windows_core::BSTR, plcid: *mut u32) -> ::windows_core::Result<()>;
@@ -171,7 +171,7 @@ impl IAccServerDocMgr_Vtbl {
         *iid == <IAccServerDocMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait IAccStore_Impl: Sized {
     fn Register(&self, riid: *const ::windows_core::GUID, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
@@ -261,7 +261,7 @@ impl IAccStore_Vtbl {
         *iid == <IAccStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IAnchor_Impl: Sized {
     fn SetGravity(&self, gravity: TsGravity) -> ::windows_core::Result<()>;
@@ -408,7 +408,7 @@ impl IClonableWrapper_Vtbl {
         *iid == <IClonableWrapper as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICoCreateLocally_Impl: Sized {
     fn CoCreateLocally(&self, rclsid: *const ::windows_core::GUID, dwclscontext: u32, riid: *const ::windows_core::GUID, punk: *mut ::core::option::Option<::windows_core::IUnknown>, riidparam: *const ::windows_core::GUID, punkparam: ::core::option::Option<&::windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -429,7 +429,7 @@ impl ICoCreateLocally_Vtbl {
         *iid == <ICoCreateLocally as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICoCreatedLocally_Impl: Sized {
     fn LocalInit(&self, punklocalobject: ::core::option::Option<&::windows_core::IUnknown>, riidparam: *const ::windows_core::GUID, punkparam: ::core::option::Option<&::windows_core::IUnknown>, varparam: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -953,7 +953,7 @@ impl IEnumTfLangBarItems_Vtbl {
         *iid == <IEnumTfLangBarItems as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IEnumTfLanguageProfiles_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumTfLanguageProfiles>;
@@ -1098,7 +1098,7 @@ impl IEnumTfProperties_Vtbl {
         *iid == <IEnumTfProperties as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumTfPropertyValue_Impl: Sized {
     fn Clone(&self) -> ::windows_core::Result<IEnumTfPropertyValue>;
@@ -1293,7 +1293,7 @@ impl ISpeechCommandProvider_Vtbl {
         *iid == <ISpeechCommandProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreACP_Impl: Sized {
     fn AdviseSink(&self, riid: *const ::windows_core::GUID, punk: ::core::option::Option<&::windows_core::IUnknown>, dwmask: u32) -> ::windows_core::Result<()>;
@@ -1564,7 +1564,7 @@ impl ITextStoreACP_Vtbl {
         *iid == <ITextStoreACP as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreACP2_Impl: Sized {
     fn AdviseSink(&self, riid: *const ::windows_core::GUID, punk: ::core::option::Option<&::windows_core::IUnknown>, dwmask: u32) -> ::windows_core::Result<()>;
@@ -1822,7 +1822,7 @@ impl ITextStoreACP2_Vtbl {
         *iid == <ITextStoreACP2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITextStoreACPEx_Impl: Sized {
     fn ScrollToRect(&self, acpstart: i32, acpend: i32, rc: &super::super::Foundation::RECT, dwposition: u32) -> ::windows_core::Result<()>;
@@ -1843,7 +1843,7 @@ impl ITextStoreACPEx_Vtbl {
         *iid == <ITextStoreACPEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextStoreACPServices_Impl: Sized {
     fn Serialize(&self, pprop: ::core::option::Option<&ITfProperty>, prange: ::core::option::Option<&ITfRange>, phdr: *mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: ::core::option::Option<&super::super::System::Com::IStream>) -> ::windows_core::Result<()>;
@@ -1980,7 +1980,7 @@ impl ITextStoreACPSinkEx_Vtbl {
         *iid == <ITextStoreACPSinkEx as ::windows_core::ComInterface>::IID || *iid == <ITextStoreACPSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextStoreAnchor_Impl: Sized {
     fn AdviseSink(&self, riid: *const ::windows_core::GUID, punk: ::core::option::Option<&::windows_core::IUnknown>, dwmask: u32) -> ::windows_core::Result<()>;
@@ -2252,7 +2252,7 @@ impl ITextStoreAnchor_Vtbl {
         *iid == <ITextStoreAnchor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITextStoreAnchorEx_Impl: Sized {
     fn ScrollToRect(&self, pstart: ::core::option::Option<&IAnchor>, pend: ::core::option::Option<&IAnchor>, rc: &super::super::Foundation::RECT, dwposition: u32) -> ::windows_core::Result<()>;
@@ -2359,7 +2359,7 @@ impl ITextStoreSinkAnchorEx_Vtbl {
         *iid == <ITextStoreSinkAnchorEx as ::windows_core::ComInterface>::IID || *iid == <ITextStoreAnchorSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfActiveLanguageProfileNotifySink_Impl: Sized {
     fn OnActivated(&self, clsid: *const ::windows_core::GUID, guidprofile: *const ::windows_core::GUID, factivated: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -2439,7 +2439,7 @@ impl ITfCandidateList_Vtbl {
         *iid == <ITfCandidateList as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfCandidateListUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetUpdatedFlags(&self) -> ::windows_core::Result<u32>;
@@ -2548,7 +2548,7 @@ impl ITfCandidateListUIElement_Vtbl {
         *iid == <ITfCandidateListUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfCandidateListUIElementBehavior_Impl: Sized + ITfCandidateListUIElement_Impl {
     fn SetSelection(&self, nindex: u32) -> ::windows_core::Result<()>;
@@ -2625,7 +2625,7 @@ impl ITfCandidateString_Vtbl {
         *iid == <ITfCandidateString as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfCategoryMgr_Impl: Sized {
     fn RegisterCategory(&self, rclsid: *const ::windows_core::GUID, rcatid: *const ::windows_core::GUID, rguid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -2849,7 +2849,7 @@ impl ITfClientId_Vtbl {
         *iid == <ITfClientId as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfCompartment_Impl: Sized {
     fn SetValue(&self, tid: u32, pvarvalue: *const super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
@@ -2903,7 +2903,7 @@ impl ITfCompartmentEventSink_Vtbl {
         *iid == <ITfCompartmentEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfCompartmentMgr_Impl: Sized {
     fn GetCompartment(&self, rguid: *const ::windows_core::GUID) -> ::windows_core::Result<ITfCompartment>;
@@ -3083,7 +3083,7 @@ impl ITfConfigureSystemKeystrokeFeed_Vtbl {
         *iid == <ITfConfigureSystemKeystrokeFeed as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContext_Impl: Sized {
     fn RequestEditSession(&self, tid: u32, pes: ::core::option::Option<&ITfEditSession>, dwflags: TF_CONTEXT_EDIT_CONTEXT_FLAGS) -> ::windows_core::Result<::windows_core::HRESULT>;
@@ -3348,7 +3348,7 @@ impl ITfContextComposition_Vtbl {
         *iid == <ITfContextComposition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContextKeyEventSink_Impl: Sized {
     fn OnKeyDown(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3417,7 +3417,7 @@ impl ITfContextKeyEventSink_Vtbl {
         *iid == <ITfContextKeyEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfContextOwner_Impl: Sized {
     fn GetACPFromPoint(&self, ptscreen: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows_core::Result<i32>;
@@ -3523,7 +3523,7 @@ impl ITfContextOwnerCompositionServices_Vtbl {
         *iid == <ITfContextOwnerCompositionServices as ::windows_core::ComInterface>::IID || *iid == <ITfContextComposition as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContextOwnerCompositionSink_Impl: Sized {
     fn OnStartComposition(&self, pcomposition: ::core::option::Option<&ITfCompositionView>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3567,7 +3567,7 @@ impl ITfContextOwnerCompositionSink_Vtbl {
         *iid == <ITfContextOwnerCompositionSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfContextOwnerServices_Impl: Sized {
     fn OnLayoutChange(&self) -> ::windows_core::Result<()>;
@@ -3639,7 +3639,7 @@ impl ITfContextOwnerServices_Vtbl {
         *iid == <ITfContextOwnerServices as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfContextView_Impl: Sized {
     fn GetRangeFromPoint(&self, ec: u32, ppt: *const super::super::Foundation::POINT, dwflags: u32) -> ::windows_core::Result<ITfRange>;
@@ -3702,7 +3702,7 @@ impl ITfContextView_Vtbl {
         *iid == <ITfContextView as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfCreatePropertyStore_Impl: Sized {
     fn IsStoreSerializable(&self, guidprop: *const ::windows_core::GUID, prange: ::core::option::Option<&ITfRange>, ppropstore: ::core::option::Option<&ITfPropertyStore>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -3745,7 +3745,7 @@ impl ITfCreatePropertyStore_Vtbl {
         *iid == <ITfCreatePropertyStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfDisplayAttributeInfo_Impl: Sized {
     fn GetGUID(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -3978,7 +3978,7 @@ impl ITfDocumentMgr_Vtbl {
         *iid == <ITfDocumentMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfEditRecord_Impl: Sized {
     fn GetSelectionStatus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -4109,7 +4109,7 @@ impl ITfFnBalloon_Vtbl {
         *iid == <ITfFnBalloon as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigure_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -4130,7 +4130,7 @@ impl ITfFnConfigure_Vtbl {
         *iid == <ITfFnConfigure as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigureRegisterEudc_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows_core::GUID, bstrregistered: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4151,7 +4151,7 @@ impl ITfFnConfigureRegisterEudc_Vtbl {
         *iid == <ITfFnConfigureRegisterEudc as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnConfigureRegisterWord_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND, langid: u16, rguidprofile: *const ::windows_core::GUID, bstrregistered: &::windows_core::BSTR) -> ::windows_core::Result<()>;
@@ -4252,7 +4252,7 @@ impl ITfFnGetSAPIObject_Vtbl {
         *iid == <ITfFnGetSAPIObject as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnLMInternal_Impl: Sized + ITfFnLMProcessor_Impl {
     fn ProcessLattice(&self, prange: ::core::option::Option<&ITfRange>) -> ::windows_core::Result<()>;
@@ -4273,7 +4273,7 @@ impl ITfFnLMInternal_Vtbl {
         *iid == <ITfFnLMInternal as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID || *iid == <ITfFnLMProcessor as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnLMProcessor_Impl: Sized + ITfFunction_Impl {
     fn QueryRange(&self, prange: ::core::option::Option<&ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfaccepted: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4357,7 +4357,7 @@ impl ITfFnLMProcessor_Vtbl {
         *iid == <ITfFnLMProcessor as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnLangProfileUtil_Impl: Sized + ITfFunction_Impl {
     fn RegisterActiveProfiles(&self) -> ::windows_core::Result<()>;
@@ -4394,7 +4394,7 @@ impl ITfFnLangProfileUtil_Vtbl {
         *iid == <ITfFnLangProfileUtil as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnPlayBack_Impl: Sized + ITfFunction_Impl {
     fn QueryRange(&self, prange: ::core::option::Option<&ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfplayable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4458,7 +4458,7 @@ impl ITfFnPropertyUIStatus_Vtbl {
         *iid == <ITfFnPropertyUIStatus as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnReconversion_Impl: Sized + ITfFunction_Impl {
     fn QueryRange(&self, prange: ::core::option::Option<&ITfRange>, ppnewrange: *mut ::core::option::Option<ITfRange>, pfconvertable: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -4535,7 +4535,7 @@ impl ITfFnSearchCandidateProvider_Vtbl {
         *iid == <ITfFnSearchCandidateProvider as ::windows_core::ComInterface>::IID || *iid == <ITfFunction as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfFnShowHelp_Impl: Sized + ITfFunction_Impl {
     fn Show(&self, hwndparent: super::super::Foundation::HWND) -> ::windows_core::Result<()>;
@@ -4648,7 +4648,7 @@ impl ITfInputProcessorProfileActivationSink_Vtbl {
         *iid == <ITfInputProcessorProfileActivationSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfInputProcessorProfileMgr_Impl: Sized {
     fn ActivateProfile(&self, dwprofiletype: u32, langid: u16, clsid: *const ::windows_core::GUID, guidprofile: *const ::windows_core::GUID, hkl: HKL, dwflags: u32) -> ::windows_core::Result<()>;
@@ -4767,7 +4767,7 @@ impl ITfInputProcessorProfileSubstituteLayout_Vtbl {
         *iid == <ITfInputProcessorProfileSubstituteLayout as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfInputProcessorProfiles_Impl: Sized {
     fn Register(&self, rclsid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -4940,7 +4940,7 @@ impl ITfInputProcessorProfiles_Vtbl {
         *iid == <ITfInputProcessorProfiles as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfInputProcessorProfilesEx_Impl: Sized + ITfInputProcessorProfiles_Impl {
     fn SetLanguageProfileDisplayName(&self, rclsid: *const ::windows_core::GUID, langid: u16, guidprofile: *const ::windows_core::GUID, pchfile: &::windows_core::PCWSTR, cchfile: u32, uresid: u32) -> ::windows_core::Result<()>;
@@ -5030,7 +5030,7 @@ impl ITfInputScope_Vtbl {
         *iid == <ITfInputScope as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfInputScope2_Impl: Sized + ITfInputScope_Impl {
     fn EnumWordList(&self) -> ::windows_core::Result<super::super::System::Com::IEnumString>;
@@ -5057,7 +5057,7 @@ impl ITfInputScope2_Vtbl {
         *iid == <ITfInputScope2 as ::windows_core::ComInterface>::IID || *iid == <ITfInputScope as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfInsertAtSelection_Impl: Sized {
     fn InsertTextAtSelection(&self, ec: u32, dwflags: INSERT_TEXT_AT_SELECTION_FLAGS, pchtext: &::windows_core::PCWSTR, cch: i32) -> ::windows_core::Result<ITfRange>;
@@ -5100,7 +5100,7 @@ impl ITfInsertAtSelection_Vtbl {
         *iid == <ITfInsertAtSelection as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfIntegratableCandidateListUIElement_Impl: Sized {
     fn SetIntegrationStyle(&self, guidintegrationstyle: &::windows_core::GUID) -> ::windows_core::Result<()>;
@@ -5170,7 +5170,7 @@ impl ITfIntegratableCandidateListUIElement_Vtbl {
         *iid == <ITfIntegratableCandidateListUIElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfKeyEventSink_Impl: Sized {
     fn OnSetFocus(&self, fforeground: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -5259,7 +5259,7 @@ impl ITfKeyEventSink_Vtbl {
         *iid == <ITfKeyEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfKeyTraceEventSink_Impl: Sized {
     fn OnKeyTraceDown(&self, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
@@ -5290,7 +5290,7 @@ impl ITfKeyTraceEventSink_Vtbl {
         *iid == <ITfKeyTraceEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfKeystrokeMgr_Impl: Sized {
     fn AdviseKeyEventSink(&self, tid: u32, psink: ::core::option::Option<&ITfKeyEventSink>, fforeground: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -5459,7 +5459,7 @@ impl ITfKeystrokeMgr_Vtbl {
         *iid == <ITfKeystrokeMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLMLattice_Impl: Sized {
     fn QueryType(&self, rguidtype: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -5502,7 +5502,7 @@ impl ITfLMLattice_Vtbl {
         *iid == <ITfLMLattice as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarEventSink_Impl: Sized {
     fn OnSetFocus(&self, dwthreadid: u32) -> ::windows_core::Result<()>;
@@ -5567,7 +5567,7 @@ impl ITfLangBarEventSink_Vtbl {
         *iid == <ITfLangBarEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarItem_Impl: Sized {
     fn GetInfo(&self, pinfo: *mut TF_LANGBARITEMINFO) -> ::windows_core::Result<()>;
@@ -5624,7 +5624,7 @@ impl ITfLangBarItem_Vtbl {
         *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarItemBalloon_Impl: Sized + ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -5674,7 +5674,7 @@ impl ITfLangBarItemBalloon_Vtbl {
         *iid == <ITfLangBarItemBalloon as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait ITfLangBarItemBitmap_Impl: Sized + ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -5718,7 +5718,7 @@ impl ITfLangBarItemBitmap_Vtbl {
         *iid == <ITfLangBarItemBitmap as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait ITfLangBarItemBitmapButton_Impl: Sized + ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -5789,7 +5789,7 @@ impl ITfLangBarItemBitmapButton_Vtbl {
         *iid == <ITfLangBarItemBitmapButton as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITfLangBarItemButton_Impl: Sized + ITfLangBarItem_Impl {
     fn OnClick(&self, click: TfLBIClick, pt: &super::super::Foundation::POINT, prcarea: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;
@@ -5853,7 +5853,7 @@ impl ITfLangBarItemButton_Vtbl {
         *iid == <ITfLangBarItemButton as ::windows_core::ComInterface>::IID || *iid == <ITfLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarItemMgr_Impl: Sized {
     fn EnumItems(&self) -> ::windows_core::Result<IEnumTfLangBarItems>;
@@ -5995,7 +5995,7 @@ impl ITfLangBarItemSink_Vtbl {
         *iid == <ITfLangBarItemSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLangBarMgr_Impl: Sized {
     fn AdviseEventSink(&self, psink: ::core::option::Option<&ITfLangBarEventSink>, hwnd: super::super::Foundation::HWND, dwflags: u32, pdwcookie: *const u32) -> ::windows_core::Result<()>;
@@ -6087,7 +6087,7 @@ impl ITfLangBarMgr_Vtbl {
         *iid == <ITfLangBarMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfLanguageProfileNotifySink_Impl: Sized {
     fn OnLanguageChange(&self, langid: u16) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -6151,7 +6151,7 @@ impl ITfMSAAControl_Vtbl {
         *iid == <ITfMSAAControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait ITfMenu_Impl: Sized {
     fn AddMenuItem(&self, uid: u32, dwflags: u32, hbmp: super::super::Graphics::Gdi::HBITMAP, hbmpmask: super::super::Graphics::Gdi::HBITMAP, pch: &::windows_core::PCWSTR, cch: u32, ppmenu: *mut ::core::option::Option<ITfMenu>) -> ::windows_core::Result<()>;
@@ -6172,7 +6172,7 @@ impl ITfMenu_Vtbl {
         *iid == <ITfMenu as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ITfMessagePump_Impl: Sized {
     fn PeekMessageA(&self, pmsg: *mut super::WindowsAndMessaging::MSG, hwnd: super::super::Foundation::HWND, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -6217,7 +6217,7 @@ impl ITfMessagePump_Vtbl {
         *iid == <ITfMessagePump as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfMouseSink_Impl: Sized {
     fn OnMouseEvent(&self, uedge: u32, uquadrant: u32, dwbtnstatus: u32) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -6310,7 +6310,7 @@ impl ITfMouseTrackerACP_Vtbl {
         *iid == <ITfMouseTrackerACP as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITfPersistentPropertyLoaderACP_Impl: Sized {
     fn LoadProperty(&self, phdr: *const TF_PERSISTENT_PROPERTY_HEADER_ACP) -> ::windows_core::Result<super::super::System::Com::IStream>;
@@ -6354,7 +6354,7 @@ impl ITfPreservedKeyNotifySink_Vtbl {
         *iid == <ITfPreservedKeyNotifySink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfProperty_Impl: Sized + ITfReadOnlyProperty_Impl {
     fn FindRange(&self, ec: u32, prange: ::core::option::Option<&ITfRange>, pprange: *mut ::core::option::Option<ITfRange>, apos: TfAnchor) -> ::windows_core::Result<()>;
@@ -6399,7 +6399,7 @@ impl ITfProperty_Vtbl {
         *iid == <ITfProperty as ::windows_core::ComInterface>::IID || *iid == <ITfReadOnlyProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfPropertyStore_Impl: Sized {
     fn GetType(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -6533,7 +6533,7 @@ impl ITfPropertyStore_Vtbl {
         *iid == <ITfPropertyStore as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfQueryEmbedded_Impl: Sized {
     fn QueryInsertEmbedded(&self, pguidservice: *const ::windows_core::GUID, pformatetc: *const super::super::System::Com::FORMATETC) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -6560,7 +6560,7 @@ impl ITfQueryEmbedded_Vtbl {
         *iid == <ITfQueryEmbedded as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfRange_Impl: Sized {
     fn GetText(&self, ec: u32, dwflags: u32, pchtext: ::windows_core::PWSTR, cchmax: u32, pcch: *mut u32) -> ::windows_core::Result<()>;
@@ -6803,7 +6803,7 @@ impl ITfRange_Vtbl {
         *iid == <ITfRange as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub trait ITfRangeACP_Impl: Sized + ITfRange_Impl {
     fn GetExtent(&self, pacpanchor: *mut i32, pcch: *mut i32) -> ::windows_core::Result<()>;
@@ -6851,7 +6851,7 @@ impl ITfRangeBackup_Vtbl {
         *iid == <ITfRangeBackup as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITfReadOnlyProperty_Impl: Sized {
     fn GetType(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -6914,7 +6914,7 @@ impl ITfReadOnlyProperty_Vtbl {
         *iid == <ITfReadOnlyProperty as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfReadingInformationUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetUpdatedFlags(&self) -> ::windows_core::Result<u32>;
@@ -7154,7 +7154,7 @@ impl ITfSourceSingle_Vtbl {
         *iid == <ITfSourceSingle as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfSpeechUIServer_Impl: Sized {
     fn Initialize(&self) -> ::windows_core::Result<()>;
@@ -7242,7 +7242,7 @@ impl ITfSystemDeviceTypeLangBarItem_Vtbl {
         *iid == <ITfSystemDeviceTypeLangBarItem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub trait ITfSystemLangBarItem_Impl: Sized {
     fn SetIcon(&self, hicon: super::WindowsAndMessaging::HICON) -> ::windows_core::Result<()>;
@@ -7438,7 +7438,7 @@ impl ITfThreadFocusSink_Vtbl {
         *iid == <ITfThreadFocusSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfThreadMgr_Impl: Sized {
     fn Activate(&self) -> ::windows_core::Result<u32>;
@@ -7586,7 +7586,7 @@ impl ITfThreadMgr_Vtbl {
         *iid == <ITfThreadMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfThreadMgr2_Impl: Sized {
     fn Activate(&self) -> ::windows_core::Result<u32>;
@@ -7803,7 +7803,7 @@ impl ITfThreadMgrEventSink_Vtbl {
         *iid == <ITfThreadMgrEventSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfThreadMgrEx_Impl: Sized + ITfThreadMgr_Impl {
     fn ActivateEx(&self, ptid: *mut u32, dwflags: u32) -> ::windows_core::Result<()>;
@@ -7840,7 +7840,7 @@ impl ITfThreadMgrEx_Vtbl {
         *iid == <ITfThreadMgrEx as ::windows_core::ComInterface>::IID || *iid == <ITfThreadMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfToolTipUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetString(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7867,7 +7867,7 @@ impl ITfToolTipUIElement_Vtbl {
         *iid == <ITfToolTipUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfTransitoryExtensionSink_Impl: Sized {
     fn OnTransitoryExtensionUpdated(&self, pic: ::core::option::Option<&ITfContext>, ecreadonly: u32, presultrange: ::core::option::Option<&ITfRange>, pcompositionrange: ::core::option::Option<&ITfRange>) -> ::windows_core::Result<super::super::Foundation::BOOL>;
@@ -7897,7 +7897,7 @@ impl ITfTransitoryExtensionSink_Vtbl {
         *iid == <ITfTransitoryExtensionSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfTransitoryExtensionUIElement_Impl: Sized + ITfUIElement_Impl {
     fn GetDocumentMgr(&self) -> ::windows_core::Result<ITfDocumentMgr>;
@@ -7924,7 +7924,7 @@ impl ITfTransitoryExtensionUIElement_Vtbl {
         *iid == <ITfTransitoryExtensionUIElement as ::windows_core::ComInterface>::IID || *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfUIElement_Impl: Sized {
     fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -7987,7 +7987,7 @@ impl ITfUIElement_Vtbl {
         *iid == <ITfUIElement as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfUIElementMgr_Impl: Sized {
     fn BeginUIElement(&self, pelement: ::core::option::Option<&ITfUIElement>, pbshow: *mut super::super::Foundation::BOOL, pdwuielementid: *mut u32) -> ::windows_core::Result<()>;
@@ -8051,7 +8051,7 @@ impl ITfUIElementMgr_Vtbl {
         *iid == <ITfUIElementMgr as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ITfUIElementSink_Impl: Sized {
     fn BeginUIElement(&self, dwuielementid: u32, pbshow: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -8089,7 +8089,7 @@ impl ITfUIElementSink_Vtbl {
         *iid == <ITfUIElementSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IUIManagerEventSink_Impl: Sized {
     fn OnWindowOpening(&self, prcbounds: *const super::super::Foundation::RECT) -> ::windows_core::Result<()>;

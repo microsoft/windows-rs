@@ -249,7 +249,7 @@ impl PrintTicketCapabilities {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -411,7 +411,7 @@ impl PrintTicketFeature {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -434,7 +434,7 @@ impl PrintTicketFeature {
             (::windows_core::Interface::vtable(this).GetOption)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>> {
         let this = self;
@@ -498,7 +498,7 @@ impl PrintTicketOption {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -514,7 +514,7 @@ impl PrintTicketOption {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetPropertyNode(&self, name: &::windows_core::HSTRING, xmlnamespace: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -523,7 +523,7 @@ impl PrintTicketOption {
             (::windows_core::Interface::vtable(this).GetPropertyNode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn GetScoredPropertyNode(&self, name: &::windows_core::HSTRING, xmlnamespace: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -580,7 +580,7 @@ impl PrintTicketParameterDefinition {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -651,7 +651,7 @@ impl PrintTicketParameterInitializer {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -749,7 +749,7 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).XmlNamespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Data_Xml_Dom`"]
+    #[doc = "Required features: `\"Data_Xml_Dom\"`"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn XmlNode(&self) -> ::windows_core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
@@ -877,7 +877,7 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).GetFeature)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn NotifyXmlChangedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -886,7 +886,7 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).NotifyXmlChangedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ValidateAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>> {
         let this = self;

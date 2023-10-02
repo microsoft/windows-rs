@@ -115,7 +115,7 @@ impl IDot11AdHocInterfaceNotificationSink_Vtbl {
         *iid == <IDot11AdHocInterfaceNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocManager_Impl: Sized {
     fn CreateNetwork(&self, name: &::windows_core::PCWSTR, password: &::windows_core::PCWSTR, geographicalid: i32, pinterface: ::core::option::Option<&IDot11AdHocInterface>, psecurity: ::core::option::Option<&IDot11AdHocSecuritySettings>, pcontextguid: *const ::windows_core::GUID) -> ::windows_core::Result<IDot11AdHocNetwork>;
@@ -232,7 +232,7 @@ impl IDot11AdHocManagerNotificationSink_Vtbl {
         *iid == <IDot11AdHocManagerNotificationSink as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDot11AdHocNetwork_Impl: Sized {
     fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::Result<()>;

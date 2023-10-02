@@ -11,7 +11,7 @@ impl IADesktopP2 {
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).UpdateAllDesktopSubscriptions)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_System_Ole`"]
+    #[doc = "Required features: `\"Win32_System_Ole\"`"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn MakeDynamicChanges<P0>(&self, poleobj: P0) -> ::windows_core::Result<()>
     where
@@ -79,7 +79,7 @@ pub struct IActiveDesktopP_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBriefcaseInitiator(::windows_core::IUnknown);
 impl IBriefcaseInitiator {
-    #[doc = "Required features: `Win32_System_Com`"]
+    #[doc = "Required features: `\"Win32_System_Com\"`"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsMonikerInBriefcase<P0>(&self, pmk: P0) -> ::windows_core::Result<()>
     where
@@ -108,7 +108,7 @@ pub struct IBriefcaseInitiator_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmptyVolumeCache(::windows_core::IUnknown);
 impl IEmptyVolumeCache {
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: *mut ::windows_core::PWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::Result<()>
     where
@@ -129,7 +129,7 @@ impl IEmptyVolumeCache {
     {
         (::windows_core::Interface::vtable(self).Purge)(::windows_core::Interface::as_raw(self), dwlspacetofree, picb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -169,7 +169,7 @@ pub struct IEmptyVolumeCache_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmptyVolumeCache2(::windows_core::IUnknown);
 impl IEmptyVolumeCache2 {
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: *mut ::windows_core::PWSTR, ppwszdescription: *mut ::windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::Result<()>
     where
@@ -190,7 +190,7 @@ impl IEmptyVolumeCache2 {
     {
         (::windows_core::Interface::vtable(self).base__.Purge)(::windows_core::Interface::as_raw(self), dwlspacetofree, picb.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<P0>(&self, hwnd: P0) -> ::windows_core::Result<()>
     where
@@ -202,7 +202,7 @@ impl IEmptyVolumeCache2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Deactivate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_System_Registry`"]
+    #[doc = "Required features: `\"Win32_System_Registry\"`"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn InitializeEx<P0, P1, P2>(&self, hkregkey: P0, pcwszvolume: P1, pcwszkeyname: P2, ppwszdisplayname: *mut ::windows_core::PWSTR, ppwszdescription: *mut ::windows_core::PWSTR, ppwszbtntext: *mut ::windows_core::PWSTR, pdwflags: *mut EMPTY_VOLUME_CACHE_FLAGS) -> ::windows_core::Result<()>
     where
@@ -264,7 +264,7 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReconcilableObject(::windows_core::IUnknown);
 impl IReconcilableObject {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Reconcile<P0, P1, P2, P3>(&self, pinitiator: P0, dwflags: u32, hwndowner: P1, hwndprogressfeedback: P2, rgpmkotherinput: &mut [::core::option::Option<super::super::System::Com::IMoniker>], ploutindex: *mut i32, pstgnewresidues: P3, pvreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<()>
     where

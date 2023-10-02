@@ -1,4 +1,4 @@
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IPointerPointTransform_Impl: Sized {
     fn Inverse(&self) -> ::windows_core::Result<IPointerPointTransform>;

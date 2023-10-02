@@ -39,7 +39,7 @@ impl ISceSvcAttachmentData_Vtbl {
         *iid == <ISceSvcAttachmentData as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait ISceSvcAttachmentPersistInfo_Impl: Sized {
     fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>;

@@ -148,28 +148,28 @@ pub const DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1: u32 = 1u32;
 pub const DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1: u32 = 1u32;
 pub const DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: u32 = 1u32;
 pub const DEVICE_STORAGE_NO_ERRORS: u32 = 1u32;
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Disk_Number: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Gpt_Name: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Gpt_Type: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Mbr_Type: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Partition_Number: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Portable: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_Removable_Media: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3 };
-#[doc = "Required features: `Win32_Devices_Properties`"]
+#[doc = "Required features: `\"Win32_Devices_Properties\"`"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_Storage_System_Critical: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4 };
 pub const DISABLE_SMART: u32 = 217u32;
@@ -4311,7 +4311,7 @@ impl ::core::default::Default for CHANGER_ELEMENT_STATUS_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
@@ -4354,7 +4354,7 @@ impl ::core::default::Default for CHANGER_EXCHANGE_MEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
@@ -4393,7 +4393,7 @@ impl ::core::default::Default for CHANGER_INITIALIZE_ELEMENT_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
@@ -4467,7 +4467,7 @@ impl ::core::default::Default for CHANGER_PRODUCT_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
@@ -4567,7 +4567,7 @@ impl ::core::default::Default for CHANGER_SET_ACCESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
@@ -4912,7 +4912,7 @@ impl ::core::default::Default for CSV_CONTROL_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSV_IS_OWNED_BY_CSVFS {
     pub OwnedByCSVFS: super::super::Foundation::BOOLEAN,
@@ -5041,7 +5041,7 @@ impl ::core::default::Default for CSV_QUERY_FILE_REVISION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CSV_QUERY_FILE_REVISION_FILE_ID_128 {
     pub FileId: super::super::Storage::FileSystem::FILE_ID_128,
@@ -5151,7 +5151,7 @@ impl ::core::default::Default for CSV_QUERY_MDS_PATH_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
@@ -5251,7 +5251,7 @@ impl ::core::default::Default for CSV_QUERY_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
@@ -5322,7 +5322,7 @@ impl ::core::default::Default for CSV_SET_VOLUME_ID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DECRYPTION_STATUS_BUFFER {
     pub NoEncryptedStreams: super::super::Foundation::BOOLEAN,
@@ -6037,7 +6037,7 @@ impl ::core::default::Default for DEVICE_DSM_CONVERSION_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
@@ -6344,7 +6344,7 @@ impl ::core::default::Default for DEVICE_DSM_RANGE_ERROR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_DSM_REPORT_ZONES_DATA {
     pub Size: u32,
@@ -6749,7 +6749,7 @@ impl ::core::default::Default for DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO {
     pub DeviceSpecific: DEVICE_MEDIA_INFO_0,
@@ -6773,7 +6773,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub union DEVICE_MEDIA_INFO_0 {
     pub DiskInfo: DEVICE_MEDIA_INFO_0_0,
@@ -6799,7 +6799,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: i64,
@@ -6843,7 +6843,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: i64,
@@ -6887,7 +6887,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_2 {
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -6915,7 +6915,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
@@ -6939,7 +6939,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
@@ -6978,7 +6978,7 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
@@ -7036,7 +7036,7 @@ impl ::core::default::Default for DEVICE_POWER_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
@@ -7174,7 +7174,7 @@ impl ::core::default::Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
@@ -7214,7 +7214,7 @@ impl ::core::default::Default for DEVICE_TRIM_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
@@ -7254,7 +7254,7 @@ impl ::core::default::Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION {
     pub ParametersSavable: super::super::Foundation::BOOLEAN,
@@ -7285,7 +7285,7 @@ impl ::core::default::Default for DISK_CACHE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
@@ -7310,7 +7310,7 @@ impl ::core::default::Default for DISK_CACHE_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
@@ -7349,7 +7349,7 @@ impl ::core::default::Default for DISK_CACHE_INFORMATION_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
@@ -7902,7 +7902,7 @@ impl ::core::default::Default for DISK_PERFORMANCE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISK_RECORD {
     pub ByteOffset: i64,
@@ -7967,7 +7967,7 @@ impl ::core::default::Default for DRIVERSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRIVE_LAYOUT_INFORMATION {
     pub PartitionCount: u32,
@@ -8007,7 +8007,7 @@ impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRIVE_LAYOUT_INFORMATION_EX {
     pub PartitionStyle: u32,
@@ -8034,7 +8034,7 @@ impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
@@ -8121,7 +8121,7 @@ impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_MBR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUPLICATE_EXTENTS_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -8202,7 +8202,7 @@ impl ::core::default::Default for DUPLICATE_EXTENTS_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUPLICATE_EXTENTS_DATA_EX {
     pub Size: usize,
@@ -8998,7 +8998,7 @@ impl ::core::default::Default for FILE_LEVEL_TRIM_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
     pub CloseDisc: super::super::Foundation::BOOLEAN,
@@ -9280,7 +9280,7 @@ impl ::core::default::Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
@@ -9447,7 +9447,7 @@ impl ::core::default::Default for FILE_REGION_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
     pub Disable: super::super::Foundation::BOOLEAN,
@@ -9485,7 +9485,7 @@ impl ::core::default::Default for FILE_SET_DEFECT_MGMT_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_SET_SPARSE_BUFFER {
     pub SetSparse: super::super::Foundation::BOOLEAN,
@@ -9710,7 +9710,7 @@ impl ::core::default::Default for FILE_ZERO_DATA_INFORMATION_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Security\"`"]
 #[cfg(feature = "Win32_Security")]
 pub struct FIND_BY_SID_DATA {
     pub Restart: u32,
@@ -10638,7 +10638,7 @@ impl ::core::default::Default for GET_LENGTH_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct GET_MEDIA_TYPES {
     pub DeviceType: u32,
@@ -10927,7 +10927,7 @@ impl ::core::default::Default for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MARK_HANDLE_INFO {
     pub Anonymous: MARK_HANDLE_INFO_0,
@@ -10953,7 +10953,7 @@ impl ::core::default::Default for MARK_HANDLE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
@@ -11091,7 +11091,7 @@ impl ::core::default::Default for MFT_ENUM_DATA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_FILE_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -11172,7 +11172,7 @@ impl ::core::default::Default for MOVE_FILE_DATA32 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_FILE_RECORD_DATA {
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -12074,7 +12074,7 @@ impl ::core::default::Default for NTFS_VOLUME_DATA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION {
     pub StartingOffset: i64,
@@ -12119,7 +12119,7 @@ impl ::core::default::Default for PARTITION_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION_EX {
     pub PartitionStyle: PARTITION_STYLE,
@@ -12149,7 +12149,7 @@ impl ::core::default::Default for PARTITION_INFORMATION_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
@@ -12206,7 +12206,7 @@ impl ::core::default::Default for PARTITION_INFORMATION_GPT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
@@ -12545,7 +12545,7 @@ impl ::core::default::Default for PLEX_READ_DATA_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PREVENT_MEDIA_REMOVAL {
     pub PreventMediaRemoval: super::super::Foundation::BOOLEAN,
@@ -13614,7 +13614,7 @@ impl ::core::default::Default for SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
     pub ActivateState: super::super::Foundation::BOOLEAN,
@@ -13718,7 +13718,7 @@ impl ::core::default::Default for SCM_BUS_PROPERTY_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
@@ -13774,7 +13774,7 @@ impl ::core::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
@@ -14705,7 +14705,7 @@ impl ::core::default::Default for SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
     pub ArmState: super::super::Foundation::BOOLEAN,
@@ -15306,7 +15306,7 @@ impl ::core::default::Default for SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
@@ -15689,7 +15689,7 @@ impl ::core::default::Default for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub Version: u32,
@@ -15786,7 +15786,7 @@ impl ::core::default::Default for STORAGE_ADAPTER_SERIAL_NUMBER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
@@ -16172,7 +16172,7 @@ impl ::core::default::Default for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_FileSystem\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Version: u32,
@@ -16605,7 +16605,7 @@ impl ::core::default::Default for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
@@ -16645,7 +16645,7 @@ impl ::core::default::Default for STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
@@ -16849,7 +16849,7 @@ impl ::core::default::Default for STORAGE_EVENT_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
@@ -16957,7 +16957,7 @@ impl ::core::default::Default for STORAGE_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
@@ -17200,7 +17200,7 @@ impl ::core::default::Default for STORAGE_HW_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_HW_FIRMWARE_INFO {
     pub Version: u32,
@@ -17521,7 +17521,7 @@ impl ::core::default::Default for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
@@ -17554,7 +17554,7 @@ impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
@@ -17579,7 +17579,7 @@ impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
@@ -17843,7 +17843,7 @@ impl ::core::default::Default for STORAGE_OPERATIONAL_REASON_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub AdapterId: u32,
@@ -18393,7 +18393,7 @@ impl ::core::default::Default for STORAGE_PROTOCOL_SPECIFIC_DATA_EXT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     pub EntryLength: u32,
@@ -18434,7 +18434,7 @@ impl ::core::default::Default for STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
     pub EntryLength: u32,
@@ -18528,7 +18528,7 @@ impl ::core::default::Default for STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     pub ResponseLevel: u32,
@@ -18554,7 +18554,7 @@ impl ::core::default::Default for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub union STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     pub Lev1Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY; 1],
@@ -18830,7 +18830,7 @@ impl ::core::default::Default for STORAGE_SPEC_VERSION_0_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     pub Version: u32,
@@ -18875,7 +18875,7 @@ impl ::core::default::Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_INFO {
     pub Index: u16,
@@ -18921,7 +18921,7 @@ impl ::core::default::Default for STORAGE_TEMPERATURE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Version: u32,
@@ -19031,7 +19031,7 @@ impl ::core::default::Default for STORAGE_TIER_REGION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub Version: u32,
@@ -19087,7 +19087,7 @@ impl ::core::default::Default for STORAGE_WRITE_CACHE_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
     pub Version: u32,
@@ -19117,7 +19117,7 @@ impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
@@ -19142,7 +19142,7 @@ impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub OptimalOpenZoneCount: u32,
@@ -19181,7 +19181,7 @@ impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub MaxOpenZoneCount: u32,
@@ -19221,7 +19221,7 @@ impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
@@ -20175,7 +20175,7 @@ impl ::core::default::Default for TXFS_ROLLFORWARD_REDO_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TXFS_SAVEPOINT_INFORMATION {
     pub KtmTransaction: super::super::Foundation::HANDLE,
@@ -20268,7 +20268,7 @@ impl ::core::default::Default for TXFS_START_RM_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
     pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
@@ -20550,7 +20550,7 @@ impl ::core::default::Default for USN_RECORD_EXTENT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub union USN_RECORD_UNION {
     pub Header: USN_RECORD_COMMON_HEADER,
@@ -20634,7 +20634,7 @@ impl ::core::default::Default for USN_RECORD_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct USN_RECORD_V3 {
     pub RecordLength: u32,
@@ -20700,7 +20700,7 @@ impl ::core::default::Default for USN_RECORD_V3 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct USN_RECORD_V4 {
     pub Header: USN_RECORD_COMMON_HEADER,
@@ -21209,7 +21209,7 @@ impl ::core::default::Default for WIM_PROVIDER_UPDATE_OVERLAY_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_FileSystem`"]
+#[doc = "Required features: `\"Win32_Storage_FileSystem\"`"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct WOF_EXTERNAL_FILE_ID {
     pub FileId: super::super::Storage::FileSystem::FILE_ID_128,

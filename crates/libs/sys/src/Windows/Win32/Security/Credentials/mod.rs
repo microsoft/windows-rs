@@ -1,107 +1,107 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredDeleteA(targetname : ::windows_sys::core::PCSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredDeleteA(targetname : ::windows_sys::core::PCSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredDeleteW(targetname : ::windows_sys::core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredDeleteW(targetname : ::windows_sys::core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredEnumerateA(filter : ::windows_sys::core::PCSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredEnumerateA(filter : ::windows_sys::core::PCSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredEnumerateW(filter : ::windows_sys::core::PCWSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredEnumerateW(filter : ::windows_sys::core::PCWSTR, flags : CRED_ENUMERATE_FLAGS, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredFindBestCredentialA(targetname : ::windows_sys::core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredFindBestCredentialA(targetname : ::windows_sys::core::PCSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredFindBestCredentialW(targetname : ::windows_sys::core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredFindBestCredentialW(targetname : ::windows_sys::core::PCWSTR, r#type : u32, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("advapi32.dll" "system" fn CredFree(buffer : *const ::core::ffi::c_void) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredGetTargetInfoA(targetname : ::windows_sys::core::PCSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredGetTargetInfoA(targetname : ::windows_sys::core::PCSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredGetTargetInfoW(targetname : ::windows_sys::core::PCWSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredGetTargetInfoW(targetname : ::windows_sys::core::PCWSTR, flags : u32, targetinfo : *mut *mut CREDENTIAL_TARGET_INFORMATIONW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredIsMarshaledCredentialA(marshaledcredential : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredIsMarshaledCredentialA(marshaledcredential : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredIsMarshaledCredentialW(marshaledcredential : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredIsMarshaledCredentialW(marshaledcredential : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredIsProtectedA(pszprotectedcredentials : ::windows_sys::core::PCSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredIsProtectedA(pszprotectedcredentials : ::windows_sys::core::PCSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredIsProtectedW(pszprotectedcredentials : ::windows_sys::core::PCWSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredIsProtectedW(pszprotectedcredentials : ::windows_sys::core::PCWSTR, pprotectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredMarshalCredentialA(credtype : CRED_MARSHAL_TYPE, credential : *const ::core::ffi::c_void, marshaledcredential : *mut ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredMarshalCredentialA(credtype : CRED_MARSHAL_TYPE, credential : *const ::core::ffi::c_void, marshaledcredential : *mut ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *const ::core::ffi::c_void, marshaledcredential : *mut ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredMarshalCredentialW(credtype : CRED_MARSHAL_TYPE, credential : *const ::core::ffi::c_void, marshaledcredential : *mut ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pszusername : ::windows_sys::core::PCSTR, pszpassword : ::windows_sys::core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pszusername : ::windows_sys::core::PCSTR, pszpassword : ::windows_sys::core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredProtectA(fasself : super::super::Foundation:: BOOL, pszcredentials : ::windows_sys::core::PCSTR, cchcredentials : u32, pszprotectedcredentials : ::windows_sys::core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredProtectA(fasself : super::super::Foundation:: BOOL, pszcredentials : ::windows_sys::core::PCSTR, cchcredentials : u32, pszprotectedcredentials : ::windows_sys::core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredProtectW(fasself : super::super::Foundation:: BOOL, pszcredentials : ::windows_sys::core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : ::windows_sys::core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredProtectW(fasself : super::super::Foundation:: BOOL, pszcredentials : ::windows_sys::core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : ::windows_sys::core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredReadA(targetname : ::windows_sys::core::PCSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredReadA(targetname : ::windows_sys::core::PCSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredReadDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredReadDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredReadDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredReadDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, flags : u32, count : *mut u32, credential : *mut *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredReadW(targetname : ::windows_sys::core::PCWSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredReadW(targetname : ::windows_sys::core::PCWSTR, r#type : CRED_TYPE, flags : u32, credential : *mut *mut CREDENTIALW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredRenameA(oldtargetname : ::windows_sys::core::PCSTR, newtargetname : ::windows_sys::core::PCSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredRenameA(oldtargetname : ::windows_sys::core::PCSTR, newtargetname : ::windows_sys::core::PCSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredRenameW(oldtargetname : ::windows_sys::core::PCWSTR, newtargetname : ::windows_sys::core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredRenameW(oldtargetname : ::windows_sys::core::PCWSTR, newtargetname : ::windows_sys::core::PCWSTR, r#type : CRED_TYPE, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUICmdLinePromptForCredentialsA(psztargetname : ::windows_sys::core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, username : ::windows_sys::core::PSTR, uluserbuffersize : u32, pszpassword : ::windows_sys::core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUICmdLinePromptForCredentialsA(psztargetname : ::windows_sys::core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, username : ::windows_sys::core::PSTR, uluserbuffersize : u32, pszpassword : ::windows_sys::core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUICmdLinePromptForCredentialsW(psztargetname : ::windows_sys::core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, username : ::windows_sys::core::PWSTR, uluserbuffersize : u32, pszpassword : ::windows_sys::core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUICmdLinePromptForCredentialsW(psztargetname : ::windows_sys::core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, username : ::windows_sys::core::PWSTR, uluserbuffersize : u32, pszpassword : ::windows_sys::core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUIConfirmCredentialsA(psztargetname : ::windows_sys::core::PCSTR, bconfirm : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUIConfirmCredentialsA(psztargetname : ::windows_sys::core::PCSTR, bconfirm : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUIConfirmCredentialsW(psztargetname : ::windows_sys::core::PCWSTR, bconfirm : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUIConfirmCredentialsW(psztargetname : ::windows_sys::core::PCWSTR, bconfirm : super::super::Foundation:: BOOL) -> u32);
 ::windows_targets::link!("credui.dll" "system" fn CredUIParseUserNameA(username : ::windows_sys::core::PCSTR, user : ::windows_sys::core::PSTR, userbuffersize : u32, domain : ::windows_sys::core::PSTR, domainbuffersize : u32) -> u32);
 ::windows_targets::link!("credui.dll" "system" fn CredUIParseUserNameW(username : ::windows_sys::core::PCWSTR, user : ::windows_sys::core::PWSTR, userbuffersize : u32, domain : ::windows_sys::core::PWSTR, domainbuffersize : u32) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : ::windows_sys::core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : ::windows_sys::core::PSTR, ulusernamebuffersize : u32, pszpassword : ::windows_sys::core::PSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : ::windows_sys::core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : ::windows_sys::core::PSTR, ulusernamebuffersize : u32, pszpassword : ::windows_sys::core::PSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : ::windows_sys::core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : ::windows_sys::core::PWSTR, ulusernamebuffersize : u32, pszpassword : ::windows_sys::core::PWSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : ::windows_sys::core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : ::windows_sys::core::PWSTR, ulusernamebuffersize : u32, pszpassword : ::windows_sys::core::PWSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn CredUIPromptForWindowsCredentialsA(puiinfo : *const CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const ::core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut ::core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn CredUIPromptForWindowsCredentialsA(puiinfo : *const CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const ::core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut ::core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn CredUIPromptForWindowsCredentialsW(puiinfo : *const CREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const ::core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut ::core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn CredUIPromptForWindowsCredentialsW(puiinfo : *const CREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const ::core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut ::core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
 ::windows_targets::link!("credui.dll" "system" fn CredUIReadSSOCredW(pszrealm : ::windows_sys::core::PCWSTR, ppszusername : *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUIStoreSSOCredW(pszrealm : ::windows_sys::core::PCWSTR, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, bpersist : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUIStoreSSOCredW(pszrealm : ::windows_sys::core::PCWSTR, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, bpersist : super::super::Foundation:: BOOL) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUnPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, pszusername : ::windows_sys::core::PSTR, pcchlmaxusername : *mut u32, pszdomainname : ::windows_sys::core::PSTR, pcchmaxdomainname : *mut u32, pszpassword : ::windows_sys::core::PSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUnPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, pszusername : ::windows_sys::core::PSTR, pcchlmaxusername : *mut u32, pszdomainname : ::windows_sys::core::PSTR, pcchmaxdomainname : *mut u32, pszpassword : ::windows_sys::core::PSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUnPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, pszusername : ::windows_sys::core::PWSTR, pcchmaxusername : *mut u32, pszdomainname : ::windows_sys::core::PWSTR, pcchmaxdomainname : *mut u32, pszpassword : ::windows_sys::core::PWSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("credui.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUnPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const ::core::ffi::c_void, cbauthbuffer : u32, pszusername : ::windows_sys::core::PWSTR, pcchmaxusername : *mut u32, pszdomainname : ::windows_sys::core::PWSTR, pcchmaxdomainname : *mut u32, pszpassword : ::windows_sys::core::PWSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUnmarshalCredentialA(marshaledcredential : ::windows_sys::core::PCSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUnmarshalCredentialA(marshaledcredential : ::windows_sys::core::PCSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUnmarshalCredentialW(marshaledcredential : ::windows_sys::core::PCWSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUnmarshalCredentialW(marshaledcredential : ::windows_sys::core::PCWSTR, credtype : *mut CRED_MARSHAL_TYPE, credential : *mut *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUnprotectA(fasself : super::super::Foundation:: BOOL, pszprotectedcredentials : ::windows_sys::core::PCSTR, cchprotectedcredentials : u32, pszcredentials : ::windows_sys::core::PSTR, pcchmaxchars : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUnprotectA(fasself : super::super::Foundation:: BOOL, pszprotectedcredentials : ::windows_sys::core::PCSTR, cchprotectedcredentials : u32, pszcredentials : ::windows_sys::core::PSTR, pcchmaxchars : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredUnprotectW(fasself : super::super::Foundation:: BOOL, pszprotectedcredentials : ::windows_sys::core::PCWSTR, cchprotectedcredentials : u32, pszcredentials : ::windows_sys::core::PWSTR, pcchmaxchars : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredUnprotectW(fasself : super::super::Foundation:: BOOL, pszprotectedcredentials : ::windows_sys::core::PCWSTR, cchprotectedcredentials : u32, pszcredentials : ::windows_sys::core::PWSTR, pcchmaxchars : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredWriteA(credential : *const CREDENTIALA, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredWriteA(credential : *const CREDENTIALA, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredWriteDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, credential : *const CREDENTIALA, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredWriteDomainCredentialsA(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONA, credential : *const CREDENTIALA, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredWriteDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, credential : *const CREDENTIALW, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredWriteDomainCredentialsW(targetinfo : *const CREDENTIAL_TARGET_INFORMATIONW, credential : *const CREDENTIALW, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CredWriteW(credential : *const CREDENTIALW, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CredWriteW(credential : *const CREDENTIALW, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetOpenCardNameA(param0 : *mut OPENCARDNAMEA) -> i32);
+::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetOpenCardNameA(param0 : *mut OPENCARDNAMEA) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetOpenCardNameW(param0 : *mut OPENCARDNAMEW) -> i32);
+::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetOpenCardNameW(param0 : *mut OPENCARDNAMEW) -> i32);
 ::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo : *const KeyCredentialManagerInfo) -> ());
 ::windows_targets::link!("keycredmgr.dll" "system" fn KeyCredentialManagerGetInformation(keycredentialmanagerinfo : *mut *mut KeyCredentialManagerInfo) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("keycredmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype : KeyCredentialManagerOperationType, isready : *mut super::super::Foundation:: BOOL, keycredentialmanageroperationerrorstates : *mut KeyCredentialManagerOperationErrorStates) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("keycredmgr.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn KeyCredentialManagerGetOperationErrorStates(keycredentialmanageroperationtype : KeyCredentialManagerOperationType, isready : *mut super::super::Foundation:: BOOL, keycredentialmanageroperationerrorstates : *mut KeyCredentialManagerOperationErrorStates) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("keycredmgr.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn KeyCredentialManagerShowUIOperation(hwndowner : super::super::Foundation:: HWND, keycredentialmanageroperationtype : KeyCredentialManagerOperationType) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("keycredmgr.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn KeyCredentialManagerShowUIOperation(hwndowner : super::super::Foundation:: HWND, keycredentialmanageroperationtype : KeyCredentialManagerOperationType) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winscard.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SCardAccessStartedEvent() -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("winscard.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SCardAccessStartedEvent() -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("winscard.dll" "system" fn SCardAddReaderToGroupA(hcontext : usize, szreadername : ::windows_sys::core::PCSTR, szgroupname : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardAddReaderToGroupW(hcontext : usize, szreadername : ::windows_sys::core::PCWSTR, szgroupname : ::windows_sys::core::PCWSTR) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardAudit(hcontext : usize, dwevent : u32) -> i32);
@@ -171,9 +171,9 @@
 ::windows_targets::link!("winscard.dll" "system" fn SCardStatusW(hcard : usize, mszreadernames : ::windows_sys::core::PWSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardTransmit(hcard : usize, piosendpci : *const SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn SCardUIDlgSelectCardA(param0 : *mut OPENCARDNAME_EXA) -> i32);
+::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn SCardUIDlgSelectCardA(param0 : *mut OPENCARDNAME_EXA) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn SCardUIDlgSelectCardW(param0 : *mut OPENCARDNAME_EXW) -> i32);
+::windows_targets::link!("scarddlg.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn SCardUIDlgSelectCardW(param0 : *mut OPENCARDNAME_EXW) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : usize, cardidentifier : *const ::windows_sys::core::GUID, freshnesscounter : u32, lookupname : ::windows_sys::core::PCSTR, data : *const u8, datalen : u32) -> i32);
 ::windows_targets::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const ::windows_sys::core::GUID, freshnesscounter : u32, lookupname : ::windows_sys::core::PCWSTR, data : *const u8, datalen : u32) -> i32);
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3i32;
@@ -423,43 +423,43 @@ pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
 pub const SC_DLG_NO_UI: u32 = 2u32;
 pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
 pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = -1073741710i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = -1073741421i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = -1073741260i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = -1073741714i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = -1073740781i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = -1073740920i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = -1073741715i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = -1073741477i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = -1073741729i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = -1073741724i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = -1073741711i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = -1073741276i32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = -1073741718i32;
 pub const TS_SSP_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("TSSSP");
@@ -505,7 +505,7 @@ impl ::core::clone::Clone for CERT_CREDENTIAL_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIALA {
     pub Flags: CRED_FLAGS,
@@ -530,7 +530,7 @@ impl ::core::clone::Clone for CREDENTIALA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREDENTIALW {
     pub Flags: CRED_FLAGS,
@@ -645,7 +645,7 @@ impl ::core::clone::Clone for CREDSSP_CRED_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
@@ -663,7 +663,7 @@ impl ::core::clone::Clone for CREDUI_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
@@ -691,7 +691,7 @@ impl ::core::clone::Clone for KeyCredentialManagerInfo {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
@@ -727,7 +727,7 @@ impl ::core::clone::Clone for OPENCARDNAMEA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
@@ -763,7 +763,7 @@ impl ::core::clone::Clone for OPENCARDNAMEW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
@@ -794,7 +794,7 @@ impl ::core::clone::Clone for OPENCARDNAME_EXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
@@ -825,7 +825,7 @@ impl ::core::clone::Clone for OPENCARDNAME_EXW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
@@ -851,7 +851,7 @@ impl ::core::clone::Clone for OPENCARD_SEARCH_CRITERIAA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
@@ -1073,7 +1073,7 @@ impl ::core::clone::Clone for USERNAME_TARGET_CREDENTIAL_INFO {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOCNCHKPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: ::windows_sys::core::PCSTR, param2: ::windows_sys::core::PCSTR, param3: *const ::core::ffi::c_void) -> usize>;

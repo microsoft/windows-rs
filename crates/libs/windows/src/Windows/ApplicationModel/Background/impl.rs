@@ -29,7 +29,7 @@ impl IBackgroundTask_Vtbl {
         *iid == <IBackgroundTask as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance_Impl: Sized {
     fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -156,7 +156,7 @@ impl IBackgroundTaskInstance_Vtbl {
         *iid == <IBackgroundTaskInstance as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskInstance2_Impl: Sized + IBackgroundTaskInstance_Impl {
     fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows_core::Result<u32>;
@@ -188,7 +188,7 @@ impl IBackgroundTaskInstance2_Vtbl {
         *iid == <IBackgroundTaskInstance2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`, `System`"]
+#[doc = "Required features: `\"Foundation\"`, `\"System\"`"]
 #[cfg(all(feature = "Foundation", feature = "System"))]
 pub trait IBackgroundTaskInstance4_Impl: Sized + IBackgroundTaskInstance_Impl {
     fn User(&self) -> ::windows_core::Result<super::super::System::User>;
@@ -218,7 +218,7 @@ impl IBackgroundTaskInstance4_Vtbl {
         *iid == <IBackgroundTaskInstance4 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration_Impl: Sized {
     fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID>;
@@ -311,7 +311,7 @@ impl IBackgroundTaskRegistration_Vtbl {
         *iid == <IBackgroundTaskRegistration as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration2_Impl: Sized + IBackgroundTaskRegistration_Impl {
     fn Trigger(&self) -> ::windows_core::Result<IBackgroundTrigger>;
@@ -341,7 +341,7 @@ impl IBackgroundTaskRegistration2_Vtbl {
         *iid == <IBackgroundTaskRegistration2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IBackgroundTaskRegistration3_Impl: Sized + IBackgroundTaskRegistration_Impl {
     fn TaskGroup(&self) -> ::windows_core::Result<BackgroundTaskRegistrationGroup>;

@@ -303,7 +303,7 @@ pub struct IVpnChannelStatics_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCredential(::windows_core::IUnknown);
 impl IVpnCredential {
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn PasskeyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -312,7 +312,7 @@ impl IVpnCredential {
             (::windows_core::Interface::vtable(this).PasskeyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn CertificateCredential(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
@@ -328,7 +328,7 @@ impl IVpnCredential {
             (::windows_core::Interface::vtable(this).AdditionalPin)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn OldPasswordCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -730,7 +730,7 @@ pub struct IVpnDomainNameInfo2_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnDomainNameInfoFactory(::windows_core::IUnknown);
 impl IVpnDomainNameInfoFactory {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateVpnDomainNameInfo<P0, P1>(&self, name: &::windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P0, proxyserverlist: P1) -> ::windows_core::Result<VpnDomainNameInfo>
     where
@@ -966,7 +966,7 @@ pub struct IVpnNamespaceInfo_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnNamespaceInfoFactory(::windows_core::IUnknown);
 impl IVpnNamespaceInfoFactory {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateVpnNamespaceInfo<P0, P1>(&self, name: &::windows_core::HSTRING, dnsserverlist: P0, proxyserverlist: P1) -> ::windows_core::Result<VpnNamespaceInfo>
     where
@@ -1320,7 +1320,7 @@ impl IVpnProfile {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProfileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppTriggers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
         let this = self;
@@ -1329,7 +1329,7 @@ impl IVpnProfile {
             (::windows_core::Interface::vtable(this).AppTriggers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Routes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = self;
@@ -1338,7 +1338,7 @@ impl IVpnProfile {
             (::windows_core::Interface::vtable(this).Routes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DomainNameInfoList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
         let this = self;
@@ -1347,7 +1347,7 @@ impl IVpnProfile {
             (::windows_core::Interface::vtable(this).DomainNameInfoList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrafficFilters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
         let this = self;
@@ -1679,7 +1679,7 @@ impl VpnChannel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AssociateTransport)(::windows_core::Interface::as_raw(this), mainoutertunneltransport.into_param().abi(), optionaloutertunneltransport.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Start<P0, P1, P2, P3, P4, P5, P6>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, routescope: P3, namespacescope: P4, mtusize: u32, maxframesize: u32, optimizeforlowcostnetwork: bool, mainoutertunneltransport: P5, optionaloutertunneltransport: P6) -> ::windows_core::Result<()>
     where
@@ -1698,7 +1698,7 @@ impl VpnChannel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn RequestCredentials<P0>(&self, credtype: VpnCredentialType, isretry: bool, issinglesignoncredential: bool, certificate: P0) -> ::windows_core::Result<VpnPickedCredential>
     where
@@ -1732,7 +1732,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).Configuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ActivityChange<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1744,7 +1744,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).ActivityChange)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivityChange(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1771,7 +1771,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).SystemHealth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestCustomPrompt<P0>(&self, customprompt: P0) -> ::windows_core::Result<()>
     where
@@ -1791,7 +1791,7 @@ impl VpnChannel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAllowedSslTlsVersions)(::windows_core::Interface::as_raw(this), tunneltransport.into_param().abi(), usetls12).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithMainTransport<P0, P1, P2, P3, P4, P5>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assigneddomainname: P4, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P5) -> ::windows_core::Result<()>
     where
@@ -1805,7 +1805,7 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StartWithMainTransport)(::windows_core::Interface::as_raw(this), assignedclientipv4list.try_into_param()?.abi(), assignedclientipv6list.try_into_param()?.abi(), vpninterfaceid.into_param().abi(), assignedroutes.into_param().abi(), assigneddomainname.into_param().abi(), mtusize, maxframesize, reserved, mainoutertunneltransport.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartExistingTransports<P0, P1, P2, P3, P4>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assigneddomainname: P4, mtusize: u32, maxframesize: u32, reserved: bool) -> ::windows_core::Result<()>
     where
@@ -1818,7 +1818,7 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StartExistingTransports)(::windows_core::Interface::as_raw(this), assignedclientipv4list.try_into_param()?.abi(), assignedclientipv6list.try_into_param()?.abi(), vpninterfaceid.into_param().abi(), assignedroutes.into_param().abi(), assigneddomainname.into_param().abi(), mtusize, maxframesize, reserved).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ActivityStateChange<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1830,7 +1830,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).ActivityStateChange)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActivityStateChange(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
@@ -1850,7 +1850,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).GetVpnReceivePacketBuffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestCustomPromptAsync<P0>(&self, custompromptelement: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1862,7 +1862,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).RequestCustomPromptAsync)(::windows_core::Interface::as_raw(this), custompromptelement.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
     pub fn RequestCredentialsWithCertificateAsync<P0>(&self, credtype: VpnCredentialType, credoptions: u32, certificate: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>>
     where
@@ -1874,7 +1874,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).RequestCredentialsWithCertificateAsync)(::windows_core::Interface::as_raw(this), credtype, credoptions, certificate.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCredentialsWithOptionsAsync(&self, credtype: VpnCredentialType, credoptions: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
@@ -1883,7 +1883,7 @@ impl VpnChannel {
             (::windows_core::Interface::vtable(this).RequestCredentialsWithOptionsAsync)(::windows_core::Interface::as_raw(this), credtype, credoptions, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCredentialsSimpleAsync(&self, credtype: VpnCredentialType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnCredential>> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
@@ -1896,7 +1896,7 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).TerminateConnection)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithTrafficFilter<P0, P1, P2, P3, P4, P5, P6, P7>(&self, assignedclientipv4list: P0, assignedclientipv6list: P1, vpninterfaceid: P2, assignedroutes: P3, assignednamespace: P4, mtusize: u32, maxframesize: u32, reserved: bool, mainoutertunneltransport: P5, optionaloutertunneltransport: P6, assignedtrafficfilters: P7) -> ::windows_core::Result<()>
     where
@@ -1920,7 +1920,7 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).AddAndAssociateTransport)(::windows_core::Interface::as_raw(this), transport.into_param().abi(), context.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithMultipleTransports<P0, P1, P2, P3, P4, P5, P6>(&self, assignedclientipv4addresses: P0, assignedclientipv6addresses: P1, vpninterfaceid: P2, assignedroutes: P3, assignednamespace: P4, mtusize: u32, maxframesize: u32, reserved: bool, transports: P5, assignedtrafficfilters: P6) -> ::windows_core::Result<()>
     where
@@ -1951,7 +1951,7 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel4>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StartReconnectingTransport)(::windows_core::Interface::as_raw(this), transport.into_param().abi(), context.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Networking_Sockets`"]
+    #[doc = "Required features: `\"Networking_Sockets\"`"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn GetSlotTypeForTransportContext<P0>(&self, context: P0) -> ::windows_core::Result<super::Sockets::ControlChannelTriggerStatus>
     where
@@ -1992,7 +1992,7 @@ impl VpnChannel {
         let this = &::windows_core::ComInterface::cast::<IVpnChannel5>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).FlushVpnSendPacketBuffers)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ActivateForeground<P0>(&self, packagerelativeappid: &::windows_core::HSTRING, sharedcontext: P0) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet>
     where
@@ -2097,7 +2097,7 @@ impl VpnChannelConfiguration {
             (::windows_core::Interface::vtable(this).ServerServiceName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServerHostNameList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::HostName>> {
         let this = self;
@@ -2113,7 +2113,7 @@ impl VpnChannelConfiguration {
             (::windows_core::Interface::vtable(this).CustomField)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServerUris(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>> {
         let this = &::windows_core::ComInterface::cast::<IVpnChannelConfiguration2>(self)?;
@@ -2142,7 +2142,7 @@ unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCredential(::windows_core::IUnknown);
 impl VpnCredential {
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn PasskeyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -2151,7 +2151,7 @@ impl VpnCredential {
             (::windows_core::Interface::vtable(this).PasskeyCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Cryptography_Certificates`"]
+    #[doc = "Required features: `\"Security_Cryptography_Certificates\"`"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn CertificateCredential(&self) -> ::windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate> {
         let this = self;
@@ -2167,7 +2167,7 @@ impl VpnCredential {
             (::windows_core::Interface::vtable(this).AdditionalPin)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn OldPasswordCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -2283,7 +2283,7 @@ impl VpnCustomComboBox {
         static SHARED: ::windows_core::imp::FactoryCache<VpnCustomComboBox, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetOptionsText<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2292,7 +2292,7 @@ impl VpnCustomComboBox {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOptionsText)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn OptionsText(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
@@ -2632,7 +2632,7 @@ impl VpnCustomPromptOptionSelector {
             (::windows_core::Interface::vtable(this).Emphasized)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -2910,7 +2910,7 @@ impl VpnDomainNameAssignment {
         static SHARED: ::windows_core::imp::FactoryCache<VpnDomainNameAssignment, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DomainNameList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
         let this = self;
@@ -2919,7 +2919,7 @@ impl VpnDomainNameAssignment {
             (::windows_core::Interface::vtable(this).DomainNameList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetProxyAutoConfigurationUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -2928,7 +2928,7 @@ impl VpnDomainNameAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyAutoConfigurationUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProxyAutoConfigurationUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2982,7 +2982,7 @@ impl VpnDomainNameInfo {
             (::windows_core::Interface::vtable(this).DomainNameType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DnsServers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
         let this = self;
@@ -2991,7 +2991,7 @@ impl VpnDomainNameInfo {
             (::windows_core::Interface::vtable(this).DnsServers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn WebProxyServers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
         let this = self;
@@ -3000,7 +3000,7 @@ impl VpnDomainNameInfo {
             (::windows_core::Interface::vtable(this).WebProxyServers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn WebProxyUris(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = &::windows_core::ComInterface::cast::<IVpnDomainNameInfo2>(self)?;
@@ -3009,7 +3009,7 @@ impl VpnDomainNameInfo {
             (::windows_core::Interface::vtable(this).WebProxyUris)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateVpnDomainNameInfo<P0, P1>(name: &::windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: P0, proxyserverlist: P1) -> ::windows_core::Result<VpnDomainNameInfo>
     where
@@ -3046,7 +3046,7 @@ unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnForegroundActivatedEventArgs(::windows_core::IUnknown);
 impl VpnForegroundActivatedEventArgs {
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3055,7 +3055,7 @@ impl VpnForegroundActivatedEventArgs {
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3064,7 +3064,7 @@ impl VpnForegroundActivatedEventArgs {
             (::windows_core::Interface::vtable(this).PreviousExecutionState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3073,7 +3073,7 @@ impl VpnForegroundActivatedEventArgs {
             (::windows_core::Interface::vtable(this).SplashScreen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `ApplicationModel_Activation`, `System`"]
+    #[doc = "Required features: `\"ApplicationModel_Activation\"`, `\"System\"`"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3089,7 +3089,7 @@ impl VpnForegroundActivatedEventArgs {
             (::windows_core::Interface::vtable(this).ProfileName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SharedContext(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -3129,7 +3129,7 @@ unsafe impl ::core::marker::Sync for VpnForegroundActivatedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnForegroundActivationOperation(::windows_core::IUnknown);
 impl VpnForegroundActivationOperation {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Complete<P0>(&self, result: P0) -> ::windows_core::Result<()>
     where
@@ -3200,7 +3200,7 @@ impl VpnManagementAgent {
         static SHARED: ::windows_core::imp::FactoryCache<VpnManagementAgent, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AddProfileFromXmlAsync(&self, xml: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
         let this = self;
@@ -3209,7 +3209,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).AddProfileFromXmlAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AddProfileFromObjectAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
@@ -3221,7 +3221,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).AddProfileFromObjectAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateProfileFromXmlAsync(&self, xml: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>> {
         let this = self;
@@ -3230,7 +3230,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).UpdateProfileFromXmlAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateProfileFromObjectAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
@@ -3242,7 +3242,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).UpdateProfileFromObjectAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetProfilesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IVpnProfile>>> {
         let this = self;
@@ -3251,7 +3251,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).GetProfilesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteProfileAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
@@ -3263,7 +3263,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).DeleteProfileAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectProfileAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
@@ -3275,7 +3275,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).ConnectProfileAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Security_Credentials`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Security_Credentials\"`"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn ConnectProfileWithPasswordCredentialAsync<P0, P1>(&self, profile: P0, passwordcredential: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
@@ -3288,7 +3288,7 @@ impl VpnManagementAgent {
             (::windows_core::Interface::vtable(this).ConnectProfileWithPasswordCredentialAsync)(::windows_core::Interface::as_raw(this), profile.try_into_param()?.abi(), passwordcredential.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DisconnectProfileAsync<P0>(&self, profile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<VpnManagementErrorStatus>>
     where
@@ -3327,7 +3327,7 @@ impl VpnNamespaceAssignment {
         static SHARED: ::windows_core::imp::FactoryCache<VpnNamespaceAssignment, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetNamespaceList<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3336,7 +3336,7 @@ impl VpnNamespaceAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetNamespaceList)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn NamespaceList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnNamespaceInfo>> {
         let this = self;
@@ -3345,7 +3345,7 @@ impl VpnNamespaceAssignment {
             (::windows_core::Interface::vtable(this).NamespaceList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetProxyAutoConfigUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3354,7 +3354,7 @@ impl VpnNamespaceAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProxyAutoConfigUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProxyAutoConfigUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3394,7 +3394,7 @@ impl VpnNamespaceInfo {
             (::windows_core::Interface::vtable(this).Namespace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDnsServers<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3403,7 +3403,7 @@ impl VpnNamespaceInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetDnsServers)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DnsServers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
         let this = self;
@@ -3412,7 +3412,7 @@ impl VpnNamespaceInfo {
             (::windows_core::Interface::vtable(this).DnsServers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetWebProxyServers<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3421,7 +3421,7 @@ impl VpnNamespaceInfo {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetWebProxyServers)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn WebProxyServers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::HostName>> {
         let this = self;
@@ -3430,7 +3430,7 @@ impl VpnNamespaceInfo {
             (::windows_core::Interface::vtable(this).WebProxyServers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateVpnNamespaceInfo<P0, P1>(name: &::windows_core::HSTRING, dnsserverlist: P0, proxyserverlist: P1) -> ::windows_core::Result<VpnNamespaceInfo>
     where
@@ -3474,7 +3474,7 @@ impl VpnNativeProfile {
         static SHARED: ::windows_core::imp::FactoryCache<VpnNativeProfile, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Servers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -3567,7 +3567,7 @@ impl VpnNativeProfile {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProfileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppTriggers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3576,7 +3576,7 @@ impl VpnNativeProfile {
             (::windows_core::Interface::vtable(this).AppTriggers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Routes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3585,7 +3585,7 @@ impl VpnNativeProfile {
             (::windows_core::Interface::vtable(this).Routes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DomainNameInfoList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3594,7 +3594,7 @@ impl VpnNativeProfile {
             (::windows_core::Interface::vtable(this).DomainNameInfoList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrafficFilters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3646,7 +3646,7 @@ unsafe impl ::core::marker::Sync for VpnNativeProfile {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPacketBuffer(::windows_core::IUnknown);
 impl VpnPacketBuffer {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Buffer(&self) -> ::windows_core::Result<super::super::Storage::Streams::Buffer> {
         let this = self;
@@ -3732,7 +3732,7 @@ unsafe impl ::core::marker::Sync for VpnPacketBuffer {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPacketBufferList(::windows_core::IUnknown);
 impl VpnPacketBufferList {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<VpnPacketBuffer>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<VpnPacketBuffer>>(self)?;
@@ -3829,7 +3829,7 @@ unsafe impl ::core::marker::Sync for VpnPacketBufferList {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPickedCredential(::windows_core::IUnknown);
 impl VpnPickedCredential {
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn PasskeyCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -3845,7 +3845,7 @@ impl VpnPickedCredential {
             (::windows_core::Interface::vtable(this).AdditionalPin)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn OldPasswordCredential(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -3881,7 +3881,7 @@ impl VpnPlugInProfile {
         static SHARED: ::windows_core::imp::FactoryCache<VpnPlugInProfile, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServerUris(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         let this = self;
@@ -3941,7 +3941,7 @@ impl VpnPlugInProfile {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetProfileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppTriggers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3950,7 +3950,7 @@ impl VpnPlugInProfile {
             (::windows_core::Interface::vtable(this).AppTriggers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Routes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3959,7 +3959,7 @@ impl VpnPlugInProfile {
             (::windows_core::Interface::vtable(this).Routes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DomainNameInfoList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -3968,7 +3968,7 @@ impl VpnPlugInProfile {
             (::windows_core::Interface::vtable(this).DomainNameInfoList)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrafficFilters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
         let this = &::windows_core::ComInterface::cast::<IVpnProfile>(self)?;
@@ -4086,7 +4086,7 @@ impl VpnRouteAssignment {
         static SHARED: ::windows_core::imp::FactoryCache<VpnRouteAssignment, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetIpv4InclusionRoutes<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4095,7 +4095,7 @@ impl VpnRouteAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIpv4InclusionRoutes)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetIpv6InclusionRoutes<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4104,7 +4104,7 @@ impl VpnRouteAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIpv6InclusionRoutes)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Ipv4InclusionRoutes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = self;
@@ -4113,7 +4113,7 @@ impl VpnRouteAssignment {
             (::windows_core::Interface::vtable(this).Ipv4InclusionRoutes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Ipv6InclusionRoutes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = self;
@@ -4122,7 +4122,7 @@ impl VpnRouteAssignment {
             (::windows_core::Interface::vtable(this).Ipv6InclusionRoutes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetIpv4ExclusionRoutes<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4131,7 +4131,7 @@ impl VpnRouteAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIpv4ExclusionRoutes)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetIpv6ExclusionRoutes<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4140,7 +4140,7 @@ impl VpnRouteAssignment {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetIpv6ExclusionRoutes)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Ipv4ExclusionRoutes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = self;
@@ -4149,7 +4149,7 @@ impl VpnRouteAssignment {
             (::windows_core::Interface::vtable(this).Ipv4ExclusionRoutes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Ipv6ExclusionRoutes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>> {
         let this = self;
@@ -4189,7 +4189,7 @@ unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnSystemHealth(::windows_core::IUnknown);
 impl VpnSystemHealth {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StatementOfHealth(&self) -> ::windows_core::Result<super::super::Storage::Streams::Buffer> {
         let this = self;
@@ -4232,7 +4232,7 @@ impl VpnTrafficFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetAppId)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppClaims(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4252,7 +4252,7 @@ impl VpnTrafficFilter {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetProtocol)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalPortRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4261,7 +4261,7 @@ impl VpnTrafficFilter {
             (::windows_core::Interface::vtable(this).LocalPortRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemotePortRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4270,7 +4270,7 @@ impl VpnTrafficFilter {
             (::windows_core::Interface::vtable(this).RemotePortRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalAddressRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4279,7 +4279,7 @@ impl VpnTrafficFilter {
             (::windows_core::Interface::vtable(this).LocalAddressRanges)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoteAddressRanges(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -4340,7 +4340,7 @@ impl VpnTrafficFilterAssignment {
         static SHARED: ::windows_core::imp::FactoryCache<VpnTrafficFilterAssignment, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TrafficFilterList(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>> {
         let this = self;

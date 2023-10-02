@@ -124,7 +124,7 @@ impl IContactFieldFactory_Vtbl {
         *iid == <IContactFieldFactory as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Foundation`"]
+#[doc = "Required features: `\"Foundation\"`"]
 #[cfg(feature = "Foundation")]
 pub trait IContactInstantMessageFieldFactory_Impl: Sized {
     fn CreateInstantMessage_Default(&self, username: &::windows_core::HSTRING) -> ::windows_core::Result<ContactInstantMessageField>;

@@ -3,14 +3,14 @@
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseSession(session : WSMAN_SESSION_HANDLE, flags : u32) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCloseShell(shellhandle : WSMAN_SHELL_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManConnectShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_sys::core::PCWSTR, shellid : ::windows_sys::core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManConnectShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_sys::core::PCWSTR, shellid : ::windows_sys::core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManConnectShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : ::windows_sys::core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManConnectShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : ::windows_sys::core::PCWSTR, options : *const WSMAN_OPTION_SET, connectxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManCreateSession(apihandle : WSMAN_API_HANDLE, connection : ::windows_sys::core::PCWSTR, flags : u32, serverauthenticationcredentials : *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo : *const WSMAN_PROXY_INFO, session : *mut WSMAN_SESSION_HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManCreateShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_sys::core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManCreateShell(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_sys::core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManCreateShellEx(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_sys::core::PCWSTR, shellid : ::windows_sys::core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManCreateShellEx(session : WSMAN_SESSION_HANDLE, flags : u32, resourceuri : ::windows_sys::core::PCWSTR, shellid : ::windows_sys::core::PCWSTR, startupinfo : *const WSMAN_SHELL_STARTUP_INFO_V11, options : *const WSMAN_OPTION_SET, createxml : *const WSMAN_DATA, r#async : *const WSMAN_SHELL_ASYNC, shell : *mut WSMAN_SHELL_HANDLE) -> ());
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManDeinitialize(apihandle : WSMAN_API_HANDLE, flags : u32) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManDisconnectShell(shell : WSMAN_SHELL_HANDLE, flags : u32, disconnectinfo : *const WSMAN_SHELL_DISCONNECT_INFO, r#async : *const WSMAN_SHELL_ASYNC) -> ());
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetErrorMessage(apihandle : WSMAN_API_HANDLE, flags : u32, languagecode : ::windows_sys::core::PCWSTR, errorcode : u32, messagelength : u32, message : ::windows_sys::core::PWSTR, messagelengthused : *mut u32) -> u32);
@@ -18,32 +18,32 @@
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManGetSessionOptionAsString(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, stringlength : u32, string : ::windows_sys::core::PWSTR, stringlengthused : *mut u32) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManInitialize(flags : u32, apihandle : *mut WSMAN_API_HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginAuthzOperationComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const ::core::ffi::c_void, errorcode : u32, extendederrorinformation : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginAuthzOperationComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const ::core::ffi::c_void, errorcode : u32, extendederrorinformation : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginAuthzQueryQuotaComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, quota : *const WSMAN_AUTHZ_QUOTA, errorcode : u32, extendederrorinformation : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginAuthzQueryQuotaComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, quota : *const WSMAN_AUTHZ_QUOTA, errorcode : u32, extendederrorinformation : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const ::core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : super::super::Foundation:: BOOL, errorcode : u32, extendederrorinformation : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginAuthzUserComplete(senderdetails : *const WSMAN_SENDER_DETAILS, flags : u32, userauthorizationcontext : *const ::core::ffi::c_void, impersonationtoken : super::super::Foundation:: HANDLE, userisadministrator : super::super::Foundation:: BOOL, errorcode : u32, extendederrorinformation : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginFreeRequestDetails(requestdetails : *const WSMAN_PLUGIN_REQUEST) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginFreeRequestDetails(requestdetails : *const WSMAN_PLUGIN_REQUEST) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginGetConfiguration(plugincontext : *const ::core::ffi::c_void, flags : u32, data : *mut WSMAN_DATA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginGetOperationParameters(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, data : *mut WSMAN_DATA) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginGetOperationParameters(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, data : *mut WSMAN_DATA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginOperationComplete(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, errorcode : u32, extendedinformation : ::windows_sys::core::PCWSTR) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginOperationComplete(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, errorcode : u32, extendedinformation : ::windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginReceiveResult(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, stream : ::windows_sys::core::PCWSTR, streamresult : *const WSMAN_DATA, commandstate : ::windows_sys::core::PCWSTR, exitcode : u32) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginReceiveResult(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, stream : ::windows_sys::core::PCWSTR, streamresult : *const WSMAN_DATA, commandstate : ::windows_sys::core::PCWSTR, exitcode : u32) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManPluginReportCompletion(plugincontext : *const ::core::ffi::c_void, flags : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManPluginReportContext(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, context : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManPluginReportContext(requestdetails : *const WSMAN_PLUGIN_REQUEST, flags : u32, context : *const ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReceiveShellOutput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, desiredstreamset : *const WSMAN_STREAM_ID_SET, r#async : *const WSMAN_SHELL_ASYNC, receiveoperation : *mut WSMAN_OPERATION_HANDLE) -> ());
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShell(shell : WSMAN_SHELL_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManReconnectShellCommand(commandhandle : WSMAN_COMMAND_HANDLE, flags : u32, r#async : *const WSMAN_SHELL_ASYNC) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManRunShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandline : ::windows_sys::core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManRunShellCommand(shell : WSMAN_SHELL_HANDLE, flags : u32, commandline : ::windows_sys::core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManRunShellCommandEx(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : ::windows_sys::core::PCWSTR, commandline : ::windows_sys::core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManRunShellCommandEx(shell : WSMAN_SHELL_HANDLE, flags : u32, commandid : ::windows_sys::core::PCWSTR, commandline : ::windows_sys::core::PCWSTR, args : *const WSMAN_COMMAND_ARG_SET, options : *const WSMAN_OPTION_SET, r#async : *const WSMAN_SHELL_ASYNC, command : *mut WSMAN_COMMAND_HANDLE) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : ::windows_sys::core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE) -> ());
+::windows_targets::link!("wsmsvc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WSManSendShellInput(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, streamid : ::windows_sys::core::PCWSTR, streamdata : *const WSMAN_DATA, endofstream : super::super::Foundation:: BOOL, r#async : *const WSMAN_SHELL_ASYNC, sendoperation : *mut WSMAN_OPERATION_HANDLE) -> ());
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSetSessionOption(session : WSMAN_SESSION_HANDLE, option : WSManSessionOption, data : *const WSMAN_DATA) -> u32);
 ::windows_targets::link!("wsmsvc.dll" "system" fn WSManSignalShell(shell : WSMAN_SHELL_HANDLE, command : WSMAN_COMMAND_HANDLE, flags : u32, code : ::windows_sys::core::PCWSTR, r#async : *const WSMAN_SHELL_ASYNC, signaloperation : *mut WSMAN_OPERATION_HANDLE) -> ());
 pub type IWSMan = *mut ::core::ffi::c_void;
@@ -901,7 +901,7 @@ impl ::core::clone::Clone for WSMAN_KEY {
 }
 pub type WSMAN_OPERATION_HANDLE = isize;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_OPERATION_INFO {
     pub fragment: WSMAN_FRAGMENT,
@@ -920,7 +920,7 @@ impl ::core::clone::Clone for WSMAN_OPERATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_OPERATION_INFOEX {
     pub fragment: WSMAN_FRAGMENT,
@@ -940,7 +940,7 @@ impl ::core::clone::Clone for WSMAN_OPERATION_INFOEX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_OPTION {
     pub name: ::windows_sys::core::PCWSTR,
@@ -956,7 +956,7 @@ impl ::core::clone::Clone for WSMAN_OPTION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_OPTION_SET {
     pub optionsCount: u32,
@@ -972,7 +972,7 @@ impl ::core::clone::Clone for WSMAN_OPTION_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_OPTION_SETEX {
     pub optionsCount: u32,
@@ -989,7 +989,7 @@ impl ::core::clone::Clone for WSMAN_OPTION_SETEX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_PLUGIN_REQUEST {
     pub senderDetails: *mut WSMAN_SENDER_DETAILS,
@@ -1056,7 +1056,7 @@ impl ::core::clone::Clone for WSMAN_SELECTOR_SET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSMAN_SENDER_DETAILS {
     pub senderName: ::windows_sys::core::PCWSTR,
@@ -1143,35 +1143,35 @@ impl ::core::clone::Clone for WSMAN_USERNAME_PASSWORD_CREDS {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_OPERATION = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, operation: u32, action: ::windows_sys::core::PCWSTR, resourceuri: ::windows_sys::core::PCWSTR) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_QUERY_QUOTA = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32) -> ()>;
 pub type WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT = ::core::option::Option<unsafe extern "system" fn(userauthorizationcontext: *const ::core::ffi::c_void) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_AUTHORIZE_USER = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_COMMAND = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandline: ::windows_sys::core::PCWSTR, arguments: *const WSMAN_COMMAND_ARG_SET) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_CONNECT = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, inboundconnectinformation: *const WSMAN_DATA) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_RECEIVE = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, streamset: *const WSMAN_STREAM_ID_SET) -> ()>;
 pub type WSMAN_PLUGIN_RELEASE_COMMAND_CONTEXT = ::core::option::Option<unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void) -> ()>;
 pub type WSMAN_PLUGIN_RELEASE_SHELL_CONTEXT = ::core::option::Option<unsafe extern "system" fn(shellcontext: *const ::core::ffi::c_void) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SEND = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, stream: ::windows_sys::core::PCWSTR, inbounddata: *const WSMAN_DATA) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SHELL = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, inboundshellinformation: *const WSMAN_DATA) -> ()>;
 pub type WSMAN_PLUGIN_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(plugincontext: *const ::core::ffi::c_void, flags: u32, reason: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WSMAN_PLUGIN_SIGNAL = ::core::option::Option<unsafe extern "system" fn(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, shellcontext: *const ::core::ffi::c_void, commandcontext: *const ::core::ffi::c_void, code: ::windows_sys::core::PCWSTR) -> ()>;
 pub type WSMAN_PLUGIN_STARTUP = ::core::option::Option<unsafe extern "system" fn(flags: u32, applicationidentification: ::windows_sys::core::PCWSTR, extrainfo: ::windows_sys::core::PCWSTR, plugincontext: *mut *mut ::core::ffi::c_void) -> u32>;

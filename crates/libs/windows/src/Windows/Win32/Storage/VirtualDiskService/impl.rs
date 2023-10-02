@@ -72,7 +72,7 @@ impl IVdsAdmin_Vtbl {
         *iid == <IVdsAdmin as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsAdvancedDisk_Impl: Sized {
     fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> ::windows_core::Result<()>;
@@ -177,7 +177,7 @@ impl IVdsAdvancedDisk_Vtbl {
         *iid == <IVdsAdvancedDisk as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsAdvancedDisk2_Impl: Sized {
     fn ChangePartitionType(&self, ulloffset: u64, bforce: super::super::Foundation::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> ::windows_core::Result<()>;
@@ -446,7 +446,7 @@ impl IVdsControllerPort_Vtbl {
         *iid == <IVdsControllerPort as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsCreatePartitionEx_Impl: Sized {
     fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> ::windows_core::Result<IVdsAsync>;
@@ -473,7 +473,7 @@ impl IVdsCreatePartitionEx_Vtbl {
         *iid == <IVdsCreatePartitionEx as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDisk_Impl: Sized {
     fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> ::windows_core::Result<()>;
@@ -545,7 +545,7 @@ impl IVdsDisk_Vtbl {
         *iid == <IVdsDisk as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDisk2_Impl: Sized {
     fn SetSANMode(&self, benable: super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
@@ -620,7 +620,7 @@ impl IVdsDiskOnline_Vtbl {
         *iid == <IVdsDiskOnline as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDiskPartitionMF_Impl: Sized {
     fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::Result<()>;
@@ -700,7 +700,7 @@ impl IVdsDiskPartitionMF2_Vtbl {
         *iid == <IVdsDiskPartitionMF2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsDrive_Impl: Sized {
     fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> ::windows_core::Result<()>;
@@ -849,7 +849,7 @@ impl IVdsHwProvider_Vtbl {
         *iid == <IVdsHwProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderPrivate_Impl: Sized {
     fn QueryIfCreatedLun(&self, pwszdevicepath: &::windows_core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows_core::Result<::windows_core::GUID>;
@@ -896,7 +896,7 @@ impl IVdsHwProviderPrivateMpio_Vtbl {
         *iid == <IVdsHwProviderPrivateMpio as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsHwProviderStoragePools_Impl: Sized {
     fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows_core::Result<IEnumVdsObject>;
@@ -998,7 +998,7 @@ impl IVdsHwProviderType2_Vtbl {
         *iid == <IVdsHwProviderType2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsIscsiInitiatorAdapter_Impl: Sized {
     fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> ::windows_core::Result<()>;
@@ -1303,7 +1303,7 @@ impl IVdsIscsiPortalLocal_Vtbl {
         *iid == <IVdsIscsiPortalLocal as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsIscsiTarget_Impl: Sized {
     fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> ::windows_core::Result<()>;
@@ -1420,7 +1420,7 @@ impl IVdsIscsiTarget_Vtbl {
         *iid == <IVdsIscsiTarget as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun_Impl: Sized {
     fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> ::windows_core::Result<()>;
@@ -1610,7 +1610,7 @@ impl IVdsLun_Vtbl {
         *iid == <IVdsLun as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLun2_Impl: Sized {
     fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> ::windows_core::Result<()>;
@@ -1707,7 +1707,7 @@ impl IVdsLunIscsi_Vtbl {
         *iid == <IVdsLunIscsi as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunMpio_Impl: Sized {
     fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows_core::Result<()>;
@@ -1798,7 +1798,7 @@ impl IVdsLunNumber_Vtbl {
         *iid == <IVdsLunNumber as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsLunPlex_Impl: Sized {
     fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> ::windows_core::Result<()>;
@@ -1890,7 +1890,7 @@ impl IVdsMaintenance_Vtbl {
         *iid == <IVdsMaintenance as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsOpenVDisk_Impl: Sized {
     fn Attach(&self, pstringsecuritydescriptor: &::windows_core::PCWSTR, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> ::windows_core::Result<IVdsAsync>;
@@ -1973,7 +1973,7 @@ impl IVdsOpenVDisk_Vtbl {
         *iid == <IVdsOpenVDisk as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsPack_Impl: Sized {
     fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> ::windows_core::Result<()>;
@@ -2136,7 +2136,7 @@ impl IVdsProvider_Vtbl {
         *iid == <IVdsProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsProviderPrivate_Impl: Sized {
     fn GetObject(&self, objectid: &::windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -2230,7 +2230,7 @@ impl IVdsRemovable_Vtbl {
         *iid == <IVdsRemovable as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsService_Impl: Sized {
     fn IsServiceReady(&self) -> ::windows_core::Result<()>;
@@ -2595,7 +2595,7 @@ impl IVdsServiceSw_Vtbl {
         *iid == <IVdsServiceSw as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsServiceUninstallDisk_Impl: Sized {
     fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> ::windows_core::Result<::windows_core::GUID>;
@@ -2632,7 +2632,7 @@ impl IVdsServiceUninstallDisk_Vtbl {
         *iid == <IVdsServiceUninstallDisk as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsStoragePool_Impl: Sized {
     fn GetProvider(&self) -> ::windows_core::Result<IVdsProvider>;
@@ -2709,7 +2709,7 @@ impl IVdsStoragePool_Vtbl {
         *iid == <IVdsStoragePool as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem_Impl: Sized {
     fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> ::windows_core::Result<()>;
@@ -2852,7 +2852,7 @@ impl IVdsSubSystem_Vtbl {
         *iid == <IVdsSubSystem as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsSubSystem2_Impl: Sized {
     fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> ::windows_core::Result<()>;
@@ -3086,7 +3086,7 @@ impl IVdsSwProvider_Vtbl {
         *iid == <IVdsSwProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Vhd\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Vhd"))]
 pub trait IVdsVDisk_Impl: Sized {
     fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> ::windows_core::Result<IVdsOpenVDisk>;
@@ -3149,7 +3149,7 @@ impl IVdsVDisk_Vtbl {
         *iid == <IVdsVDisk as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVdProvider_Impl: Sized {
     fn QueryVDisks(&self) -> ::windows_core::Result<IEnumVdsObject>;
@@ -3219,7 +3219,7 @@ impl IVdsVdProvider_Vtbl {
         *iid == <IVdsVdProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsVolume_Impl: Sized {
     fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> ::windows_core::Result<()>;
@@ -3372,7 +3372,7 @@ impl IVdsVolume2_Vtbl {
         *iid == <IVdsVolume2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsVolumeMF_Impl: Sized {
     fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::Result<()>;
@@ -3465,7 +3465,7 @@ impl IVdsVolumeMF_Vtbl {
         *iid == <IVdsVolumeMF as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IVdsVolumeMF2_Impl: Sized {
     fn GetFileSystemTypeName(&self) -> ::windows_core::Result<::windows_core::PWSTR>;

@@ -1541,7 +1541,7 @@ pub struct IGattWriteResult_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattCharacteristic(::windows_core::IUnknown);
 impl GattCharacteristic {
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetDescriptors(&self, descriptoruuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = self;
@@ -1589,7 +1589,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).AttributeHandle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
         let this = self;
@@ -1598,7 +1598,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).PresentationFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -1607,7 +1607,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).ReadValueAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -1616,7 +1616,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
@@ -1628,7 +1628,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).WriteValueAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
@@ -1640,7 +1640,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), writeoption, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
         let this = self;
@@ -1649,7 +1649,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
@@ -1658,7 +1658,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ValueChanged<P0>(&self, valuechangedhandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1670,7 +1670,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).ValueChanged)(::windows_core::Interface::as_raw(this), valuechangedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueChanged(&self, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -1683,7 +1683,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllDescriptors(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristic2>(self)?;
@@ -1692,7 +1692,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).GetAllDescriptors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
@@ -1701,7 +1701,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).GetDescriptorsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
@@ -1710,7 +1710,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
@@ -1719,7 +1719,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).GetDescriptorsForUuidAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
@@ -1728,7 +1728,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
@@ -1740,7 +1740,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).WriteValueWithResultAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
@@ -1752,7 +1752,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), writeoption, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristic3>(self)?;
@@ -1761,7 +1761,7 @@ impl GattCharacteristic {
             (::windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows_core::Result<::windows_core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
@@ -2303,7 +2303,7 @@ impl GattCharacteristicsResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -2312,7 +2312,7 @@ impl GattCharacteristicsResult {
             (::windows_core::Interface::vtable(this).ProtocolError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = self;
@@ -2355,7 +2355,7 @@ impl GattClientNotificationResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -2416,7 +2416,7 @@ impl GattDescriptor {
             (::windows_core::Interface::vtable(this).AttributeHandle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -2425,7 +2425,7 @@ impl GattDescriptor {
             (::windows_core::Interface::vtable(this).ReadValueAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -2434,7 +2434,7 @@ impl GattDescriptor {
             (::windows_core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
@@ -2446,7 +2446,7 @@ impl GattDescriptor {
             (::windows_core::Interface::vtable(this).WriteValueAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
@@ -2458,7 +2458,7 @@ impl GattDescriptor {
             (::windows_core::Interface::vtable(this).WriteValueWithResultAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows_core::Result<::windows_core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
@@ -2545,7 +2545,7 @@ impl GattDescriptorsResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -2554,7 +2554,7 @@ impl GattDescriptorsResult {
             (::windows_core::Interface::vtable(this).ProtocolError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = self;
@@ -2583,13 +2583,13 @@ unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattDeviceService(::windows_core::IUnknown);
 impl GattDeviceService {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCharacteristics(&self, characteristicuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = self;
@@ -2598,7 +2598,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetCharacteristics)(::windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetIncludedServices(&self, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = self;
@@ -2628,7 +2628,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).AttributeHandle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn Device(&self) -> ::windows_core::Result<super::BluetoothLEDevice> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
@@ -2637,7 +2637,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).Device)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ParentServices(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
@@ -2646,7 +2646,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).ParentServices)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllCharacteristics(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
@@ -2655,7 +2655,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetAllCharacteristics)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`, `deprecated`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"deprecated\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllIncludedServices(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService2>(self)?;
@@ -2664,7 +2664,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetAllIncludedServices)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows_core::Result<super::super::Enumeration::DeviceAccessInformation> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2687,7 +2687,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).SharingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Enumeration`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2696,7 +2696,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2705,7 +2705,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), sharingmode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2714,7 +2714,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetCharacteristicsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2723,7 +2723,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2732,7 +2732,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2741,7 +2741,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2750,7 +2750,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetIncludedServicesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2759,7 +2759,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows_core::Interface::as_raw(this), cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2768,7 +2768,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(::windows_core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattDeviceService3>(self)?;
@@ -2777,7 +2777,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows_core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
@@ -2791,7 +2791,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromUuid)(::windows_core::Interface::as_raw(this), serviceuuid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
@@ -2799,7 +2799,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromShortId)(::windows_core::Interface::as_raw(this), serviceshortid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `deprecated`"]
+    #[doc = "Required features: `\"deprecated\"`"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows_core::Result<::windows_core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
@@ -2807,7 +2807,7 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).ConvertShortIdToUuid)(::windows_core::Interface::as_raw(this), shortid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdWithSharingModeAsync(deviceid: &::windows_core::HSTRING, sharingmode: GattSharingMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
@@ -2890,7 +2890,7 @@ impl GattDeviceServicesResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -2899,7 +2899,7 @@ impl GattDeviceServicesResult {
             (::windows_core::Interface::vtable(this).ProtocolError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Services(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = self;
@@ -2935,7 +2935,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).Uuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2965,7 +2965,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).WriteProtectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateDescriptorAsync<P0>(&self, descriptoruuid: ::windows_core::GUID, parameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
     where
@@ -2977,7 +2977,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).CreateDescriptorAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, parameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>> {
         let this = self;
@@ -2993,7 +2993,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).UserDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
         let this = self;
@@ -3002,7 +3002,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).PresentationFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SubscribedClients(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>> {
         let this = self;
@@ -3011,7 +3011,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).SubscribedClients)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SubscribedClientsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3023,13 +3023,13 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).SubscribedClientsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubscribedClientsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSubscribedClientsChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3041,13 +3041,13 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).ReadRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn WriteRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3059,13 +3059,13 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).WriteRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWriteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveWriteRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn NotifyValueAsync<P0>(&self, value: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>
     where
@@ -3077,7 +3077,7 @@ impl GattLocalCharacteristic {
             (::windows_core::Interface::vtable(this).NotifyValueAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`, `Storage_Streams`"]
+    #[doc = "Required features: `\"Foundation\"`, `\"Storage_Streams\"`"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
     where
@@ -3117,7 +3117,7 @@ impl GattLocalCharacteristicParameters {
         static SHARED: ::windows_core::imp::FactoryCache<GattLocalCharacteristicParameters, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3126,7 +3126,7 @@ impl GattLocalCharacteristicParameters {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStaticValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3179,7 +3179,7 @@ impl GattLocalCharacteristicParameters {
             (::windows_core::Interface::vtable(this).UserDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>> {
         let this = self;
@@ -3249,7 +3249,7 @@ impl GattLocalDescriptor {
             (::windows_core::Interface::vtable(this).Uuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3272,7 +3272,7 @@ impl GattLocalDescriptor {
             (::windows_core::Interface::vtable(this).WriteProtectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ReadRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3284,13 +3284,13 @@ impl GattLocalDescriptor {
             (::windows_core::Interface::vtable(this).ReadRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveReadRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn WriteRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3302,7 +3302,7 @@ impl GattLocalDescriptor {
             (::windows_core::Interface::vtable(this).WriteRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWriteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -3335,7 +3335,7 @@ impl GattLocalDescriptorParameters {
         static SHARED: ::windows_core::imp::FactoryCache<GattLocalDescriptorParameters, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3344,7 +3344,7 @@ impl GattLocalDescriptorParameters {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetStaticValue)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3436,7 +3436,7 @@ impl GattLocalService {
             (::windows_core::Interface::vtable(this).Uuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateCharacteristicAsync<P0>(&self, characteristicuuid: ::windows_core::GUID, parameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
     where
@@ -3448,7 +3448,7 @@ impl GattLocalService {
             (::windows_core::Interface::vtable(this).CreateCharacteristicAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, parameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>> {
         let this = self;
@@ -3854,7 +3854,7 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
             (::windows_core::Interface::vtable(this).ClientCharacteristicConfigurationDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &::windows_core::ComInterface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
@@ -3904,7 +3904,7 @@ impl GattReadRequest {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3916,13 +3916,13 @@ impl GattReadRequest {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveStateChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RespondWithValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -3962,7 +3962,7 @@ impl GattReadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Session)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -3971,7 +3971,7 @@ impl GattReadRequestedEventArgs {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRequestAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>> {
         let this = self;
@@ -4007,7 +4007,7 @@ impl GattReadResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -4016,7 +4016,7 @@ impl GattReadResult {
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &::windows_core::ComInterface::cast::<IGattReadResult2>(self)?;
@@ -4052,7 +4052,7 @@ impl GattReliableWriteTransaction {
         static SHARED: ::windows_core::imp::FactoryCache<GattReliableWriteTransaction, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValue<P0, P1>(&self, characteristic: P0, value: P1) -> ::windows_core::Result<()>
     where
@@ -4062,7 +4062,7 @@ impl GattReliableWriteTransaction {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).WriteValue)(::windows_core::Interface::as_raw(this), characteristic.into_param().abi(), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CommitAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
@@ -4071,7 +4071,7 @@ impl GattReliableWriteTransaction {
             (::windows_core::Interface::vtable(this).CommitAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CommitWithResultAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows_core::ComInterface::cast::<IGattReliableWriteTransaction2>(self)?;
@@ -4148,7 +4148,7 @@ impl GattServiceProvider {
             (::windows_core::Interface::vtable(this).AdvertisementStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4160,7 +4160,7 @@ impl GattServiceProvider {
             (::windows_core::Interface::vtable(this).AdvertisementStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdvertisementStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4181,7 +4181,7 @@ impl GattServiceProvider {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).StopAdvertising)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
@@ -4277,7 +4277,7 @@ impl GattServiceProviderAdvertisingParameters {
             (::windows_core::Interface::vtable(this).IsDiscoverable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetServiceData<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -4286,7 +4286,7 @@ impl GattServiceProviderAdvertisingParameters {
         let this = &::windows_core::ComInterface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetServiceData)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ServiceData(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = &::windows_core::ComInterface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
@@ -4497,7 +4497,7 @@ impl ::windows_core::RuntimeName for GattServiceUuids {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattSession(::windows_core::IUnknown);
 impl GattSession {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -4542,7 +4542,7 @@ impl GattSession {
             (::windows_core::Interface::vtable(this).SessionStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxPduSizeChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4554,13 +4554,13 @@ impl GattSession {
             (::windows_core::Interface::vtable(this).MaxPduSizeChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMaxPduSizeChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveMaxPduSizeChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SessionStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4572,13 +4572,13 @@ impl GattSession {
             (::windows_core::Interface::vtable(this).SessionStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveSessionStatusChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>
     where
@@ -4664,7 +4664,7 @@ impl GattSubscribedClient {
             (::windows_core::Interface::vtable(this).MaxNotificationSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn MaxNotificationSizeChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4676,7 +4676,7 @@ impl GattSubscribedClient {
             (::windows_core::Interface::vtable(this).MaxNotificationSizeChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMaxNotificationSizeChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4702,7 +4702,7 @@ unsafe impl ::core::marker::Sync for GattSubscribedClient {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattValueChangedEventArgs(::windows_core::IUnknown);
 impl GattValueChangedEventArgs {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CharacteristicValue(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -4711,7 +4711,7 @@ impl GattValueChangedEventArgs {
             (::windows_core::Interface::vtable(this).CharacteristicValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -4740,7 +4740,7 @@ unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GattWriteRequest(::windows_core::IUnknown);
 impl GattWriteRequest {
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -4770,7 +4770,7 @@ impl GattWriteRequest {
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4782,7 +4782,7 @@ impl GattWriteRequest {
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows_core::Result<()> {
         let this = self;
@@ -4823,7 +4823,7 @@ impl GattWriteRequestedEventArgs {
             (::windows_core::Interface::vtable(this).Session)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -4832,7 +4832,7 @@ impl GattWriteRequestedEventArgs {
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetRequestAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>> {
         let this = self;
@@ -4868,7 +4868,7 @@ impl GattWriteResult {
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;

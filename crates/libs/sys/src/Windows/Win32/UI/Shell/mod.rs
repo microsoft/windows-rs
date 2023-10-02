@@ -1,302 +1,302 @@
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn AssocCreate(clsid : ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`, `Win32_UI_Shell_Common`, `Win32_UI_Shell_PropertiesSystem`"] fn AssocGetDetailsOfPropKey(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut super::super::System::Variant:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"] fn AssocGetDetailsOfPropKey(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut super::super::System::Variant:: VARIANT, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn AssocGetPerceivedType(pszext : ::windows_sys::core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn AssocGetPerceivedType(pszext : ::windows_sys::core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AssocIsDangerous(pszassoc : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AssocIsDangerous(pszassoc : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn AssocQueryKeyA(flags : ASSOCF, key : ASSOCKEY, pszassoc : ::windows_sys::core::PCSTR, pszextra : ::windows_sys::core::PCSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn AssocQueryKeyA(flags : ASSOCF, key : ASSOCKEY, pszassoc : ::windows_sys::core::PCSTR, pszextra : ::windows_sys::core::PCSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn AssocQueryKeyW(flags : ASSOCF, key : ASSOCKEY, pszassoc : ::windows_sys::core::PCWSTR, pszextra : ::windows_sys::core::PCWSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn AssocQueryKeyW(flags : ASSOCF, key : ASSOCKEY, pszassoc : ::windows_sys::core::PCWSTR, pszextra : ::windows_sys::core::PCWSTR, phkeyout : *mut super::super::System::Registry:: HKEY) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringA(flags : ASSOCF, str : ASSOCSTR, pszassoc : ::windows_sys::core::PCSTR, pszextra : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn AssocQueryStringByKeyA(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn AssocQueryStringByKeyA(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : ::windows_sys::core::PCSTR, pszout : ::windows_sys::core::PSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn AssocQueryStringByKeyW(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn AssocQueryStringByKeyW(flags : ASSOCF, str : ASSOCSTR, hkassoc : super::super::System::Registry:: HKEY, pszextra : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn AssocQueryStringW(flags : ASSOCF, str : ASSOCSTR, pszassoc : ::windows_sys::core::PCWSTR, pszextra : ::windows_sys::core::PCWSTR, pszout : ::windows_sys::core::PWSTR, pcchout : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`, `Win32_UI_Shell_Common`"] fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : IShellFolder, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut IContextMenu) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_Shell_Common\"`"] fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : IShellFolder, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut IContextMenu) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn CIDLData_CreateFromIDArray(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, ppdtobj : *mut super::super::System::Com:: IDataObject) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn CIDLData_CreateFromIDArray(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, ppdtobj : *mut super::super::System::Com:: IDataObject) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ChrCmpIA(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChrCmpIA(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ChrCmpIW(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ChrCmpIW(w1 : u16, w2 : u16) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ColorAdjustLuma(clrrgb : super::super::Foundation:: COLORREF, n : i32, fscale : super::super::Foundation:: BOOL) -> super::super::Foundation:: COLORREF);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ColorAdjustLuma(clrrgb : super::super::Foundation:: COLORREF, n : i32, fscale : super::super::Foundation:: BOOL) -> super::super::Foundation:: COLORREF);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ColorHLSToRGB(whue : u16, wluminance : u16, wsaturation : u16) -> super::super::Foundation:: COLORREF);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ColorHLSToRGB(whue : u16, wluminance : u16, wsaturation : u16) -> super::super::Foundation:: COLORREF);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ColorRGBToHLS(clrrgb : super::super::Foundation:: COLORREF, pwhue : *mut u16, pwluminance : *mut u16, pwsaturation : *mut u16) -> ());
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ColorRGBToHLS(clrrgb : super::super::Foundation:: COLORREF, pwhue : *mut u16, pwluminance : *mut u16, pwsaturation : *mut u16) -> ());
 ::windows_targets::link!("shell32.dll" "system" fn CommandLineToArgvW(lpcmdline : ::windows_sys::core::PCWSTR, pnumargs : *mut i32) -> *mut ::windows_sys::core::PWSTR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn ConnectToConnectionPoint(punk : ::windows_sys::core::IUnknown, riidevent : *const ::windows_sys::core::GUID, fconnect : super::super::Foundation:: BOOL, punktarget : ::windows_sys::core::IUnknown, pdwcookie : *mut u32, ppcpout : *mut super::super::System::Com:: IConnectionPoint) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn ConnectToConnectionPoint(punk : ::windows_sys::core::IUnknown, riidevent : *const ::windows_sys::core::GUID, fconnect : super::super::Foundation:: BOOL, punktarget : ::windows_sys::core::IUnknown, pdwcookie : *mut u32, ppcpout : *mut super::super::System::Com:: IConnectionPoint) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("userenv.dll" "system" fn CreateProfile(pszusersid : ::windows_sys::core::PCWSTR, pszusername : ::windows_sys::core::PCWSTR, pszprofilepath : ::windows_sys::core::PWSTR, cchprofilepath : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DAD_AutoScroll(hwnd : super::super::Foundation:: HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DAD_AutoScroll(hwnd : super::super::Foundation:: HWND, pad : *mut AUTO_SCROLL_DATA, pptnow : *const super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DAD_DragEnterEx(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DAD_DragEnterEx(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn DAD_DragEnterEx2(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT, pdtobject : super::super::System::Com:: IDataObject) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn DAD_DragEnterEx2(hwndtarget : super::super::Foundation:: HWND, ptstart : super::super::Foundation:: POINT, pdtobject : super::super::System::Com:: IDataObject) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DAD_DragLeave() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DAD_DragLeave() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DAD_DragMove(pt : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DAD_DragMove(pt : super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"] fn DAD_SetDragImage(him : super::Controls:: HIMAGELIST, pptoffset : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"] fn DAD_SetDragImage(him : super::Controls:: HIMAGELIST, pptoffset : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DAD_ShowDragImage(fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DAD_ShowDragImage(fshow : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DefSubclassProc(hwnd : super::super::Foundation:: HWND, umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DefSubclassProc(hwnd : super::super::Foundation:: HWND, umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DeleteProfileA(lpsidstring : ::windows_sys::core::PCSTR, lpprofilepath : ::windows_sys::core::PCSTR, lpcomputername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DeleteProfileA(lpsidstring : ::windows_sys::core::PCSTR, lpprofilepath : ::windows_sys::core::PCSTR, lpcomputername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DeleteProfileW(lpsidstring : ::windows_sys::core::PCWSTR, lpprofilepath : ::windows_sys::core::PCWSTR, lpcomputername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DeleteProfileW(lpsidstring : ::windows_sys::core::PCWSTR, lpprofilepath : ::windows_sys::core::PCWSTR, lpcomputername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : ::windows_sys::core::PSTR, cchsrc : u32) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : ::windows_sys::core::PWSTR, cchsrc : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DragAcceptFiles(hwnd : super::super::Foundation:: HWND, faccept : super::super::Foundation:: BOOL) -> ());
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DragAcceptFiles(hwnd : super::super::Foundation:: HWND, faccept : super::super::Foundation:: BOOL) -> ());
 ::windows_targets::link!("shell32.dll" "system" fn DragFinish(hdrop : HDROP) -> ());
 ::windows_targets::link!("shell32.dll" "system" fn DragQueryFileA(hdrop : HDROP, ifile : u32, lpszfile : ::windows_sys::core::PSTR, cch : u32) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn DragQueryFileW(hdrop : HDROP, ifile : u32, lpszfile : ::windows_sys::core::PWSTR, cch : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DragQueryPoint(hdrop : HDROP, ppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DragQueryPoint(hdrop : HDROP, ppt : *mut super::super::Foundation:: POINT) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn DriveType(idrive : i32) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn DuplicateIcon(hinst : super::super::Foundation:: HINSTANCE, hicon : super::WindowsAndMessaging:: HICON) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn DuplicateIcon(hinst : super::super::Foundation:: HINSTANCE, hicon : super::WindowsAndMessaging:: HICON) -> super::WindowsAndMessaging:: HICON);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ExtractAssociatedIconA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractAssociatedIconA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ExtractAssociatedIconExA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractAssociatedIconExA(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ExtractAssociatedIconExW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractAssociatedIconExW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ExtractAssociatedIconW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PWSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractAssociatedIconW(hinst : super::super::Foundation:: HINSTANCE, psziconpath : ::windows_sys::core::PWSTR, piicon : *mut u16) -> super::WindowsAndMessaging:: HICON);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ExtractIconA(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : ::windows_sys::core::PCSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractIconA(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : ::windows_sys::core::PCSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn ExtractIconExA(lpszfile : ::windows_sys::core::PCSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractIconExA(lpszfile : ::windows_sys::core::PCSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn ExtractIconExW(lpszfile : ::windows_sys::core::PCWSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractIconExW(lpszfile : ::windows_sys::core::PCWSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ExtractIconW(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : ::windows_sys::core::PCWSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ExtractIconW(hinst : super::super::Foundation:: HINSTANCE, pszexefilename : ::windows_sys::core::PCWSTR, niconindex : u32) -> super::WindowsAndMessaging:: HICON);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FindExecutableA(lpfile : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, lpresult : ::windows_sys::core::PSTR) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FindExecutableA(lpfile : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, lpresult : ::windows_sys::core::PSTR) -> super::super::Foundation:: HINSTANCE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FindExecutableW(lpfile : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, lpresult : ::windows_sys::core::PWSTR) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FindExecutableW(lpfile : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, lpresult : ::windows_sys::core::PWSTR) -> super::super::Foundation:: HINSTANCE);
 ::windows_targets::link!("shlwapi.dll" "system" fn GetAcceptLanguagesA(pszlanguages : ::windows_sys::core::PSTR, pcchlanguages : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn GetAcceptLanguagesW(pszlanguages : ::windows_sys::core::PWSTR, pcchlanguages : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetAllUsersProfileDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetAllUsersProfileDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetAllUsersProfileDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetAllUsersProfileDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn GetCurrentProcessExplicitAppUserModelID(appid : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetDefaultUserProfileDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetDefaultUserProfileDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetDefaultUserProfileDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetDefaultUserProfileDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-2.dll" "system" fn GetDpiForShellUIComponent(param0 : SHELL_UI_COMPONENT) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetFileNameFromBrowse(hwnd : super::super::Foundation:: HWND, pszfilepath : ::windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : ::windows_sys::core::PCWSTR, pszdefext : ::windows_sys::core::PCWSTR, pszfilters : ::windows_sys::core::PCWSTR, psztitle : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetFileNameFromBrowse(hwnd : super::super::Foundation:: HWND, pszfilepath : ::windows_sys::core::PWSTR, cchfilepath : u32, pszworkingdir : ::windows_sys::core::PCWSTR, pszdefext : ::windows_sys::core::PCWSTR, pszfilters : ::windows_sys::core::PCWSTR, psztitle : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn GetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU) -> u32);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn GetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn GetMenuPosFromID(hmenu : super::WindowsAndMessaging:: HMENU, id : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn GetMenuPosFromID(hmenu : super::WindowsAndMessaging:: HMENU, id : u32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetProfileType(dwflags : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetProfileType(dwflags : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetProfilesDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetProfilesDirectoryA(lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetProfilesDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetProfilesDirectoryW(lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn GetScaleFactorForDevice(devicetype : DISPLAY_DEVICE_TYPE) -> Common:: DEVICE_SCALE_FACTOR);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn GetScaleFactorForDevice(devicetype : DISPLAY_DEVICE_TYPE) -> Common:: DEVICE_SCALE_FACTOR);
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_UI_Shell_Common`"] fn GetScaleFactorForMonitor(hmon : super::super::Graphics::Gdi:: HMONITOR, pscale : *mut Common:: DEVICE_SCALE_FACTOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Shell_Common\"`"] fn GetScaleFactorForMonitor(hmon : super::super::Graphics::Gdi:: HMONITOR, pscale : *mut Common:: DEVICE_SCALE_FACTOR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetUserProfileDirectoryA(htoken : super::super::Foundation:: HANDLE, lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetUserProfileDirectoryA(htoken : super::super::Foundation:: HANDLE, lpprofiledir : ::windows_sys::core::PSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetUserProfileDirectoryW(htoken : super::super::Foundation:: HANDLE, lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetUserProfileDirectoryW(htoken : super::super::Foundation:: HANDLE, lpprofiledir : ::windows_sys::core::PWSTR, lpcchsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetWindowContextHelpId(param0 : super::super::Foundation:: HWND) -> u32);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetWindowContextHelpId(param0 : super::super::Foundation:: HWND) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, pdwrefdata : *mut usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, pdwrefdata : *mut usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HMONITOR) -> ());
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserFree(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HMONITOR) -> ());
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserFree64(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HMONITOR) -> ());
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserFree64(param0 : *const u32, param1 : *const super::super::Graphics::Gdi:: HMONITOR) -> ());
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserSize(param0 : *const u32, param1 : u32, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> u32);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserSize(param0 : *const u32, param1 : u32, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserSize64(param0 : *const u32, param1 : u32, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> u32);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserSize64(param0 : *const u32, param1 : u32, param2 : *const super::super::Graphics::Gdi:: HMONITOR) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn HMONITOR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn HMONITOR_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super::super::Graphics::Gdi:: HMONITOR) -> *mut u8);
 ::windows_targets::link!("shlwapi.dll" "system" fn HashData(pbdata : *const u8, cbdata : u32, pbhash : *mut u8, cbhash : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkClone(pihl : IHlink, riid : *const ::windows_sys::core::GUID, pihlsiteforclone : IHlinkSite, dwsitedata : u32, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkCreateBrowseContext(piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HlinkCreateExtensionServices(pwzadditionalheaders : ::windows_sys::core::PCWSTR, phwnd : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HlinkCreateExtensionServices(pwzadditionalheaders : ::windows_sys::core::PCWSTR, phwnd : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCWSTR, pszpassword : ::windows_sys::core::PCWSTR, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkCreateFromData(pidataobj : super::super::System::Com:: IDataObject, pihlsite : IHlinkSite, dwsitedata : u32, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkCreateFromData(pidataobj : super::super::System::Com:: IDataObject, pihlsite : IHlinkSite, dwsitedata : u32, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkCreateFromMoniker(pimktrgt : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, pihlsite : IHlinkSite, dwsitedata : u32, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkCreateFromMoniker(pimktrgt : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, pihlsite : IHlinkSite, dwsitedata : u32, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkCreateFromString(pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, pihlsite : IHlinkSite, dwsitedata : u32, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcut(grfhlshortcutf : u32, pihl : IHlink, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkCreateShortcutFromMoniker(grfhlshortcutf : u32, pimktarget : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkCreateShortcutFromMoniker(grfhlshortcutf : u32, pimktarget : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkCreateShortcutFromString(grfhlshortcutf : u32, pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pwzdir : ::windows_sys::core::PCWSTR, pwzfilename : ::windows_sys::core::PCWSTR, ppwzshortcutfile : *mut ::windows_sys::core::PWSTR, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkGetSpecialReference(ureference : u32, ppwzreference : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkGetValueFromParams(pwzparams : ::windows_sys::core::PCWSTR, pwzname : ::windows_sys::core::PCWSTR, ppwzvalue : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkIsShortcut(pwzfilename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkNavigate(pihl : IHlink, pihlframe : IHlinkFrame, grfhlnf : u32, pbc : super::super::System::Com:: IBindCtx, pibsc : super::super::System::Com:: IBindStatusCallback, pihlbc : IHlinkBrowseContext) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkNavigate(pihl : IHlink, pihlframe : IHlinkFrame, grfhlnf : u32, pbc : super::super::System::Com:: IBindCtx, pibsc : super::super::System::Com:: IBindStatusCallback, pihlbc : IHlinkBrowseContext) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkNavigateToStringReference(pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pihlsite : IHlinkSite, dwsitedata : u32, pihlframe : IHlinkFrame, grfhlnf : u32, pibc : super::super::System::Com:: IBindCtx, pibsc : super::super::System::Com:: IBindStatusCallback, pihlbc : IHlinkBrowseContext) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkNavigateToStringReference(pwztarget : ::windows_sys::core::PCWSTR, pwzlocation : ::windows_sys::core::PCWSTR, pihlsite : IHlinkSite, dwsitedata : u32, pihlframe : IHlinkFrame, grfhlnf : u32, pibc : super::super::System::Com:: IBindCtx, pibsc : super::super::System::Com:: IBindStatusCallback, pihlbc : IHlinkBrowseContext) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkOnNavigate(pihlframe : IHlinkFrame, pihlbc : IHlinkBrowseContext, grfhlnf : u32, pimktarget : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, puhlid : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkOnNavigate(pihlframe : IHlinkFrame, pihlbc : IHlinkBrowseContext, grfhlnf : u32, pimktarget : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR, puhlid : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkOnRenameDocument(dwreserved : u32, pihlbc : IHlinkBrowseContext, pimkold : super::super::System::Com:: IMoniker, pimknew : super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkOnRenameDocument(dwreserved : u32, pihlbc : IHlinkBrowseContext, pimkold : super::super::System::Com:: IMoniker, pimknew : super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn HlinkParseDisplayName(pibc : super::super::System::Com:: IBindCtx, pwzdisplayname : ::windows_sys::core::PCWSTR, fnoforceabs : super::super::Foundation:: BOOL, pccheaten : *mut u32, ppimk : *mut super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn HlinkParseDisplayName(pibc : super::super::System::Com:: IBindCtx, pwzdisplayname : ::windows_sys::core::PCWSTR, fnoforceabs : super::super::Foundation:: BOOL, pccheaten : *mut u32, ppimk : *mut super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkPreprocessMoniker(pibc : super::super::System::Com:: IBindCtx, pimkin : super::super::System::Com:: IMoniker, ppimkout : *mut super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkPreprocessMoniker(pibc : super::super::System::Com:: IBindCtx, pimkin : super::super::System::Com:: IMoniker, ppimkout : *mut super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkQueryCreateFromData(pidataobj : super::super::System::Com:: IDataObject) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkQueryCreateFromData(pidataobj : super::super::System::Com:: IDataObject) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkResolveMonikerForData(pimkreference : super::super::System::Com:: IMoniker, reserved : u32, pibc : super::super::System::Com:: IBindCtx, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : super::super::System::Com:: IBindStatusCallback, pimkbase : super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkResolveMonikerForData(pimkreference : super::super::System::Com:: IMoniker, reserved : u32, pibc : super::super::System::Com:: IBindCtx, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : super::super::System::Com:: IBindStatusCallback, pimkbase : super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcut(pwzshortcutfilename : ::windows_sys::core::PCWSTR, pihlsite : IHlinkSite, dwsitedata : u32, piunkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkResolveShortcutToMoniker(pwzshortcutfilename : ::windows_sys::core::PCWSTR, ppimktarget : *mut super::super::System::Com:: IMoniker, ppwzlocation : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkResolveShortcutToMoniker(pwzshortcutfilename : ::windows_sys::core::PCWSTR, ppimktarget : *mut super::super::System::Com:: IMoniker, ppwzlocation : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkResolveShortcutToString(pwzshortcutfilename : ::windows_sys::core::PCWSTR, ppwztarget : *mut ::windows_sys::core::PWSTR, ppwzlocation : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkResolveStringForData(pwzreference : ::windows_sys::core::PCWSTR, reserved : u32, pibc : super::super::System::Com:: IBindCtx, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : super::super::System::Com:: IBindStatusCallback, pimkbase : super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkResolveStringForData(pwzreference : ::windows_sys::core::PCWSTR, reserved : u32, pibc : super::super::System::Com:: IBindCtx, cfmtetc : u32, rgfmtetc : *mut super::super::System::Com:: FORMATETC, pibsc : super::super::System::Com:: IBindStatusCallback, pimkbase : super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkSetSpecialReference(ureference : u32, pwzreference : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("hlink.dll" "system" fn HlinkTranslateURL(pwzurl : ::windows_sys::core::PCWSTR, grfflags : u32, ppwztranslatedurl : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn HlinkUpdateStackItem(pihlframe : IHlinkFrame, pihlbc : IHlinkBrowseContext, uhlid : u32, pimktrgt : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn HlinkUpdateStackItem(pihlframe : IHlinkFrame, pihlbc : IHlinkBrowseContext, uhlid : u32, pimktrgt : super::super::System::Com:: IMoniker, pwzlocation : ::windows_sys::core::PCWSTR, pwzfriendlyname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn ILAppendID(pidl : *const Common:: ITEMIDLIST, pmkid : *const Common:: SHITEMID, fappend : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn ILAppendID(pidl : *const Common:: ITEMIDLIST, pmkid : *const Common:: SHITEMID, fappend : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILClone(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILClone(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILCloneFirst(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILCloneFirst(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILCombine(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILCombine(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILCreateFromPathA(pszpath : ::windows_sys::core::PCSTR) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILCreateFromPathA(pszpath : ::windows_sys::core::PCSTR) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILCreateFromPathW(pszpath : ::windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILCreateFromPathW(pszpath : ::windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILFindChild(pidlparent : *const Common:: ITEMIDLIST, pidlchild : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILFindChild(pidlparent : *const Common:: ITEMIDLIST, pidlchild : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILFindLastID(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILFindLastID(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILFree(pidl : *const Common:: ITEMIDLIST) -> ());
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILFree(pidl : *const Common:: ITEMIDLIST) -> ());
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILGetNext(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILGetNext(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn ILGetSize(pidl : *const Common:: ITEMIDLIST) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn ILGetSize(pidl : *const Common:: ITEMIDLIST) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn ILIsEqual(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn ILIsEqual(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn ILIsParent(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST, fimmediate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn ILIsParent(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST, fimmediate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn ILLoadFromStreamEx(pstm : super::super::System::Com:: IStream, pidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn ILLoadFromStreamEx(pstm : super::super::System::Com:: IStream, pidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn ILRemoveLastID(pidl : *mut Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn ILRemoveLastID(pidl : *mut Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn ILSaveToStream(pstm : super::super::System::Com:: IStream, pidl : *const Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn ILSaveToStream(pstm : super::super::System::Com:: IStream, pidl : *const Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_Copy(pstmfrom : super::super::System::Com:: IStream, pstmto : super::super::System::Com:: IStream, cb : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_Copy(pstmfrom : super::super::System::Com:: IStream, pstmto : super::super::System::Com:: IStream, cb : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_Read(pstm : super::super::System::Com:: IStream, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_Read(pstm : super::super::System::Com:: IStream, pv : *mut ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn IStream_ReadPidl(pstm : super::super::System::Com:: IStream, ppidlout : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn IStream_ReadPidl(pstm : super::super::System::Com:: IStream, ppidlout : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_ReadStr(pstm : super::super::System::Com:: IStream, ppsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_ReadStr(pstm : super::super::System::Com:: IStream, ppsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_Reset(pstm : super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_Reset(pstm : super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_Size(pstm : super::super::System::Com:: IStream, pui : *mut u64) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_Size(pstm : super::super::System::Com:: IStream, pui : *mut u64) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_Write(pstm : super::super::System::Com:: IStream, pv : *const ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_Write(pstm : super::super::System::Com:: IStream, pv : *const ::core::ffi::c_void, cb : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn IStream_WritePidl(pstm : super::super::System::Com:: IStream, pidlwrite : *const Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn IStream_WritePidl(pstm : super::super::System::Com:: IStream, pidlwrite : *const Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn IStream_WriteStr(pstm : super::super::System::Com:: IStream, psz : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn IStream_WriteStr(pstm : super::super::System::Com:: IStream, psz : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_AtomicRelease(ppunk : *mut *mut ::core::ffi::c_void) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_GetSite(punk : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IUnknown_GetWindow(punk : ::windows_sys::core::IUnknown, phwnd : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IUnknown_GetWindow(punk : ::windows_sys::core::IUnknown, phwnd : *mut super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_QueryService(punk : ::windows_sys::core::IUnknown, guidservice : *const ::windows_sys::core::GUID, riid : *const ::windows_sys::core::GUID, ppvout : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_Set(ppunk : *mut ::windows_sys::core::IUnknown, punk : ::windows_sys::core::IUnknown) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn IUnknown_SetSite(punk : ::windows_sys::core::IUnknown, punksite : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shdocvw.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ImportPrivacySettings(pszfilename : ::windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut super::super::Foundation:: BOOL, pfparsepersiterules : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shdocvw.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ImportPrivacySettings(pszfilename : ::windows_sys::core::PCWSTR, pfparseprivacypreferences : *mut super::super::Foundation:: BOOL, pfparsepersiterules : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn InitNetworkAddressControl() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn InitNetworkAddressControl() -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_Common`"] fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`"] fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`, `Win32_UI_Shell_Common`"] fn InitVariantFromStrRet(pstrret : *const Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`"] fn InitVariantFromStrRet(pstrret : *const Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IntlStrEqWorkerA(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IntlStrEqWorkerA(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCSTR, lpstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IntlStrEqWorkerW(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCWSTR, lpstring2 : ::windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IntlStrEqWorkerW(fcasesens : super::super::Foundation:: BOOL, lpstring1 : ::windows_sys::core::PCWSTR, lpstring2 : ::windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsCharSpaceA(wch : u8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsCharSpaceA(wch : u8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsCharSpaceW(wch : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsCharSpaceW(wch : u16) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsInternetESCEnabled() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsInternetESCEnabled() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsLFNDriveA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsLFNDriveA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsLFNDriveW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsLFNDriveW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn IsNetDrive(idrive : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsOS(dwos : OS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsOS(dwos : OS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn IsUserAnAdmin() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn IsUserAnAdmin() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn LoadUserProfileA(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LoadUserProfileA(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn LoadUserProfileW(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LoadUserProfileW(htoken : super::super::Foundation:: HANDLE, lpprofileinfo : *mut PROFILEINFOW) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn OleSaveToStreamEx(piunk : ::windows_sys::core::IUnknown, pistm : super::super::System::Com:: IStream, fcleardirty : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("hlink.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn OleSaveToStreamEx(piunk : ::windows_sys::core::IUnknown, pistm : super::super::System::Com:: IStream, fcleardirty : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_System_Registry`"] fn OpenRegStream(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> super::super::System::Com:: IStream);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`"] fn OpenRegStream(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> super::super::System::Com:: IStream);
 ::windows_targets::link!("shlwapi.dll" "system" fn ParseURLA(pcszurl : ::windows_sys::core::PCSTR, ppu : *mut PARSEDURLA) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn ParseURLW(pcszurl : ::windows_sys::core::PCWSTR, ppu : *mut PARSEDURLW) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathAddBackslashA(pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathAddBackslashW(pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathAddExtensionA(pszpath : ::windows_sys::core::PSTR, pszext : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathAddExtensionA(pszpath : ::windows_sys::core::PSTR, pszext : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathAddExtensionW(pszpath : ::windows_sys::core::PWSTR, pszext : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathAddExtensionW(pszpath : ::windows_sys::core::PWSTR, pszext : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCanonicalize(pszpathin : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS, ppszpathout : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathAllocCombine(pszpathin : ::windows_sys::core::PCWSTR, pszmore : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS, ppszpathout : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathAppendA(pszpath : ::windows_sys::core::PSTR, pszmore : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathAppendA(pszpath : ::windows_sys::core::PSTR, pszmore : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathAppendW(pszpath : ::windows_sys::core::PWSTR, pszmore : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathAppendW(pszpath : ::windows_sys::core::PWSTR, pszmore : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathBuildRootA(pszroot : ::windows_sys::core::PSTR, idrive : i32) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathBuildRootW(pszroot : ::windows_sys::core::PWSTR, idrive : i32) -> ::windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathCanonicalizeA(pszbuf : ::windows_sys::core::PSTR, pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathCanonicalizeA(pszbuf : ::windows_sys::core::PSTR, pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathCanonicalizeW(pszbuf : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathCanonicalizeW(pszbuf : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslash(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslashEx(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut ::windows_sys::core::PWSTR, pcchremaining : *mut usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddExtension(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, pszext : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
@@ -308,7 +308,7 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchCombineEx(pszpathout : ::windows_sys::core::PWSTR, cchpathout : usize, pszpathin : ::windows_sys::core::PCWSTR, pszmore : ::windows_sys::core::PCWSTR, dwflags : PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchFindExtension(pszpath : ::windows_sys::core::PCWSTR, cchpath : usize, ppszext : *mut ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathCchIsRoot(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathCchIsRoot(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslash(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslashEx(pszpath : ::windows_sys::core::PWSTR, cchpath : usize, ppszend : *mut ::windows_sys::core::PWSTR, pcchremaining : *mut usize) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveExtension(pszpath : ::windows_sys::core::PWSTR, cchpath : usize) -> ::windows_sys::core::HRESULT);
@@ -323,20 +323,20 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn PathCommonPrefixA(pszfile1 : ::windows_sys::core::PCSTR, pszfile2 : ::windows_sys::core::PCSTR, achpath : ::windows_sys::core::PSTR) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathCommonPrefixW(pszfile1 : ::windows_sys::core::PCWSTR, pszfile2 : ::windows_sys::core::PCWSTR, achpath : ::windows_sys::core::PWSTR) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn PathCompactPathA(hdc : super::super::Graphics::Gdi:: HDC, pszpath : ::windows_sys::core::PSTR, dx : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PathCompactPathA(hdc : super::super::Graphics::Gdi:: HDC, pszpath : ::windows_sys::core::PSTR, dx : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathCompactPathExA(pszout : ::windows_sys::core::PSTR, pszsrc : ::windows_sys::core::PCSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathCompactPathExA(pszout : ::windows_sys::core::PSTR, pszsrc : ::windows_sys::core::PCSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathCompactPathExW(pszout : ::windows_sys::core::PWSTR, pszsrc : ::windows_sys::core::PCWSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathCompactPathExW(pszout : ::windows_sys::core::PWSTR, pszsrc : ::windows_sys::core::PCWSTR, cchmax : u32, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn PathCompactPathW(hdc : super::super::Graphics::Gdi:: HDC, pszpath : ::windows_sys::core::PWSTR, dx : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn PathCompactPathW(hdc : super::super::Graphics::Gdi:: HDC, pszpath : ::windows_sys::core::PWSTR, dx : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlA(pszurl : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR, pcchpath : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlAlloc(pszin : ::windows_sys::core::PCWSTR, ppszout : *mut ::windows_sys::core::PWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathCreateFromUrlW(pszurl : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR, pcchpath : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathFileExistsA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathFileExistsA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathFileExistsW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathFileExistsW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindExtensionA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindExtensionW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindFileNameA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
@@ -344,9 +344,9 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindNextComponentA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindNextComponentW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathFindOnPathA(pszpath : ::windows_sys::core::PSTR, ppszotherdirs : *const *const i8) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathFindOnPathA(pszpath : ::windows_sys::core::PSTR, ppszotherdirs : *const *const i8) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathFindOnPathW(pszpath : ::windows_sys::core::PWSTR, ppszotherdirs : *const *const u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathFindOnPathW(pszpath : ::windows_sys::core::PWSTR, ppszotherdirs : *const *const u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : ::windows_sys::core::PCSTR, apszsuffix : *const ::windows_sys::core::PCSTR, iarraysize : i32) -> ::windows_sys::core::PCSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : ::windows_sys::core::PCWSTR, apszsuffix : *const ::windows_sys::core::PCWSTR, iarraysize : i32) -> ::windows_sys::core::PCWSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathGetArgsA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
@@ -357,100 +357,100 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn PathGetDriveNumberW(pszpath : ::windows_sys::core::PCWSTR) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : ::windows_sys::core::PWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsContentTypeA(pszpath : ::windows_sys::core::PCSTR, pszcontenttype : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsContentTypeA(pszpath : ::windows_sys::core::PCSTR, pszcontenttype : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsContentTypeW(pszpath : ::windows_sys::core::PCWSTR, pszcontenttype : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsContentTypeW(pszpath : ::windows_sys::core::PCWSTR, pszcontenttype : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsDirectoryA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsDirectoryA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsDirectoryEmptyA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsDirectoryEmptyA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsDirectoryEmptyW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsDirectoryEmptyW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsDirectoryW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsDirectoryW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsExe(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsExe(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsFileSpecA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsFileSpecA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsFileSpecW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsFileSpecW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsLFNFileSpecA(pszname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsLFNFileSpecA(pszname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsLFNFileSpecW(pszname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsLFNFileSpecW(pszname : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsNetworkPathA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsNetworkPathA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsNetworkPathW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsNetworkPathW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsPrefixA(pszprefix : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsPrefixA(pszprefix : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsPrefixW(pszprefix : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsPrefixW(pszprefix : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsRelativeA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsRelativeA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsRelativeW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsRelativeW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsRootA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsRootA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsRootW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsRootW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsSameRootA(pszpath1 : ::windows_sys::core::PCSTR, pszpath2 : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsSameRootA(pszpath1 : ::windows_sys::core::PCSTR, pszpath2 : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsSameRootW(pszpath1 : ::windows_sys::core::PCWSTR, pszpath2 : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsSameRootW(pszpath1 : ::windows_sys::core::PCWSTR, pszpath2 : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsSlowA(pszfile : ::windows_sys::core::PCSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsSlowA(pszfile : ::windows_sys::core::PCSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsSlowW(pszfile : ::windows_sys::core::PCWSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsSlowW(pszfile : ::windows_sys::core::PCWSTR, dwattr : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsSystemFolderA(pszpath : ::windows_sys::core::PCSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsSystemFolderA(pszpath : ::windows_sys::core::PCSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsSystemFolderW(pszpath : ::windows_sys::core::PCWSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsSystemFolderW(pszpath : ::windows_sys::core::PCWSTR, dwattrb : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCEx(pszpath : ::windows_sys::core::PCWSTR, ppszserver : *mut ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCEx(pszpath : ::windows_sys::core::PCWSTR, ppszserver : *mut ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCServerA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCServerA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCServerShareA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCServerShareA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCServerShareW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCServerShareW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCServerW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCServerW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsUNCW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsUNCW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsURLA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsURLA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathIsURLW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathIsURLW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMakePrettyA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMakePrettyA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMakePrettyW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMakePrettyW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMakeSystemFolderA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMakeSystemFolderA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMakeSystemFolderW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMakeSystemFolderW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, cchmax : u32, psztemplate : ::windows_sys::core::PCWSTR, pszlongplate : ::windows_sys::core::PCWSTR, pszdir : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, cchmax : u32, psztemplate : ::windows_sys::core::PCWSTR, pszlongplate : ::windows_sys::core::PCWSTR, pszdir : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMatchSpecA(pszfile : ::windows_sys::core::PCSTR, pszspec : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMatchSpecA(pszfile : ::windows_sys::core::PCSTR, pszspec : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecExA(pszfile : ::windows_sys::core::PCSTR, pszspec : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathMatchSpecExW(pszfile : ::windows_sys::core::PCWSTR, pszspec : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathMatchSpecW(pszfile : ::windows_sys::core::PCWSTR, pszspec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathMatchSpecW(pszfile : ::windows_sys::core::PCWSTR, pszspec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathParseIconLocationA(psziconfile : ::windows_sys::core::PSTR) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathParseIconLocationW(psziconfile : ::windows_sys::core::PWSTR) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn PathQualify(psz : ::windows_sys::core::PWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathQuoteSpacesA(lpsz : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathQuoteSpacesA(lpsz : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathQuoteSpacesW(lpsz : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathQuoteSpacesW(lpsz : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathRelativePathToA(pszpath : ::windows_sys::core::PSTR, pszfrom : ::windows_sys::core::PCSTR, dwattrfrom : u32, pszto : ::windows_sys::core::PCSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathRelativePathToA(pszpath : ::windows_sys::core::PSTR, pszfrom : ::windows_sys::core::PCSTR, dwattrfrom : u32, pszto : ::windows_sys::core::PCSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathRelativePathToW(pszpath : ::windows_sys::core::PWSTR, pszfrom : ::windows_sys::core::PCWSTR, dwattrfrom : u32, pszto : ::windows_sys::core::PCWSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathRelativePathToW(pszpath : ::windows_sys::core::PWSTR, pszfrom : ::windows_sys::core::PCWSTR, dwattrfrom : u32, pszto : ::windows_sys::core::PCWSTR, dwattrto : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveArgsA(pszpath : ::windows_sys::core::PSTR) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveArgsW(pszpath : ::windows_sys::core::PWSTR) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveBackslashA(pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::PSTR);
@@ -460,533 +460,533 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveExtensionA(pszpath : ::windows_sys::core::PSTR) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn PathRemoveExtensionW(pszpath : ::windows_sys::core::PWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathRemoveFileSpecA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathRemoveFileSpecA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathRemoveFileSpecW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathRemoveFileSpecW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathRenameExtensionA(pszpath : ::windows_sys::core::PSTR, pszext : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathRenameExtensionA(pszpath : ::windows_sys::core::PSTR, pszext : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathRenameExtensionW(pszpath : ::windows_sys::core::PWSTR, pszext : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathRenameExtensionW(pszpath : ::windows_sys::core::PWSTR, pszext : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn PathResolve(pszpath : ::windows_sys::core::PWSTR, dirs : *const *const u16, fflags : u32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathSearchAndQualifyA(pszpath : ::windows_sys::core::PCSTR, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathSearchAndQualifyA(pszpath : ::windows_sys::core::PCSTR, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathSearchAndQualifyW(pszpath : ::windows_sys::core::PCWSTR, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathSearchAndQualifyW(pszpath : ::windows_sys::core::PCWSTR, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathSetDlgItemPathA(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : ::windows_sys::core::PCSTR) -> ());
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathSetDlgItemPathA(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : ::windows_sys::core::PCSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathSetDlgItemPathW(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : ::windows_sys::core::PCWSTR) -> ());
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathSetDlgItemPathW(hdlg : super::super::Foundation:: HWND, id : i32, pszpath : ::windows_sys::core::PCWSTR) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn PathSkipRootA(pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathSkipRootW(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathStripPathA(pszpath : ::windows_sys::core::PSTR) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn PathStripPathW(pszpath : ::windows_sys::core::PWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathStripToRootA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathStripToRootA(pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathStripToRootW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathStripToRootW(pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathUnExpandEnvStringsA(pszpath : ::windows_sys::core::PCSTR, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathUnExpandEnvStringsA(pszpath : ::windows_sys::core::PCSTR, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathUnExpandEnvStringsW(pszpath : ::windows_sys::core::PCWSTR, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathUnExpandEnvStringsW(pszpath : ::windows_sys::core::PCWSTR, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn PathUndecorateA(pszpath : ::windows_sys::core::PSTR) -> ());
 ::windows_targets::link!("shlwapi.dll" "system" fn PathUndecorateW(pszpath : ::windows_sys::core::PWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathUnmakeSystemFolderA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathUnmakeSystemFolderA(pszpath : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathUnmakeSystemFolderW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathUnmakeSystemFolderW(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathUnquoteSpacesA(lpsz : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathUnquoteSpacesA(lpsz : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathUnquoteSpacesW(lpsz : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathUnquoteSpacesW(lpsz : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PathYetAnotherMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR, pszshort : ::windows_sys::core::PCWSTR, pszfilespec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PathYetAnotherMakeUniqueName(pszuniquename : ::windows_sys::core::PWSTR, pszpath : ::windows_sys::core::PCWSTR, pszshort : ::windows_sys::core::PCWSTR, pszfilespec : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn PickIconDlg(hwnd : super::super::Foundation:: HWND, psziconpath : ::windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn PickIconDlg(hwnd : super::super::Foundation:: HWND, psziconpath : ::windows_sys::core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_Common`"] fn PropVariantToStrRet(propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`"] fn PropVariantToStrRet(propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn QISearch(that : *mut ::core::ffi::c_void, pqit : *const QITAB, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReadCabinetState(pcs : *mut CABINETSTATE, clength : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReadCabinetState(pcs : *mut CABINETSTATE, clength : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RealDriveType(idrive : i32, foktohitnet : super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RealDriveType(idrive : i32, foktohitnet : super::super::Foundation:: BOOL) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPCONSTRAIN_REGISTRATION) -> u32);
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPCONSTRAIN_REGISTRATION) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPSTATE_REGISTRATION) -> u32);
+::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const ::core::ffi::c_void, registration : *mut PAPPSTATE_REGISTRATION) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegisterScaleChangeEvent(hevent : super::super::Foundation:: HANDLE, pdwcookie : *mut usize) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterScaleChangeEvent(hevent : super::super::Foundation:: HANDLE, pdwcookie : *mut usize) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RegisterScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, hwndnotify : super::super::Foundation:: HWND, umsgnotify : u32, pdwcookie : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RegisterScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, hwndnotify : super::super::Foundation:: HWND, umsgnotify : u32, pdwcookie : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RemoveWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RemoveWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RestartDialog(hwnd : super::super::Foundation:: HWND, pszprompt : ::windows_sys::core::PCWSTR, dwreturn : u32) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RestartDialog(hwnd : super::super::Foundation:: HWND, pszprompt : ::windows_sys::core::PCWSTR, dwreturn : u32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RestartDialogEx(hwnd : super::super::Foundation:: HWND, pszprompt : ::windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RestartDialogEx(hwnd : super::super::Foundation:: HWND, pszprompt : ::windows_sys::core::PCWSTR, dwreturn : u32, dwreasoncode : u32) -> i32);
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-0.dll" "system" fn RevokeScaleChangeNotifications(displaydevice : DISPLAY_DEVICE_TYPE, dwcookie : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"] fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::Controls:: LPFNSVADDPROPSHEETPAGE, lparam : super::super::Foundation:: LPARAM) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"] fn SHAddFromPropSheetExtArray(hpsxa : HPSXA, lpfnaddpage : super::Controls:: LPFNSVADDPROPSHEETPAGE, lparam : super::super::Foundation:: LPARAM) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : *const ::core::ffi::c_void) -> ());
 ::windows_targets::link!("shell32.dll" "system" fn SHAlloc(cb : usize) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHAllocShared(pvdata : *const ::core::ffi::c_void, dwsize : u32, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHAllocShared(pvdata : *const ::core::ffi::c_void, dwsize : u32, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHAnsiToAnsi(pszsrc : ::windows_sys::core::PCSTR, pszdst : ::windows_sys::core::PSTR, cchbuf : i32) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHAnsiToUnicode(pszsrc : ::windows_sys::core::PCSTR, pwszdst : ::windows_sys::core::PWSTR, cwchbuf : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHAppBarMessage(dwmessage : u32, pdata : *mut APPBARDATA) -> usize);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHAppBarMessage(dwmessage : u32, pdata : *mut APPBARDATA) -> usize);
 ::windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlers(pszextra : ::windows_sys::core::PCWSTR, affilter : ASSOC_FILTER, ppenumhandler : *mut IEnumAssocHandlers) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, enumhandlers : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHAutoComplete(hwndedit : super::super::Foundation:: HWND, dwflags : SHELL_AUTOCOMPLETE_FLAGS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHAutoComplete(hwndedit : super::super::Foundation:: HWND, dwflags : SHELL_AUTOCOMPLETE_FLAGS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHBindToFolderIDListParent(psfroot : IShellFolder, pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHBindToFolderIDListParent(psfroot : IShellFolder, pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn SHBindToFolderIDListParentEx(psfroot : IShellFolder, pidl : *const Common:: ITEMIDLIST, ppbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn SHBindToFolderIDListParentEx(psfroot : IShellFolder, pidl : *const Common:: ITEMIDLIST, ppbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn SHBindToObject(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, pbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn SHBindToObject(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, pbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHBindToParent(pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHBindToParent(pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHBrowseForFolderA(lpbi : *const BROWSEINFOA) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHBrowseForFolderA(lpbi : *const BROWSEINFOA) -> *mut Common:: ITEMIDLIST);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHBrowseForFolderW(lpbi : *const BROWSEINFOW) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHBrowseForFolderW(lpbi : *const BROWSEINFOW) -> *mut Common:: ITEMIDLIST);
 ::windows_targets::link!("shell32.dll" "system" fn SHCLSIDFromString(psz : ::windows_sys::core::PCWSTR, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHChangeNotification_Lock(hchange : super::super::Foundation:: HANDLE, dwprocid : u32, pppidl : *mut *mut *mut Common:: ITEMIDLIST, plevent : *mut i32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHChangeNotification_Lock(hchange : super::super::Foundation:: HANDLE, dwprocid : u32, pppidl : *mut *mut *mut Common:: ITEMIDLIST, plevent : *mut i32) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHChangeNotification_Unlock(hlock : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHChangeNotification_Unlock(hlock : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : SHCNF_FLAGS, dwitem1 : *const ::core::ffi::c_void, dwitem2 : *const ::core::ffi::c_void) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHChangeNotifyDeregister(ulid : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHChangeNotifyDeregister(ulid : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHChangeNotifyRegister(hwnd : super::super::Foundation:: HWND, fsources : SHCNRF_SOURCE, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHChangeNotifyRegister(hwnd : super::super::Foundation:: HWND, fsources : SHCNRF_SOURCE, fevents : i32, wmsg : u32, centries : i32, pshcne : *const SHChangeNotifyEntry) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn SHChangeNotifyRegisterThread(status : SCNRT_STATUS) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHCloneSpecialIDList(hwnd : super::super::Foundation:: HWND, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHCloneSpecialIDList(hwnd : super::super::Foundation:: HWND, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
 ::windows_targets::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : ::windows_sys::core::PCWSTR, pclsid : *const ::windows_sys::core::GUID, punkouter : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHCopyKeyA(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : ::windows_sys::core::PCSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHCopyKeyA(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : ::windows_sys::core::PCSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHCopyKeyW(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : ::windows_sys::core::PCWSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHCopyKeyW(hkeysrc : super::super::System::Registry:: HKEY, pszsrcsubkey : ::windows_sys::core::PCWSTR, hkeydest : super::super::System::Registry:: HKEY, freserved : u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn SHCreateDataObject(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, pdtinner : super::super::System::Com:: IDataObject, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn SHCreateDataObject(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, pdtinner : super::super::System::Com:: IDataObject, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`, `Win32_UI_Shell_Common`"] fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_Shell_Common\"`"] fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateDefaultPropertiesOp(psi : IShellItem, ppfileop : *mut IFileOperation) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHCreateDirectory(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHCreateDirectory(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCWSTR) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn SHCreateDirectoryExA(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn SHCreateDirectoryExA(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn SHCreateDirectoryExW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCWSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn SHCreateDirectoryExW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PCWSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : ::windows_sys::core::PCWSTR, dwfileattributes : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHCreateItemFromIDList(pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHCreateItemFromIDList(pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateItemFromParsingName(pszpath : ::windows_sys::core::PCWSTR, pbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateItemFromParsingName(pszpath : ::windows_sys::core::PCWSTR, pbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateItemFromRelativeName(psiparent : IShellItem, pszname : ::windows_sys::core::PCWSTR, pbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateItemFromRelativeName(psiparent : IShellItem, pszname : ::windows_sys::core::PCWSTR, pbc : super::super::System::Com:: IBindCtx, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const ::windows_sys::core::GUID, dwkfflags : u32, pszitem : ::windows_sys::core::PCWSTR, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : IShellFolder, pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppvitem : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : IShellFolder, pidl : *const Common:: ITEMIDLIST, riid : *const ::windows_sys::core::GUID, ppvitem : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> super::super::System::Com:: IStream);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> super::super::System::Com:: IStream);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`"] fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Threading\"`"] fn SHCreateProcessAsUserW(pscpi : *mut SHCREATEPROCESSINFOW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn SHCreatePropSheetExtArray(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, max_iface : u32) -> HPSXA);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn SHCreatePropSheetExtArray(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, max_iface : u32) -> HPSXA);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateQueryCancelAutoPlayMoniker(ppmoniker : *mut super::super::System::Com:: IMoniker) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Ole")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Ole`"] fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut IShellView) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Ole\"`"] fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut IShellView) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_UI_Shell_Common`"] fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut IShellView) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`"] fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut IShellView) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHCreateShellItem(pidlparent : *const Common:: ITEMIDLIST, psfparent : IShellFolder, pidl : *const Common:: ITEMIDLIST, ppsi : *mut IShellItem) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHCreateShellItem(pidlparent : *const Common:: ITEMIDLIST, psfparent : IShellFolder, pidl : *const Common:: ITEMIDLIST, ppsi : *mut IShellItem) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHCreateShellItemArray(pidlparent : *const Common:: ITEMIDLIST, psf : IShellFolder, cidl : u32, ppidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut IShellItemArray) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHCreateShellItemArray(pidlparent : *const Common:: ITEMIDLIST, psf : IShellFolder, cidl : u32, ppidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut IShellItemArray) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateShellItemArrayFromDataObject(pdo : super::super::System::Com:: IDataObject, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateShellItemArrayFromDataObject(pdo : super::super::System::Com:: IDataObject, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut IShellItemArray) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut IShellItemArray) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : IShellItem, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn SHCreateShellPalette(hdc : super::super::Graphics::Gdi:: HDC) -> super::super::Graphics::Gdi:: HPALETTE);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn SHCreateShellPalette(hdc : super::super::Graphics::Gdi:: HDC) -> super::super::Graphics::Gdi:: HPALETTE);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::super::System::Com:: FORMATETC, ppenumformatetc : *mut super::super::System::Com:: IEnumFORMATETC) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::super::System::Com:: FORMATETC, ppenumformatetc : *mut super::super::System::Com:: IEnumFORMATETC) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateStreamOnFileA(pszfile : ::windows_sys::core::PCSTR, grfmode : u32, ppstm : *mut super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateStreamOnFileA(pszfile : ::windows_sys::core::PCSTR, grfmode : u32, ppstm : *mut super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn SHCreateStreamOnFileEx(pszfile : ::windows_sys::core::PCWSTR, grfmode : u32, dwattributes : u32, fcreate : super::super::Foundation:: BOOL, pstmtemplate : super::super::System::Com:: IStream, ppstm : *mut super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn SHCreateStreamOnFileEx(pszfile : ::windows_sys::core::PCWSTR, grfmode : u32, dwattributes : u32, fcreate : super::super::Foundation:: BOOL, pstmtemplate : super::super::System::Com:: IStream, ppstm : *mut super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHCreateStreamOnFileW(pszfile : ::windows_sys::core::PCWSTR, grfmode : u32, ppstm : *mut super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHCreateStreamOnFileW(pszfile : ::windows_sys::core::PCWSTR, grfmode : u32, ppstm : *mut super::super::System::Com:: IStream) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"] fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const ::core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"] fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const ::core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHCreateThreadRef(pcref : *mut i32, ppunk : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Threading`"] fn SHCreateThreadWithHandle(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const ::core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE, phandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`"] fn SHCreateThreadWithHandle(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const ::core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE, phandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn SHDefExtractIconA(psziconfile : ::windows_sys::core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn SHDefExtractIconA(psziconfile : ::windows_sys::core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn SHDefExtractIconW(psziconfile : ::windows_sys::core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn SHDefExtractIconW(psziconfile : ::windows_sys::core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHDeleteEmptyKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHDeleteEmptyKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHDeleteEmptyKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHDeleteEmptyKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHDeleteKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHDeleteKeyA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHDeleteKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHDeleteKeyW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHDeleteValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHDeleteValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHDeleteValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHDeleteValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shell32.dll" "system" fn SHDestroyPropSheetExtArray(hpsxa : HPSXA) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`"] fn SHDoDragDrop(hwnd : super::super::Foundation:: HWND, pdata : super::super::System::Com:: IDataObject, pdsrc : super::super::System::Ole:: IDropSource, dweffect : super::super::System::Ole:: DROPEFFECT, pdweffect : *mut super::super::System::Ole:: DROPEFFECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`"] fn SHDoDragDrop(hwnd : super::super::Foundation:: HWND, pdata : super::super::System::Com:: IDataObject, pdsrc : super::super::System::Ole:: IDropSource, dweffect : super::super::System::Ole:: DROPEFFECT, pdweffect : *mut super::super::System::Ole:: DROPEFFECT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHEmptyRecycleBinA(hwnd : super::super::Foundation:: HWND, pszrootpath : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHEmptyRecycleBinA(hwnd : super::super::Foundation:: HWND, pszrootpath : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHEmptyRecycleBinW(hwnd : super::super::Foundation:: HWND, pszrootpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHEmptyRecycleBinW(hwnd : super::super::Foundation:: HWND, pszrootpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHEnumKeyExA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : ::windows_sys::core::PSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHEnumKeyExA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : ::windows_sys::core::PSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHEnumKeyExW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : ::windows_sys::core::PWSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHEnumKeyExW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszname : ::windows_sys::core::PWSTR, pcchname : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHEnumValueA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : ::windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHEnumValueA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : ::windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHEnumValueW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : ::windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHEnumValueW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : ::windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::super::System::Registry:: HKEY, dwindex : u32, pszmailaddress : ::windows_sys::core::PWSTR, cchmailaddress : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::super::System::Registry:: HKEY, dwindex : u32, pszmailaddress : ::windows_sys::core::PWSTR, cchmailaddress : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHEvaluateSystemCommandTemplate(pszcmdtemplate : ::windows_sys::core::PCWSTR, ppszapplication : *mut ::windows_sys::core::PWSTR, ppszcommandline : *mut ::windows_sys::core::PWSTR, ppszparameters : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFileOperationA(lpfileop : *mut SHFILEOPSTRUCTA) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFileOperationA(lpfileop : *mut SHFILEOPSTRUCTA) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFileOperationW(lpfileop : *mut SHFILEOPSTRUCTW) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFileOperationW(lpfileop : *mut SHFILEOPSTRUCTW) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHFindFiles(pidlfolder : *const Common:: ITEMIDLIST, pidlsavefile : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHFindFiles(pidlfolder : *const Common:: ITEMIDLIST, pidlsavefile : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn SHFind_InitMenuPopup(hmenu : super::WindowsAndMessaging:: HMENU, hwndowner : super::super::Foundation:: HWND, idcmdfirst : u32, idcmdlast : u32) -> IContextMenu);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn SHFind_InitMenuPopup(hmenu : super::WindowsAndMessaging:: HMENU, hwndowner : super::super::Foundation:: HWND, idcmdfirst : u32, idcmdlast : u32) -> IContextMenu);
 ::windows_targets::link!("shell32.dll" "system" fn SHFlushSFCache() -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFormatDateTimeA(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFormatDateTimeA(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFormatDateTimeW(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFormatDateTimeW(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFormatDrive(hwnd : super::super::Foundation:: HWND, drive : u32, fmtid : SHFMT_ID, options : u32) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFormatDrive(hwnd : super::super::Foundation:: HWND, drive : u32, fmtid : SHFMT_ID, options : u32) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn SHFree(pv : *const ::core::ffi::c_void) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFreeNameMappings(hnamemappings : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFreeNameMappings(hnamemappings : super::super::Foundation:: HANDLE) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHFreeShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHFreeShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHGetAttributesFromDataObject(pdo : super::super::System::Com:: IDataObject, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHGetAttributesFromDataObject(pdo : super::super::System::Com:: IDataObject, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHGetDataFromIDListA(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHGetDataFromIDListA(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHGetDataFromIDListW(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHGetDataFromIDListW(psf : IShellFolder, pidl : *const Common:: ITEMIDLIST, nformat : SHGDFIL_FORMAT, pv : *mut ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetDesktopFolder(ppshf : *mut IShellFolder) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetDiskFreeSpaceExA(pszdirectoryname : ::windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetDiskFreeSpaceExA(pszdirectoryname : ::windows_sys::core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetDiskFreeSpaceExW(pszdirectoryname : ::windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetDiskFreeSpaceExW(pszdirectoryname : ::windows_sys::core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetDriveMedia(pszdrive : ::windows_sys::core::PCWSTR, pdwmediacontent : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Storage_FileSystem`, `Win32_UI_WindowsAndMessaging`"] fn SHGetFileInfoA(pszpath : ::windows_sys::core::PCSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn SHGetFileInfoA(pszpath : ::windows_sys::core::PCSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Storage_FileSystem`, `Win32_UI_WindowsAndMessaging`"] fn SHGetFileInfoW(pszpath : ::windows_sys::core::PCWSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOW, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn SHGetFileInfoW(pszpath : ::windows_sys::core::PCWSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOW, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHGetFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHGetFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetFolderPathA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetFolderPathA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetFolderPathAndSubDirA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetFolderPathAndSubDirA(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetFolderPathAndSubDirW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetFolderPathAndSubDirW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszsubdir : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetFolderPathW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetFolderPathW(hwnd : super::super::Foundation:: HWND, csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHGetIDListFromObject(punk : ::windows_sys::core::IUnknown, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHGetIDListFromObject(punk : ::windows_sys::core::IUnknown, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexA(psziconpath : ::windows_sys::core::PCSTR, iiconindex : i32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetIconOverlayIndexW(psziconpath : ::windows_sys::core::PCWSTR, iiconindex : i32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const ::windows_sys::core::GUID, ppvobj : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetInstanceExplorer(ppunk : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGetInverseCMAP(pbmap : *mut u8, cbmap : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHGetItemFromDataObject(pdtobj : super::super::System::Com:: IDataObject, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHGetItemFromDataObject(pdtobj : super::super::System::Com:: IDataObject, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : ::windows_sys::core::IUnknown, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHGetKnownFolderIDList(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHGetKnownFolderIDList(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetKnownFolderItem(rfid : *const ::windows_sys::core::GUID, flags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetKnownFolderItem(rfid : *const ::windows_sys::core::GUID, flags : KNOWN_FOLDER_FLAG, htoken : super::super::Foundation:: HANDLE, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, ppszpath : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : ::windows_sys::core::PCWSTR, pszresmodule : ::windows_sys::core::PWSTR, cch : u32, pidsres : *mut i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHGetMalloc(ppmalloc : *mut super::super::System::Com:: IMalloc) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHGetMalloc(ppmalloc : *mut super::super::System::Com:: IMalloc) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHGetNameFromIDList(pidl : *const Common:: ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHGetNameFromIDList(pidl : *const Common:: ITEMIDLIST, sigdnname : SIGDN, ppszname : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetNewLinkInfoA(pszlinkto : ::windows_sys::core::PCSTR, pszdir : ::windows_sys::core::PCSTR, pszname : ::windows_sys::core::PSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetNewLinkInfoA(pszlinkto : ::windows_sys::core::PCSTR, pszdir : ::windows_sys::core::PCSTR, pszname : ::windows_sys::core::PSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetNewLinkInfoW(pszlinkto : ::windows_sys::core::PCWSTR, pszdir : ::windows_sys::core::PCWSTR, pszname : ::windows_sys::core::PWSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetNewLinkInfoW(pszlinkto : ::windows_sys::core::PCWSTR, pszdir : ::windows_sys::core::PCWSTR, pszname : ::windows_sys::core::PWSTR, pfmustcopy : *mut super::super::Foundation:: BOOL, uflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHGetPathFromIDListA(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHGetPathFromIDListA(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PSTR) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHGetPathFromIDListEx(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHGetPathFromIDListEx(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHGetPathFromIDListW(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHGetPathFromIDListW(pidl : *const Common:: ITEMIDLIST, pszpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHGetRealIDL(psf : IShellFolder, pidlsimple : *const Common:: ITEMIDLIST, ppidlreal : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHGetRealIDL(psf : IShellFolder, pidlsimple : *const Common:: ITEMIDLIST, ppidlreal : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHGetSetFolderCustomSettings(pfcs : *mut SHFOLDERCUSTOMSETTINGS, pszpath : ::windows_sys::core::PCWSTR, dwreadwrite : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetSetSettings(lpss : *mut SHELLSTATEA, dwmask : SSF_MASK, bset : super::super::Foundation:: BOOL) -> ());
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetSetSettings(lpss : *mut SHELLSTATEA, dwmask : SSF_MASK, bset : super::super::Foundation:: BOOL) -> ());
 ::windows_targets::link!("shell32.dll" "system" fn SHGetSettings(psfs : *mut SHELLFLAGSTATE, dwmask : u32) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SHGetSpecialFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SHGetSpecialFolderLocation(hwnd : super::super::Foundation:: HWND, csidl : i32, ppidl : *mut *mut Common:: ITEMIDLIST) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetSpecialFolderPathA(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetSpecialFolderPathA(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHGetSpecialFolderPathW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PWSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHGetSpecialFolderPathW(hwnd : super::super::Foundation:: HWND, pszpath : ::windows_sys::core::PWSTR, csidl : i32, fcreate : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn SHGetStockIconInfo(siid : SHSTOCKICONID, uflags : SHGSI_FLAGS, psii : *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn SHGetStockIconInfo(siid : SHSTOCKICONID, uflags : SHGSI_FLAGS, psii : *mut SHSTOCKICONINFO) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"] fn SHGetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"] fn SHGetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, ppropvar : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHGetUnreadMailCountW(hkeyuser : super::super::System::Registry:: HKEY, pszmailaddress : ::windows_sys::core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::super::Foundation:: FILETIME, pszshellexecutecommand : ::windows_sys::core::PWSTR, cchshellexecutecommand : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHGetUnreadMailCountW(hkeyuser : super::super::System::Registry:: HKEY, pszmailaddress : ::windows_sys::core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::super::Foundation:: FILETIME, pszshellexecutecommand : ::windows_sys::core::PWSTR, cchshellexecutecommand : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHGetViewStatePropertyBag(pidl : *const Common:: ITEMIDLIST, pszbagname : ::windows_sys::core::PCWSTR, dwflags : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHGetViewStatePropertyBag(pidl : *const Common:: ITEMIDLIST, pszbagname : ::windows_sys::core::PCWSTR, dwflags : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGlobalCounterDecrement(id : SHGLOBALCOUNTER) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGlobalCounterGetValue(id : SHGLOBALCOUNTER) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHGlobalCounterIncrement(id : SHGLOBALCOUNTER) -> i32);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHHandleUpdateImage(pidlextra : *const Common:: ITEMIDLIST) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHHandleUpdateImage(pidlextra : *const Common:: ITEMIDLIST) -> i32);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHILCreateFromPath(pszpath : ::windows_sys::core::PCWSTR, ppidl : *mut *mut Common:: ITEMIDLIST, rgfinout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHILCreateFromPath(pszpath : ::windows_sys::core::PCWSTR, ppidl : *mut *mut Common:: ITEMIDLIST, rgfinout : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHInvokePrinterCommandA(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : ::windows_sys::core::PCSTR, lpbuf2 : ::windows_sys::core::PCSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHInvokePrinterCommandA(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : ::windows_sys::core::PCSTR, lpbuf2 : ::windows_sys::core::PCSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHInvokePrinterCommandW(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : ::windows_sys::core::PCWSTR, lpbuf2 : ::windows_sys::core::PCWSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHInvokePrinterCommandW(hwnd : super::super::Foundation:: HWND, uaction : u32, lpbuf1 : ::windows_sys::core::PCWSTR, lpbuf2 : ::windows_sys::core::PCWSTR, fmodal : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn SHIsFileAvailableOffline(pwszpath : ::windows_sys::core::PCWSTR, pdwstatus : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHIsLowMemoryMachine(dwtype : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHIsLowMemoryMachine(dwtype : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHLimitInputEdit(hwndedit : super::super::Foundation:: HWND, psf : IShellFolder) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHLimitInputEdit(hwndedit : super::super::Foundation:: HWND, psf : IShellFolder) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHLoadInProc(rclsid : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : ::windows_sys::core::PCWSTR, pszoutbuf : ::windows_sys::core::PWSTR, cchoutbuf : u32, ppvreserved : *const *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHLoadNonloadedIconOverlayIdentifiers() -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHLockShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHLockShared(hdata : super::super::Foundation:: HANDLE, dwprocessid : u32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHMapPIDLToSystemImageListIndex(pshf : IShellFolder, pidl : *const Common:: ITEMIDLIST, piindexsel : *mut i32) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHMapPIDLToSystemImageListIndex(pshf : IShellFolder, pidl : *const Common:: ITEMIDLIST, piindexsel : *mut i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHMessageBoxCheckA(hwnd : super::super::Foundation:: HWND, psztext : ::windows_sys::core::PCSTR, pszcaption : ::windows_sys::core::PCSTR, utype : u32, idefault : i32, pszregval : ::windows_sys::core::PCSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHMessageBoxCheckA(hwnd : super::super::Foundation:: HWND, psztext : ::windows_sys::core::PCSTR, pszcaption : ::windows_sys::core::PCSTR, utype : u32, idefault : i32, pszregval : ::windows_sys::core::PCSTR) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHMessageBoxCheckW(hwnd : super::super::Foundation:: HWND, psztext : ::windows_sys::core::PCWSTR, pszcaption : ::windows_sys::core::PCWSTR, utype : u32, idefault : i32, pszregval : ::windows_sys::core::PCWSTR) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHMessageBoxCheckW(hwnd : super::super::Foundation:: HWND, psztext : ::windows_sys::core::PCWSTR, pszcaption : ::windows_sys::core::PCWSTR, utype : u32, idefault : i32, pszregval : ::windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_System_Com")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`"] fn SHMultiFileProperties(pdtobj : super::super::System::Com:: IDataObject, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`"] fn SHMultiFileProperties(pdtobj : super::super::System::Com:: IDataObject, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : u32, pszobjectname : ::windows_sys::core::PCWSTR, pszpropertypage : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHObjectProperties(hwnd : super::super::Foundation:: HWND, shopobjecttype : u32, pszobjectname : ::windows_sys::core::PCWSTR, pszpropertypage : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHOpenFolderAndSelectItems(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHOpenFolderAndSelectItems(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Registry`"] fn SHOpenPropSheetW(pszcaption : ::windows_sys::core::PCWSTR, ahkeys : *const super::super::System::Registry:: HKEY, ckeys : u32, pclsiddefault : *const ::windows_sys::core::GUID, pdtobj : super::super::System::Com:: IDataObject, psb : IShellBrowser, pstartpage : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Registry\"`"] fn SHOpenPropSheetW(pszcaption : ::windows_sys::core::PCWSTR, ahkeys : *const super::super::System::Registry:: HKEY, ckeys : u32, pclsiddefault : *const ::windows_sys::core::GUID, pdtobj : super::super::System::Com:: IDataObject, psb : IShellBrowser, pstartpage : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_System_Registry`"] fn SHOpenRegStream2A(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, grfmode : u32) -> super::super::System::Com:: IStream);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`"] fn SHOpenRegStream2A(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, grfmode : u32) -> super::super::System::Com:: IStream);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_System_Registry`"] fn SHOpenRegStream2W(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> super::super::System::Com:: IStream);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`"] fn SHOpenRegStream2W(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> super::super::System::Com:: IStream);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_System_Registry`"] fn SHOpenRegStreamA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, grfmode : u32) -> super::super::System::Com:: IStream);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`"] fn SHOpenRegStreamA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, grfmode : u32) -> super::super::System::Com:: IStream);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_System_Registry`"] fn SHOpenRegStreamW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> super::super::System::Com:: IStream);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_System_Registry\"`"] fn SHOpenRegStreamW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, grfmode : u32) -> super::super::System::Com:: IStream);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHOpenWithDialog(hwndparent : super::super::Foundation:: HWND, poainfo : *const OPENASINFO) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHOpenWithDialog(hwndparent : super::super::Foundation:: HWND, poainfo : *const OPENASINFO) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com`, `Win32_UI_Shell_Common`"] fn SHParseDisplayName(pszname : ::windows_sys::core::PCWSTR, pbc : super::super::System::Com:: IBindCtx, ppidl : *mut *mut Common:: ITEMIDLIST, sfgaoin : u32, psfgaoout : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`"] fn SHParseDisplayName(pszname : ::windows_sys::core::PCWSTR, pbc : super::super::System::Com:: IBindCtx, ppidl : *mut *mut Common:: ITEMIDLIST, sfgaoin : u32, psfgaoout : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHPathPrepareForWriteA(hwnd : super::super::Foundation:: HWND, punkenablemodless : ::windows_sys::core::IUnknown, pszpath : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHPathPrepareForWriteA(hwnd : super::super::Foundation:: HWND, punkenablemodless : ::windows_sys::core::IUnknown, pszpath : ::windows_sys::core::PCSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHPathPrepareForWriteW(hwnd : super::super::Foundation:: HWND, punkenablemodless : ::windows_sys::core::IUnknown, pszpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHPathPrepareForWriteW(hwnd : super::super::Foundation:: HWND, punkenablemodless : ::windows_sys::core::IUnknown, pszpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHQueryInfoKeyA(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHQueryInfoKeyA(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHQueryInfoKeyW(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHQueryInfoKeyW(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shell32.dll" "system" fn SHQueryRecycleBinA(pszrootpath : ::windows_sys::core::PCSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHQueryRecycleBinW(pszrootpath : ::windows_sys::core::PCWSTR, pshqueryrbinfo : *mut SHQUERYRBINFO) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHQueryUserNotificationState(pquns : *mut QUERY_USER_NOTIFICATION_STATE) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHQueryValueExA(hkey : super::super::System::Registry:: HKEY, pszvalue : ::windows_sys::core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHQueryValueExA(hkey : super::super::System::Registry:: HKEY, pszvalue : ::windows_sys::core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHQueryValueExW(hkey : super::super::System::Registry:: HKEY, pszvalue : ::windows_sys::core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHQueryValueExW(hkey : super::super::System::Registry:: HKEY, pszvalue : ::windows_sys::core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegCloseUSKey(huskey : isize) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegCloseUSKey(huskey : isize) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegCreateUSKeyA(pszpath : ::windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegCreateUSKeyA(pszpath : ::windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegCreateUSKeyW(pwzpath : ::windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegCreateUSKeyW(pwzpath : ::windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegDeleteEmptyUSKeyA(huskey : isize, pszsubkey : ::windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegDeleteEmptyUSKeyA(huskey : isize, pszsubkey : ::windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegDeleteEmptyUSKeyW(huskey : isize, pwzsubkey : ::windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegDeleteEmptyUSKeyW(huskey : isize, pwzsubkey : ::windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegDeleteUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegDeleteUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegDeleteUSValueW(huskey : isize, pwzvalue : ::windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegDeleteUSValueW(huskey : isize, pwzvalue : ::windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn SHRegDuplicateHKey(hkey : super::super::System::Registry:: HKEY) -> super::super::System::Registry:: HKEY);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn SHRegDuplicateHKey(hkey : super::super::System::Registry:: HKEY) -> super::super::System::Registry:: HKEY);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegEnumUSKeyA(huskey : isize, dwindex : u32, pszname : ::windows_sys::core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegEnumUSKeyA(huskey : isize, dwindex : u32, pszname : ::windows_sys::core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegEnumUSKeyW(huskey : isize, dwindex : u32, pwzname : ::windows_sys::core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegEnumUSKeyW(huskey : isize, dwindex : u32, pwzname : ::windows_sys::core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegEnumUSValueA(huskey : isize, dwindex : u32, pszvaluename : ::windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegEnumUSValueA(huskey : isize, dwindex : u32, pszvaluename : ::windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegEnumUSValueW(huskey : isize, dwindex : u32, pszvaluename : ::windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegEnumUSValueW(huskey : isize, dwindex : u32, pszvaluename : ::windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegGetBoolUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegGetBoolUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegGetBoolUSValueW(pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegGetBoolUSValueW(pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, fignorehkcu : super::super::Foundation:: BOOL, fdefault : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn SHRegGetIntW(hk : super::super::System::Registry:: HKEY, pwzkey : ::windows_sys::core::PCWSTR, idefault : i32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn SHRegGetIntW(hk : super::super::System::Registry:: HKEY, pwzkey : ::windows_sys::core::PCWSTR, idefault : i32) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHRegGetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCSTR, pcszvalue : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHRegGetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCSTR, pcszvalue : ::windows_sys::core::PCSTR, pszpath : ::windows_sys::core::PSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHRegGetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCWSTR, pcszvalue : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHRegGetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCWSTR, pcszvalue : ::windows_sys::core::PCWSTR, pszpath : ::windows_sys::core::PWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegGetUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegGetUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegGetUSValueW(pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegGetUSValueW(pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHRegGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHRegGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegGetValueFromHKCUHKLM(pwszkey : ::windows_sys::core::PCWSTR, pwszvalue : ::windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegGetValueFromHKCUHKLM(pwszkey : ::windows_sys::core::PCWSTR, pwszvalue : ::windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHRegGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHRegGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegOpenUSKeyA(pszpath : ::windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegOpenUSKeyA(pszpath : ::windows_sys::core::PCSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegOpenUSKeyW(pwzpath : ::windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegOpenUSKeyW(pwzpath : ::windows_sys::core::PCWSTR, samdesired : u32, hrelativeuskey : isize, phnewuskey : *mut isize, fignorehkcu : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegQueryInfoUSKeyA(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegQueryInfoUSKeyA(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegQueryInfoUSKeyW(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegQueryInfoUSKeyW(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegQueryUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegQueryUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegQueryUSValueW(huskey : isize, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegQueryUSValueW(huskey : isize, pszvalue : ::windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut ::core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const ::core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHRegSetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCSTR, pcszvalue : ::windows_sys::core::PCSTR, pcszpath : ::windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHRegSetPathA(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCSTR, pcszvalue : ::windows_sys::core::PCSTR, pcszpath : ::windows_sys::core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn SHRegSetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCWSTR, pcszvalue : ::windows_sys::core::PCWSTR, pcszpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn SHRegSetPathW(hkey : super::super::System::Registry:: HKEY, pcszsubkey : ::windows_sys::core::PCWSTR, pcszvalue : ::windows_sys::core::PCWSTR, pcszpath : ::windows_sys::core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegSetUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegSetUSValueA(pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegSetUSValueW(pwzsubkey : ::windows_sys::core::PCWSTR, pwzvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegSetUSValueW(pwzsubkey : ::windows_sys::core::PCWSTR, pwzvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegWriteUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegWriteUSValueA(huskey : isize, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHRegWriteUSValueW(huskey : isize, pwzvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHRegWriteUSValueW(huskey : isize, pwzvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHReleaseThreadRef() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHRemoveLocalizedName(pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"] fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::Controls:: LPFNSVADDPROPSHEETPAGE, lparam : super::super::Foundation:: LPARAM) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"] fn SHReplaceFromPropSheetExtArray(hpsxa : HPSXA, upageid : u32, lpfnreplacewith : super::Controls:: LPFNSVADDPROPSHEETPAGE, lparam : super::super::Foundation:: LPARAM) -> u32);
 ::windows_targets::link!("shell32.dll" "system" fn SHResolveLibrary(psilibrary : IShellItem) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHRestricted(rest : RESTRICTIONS) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHSendMessageBroadcastA(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHSendMessageBroadcastA(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHSendMessageBroadcastW(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHSendMessageBroadcastW(umsg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHSetDefaultProperties(hwnd : super::super::Foundation:: HWND, psi : IShellItem, dwfileopflags : u32, pfops : IFileOperationProgressSink) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHSetDefaultProperties(hwnd : super::super::Foundation:: HWND, psi : IShellItem, dwfileopflags : u32, pfops : IFileOperationProgressSink) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHSetFolderPathA(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHSetFolderPathA(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHSetFolderPathW(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHSetFolderPathW(csidl : i32, htoken : super::super::Foundation:: HANDLE, dwflags : u32, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHSetInstanceExplorer(punk : ::windows_sys::core::IUnknown) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHSetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHSetKnownFolderPath(rfid : *const ::windows_sys::core::GUID, dwflags : u32, htoken : super::super::Foundation:: HANDLE, pszpath : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHSetLocalizedName(pszpath : ::windows_sys::core::PCWSTR, pszresmodule : ::windows_sys::core::PCWSTR, idsres : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_StructuredStorage`, `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"] fn SHSetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"] fn SHSetTemporaryPropertyForItem(psi : IShellItem, propkey : *const PropertiesSystem:: PROPERTYKEY, propvar : *const super::super::System::Com::StructuredStorage:: PROPVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHSetThreadRef(punk : ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shell32.dll" "system" fn SHSetUnreadMailCountW(pszmailaddress : ::windows_sys::core::PCWSTR, dwcount : u32, pszshellexecutecommand : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn SHSetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn SHSetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCSTR, pszvalue : ::windows_sys::core::PCSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> i32);
 #[cfg(feature = "Win32_System_Registry")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_System_Registry`"] fn SHSetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_System_Registry\"`"] fn SHSetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : ::windows_sys::core::PCWSTR, pszvalue : ::windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHShellFolderView_Message(hwndmain : super::super::Foundation:: HWND, umsg : u32, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHShellFolderView_Message(hwndmain : super::super::Foundation:: HWND, umsg : u32, lparam : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHShowManageLibraryUI(psilibrary : IShellItem, hwndowner : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pszinstruction : ::windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHShowManageLibraryUI(psilibrary : IShellItem, hwndowner : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pszinstruction : ::windows_sys::core::PCWSTR, lmdoptions : LIBRARYMANAGEDIALOGOPTIONS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn SHSimpleIDListFromPath(pszpath : ::windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn SHSimpleIDListFromPath(pszpath : ::windows_sys::core::PCWSTR) -> *mut Common:: ITEMIDLIST);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"] fn SHSkipJunction(pbc : super::super::System::Com:: IBindCtx, pclsid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"] fn SHSkipJunction(pbc : super::super::System::Com:: IBindCtx, pclsid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHStartNetConnectionDialogW(hwnd : super::super::Foundation:: HWND, pszremotename : ::windows_sys::core::PCWSTR, dwtype : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHStartNetConnectionDialogW(hwnd : super::super::Foundation:: HWND, pszremotename : ::windows_sys::core::PCWSTR, dwtype : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHStrDupA(psz : ::windows_sys::core::PCSTR, ppwsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHStrDupW(psz : ::windows_sys::core::PCWSTR, ppwsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicA(pszmenu : ::windows_sys::core::PSTR) -> u8);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHStripMneumonicW(pszmenu : ::windows_sys::core::PWSTR) -> u16);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHTestTokenMembership(htoken : super::super::Foundation:: HANDLE, ulrid : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHTestTokenMembership(htoken : super::super::Foundation:: HANDLE, ulrid : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToAnsi(pwszsrc : ::windows_sys::core::PCWSTR, pszdst : ::windows_sys::core::PSTR, cchbuf : i32) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn SHUnicodeToUnicode(pwzsrc : ::windows_sys::core::PCWSTR, pwzdst : ::windows_sys::core::PWSTR, cwchbuf : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHUnlockShared(pvdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHUnlockShared(pvdata : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn SHUpdateImageA(pszhashitem : ::windows_sys::core::PCSTR, iindex : i32, uflags : u32, iimageindex : i32) -> ());
 ::windows_targets::link!("shell32.dll" "system" fn SHUpdateImageW(pszhashitem : ::windows_sys::core::PCWSTR, iindex : i32, uflags : u32, iimageindex : i32) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SHValidateUNC(hwndowner : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PWSTR, fconnect : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SHValidateUNC(hwndowner : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PWSTR, fconnect : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shell32.dll" "system" fn SetCurrentProcessExplicitAppUserModelID(appid : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn SetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU, param1 : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn SetMenuContextHelpId(param0 : super::WindowsAndMessaging:: HMENU, param1 : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetWindowContextHelpId(param0 : super::super::Foundation:: HWND, param1 : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetWindowContextHelpId(param0 : super::super::Foundation:: HWND, param1 : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, dwrefdata : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("comctl32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, dwrefdata : usize) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ShellAboutA(hwnd : super::super::Foundation:: HWND, szapp : ::windows_sys::core::PCSTR, szotherstuff : ::windows_sys::core::PCSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ShellAboutA(hwnd : super::super::Foundation:: HWND, szapp : ::windows_sys::core::PCSTR, szotherstuff : ::windows_sys::core::PCSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ShellAboutW(hwnd : super::super::Foundation:: HWND, szapp : ::windows_sys::core::PCWSTR, szotherstuff : ::windows_sys::core::PCWSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ShellAboutW(hwnd : super::super::Foundation:: HWND, szapp : ::windows_sys::core::PCWSTR, szotherstuff : ::windows_sys::core::PCWSTR, hicon : super::WindowsAndMessaging:: HICON) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ShellExecuteA(hwnd : super::super::Foundation:: HWND, lpoperation : ::windows_sys::core::PCSTR, lpfile : ::windows_sys::core::PCSTR, lpparameters : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ShellExecuteA(hwnd : super::super::Foundation:: HWND, lpoperation : ::windows_sys::core::PCSTR, lpfile : ::windows_sys::core::PCSTR, lpparameters : ::windows_sys::core::PCSTR, lpdirectory : ::windows_sys::core::PCSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn ShellExecuteExA(pexecinfo : *mut SHELLEXECUTEINFOA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn ShellExecuteExA(pexecinfo : *mut SHELLEXECUTEINFOA) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"] fn ShellExecuteExW(pexecinfo : *mut SHELLEXECUTEINFOW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"] fn ShellExecuteExW(pexecinfo : *mut SHELLEXECUTEINFOW) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ShellExecuteW(hwnd : super::super::Foundation:: HWND, lpoperation : ::windows_sys::core::PCWSTR, lpfile : ::windows_sys::core::PCWSTR, lpparameters : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ShellExecuteW(hwnd : super::super::Foundation:: HWND, lpoperation : ::windows_sys::core::PCWSTR, lpfile : ::windows_sys::core::PCWSTR, lpparameters : ::windows_sys::core::PCWSTR, lpdirectory : ::windows_sys::core::PCWSTR, nshowcmd : super::WindowsAndMessaging:: SHOW_WINDOW_CMD) -> super::super::Foundation:: HINSTANCE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shlwapi.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : ::windows_sys::core::PCSTR, lpctitle : ::windows_sys::core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
+::windows_targets::link!("shlwapi.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ShellMessageBoxA(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : ::windows_sys::core::PCSTR, lpctitle : ::windows_sys::core::PCSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shlwapi.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : ::windows_sys::core::PCWSTR, lpctitle : ::windows_sys::core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
+::windows_targets::link!("shlwapi.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn ShellMessageBoxW(happinst : super::super::Foundation:: HINSTANCE, hwnd : super::super::Foundation:: HWND, lpctext : ::windows_sys::core::PCWSTR, lpctitle : ::windows_sys::core::PCWSTR, fustyle : super::WindowsAndMessaging:: MESSAGEBOX_STYLE, ...) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndex(pwsziconpath : ::windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexA(psziconpath : ::windows_sys::core::PCSTR, iiconindex : i32, uiconflags : u32) -> i32);
 ::windows_targets::link!("shell32.dll" "system" fn Shell_GetCachedImageIndexW(psziconpath : ::windows_sys::core::PCWSTR, iiconindex : i32, uiconflags : u32) -> i32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"] fn Shell_GetImageLists(phiml : *mut super::Controls:: HIMAGELIST, phimlsmall : *mut super::Controls:: HIMAGELIST) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"] fn Shell_GetImageLists(phiml : *mut super::Controls:: HIMAGELIST, phimlsmall : *mut super::Controls:: HIMAGELIST) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_UI_WindowsAndMessaging`"] fn Shell_MergeMenus(hmdst : super::WindowsAndMessaging:: HMENU, hmsrc : super::WindowsAndMessaging:: HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : MM_FLAGS) -> u32);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"] fn Shell_MergeMenus(hmdst : super::WindowsAndMessaging:: HMENU, hmsrc : super::WindowsAndMessaging:: HMENU, uinsert : u32, uidadjust : u32, uidadjustmax : u32, uflags : MM_FLAGS) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn Shell_NotifyIconA(dwmessage : NOTIFY_ICON_MESSAGE, lpdata : *const NOTIFYICONDATAA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn Shell_NotifyIconA(dwmessage : NOTIFY_ICON_MESSAGE, lpdata : *const NOTIFYICONDATAA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn Shell_NotifyIconGetRect(identifier : *const NOTIFYICONIDENTIFIER, iconlocation : *mut super::super::Foundation:: RECT) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn Shell_NotifyIconW(dwmessage : NOTIFY_ICON_MESSAGE, lpdata : *const NOTIFYICONDATAW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn Shell_NotifyIconW(dwmessage : NOTIFY_ICON_MESSAGE, lpdata : *const NOTIFYICONDATAW) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"] fn SignalFileOpen(pidl : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"] fn SignalFileOpen(pidl : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
-::windows_targets::link!("shdocvw.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com_Urlmon`"] fn SoftwareUpdateMessageBox(hwnd : super::super::Foundation:: HWND, pszdistunit : ::windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO) -> u32);
+::windows_targets::link!("shdocvw.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_Urlmon\"`"] fn SoftwareUpdateMessageBox(hwnd : super::super::Foundation:: HWND, pszdistunit : ::windows_sys::core::PCWSTR, dwflags : u32, psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO) -> u32);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_System_Com_StructuredStorage`"] fn StgMakeUniqueName(pstgparent : super::super::System::Com::StructuredStorage:: IStorage, pszfilespec : ::windows_sys::core::PCWSTR, grfmode : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"] fn StgMakeUniqueName(pstgparent : super::super::System::Com::StructuredStorage:: IStorage, pszfilespec : ::windows_sys::core::PCWSTR, grfmode : u32, riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnA(pszstr : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIA(pszstr : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrCSpnIW(pszstr : ::windows_sys::core::PCWSTR, pszset : ::windows_sys::core::PCWSTR) -> i32);
@@ -1029,9 +1029,9 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn StrFromTimeIntervalA(pszout : ::windows_sys::core::PSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrFromTimeIntervalW(pszout : ::windows_sys::core::PWSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrIsIntlEqualA(fcasesens : super::super::Foundation:: BOOL, pszstring1 : ::windows_sys::core::PCSTR, pszstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrIsIntlEqualA(fcasesens : super::super::Foundation:: BOOL, pszstring1 : ::windows_sys::core::PCSTR, pszstring2 : ::windows_sys::core::PCSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrIsIntlEqualW(fcasesens : super::super::Foundation:: BOOL, pszstring1 : ::windows_sys::core::PCWSTR, pszstring2 : ::windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrIsIntlEqualW(fcasesens : super::super::Foundation:: BOOL, pszstring1 : ::windows_sys::core::PCWSTR, pszstring2 : ::windows_sys::core::PCWSTR, nchar : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrNCatA(psz1 : ::windows_sys::core::PSTR, psz2 : ::windows_sys::core::PCSTR, cchmax : i32) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrNCatW(psz1 : ::windows_sys::core::PWSTR, psz2 : ::windows_sys::core::PCWSTR, cchmax : i32) -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrPBrkA(psz : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
@@ -1043,15 +1043,15 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn StrRStrIA(pszsource : ::windows_sys::core::PCSTR, pszlast : ::windows_sys::core::PCSTR, pszsrch : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrRStrIW(pszsource : ::windows_sys::core::PCWSTR, pszlast : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut ::windows_sys::core::BSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn StrRetToBufA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn StrRetToBufA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : ::windows_sys::core::PSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn StrRetToBufW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn StrRetToBufW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : ::windows_sys::core::PWSTR, cchbuf : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn StrRetToStrA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn StrRetToStrA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut ::windows_sys::core::PSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_UI_Shell_Common")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_UI_Shell_Common`"] fn StrRetToStrW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_UI_Shell_Common\"`"] fn StrRetToStrW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrSpnA(psz : ::windows_sys::core::PCSTR, pszset : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrSpnW(psz : ::windows_sys::core::PCWSTR, pszset : ::windows_sys::core::PCWSTR) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrStrA(pszfirst : ::windows_sys::core::PCSTR, pszsrch : ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR);
@@ -1061,21 +1061,21 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn StrStrNW(pszfirst : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR, cchmax : u32) -> ::windows_sys::core::PWSTR);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrStrW(pszfirst : ::windows_sys::core::PCWSTR, pszsrch : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrToInt64ExA(pszstring : ::windows_sys::core::PCSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrToInt64ExA(pszstring : ::windows_sys::core::PCSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrToInt64ExW(pszstring : ::windows_sys::core::PCWSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrToInt64ExW(pszstring : ::windows_sys::core::PCWSTR, dwflags : i32, pllret : *mut i64) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrToIntA(pszsrc : ::windows_sys::core::PCSTR) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrToIntExA(pszstring : ::windows_sys::core::PCSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrToIntExA(pszstring : ::windows_sys::core::PCSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrToIntExW(pszstring : ::windows_sys::core::PCWSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrToIntExW(pszstring : ::windows_sys::core::PCWSTR, dwflags : i32, piret : *mut i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn StrToIntW(pszsrc : ::windows_sys::core::PCWSTR) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrTrimA(psz : ::windows_sys::core::PSTR, psztrimchars : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrTrimA(psz : ::windows_sys::core::PSTR, psztrimchars : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn StrTrimW(psz : ::windows_sys::core::PWSTR, psztrimchars : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn StrTrimW(psz : ::windows_sys::core::PWSTR, psztrimchars : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UnloadUserProfile(htoken : super::super::Foundation:: HANDLE, hprofile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("userenv.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UnloadUserProfile(htoken : super::super::Foundation:: HANDLE, hprofile : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" fn UnregisterAppConstrainedChangeNotification(registration : PAPPCONSTRAIN_REGISTRATION) -> ());
 ::windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" fn UnregisterAppStateChangeNotification(registration : PAPPSTATE_REGISTRATION) -> ());
 ::windows_targets::link!("api-ms-win-shcore-scaling-l1-1-1.dll" "system" fn UnregisterScaleChangeEvent(dwcookie : usize) -> ::windows_sys::core::HRESULT);
@@ -1086,9 +1086,9 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlCombineA(pszbase : ::windows_sys::core::PCSTR, pszrelative : ::windows_sys::core::PCSTR, pszcombined : ::windows_sys::core::PSTR, pcchcombined : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlCombineW(pszbase : ::windows_sys::core::PCWSTR, pszrelative : ::windows_sys::core::PCWSTR, pszcombined : ::windows_sys::core::PWSTR, pcchcombined : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlCompareA(psz1 : ::windows_sys::core::PCSTR, psz2 : ::windows_sys::core::PCSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlCompareA(psz1 : ::windows_sys::core::PCSTR, psz2 : ::windows_sys::core::PCSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlCompareW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlCompareW(psz1 : ::windows_sys::core::PCWSTR, psz2 : ::windows_sys::core::PCWSTR, fignoreslash : super::super::Foundation:: BOOL) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlCreateFromPathA(pszpath : ::windows_sys::core::PCSTR, pszurl : ::windows_sys::core::PSTR, pcchurl : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlCreateFromPathW(pszpath : ::windows_sys::core::PCWSTR, pszurl : ::windows_sys::core::PWSTR, pcchurl : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlEscapeA(pszurl : ::windows_sys::core::PCSTR, pszescaped : ::windows_sys::core::PSTR, pcchescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
@@ -1101,30 +1101,30 @@ pub mod PropertiesSystem;
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlHashA(pszurl : ::windows_sys::core::PCSTR, pbhash : *mut u8, cbhash : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlHashW(pszurl : ::windows_sys::core::PCWSTR, pbhash : *mut u8, cbhash : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlIsA(pszurl : ::windows_sys::core::PCSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlIsA(pszurl : ::windows_sys::core::PCSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlIsNoHistoryA(pszurl : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlIsNoHistoryA(pszurl : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlIsNoHistoryW(pszurl : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlIsNoHistoryW(pszurl : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlIsOpaqueA(pszurl : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlIsOpaqueA(pszurl : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlIsOpaqueW(pszurl : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlIsOpaqueW(pszurl : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn UrlIsW(pszurl : ::windows_sys::core::PCWSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shlwapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn UrlIsW(pszurl : ::windows_sys::core::PCWSTR, urlis : URLIS) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeA(pszurl : ::windows_sys::core::PSTR, pszunescaped : ::windows_sys::core::PSTR, pcchunescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeW(pszurl : ::windows_sys::core::PWSTR, pszunescaped : ::windows_sys::core::PWSTR, pcchunescaped : *mut u32, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
-::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`, `Win32_UI_Shell_Common`"] fn VariantToStrRet(varin : *const super::super::System::Variant:: VARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("propsys.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_Common\"`"] fn VariantToStrRet(varin : *const super::super::System::Variant:: VARIANT, pstrret : *mut Common:: STRRET) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("shlwapi.dll" "system" fn WhichPlatform() -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn Win32DeleteFile(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn Win32DeleteFile(pszpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WinHelpA(hwndmain : super::super::Foundation:: HWND, lpszhelp : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHelpA(hwndmain : super::super::Foundation:: HWND, lpszhelp : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WinHelpW(hwndmain : super::super::Foundation:: HWND, lpszhelp : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("user32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WinHelpW(hwndmain : super::super::Foundation:: HWND, lpszhelp : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WriteCabinetState(pcs : *const CABINETSTATE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("shell32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WriteCabinetState(pcs : *const CABINETSTATE) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfA(pszdest : ::windows_sys::core::PSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCSTR, ...) -> i32);
 ::windows_targets::link!("shlwapi.dll" "cdecl" fn wnsprintfW(pszdest : ::windows_sys::core::PWSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCWSTR, ...) -> i32);
 ::windows_targets::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : ::windows_sys::core::PSTR, cchdest : i32, pszfmt : ::windows_sys::core::PCSTR, arglist : *const i8) -> i32);
@@ -5683,7 +5683,7 @@ impl ::core::clone::Clone for AASHELLMENUITEM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APPBARDATA {
@@ -5705,7 +5705,7 @@ impl ::core::clone::Clone for APPBARDATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APPBARDATA {
@@ -5779,7 +5779,7 @@ impl ::core::clone::Clone for APPINFODATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct ASSOCIATIONELEMENT {
@@ -5798,7 +5798,7 @@ impl ::core::clone::Clone for ASSOCIATIONELEMENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_System_Registry\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Registry")]
 pub struct ASSOCIATIONELEMENT {
@@ -5817,7 +5817,7 @@ impl ::core::clone::Clone for ASSOCIATIONELEMENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTO_SCROLL_DATA {
     pub iNextSample: i32,
@@ -5835,7 +5835,7 @@ impl ::core::clone::Clone for AUTO_SCROLL_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
@@ -5882,7 +5882,7 @@ impl ::core::clone::Clone for BANNER_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::super::Foundation::HWND,
@@ -5922,7 +5922,7 @@ impl ::core::clone::Clone for BASEBROWSERDATALH {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::super::Foundation::HWND,
@@ -5961,7 +5961,7 @@ impl ::core::clone::Clone for BASEBROWSERDATAXP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::super::Foundation::HWND,
@@ -5982,7 +5982,7 @@ impl ::core::clone::Clone for BROWSEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::super::Foundation::HWND,
@@ -6038,7 +6038,7 @@ impl ::core::clone::Clone for CIDA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
@@ -6060,7 +6060,7 @@ impl ::core::clone::Clone for CMINVOKECOMMANDINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
@@ -6088,7 +6088,7 @@ impl ::core::clone::Clone for CMINVOKECOMMANDINFOEX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
@@ -6198,7 +6198,7 @@ impl ::core::clone::Clone for CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 pub struct CSFV {
     pub cbSize: u32,
@@ -6229,7 +6229,7 @@ impl ::core::clone::Clone for DATABLOCK_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::super::Foundation::HWND,
@@ -6264,7 +6264,7 @@ impl ::core::clone::Clone for DELEGATEITEMID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DESKBANDINFO {
     pub dwMask: u32,
@@ -6285,7 +6285,7 @@ impl ::core::clone::Clone for DESKBANDINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct DETAILSINFO {
     pub pidl: *mut Common::ITEMIDLIST,
@@ -6303,7 +6303,7 @@ impl ::core::clone::Clone for DETAILSINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFMICS {
     pub cbSize: u32,
@@ -6349,7 +6349,7 @@ impl ::core::clone::Clone for DLLVERSIONINFO2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOA {
@@ -6370,7 +6370,7 @@ impl ::core::clone::Clone for DRAGINFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOA {
@@ -6391,7 +6391,7 @@ impl ::core::clone::Clone for DRAGINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOW {
@@ -6412,7 +6412,7 @@ impl ::core::clone::Clone for DRAGINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAGINFOW {
@@ -6445,7 +6445,7 @@ impl ::core::clone::Clone for DROPDESCRIPTION {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DROPFILES {
     pub pFiles: u32,
@@ -6524,7 +6524,7 @@ impl ::core::clone::Clone for EXTRASEARCH {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILEDESCRIPTORA {
     pub dwFlags: u32,
@@ -6548,7 +6548,7 @@ impl ::core::clone::Clone for FILEDESCRIPTORA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILEDESCRIPTORW {
     pub dwFlags: u32,
@@ -6572,7 +6572,7 @@ impl ::core::clone::Clone for FILEDESCRIPTORW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILEGROUPDESCRIPTORA {
     pub cItems: u32,
@@ -6587,7 +6587,7 @@ impl ::core::clone::Clone for FILEGROUPDESCRIPTORA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILEGROUPDESCRIPTORW {
     pub cItems: u32,
@@ -6639,7 +6639,7 @@ impl ::core::clone::Clone for FOLDERSETTINGS {
 }
 pub type HDROP = isize;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HELPINFO {
     pub cbSize: u32,
@@ -6690,7 +6690,7 @@ impl ::core::clone::Clone for HELPWININFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HLBWINFO {
     pub cbSize: u32,
@@ -6719,7 +6719,7 @@ impl ::core::clone::Clone for HLITEM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HLTBINFO {
     pub uDockType: u32,
@@ -6794,7 +6794,7 @@ impl ::core::clone::Clone for MULTIKEYHELPW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`"]
 #[cfg(all(feature = "Win32_NetworkManagement_IpHelper", feature = "Win32_Networking_WinSock"))]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut super::super::NetworkManagement::IpHelper::NET_ADDRESS_INFO,
@@ -6810,7 +6810,7 @@ impl ::core::clone::Clone for NC_ADDRESS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct NEWCPLINFOA {
     pub dwSize: u32,
@@ -6831,7 +6831,7 @@ impl ::core::clone::Clone for NEWCPLINFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct NEWCPLINFOW {
     pub dwSize: u32,
@@ -6852,7 +6852,7 @@ impl ::core::clone::Clone for NEWCPLINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAA {
@@ -6883,7 +6883,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union NOTIFYICONDATAA_0 {
@@ -6901,7 +6901,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAA_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAA {
@@ -6932,7 +6932,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union NOTIFYICONDATAA_0 {
@@ -6950,7 +6950,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAW {
@@ -6981,7 +6981,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union NOTIFYICONDATAW_0 {
@@ -6999,7 +6999,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAW_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct NOTIFYICONDATAW {
@@ -7030,7 +7030,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union NOTIFYICONDATAW_0 {
@@ -7048,7 +7048,7 @@ impl ::core::clone::Clone for NOTIFYICONDATAW_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYICONIDENTIFIER {
@@ -7068,7 +7068,7 @@ impl ::core::clone::Clone for NOTIFYICONIDENTIFIER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYICONIDENTIFIER {
@@ -7088,7 +7088,7 @@ impl ::core::clone::Clone for NOTIFYICONIDENTIFIER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_NetworkManagement_WNet`"]
+#[doc = "Required features: `\"Win32_NetworkManagement_WNet\"`"]
 #[cfg(feature = "Win32_NetworkManagement_WNet")]
 pub struct NRESARRAY {
     pub cItems: u32,
@@ -7103,7 +7103,7 @@ impl ::core::clone::Clone for NRESARRAY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_UI_Controls\"`"]
 #[cfg(feature = "Win32_UI_Controls")]
 pub struct NSTCCUSTOMDRAW {
     pub psi: IShellItem,
@@ -7124,7 +7124,7 @@ impl ::core::clone::Clone for NSTCCUSTOMDRAW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Console`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Console\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 pub struct NT_CONSOLE_PROPS {
     pub dbh: DATABLOCK_HEADER,
@@ -7181,7 +7181,7 @@ impl ::core::clone::Clone for OPENASINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOA {
@@ -7202,7 +7202,7 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOA {
@@ -7223,7 +7223,7 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOW {
@@ -7244,7 +7244,7 @@ impl ::core::clone::Clone for OPEN_PRINTER_PROPS_INFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_PRINTER_PROPS_INFOW {
@@ -7297,7 +7297,7 @@ impl ::core::clone::Clone for PARSEDURLW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: *mut Common::ITEMIDLIST,
@@ -7315,7 +7315,7 @@ impl ::core::clone::Clone for PERSIST_FOLDER_TARGET_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::WindowsAndMessaging::HACCEL,
@@ -7330,7 +7330,7 @@ impl ::core::clone::Clone for PREVIEWHANDLERFRAMEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILEINFOA {
     pub dwSize: u32,
@@ -7351,7 +7351,7 @@ impl ::core::clone::Clone for PROFILEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILEINFOW {
     pub dwSize: u32,
@@ -7372,7 +7372,7 @@ impl ::core::clone::Clone for PROFILEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PUBAPPINFO {
     pub cbSize: u32,
@@ -7392,7 +7392,7 @@ impl ::core::clone::Clone for PUBAPPINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct QCMINFO {
     pub hmenu: super::WindowsAndMessaging::HMENU,
@@ -7454,7 +7454,7 @@ impl ::core::clone::Clone for SFVM_HELPTOPIC_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct SFVM_PROPPAGE_DATA {
     pub dwReserved: u32,
@@ -7470,7 +7470,7 @@ impl ::core::clone::Clone for SFVM_PROPPAGE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`"]
 #[cfg(feature = "Win32_System_Ole")]
 pub struct SFV_CREATE {
     pub cbSize: u32,
@@ -7487,7 +7487,7 @@ impl ::core::clone::Clone for SFV_CREATE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct SFV_SETITEMPOS {
     pub pidl: *mut Common::ITEMIDLIST,
@@ -7513,7 +7513,7 @@ impl ::core::clone::Clone for SHARDAPPIDINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: *mut Common::ITEMIDLIST,
@@ -7553,7 +7553,7 @@ impl ::core::clone::Clone for SHCOLUMNDATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_System_Variant`, `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(all(feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct SHCOLUMNINFO {
     pub scid: PropertiesSystem::PROPERTYKEY,
@@ -7585,7 +7585,7 @@ impl ::core::clone::Clone for SHCOLUMNINIT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Threading\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 pub struct SHCREATEPROCESSINFOW {
@@ -7614,7 +7614,7 @@ impl ::core::clone::Clone for SHCREATEPROCESSINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Threading\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 pub struct SHCREATEPROCESSINFOW {
@@ -7656,7 +7656,7 @@ impl ::core::clone::Clone for SHChangeDWORDAsIDList {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct SHChangeNotifyEntry {
     pub pidl: *mut Common::ITEMIDLIST,
@@ -7710,7 +7710,7 @@ impl ::core::clone::Clone for SHDESCRIPTIONID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::super::Foundation::SIZE,
@@ -7727,7 +7727,7 @@ impl ::core::clone::Clone for SHDRAGIMAGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOA {
@@ -7758,7 +7758,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union SHELLEXECUTEINFOA_0 {
@@ -7776,7 +7776,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOA_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOA {
@@ -7807,7 +7807,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union SHELLEXECUTEINFOA_0 {
@@ -7825,7 +7825,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOA_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOW {
@@ -7856,7 +7856,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union SHELLEXECUTEINFOW_0 {
@@ -7874,7 +7874,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOW_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct SHELLEXECUTEINFOW {
@@ -7905,7 +7905,7 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Registry`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union SHELLEXECUTEINFOW_0 {
@@ -7978,7 +7978,7 @@ impl ::core::clone::Clone for SHELL_ITEM_RESOURCE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOA {
@@ -7999,7 +7999,7 @@ impl ::core::clone::Clone for SHFILEINFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOA {
@@ -8020,7 +8020,7 @@ impl ::core::clone::Clone for SHFILEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOW {
@@ -8041,7 +8041,7 @@ impl ::core::clone::Clone for SHFILEINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHFILEINFOW {
@@ -8062,7 +8062,7 @@ impl ::core::clone::Clone for SHFILEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTA {
@@ -8086,7 +8086,7 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTA {
@@ -8110,7 +8110,7 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTW {
@@ -8134,7 +8134,7 @@ impl ::core::clone::Clone for SHFILEOPSTRUCTW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHFILEOPSTRUCTW {
@@ -8276,7 +8276,7 @@ impl ::core::clone::Clone for SHQUERYRBINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHSTOCKICONINFO {
@@ -8297,7 +8297,7 @@ impl ::core::clone::Clone for SHSTOCKICONINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SHSTOCKICONINFO {
@@ -8318,7 +8318,7 @@ impl ::core::clone::Clone for SHSTOCKICONINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SLOWAPPINFO {
     pub ullSize: u64,
@@ -8335,7 +8335,7 @@ impl ::core::clone::Clone for SLOWAPPINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
@@ -8351,7 +8351,7 @@ impl ::core::clone::Clone for SMCSHCHANGENOTIFYSTRUCT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Shell_Common`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SMDATA {
     pub dwMask: u32,
@@ -8389,7 +8389,7 @@ impl ::core::clone::Clone for SMINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_PropertiesSystem`"]
+#[doc = "Required features: `\"Win32_UI_Shell_PropertiesSystem\"`"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct SORTCOLUMN {
     pub propkey: PropertiesSystem::PROPERTYKEY,
@@ -8404,7 +8404,7 @@ impl ::core::clone::Clone for SORTCOLUMN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
@@ -8424,7 +8424,7 @@ impl ::core::clone::Clone for SV2CVW2_PARAMS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct SYNCMGRHANDLERINFO {
     pub cbSize: u32,
@@ -8441,7 +8441,7 @@ impl ::core::clone::Clone for SYNCMGRHANDLERINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct SYNCMGRITEM {
     pub cbSize: u32,
@@ -8490,7 +8490,7 @@ impl ::core::clone::Clone for SYNCMGRPROGRESSITEM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_System_Com\"`"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SYNCMGR_CONFLICT_ID_INFO {
     pub pblobID: *mut super::super::System::Com::BYTE_BLOB,
@@ -8516,7 +8516,7 @@ impl ::core::clone::Clone for TBINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_WindowsAndMessaging`"]
+#[doc = "Required features: `\"Win32_UI_WindowsAndMessaging\"`"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
@@ -8535,7 +8535,7 @@ impl ::core::clone::Clone for THUMBBUTTON {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Ole"))]
 pub struct TOOLBARITEM {
     pub ptbar: IDockingWindow,
@@ -8553,7 +8553,7 @@ impl ::core::clone::Clone for TOOLBARITEM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
@@ -8570,7 +8570,7 @@ impl ::core::clone::Clone for URLINVOKECOMMANDINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,
@@ -8587,7 +8587,7 @@ impl ::core::clone::Clone for URLINVOKECOMMANDINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_UI_Shell_Common`"]
+#[doc = "Required features: `\"Win32_UI_Shell_Common\"`"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub struct WINDOWDATA {
     pub dwWindowID: u32,
@@ -8615,29 +8615,29 @@ impl ::core::clone::Clone for WTS_THUMBNAILID {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type APPLET_PROC = ::core::option::Option<unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type BFFCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32>;
 pub type DLLGETVERSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPFNDFMCALLBACK = ::core::option::Option<unsafe extern "system" fn(psf: IShellFolder, hwnd: super::super::Foundation::HWND, pdtobj: super::super::System::Com::IDataObject, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub type LPFNVIEWCALLBACK = ::core::option::Option<unsafe extern "system" fn(psvouter: IShellView, psf: IShellFolder, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PAPPCONSTRAIN_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void) -> ()>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PAPPSTATE_CHANGE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::core::ffi::c_void) -> ()>;
 pub type PFNCANSHAREFOLDERW = ::core::option::Option<unsafe extern "system" fn(pszpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSHOWSHAREFOLDERUIW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SUBCLASSPROC = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT>;

@@ -264,7 +264,7 @@ impl LocalLocation {
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Devices_Geolocation`"]
+    #[doc = "Required features: `\"Devices_Geolocation\"`"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn Point(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
@@ -301,7 +301,7 @@ impl LocalLocation {
             (::windows_core::Interface::vtable(this).RatingInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HoursOfOperation(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocationHoursOfOperationItem>> {
         let this = &::windows_core::ComInterface::cast::<ILocalLocation2>(self)?;
@@ -328,7 +328,7 @@ unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
 pub struct LocalLocationFinder;
 impl LocalLocationFinder {
-    #[doc = "Required features: `Devices_Geolocation`, `Foundation`"]
+    #[doc = "Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindLocalLocationsAsync<P0>(searchterm: &::windows_core::HSTRING, searcharea: P0, localcategory: &::windows_core::HSTRING, maxresults: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
     where
@@ -352,7 +352,7 @@ impl ::windows_core::RuntimeName for LocalLocationFinder {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationFinderResult(::windows_core::IUnknown);
 impl LocalLocationFinderResult {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LocalLocations(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<LocalLocation>> {
         let this = self;
@@ -388,7 +388,7 @@ unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationHoursOfOperationItem(::windows_core::IUnknown);
 impl LocalLocationHoursOfOperationItem {
-    #[doc = "Required features: `Globalization`"]
+    #[doc = "Required features: `\"Globalization\"`"]
     #[cfg(feature = "Globalization")]
     pub fn Day(&self) -> ::windows_core::Result<super::super::super::Globalization::DayOfWeek> {
         let this = self;
@@ -397,7 +397,7 @@ impl LocalLocationHoursOfOperationItem {
             (::windows_core::Interface::vtable(this).Day)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Start(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -406,7 +406,7 @@ impl LocalLocationHoursOfOperationItem {
             (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn Span(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -435,7 +435,7 @@ unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LocalLocationRatingInfo(::windows_core::IUnknown);
 impl LocalLocationRatingInfo {
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn AggregateRating(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -444,7 +444,7 @@ impl LocalLocationRatingInfo {
             (::windows_core::Interface::vtable(this).AggregateRating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn RatingCount(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<i32>> {
         let this = self;

@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("htmlhelp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+::windows_targets::link!("htmlhelp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HtmlHelpA(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("htmlhelp.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
+::windows_targets::link!("htmlhelp.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn HtmlHelpW(hwndcaller : super::super::Foundation:: HWND, pszfile : ::windows_sys::core::PCWSTR, ucommand : u32, dwdata : usize) -> super::super::Foundation:: HWND);
 pub type IITDatabase = *mut ::core::ffi::c_void;
 pub type IITPropList = *mut ::core::ffi::c_void;
 pub type IITResultSet = *mut ::core::ffi::c_void;
@@ -311,7 +311,7 @@ impl ::core::clone::Clone for COLUMNSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CProperty {
     pub dwPropID: u32,
@@ -329,7 +329,7 @@ impl ::core::clone::Clone for CProperty {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CProperty_0 {
     pub lpszwData: ::windows_sys::core::PWSTR,
@@ -345,7 +345,7 @@ impl ::core::clone::Clone for CProperty_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct HHNTRACK {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -362,7 +362,7 @@ impl ::core::clone::Clone for HHNTRACK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub struct HHN_NOTIFY {
     pub hdr: super::super::UI::Controls::NMHDR,
@@ -377,7 +377,7 @@ impl ::core::clone::Clone for HHN_NOTIFY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_AKLINK {
     pub cbStruct: i32,
@@ -424,7 +424,7 @@ impl ::core::clone::Clone for HH_ENUM_IT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_FTS_QUERY {
     pub cbStruct: i32,
@@ -445,7 +445,7 @@ impl ::core::clone::Clone for HH_FTS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
@@ -460,7 +460,7 @@ impl ::core::clone::Clone for HH_GLOBAL_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_POPUP {
     pub cbStruct: i32,
@@ -494,7 +494,7 @@ impl ::core::clone::Clone for HH_SET_INFOTYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HH_WINTYPE {
     pub cbStruct: i32,

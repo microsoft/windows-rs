@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsAddResourceToOperation<P0, P1, P2>(operation: P0, r#type: HCS_RESOURCE_TYPE, uri: P1, handle: P2) -> ::windows_core::Result<()>
@@ -61,7 +61,7 @@ where
     ::windows_targets::link!("computecore.dll" "system" fn HcsCrashComputeSystem(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, options : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     HcsCrashComputeSystem(computesystem.into_param().abi(), operation.into_param().abi(), options.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn HcsCreateComputeSystem<P0, P1, P2>(id: P0, configuration: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows_core::Result<HCS_SYSTEM>
@@ -112,7 +112,7 @@ pub unsafe fn HcsCreateOperationWithNotifications(eventtypes: HCS_OPERATION_OPTI
     ::windows_targets::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const ::core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
     HcsCreateOperationWithNotifications(eventtypes, ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback)
 }
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn HcsCreateProcess<P0, P1, P2>(computesystem: P0, processparameters: P1, operation: P2, securitydescriptor: ::core::option::Option<*const super::super::Security::SECURITY_DESCRIPTOR>) -> ::windows_core::Result<HCS_PROCESS>
@@ -182,7 +182,7 @@ where
     ::windows_targets::link!("computestorage.dll" "system" fn HcsExportLegacyWritableLayer(writablelayermountpath : ::windows_core::PCWSTR, writablelayerfolderpath : ::windows_core::PCWSTR, exportfolderpath : ::windows_core::PCWSTR, layerdata : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     HcsExportLegacyWritableLayer(writablelayermountpath.into_param().abi(), writablelayerfolderpath.into_param().abi(), exportfolderpath.into_param().abi(), layerdata.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsFormatWritableLayerVhd<P0>(vhdhandle: P0) -> ::windows_core::Result<()>
@@ -210,7 +210,7 @@ where
     ::windows_targets::link!("computecore.dll" "system" fn HcsGetComputeSystemProperties(computesystem : HCS_SYSTEM, operation : HCS_OPERATION, propertyquery : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     HcsGetComputeSystemProperties(computesystem.into_param().abi(), operation.into_param().abi(), propertyquery.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetLayerVhdMountPath<P0>(vhdhandle: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -245,7 +245,7 @@ where
     ::windows_targets::link!("computecore.dll" "system" fn HcsGetOperationResult(operation : HCS_OPERATION, resultdocument : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     HcsGetOperationResult(operation.into_param().abi(), ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetOperationResultAndProcessInfo<P0>(operation: P0, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
@@ -355,7 +355,7 @@ where
     ::windows_targets::link!("computestorage.dll" "system" fn HcsInitializeWritableLayer(writablelayerpath : ::windows_core::PCWSTR, layerdata : ::windows_core::PCWSTR, options : ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
     HcsInitializeWritableLayer(writablelayerpath.into_param().abi(), layerdata.into_param().abi(), options.into_param().abi()).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsModifyComputeSystem<P0, P1, P2, P3>(computesystem: P0, operation: P1, configuration: P2, identity: P3) -> ::windows_core::Result<()>
@@ -493,7 +493,7 @@ where
     ::windows_targets::link!("computecore.dll" "system" fn HcsSetProcessCallback(process : HCS_PROCESS, callbackoptions : HCS_EVENT_OPTIONS, context : *const ::core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> ::windows_core::HRESULT);
     HcsSetProcessCallback(process.into_param().abi(), callbackoptions, context, callback).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSetupBaseOSLayer<P0, P1, P2>(layerpath: P0, vhdhandle: P1, options: P2) -> ::windows_core::Result<()>
@@ -589,7 +589,7 @@ where
     ::windows_targets::link!("computecore.dll" "system" fn HcsWaitForOperationResult(operation : HCS_OPERATION, timeoutms : u32, resultdocument : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     HcsWaitForOperationResult(operation.into_param().abi(), timeoutms, ::core::mem::transmute(resultdocument.unwrap_or(::std::ptr::null_mut()))).ok()
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsWaitForOperationResultAndProcessInfo<P0>(operation: P0, timeoutms: u32, processinformation: ::core::option::Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
@@ -912,7 +912,7 @@ impl ::core::fmt::Debug for HCS_RESOURCE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Security`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct HCS_CREATE_OPTIONS_1 {
     pub Version: HCS_CREATE_OPTIONS,
@@ -1032,7 +1032,7 @@ impl ::windows_core::TypeKind for HCS_PROCESS {
     type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HCS_PROCESS_INFORMATION {
     pub ProcessId: u32,

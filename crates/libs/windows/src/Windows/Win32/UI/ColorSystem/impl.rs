@@ -1,4 +1,4 @@
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDeviceModelPlugIn_Impl: Sized {
     fn Initialize(&self, bstrxml: &::windows_core::BSTR, cnummodels: u32, imodelposition: u32) -> ::windows_core::Result<()>;

@@ -86,7 +86,7 @@ impl SpatialGraphInteropFrameOfReferencePreview {
             (::windows_core::Interface::vtable(this).NodeId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CoordinateSystemToNodeTransform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
@@ -119,7 +119,7 @@ impl SpatialGraphInteropPreview {
             (::windows_core::Interface::vtable(this).CreateCoordinateSystemForNode)(::windows_core::Interface::as_raw(this), nodeid, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCoordinateSystemForNodeWithPosition(nodeid: ::windows_core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
@@ -127,7 +127,7 @@ impl SpatialGraphInteropPreview {
             (::windows_core::Interface::vtable(this).CreateCoordinateSystemForNodeWithPosition)(::windows_core::Interface::as_raw(this), nodeid, relativeposition, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCoordinateSystemForNodeWithPositionAndOrientation(nodeid: ::windows_core::GUID, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<super::SpatialCoordinateSystem> {
         Self::ISpatialGraphInteropPreviewStatics(|this| unsafe {
@@ -150,7 +150,7 @@ impl SpatialGraphInteropPreview {
             (::windows_core::Interface::vtable(this).TryCreateFrameOfReference)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateFrameOfReferenceWithPosition<P0>(coordinatesystem: P0, relativeposition: super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
     where
@@ -161,7 +161,7 @@ impl SpatialGraphInteropPreview {
             (::windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition, &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation_Numerics`"]
+    #[doc = "Required features: `\"Foundation_Numerics\"`"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryCreateFrameOfReferenceWithPositionAndOrientation<P0>(coordinatesystem: P0, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
     where

@@ -66,23 +66,23 @@ pub struct IVdsAdmin_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdvancedDisk(::windows_core::IUnknown);
 impl IVdsAdvancedDisk {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPartitionProperties)(::windows_core::Interface::as_raw(self), ulloffset, ppartitionprop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryPartitions)(::windows_core::Interface::as_raw(self), pppartitionproparray, plnumberofpartitions).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePartition)(::windows_core::Interface::as_raw(self), ulloffset, ullsize, para, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeletePartition<P0, P1>(&self, ulloffset: u64, bforce: P0, bforceprotected: P1) -> ::windows_core::Result<()>
     where
@@ -91,7 +91,7 @@ impl IVdsAdvancedDisk {
     {
         (::windows_core::Interface::vtable(self).DeletePartition)(::windows_core::Interface::as_raw(self), ulloffset, bforce.into_param().abi(), bforceprotected.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ChangeAttributes)(::windows_core::Interface::as_raw(self), ulloffset, para).ok()
@@ -105,7 +105,7 @@ impl IVdsAdvancedDisk {
     pub unsafe fn GetDriveLetter(&self, ulloffset: u64, pwcletter: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetDriveLetter)(::windows_core::Interface::as_raw(self), ulloffset, ::core::mem::transmute(pwcletter)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FormatPartition<P0, P1, P2, P3>(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P0, dwunitallocationsize: u32, bforce: P1, bquickformat: P2, benablecompression: P3) -> ::windows_core::Result<IVdsAsync>
     where
@@ -117,7 +117,7 @@ impl IVdsAdvancedDisk {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatPartition)(::windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.into_param().abi(), dwunitallocationsize, bforce.into_param().abi(), bquickformat.into_param().abi(), benablecompression.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Clean<P0, P1, P2>(&self, bforce: P0, bforceoem: P1, bfullclean: P2) -> ::windows_core::Result<IVdsAsync>
     where
@@ -176,7 +176,7 @@ pub struct IVdsAdvancedDisk_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsAdvancedDisk2(::windows_core::IUnknown);
 impl IVdsAdvancedDisk2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangePartitionType<P0>(&self, ulloffset: u64, bforce: P0, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> ::windows_core::Result<()>
     where
@@ -393,7 +393,7 @@ pub struct IVdsControllerPort_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsCreatePartitionEx(::windows_core::IUnknown);
 impl IVdsCreatePartitionEx {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
@@ -427,7 +427,7 @@ impl IVdsDisk {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIdentificationData)(::windows_core::Interface::as_raw(self), pluninfo).ok()
@@ -471,7 +471,7 @@ pub struct IVdsDisk_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsDisk2(::windows_core::IUnknown);
 impl IVdsDisk2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSANMode<P0>(&self, benable: P0) -> ::windows_core::Result<()>
     where
@@ -560,7 +560,7 @@ impl IVdsDiskPartitionMF {
     pub unsafe fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryPartitionFileSystemFormatSupport)(::windows_core::Interface::as_raw(self), ulloffset, ppfilesystemsupportprops, plnumberoffilesystems).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FormatPartitionEx<P0, P1, P2, P3, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, bforce: P2, bquickformat: P3, benablecompression: P4) -> ::windows_core::Result<IVdsAsync>
     where
@@ -630,7 +630,7 @@ impl IVdsDrive {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryExtents)(::windows_core::Interface::as_raw(self), ppextentarray, plnumberofextents).ok()
@@ -746,7 +746,7 @@ pub struct IVdsHwProvider_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderPrivate(::windows_core::IUnknown);
 impl IVdsHwProviderPrivate {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryIfCreatedLun<P0>(&self, pwszdevicepath: P0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows_core::Result<::windows_core::GUID>
     where
@@ -797,13 +797,13 @@ pub struct IVdsHwProviderPrivateMpio_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsHwProviderStoragePools(::windows_core::IUnknown);
 impl IVdsHwProviderStoragePools {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows_core::Result<IEnumVdsObject> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryStoragePools)(::windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ppoolattributes, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLunInStoragePool<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows_core::GUID, pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> ::windows_core::Result<IVdsAsync>
     where
@@ -812,7 +812,7 @@ impl IVdsHwProviderStoragePools {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateLunInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into_param().abi(), phints2, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows_core::GUID, phints2: *const VDS_HINTS2) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
@@ -898,7 +898,7 @@ impl IVdsIscsiInitiatorAdapter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryInitiatorPortals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoginToTarget<P0, P1>(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: ::windows_core::GUID, targetportalid: ::windows_core::GUID, initiatorportalid: ::windows_core::GUID, ulloginflags: u32, bheaderdigest: P0, bdatadigest: P1, authtype: VDS_ISCSI_AUTH_TYPE) -> ::windows_core::Result<IVdsAsync>
     where
@@ -1090,7 +1090,7 @@ pub struct IVdsIscsiPortalLocal_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsIscsiTarget(::windows_core::IUnknown);
 impl IVdsIscsiTarget {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), ptargetprop).ok()
@@ -1173,7 +1173,7 @@ impl IVdsLun {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSubSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetIdentificationData)(::windows_core::Interface::as_raw(self), pluninfo).ok()
@@ -1218,12 +1218,12 @@ impl IVdsLun {
     pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: &[::windows_core::GUID], pinactivecontrolleridarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).AssociateControllers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrolleridarray.as_ptr()), pactivecontrolleridarray.len() as _, ::core::mem::transmute(pinactivecontrolleridarray.as_ptr()), pinactivecontrolleridarray.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryHints)(::windows_core::Interface::as_raw(self), phints).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ApplyHints)(::windows_core::Interface::as_raw(self), phints).ok()
@@ -1278,12 +1278,12 @@ pub struct IVdsLun_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsLun2(::windows_core::IUnknown);
 impl IVdsLun2 {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryHints2)(::windows_core::Interface::as_raw(self), phints2).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ApplyHints2)(::windows_core::Interface::as_raw(self), phints2).ok()
@@ -1368,12 +1368,12 @@ impl IVdsLunMpio {
     pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPathInfo)(::windows_core::Interface::as_raw(self), pppaths, plnumberofpaths).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), ppolicy, pppaths, plnumberofpaths).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), policy, ::core::mem::transmute(ppaths.as_ptr()), ppaths.len() as _).ok()
@@ -1462,17 +1462,17 @@ impl IVdsLunPlex {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLun)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryExtents)(::windows_core::Interface::as_raw(self), ppextentarray, plnumberofextents).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryHints)(::windows_core::Interface::as_raw(self), phints).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ApplyHints)(::windows_core::Interface::as_raw(self), phints).ok()
@@ -1537,7 +1537,7 @@ pub struct IVdsMaintenance_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsOpenVDisk(::windows_core::IUnknown);
 impl IVdsOpenVDisk {
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> ::windows_core::Result<IVdsAsync>
     where
@@ -1546,29 +1546,29 @@ impl IVdsOpenVDisk {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attach)(::windows_core::Interface::as_raw(self), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, timeoutinms, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Detach)(::windows_core::Interface::as_raw(self), flags, providerspecificflags).ok()
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn DetachAndDelete(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DetachAndDelete)(::windows_core::Interface::as_raw(self), flags, providerspecificflags).ok()
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Compact)(::windows_core::Interface::as_raw(self), flags, reserved, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Merge)(::windows_core::Interface::as_raw(self), flags, mergedepth, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
@@ -1634,7 +1634,7 @@ impl IVdsPack {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateVolume)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, ulstripesize, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDisk<P0>(&self, diskid: ::windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: P0) -> ::windows_core::Result<()>
     where
@@ -1642,7 +1642,7 @@ impl IVdsPack {
     {
         (::windows_core::Interface::vtable(self).AddDisk)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(diskid), partitionstyle, bashotspare.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MigrateDisks<P0, P1>(&self, pdiskarray: *const ::windows_core::GUID, lnumberofdisks: i32, targetpack: ::windows_core::GUID, bforce: P0, bqueryonly: P1, presults: *mut ::windows_core::HRESULT, pbrebootneeded: *mut super::super::Foundation::BOOL) -> ::windows_core::Result<()>
     where
@@ -1749,7 +1749,7 @@ impl IVdsProviderPrivate {
     {
         (::windows_core::Interface::vtable(self).OnLoad)(::windows_core::Interface::as_raw(self), pwszmachinename.into_param().abi(), pcallbackobject.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnUnload<P0>(&self, bforceunload: P0) -> ::windows_core::Result<()>
     where
@@ -1853,7 +1853,7 @@ impl IVdsService {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObject)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(objectid), r#type, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryDriveLetters(&self, wcfirstletter: u16, pdriveletterproparray: &mut [VDS_DRIVE_LETTER_PROP]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryDriveLetters)(::windows_core::Interface::as_raw(self), wcfirstletter, pdriveletterproparray.len() as _, ::core::mem::transmute(pdriveletterproparray.as_ptr())).ok()
@@ -2095,13 +2095,13 @@ pub struct IVdsServiceSw_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsServiceUninstallDisk(::windows_core::IUnknown);
 impl IVdsServiceUninstallDisk {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> ::windows_core::Result<::windows_core::GUID> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDiskIdFromLunInfo)(::windows_core::Interface::as_raw(self), pluninfo, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UninstallDisks<P0>(&self, pdiskidarray: *const ::windows_core::GUID, ulcount: u32, bforce: P0, pbreboot: *mut u8, presults: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>
     where
@@ -2141,12 +2141,12 @@ impl IVdsStoragePool {
     pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pstoragepoolprop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAttributes)(::windows_core::Interface::as_raw(self), pstoragepoolattributes).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryDriveExtents)(::windows_core::Interface::as_raw(self), ppextentarray, plnumberofextents).ok()
@@ -2217,7 +2217,7 @@ impl IVdsSubSystem {
     pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[::windows_core::GUID], pofflinecontrolleridarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetControllerStatus)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ponlinecontrolleridarray.as_ptr()), ponlinecontrolleridarray.len() as _, ::core::mem::transmute(pofflinecontrolleridarray.as_ptr()), pofflinecontrolleridarray.len() as _).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLun<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows_core::GUID], pwszunmaskinglist: P0, phints: *const VDS_HINTS) -> ::windows_core::Result<IVdsAsync>
     where
@@ -2232,7 +2232,7 @@ impl IVdsSubSystem {
     pub unsafe fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows_core::GUID], phints: *const VDS_HINTS) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
@@ -2280,7 +2280,7 @@ impl IVdsSubSystem2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDrive2)(::windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateLun2<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows_core::GUID], pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> ::windows_core::Result<IVdsAsync>
     where
@@ -2289,7 +2289,7 @@ impl IVdsSubSystem2 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateLun2)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), phints2, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows_core::GUID], phints2: *const VDS_HINTS2) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
@@ -2464,13 +2464,13 @@ pub struct IVdsSwProvider_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVdsVDisk(::windows_core::IUnknown);
 impl IVdsVDisk {
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> ::windows_core::Result<IVdsOpenVDisk> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), accessmask, flags, readwritedepth, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Vhd\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Vhd"))]
     pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_VDISK_PROPERTIES) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProperties)(::windows_core::Interface::as_raw(self), pdiskproperties).ok()
@@ -2514,7 +2514,7 @@ impl IVdsVdProvider {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryVDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn CreateVDisk<P0, P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, pstringsecuritydescriptor: P1, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut ::core::option::Option<IVdsAsync>) -> ::windows_core::Result<()>
     where
@@ -2523,7 +2523,7 @@ impl IVdsVdProvider {
     {
         (::windows_core::Interface::vtable(self).CreateVDisk)(::windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, ::core::mem::transmute(ppasync)).ok()
     }
-    #[doc = "Required features: `Win32_Storage_Vhd`"]
+    #[doc = "Required features: `\"Win32_Storage_Vhd\"`"]
     #[cfg(feature = "Win32_Storage_Vhd")]
     pub unsafe fn AddVDisk<P0>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, ppvdisk: *mut ::core::option::Option<IVdsVDisk>) -> ::windows_core::Result<()>
     where
@@ -2604,7 +2604,7 @@ impl IVdsVolume {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemovePlex)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(plexid), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delete<P0>(&self, bforce: P0) -> ::windows_core::Result<()>
     where
@@ -2612,7 +2612,7 @@ impl IVdsVolume {
     {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self), bforce.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFlags<P0>(&self, ulflags: u32, brevertonclose: P0) -> ::windows_core::Result<()>
     where
@@ -2681,7 +2681,7 @@ impl IVdsVolumeMF {
     pub unsafe fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetFileSystemProperties)(::windows_core::Interface::as_raw(self), pfilesystemprop).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Format<P0, P1, P2, P3>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P0, dwunitallocationsize: u32, bforce: P1, bquickformat: P2, benablecompression: P3) -> ::windows_core::Result<IVdsAsync>
     where
@@ -2705,7 +2705,7 @@ impl IVdsVolumeMF {
     pub unsafe fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryReparsePoints)(::windows_core::Interface::as_raw(self), ppreparsepointprops, plnumberofreparsepointprops).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteAccessPath<P0, P1>(&self, pwszpath: P0, bforce: P1) -> ::windows_core::Result<()>
     where
@@ -2717,7 +2717,7 @@ impl IVdsVolumeMF {
     pub unsafe fn Mount(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Mount)(::windows_core::Interface::as_raw(self)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dismount<P0, P1>(&self, bforce: P0, bpermanent: P1) -> ::windows_core::Result<()>
     where
@@ -2775,7 +2775,7 @@ impl IVdsVolumeMF2 {
     pub unsafe fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).QueryFileSystemFormatSupport)(::windows_core::Interface::as_raw(self), ppfilesystemsupportprops, plnumberoffilesystems).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FormatEx<P0, P1, P2, P3, P4>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P1, bforce: P2, bquickformat: P3, benablecompression: P4) -> ::windows_core::Result<IVdsAsync>
     where
@@ -5653,7 +5653,7 @@ impl ::core::fmt::Debug for __VDS_PARTITION_STYLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
@@ -5678,7 +5678,7 @@ impl ::core::default::Default for CHANGE_ATTRIBUTES_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
     pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
@@ -5703,7 +5703,7 @@ impl ::core::default::Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     pub attributes: u64,
@@ -5741,7 +5741,7 @@ impl ::core::default::Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub bootIndicator: super::super::Foundation::BOOLEAN,
@@ -5875,7 +5875,7 @@ impl ::core::default::Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_PARTITION_PARAMETERS {
     pub style: VDS_PARTITION_STYLE,
@@ -5900,7 +5900,7 @@ impl ::core::default::Default for CREATE_PARTITION_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CREATE_PARTITION_PARAMETERS_0 {
     pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
@@ -5925,7 +5925,7 @@ impl ::core::default::Default for CREATE_PARTITION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: ::windows_core::GUID,
@@ -5966,7 +5966,7 @@ impl ::core::default::Default for CREATE_PARTITION_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: u8,
@@ -6639,7 +6639,7 @@ impl ::core::default::Default for VDS_DISK_PROP2_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_DRIVE_EXTENT {
     pub id: ::windows_core::GUID,
@@ -6711,7 +6711,7 @@ impl ::core::default::Default for VDS_DRIVE_LETTER_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_DRIVE_LETTER_PROP {
     pub wcLetter: u16,
@@ -7040,7 +7040,7 @@ impl ::core::default::Default for VDS_HBAPORT_PROP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_HINTS {
     pub ullHintMask: u64,
@@ -7131,7 +7131,7 @@ impl ::core::default::Default for VDS_HINTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_HINTS2 {
     pub ullHintMask: u64,
@@ -7543,7 +7543,7 @@ impl ::core::default::Default for VDS_ISCSI_SHARED_SECRET {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: ::windows_core::GUID,
@@ -7584,7 +7584,7 @@ impl ::core::default::Default for VDS_ISCSI_TARGET_PROP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_LUN_INFORMATION {
     pub m_version: u32,
@@ -7898,7 +7898,7 @@ impl ::core::default::Default for VDS_PACK_PROP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PARTITION_INFORMATION_EX {
     pub dwPartitionStyle: __VDS_PARTITION_STYLE,
@@ -7927,7 +7927,7 @@ impl ::core::default::Default for VDS_PARTITION_INFORMATION_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VDS_PARTITION_INFORMATION_EX_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
@@ -7984,7 +7984,7 @@ impl ::core::default::Default for VDS_PARTITION_INFO_GPT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
@@ -8056,7 +8056,7 @@ impl ::core::default::Default for VDS_PARTITION_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PARTITION_PROP {
     pub PartitionStyle: VDS_PARTITION_STYLE,
@@ -8085,7 +8085,7 @@ impl ::core::default::Default for VDS_PARTITION_PROP {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VDS_PARTITION_PROP_0 {
     pub Mbr: VDS_PARTITION_INFO_MBR,
@@ -8220,7 +8220,7 @@ impl ::core::default::Default for VDS_PATH_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_PATH_POLICY {
     pub pathId: VDS_PATH_ID,
@@ -8260,7 +8260,7 @@ impl ::core::default::Default for VDS_PATH_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
@@ -8752,7 +8752,7 @@ impl ::core::default::Default for VDS_STORAGE_IDENTIFIER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
     pub id: ::windows_core::GUID,
@@ -8995,7 +8995,7 @@ impl ::core::default::Default for VDS_TARGET_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Storage_Vhd`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Vhd\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Vhd"))]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: ::windows_core::GUID,

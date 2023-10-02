@@ -377,7 +377,7 @@ impl DeviceAccountConfiguration {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetOutgoingServerUsername)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn IncomingServerCredential(&self) -> ::windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -386,7 +386,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).IncomingServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetIncomingServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -395,7 +395,7 @@ impl DeviceAccountConfiguration {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetIncomingServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn OutgoingServerCredential(&self) -> ::windows_core::Result<super::super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -404,7 +404,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).OutgoingServerCredential)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Security_Credentials`"]
+    #[doc = "Required features: `\"Security_Credentials\"`"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetOutgoingServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -570,7 +570,7 @@ impl DeviceAccountConfiguration {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCalDavSyncScheduleKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CardDavServerUrl(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -579,7 +579,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).CardDavServerUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCardDavServerUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -599,7 +599,7 @@ impl DeviceAccountConfiguration {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetCardDavRequiresSsl)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CalDavServerUrl(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -608,7 +608,7 @@ impl DeviceAccountConfiguration {
             (::windows_core::Interface::vtable(this).CalDavServerUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SetCalDavServerUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -734,7 +734,7 @@ unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
 unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
 pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAndShowDeviceAccountsAsync<P0>(accounts: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>
     where
@@ -745,7 +745,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(::windows_core::Interface::as_raw(this), accounts.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn SuppressLocalAccountWithAccountAsync(userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
@@ -753,7 +753,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).SuppressLocalAccountWithAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn CreateDeviceAccountAsync<P0>(account: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
     where
@@ -764,7 +764,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(::windows_core::Interface::as_raw(this), account.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteDeviceAccountAsync(accountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
@@ -772,7 +772,7 @@ impl UserDataAccountSystemAccessManager {
             (::windows_core::Interface::vtable(this).DeleteDeviceAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(accountid), &mut result__).from_abi(result__)
         })
     }
-    #[doc = "Required features: `Foundation`"]
+    #[doc = "Required features: `\"Foundation\"`"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeviceAccountConfigurationAsync(accountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {

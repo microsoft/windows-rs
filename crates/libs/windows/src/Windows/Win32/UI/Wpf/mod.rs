@@ -2,7 +2,7 @@
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffect(::windows_core::IUnknown);
 impl IMILBitmapEffect {
-    #[doc = "Required features: `Win32_Graphics_Imaging`"]
+    #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetOutput<P0>(&self, uiindex: u32, pcontext: P0) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource>
     where
@@ -15,7 +15,7 @@ impl IMILBitmapEffect {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParentEffect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Imaging`"]
+    #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn SetInputSource<P0>(&self, uiindex: u32, pbitmapsource: P0) -> ::windows_core::Result<()>
     where
@@ -129,7 +129,7 @@ impl IMILBitmapEffectConnector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -330,7 +330,7 @@ pub struct IMILBitmapEffectGroupImpl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectImpl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInPlaceModificationAllowed<P0>(&self, poutputconnector: P0) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -345,7 +345,7 @@ impl IMILBitmapEffectImpl {
     {
         (::windows_core::Interface::vtable(self).SetParentEffect)(::windows_core::Interface::as_raw(self), pparenteffect.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Graphics_Imaging`"]
+    #[doc = "Required features: `\"Win32_Graphics_Imaging\"`"]
     #[cfg(feature = "Win32_Graphics_Imaging")]
     pub unsafe fn GetInputSource(&self, uiindex: u32) -> ::windows_core::Result<super::super::Graphics::Imaging::IWICBitmapSource> {
         let mut result__ = ::std::mem::zeroed();
@@ -354,7 +354,7 @@ impl IMILBitmapEffectImpl {
     pub unsafe fn GetInputSourceBounds(&self, uiindex: u32, prect: *mut MilRectD) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetInputSourceBounds)(::windows_core::Interface::as_raw(self), uiindex, prect).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Imaging`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn GetInputBitmapSource<P0>(&self, uiindex: u32, prendercontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>
     where
@@ -362,7 +362,7 @@ impl IMILBitmapEffectImpl {
     {
         (::windows_core::Interface::vtable(self).GetInputBitmapSource)(::windows_core::Interface::as_raw(self), uiindex, prendercontext.into_param().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Imaging`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn GetOutputBitmapSource<P0>(&self, uiindex: u32, prendercontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>
     where
@@ -428,7 +428,7 @@ impl IMILBitmapEffectInputConnector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -527,7 +527,7 @@ impl IMILBitmapEffectOutputConnector {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetFormat)(::windows_core::Interface::as_raw(self), ulindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -595,7 +595,7 @@ pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectPrimitive(::windows_core::IUnknown);
 impl IMILBitmapEffectPrimitive {
-    #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Imaging`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn GetOutput<P0>(&self, uiindex: u32, pcontext: P0, pfmodifyinplace: *mut super::super::Foundation::VARIANT_BOOL, ppbitmapsource: *mut ::core::option::Option<super::super::Graphics::Imaging::IWICBitmapSource>) -> ::windows_core::Result<()>
     where
@@ -603,7 +603,7 @@ impl IMILBitmapEffectPrimitive {
     {
         (::windows_core::Interface::vtable(self).GetOutput)(::windows_core::Interface::as_raw(self), uiindex, pcontext.into_param().abi(), pfmodifyinplace, ::core::mem::transmute(ppbitmapsource)).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransformPoint<P0, P1>(&self, uiindex: u32, p: *mut MilPoint2D, fforwardtransform: P0, pcontext: P1, pfpointtransformed: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>
     where
@@ -612,7 +612,7 @@ impl IMILBitmapEffectPrimitive {
     {
         (::windows_core::Interface::vtable(self).TransformPoint)(::windows_core::Interface::as_raw(self), uiindex, p, fforwardtransform.into_param().abi(), pcontext.into_param().abi(), pfpointtransformed).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransformRect<P0, P1>(&self, uiindex: u32, p: *mut MilRectD, fforwardtransform: P0, pcontext: P1) -> ::windows_core::Result<()>
     where
@@ -621,19 +621,19 @@ impl IMILBitmapEffectPrimitive {
     {
         (::windows_core::Interface::vtable(self).TransformRect)(::windows_core::Interface::as_raw(self), uiindex, p, fforwardtransform.into_param().abi(), pcontext.into_param().abi()).ok()
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasAffineTransform(&self, uiindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasAffineTransform)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasInverseTransform(&self, uiindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HasInverseTransform)(::windows_core::Interface::as_raw(self), uiindex, &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Graphics_Dwm`"]
+    #[doc = "Required features: `\"Win32_Graphics_Dwm\"`"]
     #[cfg(feature = "Win32_Graphics_Dwm")]
     pub unsafe fn GetAffineMatrix(&self, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetAffineMatrix)(::windows_core::Interface::as_raw(self), uiindex, pmatrix).ok()
@@ -679,12 +679,12 @@ pub struct IMILBitmapEffectPrimitive_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectPrimitiveImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDirty(&self, uioutputindex: u32, pfdirty: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
         (::windows_core::Interface::vtable(self).IsDirty)(::windows_core::Interface::as_raw(self), uioutputindex, pfdirty)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVolatile(&self, uioutputindex: u32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();
@@ -722,7 +722,7 @@ impl IMILBitmapEffectRenderContext {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputPixelFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseSoftwareRenderer<P0>(&self, fsoftware: P0) -> ::windows_core::Result<()>
     where
@@ -773,7 +773,7 @@ pub struct IMILBitmapEffectRenderContext_Vtbl {
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectRenderContextImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectRenderContextImpl {
-    #[doc = "Required features: `Win32_Foundation`"]
+    #[doc = "Required features: `\"Win32_Foundation\"`"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUseSoftwareRenderer(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = ::std::mem::zeroed();

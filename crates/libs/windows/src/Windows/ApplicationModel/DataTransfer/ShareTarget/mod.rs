@@ -114,7 +114,7 @@ impl QuickLink {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -123,7 +123,7 @@ impl QuickLink {
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Storage_Streams`"]
+    #[doc = "Required features: `\"Storage_Streams\"`"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<P0>(&self, value: P0) -> ::windows_core::Result<()>
     where
@@ -143,7 +143,7 @@ impl QuickLink {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDataFormats(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -152,7 +152,7 @@ impl QuickLink {
             (::windows_core::Interface::vtable(this).SupportedDataFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    #[doc = "Required features: `Foundation_Collections`"]
+    #[doc = "Required features: `\"Foundation_Collections\"`"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFileTypes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
@@ -228,7 +228,7 @@ impl ShareOperation {
         let this = &::windows_core::ComInterface::cast::<IShareOperation2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).DismissUI)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "Required features: `ApplicationModel_Contacts`, `Foundation_Collections`"]
+    #[doc = "Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn Contacts(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
         let this = &::windows_core::ComInterface::cast::<IShareOperation3>(self)?;
