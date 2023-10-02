@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_System_Com_Marshal")]
-#[doc = "Required features: `Win32_System_Com_Marshal`"]
+#[doc = "Required features: `\"Win32_System_Com_Marshal\"`"]
 pub mod Marshal;
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-#[doc = "Required features: `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_System_Com_StructuredStorage\"`"]
 pub mod StructuredStorage;
 #[cfg(feature = "Win32_System_Com_Urlmon")]
-#[doc = "Required features: `Win32_System_Com_Urlmon`"]
+#[doc = "Required features: `\"Win32_System_Com_Urlmon\"`"]
 pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn BindMoniker(pmk : IMoniker, grfopt : u32, iidresult : *const ::windows_sys::core::GUID, ppvresult : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CLSIDFromProgID(lpszprogid : ::windows_sys::core::PCWSTR, lpclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
@@ -27,15 +27,15 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoDisconnectContext(dwtimeout : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoDisconnectObject(punk : ::windows_sys::core::IUnknown, dwreserved : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoDosDateTimeToFileTime(ndosdate : u16, ndostime : u16, lpfiletime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoDosDateTimeToFileTime(ndosdate : u16, ndostime : u16, lpfiletime : *mut super::super::Foundation:: FILETIME) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("ole32.dll" "system" fn CoEnableCallCancellation(preserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoFileTimeNow(lpfiletime : *mut super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFileTimeNow(lpfiletime : *mut super::super::Foundation:: FILETIME) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoFileTimeToDosDateTime(lpfiletime : *const super::super::Foundation:: FILETIME, lpdosdate : *mut u16, lpdostime : *mut u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFileTimeToDosDateTime(lpfiletime : *const super::super::Foundation:: FILETIME, lpdosdate : *mut u16, lpdostime : *mut u16) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("ole32.dll" "system" fn CoFreeAllLibraries() -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE) -> ());
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoFreeLibrary(hinst : super::super::Foundation:: HINSTANCE) -> ());
 ::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibraries() -> ());
 ::windows_targets::link!("ole32.dll" "system" fn CoFreeUnusedLibrariesEx(dwunloaddelay : u32, dwreserved : u32) -> ());
 ::windows_targets::link!("ole32.dll" "system" fn CoGetApartmentType(papttype : *mut APTTYPE, paptqualifier : *mut APTTYPEQUALIFIER) -> ::windows_sys::core::HRESULT);
@@ -51,24 +51,24 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const ::windows_sys::core::GUID, ppv : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetPSClsid(riid : *const ::windows_sys::core::GUID, pclsid : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Security`"] fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const ::windows_sys::core::GUID, pclsidnew : *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoImpersonateClient() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const ::core::ffi::c_void, dwcoinit : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Security`"] fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const ::core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const ::core::ffi::c_void, dwcapabilities : u32, preserved3 : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Security\"`"] fn CoInitializeSecurity(psecdesc : super::super::Security:: PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const SOLE_AUTHENTICATION_SERVICE, preserved1 : *const ::core::ffi::c_void, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthlist : *const ::core::ffi::c_void, dwcapabilities : u32, preserved3 : *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoInstall(pbc : IBindCtx, dwflags : u32, pclassspec : *const uCLSSPEC, pquery : *const QUERYCONTEXT, pszcodebase : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoInvalidateRemoteMachineBindings(pszmachinename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoIsHandlerConnected(punk : ::windows_sys::core::IUnknown) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoIsHandlerConnected(punk : ::windows_sys::core::IUnknown) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoIsOle1Class(rclsid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoIsOle1Class(rclsid : *const ::windows_sys::core::GUID) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoLoadLibrary(lpszlibname : ::windows_sys::core::PCWSTR, bautofree : super::super::Foundation:: BOOL) -> super::super::Foundation:: HINSTANCE);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoLoadLibrary(lpszlibname : ::windows_sys::core::PCWSTR, bautofree : super::super::Foundation:: BOOL) -> super::super::Foundation:: HINSTANCE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoLockObjectExternal(punk : ::windows_sys::core::IUnknown, flock : super::super::Foundation:: BOOL, flastunlockreleases : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoLockObjectExternal(punk : ::windows_sys::core::IUnknown, flock : super::super::Foundation:: BOOL, flastunlockreleases : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut SOLE_AUTHENTICATION_SERVICE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut ::windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut *mut ::core::ffi::c_void, pcapabilities : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : ::windows_sys::core::IUnknown, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut ::windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut *mut ::core::ffi::c_void, pcapabilites : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -98,9 +98,9 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CoTreatAsClass(clsidold : *const ::windows_sys::core::GUID, clsidnew : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CoUninitialize() -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::super::Foundation:: HANDLE, lpdwindex : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CreateAntiMoniker(ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CreateBindCtx(reserved : u32, ppbc : *mut IBindCtx) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CreateClassMoniker(rclsid : *const ::windows_sys::core::GUID, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
@@ -113,7 +113,7 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn CreateObjrefMoniker(punk : ::windows_sys::core::IUnknown, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn CreatePointerMoniker(punk : ::windows_sys::core::IUnknown, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CreateStdProgressIndicator(hwndparent : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pibsccaller : IBindStatusCallback, ppibsc : *mut IBindStatusCallback) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CreateStdProgressIndicator(hwndparent : super::super::Foundation:: HWND, psztitle : ::windows_sys::core::PCWSTR, pibsccaller : IBindStatusCallback, ppibsc : *mut IBindStatusCallback) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateUri(pwzuri : ::windows_sys::core::PCWSTR, dwflags : URI_CREATE_FLAGS, dwreserved : usize, ppuri : *mut IUri) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateUriFromMultiByteString(pszansiinputuri : ::windows_sys::core::PCSTR, dwencodingflags : u32, dwcodepage : u32, dwcreateflags : u32, dwreserved : usize, ppuri : *mut IUri) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("urlmon.dll" "system" fn CreateUriWithFragment(pwzuri : ::windows_sys::core::PCWSTR, pwzfragment : ::windows_sys::core::PCWSTR, dwflags : u32, dwreserved : usize, ppuri : *mut IUri) -> ::windows_sys::core::HRESULT);
@@ -125,7 +125,7 @@ pub mod Urlmon;
 ::windows_targets::link!("ole32.dll" "system" fn MkParseDisplayName(pbc : IBindCtx, szusername : ::windows_sys::core::PCWSTR, pcheaten : *mut u32, ppmk : *mut IMoniker) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn MonikerCommonPrefixWith(pmkthis : IMoniker, pmkother : IMoniker, ppmkcommon : *mut IMoniker) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn MonikerRelativePathTo(pmksrc : IMoniker, pmkdest : IMoniker, ppmkrelpath : *mut IMoniker, dwreserved : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("ole32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MonikerRelativePathTo(pmksrc : IMoniker, pmkdest : IMoniker, ppmkrelpath : *mut IMoniker, dwreserved : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn ProgIDFromCLSID(clsid : *const ::windows_sys::core::GUID, lplpszprogid : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("oleaut32.dll" "system" fn SetErrorInfo(dwreserved : u32, perrinfo : IErrorInfo) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("ole32.dll" "system" fn StringFromCLSID(rclsid : *const ::windows_sys::core::GUID, lplpsz : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
@@ -778,7 +778,7 @@ impl ::core::clone::Clone for AUTHENTICATEINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct BINDINFO {
     pub cbSize: u32,
@@ -805,7 +805,7 @@ impl ::core::clone::Clone for BINDINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union BINDPTR {
     pub lpfuncdesc: *mut FUNCDESC,
@@ -848,7 +848,7 @@ impl ::core::clone::Clone for BIND_OPTS2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
@@ -979,7 +979,7 @@ impl ::core::clone::Clone for CSPLATFORM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATA {
     pub cCustData: u32,
@@ -994,7 +994,7 @@ impl ::core::clone::Clone for CUSTDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct CUSTDATAITEM {
     pub guid: ::windows_sys::core::GUID,
@@ -1055,7 +1055,7 @@ impl ::core::clone::Clone for ContextProperty {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DISPPARAMS {
     pub rgvarg: *mut super::Variant::VARIANT,
@@ -1109,7 +1109,7 @@ impl ::core::clone::Clone for DWORD_SIZEDARR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ELEMDESC {
     pub tdesc: TYPEDESC,
@@ -1124,7 +1124,7 @@ impl ::core::clone::Clone for ELEMDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
@@ -1181,7 +1181,7 @@ impl ::core::clone::Clone for FLAGGED_WORD_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FLAG_STGMEDIUM {
     pub ContextFlags: i32,
@@ -1211,7 +1211,7 @@ impl ::core::clone::Clone for FORMATETC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct FUNCDESC {
     pub memid: i32,
@@ -1236,7 +1236,7 @@ impl ::core::clone::Clone for FUNCDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
@@ -1251,7 +1251,7 @@ impl ::core::clone::Clone for GDI_OBJECT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub union GDI_OBJECT_0 {
     pub hBitmap: *mut super::SystemServices::userHBITMAP,
@@ -1449,7 +1449,7 @@ impl ::core::clone::Clone for STATDATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATSTG {
     pub pwcsName: ::windows_sys::core::PWSTR,
@@ -1473,7 +1473,7 @@ impl ::core::clone::Clone for STATSTG {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STGMEDIUM {
     pub tymed: u32,
@@ -1489,7 +1489,7 @@ impl ::core::clone::Clone for STGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
@@ -1537,7 +1537,7 @@ impl ::core::clone::Clone for TLIBATTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct TYPEATTR {
     pub guid: ::windows_sys::core::GUID,
@@ -1568,7 +1568,7 @@ impl ::core::clone::Clone for TYPEATTR {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
@@ -1583,7 +1583,7 @@ impl ::core::clone::Clone for TYPEDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
@@ -1599,7 +1599,7 @@ impl ::core::clone::Clone for TYPEDESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct VARDESC {
     pub memid: i32,
@@ -1618,7 +1618,7 @@ impl ::core::clone::Clone for VARDESC {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_Ole`, `Win32_System_Variant`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub union VARDESC_0 {
     pub oInst: u32,
@@ -1704,7 +1704,7 @@ impl ::core::clone::Clone for uCLSSPEC_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
@@ -1720,7 +1720,7 @@ impl ::core::clone::Clone for userFLAG_STGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userSTGMEDIUM {
     pub u: userSTGMEDIUM_0,
@@ -1735,7 +1735,7 @@ impl ::core::clone::Clone for userSTGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
@@ -1750,7 +1750,7 @@ impl ::core::clone::Clone for userSTGMEDIUM_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`, `Win32_System_SystemServices`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,

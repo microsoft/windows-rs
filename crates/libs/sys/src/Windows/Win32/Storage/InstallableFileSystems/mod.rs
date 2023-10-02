@@ -2,46 +2,46 @@
 ::windows_targets::link!("fltlib.dll" "system" fn FilterAttachAtAltitude(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpaltitude : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR, dwcreatedinstancenamelength : u32, lpcreatedinstancename : ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterClose(hfilter : HFILTER) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn FilterConnectCommunicationPort(lpportname : ::windows_sys::core::PCWSTR, dwoptions : u32, lpcontext : *const ::core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn FilterConnectCommunicationPort(lpportname : ::windows_sys::core::PCWSTR, dwoptions : u32, lpcontext : *const ::core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterCreate(lpfiltername : ::windows_sys::core::PCWSTR, hfilter : *mut HFILTER) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterDetach(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterFindNext(hfilterfind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterFindNext(hfilterfind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : ::windows_sys::core::PCWSTR, lpdosname : ::windows_sys::core::PWSTR, dwdosnamebuffersize : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterGetInformation(hfilter : HFILTER, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceClose(hinstance : HFILTER_INSTANCE) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceCreate(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR, hinstance : *mut HFILTER_INSTANCE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterInstanceFindClose(hfilterinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterInstanceFindClose(hfilterinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterInstanceFindFirst(lpfiltername : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterInstanceFindFirst(lpfiltername : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterInstanceFindNext(hfilterinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterInstanceFindNext(hfilterinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceGetInformation(hinstance : HFILTER_INSTANCE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterLoad(lpfiltername : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterReplyMessage(hport : super::super::Foundation:: HANDLE, lpreplybuffer : *const FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterReplyMessage(hport : super::super::Foundation:: HANDLE, lpreplybuffer : *const FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterSendMessage(hport : super::super::Foundation:: HANDLE, lpinbuffer : *const ::core::ffi::c_void, dwinbuffersize : u32, lpoutbuffer : *mut ::core::ffi::c_void, dwoutbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterSendMessage(hport : super::super::Foundation:: HANDLE, lpinbuffer : *const ::core::ffi::c_void, dwinbuffersize : u32, lpoutbuffer : *mut ::core::ffi::c_void, dwoutbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" fn FilterUnload(lpfiltername : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterVolumeFindClose(hvolumefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterVolumeFindClose(hvolumefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterVolumeFindNext(hvolumefind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterVolumeFindNext(hvolumefind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterVolumeInstanceFindClose(hvolumeinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterVolumeInstanceFindClose(hvolumeinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterVolumeInstanceFindFirst(lpvolumename : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterVolumeInstanceFindFirst(lpvolumename : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn FilterVolumeInstanceFindNext(hvolumeinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("fltlib.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn FilterVolumeInstanceFindNext(hvolumeinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1u32;
@@ -300,7 +300,7 @@ impl ::core::clone::Clone for FILTER_MESSAGE_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILTER_REPLY_HEADER {
     pub Status: super::super::Foundation::NTSTATUS,

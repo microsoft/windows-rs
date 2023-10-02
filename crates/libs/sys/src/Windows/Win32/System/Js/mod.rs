@@ -11,10 +11,10 @@
 ::windows_targets::link!("chakra.dll" "system" fn JsCreateArray(length : u32, result : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"] fn JsCreateContext(runtime : *const ::core::ffi::c_void, debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication64, newcontext : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsCreateContext(runtime : *const ::core::ffi::c_void, debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication64, newcontext : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"] fn JsCreateContext(runtime : *const ::core::ffi::c_void, debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication32, newcontext : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsCreateContext(runtime : *const ::core::ffi::c_void, debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication32, newcontext : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsCreateError(message : *const ::core::ffi::c_void, error : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsCreateExternalObject(data : *const ::core::ffi::c_void, finalizecallback : JsFinalizeCallback, object : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsCreateFunction(nativefunction : JsNativeFunction, callbackstate : *const ::core::ffi::c_void, function : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
@@ -33,7 +33,7 @@
 ::windows_targets::link!("chakra.dll" "system" fn JsDoubleToNumber(doublevalue : f64, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsEnableRuntimeExecution(runtime : *const ::core::ffi::c_void) -> JsErrorCode);
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"] fn JsEnumerateHeap(enumerator : *mut super::Diagnostics::Debug::ActiveScript:: IActiveScriptProfilerHeapEnum) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsEnumerateHeap(enumerator : *mut super::Diagnostics::Debug::ActiveScript:: IActiveScriptProfilerHeapEnum) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsEquals(object1 : *const ::core::ffi::c_void, object2 : *const ::core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsGetAndClearException(exception : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsGetCurrentContext(currentcontext : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
@@ -84,19 +84,19 @@
 ::windows_targets::link!("chakra.dll" "system" fn JsSetRuntimeMemoryLimit(runtime : *const ::core::ffi::c_void, memorylimit : usize) -> JsErrorCode);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"] fn JsStartDebugging(debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication64) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsStartDebugging(debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication64) -> JsErrorCode);
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"] fn JsStartDebugging(debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication32) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsStartDebugging(debugapplication : super::Diagnostics::Debug::ActiveScript:: IDebugApplication32) -> JsErrorCode);
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_System_Diagnostics_Debug_ActiveScript`"] fn JsStartProfiling(callback : super::Diagnostics::Debug::ActiveScript:: IActiveScriptProfilerCallback, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`"] fn JsStartProfiling(callback : super::Diagnostics::Debug::ActiveScript:: IActiveScriptProfilerCallback, eventmask : super::Diagnostics::Debug::ActiveScript:: PROFILER_EVENT_MASK, context : u32) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsStopProfiling(reason : ::windows_sys::core::HRESULT) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsStrictEquals(object1 : *const ::core::ffi::c_void, object2 : *const ::core::ffi::c_void, result : *mut bool) -> JsErrorCode);
 ::windows_targets::link!("chakra.dll" "system" fn JsStringToPointer(value : *const ::core::ffi::c_void, stringvalue : *mut *mut u16, stringlength : *mut usize) -> JsErrorCode);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn JsValueToVariant(object : *const ::core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`, `Win32_System_Variant`"] fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
+::windows_targets::link!("chakra.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`"] fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut ::core::ffi::c_void) -> JsErrorCode);
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 pub const JsArray: JsValueType = 8i32;
 pub const JsBoolean: JsValueType = 4i32;

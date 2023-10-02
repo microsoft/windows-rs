@@ -1,131 +1,131 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ProcessIdToSessionId(dwprocessid : u32, psessionid : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE) -> ());
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSCloseServer(hserver : super::super::Foundation:: HANDLE) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSConnectSessionA(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCWSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSConnectSessionW(logonid : u32, targetlogonid : u32, ppassword : ::windows_sys::core::PCWSTR, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSCreateListenerA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSCreateListenerA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, pbuffer : *const WTSLISTENERCONFIGA, flag : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSCreateListenerW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSCreateListenerW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, pbuffer : *const WTSLISTENERCONFIGW, flag : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSDisconnectSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSDisconnectSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnableChildSessions(benable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnableChildSessions(benable : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateProcessesA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateProcessesA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateProcessesExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut ::windows_sys::core::PSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateProcessesExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut ::windows_sys::core::PSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateProcessesExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut ::windows_sys::core::PWSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateProcessesExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, sessionid : u32, ppprocessinfo : *mut ::windows_sys::core::PWSTR, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateProcessesW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateProcessesW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppprocessinfo : *mut *mut WTS_PROCESS_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateServersA(pdomainname : ::windows_sys::core::PCSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateServersA(pdomainname : ::windows_sys::core::PCSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateServersW(pdomainname : ::windows_sys::core::PCWSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateServersW(pdomainname : ::windows_sys::core::PCWSTR, reserved : u32, version : u32, ppserverinfo : *mut *mut WTS_SERVER_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateSessionsA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateSessionsA(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOA, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateSessionsExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateSessionsExA(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1A, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateSessionsExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateSessionsExW(hserver : super::super::Foundation:: HANDLE, plevel : *mut u32, filter : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFO_1W, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSEnumerateSessionsW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSEnumerateSessionsW(hserver : super::super::Foundation:: HANDLE, reserved : u32, version : u32, ppsessioninfo : *mut *mut WTS_SESSION_INFOW, pcount : *mut u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wtsapi32.dll" "system" fn WTSFreeMemory(pmemory : *mut ::core::ffi::c_void) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSFreeMemoryExA(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSFreeMemoryExW(wtstypeclass : WTS_TYPE_CLASS, pmemory : *const ::core::ffi::c_void, numberofentries : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn WTSGetActiveConsoleSessionId() -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSGetChildSessionId(psessionid : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSGetChildSessionId(psessionid : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn WTSGetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn WTSGetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSIsChildSessionsEnabled(pbenabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSIsChildSessionsEnabled(pbenabled : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSLogoffSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSLogoffSession(hserver : super::super::Foundation:: HANDLE, sessionid : u32, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSOpenServerA(pservername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSOpenServerA(pservername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSOpenServerExA(pservername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSOpenServerExA(pservername : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSOpenServerExW(pservername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSOpenServerExW(pservername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSOpenServerW(pservername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSOpenServerW(pservername : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQueryListenerConfigA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQueryListenerConfigA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, pbuffer : *mut WTSLISTENERCONFIGA) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQueryListenerConfigW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQueryListenerConfigW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, pbuffer : *mut WTSLISTENERCONFIGW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQuerySessionInformationA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut ::windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQuerySessionInformationA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut ::windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQuerySessionInformationW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut ::windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQuerySessionInformationW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, wtsinfoclass : WTS_INFO_CLASS, ppbuffer : *mut ::windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQueryUserConfigA(pservername : ::windows_sys::core::PCSTR, pusername : ::windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut ::windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQueryUserConfigA(pservername : ::windows_sys::core::PCSTR, pusername : ::windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut ::windows_sys::core::PSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQueryUserConfigW(pservername : ::windows_sys::core::PCWSTR, pusername : ::windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut ::windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQueryUserConfigW(pservername : ::windows_sys::core::PCWSTR, pusername : ::windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, ppbuffer : *mut ::windows_sys::core::PWSTR, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSQueryUserToken(sessionid : u32, phtoken : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSQueryUserToken(sessionid : u32, phtoken : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSRegisterSessionNotification(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSRegisterSessionNotification(hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND, dwflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn WTSSendMessageA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_sys::core::PCSTR, titlelength : u32, pmessage : ::windows_sys::core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn WTSSendMessageA(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_sys::core::PCSTR, titlelength : u32, pmessage : ::windows_sys::core::PCSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`"] fn WTSSendMessageW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_sys::core::PCWSTR, titlelength : u32, pmessage : ::windows_sys::core::PCWSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`"] fn WTSSendMessageW(hserver : super::super::Foundation:: HANDLE, sessionid : u32, ptitle : ::windows_sys::core::PCWSTR, titlelength : u32, pmessage : ::windows_sys::core::PCWSTR, messagelength : u32, style : super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE, timeout : u32, presponse : *mut super::super::UI::WindowsAndMessaging:: MESSAGEBOX_RESULT, bwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn WTSSetListenerSecurityA(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`"] fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`"] fn WTSSetListenerSecurityW(hserver : super::super::Foundation:: HANDLE, preserved : *const ::core::ffi::c_void, reserved : u32, plistenername : ::windows_sys::core::PCWSTR, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation:: HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSSetRenderHint(prenderhintid : *mut u64, hwndowner : super::super::Foundation:: HWND, renderhinttype : u32, cbhintdatalength : u32, phintdata : *const u8) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSSetUserConfigA(pservername : ::windows_sys::core::PCSTR, pusername : ::windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_sys::core::PCSTR, datalength : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSSetUserConfigA(pservername : ::windows_sys::core::PCSTR, pusername : ::windows_sys::core::PCSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_sys::core::PCSTR, datalength : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSSetUserConfigW(pservername : ::windows_sys::core::PCWSTR, pusername : ::windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_sys::core::PCWSTR, datalength : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSSetUserConfigW(pservername : ::windows_sys::core::PCWSTR, pusername : ::windows_sys::core::PCWSTR, wtsconfigclass : WTS_CONFIG_CLASS, pbuffer : ::windows_sys::core::PCWSTR, datalength : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSShutdownSystem(hserver : super::super::Foundation:: HANDLE, shutdownflag : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSShutdownSystem(hserver : super::super::Foundation:: HANDLE, shutdownflag : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSStartRemoteControlSessionA(ptargetservername : ::windows_sys::core::PCSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSStartRemoteControlSessionA(ptargetservername : ::windows_sys::core::PCSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSStartRemoteControlSessionW(ptargetservername : ::windows_sys::core::PCWSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSStartRemoteControlSessionW(ptargetservername : ::windows_sys::core::PCWSTR, targetlogonid : u32, hotkeyvk : u8, hotkeymodifiers : u16) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSStopRemoteControlSession(logonid : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSStopRemoteControlSession(logonid : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSTerminateProcess(hserver : super::super::Foundation:: HANDLE, processid : u32, exitcode : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSTerminateProcess(hserver : super::super::Foundation:: HANDLE, processid : u32, exitcode : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSUnRegisterSessionNotification(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSUnRegisterSessionNotification(hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSUnRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSUnRegisterSessionNotificationEx(hserver : super::super::Foundation:: HANDLE, hwnd : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelClose(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelClose(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelPurgeInput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelPurgeInput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelPurgeOutput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelPurgeOutput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelQuery(hchannelhandle : super::super::Foundation:: HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut ::core::ffi::c_void, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelQuery(hchannelhandle : super::super::Foundation:: HANDLE, param1 : WTS_VIRTUAL_CLASS, ppbuffer : *mut *mut ::core::ffi::c_void, pbytesreturned : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation:: HANDLE, timeout : u32, buffer : ::windows_sys::core::PSTR, buffersize : u32, pbytesread : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelRead(hchannelhandle : super::super::Foundation:: HANDLE, timeout : u32, buffer : ::windows_sys::core::PSTR, buffersize : u32, pbytesread : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation:: HANDLE, buffer : ::windows_sys::core::PCSTR, length : u32, pbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSVirtualChannelWrite(hchannelhandle : super::super::Foundation:: HANDLE, buffer : ::windows_sys::core::PCSTR, length : u32, pbyteswritten : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn WTSWaitSystemEvent(hserver : super::super::Foundation:: HANDLE, eventmask : u32, peventflags : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn WTSWaitSystemEvent(hserver : super::super::Foundation:: HANDLE, eventmask : u32, peventflags : *mut u32) -> super::super::Foundation:: BOOL);
 pub type IADsTSUserEx = *mut ::core::ffi::c_void;
 pub type IAudioDeviceEndpoint = *mut ::core::ffi::c_void;
 pub type IAudioEndpoint = *mut ::core::ffi::c_void;
@@ -673,10 +673,10 @@ pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const WTS_CURRENT_SERVER: super::super::Foundation::HANDLE = 0i32 as _;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub const WTS_CURRENT_SERVER_HANDLE: super::super::Foundation::HANDLE = 0i32 as _;
 pub const WTS_CURRENT_SERVER_NAME: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("");
@@ -944,7 +944,7 @@ impl ::core::clone::Clone for PRODUCT_INFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RFX_GFX_MONITOR_INFO {
     pub left: i32,
@@ -975,7 +975,7 @@ impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
     pub channelHdr: RFX_GFX_MSG_HEADER,
@@ -1132,7 +1132,7 @@ impl ::core::clone::Clone for VM_PATCH_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WRDS_CONNECTION_SETTING {
     pub WRdsConnectionSettings1: WRDS_CONNECTION_SETTINGS_1,
@@ -1146,7 +1146,7 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_CONNECTION_SETTINGS {
     pub WRdsConnectionSettingLevel: WRDS_CONNECTION_SETTING_LEVEL,
@@ -1161,7 +1161,7 @@ impl ::core::clone::Clone for WRDS_CONNECTION_SETTINGS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_CONNECTION_SETTINGS_1 {
     pub fInheritInitialProgram: super::super::Foundation::BOOLEAN,
@@ -1290,7 +1290,7 @@ impl ::core::clone::Clone for WRDS_LISTENER_SETTINGS_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WRDS_SETTING {
     pub WRdsSettings1: WRDS_SETTINGS_1,
@@ -1304,7 +1304,7 @@ impl ::core::clone::Clone for WRDS_SETTING {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_SETTINGS {
     pub WRdsSettingType: WRDS_SETTING_TYPE,
@@ -1320,7 +1320,7 @@ impl ::core::clone::Clone for WRDS_SETTINGS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WRDS_SETTINGS_1 {
     pub WRdsDisableClipStatus: WRDS_SETTING_STATUS,
@@ -1727,7 +1727,7 @@ impl ::core::clone::Clone for WTSSBX_MACHINE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTSSBX_SESSION_INFO {
     pub wszUserName: [u16; 105],
@@ -1848,7 +1848,7 @@ impl ::core::clone::Clone for WTS_CLIENT_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_CLIENT_DATA {
     pub fDisableCtrlAltDel: super::super::Foundation::BOOLEAN,
@@ -1939,7 +1939,7 @@ impl ::core::clone::Clone for WTS_DISPLAY_IOCTL {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_LICENSE_CAPABILITIES {
     pub KeyExchangeAlg: u32,
@@ -1958,7 +1958,7 @@ impl ::core::clone::Clone for WTS_LICENSE_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_POLICY_DATA {
     pub fDisableEncryption: super::super::Foundation::BOOLEAN,
@@ -1981,7 +1981,7 @@ impl ::core::clone::Clone for WTS_POLICY_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: u32,
@@ -1998,7 +1998,7 @@ impl ::core::clone::Clone for WTS_PROCESS_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: u32,
@@ -2015,7 +2015,7 @@ impl ::core::clone::Clone for WTS_PROCESS_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFO_EXA {
     pub SessionId: u32,
@@ -2040,7 +2040,7 @@ impl ::core::clone::Clone for WTS_PROCESS_INFO_EXA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WTS_PROCESS_INFO_EXW {
     pub SessionId: u32,
@@ -2470,7 +2470,7 @@ impl ::core::clone::Clone for pluginResource2FileAssociation {
 pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32) -> ()>;
 pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32) -> ()>;
 pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PVIRTUALCHANNELENTRY = ::core::option::Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
 pub type PVIRTUALCHANNELINIT = ::core::option::Option<unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;

@@ -1,441 +1,441 @@
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetAddColumnA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const ::core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetAddColumnA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const ::core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetAddColumnW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const ::core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetAddColumnW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const ::core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetAttachDatabase2A(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, cpgdatabasesizemax : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetAttachDatabase2A(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, cpgdatabasesizemax : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetAttachDatabase2W(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, cpgdatabasesizemax : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetAttachDatabase2W(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, cpgdatabasesizemax : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetAttachDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetAttachDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetAttachDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetAttachDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBackupA(szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBackupA(szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBackupInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBackupInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szbackuppath : *const i8, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBackupInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBackupInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBackupW(szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBackupW(szbackuppath : *const u16, grbit : u32, pfnstatus : JET_PFNSTATUS) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetBeginExternalBackup(grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBeginExternalBackupInstance(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBeginExternalBackupInstance(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBeginSessionA(instance : super::StructuredStorage:: JET_INSTANCE, psesid : *mut super::StructuredStorage:: JET_SESID, szusername : *const i8, szpassword : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBeginSessionA(instance : super::StructuredStorage:: JET_INSTANCE, psesid : *mut super::StructuredStorage:: JET_SESID, szusername : *const i8, szpassword : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBeginSessionW(instance : super::StructuredStorage:: JET_INSTANCE, psesid : *mut super::StructuredStorage:: JET_SESID, szusername : *const u16, szpassword : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBeginSessionW(instance : super::StructuredStorage:: JET_INSTANCE, psesid : *mut super::StructuredStorage:: JET_SESID, szusername : *const u16, szpassword : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBeginTransaction(sesid : super::StructuredStorage:: JET_SESID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBeginTransaction(sesid : super::StructuredStorage:: JET_SESID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBeginTransaction2(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBeginTransaction2(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetBeginTransaction3(sesid : super::StructuredStorage:: JET_SESID, trxid : i64, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetBeginTransaction3(sesid : super::StructuredStorage:: JET_SESID, trxid : i64, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCloseDatabase(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCloseDatabase(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCloseFile(hffile : super::StructuredStorage:: JET_HANDLE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCloseFile(hffile : super::StructuredStorage:: JET_HANDLE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCloseFileInstance(instance : super::StructuredStorage:: JET_INSTANCE, hffile : super::StructuredStorage:: JET_HANDLE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCloseFileInstance(instance : super::StructuredStorage:: JET_INSTANCE, hffile : super::StructuredStorage:: JET_HANDLE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCloseTable(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCloseTable(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCommitTransaction(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCommitTransaction(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCommitTransaction2(sesid : super::StructuredStorage:: JET_SESID, grbit : u32, cmsecdurablecommit : u32, pcommitid : *mut JET_COMMIT_ID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCommitTransaction2(sesid : super::StructuredStorage:: JET_SESID, grbit : u32, cmsecdurablecommit : u32, pcommitid : *mut JET_COMMIT_ID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCompactA(sesid : super::StructuredStorage:: JET_SESID, szdatabasesrc : *const i8, szdatabasedest : *const i8, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCompactA(sesid : super::StructuredStorage:: JET_SESID, szdatabasesrc : *const i8, szdatabasedest : *const i8, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCompactW(sesid : super::StructuredStorage:: JET_SESID, szdatabasesrc : *const u16, szdatabasedest : *const u16, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCompactW(sesid : super::StructuredStorage:: JET_SESID, szdatabasesrc : *const u16, szdatabasedest : *const u16, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetComputeStats(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetComputeStats(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetConfigureProcessForCrashDump(grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateDatabase2A(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateDatabase2A(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateDatabase2W(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateDatabase2W(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, cpgdatabasesizemax : u32, pdbid : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndex2A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndex2A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_A, cindexcreate : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndex2W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_W, cindexcreate : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndex2W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE_W, cindexcreate : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndex3A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndex3A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_A, cindexcreate : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndex3W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_W, cindexcreate : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndex3W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE2_W, cindexcreate : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndex4A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_A, cindexcreate : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndex4A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_A, cindexcreate : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndex4W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_W, cindexcreate : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndex4W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pindexcreate : *const JET_INDEXCREATE3_W, cindexcreate : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32, szkey : ::windows_sys::core::PCSTR, cbkey : u32, ldensity : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32, szkey : ::windows_sys::core::PCSTR, cbkey : u32, ldensity : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, szkey : ::windows_sys::core::PCWSTR, cbkey : u32, ldensity : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, szkey : ::windows_sys::core::PCWSTR, cbkey : u32, ldensity : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateInstance2A(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const i8, szdisplayname : *const i8, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateInstance2A(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const i8, szdisplayname : *const i8, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateInstance2W(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const u16, szdisplayname : *const u16, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateInstance2W(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const u16, szdisplayname : *const u16, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateInstanceA(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateInstanceA(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateInstanceW(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateInstanceW(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, szinstancename : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndex2A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE2_A) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndex2A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE2_A) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndex2W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE2_W) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndex2W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE2_W) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndex3A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE3_A) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndex3A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE3_A) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndex3W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE3_W) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndex3W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE3_W) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndex4A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE4_A) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndex4A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE4_A) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndex4W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE4_W) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndex4W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE4_W) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndexA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE_A) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndexA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE_A) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableColumnIndexW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE_W) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableColumnIndexW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, ptablecreate : *mut JET_TABLECREATE_W) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetCreateTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetCreateTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, lpages : u32, ldensity : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDefragment2A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDefragment2A(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDefragment2W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDefragment2W(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDefragment3A(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const i8, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const ::core::ffi::c_void, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDefragment3A(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const i8, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const ::core::ffi::c_void, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDefragment3W(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const u16, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const ::core::ffi::c_void, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDefragment3W(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const u16, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const ::core::ffi::c_void, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDefragmentA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDefragmentA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDefragmentW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDefragmentW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDelete(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDelete(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteColumn2A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteColumn2A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteColumn2W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteColumn2W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteColumnA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteColumnA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteColumnW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteColumnW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDeleteTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDeleteTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDetachDatabase2A(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDetachDatabase2A(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDetachDatabase2W(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDetachDatabase2W(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDetachDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDetachDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDetachDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDetachDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDupCursor(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, ptableid : *mut super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDupCursor(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, ptableid : *mut super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetDupSession(sesid : super::StructuredStorage:: JET_SESID, psesid : *mut super::StructuredStorage:: JET_SESID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetDupSession(sesid : super::StructuredStorage:: JET_SESID, psesid : *mut super::StructuredStorage:: JET_SESID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEnableMultiInstanceW(psetsysparam : *const JET_SETSYSPARAM_W, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEnableMultiInstanceW(psetsysparam : *const JET_SETSYSPARAM_W, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetEndExternalBackup() -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEndExternalBackupInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEndExternalBackupInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEndExternalBackupInstance2(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEndExternalBackupInstance2(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEndSession(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEndSession(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEnumerateColumns(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cenumcolumnid : u32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut u32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : *const ::core::ffi::c_void, cbdatamost : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEnumerateColumns(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cenumcolumnid : u32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut u32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : *const ::core::ffi::c_void, cbdatamost : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetEscrowUpdate(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pv : *const ::core::ffi::c_void, cbmax : u32, pvold : *mut ::core::ffi::c_void, cboldmax : u32, pcboldactual : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetEscrowUpdate(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pv : *const ::core::ffi::c_void, cbmax : u32, pvold : *mut ::core::ffi::c_void, cboldmax : u32, pcboldactual : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetExternalRestore2A(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const i8, sztargetinstancelogpath : *const i8, sztargetinstancecheckpointpath : *const i8, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetExternalRestore2A(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const i8, sztargetinstancelogpath : *const i8, sztargetinstancecheckpointpath : *const i8, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetExternalRestore2W(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : *const u16, sztargetinstancelogpath : *const u16, sztargetinstancecheckpointpath : *const u16, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetExternalRestore2W(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : *const u16, sztargetinstancelogpath : *const u16, sztargetinstancecheckpointpath : *const u16, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetExternalRestoreA(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetExternalRestoreA(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetExternalRestoreW(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetExternalRestoreW(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, genlow : i32, genhigh : i32, pfn : JET_PFNSTATUS) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetFreeBuffer(pbbuf : ::windows_sys::core::PCSTR) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetAttachInfoA(szzdatabases : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetAttachInfoInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szzdatabases : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetAttachInfoInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szzdatabases : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetAttachInfoInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, szzdatabases : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetAttachInfoInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, szzdatabases : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetAttachInfoW(wszzdatabases : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut ::core::ffi::c_void, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut ::core::ffi::c_void, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetColumnInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pcolumnnameorid : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetColumnInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pcolumnnameorid : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetColumnInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pwcolumnnameorid : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetColumnInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pwcolumnnameorid : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetCurrentIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut i8, cbindexname : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetCurrentIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut i8, cbindexname : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetCurrentIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16, cbindexname : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetCurrentIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *mut u16, cbindexname : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetCursorInfo(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetCursorInfo(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetDatabaseFileInfoA(szdatabasename : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetDatabaseFileInfoW(szdatabasename : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetDatabaseInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetDatabaseInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetDatabaseInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetDatabaseInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetErrorInfoW(pvcontext : *const ::core::ffi::c_void, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetIndexInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, szindexname : *const i8, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetIndexInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, szindexname : *const i8, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetIndexInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, szindexname : *const u16, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetIndexInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, szindexname : *const u16, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetInstanceInfoA(pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetInstanceInfoA(pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetInstanceInfoW(pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetInstanceInfoW(pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetInstanceMiscInfo(instance : super::StructuredStorage:: JET_INSTANCE, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetInstanceMiscInfo(instance : super::StructuredStorage:: JET_INSTANCE, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetLS(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pls : *mut JET_LS, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetLS(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pls : *mut JET_LS, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetLock(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetLock(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetLogInfoA(szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetLogInfoInstance2A(instance : super::StructuredStorage:: JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32, ploginfo : *mut JET_LOGINFO_A) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetLogInfoInstance2A(instance : super::StructuredStorage:: JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32, ploginfo : *mut JET_LOGINFO_A) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetLogInfoInstance2W(instance : super::StructuredStorage:: JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32, ploginfo : *mut JET_LOGINFO_W) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetLogInfoInstance2W(instance : super::StructuredStorage:: JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32, ploginfo : *mut JET_LOGINFO_W) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetLogInfoInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetLogInfoInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetLogInfoInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetLogInfoInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetLogInfoW(szzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetObjectInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const i8, szobjectname : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetObjectInfoA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const i8, szobjectname : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetObjectInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const u16, szobjectname : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetObjectInfoW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const u16, szobjectname : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetRecordPosition(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precpos : *mut JET_RECPOS, cbrecpos : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetRecordPosition(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precpos : *mut JET_RECPOS, cbrecpos : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetRecordSize(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precsize : *mut JET_RECSIZE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetRecordSize(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precsize : *mut JET_RECSIZE, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetRecordSize2(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precsize : *mut JET_RECSIZE2, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetRecordSize2(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precsize : *mut JET_RECSIZE2, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetSecondaryIndexBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvsecondarykey : *mut ::core::ffi::c_void, cbsecondarykeymax : u32, pcbsecondarykeyactual : *mut u32, pvprimarybookmark : *mut ::core::ffi::c_void, cbprimarybookmarkmax : u32, pcbprimarybookmarkactual : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetSecondaryIndexBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvsecondarykey : *mut ::core::ffi::c_void, cbsecondarykeymax : u32, pcbsecondarykeyactual : *mut u32, pvprimarybookmark : *mut ::core::ffi::c_void, cbprimarybookmarkmax : u32, pcbprimarybookmarkactual : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetSessionParameter(sesid : super::StructuredStorage:: JET_SESID, sesparamid : u32, pvparam : *mut ::core::ffi::c_void, cbparammax : u32, pcbparamactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetSessionParameter(sesid : super::StructuredStorage:: JET_SESID, sesparamid : u32, pvparam : *mut ::core::ffi::c_void, cbparammax : u32, pcbparamactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetSystemParameterA(instance : super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, plparam : *mut super::StructuredStorage:: JET_API_PTR, szparam : *mut i8, cbmax : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetSystemParameterA(instance : super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, plparam : *mut super::StructuredStorage:: JET_API_PTR, szparam : *mut i8, cbmax : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetSystemParameterW(instance : super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, plparam : *mut super::StructuredStorage:: JET_API_PTR, szparam : *mut u16, cbmax : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetSystemParameterW(instance : super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, plparam : *mut super::StructuredStorage:: JET_API_PTR, szparam : *mut u16, cbmax : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTableColumnInfoA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTableColumnInfoA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTableColumnInfoW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTableColumnInfoW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTableIndexInfoA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTableIndexInfoA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTableIndexInfoW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTableIndexInfoW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pvresult : *mut ::core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTableInfoA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTableInfoA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTableInfoW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTableInfoW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvresult : *mut ::core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetGetThreadStats(pvresult : *mut ::core::ffi::c_void, cbmax : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTruncateLogInfoInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTruncateLogInfoInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetTruncateLogInfoInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetTruncateLogInfoInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGetVersion(sesid : super::StructuredStorage:: JET_SESID, pwversion : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGetVersion(sesid : super::StructuredStorage:: JET_SESID, pwversion : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGotoBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *const ::core::ffi::c_void, cbbookmark : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGotoBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *const ::core::ffi::c_void, cbbookmark : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGotoPosition(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precpos : *const JET_RECPOS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGotoPosition(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, precpos : *const JET_RECPOS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGotoSecondaryIndexBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvsecondarykey : *const ::core::ffi::c_void, cbsecondarykey : u32, pvprimarybookmark : *const ::core::ffi::c_void, cbprimarybookmark : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGotoSecondaryIndexBookmark(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvsecondarykey : *const ::core::ffi::c_void, cbsecondarykey : u32, pvprimarybookmark : *const ::core::ffi::c_void, cbprimarybookmark : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetGrowDatabase(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, cpg : u32, pcpgreal : *const u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetGrowDatabase(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, cpg : u32, pcpgreal : *const u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetIdle(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetIdle(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetIndexRecordCount(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pcrec : *mut u32, crecmax : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetIndexRecordCount(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pcrec : *mut u32, crecmax : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetInit(pinstance : *mut super::StructuredStorage:: JET_INSTANCE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetInit(pinstance : *mut super::StructuredStorage:: JET_INSTANCE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetInit2(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetInit2(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetInit3A(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, prstinfo : *const JET_RSTINFO_A, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetInit3A(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, prstinfo : *const JET_RSTINFO_A, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetInit3W(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, prstinfo : *const JET_RSTINFO_W, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetInit3W(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, prstinfo : *const JET_RSTINFO_W, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetIntersectIndexes(sesid : super::StructuredStorage:: JET_SESID, rgindexrange : *const JET_INDEXRANGE, cindexrange : u32, precordlist : *mut JET_RECORDLIST, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetIntersectIndexes(sesid : super::StructuredStorage:: JET_SESID, rgindexrange : *const JET_INDEXRANGE, cindexrange : u32, precordlist : *mut JET_RECORDLIST, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetMakeKey(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetMakeKey(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetMove(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, crow : i32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetMove(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, crow : i32, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetOSSnapshotAbort(snapid : JET_OSSNAPID, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetOSSnapshotEnd(snapid : JET_OSSNAPID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOSSnapshotFreezeA(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOSSnapshotFreezeA(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOSSnapshotFreezeW(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOSSnapshotFreezeW(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOSSnapshotGetFreezeInfoA(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOSSnapshotGetFreezeInfoA(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_A, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOSSnapshotGetFreezeInfoW(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOSSnapshotGetFreezeInfoW(snapid : JET_OSSNAPID, pcinstanceinfo : *mut u32, painstanceinfo : *mut *mut JET_INSTANCE_INFO_W, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetOSSnapshotPrepare(psnapid : *mut JET_OSSNAPID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOSSnapshotPrepareInstance(snapid : JET_OSSNAPID, instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOSSnapshotPrepareInstance(snapid : JET_OSSNAPID, instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetOSSnapshotThaw(snapid : JET_OSSNAPID, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetOSSnapshotTruncateLog(snapid : JET_OSSNAPID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOSSnapshotTruncateLogInstance(snapid : JET_OSSNAPID, instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOSSnapshotTruncateLogInstance(snapid : JET_OSSNAPID, instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenDatabaseA(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenDatabaseW(sesid : super::StructuredStorage:: JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenFileA(szfilename : *const i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenFileA(szfilename : *const i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenFileInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szfilename : *const i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenFileInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, szfilename : *const i8, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenFileInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, szfilename : *const u16, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenFileInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, szfilename : *const u16, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenFileW(szfilename : *const u16, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenFileW(szfilename : *const u16, phffile : *mut super::StructuredStorage:: JET_HANDLE, pulfilesizelow : *mut u32, pulfilesizehigh : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pvparameters : *const ::core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, pvparameters : *const ::core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pvparameters : *const ::core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, pvparameters : *const ::core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTempTable(sesid : super::StructuredStorage:: JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTempTable(sesid : super::StructuredStorage:: JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTempTable2(sesid : super::StructuredStorage:: JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, lcid : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTempTable2(sesid : super::StructuredStorage:: JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, lcid : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTempTable3(sesid : super::StructuredStorage:: JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, pidxunicode : *const JET_UNICODEINDEX, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTempTable3(sesid : super::StructuredStorage:: JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, pidxunicode : *const JET_UNICODEINDEX, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTemporaryTable(sesid : super::StructuredStorage:: JET_SESID, popentemporarytable : *const JET_OPENTEMPORARYTABLE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTemporaryTable(sesid : super::StructuredStorage:: JET_SESID, popentemporarytable : *const JET_OPENTEMPORARYTABLE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetOpenTemporaryTable2(sesid : super::StructuredStorage:: JET_SESID, popentemporarytable : *const JET_OPENTEMPORARYTABLE2) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetOpenTemporaryTable2(sesid : super::StructuredStorage:: JET_SESID, popentemporarytable : *const JET_OPENTEMPORARYTABLE2) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetPrepareUpdate(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, prep : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetPrepareUpdate(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, prep : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetPrereadIndexRanges(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgindexranges : *const JET_INDEX_RANGE, cindexranges : u32, pcrangespreread : *mut u32, rgcolumnidpreread : *const u32, ccolumnidpreread : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetPrereadIndexRanges(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgindexranges : *const JET_INDEX_RANGE, cindexranges : u32, pcrangespreread : *mut u32, rgcolumnidpreread : *const u32, ccolumnidpreread : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetPrereadKeys(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgpvkeys : *const *const ::core::ffi::c_void, rgcbkeys : *const u32, ckeys : i32, pckeyspreread : *mut i32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetPrereadKeys(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgpvkeys : *const *const ::core::ffi::c_void, rgcbkeys : *const u32, ckeys : i32, pckeyspreread : *mut i32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetReadFile(hffile : super::StructuredStorage:: JET_HANDLE, pv : *mut ::core::ffi::c_void, cb : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetReadFile(hffile : super::StructuredStorage:: JET_HANDLE, pv : *mut ::core::ffi::c_void, cb : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetReadFileInstance(instance : super::StructuredStorage:: JET_INSTANCE, hffile : super::StructuredStorage:: JET_HANDLE, pv : *mut ::core::ffi::c_void, cb : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetReadFileInstance(instance : super::StructuredStorage:: JET_INSTANCE, hffile : super::StructuredStorage:: JET_HANDLE, pv : *mut ::core::ffi::c_void, cb : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRegisterCallback(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cbtyp : u32, pcallback : JET_CALLBACK, pvcontext : *const ::core::ffi::c_void, phcallbackid : *const super::StructuredStorage:: JET_HANDLE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRegisterCallback(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cbtyp : u32, pcallback : JET_CALLBACK, pvcontext : *const ::core::ffi::c_void, phcallbackid : *const super::StructuredStorage:: JET_HANDLE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRenameColumnA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *const i8, sznamenew : *const i8, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRenameColumnA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *const i8, sznamenew : *const i8, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRenameColumnW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *const u16, sznamenew : *const u16, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRenameColumnW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szname : *const u16, sznamenew : *const u16, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRenameTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, szname : *const i8, sznamenew : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRenameTableA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, szname : *const i8, sznamenew : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRenameTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, szname : *const u16, sznamenew : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRenameTableW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, szname : *const u16, sznamenew : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetResetSessionContext(sesid : super::StructuredStorage:: JET_SESID) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetResetSessionContext(sesid : super::StructuredStorage:: JET_SESID) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetResetTableSequential(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetResetTableSequential(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetResizeDatabase(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, cpgtarget : u32, pcpgactual : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetResizeDatabase(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, cpgtarget : u32, pcpgactual : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRestore2A(sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRestore2A(sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRestore2W(sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRestore2W(sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRestoreA(szsource : *const i8, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRestoreA(szsource : *const i8, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRestoreInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRestoreInstanceA(instance : super::StructuredStorage:: JET_INSTANCE, sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRestoreInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRestoreInstanceW(instance : super::StructuredStorage:: JET_INSTANCE, sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRestoreW(szsource : *const u16, pfn : JET_PFNSTATUS) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRestoreW(szsource : *const u16, pfn : JET_PFNSTATUS) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRetrieveColumn(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *mut ::core::ffi::c_void, cbdata : u32, pcbactual : *mut u32, grbit : u32, pretinfo : *mut JET_RETINFO) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRetrieveColumn(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *mut ::core::ffi::c_void, cbdata : u32, pcbactual : *mut u32, grbit : u32, pretinfo : *mut JET_RETINFO) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRetrieveColumns(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pretrievecolumn : *mut JET_RETRIEVECOLUMN, cretrievecolumn : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRetrieveColumns(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pretrievecolumn : *mut JET_RETRIEVECOLUMN, cretrievecolumn : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRetrieveKey(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvkey : *mut ::core::ffi::c_void, cbmax : u32, pcbactual : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRetrieveKey(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvkey : *mut ::core::ffi::c_void, cbmax : u32, pcbactual : *mut u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetRollback(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetRollback(sesid : super::StructuredStorage:: JET_SESID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSeek(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSeek(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetColumn(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32, psetinfo : *const JET_SETINFO) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetColumn(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32, psetinfo : *const JET_SETINFO) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetColumnDefaultValueA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, szcolumnname : *const i8, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetColumnDefaultValueA(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const i8, szcolumnname : *const i8, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetColumnDefaultValueW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, szcolumnname : *const u16, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetColumnDefaultValueW(sesid : super::StructuredStorage:: JET_SESID, dbid : u32, sztablename : *const u16, szcolumnname : *const u16, pvdata : *const ::core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetColumns(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetColumns(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, psetcolumn : *const JET_SETCOLUMN, csetcolumn : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndex2A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndex2A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndex2W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndex2W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndex3A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32, itagsequence : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndex3A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32, itagsequence : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndex3W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, itagsequence : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndex3W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, itagsequence : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndex4A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndex4A(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndex4W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndex4W(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndexA(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCurrentIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCurrentIndexW(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetCursorFilter(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgcolumnfilters : *const JET_INDEX_COLUMN, ccolumnfilters : u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetCursorFilter(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgcolumnfilters : *const JET_INDEX_COLUMN, ccolumnfilters : u32, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetDatabaseSizeA(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const i8, cpg : u32, pcpgreal : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetDatabaseSizeA(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const i8, cpg : u32, pcpgreal : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetDatabaseSizeW(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const u16, cpg : u32, pcpgreal : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetDatabaseSizeW(sesid : super::StructuredStorage:: JET_SESID, szdatabasename : *const u16, cpg : u32, pcpgreal : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetIndexRange(sesid : super::StructuredStorage:: JET_SESID, tableidsrc : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetIndexRange(sesid : super::StructuredStorage:: JET_SESID, tableidsrc : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetLS(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, ls : JET_LS, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetLS(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, ls : JET_LS, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetSessionContext(sesid : super::StructuredStorage:: JET_SESID, ulcontext : super::StructuredStorage:: JET_API_PTR) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetSessionContext(sesid : super::StructuredStorage:: JET_SESID, ulcontext : super::StructuredStorage:: JET_API_PTR) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetSessionParameter(sesid : super::StructuredStorage:: JET_SESID, sesparamid : u32, pvparam : *const ::core::ffi::c_void, cbparam : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetSessionParameter(sesid : super::StructuredStorage:: JET_SESID, sesparamid : u32, pvparam : *const ::core::ffi::c_void, cbparam : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetSystemParameterA(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const i8) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetSystemParameterA(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const i8) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetSystemParameterW(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const u16) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetSystemParameterW(pinstance : *mut super::StructuredStorage:: JET_INSTANCE, sesid : super::StructuredStorage:: JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const u16) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetSetTableSequential(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetSetTableSequential(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetStopBackup() -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetStopBackupInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetStopBackupInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetStopService() -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetStopServiceInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetStopServiceInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetStopServiceInstance2(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetStopServiceInstance2(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetTerm(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetTerm(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetTerm2(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetTerm2(instance : super::StructuredStorage:: JET_INSTANCE, grbit : u32) -> i32);
 ::windows_targets::link!("esent.dll" "system" fn JetTruncateLog() -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetTruncateLogInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetTruncateLogInstance(instance : super::StructuredStorage:: JET_INSTANCE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetUnregisterCallback(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cbtyp : u32, hcallbackid : super::StructuredStorage:: JET_HANDLE) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetUnregisterCallback(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cbtyp : u32, hcallbackid : super::StructuredStorage:: JET_HANDLE) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetUpdate(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut ::core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetUpdate(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut ::core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32) -> i32);
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
-::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `Win32_Storage_StructuredStorage`"] fn JetUpdate2(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut ::core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32, grbit : u32) -> i32);
+::windows_targets::link!("esent.dll" "system" #[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"] fn JetUpdate2(sesid : super::StructuredStorage:: JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut ::core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32, grbit : u32) -> i32);
 pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
 pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
 pub const JET_ColInfoGrbitNonDerivedColumnsOnly: u32 = 2147483648u32;
@@ -1597,7 +1597,7 @@ impl ::core::clone::Clone for JET_COLUMNDEF {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_COLUMNLIST {
     pub cbStruct: u32,
@@ -2304,7 +2304,7 @@ impl ::core::clone::Clone for JET_INDEXID {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INDEXLIST {
     pub cbStruct: u32,
@@ -2336,7 +2336,7 @@ impl ::core::clone::Clone for JET_INDEXLIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INDEXRANGE {
     pub cbStruct: u32,
@@ -2379,7 +2379,7 @@ impl ::core::clone::Clone for JET_INDEX_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
@@ -2398,7 +2398,7 @@ impl ::core::clone::Clone for JET_INSTANCE_INFO_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
@@ -2555,7 +2555,7 @@ impl ::core::clone::Clone for JET_OBJECTINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OBJECTLIST {
     pub cbStruct: u32,
@@ -2580,7 +2580,7 @@ impl ::core::clone::Clone for JET_OBJECTLIST {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: u32,
@@ -2602,7 +2602,7 @@ impl ::core::clone::Clone for JET_OPENTEMPORARYTABLE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: u32,
@@ -2639,7 +2639,7 @@ impl ::core::clone::Clone for JET_OPERATIONCONTEXT {
 }
 pub type JET_OSSNAPID = usize;
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_RECORDLIST {
     pub cbStruct: u32,
@@ -2822,7 +2822,7 @@ impl ::core::clone::Clone for JET_RETRIEVECOLUMN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_RSTINFO_A {
     pub cbStruct: u32,
@@ -2841,7 +2841,7 @@ impl ::core::clone::Clone for JET_RSTINFO_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_RSTINFO_W {
     pub cbStruct: u32,
@@ -2910,7 +2910,7 @@ impl ::core::clone::Clone for JET_SETINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: u32,
@@ -2927,7 +2927,7 @@ impl ::core::clone::Clone for JET_SETSYSPARAM_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: u32,
@@ -2985,7 +2985,7 @@ impl ::core::clone::Clone for JET_SPACEHINTS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: u32,
@@ -3012,7 +3012,7 @@ impl ::core::clone::Clone for JET_TABLECREATE2_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: u32,
@@ -3039,7 +3039,7 @@ impl ::core::clone::Clone for JET_TABLECREATE2_W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: u32,
@@ -3069,7 +3069,7 @@ impl ::core::clone::Clone for JET_TABLECREATE3_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: u32,
@@ -3099,7 +3099,7 @@ impl ::core::clone::Clone for JET_TABLECREATE3_W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: u32,
@@ -3129,7 +3129,7 @@ impl ::core::clone::Clone for JET_TABLECREATE4_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: u32,
@@ -3159,7 +3159,7 @@ impl ::core::clone::Clone for JET_TABLECREATE4_W {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: u32,
@@ -3184,7 +3184,7 @@ impl ::core::clone::Clone for JET_TABLECREATE_A {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: u32,
@@ -3331,13 +3331,13 @@ impl ::core::clone::Clone for JET_USERDEFINEDDEFAULT_W {
         *self
     }
 }
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_CALLBACK = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::core::ffi::c_void, pvarg2: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_PFNDURABLECOMMITCALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: super::StructuredStorage::JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32>;
 pub type JET_PFNREALLOC = ::core::option::Option<unsafe extern "system" fn(pvcontext: *const ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void>;
-#[doc = "Required features: `Win32_Storage_StructuredStorage`"]
+#[doc = "Required features: `\"Win32_Storage_StructuredStorage\"`"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_PFNSTATUS = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32>;

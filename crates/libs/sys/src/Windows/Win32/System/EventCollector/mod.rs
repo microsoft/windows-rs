@@ -1,31 +1,31 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcClose(object : isize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcClose(object : isize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcDeleteSubscription(subscriptionname : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcDeleteSubscription(subscriptionname : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : ::windows_sys::core::PWSTR, subscriptionnamebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcEnumNextSubscription(subscriptionenum : isize, subscriptionnamebuffersize : u32, subscriptionnamebuffer : ::windows_sys::core::PWSTR, subscriptionnamebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcGetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EC_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcGetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EC_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcGetObjectArraySize(objectarray : isize, objectarraysize : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcGetObjectArraySize(objectarray : isize, objectarraysize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcGetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EC_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcGetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EC_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcGetSubscriptionRunTimeStatus(subscriptionname : ::windows_sys::core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : ::windows_sys::core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcGetSubscriptionRunTimeStatus(subscriptionname : ::windows_sys::core::PCWSTR, statusinfoid : EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID, eventsourcename : ::windows_sys::core::PCWSTR, flags : u32, statusvaluebuffersize : u32, statusvaluebuffer : *mut EC_VARIANT, statusvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcInsertObjectArrayElement(objectarray : isize, arrayindex : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcInsertObjectArrayElement(objectarray : isize, arrayindex : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscription(subscriptionname : ::windows_sys::core::PCWSTR, accessmask : u32, flags : u32) -> isize);
 ::windows_targets::link!("wecapi.dll" "system" fn EcOpenSubscriptionEnum(flags : u32) -> isize);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcRemoveObjectArrayElement(objectarray : isize, arrayindex : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcRemoveObjectArrayElement(objectarray : isize, arrayindex : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcRetrySubscription(subscriptionname : ::windows_sys::core::PCWSTR, eventsourcename : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcRetrySubscription(subscriptionname : ::windows_sys::core::PCWSTR, eventsourcename : ::windows_sys::core::PCWSTR, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcSaveSubscription(subscription : isize, flags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcSaveSubscription(subscription : isize, flags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcSetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcSetObjectArrayProperty(objectarray : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, arrayindex : u32, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EcSetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("wecapi.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EcSetSubscriptionProperty(subscription : isize, propertyid : EC_SUBSCRIPTION_PROPERTY_ID, flags : u32, propertyvalue : *mut EC_VARIANT) -> super::super::Foundation:: BOOL);
 pub const EC_CREATE_NEW: u32 = 1u32;
 pub const EC_OPEN_ALWAYS: u32 = 0u32;
 pub const EC_OPEN_EXISTING: u32 = 2u32;
@@ -109,7 +109,7 @@ pub type EC_SUBSCRIPTION_RUNTIME_STATUS_INFO_ID = i32;
 pub type EC_SUBSCRIPTION_TYPE = i32;
 pub type EC_VARIANT_TYPE = i32;
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EC_VARIANT {
     pub Anonymous: EC_VARIANT_0,
@@ -125,7 +125,7 @@ impl ::core::clone::Clone for EC_VARIANT {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,

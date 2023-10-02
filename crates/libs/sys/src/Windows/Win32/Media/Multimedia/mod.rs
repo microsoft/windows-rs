@@ -1,13 +1,13 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIBuildFilterA(lpszfilter : ::windows_sys::core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIBuildFilterA(lpszfilter : ::windows_sys::core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIBuildFilterW(lpszfilter : ::windows_sys::core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIBuildFilterW(lpszfilter : ::windows_sys::core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIClearClipboard() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileAddRef(pfile : IAVIFile) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIFileCreateStreamA(pfile : IAVIFile, ppavi : *mut IAVIStream, psi : *const AVISTREAMINFOA) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIFileCreateStreamA(pfile : IAVIFile, ppavi : *mut IAVIStream, psi : *const AVISTREAMINFOA) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIFileCreateStreamW(pfile : IAVIFile, ppavi : *mut IAVIStream, psi : *const AVISTREAMINFOW) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIFileCreateStreamW(pfile : IAVIFile, ppavi : *mut IAVIStream, psi : *const AVISTREAMINFOW) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileEndRecord(pfile : IAVIFile) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileExit() -> ());
 ::windows_targets::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : IAVIFile, ppavi : *mut IAVIStream, fcctype : u32, lparam : i32) -> ::windows_sys::core::HRESULT);
@@ -23,19 +23,19 @@
 ::windows_targets::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut IAVIStream, ppssource : IAVIStream, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut IAVIFile, nstreams : i32, papstreams : *const IAVIStream) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut IAVIStream) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut IAVIStream) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIPutFileOnClipboard(pf : IAVIFile) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn AVISaveA(szfile : ::windows_sys::core::PCSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : IAVIStream, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVISaveA(szfile : ::windows_sys::core::PCSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : IAVIStream, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVISaveOptions(hwnd : super::super::Foundation:: HWND, uiflags : u32, nstreams : i32, ppavi : *const IAVIStream, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVISaveOptions(hwnd : super::super::Foundation:: HWND, uiflags : u32, nstreams : i32, ppavi : *const IAVIStream, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
 ::windows_targets::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVISaveVA(szfile : ::windows_sys::core::PCSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const IAVIStream, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVISaveVA(szfile : ::windows_sys::core::PCSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const IAVIStream, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVISaveVW(szfile : ::windows_sys::core::PCWSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const IAVIStream, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVISaveVW(szfile : ::windows_sys::core::PCWSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const IAVIStream, plpoptions : *const *const AVICOMPRESSOPTIONS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn AVISaveW(szfile : ::windows_sys::core::PCWSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : IAVIStream, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVISaveW(szfile : ::windows_sys::core::PCWSTR, pclsidhandler : *const ::windows_sys::core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : IAVIStream, lpoptions : *const AVICOMPRESSOPTIONS, ...) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamAddRef(pavi : IAVIStream) -> u32);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamBeginStreaming(pavi : IAVIStream, lstart : i32, lend : i32, lrate : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut IAVIStream, lparam1 : i32, lparam2 : i32, pclsidhandler : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
@@ -44,11 +44,11 @@
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrame(pg : IGetFrame, lpos : i32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameClose(pg : IGetFrame) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn AVIStreamGetFrameOpen(pavi : IAVIStream, lpbiwanted : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> IGetFrame);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn AVIStreamGetFrameOpen(pavi : IAVIStream, lpbiwanted : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> IGetFrame);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIStreamInfoA(pavi : IAVIStream, psi : *mut AVISTREAMINFOA, lsize : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIStreamInfoA(pavi : IAVIStream, psi : *mut AVISTREAMINFOA, lsize : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AVIStreamInfoW(pavi : IAVIStream, psi : *mut AVISTREAMINFOW, lsize : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AVIStreamInfoW(pavi : IAVIStream, psi : *mut AVISTREAMINFOW, lsize : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamLength(pavi : IAVIStream) -> i32);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut IAVIStream, szfile : ::windows_sys::core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut IAVIStream, szfile : ::windows_sys::core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT);
@@ -63,120 +63,120 @@
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : IAVIStream, lstart : i32, lsamples : i32, lpbuffer : *const ::core::ffi::c_void, cbbuffer : i32, dwflags : u32, plsampwritten : *mut i32, plbyteswritten : *mut i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn AVIStreamWriteData(pavi : IAVIStream, fcc : u32, lp : *const ::core::ffi::c_void, cb : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CloseDriver(hdriver : HDRVR, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CloseDriver(hdriver : HDRVR, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut IAVIStream, pssource : IAVIStream) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const ::core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const ::core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn DrawDibGetPalette(hdd : isize) -> super::super::Graphics::Gdi:: HPALETTE);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn DrawDibGetPalette(hdd : isize) -> super::super::Graphics::Gdi:: HPALETTE);
 ::windows_targets::link!("msvfw32.dll" "system" fn DrawDibOpen() -> isize);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> super::super::Foundation:: LRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DrvGetModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DrvGetModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
 ::windows_targets::link!("avifil32.dll" "system" fn EditStreamClone(pavi : IAVIStream, ppresult : *mut IAVIStream) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn EditStreamCopy(pavi : IAVIStream, plstart : *mut i32, pllength : *mut i32, ppresult : *mut IAVIStream) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn EditStreamCut(pavi : IAVIStream, plstart : *mut i32, pllength : *mut i32, ppresult : *mut IAVIStream) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn EditStreamPaste(pavi : IAVIStream, plpos : *mut i32, pllength : *mut i32, pstream : IAVIStream, lstart : i32, lend : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EditStreamSetInfoA(pavi : IAVIStream, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EditStreamSetInfoA(pavi : IAVIStream, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EditStreamSetInfoW(pavi : IAVIStream, lpinfo : *const AVISTREAMINFOW, cbinfo : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("avifil32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EditStreamSetInfoW(pavi : IAVIStream, lpinfo : *const AVISTREAMINFOW, cbinfo : i32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameA(pavi : IAVIStream, lpszname : ::windows_sys::core::PCSTR) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameW(pavi : IAVIStream, lpszname : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"] fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"] fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"] fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"] fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"] fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"] fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls_Dialogs`"] fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls_Dialogs\"`"] fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICClose(hic : HIC) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICClose(hic : HIC) -> super::super::Foundation:: LRESULT);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut ::core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const ::core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const ::core::ffi::c_void) -> u32);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut ::core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const ::core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const ::core::ffi::c_void) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : ::windows_sys::core::PCSTR) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn ICCompressorFree(pc : *const COMPVARS) -> ());
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICCompressorFree(pc : *const COMPVARS) -> ());
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *const ::core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *mut ::core::ffi::c_void) -> u32);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *const ::core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const ::core::ffi::c_void, lpdata : *const ::core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation:: LRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const ::core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const ::core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const ::core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const ::core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : ::windows_sys::core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : ::windows_sys::core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
 ::windows_targets::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation:: FARPROC) -> HIC);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation:: FARPROC) -> HIC);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const ::core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut ::core::ffi::c_void);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const ::core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Graphics_Gdi")]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Graphics_Gdi`"] fn ICSeqCompressFrameEnd(pc : *const COMPVARS) -> ());
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrameEnd(pc : *const COMPVARS) -> ());
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"] fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"] fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HWND);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HWND);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `Win32_Foundation`"] fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "Required features: `\"Win32_Foundation\"`"] fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenDriver(szdrivername : ::windows_sys::core::PCWSTR, szsectionname : ::windows_sys::core::PCWSTR, lparam2 : super::super::Foundation:: LPARAM) -> HDRVR);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn OpenDriver(szdrivername : ::windows_sys::core::PCWSTR, szsectionname : ::windows_sys::core::PCWSTR, lparam2 : super::super::Foundation:: LPARAM) -> HDRVR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("msvfw32.dll" "system" fn VideoForWindowsVersion() -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn capCreateCaptureWindowA(lpszwindowname : ::windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
+::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn capCreateCaptureWindowA(lpszwindowname : ::windows_sys::core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn capCreateCaptureWindowW(lpszwindowname : ::windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
+::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn capCreateCaptureWindowW(lpszwindowname : ::windows_sys::core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : ::windows_sys::core::PSTR, cbname : i32, lpszver : ::windows_sys::core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : ::windows_sys::core::PSTR, cbname : i32, lpszver : ::windows_sys::core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : ::windows_sys::core::PWSTR, cbname : i32, lpszver : ::windows_sys::core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("avicap32.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : ::windows_sys::core::PWSTR, cbname : i32, lpszver : ::windows_sys::core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
@@ -185,13 +185,13 @@
 ::windows_targets::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciFreeCommandResource(wtable : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciFreeCommandResource(wtable : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super:: HTASK);
 ::windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDA(pszdevice : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : ::windows_sys::core::PCSTR) -> u32);
@@ -199,63 +199,63 @@
 ::windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDW(pszdevice : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : u32) -> usize);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciGetErrorStringA(mcierr : u32, psztext : ::windows_sys::core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciGetErrorStringA(mcierr : u32, psztext : ::windows_sys::core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciGetErrorStringW(mcierr : u32, psztext : ::windows_sys::core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciGetErrorStringW(mcierr : u32, psztext : ::windows_sys::core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : u32, pdwyielddata : *const u32) -> YIELDPROC);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciLoadCommandResource(hinstance : super::super::Foundation:: HANDLE, lpresname : ::windows_sys::core::PCWSTR, wtype : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciLoadCommandResource(hinstance : super::super::Foundation:: HANDLE, lpresname : ::windows_sys::core::PCWSTR, wtype : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mciSendCommandA(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciSendStringA(lpstrcommand : ::windows_sys::core::PCSTR, lpstrreturnstring : ::windows_sys::core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciSendStringA(lpstrcommand : ::windows_sys::core::PCSTR, lpstrreturnstring : ::windows_sys::core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciSendStringW(lpstrcommand : ::windows_sys::core::PCWSTR, lpstrreturnstring : ::windows_sys::core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciSendStringW(lpstrcommand : ::windows_sys::core::PCWSTR, lpstrreturnstring : ::windows_sys::core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : ::windows_sys::core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmGetCurrentTask() -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32) -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
 ::windows_targets::link!("winmm.dll" "system" fn mmTaskYield() -> ());
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : *const MMCKINFO, fucreate : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioOpenA(pszfilename : ::windows_sys::core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioOpenA(pszfilename : ::windows_sys::core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioOpenW(pszfilename : ::windows_sys::core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioOpenW(pszfilename : ::windows_sys::core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
 ::windows_targets::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioRenameA(pszfilename : ::windows_sys::core::PCSTR, psznewfilename : ::windows_sys::core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioRenameA(pszfilename : ::windows_sys::core::PCSTR, psznewfilename : ::windows_sys::core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioRenameW(pszfilename : ::windows_sys::core::PCWSTR, psznewfilename : ::windows_sys::core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioRenameW(pszfilename : ::windows_sys::core::PCWSTR, psznewfilename : ::windows_sys::core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
 ::windows_targets::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : ::windows_sys::core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> u32);
+::windows_targets::link!("winmm.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : ::windows_sys::core::PCSTR, uflags : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : ::windows_sys::core::PCWSTR, uflags : u32) -> u32);
 ::windows_targets::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : ::windows_sys::core::PCSTR, cch : i32) -> i32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn sndOpenSound(eventname : ::windows_sys::core::PCWSTR, appname : ::windows_sys::core::PCWSTR, flags : i32, filehandle : *mut super::super::Foundation:: HANDLE) -> i32);
+::windows_targets::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn sndOpenSound(eventname : ::windows_sys::core::PCWSTR, appname : ::windows_sys::core::PCWSTR, flags : i32, filehandle : *mut super::super::Foundation:: HANDLE) -> i32);
 pub type IAVIEditStream = *mut ::core::ffi::c_void;
 pub type IAVIFile = *mut ::core::ffi::c_void;
 pub type IAVIPersistFile = *mut ::core::ffi::c_void;
@@ -4923,7 +4923,7 @@ impl ::core::clone::Clone for ADPCMCOEFSET {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -4938,7 +4938,7 @@ impl ::core::clone::Clone for ADPCMEWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -4955,7 +4955,7 @@ impl ::core::clone::Clone for ADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -4969,7 +4969,7 @@ impl ::core::clone::Clone for APTXWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -4983,7 +4983,7 @@ impl ::core::clone::Clone for AUDIOFILE_AF10WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5059,7 +5059,7 @@ impl ::core::clone::Clone for AVIFILEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
@@ -5090,7 +5090,7 @@ impl ::core::clone::Clone for AVISTREAMINFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOW {
     pub fccType: u32,
@@ -5121,7 +5121,7 @@ impl ::core::clone::Clone for AVISTREAMINFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
@@ -5157,7 +5157,7 @@ impl ::core::clone::Clone for CAPINFOCHUNK {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
@@ -5188,7 +5188,7 @@ impl ::core::clone::Clone for CAPSTATUS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
@@ -5243,7 +5243,7 @@ impl ::core::clone::Clone for CHANNEL_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct COMPVARS {
     pub cbSize: i32,
@@ -5272,7 +5272,7 @@ impl ::core::clone::Clone for COMPVARS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5287,7 +5287,7 @@ impl ::core::clone::Clone for CONTRESCR10WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5302,7 +5302,7 @@ impl ::core::clone::Clone for CONTRESVQLPCWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5317,7 +5317,7 @@ impl ::core::clone::Clone for CREATIVEADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5332,7 +5332,7 @@ impl ::core::clone::Clone for CREATIVEFASTSPEECH10WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5347,7 +5347,7 @@ impl ::core::clone::Clone for CREATIVEFASTSPEECH8WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5361,7 +5361,7 @@ impl ::core::clone::Clone for CSIMAADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::Audio::WAVEFORMATEX,
@@ -5375,7 +5375,7 @@ impl ::core::clone::Clone for DIALOGICOKIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5390,7 +5390,7 @@ impl ::core::clone::Clone for DIGIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5404,7 +5404,7 @@ impl ::core::clone::Clone for DIGIFIXWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5419,7 +5419,7 @@ impl ::core::clone::Clone for DIGIREALWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5433,7 +5433,7 @@ impl ::core::clone::Clone for DIGISTDWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5464,7 +5464,7 @@ impl ::core::clone::Clone for DRAWDIBTIME {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5517,7 +5517,7 @@ impl ::core::clone::Clone for DRVM_IOCTL_DATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5532,7 +5532,7 @@ impl ::core::clone::Clone for DVIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5546,7 +5546,7 @@ impl ::core::clone::Clone for ECHOSC1WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct EXBMINFOHEADER {
     pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5561,7 +5561,7 @@ impl ::core::clone::Clone for EXBMINFOHEADER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5576,7 +5576,7 @@ impl ::core::clone::Clone for FMTOWNS_SND_WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5591,7 +5591,7 @@ impl ::core::clone::Clone for G721_ADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5607,7 +5607,7 @@ impl ::core::clone::Clone for G723_ADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -5626,7 +5626,7 @@ pub type HIC = isize;
 pub type HMMIO = isize;
 pub type HVIDEO = isize;
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
@@ -5651,7 +5651,7 @@ impl ::core::clone::Clone for ICCOMPRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
@@ -5680,7 +5680,7 @@ impl ::core::clone::Clone for ICCOMPRESSFRAMES {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
@@ -5699,7 +5699,7 @@ impl ::core::clone::Clone for ICDECOMPRESS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
@@ -5739,7 +5739,7 @@ impl ::core::clone::Clone for ICDRAW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICDRAWBEGIN {
     pub dwFlags: u32,
@@ -5767,7 +5767,7 @@ impl ::core::clone::Clone for ICDRAWBEGIN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5805,7 +5805,7 @@ impl ::core::clone::Clone for ICINFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ICOPEN {
     pub dwSize: u32,
@@ -5827,7 +5827,7 @@ impl ::core::clone::Clone for ICOPEN {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Graphics_Gdi\"`"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICPALETTE {
     pub dwFlags: u32,
@@ -5844,7 +5844,7 @@ impl ::core::clone::Clone for ICPALETTE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
@@ -5860,7 +5860,7 @@ impl ::core::clone::Clone for ICSETSTATUSPROC {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -6063,7 +6063,7 @@ impl ::core::clone::Clone for JPEGINFOHEADER {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -6083,7 +6083,7 @@ impl ::core::clone::Clone for MCI_ANIM_OPEN_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -6116,7 +6116,7 @@ impl ::core::clone::Clone for MCI_ANIM_PLAY_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
@@ -6142,7 +6142,7 @@ impl ::core::clone::Clone for MCI_ANIM_STEP_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
@@ -6158,7 +6158,7 @@ impl ::core::clone::Clone for MCI_ANIM_UPDATE_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -6175,7 +6175,7 @@ impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -6192,7 +6192,7 @@ impl ::core::clone::Clone for MCI_ANIM_WINDOW_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
@@ -6208,7 +6208,7 @@ impl ::core::clone::Clone for MCI_BREAK_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_CAPTURE_PARMSA {
     pub dwCallback: usize,
@@ -6224,7 +6224,7 @@ impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_CAPTURE_PARMSW {
     pub dwCallback: usize,
@@ -6240,7 +6240,7 @@ impl ::core::clone::Clone for MCI_DGV_CAPTURE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_COPY_PARMS {
     pub dwCallback: usize,
@@ -6270,7 +6270,7 @@ impl ::core::clone::Clone for MCI_DGV_CUE_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_CUT_PARMS {
     pub dwCallback: usize,
@@ -6289,7 +6289,7 @@ impl ::core::clone::Clone for MCI_DGV_CUT_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_DELETE_PARMS {
     pub dwCallback: usize,
@@ -6376,7 +6376,7 @@ impl ::core::clone::Clone for MCI_DGV_MONITOR_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -6396,7 +6396,7 @@ impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -6416,7 +6416,7 @@ impl ::core::clone::Clone for MCI_DGV_OPEN_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_PASTE_PARMS {
     pub dwCallback: usize,
@@ -6462,7 +6462,7 @@ impl ::core::clone::Clone for MCI_DGV_QUALITY_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RECORD_PARMS {
     pub dwCallback: usize,
@@ -6481,7 +6481,7 @@ impl ::core::clone::Clone for MCI_DGV_RECORD_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RECT_PARMS {
     pub dwCallback: usize,
@@ -6520,7 +6520,7 @@ impl ::core::clone::Clone for MCI_DGV_RESERVE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RESTORE_PARMSA {
     pub dwCallback: usize,
@@ -6536,7 +6536,7 @@ impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_RESTORE_PARMSW {
     pub dwCallback: usize,
@@ -6552,7 +6552,7 @@ impl ::core::clone::Clone for MCI_DGV_RESTORE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -6568,7 +6568,7 @@ impl ::core::clone::Clone for MCI_DGV_SAVE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -6714,7 +6714,7 @@ impl ::core::clone::Clone for MCI_DGV_STEP_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`, `Win32_Graphics_Gdi`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MCI_DGV_UPDATE_PARMS {
     pub dwCallback: usize,
@@ -6730,7 +6730,7 @@ impl ::core::clone::Clone for MCI_DGV_UPDATE_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -6747,7 +6747,7 @@ impl ::core::clone::Clone for MCI_DGV_WINDOW_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_DGV_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -6873,7 +6873,7 @@ impl ::core::clone::Clone for MCI_OPEN_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
@@ -6889,7 +6889,7 @@ impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
@@ -6905,7 +6905,7 @@ impl ::core::clone::Clone for MCI_OVLY_LOAD_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
@@ -6925,7 +6925,7 @@ impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
@@ -6945,7 +6945,7 @@ impl ::core::clone::Clone for MCI_OVLY_OPEN_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
@@ -6960,7 +6960,7 @@ impl ::core::clone::Clone for MCI_OVLY_RECT_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
@@ -6976,7 +6976,7 @@ impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
@@ -6992,7 +6992,7 @@ impl ::core::clone::Clone for MCI_OVLY_SAVE_PARMSW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
@@ -7009,7 +7009,7 @@ impl ::core::clone::Clone for MCI_OVLY_WINDOW_PARMSA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
@@ -7265,7 +7265,7 @@ impl ::core::clone::Clone for MCI_WAVE_SET_PARMS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7291,7 +7291,7 @@ impl ::core::clone::Clone for MIDIOPENSTRMID {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MIXEROPENDESC {
     pub hmx: super::Audio::HMIXER,
@@ -7323,7 +7323,7 @@ impl ::core::clone::Clone for MMCKINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMIOINFO {
     pub dwFlags: u32,
@@ -7352,7 +7352,7 @@ impl ::core::clone::Clone for MMIOINFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7368,7 +7368,7 @@ impl ::core::clone::Clone for MSAUDIO1WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7383,7 +7383,7 @@ impl ::core::clone::Clone for NMS_VBXADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7397,7 +7397,7 @@ impl ::core::clone::Clone for OLIADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7411,7 +7411,7 @@ impl ::core::clone::Clone for OLICELPWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7425,7 +7425,7 @@ impl ::core::clone::Clone for OLIGSMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7439,7 +7439,7 @@ impl ::core::clone::Clone for OLIOPRWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7453,7 +7453,7 @@ impl ::core::clone::Clone for OLISBCWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7468,7 +7468,7 @@ impl ::core::clone::Clone for SIERRAADPCMWAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7498,7 +7498,7 @@ impl ::core::clone::Clone for TIMEREVENT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7531,7 +7531,7 @@ impl ::core::clone::Clone for VIDEOHDR {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct WAVEOPENDESC {
     pub hWave: super::Audio::HWAVE,
@@ -7550,7 +7550,7 @@ impl ::core::clone::Clone for WAVEOPENDESC {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7567,7 +7567,7 @@ impl ::core::clone::Clone for WMAUDIO2WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7587,7 +7587,7 @@ impl ::core::clone::Clone for WMAUDIO3WAVEFORMAT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "Required features: `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Media_Audio\"`"]
 #[cfg(feature = "Win32_Media_Audio")]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
@@ -7616,45 +7616,45 @@ impl ::core::clone::Clone for s_RIFFWAVE_inst {
         *self
     }
 }
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AVISAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPCONTROLCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_sys::core::PCSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPERRORCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_sys::core::PCWSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_sys::core::PCSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPSTATUSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nid: i32, lpsz: ::windows_sys::core::PCWSTR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpvhdr: *const VIDEOHDR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_Media_Audio`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Media_Audio\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
 pub type CAPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, lpwhdr: *const super::Audio::WAVEHDR) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CAPYIELDCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::LRESULT>;
 pub type DRIVERMSGPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: usize, param3: usize, param4: usize) -> u32>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRIVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: HDRVR, param2: u32, param3: super::super::Foundation::LPARAM, param4: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, dwflags: u32, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL>;
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPMMIOPROC = ::core::option::Option<unsafe extern "system" fn(lpmmioinfo: ::windows_sys::core::PCSTR, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub type LPTASKCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwinst: usize) -> ()>;
-#[doc = "Required features: `Win32_Foundation`, `Win32_UI_Controls`"]
+#[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 pub type VFWWDMExtensionProc = ::core::option::Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut ::core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub type YIELDPROC = ::core::option::Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;

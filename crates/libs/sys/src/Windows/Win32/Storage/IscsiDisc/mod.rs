@@ -5,33 +5,33 @@
 ::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiSendTargetPortalA(initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, loginoptions : *mut ISCSI_LOGIN_OPTIONS, securityflags : u64, portal : *mut ISCSI_TARGET_PORTALA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn AddIScsiSendTargetPortalW(initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, loginoptions : *mut ISCSI_LOGIN_OPTIONS, securityflags : u64, portal : *mut ISCSI_TARGET_PORTALW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AddIScsiStaticTargetA(targetname : ::windows_sys::core::PCSTR, targetalias : ::windows_sys::core::PCSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AddIScsiStaticTargetA(targetname : ::windows_sys::core::PCSTR, targetalias : ::windows_sys::core::PCSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AddIScsiStaticTargetW(targetname : ::windows_sys::core::PCWSTR, targetalias : ::windows_sys::core::PCWSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AddIScsiStaticTargetW(targetname : ::windows_sys::core::PCWSTR, targetalias : ::windows_sys::core::PCWSTR, targetflags : u32, persist : super::super::Foundation:: BOOLEAN, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, portalgroup : *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn AddPersistentIScsiDeviceA(devicepath : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn AddPersistentIScsiDeviceW(devicepath : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn AddRadiusServerA(address : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn AddRadiusServerW(address : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ClearPersistentIScsiDevices() -> u32);
 #[cfg(feature = "Win32_System_Ioctl")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_System_Ioctl`"] fn GetDevicesForIScsiSessionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONA) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_System_Ioctl\"`"] fn GetDevicesForIScsiSessionA(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONA) -> u32);
 #[cfg(feature = "Win32_System_Ioctl")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_System_Ioctl`"] fn GetDevicesForIScsiSessionW(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONW) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_System_Ioctl\"`"] fn GetDevicesForIScsiSessionW(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, devicecount : *mut u32, devices : *mut ISCSI_DEVICE_ON_SESSIONW) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiIKEInfoA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, reserved : *mut u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiIKEInfoW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, reserved : *mut u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameA(initiatornodename : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiInitiatorNodeNameW(initiatornodename : ::windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiSessionListA(buffersize : *mut u32, sessioncount : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFOA) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetIScsiSessionListEx(buffersize : *mut u32, sessioncountptr : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFO_EX) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetIScsiSessionListEx(buffersize : *mut u32, sessioncountptr : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFO_EX) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiSessionListW(buffersize : *mut u32, sessioncount : *mut u32, sessioninfo : *mut ISCSI_SESSION_INFOW) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiTargetInformationA(targetname : ::windows_sys::core::PCSTR, discoverymechanism : ::windows_sys::core::PCSTR, infoclass : TARGET_INFORMATION_CLASS, buffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiTargetInformationW(targetname : ::windows_sys::core::PCWSTR, discoverymechanism : ::windows_sys::core::PCWSTR, infoclass : TARGET_INFORMATION_CLASS, buffersize : *mut u32, buffer : *mut ::core::ffi::c_void) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn GetIScsiVersionInformation(versioninfo : *mut ISCSI_VERSION_INFO) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn LoginIScsiTargetA(targetname : ::windows_sys::core::PCSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LoginIScsiTargetA(targetname : ::windows_sys::core::PCSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : ::windows_sys::core::PCSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALA, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGA, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn LoginIScsiTargetW(targetname : ::windows_sys::core::PCWSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn LoginIScsiTargetW(targetname : ::windows_sys::core::PCWSTR, isinformationalsession : super::super::Foundation:: BOOLEAN, initiatorinstance : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, targetportal : *mut ISCSI_TARGET_PORTALW, securityflags : u64, mappings : *mut ISCSI_TARGET_MAPPINGW, loginoptions : *mut ISCSI_LOGIN_OPTIONS, keysize : u32, key : ::windows_sys::core::PCSTR, ispersistent : super::super::Foundation:: BOOLEAN, uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, uniqueconnectionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn LogoutIScsiTarget(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn RefreshISNSServerA(address : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn RefreshISNSServerW(address : ::windows_sys::core::PCWSTR) -> u32);
@@ -57,9 +57,9 @@
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListA(buffersize : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiInitiatorListW(buffersize : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReportIScsiPersistentLoginsA(count : *mut u32, persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes : *mut u32) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReportIScsiPersistentLoginsA(count : *mut u32, persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReportIScsiPersistentLoginsW(count : *mut u32, persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes : *mut u32) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReportIScsiPersistentLoginsW(count : *mut u32, persistentlogininfo : *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes : *mut u32) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsA(portalcount : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFOA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsExA(portalcount : *mut u32, portalinfosize : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiSendTargetPortalsExW(portalcount : *mut u32, portalinfosize : *mut u32, portalinfo : *mut ISCSI_TARGET_PORTAL_INFO_EXW) -> u32);
@@ -67,9 +67,9 @@
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetPortalsA(initiatorname : ::windows_sys::core::PCSTR, targetname : ::windows_sys::core::PCSTR, targetportaltag : *mut u16, elementcount : *mut u32, portals : *mut ISCSI_TARGET_PORTALA) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportIScsiTargetPortalsW(initiatorname : ::windows_sys::core::PCWSTR, targetname : ::windows_sys::core::PCWSTR, targetportaltag : *mut u16, elementcount : *mut u32, portals : *mut ISCSI_TARGET_PORTALW) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReportIScsiTargetsA(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReportIScsiTargetsA(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ReportIScsiTargetsW(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ReportIScsiTargetsW(forceupdate : super::super::Foundation:: BOOLEAN, buffersize : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesA(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportPersistentIScsiDevicesW(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn ReportRadiusServerListA(buffersizeinchar : *mut u32, buffer : ::windows_sys::core::PSTR) -> u32);
@@ -78,19 +78,19 @@
 ::windows_targets::link!("iscsidsc.dll" "system" fn SendScsiReadCapacity(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, lun : u64, scsistatus : *mut u8, responsesize : *mut u32, responsebuffer : *mut u8, sensesize : *mut u32, sensebuffer : *mut u8) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SendScsiReportLuns(uniquesessionid : *mut ISCSI_UNIQUE_SESSION_ID, scsistatus : *mut u8, responsesize : *mut u32, responsebuffer : *mut u8, sensesize : *mut u32, sensebuffer : *mut u8) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetIScsiGroupPresharedKey(keylength : u32, key : *mut u8, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetIScsiGroupPresharedKey(keylength : u32, key : *mut u8, persist : super::super::Foundation:: BOOLEAN) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetIScsiIKEInfoA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetIScsiIKEInfoA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetIScsiIKEInfoW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetIScsiIKEInfoW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, authinfo : *mut IKE_AUTHENTICATION_INFORMATION, persist : super::super::Foundation:: BOOLEAN) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength : u32, sharedsecret : *mut u8) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorNodeNameA(initiatornodename : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorNodeNameW(initiatornodename : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength : u32, sharedsecret : *mut u8) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetIScsiTunnelModeOuterAddressA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, destinationaddress : ::windows_sys::core::PCSTR, outermodeaddress : ::windows_sys::core::PCSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetIScsiTunnelModeOuterAddressA(initiatorname : ::windows_sys::core::PCSTR, initiatorportnumber : u32, destinationaddress : ::windows_sys::core::PCSTR, outermodeaddress : ::windows_sys::core::PCSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetIScsiTunnelModeOuterAddressW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, destinationaddress : ::windows_sys::core::PCWSTR, outermodeaddress : ::windows_sys::core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
+::windows_targets::link!("iscsidsc.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetIScsiTunnelModeOuterAddressW(initiatorname : ::windows_sys::core::PCWSTR, initiatorportnumber : u32, destinationaddress : ::windows_sys::core::PCWSTR, outermodeaddress : ::windows_sys::core::PCWSTR, persist : super::super::Foundation:: BOOLEAN) -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetupPersistentIScsiDevices() -> u32);
 ::windows_targets::link!("iscsidsc.dll" "system" fn SetupPersistentIScsiVolumes() -> u32);
 pub const ATA_FLAGS_48BIT_COMMAND: u32 = 8u32;
@@ -450,7 +450,7 @@ impl ::core::clone::Clone for DUMP_DRIVER_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
@@ -473,7 +473,7 @@ impl ::core::clone::Clone for DUMP_POINTERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
@@ -557,7 +557,7 @@ impl ::core::clone::Clone for HYBRID_DIRTY_THRESHOLDS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION {
     pub Version: u32,
@@ -580,7 +580,7 @@ impl ::core::clone::Clone for HYBRID_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
@@ -594,7 +594,7 @@ impl ::core::clone::Clone for HYBRID_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
@@ -615,7 +615,7 @@ impl ::core::clone::Clone for HYBRID_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
@@ -698,7 +698,7 @@ impl ::core::clone::Clone for IKE_AUTHENTICATION_PRESHARED_KEY {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IO_SCSI_CAPABILITIES {
     pub Length: u32,
@@ -767,7 +767,7 @@ impl ::core::clone::Clone for ISCSI_CONNECTION_INFO_EX {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ioctl`"]
+#[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONA {
     pub InitiatorName: [u8; 256],
@@ -788,7 +788,7 @@ impl ::core::clone::Clone for ISCSI_DEVICE_ON_SESSIONA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_System_Ioctl`"]
+#[doc = "Required features: `\"Win32_System_Ioctl\"`"]
 #[cfg(feature = "Win32_System_Ioctl")]
 pub struct ISCSI_DEVICE_ON_SESSIONW {
     pub InitiatorName: [u16; 256],
@@ -865,7 +865,7 @@ impl ::core::clone::Clone for ISCSI_SESSION_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ISCSI_SESSION_INFO_EX {
     pub SessionId: ISCSI_UNIQUE_SESSION_ID,
@@ -1320,7 +1320,7 @@ impl ::core::clone::Clone for NV_SEP_CACHE_PARAMETER_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOA {
     pub TargetName: [u8; 224],
@@ -1341,7 +1341,7 @@ impl ::core::clone::Clone for PERSISTENT_ISCSI_LOGIN_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERSISTENT_ISCSI_LOGIN_INFOW {
     pub TargetName: [u16; 224],
@@ -1399,7 +1399,7 @@ impl ::core::clone::Clone for SCSI_BUS_DATA {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCSI_INQUIRY_DATA {
     pub PathId: u8,
@@ -1743,7 +1743,7 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_INFO {
     pub Version: u32,
@@ -1764,7 +1764,7 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub Version: u32,
@@ -1788,7 +1788,7 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_INFO_V2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_SLOT_INFO {
     pub SlotNumber: u8,
@@ -1805,7 +1805,7 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
@@ -1820,7 +1820,7 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub SlotNumber: u8,

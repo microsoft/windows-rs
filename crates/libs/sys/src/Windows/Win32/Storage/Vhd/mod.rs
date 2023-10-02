@@ -1,61 +1,61 @@
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn AddVirtualDiskParent(virtualdiskhandle : super::super::Foundation:: HANDLE, parentpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn AddVirtualDiskParent(virtualdiskhandle : super::super::Foundation:: HANDLE, parentpath : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ApplySnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags : APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ApplySnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags : APPLY_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`"] fn AttachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`"] fn AttachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn BreakMirrorVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn BreakMirrorVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn CompactVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : COMPACT_VIRTUAL_DISK_FLAG, parameters : *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn CompactVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : COMPACT_VIRTUAL_DISK_FLAG, parameters : *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn CompleteForkVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn CompleteForkVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`"] fn CreateVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : ::windows_sys::core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : CREATE_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED, handle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_IO\"`"] fn CreateVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : ::windows_sys::core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, securitydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, flags : CREATE_VIRTUAL_DISK_FLAG, providerspecificflags : u32, parameters : *const CREATE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED, handle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DeleteSnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags : DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DeleteSnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags : DELETE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DeleteVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DeleteVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn DetachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : DETACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn DetachVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : DETACH_VIRTUAL_DISK_FLAG, providerspecificflags : u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn EnumerateVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, numberofitems : *mut u32, items : *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn EnumerateVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, numberofitems : *mut u32, items : *mut ::windows_sys::core::GUID) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn ExpandVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : EXPAND_VIRTUAL_DISK_FLAG, parameters : *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn ExpandVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : EXPAND_VIRTUAL_DISK_FLAG, parameters : *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn ForkVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : FORK_VIRTUAL_DISK_FLAG, parameters : *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn ForkVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : FORK_VIRTUAL_DISK_FLAG, parameters : *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes : *mut u32, pathsbuffer : ::windows_sys::core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes : *mut u32, pathsbuffer : ::windows_sys::core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetStorageDependencyInformation(objecthandle : super::super::Foundation:: HANDLE, flags : GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize : u32, storagedependencyinfo : *mut STORAGE_DEPENDENCY_INFO, sizeused : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetStorageDependencyInformation(objecthandle : super::super::Foundation:: HANDLE, flags : GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize : u32, storagedependencyinfo : *mut STORAGE_DEPENDENCY_INFO, sizeused : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfosize : *mut u32, virtualdiskinfo : *mut GET_VIRTUAL_DISK_INFO, sizeused : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfosize : *mut u32, virtualdiskinfo : *mut GET_VIRTUAL_DISK_INFO, sizeused : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_sys::core::GUID, metadatasize : *mut u32, metadata : *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_sys::core::GUID, metadatasize : *mut u32, metadata : *mut ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn GetVirtualDiskOperationProgress(virtualdiskhandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED, progress : *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn GetVirtualDiskOperationProgress(virtualdiskhandle : super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED, progress : *mut VIRTUAL_DISK_PROGRESS) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn GetVirtualDiskPhysicalPath(virtualdiskhandle : super::super::Foundation:: HANDLE, diskpathsizeinbytes : *mut u32, diskpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn GetVirtualDiskPhysicalPath(virtualdiskhandle : super::super::Foundation:: HANDLE, diskpathsizeinbytes : *mut u32, diskpath : ::windows_sys::core::PWSTR) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn MergeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MERGE_VIRTUAL_DISK_FLAG, parameters : *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn MergeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MERGE_VIRTUAL_DISK_FLAG, parameters : *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn MirrorVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MIRROR_VIRTUAL_DISK_FLAG, parameters : *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn MirrorVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : MIRROR_VIRTUAL_DISK_FLAG, parameters : *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn ModifyVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const MODIFY_VHDSET_PARAMETERS, flags : MODIFY_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn ModifyVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const MODIFY_VHDSET_PARAMETERS, flags : MODIFY_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn OpenVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : ::windows_sys::core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, flags : OPEN_VIRTUAL_DISK_FLAG, parameters : *const OPEN_VIRTUAL_DISK_PARAMETERS, handle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn OpenVirtualDisk(virtualstoragetype : *const VIRTUAL_STORAGE_TYPE, path : ::windows_sys::core::PCWSTR, virtualdiskaccessmask : VIRTUAL_DISK_ACCESS_MASK, flags : OPEN_VIRTUAL_DISK_FLAG, parameters : *const OPEN_VIRTUAL_DISK_PARAMETERS, handle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn QueryChangesVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, changetrackingid : ::windows_sys::core::PCWSTR, byteoffset : u64, bytelength : u64, flags : QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges : *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount : *mut u32, processedlength : *mut u64) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn QueryChangesVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, changetrackingid : ::windows_sys::core::PCWSTR, byteoffset : u64, bytelength : u64, flags : QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges : *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount : *mut u32, processedlength : *mut u64) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn RawSCSIVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags : RAW_SCSI_VIRTUAL_DISK_FLAG, response : *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn RawSCSIVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags : RAW_SCSI_VIRTUAL_DISK_FLAG, response : *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`, `Win32_System_IO`"] fn ResizeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : RESIZE_VIRTUAL_DISK_FLAG, parameters : *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`, `\"Win32_System_IO\"`"] fn ResizeVirtualDisk(virtualdiskhandle : super::super::Foundation:: HANDLE, flags : RESIZE_VIRTUAL_DISK_FLAG, parameters : *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfo : *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetVirtualDiskInformation(virtualdiskhandle : super::super::Foundation:: HANDLE, virtualdiskinfo : *const SET_VIRTUAL_DISK_INFO) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn SetVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_sys::core::GUID, metadatasize : u32, metadata : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn SetVirtualDiskMetadata(virtualdiskhandle : super::super::Foundation:: HANDLE, item : *const ::windows_sys::core::GUID, metadatasize : u32, metadata : *const ::core::ffi::c_void) -> super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `Win32_Foundation`"] fn TakeSnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags : TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("virtdisk.dll" "system" #[doc = "Required features: `\"Win32_Foundation\"`"] fn TakeSnapshotVhdSet(virtualdiskhandle : super::super::Foundation:: HANDLE, parameters : *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags : TAKE_SNAPSHOT_VHDSET_FLAG) -> super::super::Foundation:: WIN32_ERROR);
 pub const APPLY_SNAPSHOT_VHDSET_FLAG_NONE: APPLY_SNAPSHOT_VHDSET_FLAG = 0i32;
 pub const APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE: APPLY_SNAPSHOT_VHDSET_FLAG = 1i32;
 pub const APPLY_SNAPSHOT_VHDSET_VERSION_1: APPLY_SNAPSHOT_VHDSET_VERSION = 1i32;
@@ -564,7 +564,7 @@ impl ::core::clone::Clone for FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO {
     pub Version: GET_VIRTUAL_DISK_INFO_VERSION,
@@ -579,7 +579,7 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
@@ -607,7 +607,7 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub Enabled: super::super::Foundation::BOOL,
@@ -623,7 +623,7 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: super::super::Foundation::BOOL,
@@ -638,7 +638,7 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
@@ -654,7 +654,7 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
@@ -779,7 +779,7 @@ impl ::core::clone::Clone for MODIFY_VHDSET_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS {
     pub Version: OPEN_VIRTUAL_DISK_VERSION,
@@ -794,7 +794,7 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
@@ -810,7 +810,7 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
@@ -824,7 +824,7 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
@@ -840,7 +840,7 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
@@ -869,7 +869,7 @@ impl ::core::clone::Clone for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     pub Version: RAW_SCSI_VIRTUAL_DISK_VERSION,
@@ -884,7 +884,7 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
@@ -898,7 +898,7 @@ impl ::core::clone::Clone for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: super::super::Foundation::BOOL,
@@ -984,7 +984,7 @@ impl ::core::clone::Clone for RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO {
     pub Version: SET_VIRTUAL_DISK_INFO_VERSION,
@@ -999,7 +999,7 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: ::windows_sys::core::PCWSTR,
@@ -1019,7 +1019,7 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub LinkageId: ::windows_sys::core::GUID,
@@ -1034,7 +1034,7 @@ impl ::core::clone::Clone for SET_VIRTUAL_DISK_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "Required features: `Win32_Foundation`"]
+#[doc = "Required features: `\"Win32_Foundation\"`"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub ChildDepth: u32,
